@@ -1,1 +1,4 @@
 ﻿*.pyc
+build
+dist
+squareup.egg-info
