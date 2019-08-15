@@ -201,7 +201,7 @@ Each API is implemented as a class. The Client object instantiates every API cla
 
 ```python
 result = square.customers.list_customers()
-
+```
 See the SDK documentation for the list of methods for each API class.
 
 **Pass complex parameters (such as create, update, search, etc.) as a dictionary.** For example, you would pass a dictionary containing the values used to create a new customer using create_customer:
