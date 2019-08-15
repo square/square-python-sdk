@@ -4,17 +4,19 @@ python:
 - '2.7'
 - '3.4'
 - '3.5'
-# command to install dependencies
 install:
 - pip install -r requirements.txt
 - pip install -r test-requirements.txt
-# command to run tests
 script: nosetests
-# deploy:
-#   provider: pypi
-#   user: square-developers
-#   password:
-#     secure: er/LmuRiJPiGNr60bWJXtwbwpbd6AxxnJOF3Rps6NIs8d1o9w7rd5d8Fe0OjMKHYStjF9LZPUQAVddQC9ZB56p56Brjm20+aG2o12MKqH4GRRhZZ5oM92g3331QZkeSS4Op5JWJc5eNEohyIcWNzMyi8dX7C281aCta+gL4GsfxeMr83WvHSulsU+J4eszFkPKqha+5H+xHT57/NWfUVM3j06jsasAauivT12JvD4BLmxVEfoCLDlC3Q/vFHXjDPTQPi38SzQXd3pb7SwFRx8cJpf8y9E6oaKLEH/ZGr/6AA0xKSUWh/N4dl9FuqTDZdOCARZvAFub8CzRJIO1UoxOTVz5fEWTiHLWAr4ENj0R9u/fdUOztlPAhpP+0gVkfUm6jeEZCOkEazUH2IUw7WX2XhmwhGMVdeG85CjGYvdJat2mEFg1qz2ACW7N2mJfoMmtGzSB5p7bU6hZrfbb4cT9vrwQXHYl7BRGalNaLN5tKrqNtGgUXYGWylQT2ILWnkJRWYD2ygvNE73VWR0f/rIMzHjzcJCTQiqV4ZvQV3ppWmJYbgfjFGvhxPEO2VlksPbL+hafhRzoKBofcvUNFHJKo3p/ABOA3g/YQK6ClVZebUsFWwnFPn8Fas0EsfyXS1N7jyESVkfu2dsQw3PRYXJF7kv3XwPQKAipsmA6BWHcc=
-#   on:
-#     branch: master
-#     repo: square/square-python-sdk
+deploy:
+  provider: pypi
+  user: square-developers
+  on:
+    branch: master
+    repo: square/square-python-sdk
+  password:
+    secure: X4Q0hnzT68VD134x/Buub2uQbeZWRYEXi7BFy3tjrcfTj1jspf6hh37kXxtFkDpWXMVuzALP3CWh03+QpdrHdHn6JWMInaH63B9cVIDhK6V0kHXU81KorKJE4DkoNVhHT9qWzxmqPoV8QNIx2++Yo73wnoyEyMfxStLxDpfODhsjb8u4A7irkCg0ecw9XAQ9eTHzRe2goqBPfyPx9J3yPd7X/DgbQ+4lLFpvBGVK4VZNlmGfEB2iPWQe22HTftRkqG3+/b7ETDDYSZlRvudgUyNjgO5IWec1jlhwwPcXVZ/861bRpULlug6yUQtQKFu3KAjP3dCrKWz2t9UkFI1sp0LC76PxdAvYioIKtBSZEEYJ0SjV/GGPGFkFMmJJzs113nLg76iwSMlvXHaF2x0vfGLh0o14DUR9Pm4fy3uq1LgLEo8BMdhfl5KMKiDhgR/0dxXYAf6sZa0TnbbFyJK/vr6GSm8CeGtRt7y15uN20ia57MIL93PsJwsBGFA9QFOUT43BtjqVPD59llWR3opRk1ub4o7Bt8bubTxOAwU1q3NwQC5zZPb/XrdJ9AEkSrA5F0amE5lwF5IsvU8ZrEjy3NSgaBH63Zj1NWivZHgl/nJ7yvUCBq1YujLcudlSakFzE/uwjrekCcearB/lnVFOFgX3pdpB3VXO1Mu2eyckOP4=
+  skip_existing: true
+env:
+  global:
+    secure: ZCiFzWx69EVLAqklrXec52FXDK4brooa2NT6gXz+VXfaowKyZ1WaJh48AXF7lNEjCW1imQDJ3fJaPz8mxI+MwwZ2e8g2lCXC+jhedNNy72/oS2nqdzmO71adMSMDJuUBSWH6CfWiKhf79MazjhRIJB6JGOPiScTFmzBq2LD1/eOfLIQVmXqsGqnF0YsLFj7MyI/PJmASqtJWSYQkTmVVMGTVr1/7KQgVlaXwAdFQOUQwHzJCDIbdw3zZFP8+qBLkzNNP1yXn40J4cHn/OslcQCS5kcL3TwZ5iXOASk8IcrjF0cIj7/+/UXREKHppJSMwx/zafiSB5BWWGhRSNuWAm2/Jdl1vb37LiKWbbXhNWk/5DJrnD5lrGJWtR7sh7fPKORXojaputakhOAMlLq9lCqt5nZjkR59Q+zU+oLPD7elbbjbfXz6UOAxt24jTHQ/bUV075EWz1p8/Sc5ocdV4Xf6GbogQ63bDPu3+F7dWRcbNIaUaDsDCoOV5HmclfmoD0ovyDNtuXTWIeZGNPHuJXFi+zSTOFciNBsPQ8UvO2/ybw/UQ97QT78wt08+ZFGhzlOddQD45liBZmbDIT7CJIBiU/zdNXx81Qeiu+LnFrpynseFf9gYPhxid5ivW8he3L0X6enxLNZ9pMXyqUcrNZj4nhtA4OHcxG+0btQXHI6Y=
