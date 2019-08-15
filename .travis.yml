@@ -1,0 +1,20 @@
+language: python
+cache: pip
+python:
+- '2.7'
+- '3.4'
+- '3.5'
+# command to install dependencies
+install:
+- pip install -r requirements.txt
+- pip install -r test-requirements.txt
+# command to run tests
+script: nosetests
+# deploy:
+#   provider: pypi
+#   user: square-developers
+#   password:
+#     secure: er/LmuRiJPiGNr60bWJXtwbwpbd6AxxnJOF3Rps6NIs8d1o9w7rd5d8Fe0OjMKHYStjF9LZPUQAVddQC9ZB56p56Brjm20+aG2o12MKqH4GRRhZZ5oM92g3331QZkeSS4Op5JWJc5eNEohyIcWNzMyi8dX7C281aCta+gL4GsfxeMr83WvHSulsU+J4eszFkPKqha+5H+xHT57/NWfUVM3j06jsasAauivT12JvD4BLmxVEfoCLDlC3Q/vFHXjDPTQPi38SzQXd3pb7SwFRx8cJpf8y9E6oaKLEH/ZGr/6AA0xKSUWh/N4dl9FuqTDZdOCARZvAFub8CzRJIO1UoxOTVz5fEWTiHLWAr4ENj0R9u/fdUOztlPAhpP+0gVkfUm6jeEZCOkEazUH2IUw7WX2XhmwhGMVdeG85CjGYvdJat2mEFg1qz2ACW7N2mJfoMmtGzSB5p7bU6hZrfbb4cT9vrwQXHYl7BRGalNaLN5tKrqNtGgUXYGWylQT2ILWnkJRWYD2ygvNE73VWR0f/rIMzHjzcJCTQiqV4ZvQV3ppWmJYbgfjFGvhxPEO2VlksPbL+hafhRzoKBofcvUNFHJKo3p/ABOA3g/YQK6ClVZebUsFWwnFPn8Fas0EsfyXS1N7jyESVkfu2dsQw3PRYXJF7kv3XwPQKAipsmA6BWHcc=
+#   on:
+#     branch: master
+#     repo: square/square-python-sdk
