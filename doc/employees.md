@@ -44,7 +44,7 @@ def list_employees(self,
 result = employees_api.list_employees()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -76,7 +76,7 @@ id = 'id0'
 result = employees_api.retrieve_employee(id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

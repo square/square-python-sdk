@@ -59,7 +59,7 @@ body['object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI', 'AA27W3M2GGTF3H6AVPNB77CK']
 result = catalog_api.batch_delete_catalog_objects(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -98,7 +98,7 @@ body['include_related_objects'] = True
 result = catalog_api.batch_retrieve_catalog_objects(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -194,7 +194,7 @@ body['batches'][0]['objects'][3]['present_at_all_locations'] = True
 result = catalog_api.batch_upsert_catalog_objects(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -218,7 +218,7 @@ def catalog_info(self)
 result = catalog_api.catalog_info()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -258,7 +258,7 @@ def list_catalog(self,
 result = catalog_api.list_catalog()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -298,7 +298,7 @@ body['object']['item_data']['abbreviation'] = 'Ch'
 result = catalog_api.upsert_catalog_object(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -335,7 +335,7 @@ object_id = 'object_id8'
 result = catalog_api.delete_catalog_object(object_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -375,7 +375,7 @@ object_id = 'object_id8'
 result = catalog_api.retrieve_catalog_object(object_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -419,7 +419,7 @@ body['limit'] = 100
 result = catalog_api.search_catalog_objects(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -456,7 +456,7 @@ body['modifier_lists_to_disable'] = ['7WRC16CJZDVLSNDQ35PP6YAD']
 result = catalog_api.update_item_modifier_lists(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -493,7 +493,7 @@ body['taxes_to_disable'] = ['AQCEGCEBBQONINDOHRGZISEX']
 result = catalog_api.update_item_taxes(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

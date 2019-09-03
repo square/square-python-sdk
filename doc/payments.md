@@ -58,7 +58,7 @@ def list_payments(self,
 result = payments_api.list_payments()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -115,7 +115,7 @@ body['note'] = 'Brief description'
 result = payments_api.create_payment(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -157,7 +157,7 @@ body['idempotency_key'] = 'a7e36d40-d24b-11e8-b568-0800200c9a66'
 result = payments_api.cancel_payment_by_idempotency_key(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -189,7 +189,7 @@ payment_id = 'payment_id0'
 result = payments_api.get_payment(payment_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -223,7 +223,7 @@ payment_id = 'payment_id0'
 result = payments_api.cancel_payment(payment_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -260,7 +260,7 @@ payment_id = 'payment_id0'
 result = payments_api.complete_payment(payment_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

@@ -53,7 +53,7 @@ def list_payment_refunds(self,
 result = refunds_api.list_payment_refunds()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -92,7 +92,7 @@ body['payment_id'] = 'UNOE3kv2BZwqHlJ830RCt5YCuaB'
 result = refunds_api.refund_payment(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -124,7 +124,7 @@ refund_id = 'refund_id4'
 result = refunds_api.get_payment_refund(refund_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

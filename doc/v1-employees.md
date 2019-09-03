@@ -68,7 +68,7 @@ def list_employees(self,
 result = v1_employees_api.list_employees()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -111,7 +111,7 @@ body['last_name'] = 'last_name4'
 result = v1_employees_api.create_employee(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -143,7 +143,7 @@ employee_id = 'employee_id0'
 result = v1_employees_api.retrieve_employee(employee_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -180,7 +180,7 @@ body['last_name'] = 'last_name4'
 result = v1_employees_api.update_employee(employee_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -214,7 +214,7 @@ def list_employee_roles(self,
 result = v1_employees_api.list_employee_roles()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -260,7 +260,7 @@ body['permissions'] = [V1EmployeeRolePermissions.REGISTER_APPLY_RESTRICTED_DISCO
 result = v1_employees_api.create_employee_role(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -292,7 +292,7 @@ role_id = 'role_id6'
 result = v1_employees_api.retrieve_employee_role(role_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -329,7 +329,7 @@ body['permissions'] = [V1EmployeeRolePermissions.REGISTER_APPLY_RESTRICTED_DISCO
 result = v1_employees_api.update_employee_role(role_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -379,7 +379,7 @@ def list_timecards(self,
 result = v1_employees_api.list_timecards()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -422,7 +422,7 @@ body['employee_id'] = 'employee_id4'
 result = v1_employees_api.create_timecard(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -468,7 +468,7 @@ timecard_id = 'timecard_id0'
 result = v1_employees_api.delete_timecard(timecard_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -505,7 +505,7 @@ timecard_id = 'timecard_id0'
 result = v1_employees_api.retrieve_timecard(timecard_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -543,7 +543,7 @@ body['employee_id'] = 'employee_id4'
 result = v1_employees_api.update_timecard(timecard_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -582,7 +582,7 @@ timecard_id = 'timecard_id0'
 result = v1_employees_api.list_timecard_events(timecard_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -620,7 +620,7 @@ location_id = 'location_id4'
 result = v1_employees_api.list_cash_drawer_shifts(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -655,7 +655,7 @@ shift_id = 'shift_id0'
 result = v1_employees_api.retrieve_cash_drawer_shift(location_id, shift_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
