@@ -11,6 +11,6 @@ customers_api = client.customers
 result = customers_api.list()
 
 if result.success():
-    print(result.data)
+    print(result.body)
 elif result.error():
     print(result.errors)
