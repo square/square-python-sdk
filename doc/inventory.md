@@ -46,7 +46,7 @@ adjustment_id = 'adjustment_id0'
 result = inventory_api.retrieve_inventory_adjustment(adjustment_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -97,7 +97,7 @@ body['ignore_unchanged_counts'] = True
 result = inventory_api.batch_change_inventory(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -142,7 +142,7 @@ body['updated_before'] = '2016-12-01T00:00:00.000Z'
 result = inventory_api.batch_retrieve_inventory_changes(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -187,7 +187,7 @@ body['updated_after'] = '2016-11-16T00:00:00.000Z'
 result = inventory_api.batch_retrieve_inventory_counts(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -220,7 +220,7 @@ physical_count_id = 'physical_count_id2'
 result = inventory_api.retrieve_inventory_physical_count(physical_count_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -259,7 +259,7 @@ catalog_object_id = 'catalog_object_id6'
 result = inventory_api.retrieve_inventory_count(catalog_object_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -304,7 +304,7 @@ catalog_object_id = 'catalog_object_id6'
 result = inventory_api.retrieve_inventory_changes(catalog_object_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

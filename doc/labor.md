@@ -54,7 +54,7 @@ def list_break_types(self,
 result = labor_api.list_break_types()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -105,7 +105,7 @@ body['break_type']['is_paid'] = True
 result = labor_api.create_break_type(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -139,7 +139,7 @@ id = 'id0'
 result = labor_api.delete_break_type(id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -171,7 +171,7 @@ id = 'id0'
 result = labor_api.get_break_type(id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -212,7 +212,7 @@ body['break_type']['version'] = 1
 result = labor_api.update_break_type(id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -246,7 +246,7 @@ def list_employee_wages(self,
 result = labor_api.list_employee_wages()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -278,7 +278,7 @@ id = 'id0'
 result = labor_api.get_employee_wage(id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -348,7 +348,7 @@ body['shift']['breaks'][0]['is_paid'] = True
 result = labor_api.create_shift(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -402,7 +402,7 @@ body['limit'] = 100
 result = labor_api.search_shifts(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -434,7 +434,7 @@ id = 'id0'
 result = labor_api.delete_shift(id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -466,7 +466,7 @@ id = 'id0'
 result = labor_api.get_shift(id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -529,7 +529,7 @@ body['shift']['version'] = 1
 result = labor_api.update_shift(id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -561,7 +561,7 @@ def list_workweek_configs(self,
 result = labor_api.list_workweek_configs()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -600,7 +600,7 @@ body['workweek_config']['version'] = 10
 result = labor_api.update_workweek_config(id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

@@ -64,7 +64,7 @@ location_id = 'location_id4'
 result = transactions_api.list_refunds(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -111,7 +111,7 @@ location_id = 'location_id4'
 result = transactions_api.list_transactions(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -190,7 +190,7 @@ body['additional_recipients'][0]['amount_money']['currency'] = Currency.USD
 result = transactions_api.charge(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -227,7 +227,7 @@ transaction_id = 'transaction_id8'
 result = transactions_api.retrieve_transaction(location_id, transaction_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -266,7 +266,7 @@ transaction_id = 'transaction_id8'
 result = transactions_api.capture_transaction(location_id, transaction_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -320,7 +320,7 @@ body['amount_money']['currency'] = Currency.USD
 result = transactions_api.create_refund(location_id, transaction_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -359,7 +359,7 @@ transaction_id = 'transaction_id8'
 result = transactions_api.void_transaction(location_id, transaction_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

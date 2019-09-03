@@ -31,7 +31,7 @@ def retrieve_business(self)
 result = v1_locations_api.retrieve_business()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -54,7 +54,7 @@ def list_locations(self)
 result = v1_locations_api.list_locations()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

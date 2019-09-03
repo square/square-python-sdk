@@ -46,7 +46,7 @@ body['location_id'] = 'YOUR_LOCATION_ID'
 result = mobile_authorization_api.create_mobile_authorization_code(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

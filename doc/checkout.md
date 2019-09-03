@@ -120,7 +120,7 @@ body['additional_recipients'][0]['description'] = 'Application fees'
 result = checkout_api.create_checkout(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

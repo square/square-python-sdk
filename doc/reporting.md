@@ -51,7 +51,7 @@ location_id = 'location_id4'
 result = reporting_api.list_additional_recipient_receivable_refunds(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -94,7 +94,7 @@ location_id = 'location_id4'
 result = reporting_api.list_additional_recipient_receivables(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

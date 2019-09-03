@@ -48,7 +48,7 @@ def list_customers(self,
 result = customers_api.list_customers()
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -102,7 +102,7 @@ body['note'] = 'a customer'
 result = customers_api.create_customer(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -149,7 +149,7 @@ body['query']['sort']['order'] = SortOrder.ASC
 result = customers_api.search_customers(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -183,7 +183,7 @@ customer_id = 'customer_id8'
 result = customers_api.delete_customer(customer_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -215,7 +215,7 @@ customer_id = 'customer_id8'
 result = customers_api.retrieve_customer(customer_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -261,7 +261,7 @@ body['note'] = 'updated customer note'
 result = customers_api.update_customer(customer_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -312,7 +312,7 @@ body['cardholder_name'] = 'Amelia Earhart'
 result = customers_api.create_customer_card(customer_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -347,7 +347,7 @@ card_id = 'card_id4'
 result = customers_api.delete_customer_card(customer_id, card_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

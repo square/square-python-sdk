@@ -78,7 +78,7 @@ location_id = 'location_id4'
 result = v1_items_api.list_categories(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -113,7 +113,7 @@ body = {}
 result = v1_items_api.create_category(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -151,7 +151,7 @@ category_id = 'category_id8'
 result = v1_items_api.delete_category(location_id, category_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -189,7 +189,7 @@ body = {}
 result = v1_items_api.update_category(location_id, category_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -221,7 +221,7 @@ location_id = 'location_id4'
 result = v1_items_api.list_discounts(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -256,7 +256,7 @@ body = {}
 result = v1_items_api.create_discount(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -294,7 +294,7 @@ discount_id = 'discount_id8'
 result = v1_items_api.delete_discount(location_id, discount_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -332,7 +332,7 @@ body = {}
 result = v1_items_api.update_discount(location_id, discount_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -364,7 +364,7 @@ location_id = 'location_id4'
 result = v1_items_api.list_fees(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -399,7 +399,7 @@ body = {}
 result = v1_items_api.create_fee(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -437,7 +437,7 @@ fee_id = 'fee_id8'
 result = v1_items_api.delete_fee(location_id, fee_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -475,7 +475,7 @@ body = {}
 result = v1_items_api.update_fee(location_id, fee_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -511,7 +511,7 @@ location_id = 'location_id4'
 result = v1_items_api.list_inventory(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -549,7 +549,7 @@ body = {}
 result = v1_items_api.adjust_inventory(location_id, variation_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -583,7 +583,7 @@ location_id = 'location_id4'
 result = v1_items_api.list_items(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -630,7 +630,7 @@ body = {}
 result = v1_items_api.create_item(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -668,7 +668,7 @@ item_id = 'item_id0'
 result = v1_items_api.delete_item(location_id, item_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -703,7 +703,7 @@ item_id = 'item_id0'
 result = v1_items_api.retrieve_item(location_id, item_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -741,7 +741,7 @@ body = {}
 result = v1_items_api.update_item(location_id, item_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -779,7 +779,7 @@ fee_id = 'fee_id8'
 result = v1_items_api.remove_fee(location_id, item_id, fee_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -817,7 +817,7 @@ fee_id = 'fee_id8'
 result = v1_items_api.apply_fee(location_id, item_id, fee_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -855,7 +855,7 @@ item_id = 'item_id0'
 result = v1_items_api.remove_modifier_list(location_id, modifier_list_id, item_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -893,7 +893,7 @@ item_id = 'item_id0'
 result = v1_items_api.apply_modifier_list(location_id, modifier_list_id, item_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -931,7 +931,7 @@ body = {}
 result = v1_items_api.create_variation(location_id, item_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -972,7 +972,7 @@ variation_id = 'variation_id2'
 result = v1_items_api.delete_variation(location_id, item_id, variation_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1013,7 +1013,7 @@ body = {}
 result = v1_items_api.update_variation(location_id, item_id, variation_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1045,7 +1045,7 @@ location_id = 'location_id4'
 result = v1_items_api.list_modifier_lists(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1080,7 +1080,7 @@ body = {}
 result = v1_items_api.create_modifier_list(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1119,7 +1119,7 @@ modifier_list_id = 'modifier_list_id6'
 result = v1_items_api.delete_modifier_list(location_id, modifier_list_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1154,7 +1154,7 @@ modifier_list_id = 'modifier_list_id6'
 result = v1_items_api.retrieve_modifier_list(location_id, modifier_list_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1192,7 +1192,7 @@ body = {}
 result = v1_items_api.update_modifier_list(location_id, modifier_list_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1230,7 +1230,7 @@ body = {}
 result = v1_items_api.create_modifier_option(location_id, modifier_list_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1271,7 +1271,7 @@ modifier_option_id = 'modifier_option_id6'
 result = v1_items_api.delete_modifier_option(location_id, modifier_list_id, modifier_option_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1312,7 +1312,7 @@ body = {}
 result = v1_items_api.update_modifier_option(location_id, modifier_list_id, modifier_option_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1344,7 +1344,7 @@ location_id = 'location_id4'
 result = v1_items_api.list_pages(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1379,7 +1379,7 @@ body = {}
 result = v1_items_api.create_page(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1417,7 +1417,7 @@ page_id = 'page_id0'
 result = v1_items_api.delete_page(location_id, page_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1455,7 +1455,7 @@ body = {}
 result = v1_items_api.update_page(location_id, page_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1497,7 +1497,7 @@ page_id = 'page_id0'
 result = v1_items_api.delete_page_cell(location_id, page_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -1535,7 +1535,7 @@ body = {}
 result = v1_items_api.update_page_cell(location_id, page_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

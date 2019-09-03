@@ -69,7 +69,7 @@ authorization = 'Authorization8'
 result = o_auth_api.renew_token(client_id, body, authorization)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -123,7 +123,7 @@ authorization = 'Authorization8'
 result = o_auth_api.revoke_token(body, authorization)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -172,7 +172,7 @@ body['grant_type'] = 'grant_type8'
 result = o_auth_api.obtain_token(body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```

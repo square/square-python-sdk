@@ -49,7 +49,7 @@ location_id = 'location_id4'
 result = v1_transactions_api.list_bank_accounts(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -84,7 +84,7 @@ bank_account_id = 'bank_account_id0'
 result = v1_transactions_api.retrieve_bank_account(location_id, bank_account_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -122,7 +122,7 @@ location_id = 'location_id4'
 result = v1_transactions_api.list_orders(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -157,7 +157,7 @@ order_id = 'order_id6'
 result = v1_transactions_api.retrieve_order(location_id, order_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -196,7 +196,7 @@ body['action'] = V1UpdateOrderRequestAction.REFUND
 result = v1_transactions_api.update_order(location_id, order_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -250,7 +250,7 @@ location_id = 'location_id4'
 result = v1_transactions_api.list_payments(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -285,7 +285,7 @@ payment_id = 'payment_id0'
 result = v1_transactions_api.retrieve_payment(location_id, payment_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -327,7 +327,7 @@ location_id = 'location_id4'
 result = v1_transactions_api.list_refunds(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -376,7 +376,7 @@ body['reason'] = 'reason8'
 result = v1_transactions_api.create_refund(location_id, body)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -425,7 +425,7 @@ location_id = 'location_id4'
 result = v1_transactions_api.list_settlements(location_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
@@ -476,7 +476,7 @@ settlement_id = 'settlement_id0'
 result = v1_transactions_api.retrieve_settlement(location_id, settlement_id)
 
 if result.is_success():
-    print(result.data)
+    print(result.body)
 elif result.is_error():
     print(result.errors)
 ```
