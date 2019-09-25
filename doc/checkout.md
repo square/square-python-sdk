@@ -46,7 +46,7 @@ body['order']['line_items'][0]['name'] = 'Printed T Shirt'
 body['order']['line_items'][0]['quantity'] = '2'
 body['order']['line_items'][0]['base_price_money'] = {}
 body['order']['line_items'][0]['base_price_money']['amount'] = 1500
-body['order']['line_items'][0]['base_price_money']['currency'] = Currency.USD
+body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 body['order']['line_items'][0]['discounts'] = []
 
 body['order']['line_items'][0]['discounts'].append({})
@@ -62,14 +62,14 @@ body['order']['line_items'][1]['name'] = 'Slim Jeans'
 body['order']['line_items'][1]['quantity'] = '1'
 body['order']['line_items'][1]['base_price_money'] = {}
 body['order']['line_items'][1]['base_price_money']['amount'] = 2500
-body['order']['line_items'][1]['base_price_money']['currency'] = Currency.USD
+body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
 
 body['order']['line_items'].append({})
 body['order']['line_items'][2]['name'] = 'Woven Sweater'
 body['order']['line_items'][2]['quantity'] = '3'
 body['order']['line_items'][2]['base_price_money'] = {}
 body['order']['line_items'][2]['base_price_money']['amount'] = 3500
-body['order']['line_items'][2]['base_price_money']['currency'] = Currency.USD
+body['order']['line_items'][2]['base_price_money']['currency'] = 'USD'
 body['order']['line_items'][2]['taxes'] = []
 
 body['order']['line_items'][2]['taxes'].append({})
@@ -106,7 +106,7 @@ body['pre_populate_shipping_address']['address_line_2'] = 'Suite 600'
 body['pre_populate_shipping_address']['locality'] = 'San Francisco'
 body['pre_populate_shipping_address']['administrative_district_level_1'] = 'CA'
 body['pre_populate_shipping_address']['postal_code'] = '94103'
-body['pre_populate_shipping_address']['country'] = Country.US
+body['pre_populate_shipping_address']['country'] = 'US'
 body['pre_populate_shipping_address']['first_name'] = 'Jane'
 body['pre_populate_shipping_address']['last_name'] = 'Doe'
 body['redirect_url'] = 'https://merchant.website.com/order-confirm'

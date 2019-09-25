@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `object_ids` | `List of string` | Optional | The IDs of the [CatalogObject](./models/catalog-object.md)s to be deleted. When an object is deleted, other objects<br>in the graph that depend on that object will be deleted as well (for example, deleting a<br>[CatalogItem](./models/catalog-item.md) will delete its [CatalogItemVariation](./models/catalog-item-variation.md)s). |
+| `object_ids` | `List of string` | Optional | The IDs of the [CatalogObject](#type-catalogobject)s to be deleted. When an object is deleted, other objects<br>in the graph that depend on that object will be deleted as well (for example, deleting a<br>[CatalogItem](#type-catalogitem) will delete its [CatalogItemVariation](#type-catalogitemvariation)s). |
 
 ### Example (as JSON)
 

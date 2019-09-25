@@ -1,6 +1,6 @@
 ## Cancel Payment Response
 
-Return value from the [CancelPayment](/doc/payments.md#cancelpayment) endpoint.
+Return value from the [CancelPayment](#endpoint-payments-cancelpayment) endpoint.
 
 ### Structure
 

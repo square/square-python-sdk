@@ -14,7 +14,7 @@ specified by the `title` property of this object.
 | `id` | `string` | Optional | UUID for this object. |
 | `employee_id` | `string` |  | The `Employee` that this wage is assigned to. |
 | `title` | `string` | Optional | The job title that this wage relates to. |
-| `hourly_rate` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money.<br><br>__Important:__ Unlike version 1 of the Connect API, __all monetary amounts<br>returned by v2 endpoints are positive.__ (In v1, monetary amounts are negative<br>if they represent money being paid _by_ a merchant, instead of money being<br>paid _to_ a merchant.) |
+| `hourly_rate` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
 
 ### Example (as JSON)
 

@@ -1,17 +1,17 @@
 ## Catalog Query
 
-A query to be applied to a [SearchCatalogObjectsRequest](./models/search-catalog-objects-request.md).
+A query to be applied to a [SearchCatalogObjectsRequest](#type-searchcatalogobjectsrequest).
 Only one query field may be present.
 
 Where an attribute name is required, it should be specified as the name of any field
 marked "searchable" from the structured data types for the desired result object type(s)
-([CatalogItem](./models/catalog-item.md), [CatalogItemVariation](./models/catalog-item-variation.md),
-[CatalogCategory](./models/catalog-category.md), [CatalogTax](./models/catalog-tax.md),
-[CatalogDiscount](./models/catalog-discount.md), [CatalogModifierList](./models/catalog-modifier-list.md),
-[CatalogModifier](./models/catalog-modifier.md)).
+([CatalogItem](#type-catalogitem), [CatalogItemVariation](#type-catalogitemvariation),
+[CatalogCategory](#type-catalogcategory), [CatalogTax](#type-catalogtax),
+[CatalogDiscount](#type-catalogdiscount), [CatalogModifierList](#type-catalogmodifierlist),
+[CatalogModifier](#type-catalogmodifier)).
 
 For example, a query that should return Items may specify attribute names from
-any of the searchable fields of the [CatalogItem](./models/catalog-item.md) data type, namely
+any of the searchable fields of the [CatalogItem](#type-catalogitem) data type, namely
 `"name"`, `"description"`, and `"abbreviation"`.
 
 ### Structure

@@ -18,18 +18,16 @@ orders_api = client.orders
 
 ## Create Order
 
-Creates an [Order](./models/order.md) which specifies products for
-purchase, along with discounts, taxes, and other settings to apply to the purchase.
+Creates a new [Order](#type-order) which can include information on products for
+purchase and settings to apply to the purchase.
 
 To pay for a created order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders)
 guide.
 
-You can modify an order after you create it by using the
-[UpdateOrder](/doc/orders.md#updateorder) endpoint.  Orders that have reached a terminal state
-cannot be updated.
+You can modify open orders using the [UpdateOrder](#endpoint-orders-updateorder) endpoint.
 
 To learn more about the Orders API, see the
-[Orders API Overview](https://developer.squareup.com/docs/products/orders/overview).
+[Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
 
 ```python
 def create_order(self,
@@ -64,7 +62,7 @@ elif result.is_error():
 
 ## Batch Retrieve Orders
 
-Retrieves a set of [Order](./models/order.md)s by their IDs.
+Retrieves a set of [Order](#type-order)s by their IDs.
 
 If a given Order ID does not exist, the ID is ignored instead of generating an error.
 
@@ -102,27 +100,38 @@ elif result.is_error():
 
 ## Update Order
 
-Updates an [Order](./models/orders.md) by referencing its `order_id` and `version`.
+Updates an open [Order](#type-order) by adding, replacing, or deleting
+fields. Orders with a `COMPLETED` or `CANCELED` state cannot be updated.
+
+An UpdateOrder request requires the following:
+
+- The `order_id` in the endpoint path, identifying the order to update.
+- The latest `version` of the order to update.
+- The [sparse order](https://developer.squareup.com/docs/orders-api/manage-orders#sparse-order-objects)
+containing only the fields to update and the version the update is
+being applied to.
+- If deleting fields, the [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-notation)
+identifying fields to clear.
 
 To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders) guide.
 
 To learn more about the Orders API, see the
-[Orders API Overview](https://developer.squareup.com/docs/products/orders/overview).
+[Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
 
 ```python
 def update_order(self,
-                body,
                 location_id,
-                order_id)
+                order_id,
+                body)
 ```
 
 ### Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
+| `location_id` | `string` | Template, Required | The ID of the order's associated location. |
+| `order_id` | `string` | Template, Required | The ID of the order to update. |
 | `body` | [`Update Order Request`](/doc/models/update-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
-| `location_id` | `string` | Template, Required | - |
-| `order_id` | `string` | Template, Required | - |
 
 ### Response Type
 
@@ -131,11 +140,11 @@ def update_order(self,
 ### Example Usage
 
 ```python
-body = {}
 location_id = 'location_id4'
 order_id = 'order_id6'
+body = {}
 
-result = orders_api.update_order(body, location_id, order_id)
+result = orders_api.update_order(location_id, order_id, body)
 
 if result.is_success():
     print(result.body)
@@ -145,17 +154,23 @@ elif result.is_error():
 
 ## Search Orders
 
-Search all Orders for a merchant and return either [Orders](./models/order.md) or
-[OrderEntries](./models/order-entries.md).
+Search all orders for one or more locations. Orders include all sales,
+returns, and exchanges regardless of how or when they entered the Square
+Ecosystem (e.g. Point of Sale, Invoices, Connect APIs, etc).
 
-Note that details for orders processed with Square Point of Sale while in offline mode may not be
-transmitted to Square for up to 72 hours. Offline orders have a `created_at` value that reflects
-the time the order was originally processed, not the time it was subsequently transmitted to
-Square. Consequently, the SearchOrder endpoint might list an offline Order chronologically
-between online Orders that were seen in a previous request.
+SearchOrders requests need to specify which locations to search and define a
+[`SearchOrdersQuery`](#type-searchordersquery) object which controls
+how to sort or filter the results. Your SearchOrdersQuery can:
 
-When fetching additional pages using a `cursor`, the `query` must be equal
-to the `query` used to fetch the first page of results.
+  Set filter criteria.
+  Set sort order.
+  Determine whether to return results as complete Order objects, or as
+[OrderEntry](#type-orderentry) objects.
+
+Note that details for orders processed with Square Point of Sale while in
+offline mode may not be transmitted to Square for up to 72 hours. Offline
+orders have a `created_at` value that reflects the time the order was created,
+not the time it was subsequently transmitted to Square.
 
 ```python
 def search_orders(self,
@@ -180,14 +195,14 @@ body['location_ids'] = ['057P5VYJ4A5X1', '18YC4JDH91E1H']
 body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['state_filter'] = {}
-body['query']['filter']['state_filter']['states'] = [OrderState.COMPLETED]
+body['query']['filter']['state_filter']['states'] = ['COMPLETED']
 body['query']['filter']['date_time_filter'] = {}
 body['query']['filter']['date_time_filter']['closed_at'] = {}
 body['query']['filter']['date_time_filter']['closed_at']['start_at'] = '2018-03-03T20:00:00+00:00'
 body['query']['filter']['date_time_filter']['closed_at']['end_at'] = '2019-03-04T21:54:45+00:00'
 body['query']['sort'] = {}
-body['query']['sort']['sort_field'] = SearchOrdersSortField.CLOSED_AT
-body['query']['sort']['sort_order'] = SortOrder.DESC
+body['query']['sort']['sort_field'] = 'CLOSED_AT'
+body['query']['sort']['sort_order'] = 'DESC'
 body['limit'] = 3
 body['return_entries'] = True
 
@@ -201,19 +216,19 @@ elif result.is_error():
 
 ## Pay Order
 
-Pay for an [order](./models/order.md) using one or more approved [payments](./models/payments.md),
+Pay for an [order](#type-order) using one or more approved [payments](#type-payment),
 or settle an order with a total of `0`.
 
-The total of the `payments_ids` listed in the request must be equal to the order
+The total of the `payment_ids` listed in the request must be equal to the order
 total. Orders with a total amount of `0` can be marked as paid by specifying an empty
 array of `payment_ids` in the request.
 
 To be used with PayOrder, a payment must:
 
-- Reference the order by specifying the `order_id` when [creating the payment](/doc/payments.md#createpayment).
+- Reference the order by specifying the `order_id` when [creating the payment](#endpoint-payments-createpayment).
 Any approved payments that reference the same `order_id` not specified in the
 `payment_ids` will be canceled.
-- Be approved with [delayed capture](/payments-api/take-payments#delayed-capture).
+- Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments#delayed-capture).
 Using a delayed capture payment with PayOrder will complete the approved payment.
 
 Learn how to [pay for orders with a single payment using the Payments API](https://developer.squareup.com/docs/orders-api/pay-for-orders).

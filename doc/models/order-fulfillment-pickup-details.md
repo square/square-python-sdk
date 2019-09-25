@@ -10,22 +10,22 @@ Contains details necessary to fulfill a pickup order.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `recipient` | [`Order Fulfillment Recipient`](/doc/models/order-fulfillment-recipient.md) | Optional | The recipient of a fulfillment. |
-| `expires_at` | `string` | Optional | The expiry [timestamp](#workingwithdates) in RFC 3339 format, e.g.,<br>"2016-09-04T23:59:33.123Z". This timestamp indicates when the pickup fulfillment will<br>expire if it is not accepted by the merchant. Expiration time can only be set up to 7 days in<br>the future. If not set, this pickup fulfillment will be automatically accepted when placed. |
-| `auto_complete_duration` | `string` | Optional | The auto completion duration in RFC3339 duration format, e.g., "P1W3D". If set, an open<br>and accepted pickup fulfillment will automatically move to the `COMPLETED` state after this<br>period of time. If not set, this pickup fulfillment will remain accepted until it is canceled<br>or completed. |
+| `recipient` | [`Order Fulfillment Recipient`](/doc/models/order-fulfillment-recipient.md) | Optional | Contains information on the recipient of a fulfillment. |
+| `expires_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when this fulfillment<br>will expire if it is not accepted. Must be in RFC 3339 format<br>e.g., "2016-09-04T23:59:33.123Z". Expiration time can only be set up to 7<br>days in the future. If `expires_at` is not set, this pickup fulfillment<br>will be automatically accepted when placed. |
+| `auto_complete_duration` | `string` | Optional | The duration of time after which an open and accepted pickup fulfillment<br>will automatically move to the `COMPLETED` state. Must be in RFC3339<br>duration format e.g., "P1W3D".<br><br>If not set, this pickup fulfillment will remain accepted until it is canceled or completed. |
 | `schedule_type` | [`str (Order Fulfillment Pickup Details Schedule Type)`](/doc/models/order-fulfillment-pickup-details-schedule-type.md) | Optional | The schedule type of the pickup fulfillment. |
-| `pickup_at` | `string` | Optional | The pickup [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".<br>For fulfillments with the schedule type `ASAP`, this is automatically set to the current time<br>plus the expected duration to prepare the fulfillment. This represents the start of the<br>pickup window. |
-| `pickup_window_duration` | `string` | Optional | The pickup window duration in RFC3339 duration format, e.g., "P1W3D". This duration<br>represents the window of time for which the order should be picked up after the `pickup_at`<br>time. Can be used as an informational guideline for merchants. |
-| `prep_time_duration` | `string` | Optional | The preparation time duration in RFC3339 duration format, e.g., "P1W3D". This duration<br>indicates how long it takes the merchant to prepare this fulfillment. |
-| `note` | `string` | Optional | A general note about the pickup fulfillment.<br><br>Notes are useful for providing additional instructions and are displayed in Square apps. |
-| `placed_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment was placed. |
-| `accepted_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment was accepted by the merchant. |
-| `rejected_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment was rejected. |
-| `ready_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the merchant set the fulfillment as ready for pickup. |
-| `expired_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment expired. |
-| `picked_up_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment was picked up by the recipient. |
-| `canceled_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment was canceled by the merchant or buyer. |
-| `cancel_reason` | `string` | Optional | A description of why the pickup was canceled. Max length is 100 characters. |
+| `pickup_at` | `string` | Optional | The [timestamp](#workingwithdates) that represents the start of the pickup window.<br>Must be in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".<br>For fulfillments with the schedule type `ASAP`, this is automatically set<br>to the current time plus the expected duration to prepare the fulfillment. |
+| `pickup_window_duration` | `string` | Optional | The window of time in which the order should be picked up after the `pickup_at` timestamp.<br>Must be in RFC3339 duration format, e.g., "P1W3D". Can be used as an<br>informational guideline for merchants. |
+| `prep_time_duration` | `string` | Optional | The duration of time it takes to prepare this fulfillment.<br>Must be in RFC3339 duration format, e.g., "P1W3D". |
+| `note` | `string` | Optional | A note meant to provide additional instructions about the pickup<br>fulfillment displayed in the Square Point of Sale and set by the API. |
+| `placed_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when the fulfillment<br>was placed. Must be in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z". |
+| `accepted_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when the fulfillment<br>was accepted. In RFC3339 timestamp format,<br>e.g., "2016-09-04T23:59:33.123Z". |
+| `rejected_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when the fulfillment<br>was rejected. In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z". |
+| `ready_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when the fulfillment is<br>marked as ready for pickup. In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z". |
+| `expired_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when the fulfillment expired.<br>In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z". |
+| `picked_up_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when the fulfillment<br>was picked up by the recipient. In RFC3339 timestamp format,<br>e.g., "2016-09-04T23:59:33.123Z". |
+| `canceled_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment was canceled. |
+| `cancel_reason` | `string` | Optional | A description of why the pickup was canceled. Max length: 100 characters. |
 
 ### Example (as JSON)
 

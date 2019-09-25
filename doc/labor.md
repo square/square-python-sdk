@@ -333,7 +333,7 @@ body['shift']['wage'] = {}
 body['shift']['wage']['title'] = 'Barista'
 body['shift']['wage']['hourly_rate'] = {}
 body['shift']['wage']['hourly_rate']['amount'] = 1100
-body['shift']['wage']['hourly_rate']['currency'] = Currency.USD
+body['shift']['wage']['hourly_rate']['currency'] = 'USD'
 body['shift']['breaks'] = []
 
 body['shift']['breaks'].append({})
@@ -395,7 +395,7 @@ body['query']['filter']['workday'] = {}
 body['query']['filter']['workday']['date_range'] = {}
 body['query']['filter']['workday']['date_range']['start_date'] = '2019-01-20'
 body['query']['filter']['workday']['date_range']['end_date'] = '2019-02-03'
-body['query']['filter']['workday']['match_shifts_by'] = ShiftWorkdayMatcher.START_AT
+body['query']['filter']['workday']['match_shifts_by'] = 'START_AT'
 body['query']['filter']['workday']['default_timezone'] = 'America/Los_Angeles'
 body['limit'] = 100
 
@@ -512,7 +512,7 @@ body['shift']['wage'] = {}
 body['shift']['wage']['title'] = 'Bartender'
 body['shift']['wage']['hourly_rate'] = {}
 body['shift']['wage']['hourly_rate']['amount'] = 1500
-body['shift']['wage']['hourly_rate']['currency'] = Currency.USD
+body['shift']['wage']['hourly_rate']['currency'] = 'USD'
 body['shift']['breaks'] = []
 
 body['shift']['breaks'].append({})
@@ -593,7 +593,7 @@ def update_workweek_config(self,
 id = 'id0'
 body = {}
 body['workweek_config'] = {}
-body['workweek_config']['start_of_week'] = Weekday.MON
+body['workweek_config']['start_of_week'] = 'MON'
 body['workweek_config']['start_of_day_local_time'] = '10:00'
 body['workweek_config']['version'] = 10
 

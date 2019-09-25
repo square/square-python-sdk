@@ -20,7 +20,7 @@ inventory_api = client.inventory
 
 ## Retrieve Inventory Adjustment
 
-Returns the [InventoryAdjustment](./models/inventory-adjustment.md) object
+Returns the [InventoryAdjustment](#type-inventoryadjustment) object
 with the provided `adjustment_id`.
 
 ```python
@@ -32,7 +32,7 @@ def retrieve_inventory_adjustment(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustment_id` | `string` | Template, Required | ID of the [InventoryAdjustment](./models/inventory-adjustment.md) to retrieve. |
+| `adjustment_id` | `string` | Template, Required | ID of the [InventoryAdjustment](#type-inventoryadjustment) to retrieve. |
 
 ### Response Type
 
@@ -82,11 +82,11 @@ body['idempotency_key'] = '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe'
 body['changes'] = []
 
 body['changes'].append({})
-body['changes'][0]['type'] = InventoryChangeType.PHYSICAL_COUNT
+body['changes'][0]['type'] = 'PHYSICAL_COUNT'
 body['changes'][0]['physical_count'] = {}
 body['changes'][0]['physical_count']['reference_id'] = '1536bfbf-efed-48bf-b17d-a197141b2a92'
 body['changes'][0]['physical_count']['catalog_object_id'] = 'W62UWFY35CWMYGVWK6TWJDNI'
-body['changes'][0]['physical_count']['state'] = InventoryState.IN_STOCK
+body['changes'][0]['physical_count']['state'] = 'IN_STOCK'
 body['changes'][0]['physical_count']['location_id'] = 'C6W5YS5QM06F5'
 body['changes'][0]['physical_count']['quantity'] = '53'
 body['changes'][0]['physical_count']['employee_id'] = 'LRK57NSQ5X7PUD05'
@@ -134,8 +134,8 @@ def batch_retrieve_inventory_changes(self,
 body = {}
 body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['C6W5YS5QM06F5']
-body['types'] = [InventoryChangeType.PHYSICAL_COUNT]
-body['states'] = [InventoryState.IN_STOCK]
+body['types'] = ['PHYSICAL_COUNT']
+body['states'] = ['IN_STOCK']
 body['updated_after'] = '2016-11-01T00:00:00.000Z'
 body['updated_before'] = '2016-12-01T00:00:00.000Z'
 
@@ -150,8 +150,8 @@ elif result.is_error():
 ## Batch Retrieve Inventory Counts
 
 Returns current counts for the provided
-[CatalogObject](./models/catalog-object.md)s at the requested
-[Location](./models/location.md)s.
+[CatalogObject](#type-catalogobject)s at the requested
+[Location](#type-location)s.
 
 Results are paginated and sorted in descending order according to their
 `calculated_at` timestamp (newest first).
@@ -194,7 +194,7 @@ elif result.is_error():
 
 ## Retrieve Inventory Physical Count
 
-Returns the [InventoryPhysicalCount](./models/inventory-physical-count.md)
+Returns the [InventoryPhysicalCount](#type-inventoryphysicalcount)
 object with the provided `physical_count_id`.
 
 ```python
@@ -206,7 +206,7 @@ def retrieve_inventory_physical_count(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physical_count_id` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](./models/inventory-physical-count.md) to retrieve. |
+| `physical_count_id` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](#type-inventoryphysicalcount) to retrieve. |
 
 ### Response Type
 
@@ -228,8 +228,8 @@ elif result.is_error():
 ## Retrieve Inventory Count
 
 Retrieves the current calculated stock count for a given
-[CatalogObject](./models/catalog-object.md) at a given set of
-[Location](./models/location.md)s. Responses are paginated and unsorted.
+[CatalogObject](#type-catalogobject) at a given set of
+[Location](#type-location)s. Responses are paginated and unsorted.
 For more sophisticated queries, use a batch endpoint.
 
 ```python
@@ -243,8 +243,8 @@ def retrieve_inventory_count(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalog_object_id` | `string` | Template, Required | ID of the [CatalogObject](./models/catalog-object.md) to retrieve. |
-| `location_ids` | `string` | Query, Optional | The [Location](./models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `catalog_object_id` | `string` | Template, Required | ID of the [CatalogObject](#type-catalogobject) to retrieve. |
+| `location_ids` | `string` | Query, Optional | The [Location](#type-location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 
 ### Response Type
@@ -267,8 +267,8 @@ elif result.is_error():
 ## Retrieve Inventory Changes
 
 Returns a set of physical counts and inventory adjustments for the
-provided [CatalogObject](./models/catalog-object.md) at the requested
-[Location](./models/location.md)s.
+provided [CatalogObject](#type-catalogobject) at the requested
+[Location](#type-location)s.
 
 Results are paginated and sorted in descending order according to their
 `occurred_at` timestamp (newest first).
@@ -288,8 +288,8 @@ def retrieve_inventory_changes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalog_object_id` | `string` | Template, Required | ID of the [CatalogObject](./models/catalog-object.md) to retrieve. |
-| `location_ids` | `string` | Query, Optional | The [Location](./models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `catalog_object_id` | `string` | Template, Required | ID of the [CatalogObject](#type-catalogobject) to retrieve. |
+| `location_ids` | `string` | Query, Optional | The [Location](#type-location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 
 ### Response Type

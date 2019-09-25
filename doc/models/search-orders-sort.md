@@ -1,6 +1,7 @@
 ## Search Orders Sort
 
-Sorting options for a query. Returned Orders will always be sorted on a timestamp.
+Sorting criteria for a SearchOrders request. Results can only be sorted
+by a timestamp field.
 
 ### Structure
 

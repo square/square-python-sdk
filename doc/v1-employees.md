@@ -255,7 +255,7 @@ def create_employee_role(self,
 ```python
 body = {}
 body['name'] = 'name6'
-body['permissions'] = [V1EmployeeRolePermissions.REGISTER_APPLY_RESTRICTED_DISCOUNTS, V1EmployeeRolePermissions.REGISTER_CHANGE_SETTINGS, V1EmployeeRolePermissions.REGISTER_EDIT_ITEM]
+body['permissions'] = ['REGISTER_APPLY_RESTRICTED_DISCOUNTS', 'REGISTER_CHANGE_SETTINGS', 'REGISTER_EDIT_ITEM']
 
 result = v1_employees_api.create_employee_role(body)
 
@@ -324,7 +324,7 @@ def update_employee_role(self,
 role_id = 'role_id6'
 body = {}
 body['name'] = 'name6'
-body['permissions'] = [V1EmployeeRolePermissions.REGISTER_APPLY_RESTRICTED_DISCOUNTS, V1EmployeeRolePermissions.REGISTER_CHANGE_SETTINGS, V1EmployeeRolePermissions.REGISTER_EDIT_ITEM]
+body['permissions'] = ['REGISTER_APPLY_RESTRICTED_DISCOUNTS', 'REGISTER_CHANGE_SETTINGS', 'REGISTER_EDIT_ITEM']
 
 result = v1_employees_api.update_employee_role(role_id, body)
 

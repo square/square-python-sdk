@@ -20,7 +20,7 @@ __Important:__ The `Authorization` header you provide to this endpoint must have
 Authorization: Bearer ACCESS_TOKEN
 ```
 
-Replace `ACCESS_TOKEN` with a [valid production authorization credential](https://docs.connect.squareup.com/get-started#step-4-understand-the-different-application-credentials).
+Replace `ACCESS_TOKEN` with a [valid production authorization credential](https://developer.squareup.com/docs/get-started#step-4-understand-the-different-application-credentials).
 
 ```python
 def create_mobile_authorization_code(self,

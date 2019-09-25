@@ -25,11 +25,20 @@ from square.api.reporting_api import ReportingApi
 from square.api.checkout_api import CheckoutApi
 from square.api.orders_api import OrdersApi
 from square.api.transactions_api import TransactionsApi
+from square.api.merchants_api import MerchantsApi
 from square.api.payments_api import PaymentsApi
 from square.api.refunds_api import RefundsApi
 
 
 class Client(object):
+
+    @staticmethod
+    def sdk_version():
+        return '3.20190925.0'
+
+    @staticmethod
+    def square_version():
+        return '2019-09-25'
 
     @lazy_property
     def mobile_authorization(self):
@@ -100,6 +109,10 @@ class Client(object):
         return TransactionsApi(self.config)
 
     @lazy_property
+    def merchants(self):
+        return MerchantsApi(self.config)
+
+    @lazy_property
     def payments(self):
         return PaymentsApi(self.config)
 
@@ -109,12 +122,13 @@ class Client(object):
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
                  environment='production', access_token='TODO: Replace',
-                 config=None):
+                 additional_headers={}, config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,
                                         max_retries=max_retries,
                                         backoff_factor=backoff_factor,
                                         environment=environment,
-                                        access_token=access_token)
+                                        access_token=access_token,
+                                        additional_headers=additional_headers)
         else:
             self.config = config

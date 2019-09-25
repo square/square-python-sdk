@@ -45,6 +45,7 @@ python setup.py install --user
 * [Inventory]
 * [Labor]
 * [Locations]
+* [Merchants]
 * [Orders]
 * [Apple Pay]
 * [Refunds]
@@ -333,6 +334,7 @@ You can also use the Square API to create applications or services that work wit
 [Inventory]: doc/inventory.md
 [Labor]: doc/labor.md
 [Locations]: doc/locations.md
+[Merchants]: doc/merchants.md
 [Orders]: doc/orders.md
 [Apple Pay]: doc/apple-pay.md
 [Refunds]: doc/refunds.md

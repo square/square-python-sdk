@@ -11,5 +11,5 @@ The schedule type of the pickup fulfillment.
 | Name | Description |
 |  --- | --- |
 | `SCHEDULED` | Indicates the fulfillment will be picked up at a scheduled pickup time. |
-| `ASAP` | Indicates the fulfillment should be prepared immediately. |
+| `ASAP` | Indicates the fulfillment will be picked up as soon as possible and<br>should be prepared immediately. |
 

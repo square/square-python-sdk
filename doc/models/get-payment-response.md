@@ -1,7 +1,7 @@
 ## Get Payment Response
 
 Defines the fields that are included in the response body of
-a request to the [GetPayment](/doc/payments.md#getpayment) endpoint.
+a request to the [GetPayment](#endpoint-payments-getpayment) endpoint.
 
 ### Structure
 

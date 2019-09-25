@@ -3,7 +3,7 @@
 Defines the parameters that can be included in the body of
 a request to the [Charge](#endpoint-charge) endpoint.
 
-Deprecated - recommend using [CreatePayment](/doc/payments.md#createpayment)
+Deprecated - recommend using [CreatePayment](#endpoint-payments-createpayment)
 
 ### Structure
 
@@ -14,7 +14,7 @@ Deprecated - recommend using [CreatePayment](/doc/payments.md#createpayment)
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `idempotency_key` | `string` |  | A value you specify that uniquely identifies this<br>transaction among transactions you've created.<br><br>If you're unsure whether a particular transaction succeeded,<br>you can reattempt it with the same idempotency key without<br>worrying about double-charging the buyer.<br><br>See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) for more information. |
-| `amount_money` | [`Money`](/doc/models/money.md) |  | Represents an amount of money.<br><br>__Important:__ Unlike version 1 of the Connect API, __all monetary amounts<br>returned by v2 endpoints are positive.__ (In v1, monetary amounts are negative<br>if they represent money being paid _by_ a merchant, instead of money being<br>paid _to_ a merchant.) |
+| `amount_money` | [`Money`](/doc/models/money.md) |  | Represents an amount of money. `Money` fields can be signed or unsigned. |
 | `card_nonce` | `string` | Optional | A nonce generated from the `SqPaymentForm` that represents the card<br>to charge.<br><br>The application that provides a nonce to this endpoint must be the<br>_same application_ that generated the nonce with the `SqPaymentForm`.<br>Otherwise, the nonce is invalid.<br><br>Do not provide a value for this field if you provide a value for<br>`customer_card_id`. |
 | `customer_card_id` | `string` | Optional | The ID of the customer card on file to charge. Do<br>not provide a value for this field if you provide a value for `card_nonce`.<br><br>If you provide this value, you _must_ also provide a value for<br>`customer_id`. |
 | `delay_capture` | `bool` | Optional | If `true`, the request will only perform an Auth on the provided<br>card. You can then later perform either a Capture (with the<br>[CaptureTransaction](#endpoint-capturetransaction) endpoint) or a Void<br>(with the [VoidTransaction](#endpoint-voidtransaction) endpoint).<br><br>Default value: `false` |

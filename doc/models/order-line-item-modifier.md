@@ -1,6 +1,6 @@
 ## Order Line Item Modifier
 
-A [CatalogModifier](./models/catalog-modifier.md).
+A [CatalogModifier](#type-catalogmodifier).
 
 ### Structure
 
@@ -11,10 +11,10 @@ A [CatalogModifier](./models/catalog-modifier.md).
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `uid` | `string` | Optional | Unique ID that identifies the modifier only within this order. |
-| `catalog_object_id` | `string` | Optional | The catalog object id referencing [CatalogModifier](./models/catalog-modifier.md). |
+| `catalog_object_id` | `string` | Optional | The catalog object id referencing [CatalogModifier](#type-catalogmodifier). |
 | `name` | `string` | Optional | The name of the item modifier. |
-| `base_price_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money.<br><br>__Important:__ Unlike version 1 of the Connect API, __all monetary amounts<br>returned by v2 endpoints are positive.__ (In v1, monetary amounts are negative<br>if they represent money being paid _by_ a merchant, instead of money being<br>paid _to_ a merchant.) |
-| `total_price_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money.<br><br>__Important:__ Unlike version 1 of the Connect API, __all monetary amounts<br>returned by v2 endpoints are positive.__ (In v1, monetary amounts are negative<br>if they represent money being paid _by_ a merchant, instead of money being<br>paid _to_ a merchant.) |
+| `base_price_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
+| `total_price_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
 
 ### Example (as JSON)
 
