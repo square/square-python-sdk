@@ -12,31 +12,24 @@ from square.api.base_api import BaseApi
 from square.http.auth.o_auth_2 import OAuth2
 
 
-class CheckoutApi(BaseApi):
+class MerchantsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
 
     def __init__(self, config, call_back=None):
-        super(CheckoutApi, self).__init__(config, call_back)
+        super(MerchantsApi, self).__init__(config, call_back)
 
-    def create_checkout(self,
-                        location_id,
-                        body):
-        """Does a POST request to /v2/locations/{location_id}/checkouts.
+    def retrieve_merchant(self,
+                          merchant_id):
+        """Does a GET request to /v2/merchants/{merchant_id}.
 
-        Links a `checkoutId` to a `checkout_page_url` that customers will
-        be directed to in order to provide their payment information using a
-        payment processing workflow hosted on connect.squareup.com.
+        Retrieve a `Merchant` object for the given `merchant_id`.
 
         Args:
-            location_id (string): The ID of the business location to associate
-                the checkout with.
-            body (CreateCheckoutRequest): An object containing the fields to
-                POST for the request.  See the corresponding object definition
-                for field details.
+            merchant_id (string): The ID of the merchant to retrieve
 
         Returns:
-            CreateCheckoutResponse: Response from the API. Success
+            RetrieveMerchantResponse: Response from the API. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -47,9 +40,9 @@ class CheckoutApi(BaseApi):
         """
 
         # Prepare query URL
-        _url_path = '/v2/locations/{location_id}/checkouts'
+        _url_path = '/v2/merchants/{merchant_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'merchant_id': merchant_id
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -57,12 +50,11 @@ class CheckoutApi(BaseApi):
 
         # Prepare headers
         _headers = {
-            'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'accept': 'application/json'
         }
 
         # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
+        _request = self.config.http_client.get(_query_url, headers=_headers)
         OAuth2.apply(self.config, _request)
         _response = self.execute_request(_request)
 
