@@ -17,20 +17,12 @@ Max results per page: 100
 | `sort_order` | `string` | Optional | The order in which results are listed.<br>- `ASC` - oldest to newest<br>- `DESC` - newest to oldest (default). |
 | `cursor` | `string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 | `location_id` | `string` | Optional | ID of location associated with payment. |
-| `status` | `string` | Optional | If provided, only refunds with the given status are returned. <br>For a list of refund status values, see [PaymentRefund](./models/payment-refund.md).<br><br>Default: If omitted refunds are returned regardless of status. |
+| `status` | `string` | Optional | If provided, only refunds with the given status are returned. <br>For a list of refund status values, see [PaymentRefund](#type-paymentrefund).<br><br>Default: If omitted refunds are returned regardless of status. |
 | `source_type` | `string` | Optional | If provided, only refunds with the given source type are returned. <br>- `CARD` - List refunds only for payments where card was specified as payment <br>source.<br><br>Default: If omitted refunds are returned regardless of source type. |
 
 ### Example (as JSON)
 
 ```json
-{
-  "begin_time": null,
-  "end_time": null,
-  "sort_order": null,
-  "cursor": null,
-  "location_id": null,
-  "status": null,
-  "source_type": null
-}
+{}
 ```
 

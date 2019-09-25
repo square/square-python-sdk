@@ -8,10 +8,11 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | The set of [Error](./models/error.md)s encountered. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | The set of [Error](#type-error)s encountered. |
 | `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset, this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The [CatalogObject](./models/catalog-object.md)s returned. |
-| `related_objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | A list of [CatalogObject](./models/catalog-object.md)s referenced by the objects in the `objects` field. |
+| `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The [CatalogObject](#type-catalogobject)s returned. |
+| `related_objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | A list of [CatalogObject](#type-catalogobject)s referenced by the objects in the `objects` field. |
+| `latest_time` | `string` | Optional | When this merchant's catalog was last updated. Will match the value for `end_time` or `cursor` if<br>either field is included in the `SearchCatalog` request. |
 
 ### Example (as JSON)
 

@@ -10,6 +10,6 @@ The type of fulfillment.
 
 | Name | Description |
 |  --- | --- |
-| `PICKUP` | A fulfillment to be picked up by a recipient. |
-| `SHIPMENT` | A fulfillment to be shipped by a carrier. |
+| `PICKUP` | A fulfillment to be picked up from a physical [location](#type-location)<br>by a recipient. |
+| `SHIPMENT` | A fulfillment to be shipped by a shipping carrier. |
 

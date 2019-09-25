@@ -2,7 +2,7 @@
 
 Represents a single physical count, inventory, adjustment, or transfer
 that is part of the history of inventory changes for a particular
-[CatalogObject](./models/catalog-object.md).
+[CatalogObject](#type-catalogobject).
 
 ### Structure
 

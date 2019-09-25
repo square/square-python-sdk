@@ -1,7 +1,7 @@
 ## List Payments Response
 
 Defines the fields that are included in the response body of
-a request to the [ListPayments](/doc/payments.md#listpayments) endpoint.
+a request to the [ListPayments](#endpoint-payments-listpayments) endpoint.
 
 ### Structure
 

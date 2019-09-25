@@ -8,9 +8,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `item_ids` | `List of string` |  | The [CatalogItem](./models/catalog-item.md)s whose [CatalogModifierList](./models/catalog-modifier-list.md)s are being updated. |
-| `modifier_lists_to_enable` | `List of string` | Optional | The set of [CatalogModifierList](./models/catalog-modifier-list.md)s (referenced by ID) to enable for the [CatalogItem](./models/catalog-item.md). |
-| `modifier_lists_to_disable` | `List of string` | Optional | The set of [CatalogModifierList](./models/catalog-modifier-list.md)s (referenced by ID) to disable for the [CatalogItem](./models/catalog-item.md). |
+| `item_ids` | `List of string` |  | The [CatalogItem](#type-catalogitem)s whose [CatalogModifierList](#type-catalogmodifierlist)s are being updated. |
+| `modifier_lists_to_enable` | `List of string` | Optional | The set of [CatalogModifierList](#type-catalogmodifierlist)s (referenced by ID) to enable for the [CatalogItem](#type-catalogitem). |
+| `modifier_lists_to_disable` | `List of string` | Optional | The set of [CatalogModifierList](#type-catalogmodifierlist)s (referenced by ID) to disable for the [CatalogItem](#type-catalogitem). |
 
 ### Example (as JSON)
 

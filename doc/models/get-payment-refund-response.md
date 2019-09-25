@@ -1,7 +1,7 @@
 ## Get Payment Refund Response
 
 Defines the fields that are included in the response body of
-a request to the [GetRefund](/doc/refunds.md#getpaymentrefund) endpoint.
+a request to the [GetRefund](#endpoint-refunds-getpaymentrefund) endpoint.
 
 Note: if there are errors processing the request, the refund field may not be
 present, or it may be present in a FAILED state.

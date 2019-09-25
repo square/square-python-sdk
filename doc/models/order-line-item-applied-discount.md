@@ -16,8 +16,8 @@ line items.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `uid` | `string` | Optional | Unique ID that identifies the applied discount only within this order. |
-| `discount_uid` | `string` |  | The `uid` of the discount for which this applied discount represents.  Must reference<br>a discount present in the `order.discounts` field.<br><br>This field is immutable. To change which discounts apply to a line item, delete and add new<br>`OrderLineItemAppliedDiscount`s. |
-| `applied_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money.<br><br>__Important:__ Unlike version 1 of the Connect API, __all monetary amounts<br>returned by v2 endpoints are positive.__ (In v1, monetary amounts are negative<br>if they represent money being paid _by_ a merchant, instead of money being<br>paid _to_ a merchant.) |
+| `discount_uid` | `string` |  | The `uid` of the discount the applied discount represents. Must<br>reference a discount present in the `order.discounts` field.<br><br>This field is immutable. To change which discounts apply to a line item,<br>you must delete the discount and re-add it as a new `OrderLineItemAppliedDiscount`. |
+| `applied_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
 
 ### Example (as JSON)
 

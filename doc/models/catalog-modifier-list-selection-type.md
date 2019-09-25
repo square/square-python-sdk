@@ -1,6 +1,6 @@
 ## Catalog Modifier List Selection Type
 
-Indicates whether a [CatalogModifierList](./models/catalog-modifier-list.md) supports multiple selections.
+Indicates whether a [CatalogModifierList](#type-catalogmodifierlist) supports multiple selections.
 
 ### Enumeration
 
@@ -10,6 +10,6 @@ Indicates whether a [CatalogModifierList](./models/catalog-modifier-list.md) sup
 
 | Name | Description |
 |  --- | --- |
-| `SINGLE` | Indicates that a [CatalogModifierList](./models/catalog-modifier-list.md) allows only a<br>single [CatalogModifier](./models/catalog-modifier.md) to be selected. |
-| `MULTIPLE` | Indicates that a [CatalogModifierList](./models/catalog-modifier-list.md) allows multiple<br>[CatalogModifier](./models/catalog-modifier.md) to be selected. |
+| `SINGLE` | Indicates that a [CatalogModifierList](#type-catalogmodifierlist) allows only a<br>single [CatalogModifier](#type-catalogmodifier) to be selected. |
+| `MULTIPLE` | Indicates that a [CatalogModifierList](#type-catalogmodifierlist) allows multiple<br>[CatalogModifier](#type-catalogmodifier) to be selected. |
 

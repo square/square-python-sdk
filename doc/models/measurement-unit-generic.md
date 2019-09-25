@@ -10,6 +10,5 @@ A custom unit of measurement defined by the user.
 
 | Name | Description |
 |  --- | --- |
-| `INVALID_GENERIC_UNIT` | - |
 | `UNIT` | - |
 

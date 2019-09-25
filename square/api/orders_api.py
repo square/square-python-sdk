@@ -28,7 +28,7 @@ class OrdersApi(BaseApi):
         products for
         purchase and settings to apply to the purchase.
         To pay for a created order, please refer to the [Pay for
-        Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders)
+        Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders)
                 guide.
         You can modify open orders using the
         [UpdateOrder](#endpoint-orders-updateorder) endpoint.
@@ -137,9 +137,9 @@ class OrdersApi(BaseApi):
         return _result
 
     def update_order(self,
-                     body,
                      location_id,
-                     order_id):
+                     order_id,
+                     body):
         """Does a PUT request to /v2/locations/{location_id}/orders/{order_id}.
 
         Updates an open [Order](#type-order) by adding, replacing, or
@@ -167,11 +167,11 @@ class OrdersApi(BaseApi):
         Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
         
         Args:
+            location_id (string): The ID of the order's associated location.
+            order_id (string): The ID of the order to update.
             body (UpdateOrderRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
-            location_id (string): TODO: type description here.
-            order_id (string): TODO: type description here.
 
         Returns:
             UpdateOrderResponse: Response from the API. Success

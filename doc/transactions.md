@@ -22,7 +22,7 @@ transactions_api = client.transactions
 
 Lists refunds for one of a business's locations.
 
-Deprecated - recommend using [SearchOrders](/doc/orders.md#searchorders)
+Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 
 In addition to full or partial tender refunds processed through Square APIs,
 refunds may result from itemized returns or exchanges through Square's
@@ -73,7 +73,7 @@ elif result.is_error():
 
 Lists transactions for a particular location.
 
-Deprecated - recommend using [SearchOrders](/doc/orders.md#searchorders)
+Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 
 Transactions include payment information from sales and exchanges and refund
 information from returns and exchanges.
@@ -120,7 +120,7 @@ elif result.is_error():
 
 Charges a card represented by a card nonce or a customer's card on file.
 
-Deprecated - recommend using [CreatePayment](/doc/payments.md#createpayment)
+Deprecated - recommend using [CreatePayment](#endpoint-payments-createpayment)
 
 Your request to this endpoint must include _either_:
 
@@ -131,7 +131,7 @@ a customer's card on file)
 
 When this response is returned, the amount of Square's processing fee might not yet be
 calculated. To obtain the processing fee, wait about ten seconds and call
-[RetrieveTransaction](/doc/transactions.md#retrievetransaction). See the `processing_fee_money`
+[RetrieveTransaction](#endpoint-transactions-retrievetransaction). See the `processing_fee_money`
 field of each [Tender included](#type-tender) in the transaction.
 
 ```python
@@ -159,7 +159,7 @@ body = {}
 body['idempotency_key'] = '74ae1696-b1e3-4328-af6d-f1e04d947a13'
 body['amount_money'] = {}
 body['amount_money']['amount'] = 200
-body['amount_money']['currency'] = Currency.USD
+body['amount_money']['currency'] = 'USD'
 body['card_nonce'] = 'card_nonce_from_square_123'
 body['delay_capture'] = False
 body['reference_id'] = 'some optional reference id'
@@ -170,13 +170,13 @@ body['billing_address']['address_line_2'] = 'Suite 600'
 body['billing_address']['locality'] = 'New York'
 body['billing_address']['administrative_district_level_1'] = 'NY'
 body['billing_address']['postal_code'] = '10003'
-body['billing_address']['country'] = Country.US
+body['billing_address']['country'] = 'US'
 body['shipping_address'] = {}
 body['shipping_address']['address_line_1'] = '123 Main St'
 body['shipping_address']['locality'] = 'San Francisco'
 body['shipping_address']['administrative_district_level_1'] = 'CA'
 body['shipping_address']['postal_code'] = '94114'
-body['shipping_address']['country'] = Country.US
+body['shipping_address']['country'] = 'US'
 body['additional_recipients'] = []
 
 body['additional_recipients'].append({})
@@ -184,7 +184,7 @@ body['additional_recipients'][0]['location_id'] = '057P5VYJ4A5X1'
 body['additional_recipients'][0]['description'] = 'Application fees'
 body['additional_recipients'][0]['amount_money'] = {}
 body['additional_recipients'][0]['amount_money']['amount'] = 20
-body['additional_recipients'][0]['amount_money']['currency'] = Currency.USD
+body['additional_recipients'][0]['amount_money']['currency'] = 'USD'
 
 
 result = transactions_api.charge(location_id, body)
@@ -234,7 +234,7 @@ elif result.is_error():
 
 ## Capture Transaction
 
-Captures a transaction that was created with the [Charge](/doc/transactions.md#charge)
+Captures a transaction that was created with the [Charge](#endpoint-transactions-charge)
 endpoint with a `delay_capture` value of `true`.
 
 See the [Delay Capture of Funds](https://developer.squareup.com/docs/transactions-api/cookbook/delay-capture)
@@ -275,7 +275,7 @@ elif result.is_error():
 
 Initiates a refund for a previously charged tender.
 
-Deprecated - recommend using [RefundPayment](/doc/refunds.md#refundpayment)
+Deprecated - recommend using [RefundPayment](#endpoint-refunds-refundpayment)
 
 You must issue a refund within 120 days of the associated payment. See
 [this article](https://squareup.com/help/us/en/article/5060) for more information
@@ -315,7 +315,7 @@ body['tender_id'] = 'MtZRYYdDrYNQbOvV7nbuBvMF'
 body['reason'] = 'a reason'
 body['amount_money'] = {}
 body['amount_money']['amount'] = 100
-body['amount_money']['currency'] = Currency.USD
+body['amount_money']['currency'] = 'USD'
 
 result = transactions_api.create_refund(location_id, transaction_id, body)
 
@@ -327,7 +327,7 @@ elif result.is_error():
 
 ## Void Transaction
 
-Cancels a transaction that was created with the [Charge](/doc/transactions.md#charge)
+Cancels a transaction that was created with the [Charge](#endpoint-transactions-charge)
 endpoint with a `delay_capture` value of `true`.
 
 See the [Delay Capture of Funds](https://developer.squareup.com/docs/transactions-api/cookbook/delay-capture)

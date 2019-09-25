@@ -8,8 +8,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `modifier_id` | `string` |  | The ID of the [CatalogModifier](./models/catalog-modifier.md) whose default behavior is being overridden. |
-| `on_by_default` | `bool` | Optional | If `true`, this [CatalogModifier](./models/catalog-modifier.md) should be selected by default for this [CatalogItem](./models/catalog-item.md). |
+| `modifier_id` | `string` |  | The ID of the [CatalogModifier](#type-catalogmodifier) whose default behavior is being overridden. |
+| `on_by_default` | `bool` | Optional | If `true`, this [CatalogModifier](#type-catalogmodifier) should be selected by default for this [CatalogItem](#type-catalogitem). |
 
 ### Example (as JSON)
 

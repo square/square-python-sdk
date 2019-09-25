@@ -191,7 +191,7 @@ def update_order(self,
 location_id = 'location_id4'
 order_id = 'order_id6'
 body = {}
-body['action'] = V1UpdateOrderRequestAction.REFUND
+body['action'] = 'REFUND'
 
 result = v1_transactions_api.update_order(location_id, order_id, body)
 
@@ -370,7 +370,7 @@ def create_refund(self,
 location_id = 'location_id4'
 body = {}
 body['payment_id'] = 'payment_id6'
-body['type'] = V1CreateRefundRequestType.FULL
+body['type'] = 'FULL'
 body['reason'] = 'reason8'
 
 result = v1_transactions_api.create_refund(location_id, body)

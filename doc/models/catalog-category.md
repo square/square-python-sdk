@@ -1,6 +1,6 @@
 ## Catalog Category
 
-A category to which an [CatalogItem](./models/catalog-item.md) belongs in the Catalog object model.
+A category to which an [CatalogItem](#type-catalogitem) belongs in the Catalog object model.
 
 ### Structure
 

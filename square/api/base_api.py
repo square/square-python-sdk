@@ -26,8 +26,8 @@ class BaseApi(object):
     """
 
     global_headers = {
-        'user-agent': 'Square-Connect-Python-3.20190814.0',
-        'Square-Version': '2019-08-14'
+        'user-agent': 'Square-Python-SDK/3.20190925.0',
+        'Square-Version': '2019-09-25'
     }
 
     def __init__(self, config, call_back=None):
@@ -71,6 +71,8 @@ class BaseApi(object):
 
         # Add global headers to request
         request.headers = APIHelper.merge_dicts(self.global_headers, request.headers)
+        if self.config.additional_headers is not None:
+            request.headers.update(self.config.additional_headers)
 
         # Invoke the API call to fetch the response.
         func = self.config.http_client.execute_as_binary if binary else self.config.http_client.execute_as_string

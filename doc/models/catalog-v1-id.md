@@ -1,6 +1,6 @@
 ## Catalog V1 Id
 
-An Items Connect V1 object ID along with its associated [location](./models/location.md) ID.
+An Items Connect V1 object ID along with its associated [location](#type-location) ID.
 
 ### Structure
 
@@ -11,7 +11,7 @@ An Items Connect V1 object ID along with its associated [location](./models/loca
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `catalog_v1_id` | `string` | Optional | The ID for an object in Connect V1, if different from its Connect V2 ID. |
-| `location_id` | `string` | Optional | The ID of the [location](./models/location.md) this Connect V1 ID is associated with. |
+| `location_id` | `string` | Optional | The ID of the [location](#type-location) this Connect V1 ID is associated with. |
 
 ### Example (as JSON)
 

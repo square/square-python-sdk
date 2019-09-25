@@ -42,26 +42,7 @@ One of `errors` or `locations` is present in a given response (never both).
       "language_code": "en-US",
       "currency": "USD",
       "phone_number": "+1 650-354-7217",
-      "business_name": "Pumbaa's business name",
-      "business_hours": {
-        "periods": [
-          {
-            "day_of_week": "MON",
-            "start_local_time": "08:00:00",
-            "end_local_time": "17:00:00"
-          },
-          {
-            "day_of_week": "TUE",
-            "start_local_time": "08:00:00",
-            "end_local_time": "17:00:00"
-          },
-          {
-            "day_of_week": "WED",
-            "start_local_time": "08:00:00",
-            "end_local_time": "17:00:00"
-          }
-        ]
-      }
+      "business_name": "Pumbaa's business name"
     }
   ]
 }

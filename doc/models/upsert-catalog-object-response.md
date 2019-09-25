@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | The set of [Error](./models/error.md)s encountered. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | The set of [Error](#type-error)s encountered. |
 | `catalog_object` | [`Catalog Object`](/doc/models/catalog-object.md) | Optional | - |
 | `id_mappings` | [`List of Catalog Id Mapping`](/doc/models/catalog-id-mapping.md) | Optional | The mapping between client and server IDs for this Upsert. |
 

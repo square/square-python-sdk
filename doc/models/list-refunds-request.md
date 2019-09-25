@@ -3,7 +3,7 @@
 Defines the query parameters that can be included in
 a request to the [ListRefunds](#endpoint-listrefunds) endpoint.
 
-Deprecated - recommend using [SearchOrders](/doc/orders.md#searchorders)
+Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 
 ### Structure
 

@@ -102,10 +102,10 @@ body['source_id'] = 'ccof:uIbfJXhXETSP197M3GB'
 body['idempotency_key'] = '4935a656-a929-4792-b97c-8848be85c27c'
 body['amount_money'] = {}
 body['amount_money']['amount'] = 200
-body['amount_money']['currency'] = Currency.USD
+body['amount_money']['currency'] = 'USD'
 body['app_fee_money'] = {}
 body['app_fee_money']['amount'] = 10
-body['app_fee_money']['currency'] = Currency.USD
+body['app_fee_money']['currency'] = 'USD'
 body['autocomplete'] = True
 body['customer_id'] = 'VDKXEEKPJN48QDG3BGGFAK05P8'
 body['location_id'] = 'XK3DBG77NJBFX'
@@ -122,7 +122,7 @@ elif result.is_error():
 
 ## Cancel Payment by Idempotency Key
 
-Cancels a payment identified by the idenpotency key that is specified the request.
+Cancels (voids) a payment identified by the idempotency key that is specified in the request. 
 
 Use this method when status of a CreatePayment request is unknown.
 For example, after you send a CreatePayment
@@ -196,7 +196,7 @@ elif result.is_error():
 
 ## Cancel Payment
 
-Cancels a payment. If you set `autocomplete` to false when creating a payment, 
+Cancels (voids) a payment. If you set `autocomplete` to false when creating a payment,
 you can cancel the payment using this endpoint. For more information, see
 [Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
 
@@ -230,11 +230,11 @@ elif result.is_error():
 
 ## Complete Payment
 
-Completes a payment.
+Completes (captures) a payment.
 
 By default, payments are set to complete immediately after they are created. 
-If you set autocomplete to false when creating a payment, 
-you can complete the payment using this endpoint. For more information, see
+If you set autocomplete to false when creating a payment, you can complete (capture) 
+the payment using this endpoint. For more information, see
 [Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
 
 ```python

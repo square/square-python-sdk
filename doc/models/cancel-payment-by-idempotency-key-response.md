@@ -1,6 +1,6 @@
 ## Cancel Payment by Idempotency Key Response
 
-Return value from the [CancelPaymentByIdempotencyKey](/doc/payments.md#cancelpaymentbyidempotencykey) endpoint.  On success,
+Return value from the [CancelPaymentByIdempotencyKey](#endpoint-payments-cancelpaymentbyidempotencykey) endpoint.  On success,
 `errors` will be empty.
 
 ### Structure

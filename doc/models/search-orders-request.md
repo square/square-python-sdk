@@ -13,11 +13,11 @@ results.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_ids` | `List of string` | Optional | The location IDs for the orders to query. The caller must have access to<br>all provided locations. Leave unset to search all locations that the caller has access to. |
+| `location_ids` | `List of string` | Optional | The location IDs for the orders to query. All locations must belong to<br>the same merchant.<br><br>Min: 1 location IDs.<br><br>Max: 10 location IDs. |
 | `cursor` | `string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 | `query` | [`Search Orders Query`](/doc/models/search-orders-query.md) | Optional | Contains query criteria for the search. |
-| `limit` | `int` | Optional | Number of results to be returned in a single page. SearchOrders may<br>use a smaller limit than specified depending on server load. If the response<br>includes a `cursor` field, you can use it to retrieve the next set of results.<br>Default: `500` |
-| `return_entries` | `bool` | Optional | If set to `true`, SearchOrders will return [`OrderEntry`](#type-orderentry)<br>objects instead of `Order` objects. `OrderEntry` objects are lightweight<br>descriptions of orders that include `order_id`s.<br><br>Default: `false`. |
+| `limit` | `int` | Optional | Maximum number of results to be returned in a single page. It is<br>possible to receive fewer results than the specified limit on a given page.<br><br>Default: `500` |
+| `return_entries` | `bool` | Optional | Boolean that controls the format of the search results. If `true`,<br>SearchOrders will return [`OrderEntry`](#type-orderentry) objects. If `false`, SearchOrders<br>will return complete Order objects.<br><br>Default: `false`. |
 
 ### Example (as JSON)
 

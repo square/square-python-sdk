@@ -84,10 +84,6 @@ Defines the fields that are included in the response body of a request to the
       "amount": 0,
       "currency": "USD"
     },
-    "total_tip_money": {
-      "amount": 0,
-      "currency": "USD"
-    },
     "total_money": {
       "amount": 2000,
       "currency": "USD"
@@ -111,8 +107,7 @@ Defines the fields that are included in the response body of a request to the
             "last_4": "1111",
             "exp_month": 2,
             "exp_year": 2022,
-            "fingerprint": "sq-1-n_BL15KP87ClDa4-h2nXOI0fp5VnxNH6hfhzqhptTfAgxgLuGFcg6jIPngDz4IkkTQ",
-            "bin": "411111"
+            "fingerprint": "sq-1-n_BL15KP87ClDa4-h2nXOI0fp5VnxNH6hfhzqhptTfAgxgLuGFcg6jIPngDz4IkkTQ"
           },
           "entry_method": "KEYED"
         },
@@ -135,8 +130,7 @@ Defines the fields that are included in the response body of a request to the
             "last_4": "1111",
             "exp_month": 2,
             "exp_year": 2022,
-            "fingerprint": "sq-1-n_BL15KP87ClDa4-h2nXOI0fp5VnxNH6hfhzqhptTfAgxgLuGFcg6jIPngDz4IkkTQ",
-            "bin": "411111"
+            "fingerprint": "sq-1-n_BL15KP87ClDa4-h2nXOI0fp5VnxNH6hfhzqhptTfAgxgLuGFcg6jIPngDz4IkkTQ"
           },
           "entry_method": "KEYED"
         },
@@ -172,7 +166,7 @@ Defines the fields that are included in the response body of a request to the
     "source": {
       "name": "Source Name"
     },
-    "status": "COMPLETED"
+    "state": "COMPLETED"
   }
 }
 ```

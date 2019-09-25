@@ -1,6 +1,6 @@
 ## Complete Payment Response
 
-Return value from a [CompletePayment](/doc/payments.md#completepayment) call.
+Return value from a [CompletePayment](#endpoint-payments-completepayment) call.
 
 ### Structure
 

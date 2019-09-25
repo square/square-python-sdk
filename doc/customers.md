@@ -94,7 +94,7 @@ body['address']['address_line_2'] = 'Suite 600'
 body['address']['locality'] = 'New York'
 body['address']['administrative_district_level_1'] = 'NY'
 body['address']['postal_code'] = '10003'
-body['address']['country'] = Country.US
+body['address']['country'] = 'US'
 body['phone_number'] = '1-212-555-4240'
 body['reference_id'] = 'YOUR_REFERENCE_ID'
 body['note'] = 'a customer'
@@ -137,14 +137,14 @@ body['limit'] = 2
 body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['creation_source'] = {}
-body['query']['filter']['creation_source']['values'] = [CustomerCreationSource.THIRD_PARTY]
-body['query']['filter']['creation_source']['rule'] = CustomerInclusionExclusion.INCLUDE
+body['query']['filter']['creation_source']['values'] = ['THIRD_PARTY']
+body['query']['filter']['creation_source']['rule'] = 'INCLUDE'
 body['query']['filter']['created_at'] = {}
 body['query']['filter']['created_at']['start_at'] = '2018-01-01T00:00:00-00:00'
 body['query']['filter']['created_at']['end_at'] = '2018-02-01T00:00:00-00:00'
 body['query']['sort'] = {}
-body['query']['sort']['field'] = CustomerSortField.CREATED_AT
-body['query']['sort']['order'] = SortOrder.ASC
+body['query']['sort']['field'] = 'CREATED_AT'
+body['query']['sort']['order'] = 'ASC'
 
 result = customers_api.search_customers(body)
 
@@ -228,9 +228,9 @@ the new `customer_id` to update merged profiles.
 
 You cannot edit a customer's cards on file with this endpoint. To make changes
 to a card on file, you must delete the existing card on file with the
-[DeleteCustomerCard](/doc/customers.md#deletecustomercard) endpoint, then
+[DeleteCustomerCard](#endpoint-customers-deletecustomercard) endpoint, then
 create a new one with the
-[CreateCustomerCard](/doc/customers.md#createcustomercard) endpoint.
+[CreateCustomerCard](#endpoint-customers-createcustomercard) endpoint.
 
 ```python
 def update_customer(self,
@@ -306,7 +306,7 @@ body['billing_address']['address_line_2'] = 'Suite 600'
 body['billing_address']['locality'] = 'New York'
 body['billing_address']['administrative_district_level_1'] = 'NY'
 body['billing_address']['postal_code'] = '10003'
-body['billing_address']['country'] = Country.US
+body['billing_address']['country'] = 'US'
 body['cardholder_name'] = 'Amelia Earhart'
 
 result = customers_api.create_customer_card(customer_id, body)

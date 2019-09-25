@@ -33,8 +33,8 @@ class MobileAuthorizationApi(BaseApi):
         Authorization: Bearer ACCESS_TOKEN
         ```
         Replace `ACCESS_TOKEN` with a [valid production authorization
-        credential](https://docs.connect.squareup.com/get-started#step-4-unders
-        tand-the-different-application-credentials).
+        credential](https://developer.squareup.com/docs/get-started#step-4-unde
+        rstand-the-different-application-credentials).
 
         Args:
             body (CreateMobileAuthorizationCodeRequest): An object containing

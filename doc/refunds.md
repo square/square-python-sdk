@@ -40,7 +40,7 @@ def list_payment_refunds(self,
 | `sort_order` | `string` | Query, Optional | The order in which results are listed.<br>- `ASC` - oldest to newest<br>- `DESC` - newest to oldest (default). |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 | `location_id` | `string` | Query, Optional | ID of location associated with payment. |
-| `status` | `string` | Query, Optional | If provided, only refunds with the given status are returned. <br>For a list of refund status values, see [PaymentRefund](./models/payment-refund.md).<br><br>Default: If omitted refunds are returned regardless of status. |
+| `status` | `string` | Query, Optional | If provided, only refunds with the given status are returned. <br>For a list of refund status values, see [PaymentRefund](#type-paymentrefund).<br><br>Default: If omitted refunds are returned regardless of status. |
 | `source_type` | `string` | Query, Optional | If provided, only refunds with the given source type are returned. <br>- `CARD` - List refunds only for payments where card was specified as payment <br>source.<br><br>Default: If omitted refunds are returned regardless of source type. |
 
 ### Response Type
@@ -86,7 +86,7 @@ body = {}
 body['idempotency_key'] = 'a7e36d40-d24b-11e8-b568-0800200c9a66'
 body['amount_money'] = {}
 body['amount_money']['amount'] = 100
-body['amount_money']['currency'] = Currency.USD
+body['amount_money']['currency'] = 'USD'
 body['payment_id'] = 'UNOE3kv2BZwqHlJ830RCt5YCuaB'
 
 result = refunds_api.refund_payment(body)
