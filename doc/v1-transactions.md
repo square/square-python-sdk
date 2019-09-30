@@ -51,7 +51,7 @@ result = v1_transactions_api.list_bank_accounts(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Bank Account
@@ -86,7 +86,7 @@ result = v1_transactions_api.retrieve_bank_account(location_id, bank_account_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Orders
@@ -124,7 +124,7 @@ result = v1_transactions_api.list_orders(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Order
@@ -159,7 +159,7 @@ result = v1_transactions_api.retrieve_order(location_id, order_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Order
@@ -198,7 +198,7 @@ result = v1_transactions_api.update_order(location_id, order_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Payments
@@ -252,7 +252,7 @@ result = v1_transactions_api.list_payments(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Payment
@@ -287,7 +287,7 @@ result = v1_transactions_api.retrieve_payment(location_id, payment_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Refunds
@@ -329,7 +329,7 @@ result = v1_transactions_api.list_refunds(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Refund
@@ -378,7 +378,7 @@ result = v1_transactions_api.create_refund(location_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Settlements
@@ -427,7 +427,7 @@ result = v1_transactions_api.list_settlements(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Settlement
@@ -478,6 +478,6 @@ result = v1_transactions_api.retrieve_settlement(location_id, settlement_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 

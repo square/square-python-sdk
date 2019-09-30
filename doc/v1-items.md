@@ -80,7 +80,7 @@ result = v1_items_api.list_categories(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Category
@@ -115,7 +115,7 @@ result = v1_items_api.create_category(location_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Category
@@ -153,7 +153,7 @@ result = v1_items_api.delete_category(location_id, category_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Category
@@ -191,7 +191,7 @@ result = v1_items_api.update_category(location_id, category_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Discounts
@@ -223,7 +223,7 @@ result = v1_items_api.list_discounts(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Discount
@@ -258,7 +258,7 @@ result = v1_items_api.create_discount(location_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Discount
@@ -296,7 +296,7 @@ result = v1_items_api.delete_discount(location_id, discount_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Discount
@@ -334,7 +334,7 @@ result = v1_items_api.update_discount(location_id, discount_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Fees
@@ -366,7 +366,7 @@ result = v1_items_api.list_fees(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Fee
@@ -401,7 +401,7 @@ result = v1_items_api.create_fee(location_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Fee
@@ -439,7 +439,7 @@ result = v1_items_api.delete_fee(location_id, fee_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Fee
@@ -477,7 +477,7 @@ result = v1_items_api.update_fee(location_id, fee_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Inventory
@@ -513,7 +513,7 @@ result = v1_items_api.list_inventory(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Adjust Inventory
@@ -551,7 +551,7 @@ result = v1_items_api.adjust_inventory(location_id, variation_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Items
@@ -585,7 +585,7 @@ result = v1_items_api.list_items(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Item
@@ -632,7 +632,7 @@ result = v1_items_api.create_item(location_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Item
@@ -670,7 +670,7 @@ result = v1_items_api.delete_item(location_id, item_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Item
@@ -705,7 +705,7 @@ result = v1_items_api.retrieve_item(location_id, item_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Item
@@ -743,7 +743,7 @@ result = v1_items_api.update_item(location_id, item_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Remove Fee
@@ -781,7 +781,7 @@ result = v1_items_api.remove_fee(location_id, item_id, fee_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Apply Fee
@@ -819,7 +819,7 @@ result = v1_items_api.apply_fee(location_id, item_id, fee_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Remove Modifier List
@@ -857,7 +857,7 @@ result = v1_items_api.remove_modifier_list(location_id, modifier_list_id, item_i
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Apply Modifier List
@@ -895,7 +895,7 @@ result = v1_items_api.apply_modifier_list(location_id, modifier_list_id, item_id
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Variation
@@ -933,7 +933,7 @@ result = v1_items_api.create_variation(location_id, item_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Variation
@@ -974,7 +974,7 @@ result = v1_items_api.delete_variation(location_id, item_id, variation_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Variation
@@ -1015,7 +1015,7 @@ result = v1_items_api.update_variation(location_id, item_id, variation_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Modifier Lists
@@ -1047,7 +1047,7 @@ result = v1_items_api.list_modifier_lists(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Modifier List
@@ -1082,7 +1082,7 @@ result = v1_items_api.create_modifier_list(location_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Modifier List
@@ -1121,7 +1121,7 @@ result = v1_items_api.delete_modifier_list(location_id, modifier_list_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Modifier List
@@ -1156,7 +1156,7 @@ result = v1_items_api.retrieve_modifier_list(location_id, modifier_list_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Modifier List
@@ -1194,7 +1194,7 @@ result = v1_items_api.update_modifier_list(location_id, modifier_list_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Modifier Option
@@ -1232,7 +1232,7 @@ result = v1_items_api.create_modifier_option(location_id, modifier_list_id, body
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Modifier Option
@@ -1273,7 +1273,7 @@ result = v1_items_api.delete_modifier_option(location_id, modifier_list_id, modi
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Modifier Option
@@ -1314,7 +1314,7 @@ result = v1_items_api.update_modifier_option(location_id, modifier_list_id, modi
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Pages
@@ -1346,7 +1346,7 @@ result = v1_items_api.list_pages(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Page
@@ -1381,7 +1381,7 @@ result = v1_items_api.create_page(location_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Page
@@ -1419,7 +1419,7 @@ result = v1_items_api.delete_page(location_id, page_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Page
@@ -1457,7 +1457,7 @@ result = v1_items_api.update_page(location_id, page_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Page Cell
@@ -1499,7 +1499,7 @@ result = v1_items_api.delete_page_cell(location_id, page_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Page Cell
@@ -1537,6 +1537,6 @@ result = v1_items_api.update_page_cell(location_id, page_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
