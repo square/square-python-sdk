@@ -53,7 +53,7 @@ def list_employees(self,
 | `end_updated_at` | `string` | Query, Optional | If filtering results by there updated_at field, the end of the requested reporting period, in ISO 8601 format. |
 | `begin_created_at` | `string` | Query, Optional | If filtering results by their created_at field, the beginning of the requested reporting period, in ISO 8601 format. |
 | `end_created_at` | `string` | Query, Optional | If filtering results by their created_at field, the end of the requested reporting period, in ISO 8601 format. |
-| `status` | [`str (V1 Employee Status)`](/doc/models/v1-employee-status.md) | Query, Optional | If provided, the endpoint returns only employee entities with the specified status (ACTIVE or INACTIVE). |
+| `status` | [`str (V1 List Employees Request Status)`](/doc/models/v1-list-employees-request-status.md) | Query, Optional | If provided, the endpoint returns only employee entities with the specified status (ACTIVE or INACTIVE). |
 | `external_id` | `string` | Query, Optional | If provided, the endpoint returns only employee entities with the specified external_id. |
 | `limit` | `int` | Query, Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. |
 | `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
@@ -70,7 +70,7 @@ result = v1_employees_api.list_employees()
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Employee
@@ -113,7 +113,7 @@ result = v1_employees_api.create_employee(body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Employee
@@ -145,7 +145,7 @@ result = v1_employees_api.retrieve_employee(employee_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Employee
@@ -182,7 +182,7 @@ result = v1_employees_api.update_employee(employee_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Employee Roles
@@ -216,7 +216,7 @@ result = v1_employees_api.list_employee_roles()
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Employee Role
@@ -262,7 +262,7 @@ result = v1_employees_api.create_employee_role(body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Employee Role
@@ -294,7 +294,7 @@ result = v1_employees_api.retrieve_employee_role(role_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Employee Role
@@ -331,7 +331,7 @@ result = v1_employees_api.update_employee_role(role_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Timecards
@@ -381,7 +381,7 @@ result = v1_employees_api.list_timecards()
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Create Timecard
@@ -424,7 +424,7 @@ result = v1_employees_api.create_timecard(body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Delete Timecard
@@ -470,7 +470,7 @@ result = v1_employees_api.delete_timecard(timecard_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Timecard
@@ -507,7 +507,7 @@ result = v1_employees_api.retrieve_timecard(timecard_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Update Timecard
@@ -545,7 +545,7 @@ result = v1_employees_api.update_timecard(timecard_id, body)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Timecard Events
@@ -584,7 +584,7 @@ result = v1_employees_api.list_timecard_events(timecard_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## List Cash Drawer Shifts
@@ -622,7 +622,7 @@ result = v1_employees_api.list_cash_drawer_shifts(location_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 
 ## Retrieve Cash Drawer Shift
@@ -657,6 +657,6 @@ result = v1_employees_api.retrieve_cash_drawer_shift(location_id, shift_id)
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.errors)
+    print(result.body)
 ```
 

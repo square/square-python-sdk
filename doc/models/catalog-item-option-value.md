@@ -15,7 +15,7 @@ its item option values.
 | `item_option_id` | `string` | Optional | Unique ID of the associated item option. |
 | `name` | `string` | Optional | Name of this item option value. Searchable. |
 | `description` | `string` | Optional | The option value's human-readable description. |
-| `color` | `string` | Optional | The HTML color for this value in the format #FFRRGGBB or #RRGGBB<br>(e.g., "#ff8d4e85"). Only displayed if parent Item Option's `show_colors`<br>flag is enabled.<br>value. |
+| `color` | `string` | Optional | The HTML-supported hex color for the item option<br>(e.g., "#ff8d4e85"). Only displayed if `show_colors` is enabled on the<br>parent `ItemOption`. When left unset, `color` defaults to white ("#ffffff")<br>when `show_colors` is enabled on the parent `ItemOption`. |
 | `ordinal` | `int` | Optional | Determines where this option value appears in a list of option values. |
 | `item_variation_count` | `long|int` | Optional | The number of [CatalogItemVariation(#type-catalogitemvariation)s that<br>currently make use of this Item Option value. Present only if `retrieve_counts`<br>was specified on the request used to retrieve the parent Item Option of this<br>value.<br><br>Maximum: 100 counts. |
 

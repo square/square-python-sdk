@@ -11,7 +11,7 @@ else:
         long_description = fh.read()
 
 setup(
-    name='squareup',
+    name='square',
     version='3.20190925.0',
     description='Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.',
     long_description=long_description,
