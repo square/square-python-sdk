@@ -1,7 +1,6 @@
 ## Customer Sort
 
-Indicates the field to use for sorting customer profiles. For example,
-by total money spent with the merchant or the date of their first purchase.
+Indicates the field to use for sorting customer profiles.
 
 ### Structure
 

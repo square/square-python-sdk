@@ -49,9 +49,9 @@ class V1EmployeesApi(BaseApi):
             end_created_at (string, optional): If filtering results by their
                 created_at field, the end of the requested reporting period,
                 in ISO 8601 format.
-            status (V1EmployeeStatus, optional): If provided, the endpoint
-                returns only employee entities with the specified status
-                (ACTIVE or INACTIVE).
+            status (V1ListEmployeesRequestStatus, optional): If provided, the
+                endpoint returns only employee entities with the specified
+                status (ACTIVE or INACTIVE).
             external_id (string, optional): If provided, the endpoint returns
                 only employee entities with the specified external_id.
             limit (int, optional): The maximum integer number of employee

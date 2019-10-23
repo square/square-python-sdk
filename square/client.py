@@ -38,7 +38,7 @@ class Client(object):
 
     @staticmethod
     def square_version():
-        return '2019-09-25'
+        return '2019-10-23'
 
     @lazy_property
     def mobile_authorization(self):

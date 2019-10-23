@@ -10,7 +10,7 @@ V1Refund
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | [`str (V1 Create Refund Request Type)`](/doc/models/v1-create-refund-request-type.md) | Optional | - |
+| `type` | [`str (V1 Refund Type)`](/doc/models/v1-refund-type.md) | Optional | - |
 | `reason` | `string` | Optional | The merchant-specified reason for the refund. |
 | `refunded_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
 | `refunded_processing_fee_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
