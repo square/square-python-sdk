@@ -13,7 +13,7 @@
 | `end_updated_at` | `string` | Optional | If filtering results by there updated_at field, the end of the requested reporting period, in ISO 8601 format. |
 | `begin_created_at` | `string` | Optional | If filtering results by their created_at field, the beginning of the requested reporting period, in ISO 8601 format. |
 | `end_created_at` | `string` | Optional | If filtering results by their created_at field, the end of the requested reporting period, in ISO 8601 format. |
-| `status` | [`str (V1 Employee Status)`](/doc/models/v1-employee-status.md) | Optional | - |
+| `status` | [`str (V1 List Employees Request Status)`](/doc/models/v1-list-employees-request-status.md) | Optional | - |
 | `external_id` | `string` | Optional | If provided, the endpoint returns only employee entities with the specified external_id. |
 | `limit` | `int` | Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. |
 | `batch_token` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |

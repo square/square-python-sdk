@@ -10,14 +10,14 @@ Represents one of a business's locations.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The location's unique ID. |
+| `id` | `string` | Optional | The Square-issued ID of the location. |
 | `name` | `string` | Optional | The location's name. Location names are set by the account owner and displayed<br>in the dashboard as the location's nickname |
 | `address` | [`Address`](/doc/models/address.md) | Optional | Represents a physical address. |
 | `timezone` | `string` | Optional | The [IANA Timezone Database](https://www.iana.org/time-zones)<br>identifier for the location's timezone. |
-| `capabilities` | [`List of str (Location Capability)`](/doc/models/location-capability.md) | Optional | Indicates which Square features are enabled for the location.<br>See [LocationCapability](#type-locationcapability) for possible values |
+| `capabilities` | [`List of str (Location Capability)`](/doc/models/location-capability.md) | Optional | The Square features that are enabled for the location.<br>See [LocationCapability](#type-locationcapability) for possible values.<br>See [LocationCapability](#type-locationcapability) for possible values |
 | `status` | [`str (Location Status)`](/doc/models/location-status.md) | Optional | Indicates the location's status. |
 | `created_at` | `string` | Optional | The time when the location was created, in RFC 3339 format. |
-| `merchant_id` | `string` | Optional | The identifier of the merchant that owns the location. |
+| `merchant_id` | `string` | Optional | The ID of the merchant that owns the location. |
 | `country` | [`str (Country)`](/doc/models/country.md) | Optional | Indicates the country associated with another entity, such as a business.<br>Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm). |
 | `language_code` | `string` | Optional | The language associated with the location in<br>[BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A). |
 | `currency` | [`str (Currency)`](/doc/models/currency.md) | Optional | Indicates the associated currency for an amount of money. Values correspond<br>to [ISO 4217](https://wikipedia.org/wiki/ISO_4217). |

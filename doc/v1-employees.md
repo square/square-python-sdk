@@ -53,7 +53,7 @@ def list_employees(self,
 | `end_updated_at` | `string` | Query, Optional | If filtering results by there updated_at field, the end of the requested reporting period, in ISO 8601 format. |
 | `begin_created_at` | `string` | Query, Optional | If filtering results by their created_at field, the beginning of the requested reporting period, in ISO 8601 format. |
 | `end_created_at` | `string` | Query, Optional | If filtering results by their created_at field, the end of the requested reporting period, in ISO 8601 format. |
-| `status` | [`str (V1 Employee Status)`](/doc/models/v1-employee-status.md) | Query, Optional | If provided, the endpoint returns only employee entities with the specified status (ACTIVE or INACTIVE). |
+| `status` | [`str (V1 List Employees Request Status)`](/doc/models/v1-list-employees-request-status.md) | Query, Optional | If provided, the endpoint returns only employee entities with the specified status (ACTIVE or INACTIVE). |
 | `external_id` | `string` | Query, Optional | If provided, the endpoint returns only employee entities with the specified external_id. |
 | `limit` | `int` | Query, Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. |
 | `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
