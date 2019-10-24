@@ -26,7 +26,7 @@ class BaseApi(object):
     """
 
     global_headers = {
-        'user-agent': 'Square-Python-SDK/3.20190925.0',
+        'user-agent': 'Square-Python-SDK/3.20191023.0',
         'Square-Version': '2019-10-23'
     }
 

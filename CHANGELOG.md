@@ -1,5 +1,9 @@
 # Change Log
 
+## 3.20191023.0 (2019-10-23)
+* **GA release**: Merchants.ListMerchant is GA for all SDKs.
+* **Beta release**: All SDKs support exclusion strategies for pricing rules.
+
 ## 3.20190925.0 (2019-09-25)
 
 * **GA release**: All SDKs have been updated to support the new Merchants API.
