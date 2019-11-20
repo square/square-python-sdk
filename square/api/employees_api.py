@@ -26,7 +26,7 @@ class EmployeesApi(BaseApi):
                        cursor=None):
         """Does a GET request to /v2/employees.
 
-        Gets a list of `Employee` objects for a business.
+        ListEmployees
 
         Args:
             location_id (string, optional): Filter employees returned to only
@@ -87,7 +87,7 @@ class EmployeesApi(BaseApi):
                           id):
         """Does a GET request to /v2/employees/{id}.
 
-        Gets an `Employee` by Square-assigned employee `ID` (UUID)
+        RetrieveEmployee
 
         Args:
             id (string): UUID for the employee that was requested.

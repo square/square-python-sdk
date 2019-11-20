@@ -1,6 +1,6 @@
 ## Catalog Discount Type
 
-How to apply a [CatalogDiscount](#type-catalogdiscount) to a [CatalogItem](#type-catalogitem).
+How to apply a CatalogDiscount to a CatalogItem.
 
 ### Enumeration
 

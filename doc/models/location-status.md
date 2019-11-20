@@ -1,6 +1,6 @@
 ## Location Status
 
-Indicates the location's status.
+The status of the location, whether a location is active or inactive.
 
 ### Enumeration
 
@@ -10,6 +10,6 @@ Indicates the location's status.
 
 | Name | Description |
 |  --- | --- |
-| `ACTIVE` | A fully operational location. The location can be used across all Square products and APIs. |
-| `INACTIVE` | A functionally limited location. The location can only be used via Square APIs.<br><br>__NOTE__: We __strongly__ discourage the use of inactive locations.<br>Making API calls with inactive locations will cause complications<br>if the restrictions on inactive locations increase in the future. |
+| `ACTIVE` | A location that is active for business. |
+| `INACTIVE` | A location that is not active for business. Inactive locations just provide historical<br>information, so typically clients limit interaction with or hide these locations. |
 

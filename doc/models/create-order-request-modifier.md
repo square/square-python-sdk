@@ -17,7 +17,7 @@ Modifiers can reference existing objects in a merchant catalog or be constructed
 |  --- | --- | --- | --- |
 | `catalog_object_id` | `string` | Optional | The catalog object ID of a [CatalogModifier](#type-catalogmodifier). |
 | `name` | `string` | Optional | Only used for ad hoc modifiers. The name of the modifier. `name` cannot exceed 255 characters.<br><br>Do not provide a value for `name` if you provide a value for `catalog_object_id`. |
-| `base_price_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
+| `base_price_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 
 ### Example (as JSON)
 

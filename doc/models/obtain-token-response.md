@@ -13,8 +13,8 @@
 | `expires_at` | `string` | Optional | The date when access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm) format. |
 | `merchant_id` | `string` | Optional | The ID of the authorizing merchant's business. |
 | `subscription_id` | `string` | Optional | __LEGACY FIELD__. The ID of a subscription plan the merchant signed up<br>for. Only present if the merchant signed up for a subscription during authorization. |
-| `plan_id` | `string` | Optional | __LEGACY FIELD__. The ID of the subscription plan the merchant signed<br>up for. Only present if the merchant signed up for a subscription during<br>authorization. |
-| `id_token` | `string` | Optional | Then OpenID token belonging to this this person. Only present if the OPENID scope is included in the authorize request. |
+| `plan_id` | `string` | Optional | T__LEGACY FIELD__. The ID of the subscription plan the merchant signed<br>up for. Only present if the merchant signed up for a subscription during<br>authorization. |
+| `id_token` | `string` | Optional | Then OpenID token belonging to this this person. Only present if the<br>OPENID scope is included in the authorize request. |
 | `refresh_token` | `string` | Optional | A refresh token.<br>For more information, see [OAuth access token management](https://developer.squareup.com/docs/authz/oauth/how-it-works#oauth-access-token-management). |
 
 ### Example (as JSON)

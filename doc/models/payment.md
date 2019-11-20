@@ -13,12 +13,12 @@ Represents a payment processed by the Square API.
 | `id` | `string` | Optional | Unique ID for the payment. |
 | `created_at` | `string` | Optional | Timestamp of when the payment was created, in RFC 3339 format. |
 | `updated_at` | `string` | Optional | Timestamp of when the payment was last updated, in RFC 3339 format. |
-| `amount_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
-| `tip_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
-| `total_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
-| `app_fee_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
+| `amount_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+| `tip_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+| `total_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+| `app_fee_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `processing_fee` | [`List of Processing Fee`](/doc/models/processing-fee.md) | Optional | Processing fees and fee adjustments assessed by Square on this payment. |
-| `refunded_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned. |
+| `refunded_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `status` | `string` | Optional | Indicates whether the payment is `APPROVED`, `COMPLETED`, `CANCELED`, or `FAILED`. |
 | `source_type` | `string` | Optional | The source type for this payment<br><br>Current values include:<br>`CARD` |
 | `card_details` | [`Card Payment Details`](/doc/models/card-payment-details.md) | Optional | Reflects the current status of a card payment. |
@@ -32,6 +32,7 @@ Represents a payment processed by the Square API.
 | `billing_address` | [`Address`](/doc/models/address.md) | Optional | Represents a physical address. |
 | `shipping_address` | [`Address`](/doc/models/address.md) | Optional | Represents a physical address. |
 | `note` | `string` | Optional | An optional note to include when creating a payment |
+| `statement_description_identifier` | `string` | Optional | Additional payment information that gets added on the customer's card statement<br>as part of the statement description.<br><br>Note that the statement_description_identifier may get truncated on the statement description<br>to fit the required information including the Square identifier (SQ *) and name of the<br>merchant taking the payment. |
 
 ### Example (as JSON)
 
@@ -58,7 +59,8 @@ Represents a payment processed by the Square API.
   "buyer_email_address": null,
   "billing_address": null,
   "shipping_address": null,
-  "note": null
+  "note": null,
+  "statement_description_identifier": null
 }
 ```
 

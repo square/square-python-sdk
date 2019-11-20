@@ -8,9 +8,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | The set of [Error](#type-error)s encountered. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on any errors encountered. |
 | `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset, this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The [CatalogObject](#type-catalogobject)s returned. |
+| `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The CatalogObjects returned. |
 
 ### Example (as JSON)
 

@@ -1,0 +1,27 @@
+## Cash Payment Details
+
+Additional details about CASH type payments.
+
+### Structure
+
+`CashPaymentDetails`
+
+### Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `buyer_supplied_money` | [`Money`](/doc/models/money.md) |  | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+| `change_back_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+
+### Example (as JSON)
+
+```json
+{
+  "buyer_supplied_money": {
+    "amount": null,
+    "currency": null
+  },
+  "change_back_money": null
+}
+```
+

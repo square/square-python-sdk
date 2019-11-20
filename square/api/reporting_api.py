@@ -52,9 +52,8 @@ class ReportingApi(BaseApi):
                 newest first).  Default value: `DESC`
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  See
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination) for more information.
+                next set of results for your original query.  See [Paginating
+                results](#paginatingresults) for more information.
 
         Returns:
             ListAdditionalRecipientReceivableRefundsResponse: Response from
@@ -137,9 +136,8 @@ class ReportingApi(BaseApi):
                 newest first).  Default value: `DESC`
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  See
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination) for more information.
+                next set of results for your original query.  See [Paginating
+                results](#paginatingresults) for more information.
 
         Returns:
             ListAdditionalRecipientReceivablesResponse: Response from the API.

@@ -8,9 +8,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | The set of [Error](#type-error)s encountered. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on any errors encountered. |
 | `object` | [`Catalog Object`](/doc/models/catalog-object.md) | Optional | - |
-| `related_objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | A list of [CatalogObject](#type-catalogobject)s referenced by the object in the `object` field. |
+| `related_objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | A list of CatalogObjects referenced by the object in the `object` field. |
 
 ### Example (as JSON)
 

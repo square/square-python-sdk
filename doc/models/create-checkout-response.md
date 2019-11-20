@@ -1,7 +1,7 @@
 ## Create Checkout Response
 
 Defines the fields that are included in the response body of
-a request to the CreateCheckout endpoint.
+a request to the [CreateCheckout](#endpoint-createcheckout) endpoint.
 
 ### Structure
 

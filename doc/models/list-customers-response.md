@@ -14,8 +14,8 @@ One of `errors` or `customers` is present in a given response (never both).
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `customers` | [`List of Customer`](/doc/models/customer.md) | Optional | An array of `Customer` objects that match your query. |
-| `cursor` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. This value is present only if the request<br>succeeded and additional results are available.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
+| `customers` | [`List of Customer`](/doc/models/customer.md) | Optional | An array of `Customer` objects that match the provided query. |
+| `cursor` | `string` | Optional | A pagination cursor to retrieve the next set of results for the<br>original query. Only present if the request succeeded and additional results<br>are available.<br><br>See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. |
 
 ### Example (as JSON)
 

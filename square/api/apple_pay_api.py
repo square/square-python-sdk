@@ -32,9 +32,9 @@ class ApplePayApi(BaseApi):
         activate
         Web Apple Pay with Square for merchants using their platform.
         To learn more about Apple Pay on Web see the Apple Pay section in the
-        [Embedding the Square Payment
-        Form](https://developer.squareup.com/docs/payment-form/add-digital-wall
-        ets/apple-pay) guide.
+        [Square Payment Form
+        Walkthrough](https://developer.squareup.com/docs/docs/payment-form/paym
+        ent-form-walkthrough).
 
         Args:
             body (RegisterDomainRequest): An object containing the fields to

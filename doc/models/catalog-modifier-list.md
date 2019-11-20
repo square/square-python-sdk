@@ -1,12 +1,13 @@
 ## Catalog Modifier List
 
-A modifier list in the Catalog object model. A [CatalogModifierList](#type-catalogmodifierlist)
-contains [Modifier](#type-catalogmodifier)s that can be applied to a [CatalogItem](#type-catalogitem)
-at the time of sale.
+A modifier list in the Catalog object model. A `CatalogModifierList`
+contains `CatalogModifier` objects that can be applied to a `CatalogItem` at
+the time of sale.
 
-For example, a modifier list "Condiments" that would apply to a "Hot Dog" [CatalogItem](#type-catalogitem) might
-contain [CatalogModifier](#type-catalogmodifier)s "Ketchup", "Mustard", and "Relish". The
-`selection_type` field specifies whether or not multiple selections from the modifier list are allowed.
+For example, a modifier list "Condiments" that would apply to a "Hot Dog"
+`CatalogItem` might contain `CatalogModifier`s "Ketchup", "Mustard", and "Relish".
+The `selection_type` field specifies whether or not multiple selections from
+the modifier list are allowed.
 
 ### Structure
 
@@ -16,9 +17,9 @@ contain [CatalogModifier](#type-catalogmodifier)s "Ketchup", "Mustard", and "Rel
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Optional | The [CatalogModifierList](#type-catalogmodifierlist)'s name. Searchable. This field has max length of 255 Unicode code points. |
-| `selection_type` | [`str (Catalog Modifier List Selection Type)`](/doc/models/catalog-modifier-list-selection-type.md) | Optional | Indicates whether a [CatalogModifierList](#type-catalogmodifierlist) supports multiple selections. |
-| `modifiers` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The options included in the [CatalogModifierList](#type-catalogmodifierlist).<br>You must include at least one [CatalogModifier](#type-catalogmodifier).<br>Each [CatalogObject](#type-catalogobject) must have type `MODIFIER` and contain<br>[CatalogModifier](#type-catalogmodifier) data. |
+| `name` | `string` | Optional | A searchable name for the `CatalogModifierList`. This field has max length of 255 Unicode code points. |
+| `selection_type` | [`str (Catalog Modifier List Selection Type)`](/doc/models/catalog-modifier-list-selection-type.md) | Optional | Indicates whether a CatalogModifierList supports multiple selections. |
+| `modifiers` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The options included in the `CatalogModifierList`.<br>You must include at least one `CatalogModifier`.<br>Each CatalogObject must have type `MODIFIER` and contain<br>`CatalogModifier` data. |
 
 ### Example (as JSON)
 

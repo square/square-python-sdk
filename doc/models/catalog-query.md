@@ -1,17 +1,15 @@
 ## Catalog Query
 
-A query to be applied to a [SearchCatalogObjectsRequest](#type-searchcatalogobjectsrequest).
+A query to be applied to a `SearchCatalogObjectsRequest`.
 Only one query field may be present.
 
 Where an attribute name is required, it should be specified as the name of any field
 marked "searchable" from the structured data types for the desired result object type(s)
-([CatalogItem](#type-catalogitem), [CatalogItemVariation](#type-catalogitemvariation),
-[CatalogCategory](#type-catalogcategory), [CatalogTax](#type-catalogtax),
-[CatalogDiscount](#type-catalogdiscount), [CatalogModifierList](#type-catalogmodifierlist),
-[CatalogModifier](#type-catalogmodifier)).
+(`CatalogItem`, `CatalogItemVariation`, `CatalogCategory`, `CatalogTax`,
+`CatalogDiscount`, `CatalogModifierList`, `CatalogModifier`).
 
 For example, a query that should return Items may specify attribute names from
-any of the searchable fields of the [CatalogItem](#type-catalogitem) data type, namely
+any of the searchable fields of the `CatalogItem` data type, namely
 `"name"`, `"description"`, and `"abbreviation"`.
 
 ### Structure

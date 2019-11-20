@@ -1,10 +1,5 @@
 ## List Employees Response
 
-Defines the fields that are included in the response body of
-a request to the ListEmployees endpoint.
-
-One of `errors` or `employees` is present in a given response (never both).
-
 ### Structure
 
 `ListEmployeesResponse`

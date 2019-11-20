@@ -1,6 +1,6 @@
 ## Location Type
 
-Indicates the location's type.
+A location's physical or mobile type.
 
 ### Enumeration
 
@@ -10,6 +10,6 @@ Indicates the location's type.
 
 | Name | Description |
 |  --- | --- |
-| `PHYSICAL` | A physical location of a business. |
-| `MOBILE` | A location without a physical address. For example: mobile food truck, online store, phone app. |
+| `PHYSICAL` | A place of business with a physical location. |
+| `MOBILE` | A place of business that is mobile, such as a food truck or online store. |
 

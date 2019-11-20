@@ -2,6 +2,8 @@
 
 Represents an error encountered during a request to the Connect API.
 
+See [Handling errors](#handlingerrors) for more information.
+
 ### Structure
 
 `Error`
@@ -20,7 +22,7 @@ Represents an error encountered during a request to the Connect API.
 ```json
 {
   "category": "INVALID_REQUEST_ERROR",
-  "code": "INVALID_PIN",
+  "code": "VALUE_TOO_LOW",
   "detail": null,
   "field": null
 }

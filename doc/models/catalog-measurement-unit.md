@@ -1,8 +1,7 @@
 ## Catalog Measurement Unit
 
-Represents the unit used to measure a
-[CatalogItemVariation](#type-catalogitemvariation) and specifies the precision
-for decimal quantities.
+Represents the unit used to measure a `CatalogItemVariation` and
+specifies the precision for decimal quantities.
 
 ### Structure
 
@@ -13,7 +12,7 @@ for decimal quantities.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `measurement_unit` | [`Measurement Unit`](/doc/models/measurement-unit.md) | Optional | Represents a unit of measurement to use with a quantity, such as ounces<br>or inches. Exactly one of the following fields are required: `custom_unit`,<br>`area_unit`, `length_unit`, `volume_unit`, and `weight_unit`. |
-| `precision` | `int` | Optional | Represents the maximum number of positions allowed after the decimal<br>in quantities measured with this unit. For example, if the precision is 2,<br>then an itemization’s quantity can be 0.01, 0.12, etc.<br><br>Min: 0<br><br>Max: 5<br><br>Default: 3 |
+| `precision` | `int` | Optional | An integer between 0 and 5 that represents the maximum number of<br>positions allowed after the decimal in quantities measured with this unit.<br>For example:<br><br>- if the precision is 0, the quantity can be 1, 2, 3, etc.<br>- if the precision is 1, the quantity can be 0.1, 0.2, etc.<br>- if the precision is 2, the quantity can be 0.01, 0.12, etc.<br><br>Default: 3 |
 
 ### Example (as JSON)
 

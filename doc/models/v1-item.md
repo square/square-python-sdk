@@ -15,7 +15,7 @@ V1Item
 | `description` | `string` | Optional | The item's description. |
 | `type` | [`str (V1 Item Type)`](/doc/models/v1-item-type.md) | Optional | - |
 | `color` | [`str (V1 Item Color)`](/doc/models/v1-item-color.md) | Optional | - |
-| `abbreviation` | `string` | Optional | The text of the item's display label in Square Register. Only up to the first five characters of the string are used. |
+| `abbreviation` | `string` | Optional | The text of the item's display label in Square Point of Sale. Only up to the first five characters of the string are used. |
 | `visibility` | [`str (V1 Item Visibility)`](/doc/models/v1-item-visibility.md) | Optional | - |
 | `available_online` | `bool` | Optional | If true, the item can be added to shipping orders from the merchant's online store. |
 | `master_image` | [`V1 Item Image`](/doc/models/v1-item-image.md) | Optional | V1ItemImage |

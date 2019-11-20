@@ -197,6 +197,98 @@ class CatalogApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    def create_catalog_image(self,
+                             request=None,
+                             image_file=None):
+        """Does a POST request to /v2/catalog/images.
+
+        Upload an image file to create a new
+        [CatalogImage](#type-catalogimage) for an existing
+        [CatalogObject](#type-catalogobject). Images can be uploaded and
+        linked in this request or created independently
+        (without an object assignment) and linked to a
+        [CatalogObject](#type-catalogobject) at a later time.
+        CreateCatalogImage accepts HTTP multipart/form-data requests with a
+        JSON part and an image file part in
+        JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB. The
+        following is an example of such an HTTP request:
+        ```
+        POST /v2/catalog/images
+        Accept: application/json
+        Content-Type: multipart/form-data;boundary="boundary"
+        Square-Version: XXXX-XX-XX
+        Authorization: Bearer {ACCESS_TOKEN}
+        --boundary
+        Content-Disposition: form-data; name="request"
+        Content-Type: application/json
+        {
+        "idempotency_key":"528dea59-7bfb-43c1-bd48-4a6bba7dd61f86",
+        "object_id": "ND6EA5AAJEO5WL3JNNIAQA32",
+        "image":{
+        "id":"#TEMP_ID",
+        "type":"IMAGE",
+        "image_data":{
+        "caption":"A picture of a cup of coffee"
+        }
+        }
+        }
+        --boundary
+        Content-Disposition: form-data; name="image"; filename="Coffee.jpg"
+        Content-Type: image/jpeg
+        {ACTUAL_IMAGE_BYTES}
+        --boundary
+        ```
+        Additional information and an example cURL request can be found in the
+        [Create a Catalog Image
+        recipe](https://developer.squareup.com/docs/more-apis/catalog/cookbook/
+        create-catalog-images).
+
+        Args:
+            request (CreateCatalogImageRequest, optional): TODO: type
+                description here.
+            image_file (string, optional): TODO: type description here.
+
+        Returns:
+            CreateCatalogImageResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/catalog/images'
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare files
+        _files = {
+            'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
+            'image_file': (image_file.name, image_file, 'image/jpeg')
+        }
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.post(_query_url, headers=_headers, files=_files)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
     def catalog_info(self):
         """Does a GET request to /v2/catalog/info.
 
@@ -266,9 +358,9 @@ class CatalogApi(BaseApi):
             types (string, optional): An optional case-insensitive,
                 comma-separated list of object types to retrieve, for example
                 `ITEM,ITEM_VARIATION,CATEGORY,IMAGE`.  The legal values are
-                taken from the [CatalogObjectType](#type-catalogobjecttype)
-                enumeration, namely `ITEM`, `ITEM_VARIATION`, `CATEGORY`,
-                `DISCOUNT`, `TAX`, `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.
+                taken from the CatalogObjectType enum: `ITEM`,
+                `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`, `MODIFIER`,
+                `MODIFIER_LIST`, or `IMAGE`.
 
         Returns:
             ListCatalogResponse: Response from the API. Success
@@ -375,12 +467,11 @@ class CatalogApi(BaseApi):
         [CatalogItemVariation](#type-catalogitemvariation) children.
 
         Args:
-            object_id (string): The ID of the
-                [CatalogObject](#type-catalogobject) to be deleted. When an
-                object is deleted, other objects in the graph that depend on
-                that object will be deleted as well (for example, deleting a
-                [CatalogItem](#type-catalogitem) will delete its
-                [CatalogItemVariation](#type-catalogitemvariation)s).
+            object_id (string): The ID of the catalog object to be deleted.
+                When an object is deleted, other objects in the graph that
+                depend on that object will be deleted as well (for example,
+                deleting a catalog item will delete its catalog item
+                variations).
 
         Returns:
             DeleteCatalogObjectResponse: Response from the API. Success
@@ -437,22 +528,18 @@ class CatalogApi(BaseApi):
         any [CatalogTax](#type-catalogtax) objects that apply to it.
 
         Args:
-            object_id (string): The object ID of any type of
-                [CatalogObject](#type-catalogobject)s to be retrieved.
+            object_id (string): The object ID of any type of catalog objects
+                to be retrieved.
             include_related_objects (bool, optional): If `true`, the response
                 will include additional objects that are related to the
                 requested object, as follows:  If the `object` field of the
-                response contains a [CatalogItem](#type-catalogitem), its
-                associated [CatalogCategory](#type-catalogcategory),
-                [CatalogTax](#type-catalogtax)es,
-                [CatalogImage](#type-catalogimage)s and
-                [CatalogModifierList](#type-catalogmodifierlist)s will be
-                returned in the `related_objects` field of the response. If
-                the `object` field of the response contains a
-                [CatalogItemVariation](#type-catalogitemvariation), its parent
-                [CatalogItem](#type-catalogitem) will be returned in the
-                `related_objects` field of  the response.  Default value:
-                `false`
+                response contains a CatalogItem, its associated
+                CatalogCategory, CatalogTax objects, CatalogImages and
+                CatalogModifierLists will be returned in the `related_objects`
+                field of the response. If the `object` field of the response
+                contains a CatalogItemVariation, its parent CatalogItem will
+                be returned in the `related_objects` field of the response. 
+                Default value: `false`
 
         Returns:
             RetrieveCatalogObjectResponse: Response from the API. Success
@@ -511,6 +598,16 @@ class CatalogApi(BaseApi):
         [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax), and
         [CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierli
         st).
+        --
+        --
+        Future end of the above comment:
+        [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),
+        [CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierli
+        st),
+        [CatalogQueryItemsForItemOptions](#type-catalogqueryitemsforitemoptions
+        ), and
+        [CatalogQueryItemVariationsForItemOptionValues](#type-catalogqueryitemv
+        ariationsforitemoptionvalues).
 
         Args:
             body (SearchCatalogObjectsRequest): An object containing the
