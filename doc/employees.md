@@ -15,7 +15,7 @@ employees_api = client.employees
 
 ## List Employees
 
-Gets a list of `Employee` objects for a business.
+ListEmployees
 
 ```python
 def list_employees(self,
@@ -29,7 +29,7 @@ def list_employees(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Optional | Filter employees returned to only those that are associated with the<br>specified location. |
+| `location_id` | `string` | Query, Optional | Filter employees returned to only those that are associated with the specified location. |
 | `status` | [`str (Employee Status)`](/doc/models/employee-status.md) | Query, Optional | Specifies the EmployeeStatus to filter the employee by. |
 | `limit` | `int` | Query, Optional | The number of employees to be returned on each page. |
 | `cursor` | `string` | Query, Optional | The token required to retrieve the specified page of results. |
@@ -51,7 +51,7 @@ elif result.is_error():
 
 ## Retrieve Employee
 
-Gets an `Employee` by Square-assigned employee `ID` (UUID)
+RetrieveEmployee
 
 ```python
 def retrieve_employee(self,

@@ -1,7 +1,7 @@
 ## Create Checkout Request
 
 Defines the parameters that can be included in the body of
-a request to the CreateCheckout endpoint.
+a request to the [CreateCheckout](#endpoint-createcheckout) endpoint.
 
 ### Structure
 
@@ -11,7 +11,7 @@ a request to the CreateCheckout endpoint.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `idempotency_key` | `string` |  | A unique string that identifies this checkout among others<br>you've created. It can be any valid string but must be unique for every<br>order sent to Square Checkout for a given location ID.<br><br>The idempotency key is used to avoid processing the same order more than<br>once. If you're unsure whether a particular checkout was created<br>successfully, you can reattempt it with the same idempotency key and all the<br>same other parameters without worrying about creating duplicates.<br><br>We recommend using a random number/string generator native to the language<br>you are working in to generate strings for your idempotency keys.<br><br>See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) for more information. |
+| `idempotency_key` | `string` |  | A unique string that identifies this checkout among others<br>you've created. It can be any valid string but must be unique for every<br>order sent to Square Checkout for a given location ID.<br><br>The idempotency key is used to avoid processing the same order more than<br>once. If you're unsure whether a particular checkout was created<br>successfully, you can reattempt it with the same idempotency key and all the<br>same other parameters without worrying about creating duplicates.<br><br>We recommend using a random number/string generator native to the language<br>you are working in to generate strings for your idempotency keys.<br><br>See [Idempotency keys](#idempotencykeys) for more information. |
 | `order` | [`Create Order Request`](/doc/models/create-order-request.md) |  | - |
 | `ask_for_shipping_address` | `bool` | Optional | If `true`, Square Checkout will collect shipping information on your<br>behalf and store that information with the transaction information in your<br>Square Dashboard.<br><br>Default: `false`. |
 | `merchant_support_email` | `string` | Optional | The email address to display on the Square Checkout confirmation page<br>and confirmation email that the buyer can use to contact the merchant.<br><br>If this value is not set, the confirmation page and email will display the<br>primary email address associated with the merchant's Square account.<br><br>Default: none; only exists if explicitly set. |

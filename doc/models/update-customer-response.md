@@ -14,7 +14,7 @@ One of `errors` or `customer` is present in a given response (never both).
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `customer` | [`Customer`](/doc/models/customer.md) | Optional | Represents one of a business's customers, which can have one or more<br>cards on file associated with it. |
+| `customer` | [`Customer`](/doc/models/customer.md) | Optional | Represents a Square customer profile, which can have one or more<br>cards on file associated with it. |
 
 ### Example (as JSON)
 

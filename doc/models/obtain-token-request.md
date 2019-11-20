@@ -8,8 +8,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `client_id` | `string` |  | The Square-issued ID of your application, available from the [application dashboard](https://connect.squareup.com/apps). |
-| `client_secret` | `string` |  | The Square-issued application secret for your application,<br>available from the [application dashboard](https://connect.squareup.com/apps). |
+| `client_id` | `string` |  | The Square-issued ID of your application, available from the<br>[application dashboard](https://connect.squareup.com/apps). |
+| `client_secret` | `string` |  | The Square-issued application secret for your application, available<br>from the [application dashboard](https://connect.squareup.com/apps). |
 | `code` | `string` | Optional | The authorization code to exchange.<br>This is required if `grant_type` is set to `authorization_code`, to indicate that<br>the application wants to exchange an authorization code for an OAuth access token. |
 | `redirect_uri` | `string` | Optional | The redirect URL assigned in the [application dashboard](https://connect.squareup.com/apps). |
 | `grant_type` | `string` |  | Specifies the method to request an OAuth access token.<br>Valid values are: `authorization_code`, `refresh_token`, and `migration_token` |

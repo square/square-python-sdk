@@ -302,9 +302,9 @@ class InventoryApi(BaseApi):
                 queries all locations.
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
-                next set of results for the original query.  See
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination) for more information.
+                next set of results for the original query.  See the
+                [Pagination](https://developer.squareup.com/docs/docs/working-w
+                ith-apis/pagination) guide for more information.
 
         Returns:
             RetrieveInventoryCountResponse: Response from the API. Success
@@ -377,9 +377,9 @@ class InventoryApi(BaseApi):
                 queries all locations.
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
-                next set of results for the original query.  See
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination) for more information.
+                next set of results for the original query.  See the
+                [Pagination](https://developer.squareup.com/docs/docs/working-w
+                ith-apis/pagination) guide for more information.
 
         Returns:
             RetrieveInventoryChangesResponse: Response from the API. Success

@@ -8,7 +8,7 @@
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `modifier_list_ids` | `List of string` | A set of [CatalogModifierList](#type-catalogmodifierlist) IDs to be used to find associated [CatalogItem](#type-catalogitem)s. |
+| `modifier_list_ids` | `List of string` | A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s. |
 
 ### Example (as JSON)
 

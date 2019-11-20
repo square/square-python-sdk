@@ -16,7 +16,7 @@ o_auth_api = client.o_auth
 
 ## Renew Token
 
-`RenewToken` is deprecated. For information about refreshing OAuth access tokens, see 
+`RenewToken` is deprecated. For information about refreshing OAuth access tokens, see
 [Renew OAuth Token](https://developer.squareup.com/docs/oauth-api/cookbook/renew-oauth-tokens).
 
 
@@ -50,7 +50,7 @@ def renew_token(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `client_id` | `string` | Template, Required | Your application's ID, available from the [application dashboard](https://connect.squareup.com/apps). |
+| `client_id` | `string` | Template, Required | Your application ID, available from the [application dashboard](https://connect.squareup.com/apps). |
 | `body` | [`Renew Token Request`](/doc/models/renew-token-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 | `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
 
@@ -130,16 +130,16 @@ elif result.is_error():
 
 ## Obtain Token
 
-Returns an OAuth access token. 
+Returns an OAuth access token.
 
-The endpoint supports distinct methods of obtaining OAuth access tokens. 
-Applications specify a method by adding the `grant_type` parameter 
-in the request and also provide relevant information. 
-For more information, see [OAuth access token management](https://developer.squareup.com/docs/authz/oauth/how-it-works#oauth-access-token-management). 
+The endpoint supports distinct methods of obtaining OAuth access tokens.
+Applications specify a method by adding the `grant_type` parameter
+in the request and also provide relevant information.
+For more information, see [OAuth access token management](https://developer.squareup.com/docs/authz/oauth/how-it-works#oauth-access-token-management).
 
 __Note:__ Regardless of the method application specified,
-the endpoint always returns two items; an OAuth access token and 
-a refresh token in the response. 
+the endpoint always returns two items; an OAuth access token and
+a refresh token in the response.
 
 __OAuth tokens should only live on secure servers. Application clients
 should never interact directly with OAuth tokens__.

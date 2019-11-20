@@ -23,7 +23,7 @@ env:
 notifications:
   slack:
     secure: Gh641zg9Ch+sFZCWwxdi6ZPQk1csUGcwenfL9cgs3op+BfQOJbBgw3LWGqYVBBgTowO8ibg/q/kapzg9lGjLxQOVNPQZci7dFB5WHmdVwUoSoLxQCZcCa0IQkk0XfI7UYKBnuoqpBsEe6eXKyvdFEUrx51Z4XwFtjLpINYZ4DY2NmsA9QihFJBSqhB4si7l0yON2Q8JR4Dc6PXCLn+LrzNliHCgzWveF/FtRQocT4uj3e3frySdOHmb6fV2yGb8Z/jR01s/97cyX6Y37BWyGrZFTfyDb+V5lcAzJdgkYhLaeLo8coKwZwgWOu6Eo6EeQ4/Y/XKr9BjdKmyWY0Z2gc4FPWrHvfrGdUsSfr2ECdApMsNcNPeTtvAc2xe8wDVbASLdrg5pcZCba5PZBgZ4KvQ7Rg7olo9dbHRbUddy0VFM1Td9heBKXV9gL1bkv1eLMa400uGKoA6A7lim8AkjEBTiLQ3pZOalZGDUop5iDD8pmnwZ9rd51LI03hSIrC75j1ePlqxwQ6z6R2xjwCHznNveiI/CQGtLr4vMuexGG//afK8/WGlnVch+CpEkC/aEok/0L3ik3l6OgfXuHItgY3SrUny18uYNQK4NXPo+PT+m82qzSONpHxhdkYXsz8GP5/Rn5v2wUShLUKwU/EKi20fjcI1jO/JAW8gcJAwfBChA=
-  on_success: change
+    on_success: change
     template:
       - "@oncall"
       - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"

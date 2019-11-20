@@ -50,12 +50,12 @@ class RefundsApi(BaseApi):
             location_id (string, optional): ID of location associated with
                 payment.
             status (string, optional): If provided, only refunds with the
-                given status are returned.  For a list of refund status
-                values, see [PaymentRefund](#type-paymentrefund).  Default: If
-                omitted refunds are returned regardless of status.
+                given status are returned. For a list of refund status values,
+                see [PaymentRefund](#type-paymentrefund).  Default: If omitted
+                refunds are returned regardless of status.
             source_type (string, optional): If provided, only refunds with the
-                given source type are returned.  - `CARD` - List refunds only
-                for payments where card was specified as payment  source. 
+                given source type are returned. - `CARD` - List refunds only
+                for payments where card was specified as payment source. 
                 Default: If omitted refunds are returned regardless of source
                 type.
 

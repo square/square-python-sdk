@@ -8,9 +8,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `item_ids` | `List of string` |  | The [CatalogItem](#type-catalogitem)s whose enabled/disabled [CatalogTax](#type-catalogtax)es are being updated. |
-| `taxes_to_enable` | `List of string` | Optional | The set of [CatalogTax](#type-catalogtax)es (referenced by ID) to enable for the [CatalogItem](#type-catalogitem). |
-| `taxes_to_disable` | `List of string` | Optional | The set of [CatalogTax](#type-catalogtax)es (referenced by ID) to disable for the [CatalogItem](#type-catalogitem). |
+| `item_ids` | `List of string` |  | IDs for the CatalogItems associated with the CatalogTax objects being updated. |
+| `taxes_to_enable` | `List of string` | Optional | IDs of the CatalogTax objects to enable. |
+| `taxes_to_disable` | `List of string` | Optional | IDs of the CatalogTax objects to disable. |
 
 ### Example (as JSON)
 

@@ -30,14 +30,15 @@ class CustomersApi(BaseApi):
         Args:
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  See
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination) for more information.
+                next set of results for your original query.  See the
+                [Pagination
+                guide](https://developer.squareup.com/docs/working-with-apis/pa
+                gination) for more information.
             sort_field (CustomerSortField, optional): Indicates how Customers
-                should be sorted. Default: `DEFAULT`.
+                should be sorted.  Default: `DEFAULT`.
             sort_order (SortOrder, optional): Indicates whether Customers
                 should be sorted in ascending (`ASC`) or descending (`DESC`)
-                order. Default: `ASC`.
+                order.  Default: `ASC`.
 
         Returns:
             ListCustomersResponse: Response from the API. Success
@@ -301,11 +302,9 @@ class CustomersApi(BaseApi):
         You cannot edit a customer's cards on file with this endpoint. To make
         changes
         to a card on file, you must delete the existing card on file with the
-        [DeleteCustomerCard](#endpoint-customers-deletecustomercard) endpoint,
-        then
+        [DeleteCustomerCard](#endpoint-deletecustomercard) endpoint, then
         create a new one with the
-        [CreateCustomerCard](#endpoint-customers-createcustomercard)
-        endpoint.
+        [CreateCustomerCard](#endpoint-createcustomercard) endpoint.
 
         Args:
             customer_id (string): The ID of the customer to update.
@@ -363,9 +362,6 @@ class CustomersApi(BaseApi):
         calls with the same card nonce return the same card record that was
         created
         with the provided nonce during the _first_ call.
-        Cards on file are automatically updated on a monthly basis to confirm
-        they
-        are still valid and can be charged.
 
         Args:
             customer_id (string): The Square ID of the customer profile the

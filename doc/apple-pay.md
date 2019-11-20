@@ -18,7 +18,7 @@ This endpoint provides an easy way for platform developers to bulk activate
 Web Apple Pay with Square for merchants using their platform.
 
 To learn more about Apple Pay on Web see the Apple Pay section in the
-[Embedding the Square Payment Form](https://developer.squareup.com/docs/payment-form/add-digital-wallets/apple-pay) guide.
+[Square Payment Form Walkthrough](https://developer.squareup.com/docs/docs/payment-form/payment-form-walkthrough).
 
 ```python
 def register_domain(self,

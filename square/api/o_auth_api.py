@@ -27,7 +27,7 @@ class OAuthApi(BaseApi):
         """Does a POST request to /oauth2/clients/{client_id}/access-token/renew.
 
         `RenewToken` is deprecated. For information about refreshing OAuth
-        access tokens, see 
+        access tokens, see
         [Renew OAuth
         Token](https://developer.squareup.com/docs/oauth-api/cookbook/renew-oau
         th-tokens).
@@ -52,7 +52,7 @@ class OAuthApi(BaseApi):
         dashboard](https://connect.squareup.com/apps).
 
         Args:
-            client_id (string): Your application's ID, available from the
+            client_id (string): Your application ID, available from the
                 [application dashboard](https://connect.squareup.com/apps).
             body (RenewTokenRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
@@ -168,17 +168,17 @@ class OAuthApi(BaseApi):
                      body):
         """Does a POST request to /oauth2/token.
 
-        Returns an OAuth access token. 
+        Returns an OAuth access token.
         The endpoint supports distinct methods of obtaining OAuth access
-        tokens. 
-        Applications specify a method by adding the `grant_type` parameter 
-        in the request and also provide relevant information. 
+        tokens.
+        Applications specify a method by adding the `grant_type` parameter
+        in the request and also provide relevant information.
         For more information, see [OAuth access token
         management](https://developer.squareup.com/docs/authz/oauth/how-it-work
-        s#oauth-access-token-management). 
+        s#oauth-access-token-management).
         __Note:__ Regardless of the method application specified,
-        the endpoint always returns two items; an OAuth access token and 
-        a refresh token in the response. 
+        the endpoint always returns two items; an OAuth access token and
+        a refresh token in the response.
         __OAuth tokens should only live on secure servers. Application
         clients
         should never interact directly with OAuth tokens__.

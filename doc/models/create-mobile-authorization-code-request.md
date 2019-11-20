@@ -1,7 +1,7 @@
 ## Create Mobile Authorization Code Request
 
 Defines the body parameters that can be provided in a request to the
-CreateMobileAuthorizationCode endpoint.
+__CreateMobileAuthorizationCode__ endpoint.
 
 ### Structure
 

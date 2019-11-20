@@ -1,7 +1,6 @@
 ## Location Capability
 
-Indicates payment capabilities that a business's location might or
-might not have enabled.
+The capabilities a location may have.
 
 ### Enumeration
 
@@ -11,5 +10,5 @@ might not have enabled.
 
 | Name | Description |
 |  --- | --- |
-| `CREDIT_CARD_PROCESSING` | The location can process credit cards with Square.<br><br>If this value is not present in a [`Location`](#type-location)'s'<br>`capabilities` array, the location _cannot_ process credit cards. |
+| `CREDIT_CARD_PROCESSING` | The permission to process credit card transactions with Square.<br><br>The location can process credit cards if this value is present<br>in the `capabilities` array of the `Location`. |
 

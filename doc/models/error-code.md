@@ -82,7 +82,7 @@ Square API.
 | `INVALID_FEES` | The total fee amount associated with the payment is too high. |
 | `MANUALLY_ENTERED_PAYMENT_NOT_SUPPORTED` | The payment was declined because manually keying-in the card<br>information is disallowed. The card must be swiped, tapped, or dipped. |
 | `PAYMENT_LIMIT_EXCEEDED` | Square declined the request because the payment amount exceeds the<br>processing limit for the associated Square account. |
-| `GIFT_CARD_AVAILABLE_AMOUNT` | Square declined the request because the payment amount exceeds the<br>processing limit for the associated Square account. |
+| `GIFT_CARD_AVAILABLE_AMOUNT` | A gift card payment was declined because the card had insufficient funds. |
 | `DELAYED_TRANSACTION_EXPIRED` | The application tried to update a delayed-capture payment that has expired. |
 | `DELAYED_TRANSACTION_CANCELED` | The application tried to cancel a delayed-capture payment that was already cancelled. |
 | `DELAYED_TRANSACTION_CAPTURED` | The application tried to capture a delayed-capture payment that was already captured. |
@@ -107,6 +107,7 @@ Square API.
 | `API_VERSION_INCOMPATIBLE` | The provided Square-Version is incompatibile with the requested action. |
 | `INVALID_URL` | The provided API URL is invalid. |
 | `HTTPS_ONLY` | HTTPS only. |
+| `UNREACHABLE_URL` | The provided URL is unreachable. |
 | `CARD_DECLINED` | 402 Request failed - the card was declined. |
 | `VERIFY_CVV_FAILURE` | 402 Request failed - the CVV could not be verified. |
 | `VERIFY_AVS_FAILURE` | 402 Request failed - the AVS could not be verified. |
@@ -122,10 +123,13 @@ Square API.
 | `NOT_ACCEPTABLE` | 406 Not Acceptable - a general error occurred. |
 | `REQUEST_TIMEOUT` | 408 Request Timeout - a general error occurred. |
 | `CONFLICT` | 409 Conflict - a general error occurred. |
+| `GONE` | 410 Gone - the target resource is no longer available and this<br>condition is likely to be permanent.. |
 | `REQUEST_ENTITY_TOO_LARGE` | 413 Request Entity Too Large - a general error occurred. |
 | `UNSUPPORTED_MEDIA_TYPE` | 415 Unsupported Media Type - a general error occurred. |
+| `UNPROCESSABLE_ENTITY` | 422 Unprocessable Entity - a general error occurred. |
 | `RATE_LIMITED` | 429 Rate Limited - a general error occurred. |
 | `NOT_IMPLEMENTED` | 501 Not Implemented - a general error occurred. |
+| `BAD_GATEWAY` | 502 Bad Gateway - a general error occurred. |
 | `SERVICE_UNAVAILABLE` | 503 Service Unavailable - a general error occurred. |
 | `TEMPORARY_ERROR` | A temporary internal error occurred. You can safely retry your call<br>using the same idempotency key. |
 | `GATEWAY_TIMEOUT` | 504 Gateway Timeout - a general error occurred. |

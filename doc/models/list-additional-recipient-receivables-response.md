@@ -1,7 +1,7 @@
 ## List Additional Recipient Receivables Response
 
 Defines the fields that are included in the response body of
-a request to the ListAdditionalRecipientReceivables endpoint.
+a request to the [ListAdditionalRecipientReceivables](#endpoint-listadditionalrecipientreceivables) endpoint.
 
 One of `errors` or `additional_recipient_receivables` is present in a given response (never both).
 
@@ -15,7 +15,7 @@ One of `errors` or `additional_recipient_receivables` is present in a given resp
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `receivables` | [`List of Additional Recipient Receivable`](/doc/models/additional-recipient-receivable.md) | Optional | An array of AdditionalRecipientReceivables that match your query. |
-| `cursor` | `string` | Optional | A pagination cursor for retrieving the next set of results,<br>if any remain. Provide this value as the `cursor` parameter in a subsequent<br>request to this endpoint.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
+| `cursor` | `string` | Optional | A pagination cursor for retrieving the next set of results,<br>if any remain. Provide this value as the `cursor` parameter in a subsequent<br>request to this endpoint.<br><br>See [Paginating results](#paginatingresults) for more information. |
 
 ### Example (as JSON)
 

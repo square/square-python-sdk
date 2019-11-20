@@ -34,9 +34,9 @@ def list_customers(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `sort_field` | [`str (Customer Sort Field)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how Customers should be sorted. Default: `DEFAULT`. |
-| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether Customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order. Default: `ASC`. |
+| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. |
+| `sort_field` | [`str (Customer Sort Field)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how Customers should be sorted.<br><br>Default: `DEFAULT`. |
+| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether Customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>Default: `ASC`. |
 
 ### Response Type
 
@@ -228,9 +228,8 @@ the new `customer_id` to update merged profiles.
 
 You cannot edit a customer's cards on file with this endpoint. To make changes
 to a card on file, you must delete the existing card on file with the
-[DeleteCustomerCard](#endpoint-customers-deletecustomercard) endpoint, then
-create a new one with the
-[CreateCustomerCard](#endpoint-customers-createcustomercard) endpoint.
+[DeleteCustomerCard](#endpoint-deletecustomercard) endpoint, then create a new one with the
+[CreateCustomerCard](#endpoint-createcustomercard) endpoint.
 
 ```python
 def update_customer(self,
@@ -273,9 +272,6 @@ Adds a card on file to an existing customer.
 As with charges, calls to `CreateCustomerCard` are idempotent. Multiple
 calls with the same card nonce return the same card record that was created
 with the provided nonce during the _first_ call.
-
-Cards on file are automatically updated on a monthly basis to confirm they
-are still valid and can be charged.
 
 ```python
 def create_customer_card(self,

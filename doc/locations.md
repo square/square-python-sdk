@@ -11,12 +11,13 @@ locations_api = client.locations
 ## Methods
 
 * [List Locations](/doc/locations.md#list-locations)
+* [Create Location](/doc/locations.md#create-location)
 * [Retrieve Location](/doc/locations.md#retrieve-location)
 * [Update Location](/doc/locations.md#update-location)
 
 ## List Locations
 
-Provides the details for all of a business's locations.
+Provides information of all locations of a business.
 
 Most other Connect API endpoints have a required `location_id` path parameter.
 The `id` field of the [`Location`](#type-location) objects returned by this
@@ -34,6 +35,47 @@ def list_locations(self)
 
 ```python
 result = locations_api.list_locations()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Create Location
+
+Creates a location.
+For more information about locations, see [Locations API Overview](https://developer.squareup.com/docs/locations-api).
+
+```python
+def create_location(self,
+                   body)
+```
+
+### Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Create Location Request`](/doc/models/create-location-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+### Response Type
+
+[`Create Location Response`](/doc/models/create-location-response.md)
+
+### Example Usage
+
+```python
+body = {}
+body['location'] = {}
+body['location']['name'] = 'New location name'
+body['location']['address'] = {}
+body['location']['address']['address_line_1'] = '1234 Peachtree St. NE'
+body['location']['address']['locality'] = 'Atlanta'
+body['location']['address']['administrative_district_level_1'] = 'GA'
+body['location']['address']['postal_code'] = '30309'
+body['location']['description'] = 'My new location.'
+
+result = locations_api.create_location(body)
 
 if result.is_success():
     print(result.body)
@@ -75,7 +117,7 @@ elif result.is_error():
 
 ## Update Location
 
-Updates the `Location` specified by the given ID.
+Updates a location.
 
 ```python
 def update_location(self,
@@ -99,6 +141,24 @@ def update_location(self,
 ```python
 location_id = 'location_id4'
 body = {}
+body['location'] = {}
+body['location']['name'] = 'Updated nickname'
+body['location']['address'] = {}
+body['location']['address']['address_line_1'] = '1234 Peachtree St. NE'
+body['location']['address']['locality'] = 'Atlanta'
+body['location']['address']['administrative_district_level_1'] = 'GA'
+body['location']['address']['postal_code'] = '30309'
+body['location']['business_hours'] = {}
+body['location']['business_hours']['periods'] = []
+
+body['location']['business_hours']['periods'].append({})
+body['location']['business_hours']['periods'][0]['day_of_week'] = 'MON'
+body['location']['business_hours']['periods'][0]['start_local_time'] = '09:00'
+body['location']['business_hours']['periods'][0]['end_local_time'] = '17:00'
+
+body['location']['description'] = 'Updated description'
+body['location']['twitter_username'] = 'twitter'
+body['location']['instagram_username'] = 'instagram'
 
 result = locations_api.update_location(location_id, body)
 
