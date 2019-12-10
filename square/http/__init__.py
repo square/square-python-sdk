@@ -1,4 +1,4 @@
-__all__ = [
+__all__ = (
     'auth',
     'http_method_enum',
     'http_request',
@@ -6,4 +6,4 @@ __all__ = [
     'http_client',
     'requests_client',
     'http_call_back',
-]
+)

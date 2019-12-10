@@ -1,4 +1,4 @@
-__all__ = [
+__all__ = (
     'api_helper',
     'configuration',
     'apis',
@@ -6,4 +6,4 @@ __all__ = [
     'exceptions',
     'decorators',
     'client',
-]
+)

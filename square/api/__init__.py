@@ -1,4 +1,4 @@
-__all__ = [
+__all__ = (
     'base_api',
     'mobile_authorization_api',
     'o_auth_api',
@@ -20,4 +20,4 @@ __all__ = [
     'merchants_api',
     'payments_api',
     'refunds_api',
-]
+)
