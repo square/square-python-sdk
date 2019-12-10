@@ -122,7 +122,9 @@ class Client(object):
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
                  environment='production', access_token='TODO: Replace',
-                 additional_headers={}, config=None):
+                 additional_headers=None, config=None):
+        if additional_headers is None:
+            additional_headers = {}
         if config is None:
             self.config = Configuration(timeout=timeout,
                                         max_retries=max_retries,
