@@ -1,6 +1,3 @@
-import json
-
-
 class ApiResponse:
 
     """Http response received.
