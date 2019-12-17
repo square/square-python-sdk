@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Employee Role`](/doc/models/v1-employee-role.md) | Optional | - |
+| `items` | [`List of V1 Employee Role`]($m/V1EmployeeRole) | Optional | - |
 
 ### Example (as JSON)
 

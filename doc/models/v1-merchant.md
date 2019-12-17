@@ -14,17 +14,17 @@ a request to the **RetrieveBusiness** endpoint.
 | `id` | `string` | Optional | The merchant account's unique identifier. |
 | `name` | `string` | Optional | The name associated with the merchant account. |
 | `email` | `string` | Optional | The email address associated with the merchant account. |
-| `account_type` | [`str (V1 Merchant Account Type)`](/doc/models/v1-merchant-account-type.md) | Optional | - |
+| `account_type` | [`str (V1 Merchant Account Type)`]($m/V1MerchantAccountType) | Optional | - |
 | `account_capabilities` | `List of string` | Optional | Capabilities that are enabled for the merchant's Square account. Capabilities that are not listed in this array are not enabled for the account. |
 | `country_code` | `string` | Optional | The country associated with the merchant account, in ISO 3166-1-alpha-2 format. |
 | `language_code` | `string` | Optional | The language associated with the merchant account, in BCP 47 format. |
 | `currency_code` | `string` | Optional | The currency associated with the merchant account, in ISO 4217 format. For example, the currency code for US dollars is USD. |
 | `business_name` | `string` | Optional | The name of the merchant's business. |
 | `business_address` | [`Address`](/doc/models/address.md) | Optional | Represents a physical address. |
-| `business_phone` | [`V1 Phone Number`](/doc/models/v1-phone-number.md) | Optional | Represents a phone number. |
-| `business_type` | [`str (V1 Merchant Business Type)`](/doc/models/v1-merchant-business-type.md) | Optional | - |
+| `business_phone` | [`V1 Phone Number`]($m/V1PhoneNumber) | Optional | Represents a phone number. |
+| `business_type` | [`str (V1 Merchant Business Type)`]($m/V1MerchantBusinessType) | Optional | - |
 | `shipping_address` | [`Address`](/doc/models/address.md) | Optional | Represents a physical address. |
-| `location_details` | [`V1 Merchant Location Details`](/doc/models/v1-merchant-location-details.md) | Optional | Additional information for a single-location account specified by its associated business account, if it has one. |
+| `location_details` | [`V1 Merchant Location Details`]($m/V1MerchantLocationDetails) | Optional | Additional information for a single-location account specified by its associated business account, if it has one. |
 | `market_url` | `string` | Optional | The URL of the merchant's online store. |
 
 ### Example (as JSON)

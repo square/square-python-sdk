@@ -8,7 +8,7 @@
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `body` | [`V1 Item`](/doc/models/v1-item.md) | V1Item |
+| `body` | [`V1 Item`]($m/V1Item) | V1Item |
 
 ### Example (as JSON)
 

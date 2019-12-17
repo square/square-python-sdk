@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Inventory Entry`](/doc/models/v1-inventory-entry.md) | Optional | - |
+| `items` | [`List of V1 Inventory Entry`]($m/V1InventoryEntry) | Optional | - |
 
 ### Example (as JSON)
 

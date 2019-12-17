@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Category`](/doc/models/v1-category.md) | Optional | - |
+| `items` | [`List of V1 Category`]($m/V1Category) | Optional | - |
 
 ### Example (as JSON)
 

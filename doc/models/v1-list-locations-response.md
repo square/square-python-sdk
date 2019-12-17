@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Merchant`](/doc/models/v1-merchant.md) | Optional | - |
+| `items` | [`List of V1 Merchant`]($m/V1Merchant) | Optional | - |
 
 ### Example (as JSON)
 

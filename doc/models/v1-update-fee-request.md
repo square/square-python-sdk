@@ -8,7 +8,7 @@
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `body` | [`V1 Fee`](/doc/models/v1-fee.md) | V1Fee |
+| `body` | [`V1 Fee`]($m/V1Fee) | V1Fee |
 
 ### Example (as JSON)
 

@@ -11,7 +11,7 @@ V1UpdateModifierListRequest
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `name` | `string` | Optional | The modifier list's name. |
-| `selection_type` | [`str (V1 Update Modifier List Request Selection Type)`](/doc/models/v1-update-modifier-list-request-selection-type.md) | Optional | - |
+| `selection_type` | [`str (V1 Update Modifier List Request Selection Type)`]($m/V1UpdateModifierListRequestSelectionType) | Optional | - |
 
 ### Example (as JSON)
 

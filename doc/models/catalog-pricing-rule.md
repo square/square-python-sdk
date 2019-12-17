@@ -21,7 +21,7 @@ during the active time period.
 | `valid_from_local_time` | `string` | Optional | Represents the local time the pricing rule should be valid from. Represented in RFC3339 partial-time format<br>(HH:MM:SS). Partial seconds will be truncated. |
 | `valid_until_date` | `string` | Optional | Represents the date the Pricing Rule is valid until. Represented in RFC3339 full-date format (YYYY-MM-DD). |
 | `valid_until_local_time` | `string` | Optional | Represents the local time the pricing rule should be valid until. Represented in RFC3339 partial-time format<br>(HH:MM:SS). Partial seconds will be truncated. |
-| `exclude_strategy` | [`str (Exclude Strategy)`](/doc/models/exclude-strategy.md) | Optional | Indicates which products matched by a CatalogPricingRule<br>will be excluded if the pricing rule uses an exclude set. |
+| `exclude_strategy` | [`str (Exclude Strategy)`]($m/ExcludeStrategy) | Optional | Indicates which products matched by a CatalogPricingRule<br>will be excluded if the pricing rule uses an exclude set. |
 
 ### Example (as JSON)
 

@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Cash Drawer Shift`](/doc/models/v1-cash-drawer-shift.md) | Optional | - |
+| `items` | [`List of V1 Cash Drawer Shift`]($m/V1CashDrawerShift) | Optional | - |
 
 ### Example (as JSON)
 

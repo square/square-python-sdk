@@ -45,7 +45,7 @@ def list_payment_refunds(self,
 
 ### Response Type
 
-[`List Payment Refunds Response`](/doc/models/list-payment-refunds-response.md)
+[`List Payment Refunds Response`]($m/ListPaymentRefundsResponse)
 
 ### Example Usage
 
@@ -73,11 +73,11 @@ def refund_payment(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Refund Payment Request`](/doc/models/refund-payment-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Refund Payment Request`]($m/RefundPaymentRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Refund Payment Response`](/doc/models/refund-payment-response.md)
+[`Refund Payment Response`]($m/RefundPaymentResponse)
 
 ### Example Usage
 
@@ -114,7 +114,7 @@ def get_payment_refund(self,
 
 ### Response Type
 
-[`Get Payment Refund Response`](/doc/models/get-payment-refund-response.md)
+[`Get Payment Refund Response`]($m/GetPaymentRefundResponse)
 
 ### Example Usage
 
