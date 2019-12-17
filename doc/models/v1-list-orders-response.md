@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Order`](/doc/models/v1-order.md) | Optional | - |
+| `items` | [`List of V1 Order`]($m/V1Order) | Optional | - |
 
 ### Example (as JSON)
 

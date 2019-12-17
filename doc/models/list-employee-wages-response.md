@@ -11,7 +11,7 @@ a set of `EmployeeWage`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `employee_wages` | [`List of Employee Wage`](/doc/models/employee-wage.md) | Optional | A page of Employee Wage results. |
+| `employee_wages` | [`List of Employee Wage`]($m/EmployeeWage) | Optional | A page of Employee Wage results. |
 | `cursor` | `string` | Optional | Value supplied in the subsequent request to fetch the next next page<br>of Employee Wage results. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 

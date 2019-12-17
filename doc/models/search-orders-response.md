@@ -11,7 +11,7 @@ Only one of `order_entries` or `orders` fields will be set, depending on whether
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_entries` | [`List of Order Entry`](/doc/models/order-entry.md) | Optional | List of [OrderEntries](#type-orderentry) that fit the query<br>conditions. Populated only if `return_entries` was set to `true` in the request. |
+| `order_entries` | [`List of Order Entry`]($m/OrderEntry) | Optional | List of [OrderEntries](#type-orderentry) that fit the query<br>conditions. Populated only if `return_entries` was set to `true` in the request. |
 | `orders` | [`List of Order`](/doc/models/order.md) | Optional | List of<br>[Order](#type-order) objects that match query conditions. Populated only if<br>`return_entries` in the request is set to `false`. |
 | `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | [Errors](#type-error) encountered during the search. |

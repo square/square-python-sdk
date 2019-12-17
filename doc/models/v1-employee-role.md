@@ -12,7 +12,7 @@ V1EmployeeRole
 |  --- | --- | --- | --- |
 | `id` | `string` | Optional | The role's unique ID, Can only be set by Square. |
 | `name` | `string` |  | The role's merchant-defined name. |
-| `permissions` | [`List of str (V1 Employee Role Permissions)`](/doc/models/v1-employee-role-permissions.md) |  | The role's permissions.<br>See [V1EmployeeRolePermissions](#type-v1employeerolepermissions) for possible values |
+| `permissions` | [`List of str (V1 Employee Role Permissions)`]($m/V1EmployeeRolePermissions) |  | The role's permissions.<br>See [V1EmployeeRolePermissions](#type-v1employeerolepermissions) for possible values |
 | `is_owner` | `bool` | Optional | If true, employees with this role have all permissions, regardless of the values indicated in permissions. |
 | `created_at` | `string` | Optional | The time when the employee entity was created, in ISO 8601 format. Is set by Square when the Role is created. |
 | `updated_at` | `string` | Optional | The time when the employee entity was most recently updated, in ISO 8601 format. Is set by Square when the Role updated. |

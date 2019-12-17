@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`V1 Modifier List`](/doc/models/v1-modifier-list.md) | Optional | V1ModifierList |
+| `body` | [`V1 Modifier List`]($m/V1ModifierList) | Optional | V1ModifierList |
 
 ### Example (as JSON)
 

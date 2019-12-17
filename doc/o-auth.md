@@ -51,12 +51,12 @@ def renew_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `client_id` | `string` | Template, Required | Your application ID, available from the [application dashboard](https://connect.squareup.com/apps). |
-| `body` | [`Renew Token Request`](/doc/models/renew-token-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Renew Token Request`]($m/RenewTokenRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 | `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
 
 ### Response Type
 
-[`Renew Token Response`](/doc/models/renew-token-response.md)
+[`Renew Token Response`]($m/RenewTokenResponse)
 
 ### Example Usage
 
@@ -105,12 +105,12 @@ def revoke_token(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Revoke Token Request`](/doc/models/revoke-token-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Revoke Token Request`]($m/RevokeTokenRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 | `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
 
 ### Response Type
 
-[`Revoke Token Response`](/doc/models/revoke-token-response.md)
+[`Revoke Token Response`]($m/RevokeTokenResponse)
 
 ### Example Usage
 
@@ -155,11 +155,11 @@ def obtain_token(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Obtain Token Request`](/doc/models/obtain-token-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Obtain Token Request`]($m/ObtainTokenRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Obtain Token Response`](/doc/models/obtain-token-response.md)
+[`Obtain Token Response`]($m/ObtainTokenResponse)
 
 ### Example Usage
 

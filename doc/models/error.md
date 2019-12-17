@@ -12,8 +12,8 @@ See [Handling errors](#handlingerrors) for more information.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `category` | [`str (Error Category)`](/doc/models/error-category.md) |  | Indicates which high-level category of error has occurred during a<br>request to the Connect API. |
-| `code` | [`str (Error Code)`](/doc/models/error-code.md) |  | Indicates the specific error that occurred during a request to a<br>Square API. |
+| `category` | [`str (Error Category)`]($m/ErrorCategory) |  | Indicates which high-level category of error has occurred during a<br>request to the Connect API. |
+| `code` | [`str (Error Code)`]($m/ErrorCode) |  | Indicates the specific error that occurred during a request to a<br>Square API. |
 | `detail` | `string` | Optional | A human-readable description of the error for debugging purposes. |
 | `field` | `string` | Optional | The name of the field provided in the original request (if any) that<br>the error pertains to. |
 

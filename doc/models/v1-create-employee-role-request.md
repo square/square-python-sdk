@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `employee_role` | [`V1 Employee Role`](/doc/models/v1-employee-role.md) | Optional | V1EmployeeRole |
+| `employee_role` | [`V1 Employee Role`]($m/V1EmployeeRole) | Optional | V1EmployeeRole |
 
 ### Example (as JSON)
 

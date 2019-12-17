@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Timecard Event`](/doc/models/v1-timecard-event.md) | Optional | - |
+| `items` | [`List of V1 Timecard Event`]($m/V1TimecardEvent) | Optional | - |
 
 ### Example (as JSON)
 

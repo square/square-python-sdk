@@ -16,7 +16,7 @@ Represents one of a business's employees.
 | `role_ids` | `List of string` | Optional | The ids of the employee's associated roles. Currently, you can specify only one or zero roles per employee. |
 | `authorized_location_ids` | `List of string` | Optional | The IDs of the locations the employee is allowed to clock in at. |
 | `email` | `string` | Optional | The employee's email address. |
-| `status` | [`str (V1 Employee Status)`](/doc/models/v1-employee-status.md) | Optional | - |
+| `status` | [`str (V1 Employee Status)`]($m/V1EmployeeStatus) | Optional | - |
 | `external_id` | `string` | Optional | An ID the merchant can set to associate the employee with an entity in another system. |
 | `created_at` | `string` | Optional | The time when the employee entity was created, in ISO 8601 format. |
 | `updated_at` | `string` | Optional | The time when the employee entity was most recently updated, in ISO 8601 format. |

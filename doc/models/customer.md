@@ -25,9 +25,9 @@ cards on file associated with it.
 | `birthday` | `string` | Optional | The birthday associated with the customer profile, in RFC-3339 format.<br>Year is optional, timezone and times are not allowed.<br>For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.<br>`1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__. |
 | `reference_id` | `string` | Optional | An optional, second ID used to associate the customer profile with an<br>entity in another system. |
 | `note` | `string` | Optional | A custom note associated with the customer profile. |
-| `preferences` | [`Customer Preferences`](/doc/models/customer-preferences.md) | Optional | Represents communication preferences for the customer profile. |
-| `groups` | [`List of Customer Group Info`](/doc/models/customer-group-info.md) | Optional | The groups the customer belongs to. |
-| `creation_source` | [`str (Customer Creation Source)`](/doc/models/customer-creation-source.md) | Optional | Indicates the method used to create the customer profile. |
+| `preferences` | [`Customer Preferences`]($m/CustomerPreferences) | Optional | Represents communication preferences for the customer profile. |
+| `groups` | [`List of Customer Group Info`]($m/CustomerGroupInfo) | Optional | The groups the customer belongs to. |
+| `creation_source` | [`str (Customer Creation Source)`]($m/CustomerCreationSource) | Optional | Indicates the method used to create the customer profile. |
 
 ### Example (as JSON)
 

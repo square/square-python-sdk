@@ -11,7 +11,7 @@ V1AdjustInventoryRequest
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `quantity_delta` | `float` | Optional | The number to adjust the variation's quantity by. |
-| `adjustment_type` | [`str (V1 Adjust Inventory Request Adjustment Type)`](/doc/models/v1-adjust-inventory-request-adjustment-type.md) | Optional | - |
+| `adjustment_type` | [`str (V1 Adjust Inventory Request Adjustment Type)`]($m/V1AdjustInventoryRequestAdjustmentType) | Optional | - |
 | `memo` | `string` | Optional | A note about the inventory adjustment. |
 
 ### Example (as JSON)

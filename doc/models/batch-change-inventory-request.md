@@ -9,7 +9,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `idempotency_key` | `string` | Optional | A client-supplied, universally unique identifier (UUID) for the<br>request.<br><br>See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) in the<br>[API Development 101](https://developer.squareup.com/docs/basics/api101/overview) section for more<br>information. |
-| `changes` | [`List of Inventory Change`](/doc/models/inventory-change.md) | Optional | The set of physical counts and inventory adjustments to be made.<br>Changes are applied based on the client-supplied timestamp and may be sent<br>out of order. Max size is 100 changes. |
+| `changes` | [`List of Inventory Change`]($m/InventoryChange) | Optional | The set of physical counts and inventory adjustments to be made.<br>Changes are applied based on the client-supplied timestamp and may be sent<br>out of order. Max size is 100 changes. |
 | `ignore_unchanged_counts` | `bool` | Optional | Indicates whether the current physical count should be ignored if<br>the quantity is unchanged since the last physical count. Default: `true`. |
 
 ### Example (as JSON)

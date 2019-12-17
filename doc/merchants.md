@@ -37,7 +37,7 @@ def list_merchants(self,
 
 ### Response Type
 
-[`List Merchants Response`](/doc/models/list-merchants-response.md)
+[`List Merchants Response`]($m/ListMerchantsResponse)
 
 ### Example Usage
 
@@ -67,7 +67,7 @@ def retrieve_merchant(self,
 
 ### Response Type
 
-[`Retrieve Merchant Response`](/doc/models/retrieve-merchant-response.md)
+[`Retrieve Merchant Response`]($m/RetrieveMerchantResponse)
 
 ### Example Usage
 

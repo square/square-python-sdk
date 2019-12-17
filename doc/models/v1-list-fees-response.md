@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Fee`](/doc/models/v1-fee.md) | Optional | - |
+| `items` | [`List of V1 Fee`]($m/V1Fee) | Optional | - |
 
 ### Example (as JSON)
 

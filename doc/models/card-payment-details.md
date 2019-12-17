@@ -22,6 +22,7 @@ Reflects the current status of a card payment.
 | `verification_method` | `string` | Optional | For EMV payments, method used to verify the cardholder's identity.  Can be one of<br>`PIN`, `SIGNATURE`, `PIN_AND_SIGNATURE`, `ON_DEVICE`, or `NONE`. |
 | `verification_results` | `string` | Optional | For EMV payments, the results of the cardholder verification.  Can be one of<br>`SUCCESS`, `FAILURE`, or `UNKNOWN`. |
 | `statement_description` | `string` | Optional | The statement description sent to the card networks.<br><br>Note: The actual statement description will vary and is likely to be truncated and appended with<br>additional information on a per issuer basis. |
+| `device_details` | [`Device Details`]($m/DeviceDetails) | Optional | Details about the device that took the payment. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
 
 ### Example (as JSON)
@@ -40,6 +41,7 @@ Reflects the current status of a card payment.
   "verification_method": null,
   "verification_results": null,
   "statement_description": null,
+  "device_details": null,
   "errors": null
 }
 ```
