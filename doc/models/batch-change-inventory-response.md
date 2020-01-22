@@ -9,7 +9,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `counts` | [`List of Inventory Count`]($m/InventoryCount) | Optional | The current counts for all objects referenced in the request. |
+| `counts` | [`List of Inventory Count`](/doc/models/inventory-count.md) | Optional | The current counts for all objects referenced in the request. |
 
 ### Example (as JSON)
 

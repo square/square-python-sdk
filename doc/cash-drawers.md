@@ -34,7 +34,7 @@ def list_cash_drawer_shifts(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Query, Required | The ID of the location to query for a list of cash drawer shifts. |
-| `sort_order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which cash drawer shifts are listed in the response,<br>based on their opened_at field. Default value: ASC |
+| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which cash drawer shifts are listed in the response,<br>based on their opened_at field. Default value: ASC |
 | `begin_time` | `string` | Query, Optional | The inclusive start time of the query on opened_at, in ISO 8601 format. |
 | `end_time` | `string` | Query, Optional | The exclusive end date of the query on opened_at, in ISO 8601 format. |
 | `limit` | `int` | Query, Optional | Number of cash drawer shift events in a page of results (200 by<br>default, 1000 max). |
@@ -42,7 +42,7 @@ def list_cash_drawer_shifts(self,
 
 ### Response Type
 
-[`List Cash Drawer Shifts Response`]($m/ListCashDrawerShiftsResponse)
+[`List Cash Drawer Shifts Response`](/doc/models/list-cash-drawer-shifts-response.md)
 
 ### Example Usage
 
@@ -77,7 +77,7 @@ def retrieve_cash_drawer_shift(self,
 
 ### Response Type
 
-[`Retrieve Cash Drawer Shift Response`]($m/RetrieveCashDrawerShiftResponse)
+[`Retrieve Cash Drawer Shift Response`](/doc/models/retrieve-cash-drawer-shift-response.md)
 
 ### Example Usage
 
@@ -116,7 +116,7 @@ def list_cash_drawer_shift_events(self,
 
 ### Response Type
 
-[`List Cash Drawer Shift Events Response`]($m/ListCashDrawerShiftEventsResponse)
+[`List Cash Drawer Shift Events Response`](/doc/models/list-cash-drawer-shift-events-response.md)
 
 ### Example Usage
 

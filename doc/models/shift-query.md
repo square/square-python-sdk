@@ -10,8 +10,8 @@ The parameters of a `Shift` search query. Includes filter and sort options.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `filter` | [`Shift Filter`]($m/ShiftFilter) | Optional | Defines a filter used in a search for `Shift` records. `AND` logic is<br>used by Square's servers to apply each filter property specified. |
-| `sort` | [`Shift Sort`]($m/ShiftSort) | Optional | Sets the sort order of search results. |
+| `filter` | [`Shift Filter`](/doc/models/shift-filter.md) | Optional | Defines a filter used in a search for `Shift` records. `AND` logic is<br>used by Square's servers to apply each filter property specified. |
+| `sort` | [`Shift Sort`](/doc/models/shift-sort.md) | Optional | Sets the sort order of search results. |
 
 ### Example (as JSON)
 

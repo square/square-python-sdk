@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 4.1.0.20200122 (2020-01-22)
+
+* New field:  The **Employee** object now has an `is_owner` field.
+* New enumeration:  The **CardBrand** enumeration has a new `SQUARE_CAPITAL_CARD` enum value to support a Square one-time Installments payment.
+
+* New request body field constraint: The __Refund__ Payment request now requires a payment_id. 
+
 ## Version 4.0.0-20191217 (2019-12-17)
 !!!important
 Square is excited to announce the public release of customized SDKs for [Java](https://github.com/square/square-java-sdk) and [.NET](https://github.com/square/square-dotnet-sdk). For more information, see [Square SDKs](/sdks).

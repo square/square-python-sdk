@@ -9,8 +9,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on any errors encountered. |
-| `catalog_object` | [`Catalog Object`]($m/CatalogObject) | Optional | - |
-| `id_mappings` | [`List of Catalog Id Mapping`]($m/CatalogIdMapping) | Optional | The mapping between client and server IDs for this upsert. |
+| `catalog_object` | [`Catalog Object`](/doc/models/catalog-object.md) | Optional | - |
+| `id_mappings` | [`List of Catalog Id Mapping`](/doc/models/catalog-id-mapping.md) | Optional | The mapping between client and server IDs for this upsert. |
 
 ### Example (as JSON)
 

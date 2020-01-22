@@ -39,7 +39,7 @@ def list_bank_accounts(self,
 
 ### Response Type
 
-[`List of V1 Bank Account`]($m/V1BankAccount)
+[`List of V1 Bank Account`](/doc/models/v1-bank-account.md)
 
 ### Example Usage
 
@@ -73,7 +73,7 @@ def retrieve_bank_account(self,
 
 ### Response Type
 
-[`V1 Bank Account`]($m/V1BankAccount)
+[`V1 Bank Account`](/doc/models/v1-bank-account.md)
 
 ### Example Usage
 
@@ -106,13 +106,13 @@ def list_orders(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to list online store orders for. |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | TThe order in which payments are listed in the response. |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | TThe order in which payments are listed in the response. |
 | `limit` | `int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
 | `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ### Response Type
 
-[`List of V1 Order`]($m/V1Order)
+[`List of V1 Order`](/doc/models/v1-order.md)
 
 ### Example Usage
 
@@ -146,7 +146,7 @@ def retrieve_order(self,
 
 ### Response Type
 
-[`V1 Order`]($m/V1Order)
+[`V1 Order`](/doc/models/v1-order.md)
 
 ### Example Usage
 
@@ -179,11 +179,11 @@ def update_order(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the order's associated location. |
 | `order_id` | `string` | Template, Required | The order's Square-issued ID. You obtain this value from Order objects returned by the List Orders endpoint |
-| `body` | [`V1 Update Order Request`]($m/V1UpdateOrderRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Update Order Request`](/doc/models/v1-update-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Order`]($m/V1Order)
+[`V1 Order`](/doc/models/v1-order.md)
 
 ### Example Usage
 
@@ -231,7 +231,7 @@ def list_payments(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to list payments for. If you specify me, this endpoint returns payments aggregated from all of the business's locations. |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which payments are listed in the response. |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
 | `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
 | `end_time` | `string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
@@ -240,7 +240,7 @@ def list_payments(self,
 
 ### Response Type
 
-[`List of V1 Payment`]($m/V1Payment)
+[`List of V1 Payment`](/doc/models/v1-payment.md)
 
 ### Example Usage
 
@@ -274,7 +274,7 @@ def retrieve_payment(self,
 
 ### Response Type
 
-[`V1 Payment`]($m/V1Payment)
+[`V1 Payment`](/doc/models/v1-payment.md)
 
 ### Example Usage
 
@@ -309,7 +309,7 @@ def list_refunds(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to list refunds for. |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | TThe order in which payments are listed in the response. |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | TThe order in which payments are listed in the response. |
 | `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
 | `end_time` | `string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `int` | Query, Optional | The approximate number of refunds to return in a single response. Default: 100. Max: 200. Response may contain more results than the prescribed limit when refunds are made simultaneously to multiple tenders in a payment or when refunds are generated in an exchange to account for the value of returned goods. |
@@ -317,7 +317,7 @@ def list_refunds(self,
 
 ### Response Type
 
-[`List of V1 Refund`]($m/V1Refund)
+[`List of V1 Refund`](/doc/models/v1-refund.md)
 
 ### Example Usage
 
@@ -358,11 +358,11 @@ def create_refund(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the original payment's associated location. |
-| `body` | [`V1 Create Refund Request`]($m/V1CreateRefundRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Create Refund Request`](/doc/models/v1-create-refund-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Refund`]($m/V1Refund)
+[`V1 Refund`](/doc/models/v1-refund.md)
 
 ### Example Usage
 
@@ -405,17 +405,17 @@ def list_settlements(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to list settlements for. |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | TThe order in which payments are listed in the response. |
+| `location_id` | `string` | Template, Required | The ID of the location to list settlements for. If you specify me, this endpoint returns settlements aggregated from all of the business's locations. |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which settlements are listed in the response. |
 | `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
 | `end_time` | `string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
-| `limit` | `int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
-| `status` | [`str (V1 List Settlements Request Status)`]($m/V1ListSettlementsRequestStatus) | Query, Optional | Provide this parameter to retrieve only settlements with a particular status (SENT or FAILED). |
+| `limit` | `int` | Query, Optional | The maximum number of settlements to return in a single response. This value cannot exceed 200. |
+| `status` | [`str (V1 List Settlements Request Status)`](/doc/models/v1-list-settlements-request-status.md) | Query, Optional | Provide this parameter to retrieve only settlements with a particular status (SENT or FAILED). |
 | `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ### Response Type
 
-[`List of V1 Settlement`]($m/V1Settlement)
+[`List of V1 Settlement`](/doc/models/v1-settlement.md)
 
 ### Example Usage
 
@@ -465,7 +465,7 @@ def retrieve_settlement(self,
 
 ### Response Type
 
-[`V1 Settlement`]($m/V1Settlement)
+[`V1 Settlement`](/doc/models/v1-settlement.md)
 
 ### Example Usage
 

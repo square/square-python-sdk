@@ -29,7 +29,7 @@ def list_locations(self)
 
 ### Response Type
 
-[`List Locations Response`]($m/ListLocationsResponse)
+[`List Locations Response`](/doc/models/list-locations-response.md)
 
 ### Example Usage
 
@@ -56,11 +56,11 @@ def create_location(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Create Location Request`]($m/CreateLocationRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Create Location Request`](/doc/models/create-location-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Create Location Response`]($m/CreateLocationResponse)
+[`Create Location Response`](/doc/models/create-location-response.md)
 
 ### Example Usage
 
@@ -100,7 +100,7 @@ def retrieve_location(self,
 
 ### Response Type
 
-[`Retrieve Location Response`]($m/RetrieveLocationResponse)
+[`Retrieve Location Response`](/doc/models/retrieve-location-response.md)
 
 ### Example Usage
 
@@ -130,11 +130,11 @@ def update_location(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to update. |
-| `body` | [`Update Location Request`]($m/UpdateLocationRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Update Location Request`](/doc/models/update-location-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Update Location Response`]($m/UpdateLocationResponse)
+[`Update Location Response`](/doc/models/update-location-response.md)
 
 ### Example Usage
 

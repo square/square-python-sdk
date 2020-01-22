@@ -6,7 +6,7 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `VENDOR_TOKEN` | - |
+| Name |
+|  --- |
+| `VENDOR_TOKEN` |
 

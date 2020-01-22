@@ -14,7 +14,7 @@ event types.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Optional | The shift unique ID. |
-| `state` | [`str (Cash Drawer Shift State)`]($m/CashDrawerShiftState) | Optional | The current state of a cash drawer shift. |
+| `state` | [`str (Cash Drawer Shift State)`](/doc/models/cash-drawer-shift-state.md) | Optional | The current state of a cash drawer shift. |
 | `opened_at` | `string` | Optional | The time when the shift began, in ISO 8601 format. |
 | `ended_at` | `string` | Optional | The time when the shift ended, in ISO 8601 format. |
 | `closed_at` | `string` | Optional | The time when the shift was closed, in ISO 8601 format. |
@@ -30,7 +30,7 @@ event types.
 | `cash_paid_out_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `expected_cash_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `closed_cash_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
-| `device` | [`Cash Drawer Device`]($m/CashDrawerDevice) | Optional | - |
+| `device` | [`Cash Drawer Device`](/doc/models/cash-drawer-device.md) | Optional | - |
 
 ### Example (as JSON)
 

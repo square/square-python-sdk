@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `SINGLE` | - |
-| `MULTIPLE` | - |
+| Name |
+|  --- |
+| `SINGLE` |
+| `MULTIPLE` |
 

@@ -48,19 +48,19 @@ def list_employees(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which employees are listed in the response, based on their created_at field.      Default value: ASC |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which employees are listed in the response, based on their created_at field.      Default value: ASC |
 | `begin_updated_at` | `string` | Query, Optional | If filtering results by their updated_at field, the beginning of the requested reporting period, in ISO 8601 format |
 | `end_updated_at` | `string` | Query, Optional | If filtering results by there updated_at field, the end of the requested reporting period, in ISO 8601 format. |
 | `begin_created_at` | `string` | Query, Optional | If filtering results by their created_at field, the beginning of the requested reporting period, in ISO 8601 format. |
 | `end_created_at` | `string` | Query, Optional | If filtering results by their created_at field, the end of the requested reporting period, in ISO 8601 format. |
-| `status` | [`str (V1 List Employees Request Status)`]($m/V1ListEmployeesRequestStatus) | Query, Optional | If provided, the endpoint returns only employee entities with the specified status (ACTIVE or INACTIVE). |
+| `status` | [`str (V1 List Employees Request Status)`](/doc/models/v1-list-employees-request-status.md) | Query, Optional | If provided, the endpoint returns only employee entities with the specified status (ACTIVE or INACTIVE). |
 | `external_id` | `string` | Query, Optional | If provided, the endpoint returns only employee entities with the specified external_id. |
 | `limit` | `int` | Query, Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. |
 | `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ### Response Type
 
-[`List of V1 Employee`]($m/V1Employee)
+[`List of V1 Employee`](/doc/models/v1-employee.md)
 
 ### Example Usage
 
@@ -95,11 +95,11 @@ def create_employee(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`V1 Employee`]($m/V1Employee) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Employee`](/doc/models/v1-employee.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Employee`]($m/V1Employee)
+[`V1 Employee`](/doc/models/v1-employee.md)
 
 ### Example Usage
 
@@ -133,7 +133,7 @@ def retrieve_employee(self,
 
 ### Response Type
 
-[`V1 Employee`]($m/V1Employee)
+[`V1 Employee`](/doc/models/v1-employee.md)
 
 ### Example Usage
 
@@ -163,11 +163,11 @@ def update_employee(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `employee_id` | `string` | Template, Required | The ID of the role to modify. |
-| `body` | [`V1 Employee`]($m/V1Employee) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Employee`](/doc/models/v1-employee.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Employee`]($m/V1Employee)
+[`V1 Employee`](/doc/models/v1-employee.md)
 
 ### Example Usage
 
@@ -200,13 +200,13 @@ def list_employee_roles(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which employees are listed in the response, based on their created_at field.Default value: ASC |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which employees are listed in the response, based on their created_at field.Default value: ASC |
 | `limit` | `int` | Query, Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. |
 | `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ### Response Type
 
-[`List of V1 Employee Role`]($m/V1EmployeeRole)
+[`List of V1 Employee Role`](/doc/models/v1-employee-role.md)
 
 ### Example Usage
 
@@ -244,11 +244,11 @@ def create_employee_role(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`V1 Employee Role`]($m/V1EmployeeRole) | Body, Required | An EmployeeRole object with a name and permissions, and an optional owner flag. |
+| `body` | [`V1 Employee Role`](/doc/models/v1-employee-role.md) | Body, Required | An EmployeeRole object with a name and permissions, and an optional owner flag. |
 
 ### Response Type
 
-[`V1 Employee Role`]($m/V1EmployeeRole)
+[`V1 Employee Role`](/doc/models/v1-employee-role.md)
 
 ### Example Usage
 
@@ -282,7 +282,7 @@ def retrieve_employee_role(self,
 
 ### Response Type
 
-[`V1 Employee Role`]($m/V1EmployeeRole)
+[`V1 Employee Role`](/doc/models/v1-employee-role.md)
 
 ### Example Usage
 
@@ -312,11 +312,11 @@ def update_employee_role(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `role_id` | `string` | Template, Required | The ID of the role to modify. |
-| `body` | [`V1 Employee Role`]($m/V1EmployeeRole) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Employee Role`](/doc/models/v1-employee-role.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Employee Role`]($m/V1EmployeeRole)
+[`V1 Employee Role`](/doc/models/v1-employee-role.md)
 
 ### Example Usage
 
@@ -357,7 +357,7 @@ def list_timecards(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which timecards are listed in the response, based on their created_at field. |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which timecards are listed in the response, based on their created_at field. |
 | `employee_id` | `string` | Query, Optional | If provided, the endpoint returns only timecards for the employee with the specified ID. |
 | `begin_clockin_time` | `string` | Query, Optional | If filtering results by their clockin_time field, the beginning of the requested reporting period, in ISO 8601 format. |
 | `end_clockin_time` | `string` | Query, Optional | If filtering results by their clockin_time field, the end of the requested reporting period, in ISO 8601 format. |
@@ -371,7 +371,7 @@ def list_timecards(self,
 
 ### Response Type
 
-[`List of V1 Timecard`]($m/V1Timecard)
+[`List of V1 Timecard`](/doc/models/v1-timecard.md)
 
 ### Example Usage
 
@@ -407,11 +407,11 @@ def create_timecard(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`V1 Timecard`]($m/V1Timecard) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Timecard`](/doc/models/v1-timecard.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Timecard`]($m/V1Timecard)
+[`V1 Timecard`](/doc/models/v1-timecard.md)
 
 ### Example Usage
 
@@ -495,7 +495,7 @@ def retrieve_timecard(self,
 
 ### Response Type
 
-[`V1 Timecard`]($m/V1Timecard)
+[`V1 Timecard`](/doc/models/v1-timecard.md)
 
 ### Example Usage
 
@@ -527,11 +527,11 @@ def update_timecard(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `timecard_id` | `string` | Template, Required | TThe ID of the timecard to modify. |
-| `body` | [`V1 Timecard`]($m/V1Timecard) | Body, Required | An object containing the fields to POST for the request.<br>See the corresponding object definition for field details. |
+| `body` | [`V1 Timecard`](/doc/models/v1-timecard.md) | Body, Required | An object containing the fields to POST for the request.<br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Timecard`]($m/V1Timecard)
+[`V1 Timecard`](/doc/models/v1-timecard.md)
 
 ### Example Usage
 
@@ -572,7 +572,7 @@ def list_timecard_events(self,
 
 ### Response Type
 
-[`List of V1 Timecard Event`]($m/V1TimecardEvent)
+[`List of V1 Timecard Event`](/doc/models/v1-timecard-event.md)
 
 ### Example Usage
 
@@ -604,13 +604,13 @@ def list_cash_drawer_shifts(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to list cash drawer shifts for. |
-| `order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which cash drawer shifts are listed in the response, based on their created_at field. Default value: ASC |
+| `order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which cash drawer shifts are listed in the response, based on their created_at field. Default value: ASC |
 | `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. Default value: The current time minus 90 days. |
 | `end_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. Default value: The current time. |
 
 ### Response Type
 
-[`List of V1 Cash Drawer Shift`]($m/V1CashDrawerShift)
+[`List of V1 Cash Drawer Shift`](/doc/models/v1-cash-drawer-shift.md)
 
 ### Example Usage
 
@@ -644,7 +644,7 @@ def retrieve_cash_drawer_shift(self,
 
 ### Response Type
 
-[`V1 Cash Drawer Shift`]($m/V1CashDrawerShift)
+[`V1 Cash Drawer Shift`](/doc/models/v1-cash-drawer-shift.md)
 
 ### Example Usage
 

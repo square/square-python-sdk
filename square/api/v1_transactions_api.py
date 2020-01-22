@@ -615,8 +615,9 @@ class V1TransactionsApi(BaseApi):
 
         Args:
             location_id (string): The ID of the location to list settlements
-                for.
-            order (SortOrder, optional): TThe order in which payments are
+                for. If you specify me, this endpoint returns settlements
+                aggregated from all of the business's locations.
+            order (SortOrder, optional): The order in which settlements are
                 listed in the response.
             begin_time (string, optional): The beginning of the requested
                 reporting period, in ISO 8601 format. If this value is before
@@ -626,8 +627,8 @@ class V1TransactionsApi(BaseApi):
                 period, in ISO 8601 format. If this value is more than one
                 year greater than begin_time, this endpoint returns an error.
                 Default value: The current time.
-            limit (int, optional): The maximum number of payments to return in
-                a single response. This value cannot exceed 200.
+            limit (int, optional): The maximum number of settlements to return
+                in a single response. This value cannot exceed 200.
             status (V1ListSettlementsRequestStatus, optional): Provide this
                 parameter to retrieve only settlements with a particular
                 status (SENT or FAILED).

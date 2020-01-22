@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `PUBLIC` | - |
-| `PRIVATE` | - |
+| Name |
+|  --- |
+| `PUBLIC` |
+| `PRIVATE` |
 

@@ -8,7 +8,7 @@
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `body` | [`V1 Variation`]($m/V1Variation) | V1Variation |
+| `body` | [`V1 Variation`](/doc/models/v1-variation.md) | V1Variation |
 
 ### Example (as JSON)
 

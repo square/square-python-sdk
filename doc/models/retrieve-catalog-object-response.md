@@ -9,8 +9,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on any errors encountered. |
-| `object` | [`Catalog Object`]($m/CatalogObject) | Optional | - |
-| `related_objects` | [`List of Catalog Object`]($m/CatalogObject) | Optional | A list of CatalogObjects referenced by the object in the `object` field. |
+| `object` | [`Catalog Object`](/doc/models/catalog-object.md) | Optional | - |
+| `related_objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | A list of CatalogObjects referenced by the object in the `object` field. |
 
 ### Example (as JSON)
 

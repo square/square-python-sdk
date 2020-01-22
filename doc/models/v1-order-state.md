@@ -6,12 +6,12 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `PENDING` | - |
-| `OPEN` | - |
-| `COMPLETED` | - |
-| `CANCELED` | - |
-| `REFUNDED` | - |
-| `REJECTED` | - |
+| Name |
+|  --- |
+| `PENDING` |
+| `OPEN` |
+| `COMPLETED` |
+| `CANCELED` |
+| `REFUNDED` |
+| `REJECTED` |
 

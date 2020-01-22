@@ -6,9 +6,9 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `COMPLETE` | - |
-| `CANCEL` | - |
-| `REFUND` | - |
+| Name |
+|  --- |
+| `COMPLETE` |
+| `CANCEL` |
+| `REFUND` |
 

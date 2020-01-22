@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Payment`]($m/V1Payment) | Optional | - |
+| `items` | [`List of V1 Payment`](/doc/models/v1-payment.md) | Optional | - |
 
 ### Example (as JSON)
 

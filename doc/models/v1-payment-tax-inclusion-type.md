@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `ADDITIVE` | - |
-| `INCLUSIVE` | - |
+| Name |
+|  --- |
+| `ADDITIVE` |
+| `INCLUSIVE` |
 

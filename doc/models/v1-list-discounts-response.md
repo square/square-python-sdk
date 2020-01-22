@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Discount`]($m/V1Discount) | Optional | - |
+| `items` | [`List of V1 Discount`](/doc/models/v1-discount.md) | Optional | - |
 
 ### Example (as JSON)
 

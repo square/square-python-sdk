@@ -20,15 +20,15 @@ any of the searchable fields of the `CatalogItem` data type, namely
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `sorted_attribute_query` | [`Catalog Query Sorted Attribute`]($m/CatalogQuerySortedAttribute) | Optional | - |
-| `exact_query` | [`Catalog Query Exact`]($m/CatalogQueryExact) | Optional | - |
-| `prefix_query` | [`Catalog Query Prefix`]($m/CatalogQueryPrefix) | Optional | - |
-| `range_query` | [`Catalog Query Range`]($m/CatalogQueryRange) | Optional | - |
-| `text_query` | [`Catalog Query Text`]($m/CatalogQueryText) | Optional | - |
-| `items_for_tax_query` | [`Catalog Query Items for Tax`]($m/CatalogQueryItemsForTax) | Optional | - |
-| `items_for_modifier_list_query` | [`Catalog Query Items for Modifier List`]($m/CatalogQueryItemsForModifierList) | Optional | - |
-| `items_for_item_options_query` | [`Catalog Query Items for Item Options`]($m/CatalogQueryItemsForItemOptions) | Optional | - |
-| `item_variations_for_item_option_values_query` | [`Catalog Query Item Variations for Item Option Values`]($m/CatalogQueryItemVariationsForItemOptionValues) | Optional | - |
+| `sorted_attribute_query` | [`Catalog Query Sorted Attribute`](/doc/models/catalog-query-sorted-attribute.md) | Optional | - |
+| `exact_query` | [`Catalog Query Exact`](/doc/models/catalog-query-exact.md) | Optional | - |
+| `prefix_query` | [`Catalog Query Prefix`](/doc/models/catalog-query-prefix.md) | Optional | - |
+| `range_query` | [`Catalog Query Range`](/doc/models/catalog-query-range.md) | Optional | - |
+| `text_query` | [`Catalog Query Text`](/doc/models/catalog-query-text.md) | Optional | - |
+| `items_for_tax_query` | [`Catalog Query Items for Tax`](/doc/models/catalog-query-items-for-tax.md) | Optional | - |
+| `items_for_modifier_list_query` | [`Catalog Query Items for Modifier List`](/doc/models/catalog-query-items-for-modifier-list.md) | Optional | - |
+| `items_for_item_options_query` | [`Catalog Query Items for Item Options`](/doc/models/catalog-query-items-for-item-options.md) | Optional | - |
+| `item_variations_for_item_option_values_query` | [`Catalog Query Item Variations for Item Option Values`](/doc/models/catalog-query-item-variations-for-item-option-values.md) | Optional | - |
 
 ### Example (as JSON)
 

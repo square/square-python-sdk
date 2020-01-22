@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `FULL` | - |
-| `PARTIAL` | - |
+| Name |
+|  --- |
+| `FULL` |
+| `PARTIAL` |
 

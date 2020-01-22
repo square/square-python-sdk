@@ -6,12 +6,12 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `ITEM` | - |
-| `CUSTOM_AMOUNT` | - |
-| `GIFT_CARD_ACTIVATION` | - |
-| `GIFT_CARD_RELOAD` | - |
-| `GIFT_CARD_UNKNOWN` | - |
-| `OTHER` | - |
+| Name |
+|  --- |
+| `ITEM` |
+| `CUSTOM_AMOUNT` |
+| `GIFT_CARD_ACTIVATION` |
+| `GIFT_CARD_RELOAD` |
+| `GIFT_CARD_UNKNOWN` |
+| `OTHER` |
 

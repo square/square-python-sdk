@@ -8,7 +8,7 @@
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `body` | [`V1 Discount`]($m/V1Discount) | V1Discount |
+| `body` | [`V1 Discount`](/doc/models/v1-discount.md) | V1Discount |
 
 ### Example (as JSON)
 

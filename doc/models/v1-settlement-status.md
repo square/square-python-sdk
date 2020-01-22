@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `FAILED` | - |
-| `SENT` | - |
+| Name |
+|  --- |
+| `FAILED` |
+| `SENT` |
 

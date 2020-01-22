@@ -6,9 +6,9 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `OPEN` | - |
-| `ENDED` | - |
-| `CLOSED` | - |
+| Name |
+|  --- |
+| `OPEN` |
+| `ENDED` |
+| `CLOSED` |
 

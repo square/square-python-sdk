@@ -32,11 +32,11 @@ def create_mobile_authorization_code(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Create Mobile Authorization Code Request`]($m/CreateMobileAuthorizationCodeRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Create Mobile Authorization Code Request`](/doc/models/create-mobile-authorization-code-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Create Mobile Authorization Code Response`]($m/CreateMobileAuthorizationCodeResponse)
+[`Create Mobile Authorization Code Response`](/doc/models/create-mobile-authorization-code-response.md)
 
 ### Example Usage
 

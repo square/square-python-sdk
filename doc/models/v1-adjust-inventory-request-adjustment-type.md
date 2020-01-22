@@ -6,9 +6,9 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `SALE` | - |
-| `RECEIVE_STOCK` | - |
-| `MANUAL_ADJUST` | - |
+| Name |
+|  --- |
+| `SALE` |
+| `RECEIVE_STOCK` |
+| `MANUAL_ADJUST` |
 

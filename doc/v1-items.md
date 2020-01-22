@@ -76,7 +76,7 @@ def list_categories(self,
 
 ### Response Type
 
-[`List of V1 Category`]($m/V1Category)
+[`List of V1 Category`](/doc/models/v1-category.md)
 
 ### Example Usage
 
@@ -114,11 +114,11 @@ def create_category(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to create an item for. |
-| `body` | [`V1 Category`]($m/V1Category) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Category`](/doc/models/v1-category.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Category`]($m/V1Category)
+[`V1 Category`](/doc/models/v1-category.md)
 
 ### Example Usage
 
@@ -165,7 +165,7 @@ def delete_category(self,
 
 ### Response Type
 
-[`V1 Category`]($m/V1Category)
+[`V1 Category`](/doc/models/v1-category.md)
 
 ### Example Usage
 
@@ -206,11 +206,11 @@ def update_category(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the category's associated location. |
 | `category_id` | `string` | Template, Required | The ID of the category to edit. |
-| `body` | [`V1 Category`]($m/V1Category) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Category`](/doc/models/v1-category.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Category`]($m/V1Category)
+[`V1 Category`](/doc/models/v1-category.md)
 
 ### Example Usage
 
@@ -252,7 +252,7 @@ def list_discounts(self,
 
 ### Response Type
 
-[`List of V1 Discount`]($m/V1Discount)
+[`List of V1 Discount`](/doc/models/v1-discount.md)
 
 ### Example Usage
 
@@ -290,11 +290,11 @@ def create_discount(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to create an item for. |
-| `body` | [`V1 Discount`]($m/V1Discount) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Discount`](/doc/models/v1-discount.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Discount`]($m/V1Discount)
+[`V1 Discount`](/doc/models/v1-discount.md)
 
 ### Example Usage
 
@@ -341,7 +341,7 @@ def delete_discount(self,
 
 ### Response Type
 
-[`V1 Discount`]($m/V1Discount)
+[`V1 Discount`](/doc/models/v1-discount.md)
 
 ### Example Usage
 
@@ -382,11 +382,11 @@ def update_discount(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the category's associated location. |
 | `discount_id` | `string` | Template, Required | The ID of the discount to edit. |
-| `body` | [`V1 Discount`]($m/V1Discount) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Discount`](/doc/models/v1-discount.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Discount`]($m/V1Discount)
+[`V1 Discount`](/doc/models/v1-discount.md)
 
 ### Example Usage
 
@@ -428,7 +428,7 @@ def list_fees(self,
 
 ### Response Type
 
-[`List of V1 Fee`]($m/V1Fee)
+[`List of V1 Fee`](/doc/models/v1-fee.md)
 
 ### Example Usage
 
@@ -466,11 +466,11 @@ def create_fee(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to create a fee for. |
-| `body` | [`V1 Fee`]($m/V1Fee) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Fee`](/doc/models/v1-fee.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Fee`]($m/V1Fee)
+[`V1 Fee`](/doc/models/v1-fee.md)
 
 ### Example Usage
 
@@ -517,7 +517,7 @@ def delete_fee(self,
 
 ### Response Type
 
-[`V1 Fee`]($m/V1Fee)
+[`V1 Fee`](/doc/models/v1-fee.md)
 
 ### Example Usage
 
@@ -558,11 +558,11 @@ def update_fee(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the fee's associated location. |
 | `fee_id` | `string` | Template, Required | The ID of the fee to edit. |
-| `body` | [`V1 Fee`]($m/V1Fee) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Fee`](/doc/models/v1-fee.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Fee`]($m/V1Fee)
+[`V1 Fee`](/doc/models/v1-fee.md)
 
 ### Example Usage
 
@@ -609,7 +609,7 @@ def list_inventory(self,
 
 ### Response Type
 
-[`List of V1 Inventory Entry`]($m/V1InventoryEntry)
+[`List of V1 Inventory Entry`](/doc/models/v1-inventory-entry.md)
 
 ### Example Usage
 
@@ -649,11 +649,11 @@ def adjust_inventory(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the item's associated location. |
 | `variation_id` | `string` | Template, Required | The ID of the variation to adjust inventory information for. |
-| `body` | [`V1 Adjust Inventory Request`]($m/V1AdjustInventoryRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Adjust Inventory Request`](/doc/models/v1-adjust-inventory-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Inventory Entry`]($m/V1InventoryEntry)
+[`V1 Inventory Entry`](/doc/models/v1-inventory-entry.md)
 
 ### Example Usage
 
@@ -697,7 +697,7 @@ def list_items(self,
 
 ### Response Type
 
-[`List of V1 Item`]($m/V1Item)
+[`List of V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -747,11 +747,11 @@ def create_item(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to create an item for. |
-| `body` | [`V1 Item`]($m/V1Item) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Item`](/doc/models/v1-item.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -798,7 +798,7 @@ def delete_item(self,
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -842,7 +842,7 @@ def retrieve_item(self,
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -883,11 +883,11 @@ def update_item(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the item's associated location. |
 | `item_id` | `string` | Template, Required | The ID of the item to modify. |
-| `body` | [`V1 Item`]($m/V1Item) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Item`](/doc/models/v1-item.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -934,7 +934,7 @@ def remove_fee(self,
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -981,7 +981,7 @@ def apply_fee(self,
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -1028,7 +1028,7 @@ def remove_modifier_list(self,
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -1075,7 +1075,7 @@ def apply_modifier_list(self,
 
 ### Response Type
 
-[`V1 Item`]($m/V1Item)
+[`V1 Item`](/doc/models/v1-item.md)
 
 ### Example Usage
 
@@ -1117,11 +1117,11 @@ def create_variation(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the item's associated location. |
 | `item_id` | `string` | Template, Required | The item's ID. |
-| `body` | [`V1 Variation`]($m/V1Variation) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Variation`](/doc/models/v1-variation.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Variation`]($m/V1Variation)
+[`V1 Variation`](/doc/models/v1-variation.md)
 
 ### Example Usage
 
@@ -1171,7 +1171,7 @@ def delete_variation(self,
 
 ### Response Type
 
-[`V1 Variation`]($m/V1Variation)
+[`V1 Variation`](/doc/models/v1-variation.md)
 
 ### Example Usage
 
@@ -1215,11 +1215,11 @@ def update_variation(self,
 | `location_id` | `string` | Template, Required | The ID of the item's associated location. |
 | `item_id` | `string` | Template, Required | The ID of the item to modify. |
 | `variation_id` | `string` | Template, Required | The ID of the variation to modify. |
-| `body` | [`V1 Variation`]($m/V1Variation) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Variation`](/doc/models/v1-variation.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Variation`]($m/V1Variation)
+[`V1 Variation`](/doc/models/v1-variation.md)
 
 ### Example Usage
 
@@ -1262,7 +1262,7 @@ def list_modifier_lists(self,
 
 ### Response Type
 
-[`List of V1 Modifier List`]($m/V1ModifierList)
+[`List of V1 Modifier List`](/doc/models/v1-modifier-list.md)
 
 ### Example Usage
 
@@ -1300,11 +1300,11 @@ def create_modifier_list(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to create a modifier list for. |
-| `body` | [`V1 Modifier List`]($m/V1ModifierList) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Modifier List`](/doc/models/v1-modifier-list.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Modifier List`]($m/V1ModifierList)
+[`V1 Modifier List`](/doc/models/v1-modifier-list.md)
 
 ### Example Usage
 
@@ -1352,7 +1352,7 @@ def delete_modifier_list(self,
 
 ### Response Type
 
-[`V1 Modifier List`]($m/V1ModifierList)
+[`V1 Modifier List`](/doc/models/v1-modifier-list.md)
 
 ### Example Usage
 
@@ -1395,7 +1395,7 @@ def retrieve_modifier_list(self,
 
 ### Response Type
 
-[`V1 Modifier List`]($m/V1ModifierList)
+[`V1 Modifier List`](/doc/models/v1-modifier-list.md)
 
 ### Example Usage
 
@@ -1436,11 +1436,11 @@ def update_modifier_list(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the item's associated location. |
 | `modifier_list_id` | `string` | Template, Required | The ID of the modifier list to edit. |
-| `body` | [`V1 Update Modifier List Request`]($m/V1UpdateModifierListRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Update Modifier List Request`](/doc/models/v1-update-modifier-list-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Modifier List`]($m/V1ModifierList)
+[`V1 Modifier List`](/doc/models/v1-modifier-list.md)
 
 ### Example Usage
 
@@ -1482,11 +1482,11 @@ def create_modifier_option(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the item's associated location. |
 | `modifier_list_id` | `string` | Template, Required | The ID of the modifier list to edit. |
-| `body` | [`V1 Modifier Option`]($m/V1ModifierOption) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Modifier Option`](/doc/models/v1-modifier-option.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Modifier Option`]($m/V1ModifierOption)
+[`V1 Modifier Option`](/doc/models/v1-modifier-option.md)
 
 ### Example Usage
 
@@ -1536,7 +1536,7 @@ def delete_modifier_option(self,
 
 ### Response Type
 
-[`V1 Modifier Option`]($m/V1ModifierOption)
+[`V1 Modifier Option`](/doc/models/v1-modifier-option.md)
 
 ### Example Usage
 
@@ -1580,11 +1580,11 @@ def update_modifier_option(self,
 | `location_id` | `string` | Template, Required | The ID of the item's associated location. |
 | `modifier_list_id` | `string` | Template, Required | The ID of the modifier list to edit. |
 | `modifier_option_id` | `string` | Template, Required | The ID of the modifier list to edit. |
-| `body` | [`V1 Modifier Option`]($m/V1ModifierOption) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Modifier Option`](/doc/models/v1-modifier-option.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Modifier Option`]($m/V1ModifierOption)
+[`V1 Modifier Option`](/doc/models/v1-modifier-option.md)
 
 ### Example Usage
 
@@ -1628,7 +1628,7 @@ def list_pages(self,
 
 ### Response Type
 
-[`List of V1 Page`]($m/V1Page)
+[`List of V1 Page`](/doc/models/v1-page.md)
 
 ### Example Usage
 
@@ -1666,11 +1666,11 @@ def create_page(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to create an item for. |
-| `body` | [`V1 Page`]($m/V1Page) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Page`](/doc/models/v1-page.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Page`]($m/V1Page)
+[`V1 Page`](/doc/models/v1-page.md)
 
 ### Example Usage
 
@@ -1716,7 +1716,7 @@ def delete_page(self,
 
 ### Response Type
 
-[`V1 Page`]($m/V1Page)
+[`V1 Page`](/doc/models/v1-page.md)
 
 ### Example Usage
 
@@ -1757,11 +1757,11 @@ def update_page(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the Favorites page's associated location |
 | `page_id` | `string` | Template, Required | The ID of the page to modify. |
-| `body` | [`V1 Page`]($m/V1Page) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Page`](/doc/models/v1-page.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Page`]($m/V1Page)
+[`V1 Page`](/doc/models/v1-page.md)
 
 ### Example Usage
 
@@ -1813,7 +1813,7 @@ def delete_page_cell(self,
 
 ### Response Type
 
-[`V1 Page`]($m/V1Page)
+[`V1 Page`](/doc/models/v1-page.md)
 
 ### Example Usage
 
@@ -1854,11 +1854,11 @@ def update_page_cell(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the Favorites page's associated location. |
 | `page_id` | `string` | Template, Required | The ID of the page the cell belongs to. |
-| `body` | [`V1 Page Cell`]($m/V1PageCell) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`V1 Page Cell`](/doc/models/v1-page-cell.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`V1 Page`]($m/V1Page)
+[`V1 Page`](/doc/models/v1-page.md)
 
 ### Example Usage
 

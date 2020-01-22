@@ -50,7 +50,7 @@ def list_payments(self,
 
 ### Response Type
 
-[`List Payments Response`]($m/ListPaymentsResponse)
+[`List Payments Response`](/doc/models/list-payments-response.md)
 
 ### Example Usage
 
@@ -88,11 +88,11 @@ def create_payment(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Create Payment Request`]($m/CreatePaymentRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Create Payment Request`](/doc/models/create-payment-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Create Payment Response`]($m/CreatePaymentResponse)
+[`Create Payment Response`](/doc/models/create-payment-response.md)
 
 ### Example Usage
 
@@ -142,11 +142,11 @@ def cancel_payment_by_idempotency_key(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Cancel Payment by Idempotency Key Request`]($m/CancelPaymentByIdempotencyKeyRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Cancel Payment by Idempotency Key Request`](/doc/models/cancel-payment-by-idempotency-key-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Cancel Payment by Idempotency Key Response`]($m/CancelPaymentByIdempotencyKeyResponse)
+[`Cancel Payment by Idempotency Key Response`](/doc/models/cancel-payment-by-idempotency-key-response.md)
 
 ### Example Usage
 
@@ -179,7 +179,7 @@ def get_payment(self,
 
 ### Response Type
 
-[`Get Payment Response`]($m/GetPaymentResponse)
+[`Get Payment Response`](/doc/models/get-payment-response.md)
 
 ### Example Usage
 
@@ -213,7 +213,7 @@ def cancel_payment(self,
 
 ### Response Type
 
-[`Cancel Payment Response`]($m/CancelPaymentResponse)
+[`Cancel Payment Response`](/doc/models/cancel-payment-response.md)
 
 ### Example Usage
 
@@ -250,7 +250,7 @@ def complete_payment(self,
 
 ### Response Type
 
-[`Complete Payment Response`]($m/CompletePaymentResponse)
+[`Complete Payment Response`](/doc/models/complete-payment-response.md)
 
 ### Example Usage
 

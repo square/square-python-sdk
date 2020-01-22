@@ -15,7 +15,7 @@ Represents a tax that can apply to either a single line item or an entire order.
 |  --- | --- | --- | --- |
 | `catalog_object_id` | `string` | Optional | Only used for catalog taxes. The catalog object ID of an existing [CatalogTax](#type-catalogtax).<br><br>Do not provide a value for this field if you provide values in other fields for an ad hoc tax. |
 | `name` | `string` | Optional | Only used for ad hoc taxes. The tax's name.<br><br>Do not provide a value for this field if you set `catalog_object_id`. |
-| `type` | [`str (Order Line Item Tax Type)`]($m/OrderLineItemTaxType) | Optional | Indicates how the tax is applied to the associated line item or order. |
+| `type` | [`str (Order Line Item Tax Type)`](/doc/models/order-line-item-tax-type.md) | Optional | Indicates how the tax is applied to the associated line item or order. |
 | `percentage` | `string` | Optional | Only used for ad hoc taxes. The percentage of the tax, as a string representation of a decimal number.<br><br>A value of `7.25` corresponds to a percentage of 7.25%. This value range between 0.0 up to 100.0 |
 
 ### Example (as JSON)

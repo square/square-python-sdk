@@ -49,12 +49,12 @@ def list_refunds(self,
 | `location_id` | `string` | Template, Required | The ID of the location to list refunds for. |
 | `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in RFC 3339 format.<br><br>See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.<br><br>Default value: The current time minus one year. |
 | `end_time` | `string` | Query, Optional | The end of the requested reporting period, in RFC 3339 format.<br><br>See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.<br><br>Default value: The current time. |
-| `sort_order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which results are listed in the response (`ASC` for<br>oldest first, `DESC` for newest first).<br><br>Default value: `DESC` |
+| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which results are listed in the response (`ASC` for<br>oldest first, `DESC` for newest first).<br><br>Default value: `DESC` |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](#paginatingresults) for more information. |
 
 ### Response Type
 
-[`List Refunds Response`]($m/ListRefundsResponse)
+[`List Refunds Response`](/doc/models/list-refunds-response.md)
 
 ### Example Usage
 
@@ -96,12 +96,12 @@ def list_transactions(self,
 | `location_id` | `string` | Template, Required | The ID of the location to list transactions for. |
 | `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in RFC 3339 format.<br><br>See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.<br><br>Default value: The current time minus one year. |
 | `end_time` | `string` | Query, Optional | The end of the requested reporting period, in RFC 3339 format.<br><br>See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.<br><br>Default value: The current time. |
-| `sort_order` | [`str (Sort Order)`]($m/SortOrder) | Query, Optional | The order in which results are listed in the response (`ASC` for<br>oldest first, `DESC` for newest first).<br><br>Default value: `DESC` |
+| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which results are listed in the response (`ASC` for<br>oldest first, `DESC` for newest first).<br><br>Default value: `DESC` |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](#paginatingresults) for more information. |
 
 ### Response Type
 
-[`List Transactions Response`]($m/ListTransactionsResponse)
+[`List Transactions Response`](/doc/models/list-transactions-response.md)
 
 ### Example Usage
 
@@ -152,11 +152,11 @@ def charge(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the location to associate the created transaction with. |
-| `body` | [`Charge Request`]($m/ChargeRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Charge Request`](/doc/models/charge-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Charge Response`]($m/ChargeResponse)
+[`Charge Response`](/doc/models/charge-response.md)
 
 ### Example Usage
 
@@ -223,7 +223,7 @@ def retrieve_transaction(self,
 
 ### Response Type
 
-[`Retrieve Transaction Response`]($m/RetrieveTransactionResponse)
+[`Retrieve Transaction Response`](/doc/models/retrieve-transaction-response.md)
 
 ### Example Usage
 
@@ -262,7 +262,7 @@ def capture_transaction(self,
 
 ### Response Type
 
-[`Capture Transaction Response`]($m/CaptureTransactionResponse)
+[`Capture Transaction Response`](/doc/models/capture-transaction-response.md)
 
 ### Example Usage
 
@@ -305,11 +305,11 @@ def create_refund(self,
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the original transaction's associated location. |
 | `transaction_id` | `string` | Template, Required | The ID of the original transaction that includes the tender to refund. |
-| `body` | [`Create Refund Request`]($m/CreateRefundRequest) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Create Refund Request`](/doc/models/create-refund-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
-[`Create Refund Response`]($m/CreateRefundResponse)
+[`Create Refund Response`](/doc/models/create-refund-response.md)
 
 ### Example Usage
 
@@ -355,7 +355,7 @@ def void_transaction(self,
 
 ### Response Type
 
-[`Void Transaction Response`]($m/VoidTransactionResponse)
+[`Void Transaction Response`](/doc/models/void-transaction-response.md)
 
 ### Example Usage
 

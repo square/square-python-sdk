@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `FIXED_PRICING` | - |
-| `VARIABLE_PRICING` | - |
+| Name |
+|  --- |
+| `FIXED_PRICING` |
+| `VARIABLE_PRICING` |
 

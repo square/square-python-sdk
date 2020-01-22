@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Employee`]($m/V1Employee) | Optional | - |
+| `items` | [`List of V1 Employee`](/doc/models/v1-employee.md) | Optional | - |
 
 ### Example (as JSON)
 

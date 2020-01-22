@@ -10,8 +10,8 @@
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on any errors encountered. |
 | `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset, this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `objects` | [`List of Catalog Object`]($m/CatalogObject) | Optional | The CatalogObjects returned. |
-| `related_objects` | [`List of Catalog Object`]($m/CatalogObject) | Optional | A list of CatalogObjects referenced by the objects in the `objects` field. |
+| `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The CatalogObjects returned. |
+| `related_objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | A list of CatalogObjects referenced by the objects in the `objects` field. |
 | `latest_time` | `string` | Optional | When the associated product catalog was last updated. Will<br>match the value for `end_time` or `cursor` if either field is included in the `SearchCatalog` request. |
 
 ### Example (as JSON)
