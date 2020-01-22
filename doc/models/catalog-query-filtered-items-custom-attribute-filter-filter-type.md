@@ -6,10 +6,10 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `CUSTOM_ATTRIBUTE_FILTER_TYPE_DO_NOT_USE` | - |
-| `EXACT` | - |
-| `PREFIX` | - |
-| `RANGE` | - |
+| Name |
+|  --- |
+| `CUSTOM_ATTRIBUTE_FILTER_TYPE_DO_NOT_USE` |
+| `EXACT` |
+| `PREFIX` |
+| `RANGE` |
 

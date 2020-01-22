@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `OUT` | - |
-| `LOW` | - |
+| Name |
+|  --- |
+| `OUT` |
+| `LOW` |
 

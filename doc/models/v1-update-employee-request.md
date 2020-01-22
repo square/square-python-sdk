@@ -8,7 +8,7 @@
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `body` | [`V1 Employee`]($m/V1Employee) | Represents one of a business's employees. |
+| `body` | [`V1 Employee`](/doc/models/v1-employee.md) | Represents one of a business's employees. |
 
 ### Example (as JSON)
 

@@ -29,11 +29,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '4.0.0.20191217'
+        return '4.1.0.20200122'
 
     @staticmethod
     def square_version():
-        return '2019-12-17'
+        return '2020-01-22'
 
     @lazy_property
     def mobile_authorization(self):

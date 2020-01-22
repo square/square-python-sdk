@@ -6,10 +6,10 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `ITEM` | - |
-| `DISCOUNT` | - |
-| `CATEGORY` | - |
-| `PLACEHOLDER` | - |
+| Name |
+|  --- |
+| `ITEM` |
+| `DISCOUNT` |
+| `CATEGORY` |
+| `PLACEHOLDER` |
 

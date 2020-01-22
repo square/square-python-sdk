@@ -20,13 +20,10 @@
 
 ```json
 {
-  "client_id": "client_id8",
-  "client_secret": "client_secret8",
-  "code": null,
-  "redirect_uri": null,
-  "grant_type": "grant_type4",
-  "refresh_token": null,
-  "migration_token": null
+  "client_id": "APPLICATION_ID",
+  "client_secret": "APPLICATION_SECRET",
+  "code": "CODE_FROM_AUTHORIZE",
+  "grant_type": "authorization_code"
 }
 ```
 

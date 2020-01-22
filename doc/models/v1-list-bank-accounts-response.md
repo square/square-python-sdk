@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Bank Account`]($m/V1BankAccount) | Optional | - |
+| `items` | [`List of V1 Bank Account`](/doc/models/v1-bank-account.md) | Optional | - |
 
 ### Example (as JSON)
 

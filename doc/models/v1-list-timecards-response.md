@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Timecard`]($m/V1Timecard) | Optional | - |
+| `items` | [`List of V1 Timecard`](/doc/models/v1-timecard.md) | Optional | - |
 
 ### Example (as JSON)
 

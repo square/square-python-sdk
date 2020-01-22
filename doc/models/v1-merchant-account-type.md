@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `LOCATION` | - |
-| `BUSINESS` | - |
+| Name |
+|  --- |
+| `LOCATION` |
+| `BUSINESS` |
 

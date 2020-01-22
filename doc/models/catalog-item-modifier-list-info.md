@@ -12,7 +12,7 @@ this `CatalogItem`.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `modifier_list_id` | `string` |  | The ID of the `CatalogModifierList` controlled by this `CatalogModifierListInfo`. |
-| `modifier_overrides` | [`List of Catalog Modifier Override`]($m/CatalogModifierOverride) | Optional | A set of `CatalogModifierOverride` objects that override whether a given `CatalogModifier` is enabled by default. |
+| `modifier_overrides` | [`List of Catalog Modifier Override`](/doc/models/catalog-modifier-override.md) | Optional | A set of `CatalogModifierOverride` objects that override whether a given `CatalogModifier` is enabled by default. |
 | `min_selected_modifiers` | `int` | Optional | If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this `CatalogModifierList`. |
 | `max_selected_modifiers` | `int` | Optional | If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this `CatalogModifierList`. |
 | `enabled` | `bool` | Optional | If `true`, enable this `CatalogModifierList`. |

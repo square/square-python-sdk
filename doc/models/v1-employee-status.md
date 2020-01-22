@@ -6,8 +6,8 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `ACTIVE` | - |
-| `INACTIVE` | - |
+| Name |
+|  --- |
+| `ACTIVE` |
+| `INACTIVE` |
 

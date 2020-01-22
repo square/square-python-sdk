@@ -6,7 +6,7 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `TAX` | - |
+| Name |
+|  --- |
+| `TAX` |
 

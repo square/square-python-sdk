@@ -6,15 +6,15 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `NO_SALE` | - |
-| `CASH_TENDER_PAYMENT` | - |
-| `OTHER_TENDER_PAYMENT` | - |
-| `CASH_TENDER_CANCELED_PAYMENT` | - |
-| `OTHER_TENDER_CANCELED_PAYMENT` | - |
-| `CASH_TENDER_REFUND` | - |
-| `OTHER_TENDER_REFUND` | - |
-| `PAID_IN` | - |
-| `PAID_OUT` | - |
+| Name |
+|  --- |
+| `NO_SALE` |
+| `CASH_TENDER_PAYMENT` |
+| `OTHER_TENDER_PAYMENT` |
+| `CASH_TENDER_CANCELED_PAYMENT` |
+| `OTHER_TENDER_CANCELED_PAYMENT` |
+| `CASH_TENDER_REFUND` |
+| `OTHER_TENDER_REFUND` |
+| `PAID_IN` |
+| `PAID_OUT` |
 

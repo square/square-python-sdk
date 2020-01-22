@@ -25,40 +25,35 @@ One of `errors` or `order` is present in a given response (never both).
     "location_id": "LOCATION_ID",
     "line_items": [
       {
+        "uid": "8uSwfzvUImn3IRrvciqlXC",
         "name": "New York Strip Steak",
         "quantity": "1",
-        "taxes": [
+        "applied_taxes": [
           {
-            "name": "State Sales Tax",
-            "type": "ADDITIVE",
-            "percentage": "9",
+            "uid": "aKG87ArnDpvMLSZJHxWUl",
+            "tax_uid": "state-sales-tax",
             "applied_money": {
               "amount": 136,
               "currency": "USD"
             }
           }
         ],
-        "discounts": [
+        "applied_discounts": [
           {
-            "catalog_object_id": "DB7L55ZH2BGWI4H23ULIWOQ7",
-            "name": "Membership Discount",
-            "type": "FIXED_PERCENTAGE",
-            "percentage": "0.5",
+            "uid": "jWdgP1TpHPFBuVrz81mXVC",
+            "discount_uid": "membership-discount",
             "applied_money": {
               "amount": 8,
               "currency": "USD"
-            },
-            "scope": "ORDER"
+            }
           },
           {
-            "name": "Labor Day Sale",
-            "type": "FIXED_PERCENTAGE",
-            "percentage": "5",
+            "uid": "jnZOjjVY57eRcQAVgEwFuC",
+            "discount_uid": "labor-day-sale",
             "applied_money": {
               "amount": 79,
               "currency": "USD"
-            },
-            "scope": "ORDER"
+            }
           }
         ],
         "base_price_money": {
@@ -80,15 +75,21 @@ One of `errors` or `order` is present in a given response (never both).
         "total_money": {
           "amount": 1648,
           "currency": "USD"
+        },
+        "variation_total_price_money": {
+          "amount": 1599,
+          "currency": "USD"
         }
       },
       {
+        "uid": "v8ZuEXpOJpb0bazLuvrLDB",
         "name": "New York Steak",
         "quantity": "2",
         "catalog_object_id": "BEMYCSMIJL46OCDV4KYIKXIB",
         "variation_name": "Larger",
         "modifiers": [
           {
+            "uid": "Lo3qMMckDluu9Qsb58d4CC",
             "catalog_object_id": "CHQX7Y4KY6N5KINJKZCFURPZ",
             "name": "Well",
             "base_price_money": {
@@ -101,51 +102,40 @@ One of `errors` or `order` is present in a given response (never both).
             }
           }
         ],
-        "taxes": [
+        "applied_taxes": [
           {
-            "name": "State Sales Tax",
-            "type": "ADDITIVE",
-            "percentage": "9",
+            "uid": "v1dAgrfUVUPTnVTf9sRPz",
+            "tax_uid": "state-sales-tax",
             "applied_money": {
               "amount": 374,
               "currency": "USD"
             }
           }
         ],
-        "discounts": [
+        "applied_discounts": [
           {
-            "catalog_object_id": "DB7L55ZH2BGWI4H23ULIWOQ7",
-            "name": "Membership Discount",
-            "type": "FIXED_PERCENTAGE",
-            "percentage": "0.5",
+            "uid": "nUXvdsIItfKko0dbYtY58C",
+            "discount_uid": "membership-discount",
             "applied_money": {
               "amount": 22,
               "currency": "USD"
-            },
-            "scope": "ORDER"
+            }
           },
           {
-            "name": "Labor Day Sale",
-            "type": "FIXED_PERCENTAGE",
-            "percentage": "5",
+            "uid": "qSdkOOOernlVQqsJ94SPjB",
+            "discount_uid": "labor-day-sale",
             "applied_money": {
               "amount": 224,
               "currency": "USD"
-            },
-            "scope": "ORDER"
+            }
           },
           {
-            "name": "Sale - $1.00 off",
-            "type": "FIXED_AMOUNT",
-            "amount_money": {
-              "amount": 100,
-              "currency": "USD"
-            },
+            "uid": "y7bVl4njrWAnfDwmz19izB",
+            "discount_uid": "one-dollar-off",
             "applied_money": {
               "amount": 100,
               "currency": "USD"
-            },
-            "scope": "LINE_ITEM"
+            }
           }
         ],
         "base_price_money": {
@@ -167,11 +157,16 @@ One of `errors` or `order` is present in a given response (never both).
         "total_money": {
           "amount": 4528,
           "currency": "USD"
+        },
+        "variation_total_price_money": {
+          "amount": 4400,
+          "currency": "USD"
         }
       }
     ],
     "taxes": [
       {
+        "uid": "state-sales-tax",
         "name": "State Sales Tax",
         "type": "ADDITIVE",
         "percentage": "9",
@@ -184,6 +179,7 @@ One of `errors` or `order` is present in a given response (never both).
     ],
     "discounts": [
       {
+        "uid": "membership-discount",
         "catalog_object_id": "DB7L55ZH2BGWI4H23ULIWOQ7",
         "name": "Membership Discount",
         "type": "FIXED_PERCENTAGE",
@@ -195,6 +191,7 @@ One of `errors` or `order` is present in a given response (never both).
         "scope": "ORDER"
       },
       {
+        "uid": "labor-day-sale",
         "name": "Labor Day Sale",
         "type": "FIXED_PERCENTAGE",
         "percentage": "5",
@@ -205,6 +202,7 @@ One of `errors` or `order` is present in a given response (never both).
         "scope": "ORDER"
       },
       {
+        "uid": "one-dollar-off",
         "name": "Sale - $1.00 off",
         "type": "FIXED_AMOUNT",
         "amount_money": {
@@ -218,6 +216,11 @@ One of `errors` or `order` is present in a given response (never both).
         "scope": "LINE_ITEM"
       }
     ],
+    "created_at": "2020-01-17T20:47:53.293Z",
+    "updated_at": "2020-01-17T20:47:53.293Z",
+    "state": "OPEN",
+    "version": 1,
+    "reference_id": "my-order-001",
     "total_money": {
       "amount": 6176,
       "currency": "USD"
@@ -229,6 +232,39 @@ One of `errors` or `order` is present in a given response (never both).
     "total_discount_money": {
       "amount": 433,
       "currency": "USD"
+    },
+    "total_tip_money": {
+      "amount": 0,
+      "currency": "USD"
+    },
+    "total_service_charge_money": {
+      "amount": 0,
+      "currency": "USD"
+    },
+    "net_amounts": {
+      "total_money": {
+        "amount": 6176,
+        "currency": "USD"
+      },
+      "tax_money": {
+        "amount": 510,
+        "currency": "USD"
+      },
+      "discount_money": {
+        "amount": 433,
+        "currency": "USD"
+      },
+      "tip_money": {
+        "amount": 0,
+        "currency": "USD"
+      },
+      "service_charge_money": {
+        "amount": 0,
+        "currency": "USD"
+      }
+    },
+    "source": {
+      "name": "My App"
     }
   }
 }

@@ -30,13 +30,13 @@ def list_employees(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Query, Optional | Filter employees returned to only those that are associated with the specified location. |
-| `status` | [`str (Employee Status)`]($m/EmployeeStatus) | Query, Optional | Specifies the EmployeeStatus to filter the employee by. |
+| `status` | [`str (Employee Status)`](/doc/models/employee-status.md) | Query, Optional | Specifies the EmployeeStatus to filter the employee by. |
 | `limit` | `int` | Query, Optional | The number of employees to be returned on each page. |
 | `cursor` | `string` | Query, Optional | The token required to retrieve the specified page of results. |
 
 ### Response Type
 
-[`List Employees Response`]($m/ListEmployeesResponse)
+[`List Employees Response`](/doc/models/list-employees-response.md)
 
 ### Example Usage
 
@@ -66,7 +66,7 @@ def retrieve_employee(self,
 
 ### Response Type
 
-[`Retrieve Employee Response`]($m/RetrieveEmployeeResponse)
+[`Retrieve Employee Response`](/doc/models/retrieve-employee-response.md)
 
 ### Example Usage
 

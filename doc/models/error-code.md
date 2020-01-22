@@ -63,26 +63,26 @@ Square API.
 | `UNSUPPORTED_ENTRY_METHOD` | The entry method for the credit card (swipe, dip, tap) is not supported. |
 | `INVALID_ENCRYPTED_CARD` | The encrypted card information is invalid. |
 | `INVALID_CARD` | The credit card cannot be validated based on the provided details. |
-| `GENERIC_DECLINE` | The credit card was decline by the issuer for an unspecified<br>reason. |
+| `GENERIC_DECLINE` | An unexpected error occurred. |
 | `CVV_FAILURE` | The card issuer declined the request because the CVV value is invalid. |
 | `ADDRESS_VERIFICATION_FAILURE` | The card issuer declined the request because the postal code is invalid. |
 | `INVALID_ACCOUNT` | The card issuer was not able to locate account on record. |
 | `CURRENCY_MISMATCH` | The currency associated with the payment is not valid for the provided<br>funding source. For example, a gift card funded in USD cannot be used to process<br>payments in GBP. |
 | `INSUFFICIENT_FUNDS` | The funding source has insufficient funds to cover the payment. |
-| `INSUFFICIENT_PERMISSIONS` | The Square account associated with the payment does not have<br>the permissions necessary to accept the payment. For example, Square may<br>limit which merchants are allowed to process gift card payments. |
-| `CARDHOLDER_INSUFFICIENT_PERMISSIONS` | The funding source associated with the payment has limitations on<br>how it can be used. For example, it is only valid for specific merchants<br>or transaction types. |
-| `INVALID_LOCATION` | The associated Square account is not allowed to take payments in this region. |
-| `TRANSACTION_LIMIT` | The payment amount violates an associated transaction limit, i.e.,<br>it is too low or too high. For example, the card used is a prepaid credit<br>card. |
-| `VOICE_FAILURE` | The transaction was declined because the card issuer requires voice<br>authorization from the cardholder. |
+| `INSUFFICIENT_PERMISSIONS` | The Square account does not have the permissions to accept <br>this payment. For example, Square may limit which merchants are <br>allowed to receive gift card payments. |
+| `CARDHOLDER_INSUFFICIENT_PERMISSIONS` | The card issuer has declined the transaction due to restrictions on where the card can be used. <br>For example, a gift card is limited to a single merchant. |
+| `INVALID_LOCATION` | The Square account cannot take payments in the specified region. <br>A Square account can take payments only from the region where the account was created. |
+| `TRANSACTION_LIMIT` | The card issuer has determined the payment amount is either too high or too low. <br>The API returns the error code mostly for credit cards (for example, the card reached <br>the credit limit). However, sometimes the issuer bank can indicate the error for debit <br>or prepaid cards (for example, card has insufficient funds). |
+| `VOICE_FAILURE` | The card issuer declined the request because the issuer requires voice authorization from the cardholder. |
 | `PAN_FAILURE` | The specified card number is invalid. For example, it is of<br>incorrect length or is incorrectly formatted. |
 | `EXPIRATION_FAILURE` | The card expiration date is either invalid or indicates that the<br>card is expired. |
-| `CARD_NOT_SUPPORTED` | The card is not supported in the geographic region associated with<br>the Square account. For example, the card is accepted in the US but not in<br>Japan. |
+| `CARD_NOT_SUPPORTED` | The card is not supported either in the geographic region or by <br>the MCC [merchant category code](https://developer.squareup.com/docs/docs/api/connect/v2#navsection-connectapibasics) |
 | `INVALID_PIN` | The card issuer declined the request because the PIN is invalid. |
-| `INVALID_POSTAL_CODE` | The postal code is improperly formatted. |
-| `INVALID_FEES` | The total fee amount associated with the payment is too high. |
-| `MANUALLY_ENTERED_PAYMENT_NOT_SUPPORTED` | The payment was declined because manually keying-in the card<br>information is disallowed. The card must be swiped, tapped, or dipped. |
-| `PAYMENT_LIMIT_EXCEEDED` | Square declined the request because the payment amount exceeds the<br>processing limit for the associated Square account. |
-| `GIFT_CARD_AVAILABLE_AMOUNT` | A gift card payment was declined because the card had insufficient funds. |
+| `INVALID_POSTAL_CODE` | The postal code is incorrectly formatted. |
+| `INVALID_FEES` | The app_fee_money on a payment is too high. |
+| `MANUALLY_ENTERED_PAYMENT_NOT_SUPPORTED` | The card must be swiped, tapped, or dipped. Payments attempted by manually entering the card number are declined. |
+| `PAYMENT_LIMIT_EXCEEDED` | Square declined the request because the payment amount exceeded the processing limit for this merchant. |
+| `GIFT_CARD_AVAILABLE_AMOUNT` | When using a gift card as a payment source in a `CreatePayment` request, you can allow <br>taking partial payment by adding the `accept_partial_authorization` parameter in the request. <br>If the gift card does not have sufficient balance to pay the entire `amount_money` specified <br>in the request, the request will succeed (an APPROVED payment for the remaining balance will be <br>returned). For more information, see [Partial amount with Square gift cards](https://developer.squareup.com/docs/docs/payments-api/take-payments#partial-payment-gift-card).\r\n\r\n<br>However, taking such a partial payment does not work if your request also includes `tip_money`,<br>`app_fee_money`, or both. Square declines such payment and returns this error.\r\n* The error <br>details provide the amount that was available on the gift card at the time of the request. <br>The amount is a string representation in the smallest denomination of the applicable currency. <br>For example, in USD the amount is specified in cents.\r\n* The error code appears in an array <br>along with the INSUFFICIENT_FUNDS error.\r\n\r\nThe following is an example set of <br>errors:\r\n```\r\n{\r\n  \"errors\": [\r\n    {\r\n  \"code\": \"INSUFFICIENT_FUNDS\",\r\n      \"detail\": \"Gift card does not have sufficient balance for requested amount and tip.\",\r\n      \"category\": \"PAYMENT_METHOD_ERROR\"\r\n    },\r\n    {\r\n      \"code\": \"GIFT_CARD_AVAILABLE_AMOUNT\",\r\n      \"detail\": \"4494\",\r\n      \"category\": \"PAYMENT_METHOD_ERROR\"\r\n    }\r\n  ]\r\n}\r\n```\r\n\r\n<br>In addition to the errors, it shows the gift card balance at 44.94 USD. You can review this amount and submit a new `CreatePayment` request with `tip_money` and `amount_money` that fit within the available balance. |
 | `DELAYED_TRANSACTION_EXPIRED` | The application tried to update a delayed-capture payment that has expired. |
 | `DELAYED_TRANSACTION_CANCELED` | The application tried to cancel a delayed-capture payment that was already cancelled. |
 | `DELAYED_TRANSACTION_CAPTURED` | The application tried to capture a delayed-capture payment that was already captured. |
@@ -105,9 +105,6 @@ Square API.
 | `BAD_CERTIFICATE` | Bad certificate. |
 | `INVALID_SQUARE_VERSION_FORMAT` | The provided Square-Version is incorrectly formatted. |
 | `API_VERSION_INCOMPATIBLE` | The provided Square-Version is incompatibile with the requested action. |
-| `INVALID_URL` | The provided API URL is invalid. |
-| `HTTPS_ONLY` | HTTPS only. |
-| `UNREACHABLE_URL` | The provided URL is unreachable. |
 | `CARD_DECLINED` | 402 Request failed - the card was declined. |
 | `VERIFY_CVV_FAILURE` | 402 Request failed - the CVV could not be verified. |
 | `VERIFY_AVS_FAILURE` | 402 Request failed - the AVS could not be verified. |

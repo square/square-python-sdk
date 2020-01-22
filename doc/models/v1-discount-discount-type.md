@@ -6,9 +6,9 @@
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
-| `FIXED` | - |
-| `VARIABLE_PERCENTAGE` | - |
-| `VARIABLE_AMOUNT` | - |
+| Name |
+|  --- |
+| `FIXED` |
+| `VARIABLE_PERCENTAGE` |
+| `VARIABLE_AMOUNT` |
 

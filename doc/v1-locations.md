@@ -31,7 +31,7 @@ def retrieve_business(self)
 
 ### Response Type
 
-[`V1 Merchant`]($m/V1Merchant)
+[`V1 Merchant`](/doc/models/v1-merchant.md)
 
 ### Example Usage
 
@@ -63,7 +63,7 @@ def list_locations(self)
 
 ### Response Type
 
-[`List of V1 Merchant`]($m/V1Merchant)
+[`List of V1 Merchant`](/doc/models/v1-merchant.md)
 
 ### Example Usage
 

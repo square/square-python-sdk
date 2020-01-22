@@ -12,7 +12,7 @@ the request resulted in errors.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `workweek_configs` | [`List of Workweek Config`]($m/WorkweekConfig) | Optional | A page of Employee Wage results. |
+| `workweek_configs` | [`List of Workweek Config`](/doc/models/workweek-config.md) | Optional | A page of Employee Wage results. |
 | `cursor` | `string` | Optional | Value supplied in the subsequent request to fetch the next page of<br>Employee Wage results. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
