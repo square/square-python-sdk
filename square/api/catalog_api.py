@@ -2,6 +2,7 @@
 
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
+from square.utilities.file_wrapper import FileWrapper
 from square.api.base_api import BaseApi
 from square.http.auth.o_auth_2 import OAuth2
 
@@ -259,10 +260,17 @@ class CatalogApi(BaseApi):
         _query_builder += _url_path
         _query_url = APIHelper.clean_url(_query_builder)
 
+        if isinstance(image_file, FileWrapper):
+            image_file_wrapper = image_file.file_stream
+            image_file_content_type = image_file.content_type
+        else:
+            image_file_wrapper = image_file
+            image_file_content_type = 'image/jpeg'
+
         # Prepare files
         _files = {
             'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
-            'image_file': (image_file.name, image_file, 'image/jpeg')
+            'image_file': (image_file_wrapper.name, image_file_wrapper, image_file_content_type)
         }
 
         # Prepare headers

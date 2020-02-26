@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -485,6 +486,7 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_timecards(self,
                        order=None,
                        employee_id=None,
@@ -501,6 +503,15 @@ class V1EmployeesApi(BaseApi):
 
         Provides summary information for all of a business's employee
         timecards.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-timecards)
+        ---
 
         Args:
             order (SortOrder, optional): The order in which timecards are
@@ -588,6 +599,7 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def create_timecard(self,
                         body):
         """Does a POST request to /v1/me/timecards.
@@ -595,8 +607,17 @@ class V1EmployeesApi(BaseApi):
         Creates a timecard for an employee and clocks them in with an
         `API_CREATE` event and a `clockin_time` set to the current time
         unless
-        the request provides a different value. To import timecards from
-        another
+        the request provides a different value.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-timecards)
+        ---
+        To import timecards from another
         system (rather than clocking someone in). Specify the `clockin_time`
         and* `clockout_time` in the request.
         Timecards correspond to exactly one shift for a given employee,
@@ -647,6 +668,7 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def delete_timecard(self,
                         timecard_id):
         """Does a DELETE request to /v1/me/timecards/{timecard_id}.
@@ -656,6 +678,15 @@ class V1EmployeesApi(BaseApi):
         Connect API endpoints, but cannot be modified. The `deleted` field of
         the `Timecard` object indicates whether the timecard has been
         deleted.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-timecards)
+        ---
         *Note**: By default, deleted timecards appear alongside valid
         timecards in
         results returned by the
@@ -704,11 +735,21 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def retrieve_timecard(self,
                           timecard_id):
         """Does a GET request to /v1/me/timecards/{timecard_id}.
 
         Provides the details for a single timecard.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-timecards)
+        ---
         <aside>
         Only approved accounts can manage their employees with Square.
         Unapproved accounts cannot use employee management features with the
@@ -756,6 +797,7 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def update_timecard(self,
                         timecard_id,
                         body):
@@ -764,6 +806,15 @@ class V1EmployeesApi(BaseApi):
         Modifies the details of a timecard with an `API_EDIT` event for
         the timecard. Updating an active timecard with a `clockout_time`
         clocks the employee out.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-timecards)
+        ---
 
         Args:
             timecard_id (string): TThe ID of the timecard to modify.
@@ -810,12 +861,22 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_timecard_events(self,
                              timecard_id):
         """Does a GET request to /v1/me/timecards/{timecard_id}/events.
 
         Provides summary information for all events associated with a
         particular timecard.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-timecards)
+        ---
         <aside>
         Only approved accounts can manage their employees with Square.
         Unapproved accounts cannot use employee management features with the
@@ -863,6 +924,7 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_cash_drawer_shifts(self,
                                 location_id,
                                 order=None,
@@ -872,6 +934,15 @@ class V1EmployeesApi(BaseApi):
 
         Provides the details for all of a location's cash drawer shifts during
         a date range. The date range you specify cannot exceed 90 days.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-cashdrawershifts)
+        ---
 
         Args:
             location_id (string): The ID of the location to list cash drawer
@@ -933,6 +1004,7 @@ class V1EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def retrieve_cash_drawer_shift(self,
                                    location_id,
                                    shift_id):
@@ -940,6 +1012,15 @@ class V1EmployeesApi(BaseApi):
 
         Provides the details for a single cash drawer shift, including all
         events that occurred during the shift.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-cashdrawershifts)
+        ---
 
         Args:
             location_id (string): The ID of the location to list cash drawer

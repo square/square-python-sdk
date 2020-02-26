@@ -1,0 +1,193 @@
+# -*- coding: utf-8 -*-
+
+from square.api_helper import APIHelper
+from square.http.api_response import ApiResponse
+from square.api.base_api import BaseApi
+from square.http.auth.o_auth_2 import OAuth2
+
+
+class BankAccountsApi(BaseApi):
+
+    """A Controller to access Endpoints in the square API."""
+
+    def __init__(self, config, call_back=None):
+        super(BankAccountsApi, self).__init__(config, call_back)
+
+    def list_bank_accounts(self,
+                           cursor=None,
+                           limit=None,
+                           location_id=None):
+        """Does a GET request to /v2/bank-accounts.
+
+        Returns a list of [BankAccount](#type-bankaccount) objects linked to a
+        Square account. 
+        For more information, see 
+        [Bank Accounts
+        API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+
+        Args:
+            cursor (string, optional): The pagination cursor returned by a
+                previous call to this endpoint. Use it in the next
+                `ListBankAccounts` request to retrieve the next set  of
+                results.  See the
+                [Pagination](https://developer.squareup.com/docs/docs/working-w
+                ith-apis/pagination) guide for more information.
+            limit (int, optional): Upper limit on the number of bank accounts
+                to return in the response.  Currently, 1000 is the largest
+                supported limit. You can specify a limit  of up to 1000 bank
+                accounts. This is also the default limit.
+            location_id (string, optional): Location ID. You can specify this
+                optional filter  to retrieve only the linked bank accounts
+                belonging to a specific location.
+
+        Returns:
+            ListBankAccountsResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/bank-accounts'
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_parameters = {
+            'cursor': cursor,
+            'limit': limit,
+            'location_id': location_id
+        }
+        _query_builder = APIHelper.append_url_with_query_parameters(
+            _query_builder,
+            _query_parameters
+        )
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.get(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def get_bank_account_by_v1_id(self,
+                                  v1_bank_account_id):
+        """Does a GET request to /v2/bank-accounts/by-v1-id/{v1_bank_account_id}.
+
+        Returns details of a [BankAccount](#type-bankaccount) identified by V1
+        bank account ID. 
+        For more information, see 
+        [Retrieve a bank account by using an ID issued by V1 Bank Accounts
+        API](https://developer.squareup.com/docs/docs/bank-accounts-api#retriev
+        e-a-bank-account-by-using-an-id-issued-by-the-v1-bank-accounts-api).
+
+        Args:
+            v1_bank_account_id (string): Connect V1 ID of the desired
+                `BankAccount`. For more information, see  [Retrieve a bank
+                account by using an ID issued by V1 Bank Accounts
+                API](https://developer.squareup.com/docs/docs/bank-accounts-api
+                #retrieve-a-bank-account-by-using-an-id-issued-by-v1-bank-accou
+                nts-api).
+
+        Returns:
+            GetBankAccountByV1IdResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/bank-accounts/by-v1-id/{v1_bank_account_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'v1_bank_account_id': v1_bank_account_id
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.get(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def get_bank_account(self,
+                         bank_account_id):
+        """Does a GET request to /v2/bank-accounts/{bank_account_id}.
+
+        Returns details of a [BankAccount](#type-bankaccount) 
+        linked to a Square account. For more information, see 
+        [Bank Accounts
+        API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+
+        Args:
+            bank_account_id (string): Square-issued ID of the desired
+                `BankAccount`.
+
+        Returns:
+            GetBankAccountResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/bank-accounts/{bank_account_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'bank_account_id': bank_account_id
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.get(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result

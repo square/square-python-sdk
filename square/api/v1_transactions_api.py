@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -13,6 +14,7 @@ class V1TransactionsApi(BaseApi):
     def __init__(self, config, call_back=None):
         super(V1TransactionsApi, self).__init__(config, call_back)
 
+    @deprecated()
     def list_bank_accounts(self,
                            location_id):
         """Does a GET request to /v1/{location_id}/bank-accounts.
@@ -21,6 +23,15 @@ class V1TransactionsApi(BaseApi):
         bank accounts. This endpoint does not provide full bank account
         numbers, and there is no way to obtain a full bank account number with
         the Connect API.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-bankaccounts)
+        ---
 
         Args:
             location_id (string): The ID of the location to list bank accounts
@@ -64,6 +75,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def retrieve_bank_account(self,
                               location_id,
                               bank_account_id):
@@ -73,6 +85,15 @@ class V1TransactionsApi(BaseApi):
         account. This endpoint does not provide full bank account numbers, and
         there is no way to obtain a full bank account number with the Connect
         API.
+        ---
+        - __Deprecation date__: 2020-02-26
+        - [__Retirement
+        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
+        ycle#deprecated): 2021-02-26
+        - [Migration
+        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
+        v1-bankaccounts)
+        ---
 
         Args:
             location_id (string): The ID of the bank account's associated

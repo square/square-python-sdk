@@ -38,65 +38,62 @@ location_id = 'location_id4'
 body = {}
 body['idempotency_key'] = '86ae1696-b1e3-4328-af6d-f1e04d947ad6'
 body['order'] = {}
-body['order']['reference_id'] = 'reference_id'
-body['order']['line_items'] = []
+body['order']['order'] = {}
+body['order']['order']['location_id'] = 'location_id'
+body['order']['order']['reference_id'] = 'reference_id'
+body['order']['order']['customer_id'] = 'customer_id'
+body['order']['order']['line_items'] = []
 
-body['order']['line_items'].append({})
-body['order']['line_items'][0]['name'] = 'Printed T Shirt'
-body['order']['line_items'][0]['quantity'] = '2'
-body['order']['line_items'][0]['base_price_money'] = {}
-body['order']['line_items'][0]['base_price_money']['amount'] = 1500
-body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
-body['order']['line_items'][0]['discounts'] = []
+body['order']['order']['line_items'].append({})
+body['order']['order']['line_items'][0]['name'] = 'Printed T Shirt'
+body['order']['order']['line_items'][0]['quantity'] = '2'
+body['order']['order']['line_items'][0]['applied_taxes'] = []
 
-body['order']['line_items'][0]['discounts'].append({})
-body['order']['line_items'][0]['discounts'][0]['name'] = '7% off previous season item'
-body['order']['line_items'][0]['discounts'][0]['percentage'] = '7'
+body['order']['order']['line_items'][0]['applied_taxes'].append({})
+body['order']['order']['line_items'][0]['applied_taxes'][0]['tax_uid'] = '38ze1696-z1e3-5628-af6d-f1e04d947fg3'
 
-body['order']['line_items'][0]['discounts'].append({})
-body['order']['line_items'][0]['discounts'][1]['name'] = '$3 off Customer Discount'
+body['order']['order']['line_items'][0]['applied_discounts'] = []
 
+body['order']['order']['line_items'][0]['applied_discounts'].append({})
+body['order']['order']['line_items'][0]['applied_discounts'][0]['discount_uid'] = '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
 
-body['order']['line_items'].append({})
-body['order']['line_items'][1]['name'] = 'Slim Jeans'
-body['order']['line_items'][1]['quantity'] = '1'
-body['order']['line_items'][1]['base_price_money'] = {}
-body['order']['line_items'][1]['base_price_money']['amount'] = 2500
-body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
+body['order']['order']['line_items'][0]['base_price_money'] = {}
+body['order']['order']['line_items'][0]['base_price_money']['amount'] = 1500
+body['order']['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 
-body['order']['line_items'].append({})
-body['order']['line_items'][2]['name'] = 'Woven Sweater'
-body['order']['line_items'][2]['quantity'] = '3'
-body['order']['line_items'][2]['base_price_money'] = {}
-body['order']['line_items'][2]['base_price_money']['amount'] = 3500
-body['order']['line_items'][2]['base_price_money']['currency'] = 'USD'
-body['order']['line_items'][2]['taxes'] = []
+body['order']['order']['line_items'].append({})
+body['order']['order']['line_items'][1]['name'] = 'Slim Jeans'
+body['order']['order']['line_items'][1]['quantity'] = '1'
+body['order']['order']['line_items'][1]['base_price_money'] = {}
+body['order']['order']['line_items'][1]['base_price_money']['amount'] = 2500
+body['order']['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
 
-body['order']['line_items'][2]['taxes'].append({})
-body['order']['line_items'][2]['taxes'][0]['name'] = 'Fair Trade Tax'
-body['order']['line_items'][2]['taxes'][0]['percentage'] = '5'
+body['order']['order']['line_items'].append({})
+body['order']['order']['line_items'][2]['name'] = 'Woven Sweater'
+body['order']['order']['line_items'][2]['quantity'] = '3'
+body['order']['order']['line_items'][2]['base_price_money'] = {}
+body['order']['order']['line_items'][2]['base_price_money']['amount'] = 3500
+body['order']['order']['line_items'][2]['base_price_money']['currency'] = 'USD'
 
-body['order']['line_items'][2]['discounts'] = []
+body['order']['order']['taxes'] = []
 
-body['order']['line_items'][2]['discounts'].append({})
-body['order']['line_items'][2]['discounts'][0]['name'] = '$11 off Customer Discount'
+body['order']['order']['taxes'].append({})
+body['order']['order']['taxes'][0]['uid'] = '38ze1696-z1e3-5628-af6d-f1e04d947fg3'
+body['order']['order']['taxes'][0]['type'] = 'INCLUSIVE'
+body['order']['order']['taxes'][0]['percentage'] = '7.75'
+body['order']['order']['taxes'][0]['scope'] = 'LINE_ITEM'
 
+body['order']['order']['discounts'] = []
 
-body['order']['taxes'] = []
+body['order']['order']['discounts'].append({})
+body['order']['order']['discounts'][0]['uid'] = '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
+body['order']['order']['discounts'][0]['type'] = 'FIXED_AMOUNT'
+body['order']['order']['discounts'][0]['amount_money'] = {}
+body['order']['order']['discounts'][0]['amount_money']['amount'] = 100
+body['order']['order']['discounts'][0]['amount_money']['currency'] = 'USD'
+body['order']['order']['discounts'][0]['scope'] = 'LINE_ITEM'
 
-body['order']['taxes'].append({})
-body['order']['taxes'][0]['name'] = 'Sales Tax'
-body['order']['taxes'][0]['percentage'] = '8.5'
-
-body['order']['discounts'] = []
-
-body['order']['discounts'].append({})
-body['order']['discounts'][0]['name'] = 'Father\'s day 12% OFF'
-body['order']['discounts'][0]['percentage'] = '12'
-
-body['order']['discounts'].append({})
-body['order']['discounts'][1]['name'] = 'Global Sales $55 OFF'
-
+body['order']['idempotency_key'] = '12ae1696-z1e3-4328-af6d-f1e04d947gd4'
 body['ask_for_shipping_address'] = True
 body['merchant_support_email'] = 'merchant+support@website.com'
 body['pre_populate_buyer_email'] = 'example@email.com'
