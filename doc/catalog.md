@@ -163,8 +163,8 @@ body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_d
     "price_money": {
       "amount": 150,
       "currency": "USD"
-      }
     }
+}
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][1]['type'] = 'ITEM'
@@ -188,8 +188,8 @@ body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_d
     "price_money": {
       "amount": 250,
       "currency": "USD"
-      }
     }
+}
 
 body['batches'][0]['objects'][1]['item_data']['variations'].append({})
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['type'] = 'ITEM_VARIATION'
@@ -202,8 +202,9 @@ body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_d
     "price_money": {
       "amount": 350,
       "currency": "USD"
-      }
     }
+}
+
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][2]['type'] = 'CATEGORY'
@@ -211,7 +212,7 @@ body['batches'][0]['objects'][2]['id'] = '#Beverages'
 body['batches'][0]['objects'][2]['present_at_all_locations'] = True
 body['batches'][0]['objects'][2]['category_data'] = {
     "name": "Beverages"
-    }
+}
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][3]['type'] = 'TAX'
@@ -224,7 +225,8 @@ body['batches'][0]['objects'][3]['tax_data'] = {
     "percentage": "5.0",
     "applies_to_custom_amounts": True,
     "enabled": True
-    }
+}
+
 
 
 result = catalog_api.batch_upsert_catalog_objects(body)

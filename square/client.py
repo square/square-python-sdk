@@ -9,9 +9,11 @@ from square.api.v1_employees_api import V1EmployeesApi
 from square.api.v1_transactions_api import V1TransactionsApi
 from square.api.v1_items_api import V1ItemsApi
 from square.api.apple_pay_api import ApplePayApi
+from square.api.bank_accounts_api import BankAccountsApi
 from square.api.cash_drawers_api import CashDrawersApi
 from square.api.catalog_api import CatalogApi
 from square.api.customers_api import CustomersApi
+from square.api.disputes_api import DisputesApi
 from square.api.employees_api import EmployeesApi
 from square.api.inventory_api import InventoryApi
 from square.api.labor_api import LaborApi
@@ -29,11 +31,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '4.1.0.20200122'
+        return '5.0.0.20200226'
 
     @staticmethod
     def square_version():
-        return '2020-01-22'
+        return '2020-02-26'
 
     @lazy_property
     def mobile_authorization(self):
@@ -64,6 +66,10 @@ class Client(object):
         return ApplePayApi(self.config)
 
     @lazy_property
+    def bank_accounts(self):
+        return BankAccountsApi(self.config)
+
+    @lazy_property
     def cash_drawers(self):
         return CashDrawersApi(self.config)
 
@@ -74,6 +80,10 @@ class Client(object):
     @lazy_property
     def customers(self):
         return CustomersApi(self.config)
+
+    @lazy_property
+    def disputes(self):
+        return DisputesApi(self.config)
 
     @lazy_property
     def employees(self):

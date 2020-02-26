@@ -1,7 +1,7 @@
 ## Create Checkout Response
 
 Defines the fields that are included in the response body of
-a request to the [CreateCheckout](#endpoint-createcheckout) endpoint.
+a request to the __CreateCheckout__ endpoint.
 
 ### Structure
 
@@ -36,69 +36,29 @@ a request to the [CreateCheckout](#endpoint-createcheckout) endpoint.
     },
     "redirect_url": "https://merchant.website.com/order-confirm",
     "order": {
-      "location_id": "CYTKRM7R7JMV8",
+      "location_id": "location_id",
+      "customer_id": "customer_id",
       "reference_id": "reference_id",
       "line_items": [
         {
           "name": "Printed T Shirt",
           "quantity": "2",
-          "taxes": [
+          "applied_taxes": [
             {
-              "name": "Sales Tax",
-              "type": "ADDITIVE",
-              "percentage": "8.5",
+              "tax_uid": "38ze1696-z1e3-5628-af6d-f1e04d947fg3",
               "applied_money": {
                 "amount": 103,
                 "currency": "USD"
               }
             }
           ],
-          "discounts": [
+          "applied_discounts": [
             {
-              "name": "7% off previous season item",
-              "type": "FIXED_PERCENTAGE",
-              "percentage": "7",
+              "discount_uid": "56ae1696-z1e3-9328-af6d-f1e04d947gd4",
               "applied_money": {
-                "amount": 210,
+                "amount": 100,
                 "currency": "USD"
-              },
-              "scope": "LINE_ITEM"
-            },
-            {
-              "name": "Father's day 12% OFF",
-              "type": "FIXED_PERCENTAGE",
-              "percentage": "12",
-              "applied_money": {
-                "amount": 335,
-                "currency": "USD"
-              },
-              "scope": "ORDER"
-            },
-            {
-              "name": "$3 off Customer Discount",
-              "type": "FIXED_AMOUNT",
-              "amount_money": {
-                "amount": 300,
-                "currency": "USD"
-              },
-              "applied_money": {
-                "amount": 300,
-                "currency": "USD"
-              },
-              "scope": "LINE_ITEM"
-            },
-            {
-              "name": "Global Sales $55 OFF",
-              "type": "FIXED_AMOUNT",
-              "amount_money": {
-                "amount": 5500,
-                "currency": "USD"
-              },
-              "applied_money": {
-                "amount": 949,
-                "currency": "USD"
-              },
-              "scope": "ORDER"
+              }
             }
           ],
           "base_price_money": {
@@ -110,163 +70,77 @@ a request to the [CreateCheckout](#endpoint-createcheckout) endpoint.
             "currency": "USD"
           },
           "total_discount_money": {
-            "amount": 1794,
+            "amount": 100,
             "currency": "USD"
           },
           "total_money": {
-            "amount": 1309,
+            "amount": 1503,
             "currency": "USD"
           }
         },
         {
           "name": "Slim Jeans",
           "quantity": "1",
-          "taxes": [
-            {
-              "name": "Sales Tax",
-              "type": "ADDITIVE",
-              "percentage": "8.5",
-              "applied_money": {
-                "amount": 105,
-                "currency": "USD"
-              }
-            }
-          ],
-          "discounts": [
-            {
-              "name": "Father's day 12% OFF",
-              "type": "FIXED_PERCENTAGE",
-              "percentage": "12",
-              "applied_money": {
-                "amount": 300,
-                "currency": "USD"
-              },
-              "scope": "ORDER"
-            },
-            {
-              "name": "Global Sales $55 OFF",
-              "type": "FIXED_AMOUNT",
-              "amount_money": {
-                "amount": 5500,
-                "currency": "USD"
-              },
-              "applied_money": {
-                "amount": 968,
-                "currency": "USD"
-              },
-              "scope": "ORDER"
-            }
-          ],
           "base_price_money": {
             "amount": 2500,
             "currency": "USD"
           },
-          "total_tax_money": {
-            "amount": 105,
-            "currency": "USD"
-          },
-          "total_discount_money": {
-            "amount": 1268,
-            "currency": "USD"
-          },
           "total_money": {
-            "amount": 1337,
+            "amount": 2500,
             "currency": "USD"
           }
         },
         {
           "name": "Wooven Sweater",
           "quantity": "3",
-          "taxes": [
-            {
-              "name": "Fair Trade Tax",
-              "type": "ADDITIVE",
-              "percentage": "5",
-              "applied_money": {
-                "amount": 228,
-                "currency": "USD"
-              }
-            },
-            {
-              "name": "Sales Tax",
-              "type": "ADDITIVE",
-              "percentage": "8.5",
-              "applied_money": {
-                "amount": 387,
-                "currency": "USD"
-              }
-            }
-          ],
-          "discounts": [
-            {
-              "name": "Father's day 12% OFF",
-              "type": "FIXED_PERCENTAGE",
-              "percentage": "12",
-              "applied_money": {
-                "amount": 1260,
-                "currency": "USD"
-              },
-              "scope": "ORDER"
-            },
-            {
-              "name": "$11 off Customer Discount",
-              "type": "FIXED_AMOUNT",
-              "amount_money": {
-                "amount": 1100,
-                "currency": "USD"
-              },
-              "applied_money": {
-                "amount": 1100,
-                "currency": "USD"
-              },
-              "scope": "LINE_ITEM"
-            },
-            {
-              "name": "Global Sales $55 OFF",
-              "type": "FIXED_AMOUNT",
-              "amount_money": {
-                "amount": 5500,
-                "currency": "USD"
-              },
-              "applied_money": {
-                "amount": 3583,
-                "currency": "USD"
-              },
-              "scope": "ORDER"
-            }
-          ],
           "base_price_money": {
             "amount": 3500,
             "currency": "USD"
           },
-          "total_tax_money": {
-            "amount": 615,
-            "currency": "USD"
-          },
-          "total_discount_money": {
-            "amount": 5943,
-            "currency": "USD"
-          },
           "total_money": {
-            "amount": 5172,
+            "amount": 10500,
+            "currency": "USD"
+          }
+        }
+      ],
+      "taxes": [
+        {
+          "uid": "38ze1696-z1e3-5628-af6d-f1e04d947fg3",
+          "type": "INCLUSIVE",
+          "percentage": "7.75",
+          "scope": "LINE_ITEM"
+        }
+      ],
+      "discounts": [
+        {
+          "uid": "56ae1696-z1e3-9328-af6d-f1e04d947gd4",
+          "type": "FIXED_AMOUNT",
+          "scope": "LINE_ITEM",
+          "amount_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "applied_money": {
+            "amount": 100,
             "currency": "USD"
           }
         }
       ],
       "total_money": {
-        "amount": 7818,
+        "amount": 14503,
         "currency": "USD"
       },
       "total_tax_money": {
-        "amount": 823,
+        "amount": 103,
         "currency": "USD"
       },
       "total_discount_money": {
-        "amount": 9005,
+        "amount": 100,
         "currency": "USD"
       }
     },
     "created_at": "2017-06-16T22:25:35Z",
+    "version": 1,
     "additional_recipients": [
       {
         "location_id": "057P5VYJ4A5X1",

@@ -12,7 +12,7 @@ else:
 
 setup(
     name='squareup',
-    version='4.1.0.20200122',
+    version='5.0.0.20200226',
     description='Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -26,5 +26,9 @@ setup(
         'cachecontrol>=0.11.7, <1.0',
         'python-dateutil>=2.5.3, <3.0',
         'deprecation>=2.0.6'
-    ]
+    ],
+    tests_require=[
+        'nose>=1.3.7'
+    ],
+    test_suite = 'nose.collector'
 )

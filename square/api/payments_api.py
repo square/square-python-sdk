@@ -42,8 +42,9 @@ class PaymentsApi(BaseApi):
                 next set of results for the original query.  See
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination) for more information.
-            location_id (string, optional): ID of location associated with
-                payment
+            location_id (string, optional): Limit results to the location
+                supplied. By default, results are returned for all locations
+                associated with the merchant.
             total (long|int, optional): The exact amount in the total_money
                 for a `Payment`.
             last_4 (string, optional): The last 4 digits of `Payment` card.
@@ -166,18 +167,20 @@ class PaymentsApi(BaseApi):
         """Does a POST request to /v2/payments/cancel.
 
         Cancels (voids) a payment identified by the idempotency key that is
-        specified in the request. 
-        Use this method when status of a CreatePayment request is unknown. 
-        For example, after you send a CreatePayment 
-        request a network error occurs and you don't get a response. In this
-        case, you can direct 
-        Square to cancel the payment using this endpoint. In the request, you
-        provide the same idempotency 
-        key that you provided in your CreatePayment request you want  to
-        cancel. After cancelling the 
-        payment, you can submit your CreatePayment request again. 
+        specified in the
+        request.
+        Use this method when status of a CreatePayment request is unknown. For
+        example, after you send a
+        CreatePayment request a network error occurs and you don't get a
+        response. In this case, you can
+        direct Square to cancel the payment using this endpoint. In the
+        request, you provide the same
+        idempotency key that you provided in your CreatePayment request you
+        want  to cancel. After
+        cancelling the payment, you can submit your CreatePayment request
+        again.
         Note that if no payment with the specified idempotency key is found,
-        no action is taken, the end 
+        no action is taken, the end
         point returns successfully.
 
         Args:
