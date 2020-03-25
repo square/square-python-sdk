@@ -18,7 +18,7 @@ The response object returned by the [ListMerchant](#endpoint-listmerchant) endpo
 
 ```json
 {
-  "merchants": [
+  "merchant": [
     {
       "id": "DM7VKY8Q63GNP",
       "business_name": "Apple A Day",

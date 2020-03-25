@@ -166,6 +166,7 @@ body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_d
     }
 }
 
+
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][1]['type'] = 'ITEM'
 body['batches'][0]['objects'][1]['id'] = '#Coffee'
@@ -226,7 +227,6 @@ body['batches'][0]['objects'][3]['tax_data'] = {
     "applies_to_custom_amounts": True,
     "enabled": True
 }
-
 
 
 result = catalog_api.batch_upsert_catalog_objects(body)

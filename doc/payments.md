@@ -240,7 +240,8 @@ the payment using this endpoint. For more information, see
 
 ```python
 def complete_payment(self,
-                    payment_id)
+                    payment_id,
+                    body)
 ```
 
 ### Parameters
@@ -248,6 +249,7 @@ def complete_payment(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `payment_id` | `string` | Template, Required | Unique ID identifying the payment to be completed. |
+| `body` | `object` | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
@@ -257,8 +259,9 @@ def complete_payment(self,
 
 ```python
 payment_id = 'payment_id0'
+body = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 
-result = payments_api.complete_payment(payment_id)
+result = payments_api.complete_payment(payment_id, body)
 
 if result.is_success():
     print(result.body)
