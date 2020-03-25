@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 5.1.0.20200325 (2020-03-25)
+## Existing API updates
+* **[Payments API](${SQUARE_TECH_REF}/payments-api).** In support of the existing [Delayed capture](payments-api/take-payments) for payments, the following fields are added to the [Payment](${SQUARE_TECH_REF}/objects/Payment) type:
+   * `delay_duration`. In a [CreatePayment](${SQUARE_TECH_REF}/payments-api/create-payment) request, you can set `autocomplete` to false to get  payment approval but not charge the payment source. You can now add this field to specify a time period to complete (or cancel) the payment. For more information, see [Delay capture](payments-api/take-payments).
+   * `delay_action`. Defines the action that Square takes on the payment when the `delay_duration` elapses. In this release, the API supports only the cancel payment action.
+   * `delayed_until`. Provides the date and time on Square servers when Square applies `delay_action` on the payment.
+
 ## Version 5.0.0.20200226 (2020-02-26)
 ## API releases
 * **GA release**: All SDKs have been updated to support the new Bank Accounts and CashDrawerShifts APIs.
