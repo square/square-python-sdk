@@ -23,6 +23,7 @@ A batch of catalog objects.
       "updated_at": null,
       "version": null,
       "is_deleted": null,
+      "custom_attribute_values": null,
       "catalog_v1_ids": null,
       "present_at_all_locations": null,
       "present_at_location_ids": null,
@@ -41,7 +42,8 @@ A batch of catalog objects.
       "image_data": null,
       "measurement_unit_data": null,
       "item_option_data": null,
-      "item_option_value_data": null
+      "item_option_value_data": null,
+      "custom_attribute_definition_data": null
     },
     {
       "type": "DISCOUNT",
@@ -49,6 +51,7 @@ A batch of catalog objects.
       "updated_at": null,
       "version": null,
       "is_deleted": null,
+      "custom_attribute_values": null,
       "catalog_v1_ids": null,
       "present_at_all_locations": null,
       "present_at_location_ids": null,
@@ -67,7 +70,8 @@ A batch of catalog objects.
       "image_data": null,
       "measurement_unit_data": null,
       "item_option_data": null,
-      "item_option_value_data": null
+      "item_option_value_data": null,
+      "custom_attribute_definition_data": null
     }
   ]
 }

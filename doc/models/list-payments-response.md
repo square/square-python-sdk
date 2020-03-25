@@ -21,7 +21,7 @@ a request to the [ListPayments](#endpoint-payments-listpayments) endpoint.
 {
   "payments": [
     {
-      "id": "6SRrImjQGn8FuzIsURiN677CwaB",
+      "id": "ifrBnAil7rRfDtd27cdf9g9WO8paB",
       "created_at": "2019-07-09T14:36:13.745Z",
       "updated_at": "2019-07-09T14:36:13.883Z",
       "amount_money": {
@@ -48,11 +48,11 @@ a request to the [ListPayments](#endpoint-payments-listpayments) endpoint.
         "avs_status": "AVS_ACCEPTED",
         "auth_result_code": "NQbV3A"
       },
-      "location_id": "XK3DBG77NJBFX",
-      "order_id": "EM6qWxDd7RSy5udzjXktPw3PJa4F"
+      "location_id": "QLIJX16Q3UZ0A",
+      "order_id": "MvfIilKnIYKBium4rauH67wFzRxv"
     },
     {
-      "id": "MRWmTKxBDNRgwfNSZptAO76xuaB",
+      "id": "GQTFp1ZlXdpoW4o6eGiZhbjosiDFf",
       "created_at": "2019-07-08T01:00:51.607Z",
       "updated_at": "2019-07-08T01:13:58.508Z",
       "amount_money": {
@@ -79,9 +79,9 @@ a request to the [ListPayments](#endpoint-payments-listpayments) endpoint.
         "avs_status": "AVS_ACCEPTED",
         "auth_result_code": "vPIr0K"
       },
-      "location_id": "XK3DBG77NJBFX",
-      "order_id": "OVE4bJyb4B6bGFwMYEtVdfE4ge4F",
-      "customer_id": "VDKXEEKPJN48QDG3BGGFAK05P8",
+      "location_id": "XTI0H92143A39",
+      "order_id": "m2Hr8Hk8A3CTyQQ1k4ynExg92tO3",
+      "customer_id": "RDX9Z4XTIZR7MRZJUXNY9HUK6I",
       "processing_fee": [
         {
           "effective_at": "2019-07-08T03:00:53.000Z",
@@ -94,7 +94,7 @@ a request to the [ListPayments](#endpoint-payments-listpayments) endpoint.
       ]
     }
   ],
-  "cursor": "Q2g4SUF4SWJUVkpYYlZSTGVFSkVUbEpuZDJaT1UxcHdkRUZQTnpaNGRXRkNFSmVJNVBpOExRPT0"
+  "cursor": "2TTnuq0yRYDdBRSFF2XuFkgO1Bclt4ZHNI7YrFNeyZ6rL1WZXkdnLn10H8fBIwFKdKW1Af6ifRa"
 }
 ```
 
