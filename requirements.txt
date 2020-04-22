@@ -3,3 +3,4 @@ jsonpickle==0.7.1
 cachecontrol==0.11.7
 python-dateutil==2.5.3
 deprecation==2.0.6
+pyparsing==2.4.7

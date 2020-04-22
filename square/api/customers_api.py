@@ -453,3 +453,110 @@ class CustomersApi(BaseApi):
             _errors = None
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
+
+    def remove_group_from_customer(self,
+                                   customer_id,
+                                   group_id):
+        """Does a DELETE request to /v2/customers/{customer_id}/groups/{group_id}.
+
+        Removes a customer membership from a customer group. 
+        The customer is identified by the `customer_id` value 
+        and the customer group is identified by the `group_id` value.
+
+        Args:
+            customer_id (string): The ID of the customer to remove from the
+                group.
+            group_id (string): The ID of the customer group to remove the
+                customer from.
+
+        Returns:
+            RemoveGroupFromCustomerResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/customers/{customer_id}/groups/{group_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'customer_id': customer_id,
+            'group_id': group_id
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.delete(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def add_group_to_customer(self,
+                              customer_id,
+                              group_id):
+        """Does a PUT request to /v2/customers/{customer_id}/groups/{group_id}.
+
+        Adds a customer membership to a customer group. 
+        The customer is identified by the `customer_id` value 
+        and the customer group is identified by the `group_id` value.
+
+        Args:
+            customer_id (string): The ID of the customer to add to a group.
+            group_id (string): The ID of the customer group to add the
+                customer to.
+
+        Returns:
+            AddGroupToCustomerResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/customers/{customer_id}/groups/{group_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'customer_id': customer_id,
+            'group_id': group_id
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.put(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result

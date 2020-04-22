@@ -12,6 +12,7 @@ of a particular `CatalogObject` is determined by the value of
 - if type = `DISCOUNT`, only `discount_data` will be populated and it will contain a valid `CatalogDiscount` object.
 - if type = `TAX`, only `tax_data` will be populated and it will contain a valid `CatalogTax` object.
 - if type = `IMAGE`, only `image_data` will be populated and it will contain a valid `CatalogImage` object.
+- if type = `QUICK_AMOUNTS_SETTINGS`, only `quick_amounts_settings_data` will be populated and will contain a valid `CatalogQuickAmountsSettings` object.
 
 For a more detailed discussion of the Catalog data model, please see the
 [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
@@ -29,7 +30,7 @@ For a more detailed discussion of the Catalog data model, please see the
 | `updated_at` | `string` | Optional | Last modification [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`<br>would indicate the UTC time (denoted by `Z`) of August 15, 2016 at 23:59:33 and 123 milliseconds. |
 | `version` | `long|int` | Optional | The version of the object. When updating an object, the version supplied<br>must match the version in the database, otherwise the write will be rejected as conflicting. |
 | `is_deleted` | `bool` | Optional | If `true`, the object has been deleted from the database. Must be `false` for new objects<br>being inserted. When deleted, the `updated_at` field will equal the deletion time. |
-| `custom_attribute_values` | [`Dict`](/doc/models/catalog-custom-attribute-value.md) | Optional | Application-defined key/value attributes that are set at a global (location-independent) level.<br>Values from the `*_data` fields may not be duplicated. Custom Attribute fields are intended to store additional<br>information about a Catalog Object or associations with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.).<br><br>For CustomAttributesDefinitions defined by the app making the request, the map key is the key defined in<br>CustomAttributeDefinition (eg. “reference_id”). For CustomAttributesDefinitions by other apps, the map key is<br>the key defined in CustomAttributeDefinition prefixed with the application ID and a colon<br>(eg. “abcd1234:reference_id”). |
+| `custom_attribute_values` | [`Dict`](/doc/models/catalog-custom-attribute-value.md) | Optional | Application-defined key/value attributes that are set at a global (location-independent) level.<br>Custom Attribute Values are intended to store additional information about a Catalog Object<br>or associations with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.).<br><br>For CustomAttributesDefinitions defined by the app making the request, the map key is the key defined in the<br>`CatalogCustomAttributeDefinition` (e.g. “reference_id”). For custom attributes created by other apps, the map key is<br>the key defined in `CatalogCustomAttributeDefinition` prefixed with the application ID and a colon<br>(eg. “abcd1234:reference_id”). |
 | `catalog_v1_ids` | [`List of Catalog V1 Id`](/doc/models/catalog-v1-id.md) | Optional | The Connect v1 IDs for this object at each location where it is present, where they<br>differ from the object's Connect V2 ID. The field will only be present for objects that<br>have been created or modified by legacy APIs. |
 | `present_at_all_locations` | `bool` | Optional | If `true`, this object is present at all locations (including future locations), except where specified in<br>the `absent_at_location_ids` field. If `false`, this object is not present at any locations (including future locations),<br>except where specified in the `present_at_location_ids` field. If not specified, defaults to `true`. |
 | `present_at_location_ids` | `List of string` | Optional | A list of locations where the object is present, even if `present_at_all_locations` is `false`. |
@@ -50,12 +51,13 @@ For a more detailed discussion of the Catalog data model, please see the
 | `item_option_data` | [`Catalog Item Option`](/doc/models/catalog-item-option.md) | Optional | A group of variations for a `CatalogItem`. |
 | `item_option_value_data` | [`Catalog Item Option Value`](/doc/models/catalog-item-option-value.md) | Optional | An enumerated value that can link a<br>`CatalogItemVariation` to an item option as one of<br>its item option values. |
 | `custom_attribute_definition_data` | [`Catalog Custom Attribute Definition`](/doc/models/catalog-custom-attribute-definition.md) | Optional | Contains information defining a custom attribute. Custom attributes are<br>intended to store additional information about a catalog object or to associate a<br>catalog object with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.).<br>[Read more about custom attributes](https://developer.squareup.com/docs/catalog-api/add-custom-attributes) |
+| `quick_amounts_settings_data` | [`Catalog Quick Amounts Settings`](/doc/models/catalog-quick-amounts-settings.md) | Optional | A parent Catalog Object model represents a set of Quick Amounts and the settings control the amounts. |
 
 ### Example (as JSON)
 
 ```json
 {
-  "type": "ITEM_OPTION",
+  "type": "DISCOUNT",
   "id": "id0",
   "updated_at": null,
   "version": null,
@@ -80,7 +82,8 @@ For a more detailed discussion of the Catalog data model, please see the
   "measurement_unit_data": null,
   "item_option_data": null,
   "item_option_value_data": null,
-  "custom_attribute_definition_data": null
+  "custom_attribute_definition_data": null,
+  "quick_amounts_settings_data": null
 }
 ```
 

@@ -13,6 +13,9 @@ from square.api.bank_accounts_api import BankAccountsApi
 from square.api.cash_drawers_api import CashDrawersApi
 from square.api.catalog_api import CatalogApi
 from square.api.customers_api import CustomersApi
+from square.api.customer_groups_api import CustomerGroupsApi
+from square.api.customer_segments_api import CustomerSegmentsApi
+from square.api.devices_api import DevicesApi
 from square.api.disputes_api import DisputesApi
 from square.api.employees_api import EmployeesApi
 from square.api.inventory_api import InventoryApi
@@ -25,17 +28,18 @@ from square.api.transactions_api import TransactionsApi
 from square.api.merchants_api import MerchantsApi
 from square.api.payments_api import PaymentsApi
 from square.api.refunds_api import RefundsApi
+from square.api.terminal_api import TerminalApi
 
 
 class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '5.1.0.20200325'
+        return '5.2.0.20200422'
 
     @staticmethod
     def square_version():
-        return '2020-03-25'
+        return '2020-04-22'
 
     @lazy_property
     def mobile_authorization(self):
@@ -80,6 +84,18 @@ class Client(object):
     @lazy_property
     def customers(self):
         return CustomersApi(self.config)
+
+    @lazy_property
+    def customer_groups(self):
+        return CustomerGroupsApi(self.config)
+
+    @lazy_property
+    def customer_segments(self):
+        return CustomerSegmentsApi(self.config)
+
+    @lazy_property
+    def devices(self):
+        return DevicesApi(self.config)
 
     @lazy_property
     def disputes(self):
@@ -128,6 +144,10 @@ class Client(object):
     @lazy_property
     def refunds(self):
         return RefundsApi(self.config)
+
+    @lazy_property
+    def terminal(self):
+        return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
                  environment='production', access_token='TODO: Replace',

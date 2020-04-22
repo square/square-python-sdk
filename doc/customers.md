@@ -18,6 +18,8 @@ customers_api = client.customers
 * [Update Customer](/doc/customers.md#update-customer)
 * [Create Customer Card](/doc/customers.md#create-customer-card)
 * [Delete Customer Card](/doc/customers.md#delete-customer-card)
+* [Remove Group From Customer](/doc/customers.md#remove-group-from-customer)
+* [Add Group to Customer](/doc/customers.md#add-group-to-customer)
 
 ## List Customers
 
@@ -341,6 +343,82 @@ customer_id = 'customer_id8'
 card_id = 'card_id4'
 
 result = customers_api.delete_customer_card(customer_id, card_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Remove Group From Customer
+
+Removes a customer membership from a customer group. 
+
+The customer is identified by the `customer_id` value 
+and the customer group is identified by the `group_id` value.
+
+```python
+def remove_group_from_customer(self,
+                              customer_id,
+                              group_id)
+```
+
+### Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `customer_id` | `string` | Template, Required | The ID of the customer to remove from the group. |
+| `group_id` | `string` | Template, Required | The ID of the customer group to remove the customer from. |
+
+### Response Type
+
+[`Remove Group From Customer Response`](/doc/models/remove-group-from-customer-response.md)
+
+### Example Usage
+
+```python
+customer_id = 'customer_id8'
+group_id = 'group_id0'
+
+result = customers_api.remove_group_from_customer(customer_id, group_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Add Group to Customer
+
+Adds a customer membership to a customer group. 
+
+The customer is identified by the `customer_id` value 
+and the customer group is identified by the `group_id` value.
+
+```python
+def add_group_to_customer(self,
+                         customer_id,
+                         group_id)
+```
+
+### Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `customer_id` | `string` | Template, Required | The ID of the customer to add to a group. |
+| `group_id` | `string` | Template, Required | The ID of the customer group to add the customer to. |
+
+### Response Type
+
+[`Add Group to Customer Response`](/doc/models/add-group-to-customer-response.md)
+
+### Example Usage
+
+```python
+customer_id = 'customer_id8'
+group_id = 'group_id0'
+
+result = customers_api.add_group_to_customer(customer_id, group_id)
 
 if result.is_success():
     print(result.body)

@@ -26,6 +26,8 @@ Contains details necessary to fulfill a pickup order.
 | `picked_up_at` | `string` | Optional | The [timestamp](#workingwithdates) indicating when the fulfillment<br>was picked up by the recipient. In RFC3339 timestamp format,<br>e.g., "2016-09-04T23:59:33.123Z". |
 | `canceled_at` | `string` | Optional | The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",<br>indicating when the fulfillment was canceled. |
 | `cancel_reason` | `string` | Optional | A description of why the pickup was canceled. Max length: 100 characters. |
+| `is_curbside_pickup` | `bool` | Optional | If true, indicates this pickup order is for curbside pickup, not in-store pickup. |
+| `curbside_pickup_details` | [`Order Fulfillment Pickup Details Curbside Pickup Details`](/doc/models/order-fulfillment-pickup-details-curbside-pickup-details.md) | Optional | Specific details for curbside pickup. |
 
 ### Example (as JSON)
 
@@ -46,7 +48,9 @@ Contains details necessary to fulfill a pickup order.
   "expired_at": null,
   "picked_up_at": null,
   "canceled_at": null,
-  "cancel_reason": null
+  "cancel_reason": null,
+  "is_curbside_pickup": null,
+  "curbside_pickup_details": null
 }
 ```
 

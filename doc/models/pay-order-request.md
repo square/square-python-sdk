@@ -13,7 +13,7 @@ Defines the fields that are included in requests to the
 |  --- | --- | --- | --- |
 | `idempotency_key` | `string` |  | A value you specify that uniquely identifies this request among requests you've sent. If<br>you're unsure whether a particular payment request was completed successfully, you can reattempt<br>it with the same idempotency key without worrying about duplicate payments.<br><br>See [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency) for more information. |
 | `order_version` | `int` | Optional | The version of the order being paid. If not supplied, the latest version will be paid. |
-| `payment_ids` | `List of string` | Optional | - |
+| `payment_ids` | `List of string` | Optional | The IDs of the [payments](#type-payment) to collect.<br>The payment total must match the order total. |
 
 ### Example (as JSON)
 
