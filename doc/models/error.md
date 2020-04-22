@@ -22,7 +22,7 @@ See [Handling errors](#handlingerrors) for more information.
 ```json
 {
   "category": "INVALID_REQUEST_ERROR",
-  "code": "REFUND_AMOUNT_INVALID",
+  "code": "CARD_DECLINED_CALL_ISSUER",
   "detail": null,
   "field": null
 }

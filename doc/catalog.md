@@ -229,6 +229,7 @@ body['batches'][0]['objects'][3]['tax_data'] = {
 }
 
 
+
 result = catalog_api.batch_upsert_catalog_objects(body)
 
 if result.is_success():

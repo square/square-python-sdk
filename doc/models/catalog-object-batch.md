@@ -18,7 +18,7 @@ A batch of catalog objects.
 {
   "objects": [
     {
-      "type": "MODIFIER_LIST",
+      "type": "ITEM_OPTION",
       "id": "id8",
       "updated_at": null,
       "version": null,
@@ -43,10 +43,11 @@ A batch of catalog objects.
       "measurement_unit_data": null,
       "item_option_data": null,
       "item_option_value_data": null,
-      "custom_attribute_definition_data": null
+      "custom_attribute_definition_data": null,
+      "quick_amounts_settings_data": null
     },
     {
-      "type": "DISCOUNT",
+      "type": "MEASUREMENT_UNIT",
       "id": "id9",
       "updated_at": null,
       "version": null,
@@ -71,7 +72,8 @@ A batch of catalog objects.
       "measurement_unit_data": null,
       "item_option_data": null,
       "item_option_value_data": null,
-      "custom_attribute_definition_data": null
+      "custom_attribute_definition_data": null,
+      "quick_amounts_settings_data": null
     }
   ]
 }

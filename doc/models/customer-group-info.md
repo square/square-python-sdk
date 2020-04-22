@@ -1,6 +1,6 @@
 ## Customer Group Info
 
-Contains some brief information about a customer group with its identifier included.
+Contains some brief information about a Customer Group with its identifier included.
 
 ### Structure
 
@@ -10,8 +10,8 @@ Contains some brief information about a customer group with its identifier inclu
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `id` | `string` | The ID of the customer group. |
-| `name` | `string` | The name of the customer group. |
+| `id` | `string` | The ID of the Customer Group. |
+| `name` | `string` | The name of the Customer Group. |
 
 ### Example (as JSON)
 

@@ -11,6 +11,9 @@ __all__ = [
     'cash_drawers_api',
     'catalog_api',
     'customers_api',
+    'customer_groups_api',
+    'customer_segments_api',
+    'devices_api',
     'disputes_api',
     'employees_api',
     'inventory_api',
@@ -23,4 +26,5 @@ __all__ = [
     'merchants_api',
     'payments_api',
     'refunds_api',
+    'terminal_api',
 ]

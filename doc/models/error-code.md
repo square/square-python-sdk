@@ -15,6 +15,7 @@ Square API.
 | `UNAUTHORIZED` | 401 Unauthorized - a general authorization error occurred. |
 | `ACCESS_TOKEN_EXPIRED` | 401 Unauthorized - the provided access token has expired. |
 | `ACCESS_TOKEN_REVOKED` | 401 Unauthorized - the provided access token has been revoked. |
+| `CLIENT_DISABLED` | 401 Unauthorized - the provided client has been disabled. |
 | `FORBIDDEN` | 403 Forbidden - a general access error occurred. |
 | `INSUFFICIENT_SCOPES` | 403 Forbidden - the provided access token does not have permission<br>to execute the requested action. |
 | `APPLICATION_DISABLED` | 403 Forbidden - the calling application was disabled. |
