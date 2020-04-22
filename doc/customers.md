@@ -144,6 +144,8 @@ body['query']['filter']['creation_source']['rule'] = 'INCLUDE'
 body['query']['filter']['created_at'] = {}
 body['query']['filter']['created_at']['start_at'] = '2018-01-01T00:00:00-00:00'
 body['query']['filter']['created_at']['end_at'] = '2018-02-01T00:00:00-00:00'
+body['query']['filter']['group_ids'] = {}
+body['query']['filter']['group_ids']['all'] = ['545AXB44B4XXWMVQ4W8SBT3HHF']
 body['query']['sort'] = {}
 body['query']['sort']['field'] = 'CREATED_AT'
 body['query']['sort']['order'] = 'ASC'
@@ -352,7 +354,7 @@ elif result.is_error():
 
 ## Remove Group From Customer
 
-Removes a customer membership from a customer group. 
+Removes a group membership from a customer. 
 
 The customer is identified by the `customer_id` value 
 and the customer group is identified by the `group_id` value.
@@ -390,7 +392,7 @@ elif result.is_error():
 
 ## Add Group to Customer
 
-Adds a customer membership to a customer group. 
+Adds a group membership to a customer. 
 
 The customer is identified by the `customer_id` value 
 and the customer group is identified by the `group_id` value.

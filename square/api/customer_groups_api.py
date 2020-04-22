@@ -74,7 +74,7 @@ class CustomerGroupsApi(BaseApi):
         """Does a POST request to /v2/customers/groups.
 
         Creates a new customer group for a business. 
-        The request must include at least the `name` value of the group.
+        The request must include the `name` value of the group.
 
         Args:
             body (CreateCustomerGroupRequest): An object containing the fields

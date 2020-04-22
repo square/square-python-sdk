@@ -50,7 +50,7 @@ elif result.is_error():
 
 Creates a new customer group for a business. 
 
-The request must include at least the `name` value of the group.
+The request must include the `name` value of the group.
 
 ```python
 def create_customer_group(self,

@@ -459,7 +459,7 @@ class CustomersApi(BaseApi):
                                    group_id):
         """Does a DELETE request to /v2/customers/{customer_id}/groups/{group_id}.
 
-        Removes a customer membership from a customer group. 
+        Removes a group membership from a customer. 
         The customer is identified by the `customer_id` value 
         and the customer group is identified by the `group_id` value.
 
@@ -513,7 +513,7 @@ class CustomersApi(BaseApi):
                               group_id):
         """Does a PUT request to /v2/customers/{customer_id}/groups/{group_id}.
 
-        Adds a customer membership to a customer group. 
+        Adds a group membership to a customer. 
         The customer is identified by the `customer_id` value 
         and the customer group is identified by the `group_id` value.
 
