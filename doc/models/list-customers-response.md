@@ -42,9 +42,19 @@ One of `errors` or `customers` is present in a given response (never both).
       "note": "a customer",
       "groups": [
         {
-          "id": "16894e93-96eb-4ced-b24b-f71d42bf084c",
+          "id": "545AXB44B4XXWMVQ4W8SBT3HHF",
           "name": "Aviation Enthusiasts"
+        },
+        {
+          "id": "1KB9JE5EGJXCW.REACHABLE",
+          "name": "Reachable"
         }
+      ],
+      "group_ids": [
+        "545AXB44B4XXWMVQ4W8SBT3HHF"
+      ],
+      "segment_ids": [
+        "1KB9JE5EGJXCW.REACHABLE"
       ]
     }
   ]

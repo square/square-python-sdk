@@ -30,6 +30,11 @@ SearchCustomers endpoint.
       "created_at": {
         "start_at": "2018-01-01T00:00:00-00:00",
         "end_at": "2018-02-01T00:00:00-00:00"
+      },
+      "group_ids": {
+        "all": [
+          "545AXB44B4XXWMVQ4W8SBT3HHF"
+        ]
       }
     },
     "sort": {
