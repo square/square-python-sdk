@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 5.2.2.20200422 (2020-04-25)
+## Existing API updates
+
+* **OAuth API**
+  * [Obtain Token](https://developer.squareup.com/reference/square_2020-04-22/oauth-api/obtain-token) endpoint: Removed the `scopes` property from the request body.
+
 ## Version 5.2.1.20200422 (2020-04-22)
 ## API releases
 * **Customer Segments API (beta).** `limit` field removed from **ListCustomerSegments** endpoint.
