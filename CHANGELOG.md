@@ -1,5 +1,41 @@
 # Change Log
 
+## Version 5.3.0.20200528 (2020-05-28)
+
+## API releases
+
+* Loyalty API (beta):
+  * For an overview, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview?train=2020-05-28).
+  * For technical reference, see [Loyalty API](https://developer.squareup.com/reference/square/loyalty-api).
+
+## Existing API updates
+
+* Orders API
+  * [CalculateOrder (beta)](https://developer.squareup.com/reference/square/orders-api/calculate-order) endpoint. Use the endpoint to calculate adjustments (for example, taxes and discounts) to an order for preview purposes. In response, the endpoint returns the order showing the calculated totals. You can use this endpoint with an existing order or an order that has not been created.
+
+  The endpoint does not update an existing order. It only returns a calculated view of the order that you provided in the request. To create or update an order, use the [CreateOrder](https://developer.squareup.com/reference/square/orders-api/create-order) and [UpdateOrder](https://developer.squareup.com/reference/square/orders-api/update-order) endpoints, respectively.
+  * [Order](https://developer.squareup.com/reference/square_2020-05-28/objects/Order?train=2020-05-28) type. Two fields are added in support of the Loyalty API integration. For more information, see [Deferred reward creation](https://developer.squareup.com/docs/loyalty-api/overview?train=2020-05-28#deferred-reward-creation). For an example, see [Redeem Points](https://developer.squareup.com/docs/loyalty-api/walkthrough1/redeem-points?train=2020-05-28).
+    * `Order.rewards` represents rewards added to an order by calling the [CreateLoyaltyReward](https://developer.squareup.com/reference/square/loyalty-api/create-loyalty-reward) endpoint.
+    * `Order.discount.reward_ids` indicates that a discount is the result of the specified rewards that were added to an order using the `CreateLoyaltyReward` endpoint.
+
+* Customers API
+
+  * The [Search Customers](https://developer.squareup.com/reference/square/customers-api/search-customers) endpoint supports search by email address, phone number, and reference ID with the following additional query filters:
+
+    * The [`email_address` query filter](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#search-by-email-address) (beta) supports an [exact](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#exact-search-by-email-address) or [fuzzy](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#fuzzy-search-by-email-address) search for customer profiles by their email addresses.
+
+    * The [`phone_number` query filter](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#search-by-phone-number) (beta) supports an [exact](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#exact-search-by-phone-number) or [fuzzy](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#fuzzy-search-by-phone-number) search for customer profiles by their phone numbers.
+
+    * The [`reference_id` query filter](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#search-by-reference-id) (beta) supports an [exact](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#exact-search-by-reference-id) or [fuzzy](https://developer.squareup.com/docs/customers-api/cookbook/search-customers?train=2020-05-28#fuzzy-search-by-reference-id) search for customer profiles by their reference IDs.
+
+  * The [`created_at`](https://developer.squareup.com/reference/square/objects/Customer#definition__property-created_at), [`updated_at`](https://developer.squareup.com/reference/square/objects/Customer#definition__property-updated_at), and [`id`](https://developer.squareup.com/reference/square/objects/Customer#definition__property-id) attributes on the [Customer](https://developer.squareup.com/docs/S%7BSQUARE_TECH_REF%7D/objects/customers?train=2020-05-28) resource are updated to be optional. As a result, they no longer are required input parameters when you call the Square SDKs to create a `Customer` object. You might need to update the dependent SDKs to the latest version to mediate breaking your existing code.
+
+## Square Webhooks
+
+* [Square Webhooks](https://developer.squareup.com/reference/square/webhooks) (formerly v2 Webhooks). The status is changed from beta to general availability (GA).
+
+* [v1 Webhooks](https://developer.squareup.com/docs/webhooks-api/v1-tech-ref?train=2020-05-28). The v1 Inventory and Timecards webooks are now deprecated and replaced by [inventory.count.updated](https://developer.squareup.com/reference/square/webhooks/inventory.count.updated) and [labor.shift.updated](https://developer.squareup.com/reference/square/webhooks/inventory.count.updated).
+
 ## Version 5.2.2.20200422 (2020-04-25)
 ## Existing API updates
 
