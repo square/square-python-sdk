@@ -25,5 +25,6 @@ containing type-specific properties in the `*_data` field corresponding to the o
 | `MEASUREMENT_UNIT` | A measurement unit, corresponding to `CatalogMeasurementUnit`. The unit of<br>measure and precision in which an item variation should be sold. |
 | `ITEM_OPTION` | Represents a list of item option values that can be assigned to item<br>variations. For example, a color option or size option for a t-shirt. |
 | `ITEM_OPTION_VAL` | Represents an option value associated with one or more item options.<br>For example, an item option of "Size" may have item option values such as<br>“Small" or "Medium". |
+| `CUSTOM_ATTRIBUTE_DEFINITION` | Represents the definition of a custom attribute |
 | `QUICK_AMOUNTS_SETTINGS` | Represents a set of Quick Amounts and their settings at each location.<br>For example, a location may have a list of both AUTO and MANUAL quick amounts that are set to DISABLED. |
 

@@ -47,7 +47,7 @@ class APIHelper(object):
         """JSON Serialization of a given object.
 
         Args:
-            obj (object): The object to serialise.
+            obj (object): The object to serialize.
 
         Returns:
             str: The JSON serialized string of the object.
@@ -73,7 +73,7 @@ class APIHelper(object):
 
     @staticmethod
     def json_deserialize(json, unboxing_function=None):
-        """JSON Deerialization of a given string.
+        """JSON Deserialization of a given string.
 
         Args:
             json (str): The JSON serialized string to deserialize.

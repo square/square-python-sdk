@@ -19,7 +19,13 @@ class CustomersApi(BaseApi):
                        sort_order=None):
         """Does a GET request to /v2/customers.
 
-        Lists a business's customers.
+        Lists customer profiles associated with a Square account.
+        Under normal operating conditions, newly created or updated customer
+        profiles become available 
+        for the listing operation in well under 30 seconds. Occasionally,
+        propagation of the new or updated 
+        profiles can take closer to one minute or longer, espeically during
+        network incidents and outages.
 
         Args:
             cursor (string, optional): A pagination cursor returned by a
@@ -138,11 +144,18 @@ class CustomersApi(BaseApi):
                          body):
         """Does a POST request to /v2/customers/search.
 
-        Searches the customer profiles associated with a Square account.
-        Calling SearchCustomers without an explicit query parameter returns
+        Searches the customer profiles associated with a Square account using
+                one or more supported query filters. 
+        Calling `SearchCustomers` without any explicit query filter returns
         all
         customer profiles ordered alphabetically based on `given_name` and
         `family_name`.
+        Under normal operating conditions, newly created or updated customer
+        profiles become available 
+        for the search operation in well under 30 seconds. Occasionally,
+        propagation of the new or updated 
+        profiles can take closer to one minute or longer, espeically during
+        network incidents and outages.
 
         Args:
             body (SearchCustomersRequest): An object containing the fields to
