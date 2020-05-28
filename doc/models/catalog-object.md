@@ -57,7 +57,7 @@ For a more detailed discussion of the Catalog data model, please see the
 
 ```json
 {
-  "type": "DISCOUNT",
+  "type": "CUSTOM_ATTRIBUTE_DEFINITION",
   "id": "id0",
   "updated_at": null,
   "version": null,

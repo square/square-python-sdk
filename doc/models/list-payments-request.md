@@ -1,6 +1,6 @@
 ## List Payments Request
 
-Retrieves a list of refunds taken by the account making the request.
+Retrieves a list of payments taken by the account making the request.
 
 Max results per page: 100
 

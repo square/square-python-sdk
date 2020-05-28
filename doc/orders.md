@@ -13,6 +13,7 @@ orders_api = client.orders
 * [Create Order](/doc/orders.md#create-order)
 * [Batch Retrieve Orders](/doc/orders.md#batch-retrieve-orders)
 * [Update Order](/doc/orders.md#update-order)
+* [Calculate Order](/doc/orders.md#calculate-order)
 * [Search Orders](/doc/orders.md#search-orders)
 * [Pay Order](/doc/orders.md#pay-order)
 
@@ -145,6 +146,63 @@ order_id = 'order_id6'
 body = {}
 
 result = orders_api.update_order(location_id, order_id, body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Calculate Order
+
+Calculates an [Order](#type-order).
+
+```python
+def calculate_order(self,
+                   body)
+```
+
+### Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Calculate Order Request`](/doc/models/calculate-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+### Response Type
+
+[`Calculate Order Response`](/doc/models/calculate-order-response.md)
+
+### Example Usage
+
+```python
+body = {}
+body['order'] = {}
+body['order']['location_id'] = 'D7AVYMEAPJ3A3'
+body['order']['line_items'] = []
+
+body['order']['line_items'].append({})
+body['order']['line_items'][0]['name'] = 'Item 1'
+body['order']['line_items'][0]['quantity'] = '1'
+body['order']['line_items'][0]['base_price_money'] = {}
+body['order']['line_items'][0]['base_price_money']['amount'] = 500
+body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
+
+body['order']['line_items'].append({})
+body['order']['line_items'][1]['name'] = 'Item 2'
+body['order']['line_items'][1]['quantity'] = '2'
+body['order']['line_items'][1]['base_price_money'] = {}
+body['order']['line_items'][1]['base_price_money']['amount'] = 300
+body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
+
+body['order']['discounts'] = []
+
+body['order']['discounts'].append({})
+body['order']['discounts'][0]['name'] = '50% Off'
+body['order']['discounts'][0]['percentage'] = '50'
+body['order']['discounts'][0]['scope'] = 'ORDER'
+
+
+result = orders_api.calculate_order(body)
 
 if result.is_success():
     print(result.body)

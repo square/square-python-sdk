@@ -64,7 +64,7 @@ def renew_token(self,
 client_id = 'client_id8'
 body = {}
 body['access_token'] = 'ACCESS_TOKEN'
-authorization = 'Authorization8'
+authorization = 'Client CLIENT_SECRET'
 
 result = o_auth_api.renew_token(client_id, body, authorization)
 
@@ -118,7 +118,7 @@ def revoke_token(self,
 body = {}
 body['client_id'] = 'CLIENT_ID'
 body['access_token'] = 'ACCESS_TOKEN'
-authorization = 'Authorization8'
+authorization = 'Client CLIENT_SECRET'
 
 result = o_auth_api.revoke_token(body, authorization)
 

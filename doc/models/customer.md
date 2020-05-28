@@ -11,9 +11,9 @@ cards on file associated with it.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` |  | A unique Square-assigned ID for the customer profile. |
-| `created_at` | `string` |  | The timestamp when the customer profile was created, in RFC 3339 format. |
-| `updated_at` | `string` |  | The timestamp when the customer profile was last updated, in RFC 3339 format. |
+| `id` | `string` | Optional | A unique Square-assigned ID for the customer profile. |
+| `created_at` | `string` | Optional | The timestamp when the customer profile was created, in RFC 3339 format. |
+| `updated_at` | `string` | Optional | The timestamp when the customer profile was last updated, in RFC 3339 format. |
 | `cards` | [`List of Card`](/doc/models/card.md) | Optional | Payment details of cards stored on file for the customer profile. |
 | `given_name` | `string` | Optional | The given (i.e., first) name associated with the customer profile. |
 | `family_name` | `string` | Optional | The family (i.e., last) name associated with the customer profile. |
@@ -26,7 +26,7 @@ cards on file associated with it.
 | `reference_id` | `string` | Optional | An optional, second ID used to associate the customer profile with an<br>entity in another system. |
 | `note` | `string` | Optional | A custom note associated with the customer profile. |
 | `preferences` | [`Customer Preferences`](/doc/models/customer-preferences.md) | Optional | Represents communication preferences for the customer profile. |
-| `groups` | [`List of Customer Group Info`](/doc/models/customer-group-info.md) | Optional | The customer groups and segments the customer belongs to. This deprecated field is replaced with dedicated `group_ids` for customer groups and `segment_ids` for customer segments. |
+| `groups` | [`List of Customer Group Info`](/doc/models/customer-group-info.md) | Optional | The customer groups and segments the customer belongs to. This deprecated field has been replaced with  the dedicated `group_ids` for customer groups and the dedicated `segment_ids` field for customer segments. You can retrieve information about a given customer group and segment respectively using the Customer Groups API and Customer Segments API. |
 | `creation_source` | [`str (Customer Creation Source)`](/doc/models/customer-creation-source.md) | Optional | Indicates the method used to create the customer profile. |
 | `group_ids` | `List of string` | Optional | The IDs of customer groups the customer belongs to. |
 | `segment_ids` | `List of string` | Optional | The IDs of segments the customer belongs to. |
@@ -35,9 +35,9 @@ cards on file associated with it.
 
 ```json
 {
-  "id": "id0",
-  "created_at": "created_at2",
-  "updated_at": "updated_at4",
+  "id": null,
+  "created_at": null,
+  "updated_at": null,
   "cards": null,
   "given_name": null,
   "family_name": null,

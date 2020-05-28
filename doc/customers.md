@@ -23,7 +23,11 @@ customers_api = client.customers
 
 ## List Customers
 
-Lists a business's customers.
+Lists customer profiles associated with a Square account.
+
+Under normal operating conditions, newly created or updated customer profiles become available 
+for the listing operation in well under 30 seconds. Occasionally, propagation of the new or updated 
+profiles can take closer to one minute or longer, espeically during network incidents and outages.
 
 ```python
 def list_customers(self,
@@ -111,10 +115,16 @@ elif result.is_error():
 
 ## Search Customers
 
-Searches the customer profiles associated with a Square account.
-Calling SearchCustomers without an explicit query parameter returns all
+Searches the customer profiles associated with a Square account using 
+one or more supported query filters. 
+
+Calling `SearchCustomers` without any explicit query filter returns all
 customer profiles ordered alphabetically based on `given_name` and
 `family_name`.
+
+Under normal operating conditions, newly created or updated customer profiles become available 
+for the search operation in well under 30 seconds. Occasionally, propagation of the new or updated 
+profiles can take closer to one minute or longer, espeically during network incidents and outages.
 
 ```python
 def search_customers(self,
@@ -144,6 +154,8 @@ body['query']['filter']['creation_source']['rule'] = 'INCLUDE'
 body['query']['filter']['created_at'] = {}
 body['query']['filter']['created_at']['start_at'] = '2018-01-01T00:00:00-00:00'
 body['query']['filter']['created_at']['end_at'] = '2018-02-01T00:00:00-00:00'
+body['query']['filter']['email_address'] = {}
+body['query']['filter']['email_address']['fuzzy'] = 'example.com'
 body['query']['filter']['group_ids'] = {}
 body['query']['filter']['group_ids']['all'] = ['545AXB44B4XXWMVQ4W8SBT3HHF']
 body['query']['sort'] = {}
