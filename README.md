@@ -28,41 +28,58 @@ Alternatively, you can download or clone the sdk from [Python SDK] and then inst
 python setup.py install --user
 ```
 
-## API documentation
 ### API Client
 * [Client]
 
-### Take Payments
+## API documentation
 
+### Payments
 * [Payments]
-* [Checkout]
-
-### More Square APIs
-
-* [Catalog]
-* [Customers]
-* [Employees]
-* [Inventory]
-* [Labor]
-* [Locations]
-* [Merchants]
-* [Orders]
-* [Apple Pay]
 * [Refunds]
-* [Reporting]
+* [Disputes]
+* [Checkout]
+* [Apple Pay]
+* [Terminal]
+
+### Orders
+* [Orders]
+
+### Items
+* [Catalog]
+* [Inventory]
+
+### Customers
+* [Customers]
+* [Customer Groups]
+* [Customer Segments]
+
+### Loyalty
+* [Loyalty]
+
+### Business
+* [Merchants]
+* [Locations]
+* [Devices]
+
+### Team
+* [Employees]
+* [Labor]
+* [Cash Drawers]
+
+### Financials
+* [Bank Accounts]
 
 ### Authorization APIs
-
 * [Mobile Authorization]
 * [O Auth]
 
 ### Deprecated APIs
-
 * [V1 Locations]
 * [V1 Employees]
 * [V1 Transactions]
 * [V1 Items]
 * [Transactions]
+* [Reporting]
 
 ## Usage
 
@@ -326,6 +343,13 @@ You can also use the Square API to create applications or services that work wit
 [Square API]: https://squareup.com/developers
 [sign up for a developer account]: https://squareup.com/signup?v=developers
 [Client]: doc/client.md
+[Devices]: doc/devices.md
+[Disputes]: doc/disputes.md
+[Terminal]: doc/terminal.md
+[Cash Drawers]: doc/cash-drawers.md
+[Customer Groups]: doc/customer-groups.md
+[Customer Segments]: doc/customer-segments.md
+[Bank Accounts]: doc/bank-accounts
 [Payments]: doc/payments.md
 [Checkout]: doc/checkout.md
 [Catalog]: doc/catalog.md
@@ -333,6 +357,7 @@ You can also use the Square API to create applications or services that work wit
 [Employees]: doc/employees.md
 [Inventory]: doc/inventory.md
 [Labor]: doc/labor.md
+[Loyalty]: doc/loyalty.md
 [Locations]: doc/locations.md
 [Merchants]: doc/merchants.md
 [Orders]: doc/orders.md
