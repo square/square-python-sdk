@@ -342,35 +342,35 @@ You can also use the Square API to create applications or services that work wit
 [Developer Dashboard]: https://developer.squareup.com/apps
 [Square API]: https://squareup.com/developers
 [sign up for a developer account]: https://squareup.com/signup?v=developers
-[Client]: doc/client.md
-[Devices]: doc/devices.md
-[Disputes]: doc/disputes.md
-[Terminal]: doc/terminal.md
-[Cash Drawers]: doc/cash-drawers.md
-[Customer Groups]: doc/customer-groups.md
-[Customer Segments]: doc/customer-segments.md
-[Bank Accounts]: doc/bank-accounts
-[Payments]: doc/payments.md
-[Checkout]: doc/checkout.md
-[Catalog]: doc/catalog.md
-[Customers]: doc/customers.md
-[Employees]: doc/employees.md
-[Inventory]: doc/inventory.md
-[Labor]: doc/labor.md
-[Loyalty]: doc/loyalty.md
-[Locations]: doc/locations.md
-[Merchants]: doc/merchants.md
-[Orders]: doc/orders.md
-[Apple Pay]: doc/apple-pay.md
-[Refunds]: doc/refunds.md
-[Reporting]: doc/reporting.md
-[Mobile Authorization]: doc/mobile-authorization.md
-[O Auth]: doc/o-auth.md
-[V1 Locations]: doc/v1-locations.md
-[V1 Employees]: doc/v1-employees.md
-[V1 Transactions]: doc/v1-transactions.md
-[V1 Items]: doc/v1-items.md
-[Transactions]: doc/transactions.md
+[Client]: https://github.com/square/square-python-sdk/blob/master/doc/client.md
+[Devices]: https://github.com/square/square-python-sdk/blob/master/doc/devices.md
+[Disputes]: https://github.com/square/square-python-sdk/blob/master/doc/disputes.md
+[Terminal]: https://github.com/square/square-python-sdk/blob/master/doc/terminal.md
+[Cash Drawers]: https://github.com/square/square-python-sdk/blob/master/doc/cash-drawers.md
+[Customer Groups]: https://github.com/square/square-python-sdk/blob/master/doc/customer-groups.md
+[Customer Segments]: https://github.com/square/square-python-sdk/blob/master/doc/customer-segments.md
+[Bank Accounts]: https://github.com/square/square-python-sdk/blob/master/doc/bank-accounts
+[Payments]: https://github.com/square/square-python-sdk/blob/master/doc/payments.md
+[Checkout]: https://github.com/square/square-python-sdk/blob/master/doc/checkout.md
+[Catalog]: https://github.com/square/square-python-sdk/blob/master/doc/catalog.md
+[Customers]: https://github.com/square/square-python-sdk/blob/master/doc/customers.md
+[Employees]: https://github.com/square/square-python-sdk/blob/master/doc/employees.md
+[Inventory]: https://github.com/square/square-python-sdk/blob/master/doc/inventory.md
+[Labor]: https://github.com/square/square-python-sdk/blob/master/doc/labor.md
+[Loyalty]: https://github.com/square/square-python-sdk/blob/master/doc/loyalty.md
+[Locations]: https://github.com/square/square-python-sdk/blob/master/doc/locations.md
+[Merchants]: https://github.com/square/square-python-sdk/blob/master/doc/merchants.md
+[Orders]: https://github.com/square/square-python-sdk/blob/master/doc/orders.md
+[Apple Pay]: https://github.com/square/square-python-sdk/blob/master/doc/apple-pay.md
+[Refunds]: https://github.com/square/square-python-sdk/blob/master/doc/refunds.md
+[Reporting]: https://github.com/square/square-python-sdk/blob/master/doc/reporting.md
+[Mobile Authorization]: https://github.com/square/square-python-sdk/blob/master/doc/mobile-authorization.md
+[O Auth]: https://github.com/square/square-python-sdk/blob/master/doc/o-auth.md
+[V1 Locations]: https://github.com/square/square-python-sdk/blob/master/doc/v1-locations.md
+[V1 Employees]: https://github.com/square/square-python-sdk/blob/master/doc/v1-employees.md
+[V1 Transactions]: https://github.com/square/square-python-sdk/blob/master/doc/v1-transactions.md
+[V1 Items]: https://github.com/square/square-python-sdk/blob/master/doc/v1-items.md
+[Transactions]: https://github.com/square/square-python-sdk/blob/master/doc/transactions.md
 [Python SDK]: https://github.com/square/square-python-sdk
 [Locations overview]: https://developer.squareup.com/docs/locations-api/what-it-does
 [OAuth overview]: https://developer.squareup.com/docs/oauth-api/what-it-does
