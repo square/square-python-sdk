@@ -25,8 +25,7 @@ setup(
         'jsonpickle>=0.7.1, <1.0',
         'cachecontrol>=0.11.7, <1.0',
         'python-dateutil>=2.5.3, <3.0',
-        'deprecation>=2.0.6',
-        'pyparsing>=2.4.0, <3.0'
+        'deprecation>=2.0.6'
     ],
     tests_require=[
         'nose>=1.3.7'
