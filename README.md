@@ -62,6 +62,7 @@ python setup.py install --user
 * [Devices]
 
 ### Team
+* [Team]
 * [Employees]
 * [Labor]
 * [Cash Drawers]
@@ -371,6 +372,7 @@ You can also use the Square API to create applications or services that work wit
 [V1 Transactions]: https://github.com/square/square-python-sdk/blob/master/doc/v1-transactions.md
 [V1 Items]: https://github.com/square/square-python-sdk/blob/master/doc/v1-items.md
 [Transactions]: https://github.com/square/square-python-sdk/blob/master/doc/transactions.md
+[Team]: https://github.com/square/square-python-sdk/blob/master/doc/team.md
 [Python SDK]: https://github.com/square/square-python-sdk
 [Locations overview]: https://developer.squareup.com/docs/locations-api/what-it-does
 [OAuth overview]: https://developer.squareup.com/docs/oauth-api/what-it-does

@@ -23,6 +23,7 @@ Reflects the current status of a card payment.
 | `verification_results` | `string` | Optional | For EMV payments, the results of the cardholder verification.  Can be one of<br>`SUCCESS`, `FAILURE`, or `UNKNOWN`. |
 | `statement_description` | `string` | Optional | The statement description sent to the card networks.<br><br>Note: The actual statement description will vary and is likely to be truncated and appended with<br>additional information on a per issuer basis. |
 | `device_details` | [`Device Details`](/doc/models/device-details.md) | Optional | Details about the device that took the payment. |
+| `refund_requires_card_presence` | `bool` | Optional | Whether or not the card is required to be physically present in order for the payment to<br>be refunded.  If true, the card is required to be present. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
 
 ### Example (as JSON)
@@ -42,6 +43,7 @@ Reflects the current status of a card payment.
   "verification_results": null,
   "statement_description": null,
   "device_details": null,
+  "refund_requires_card_presence": null,
   "errors": null
 }
 ```

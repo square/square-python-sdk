@@ -205,34 +205,7 @@ class CatalogApi(BaseApi):
         [CatalogObject](#type-catalogobject) at a later time.
         CreateCatalogImage accepts HTTP multipart/form-data requests with a
         JSON part and an image file part in
-        JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB. The
-        following is an example of such an HTTP request:
-        ```
-        POST /v2/catalog/images
-        Accept: application/json
-        Content-Type: multipart/form-data;boundary="boundary"
-        Square-Version: XXXX-XX-XX
-        Authorization: Bearer {ACCESS_TOKEN}
-        --boundary
-        Content-Disposition: form-data; name="request"
-        Content-Type: application/json
-        {
-        "idempotency_key":"528dea59-7bfb-43c1-bd48-4a6bba7dd61f86",
-        "object_id": "ND6EA5AAJEO5WL3JNNIAQA32",
-        "image":{
-        "id":"#TEMP_ID",
-        "type":"IMAGE",
-        "image_data":{
-        "caption":"A picture of a cup of coffee"
-        }
-        }
-        }
-        --boundary
-        Content-Disposition: form-data; name="image"; filename="Coffee.jpg"
-        Content-Type: image/jpeg
-        {ACTUAL_IMAGE_BYTES}
-        --boundary
-        ```
+        JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB. 
         Additional information and an example cURL request can be found in the
         [Create a Catalog Image
         recipe](https://developer.squareup.com/docs/more-apis/catalog/cookbook/
@@ -515,7 +488,7 @@ class CatalogApi(BaseApi):
 
     def retrieve_catalog_object(self,
                                 object_id,
-                                include_related_objects=None):
+                                include_related_objects=False):
         """Does a GET request to /v2/catalog/object/{object_id}.
 
         Returns a single [CatalogItem](#type-catalogitem) as a
@@ -592,22 +565,20 @@ class CatalogApi(BaseApi):
                                body):
         """Does a POST request to /v2/catalog/search.
 
-        Queries the targeted catalog using a variety of query types:
-        [CatalogQuerySortedAttribute](#type-catalogquerysortedattribute),
-        [CatalogQueryExact](#type-catalogqueryexact),
-        [CatalogQueryRange](#type-catalogqueryrange),
-        [CatalogQueryText](#type-catalogquerytext),
-        [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax), and
-        [CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierli
-        st).
-        --
-        --
-        Future end of the above comment:
-        [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),
+        Queries the targeted catalog using a variety of query expressions.
+        Supported query expressions are of the following types:
+        - [CatalogQuerySortedAttribute](#type-catalogquerysortedattribute),
+        - [CatalogQueryExact](#type-catalogqueryexact),
+        - [CatalogQueryRange](#type-catalogqueryrange),
+        - [CatalogQueryText](#type-catalogquerytext),
+        - [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),
+        -
         [CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierli
         st),
+        -
         [CatalogQueryItemsForItemOptions](#type-catalogqueryitemsforitemoptions
         ), and
+        -
         [CatalogQueryItemVariationsForItemOptionValues](#type-catalogqueryitemv
         ariationsforitemoptionvalues).
 

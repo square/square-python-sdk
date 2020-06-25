@@ -29,6 +29,7 @@ from square.api.loyalty_api import LoyaltyApi
 from square.api.merchants_api import MerchantsApi
 from square.api.payments_api import PaymentsApi
 from square.api.refunds_api import RefundsApi
+from square.api.team_api import TeamApi
 from square.api.terminal_api import TerminalApi
 
 
@@ -36,11 +37,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '5.3.0.20200528'
+        return '6.0.0.20200625'
 
     @staticmethod
     def square_version():
-        return '2020-05-28'
+        return '2020-06-25'
 
     @lazy_property
     def mobile_authorization(self):
@@ -149,6 +150,10 @@ class Client(object):
     @lazy_property
     def refunds(self):
         return RefundsApi(self.config)
+
+    @lazy_property
+    def team(self):
+        return TeamApi(self.config)
 
     @lazy_property
     def terminal(self):

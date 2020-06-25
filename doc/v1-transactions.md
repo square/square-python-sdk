@@ -26,14 +26,6 @@ v1_transactions_api = client.v1_transactions
 
 Provides non-confidential details for all of a location's associated bank accounts. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.
 
----
-
-- __Deprecation date__: 2020-02-26
-- [__Retirement date__](https://developer.squareup.com/docs/docs/build-basics/api-lifecycle#deprecated): 2021-02-26
-- [Migration guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/v1-bankaccounts)
-
----
-
 ```python
 def list_bank_accounts(self,
                       location_id)
@@ -65,14 +57,6 @@ elif result.is_error():
 ## Retrieve Bank Account
 
 Provides non-confidential details for a merchant's associated bank account. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.
-
----
-
-- __Deprecation date__: 2020-02-26
-- [__Retirement date__](https://developer.squareup.com/docs/docs/build-basics/api-lifecycle#deprecated): 2021-02-26
-- [Migration guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/v1-bankaccounts)
-
----
 
 ```python
 def retrieve_bank_account(self,
@@ -239,7 +223,7 @@ def list_payments(self,
                  end_time=None,
                  limit=None,
                  batch_token=None,
-                 include_partial=None)
+                 include_partial=False)
 ```
 
 ### Parameters

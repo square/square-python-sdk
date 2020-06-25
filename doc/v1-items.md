@@ -55,14 +55,6 @@ v1_items_api = client.v1_items
 
 Lists all the item categories for a given location.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def list_categories(self,
                    location_id)
@@ -94,14 +86,6 @@ elif result.is_error():
 ## Create Category
 
 Creates an item category.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def create_category(self,
@@ -138,13 +122,6 @@ elif result.is_error():
 
 Deletes an existing item category.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeleteCategory__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeleteCategoryRequest` object
@@ -185,14 +162,6 @@ elif result.is_error():
 
 Modifies the details of an existing item category.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def update_category(self,
                    location_id,
@@ -231,14 +200,6 @@ elif result.is_error():
 
 Lists all the discounts for a given location.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def list_discounts(self,
                   location_id)
@@ -270,14 +231,6 @@ elif result.is_error():
 ## Create Discount
 
 Creates a discount.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def create_discount(self,
@@ -314,13 +267,6 @@ elif result.is_error():
 
 Deletes an existing discount.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeleteDiscount__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeleteDiscountRequest` object
@@ -361,14 +307,6 @@ elif result.is_error():
 
 Modifies the details of an existing discount.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def update_discount(self,
                    location_id,
@@ -407,14 +345,6 @@ elif result.is_error():
 
 Lists all the fees (taxes) for a given location.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def list_fees(self,
              location_id)
@@ -446,14 +376,6 @@ elif result.is_error():
 ## Create Fee
 
 Creates a fee (tax).
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def create_fee(self,
@@ -490,13 +412,6 @@ elif result.is_error():
 
 Deletes an existing fee (tax).
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeleteFee__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeleteFeeRequest` object
@@ -537,14 +452,6 @@ elif result.is_error():
 
 Modifies the details of an existing fee (tax).
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def update_fee(self,
               location_id,
@@ -584,14 +491,6 @@ elif result.is_error():
 Provides inventory information for all inventory-enabled item
 variations.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def list_inventory(self,
                   location_id,
@@ -627,14 +526,6 @@ elif result.is_error():
 ## Adjust Inventory
 
 Adjusts the current available inventory of an item variation.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def adjust_inventory(self,
@@ -674,14 +565,6 @@ elif result.is_error():
 
 Provides summary information of all items for a given location.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def list_items(self,
               location_id,
@@ -716,13 +599,6 @@ elif result.is_error():
 
 Creates an item and at least one variation for it.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 
 Item-related entities include fields you can use to associate them with
@@ -771,13 +647,6 @@ elif result.is_error():
 
 Deletes an existing item and all item variations associated with it.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeleteItem__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeleteItemRequest` object
@@ -819,14 +688,6 @@ elif result.is_error():
 Provides the details for a single item, including associated modifier
 lists and fees.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def retrieve_item(self,
                  location_id,
@@ -861,14 +722,6 @@ elif result.is_error():
 ## Update Item
 
 Modifies the core details of an existing item.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def update_item(self,
@@ -909,14 +762,6 @@ elif result.is_error():
 Removes a fee assocation from an item so the fee is no longer
 automatically applied to the item in Square Point of Sale.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def remove_fee(self,
               location_id,
@@ -955,14 +800,6 @@ elif result.is_error():
 
 Associates a fee with an item so the fee is automatically applied to
 the item in Square Point of Sale.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def apply_fee(self,
@@ -1003,14 +840,6 @@ elif result.is_error():
 Removes a modifier list association from an item so the modifier
 options from the list can no longer be applied to the item.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def remove_modifier_list(self,
                         location_id,
@@ -1050,14 +879,6 @@ elif result.is_error():
 Associates a modifier list with an item so the associated modifier
 options can be applied to the item.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def apply_modifier_list(self,
                        location_id,
@@ -1095,14 +916,6 @@ elif result.is_error():
 ## Create Variation
 
 Creates an item variation for an existing item.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def create_variation(self,
@@ -1142,13 +955,6 @@ elif result.is_error():
 
 Deletes an existing item variation from an item.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeleteVariation__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeleteVariationRequest` object
@@ -1192,14 +998,6 @@ elif result.is_error():
 
 Modifies the details of an existing item variation.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def update_variation(self,
                     location_id,
@@ -1241,14 +1039,6 @@ elif result.is_error():
 
 Lists all the modifier lists for a given location.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def list_modifier_lists(self,
                        location_id)
@@ -1280,14 +1070,6 @@ elif result.is_error():
 ## Create Modifier List
 
 Creates an item modifier list and at least 1 modifier option for it.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def create_modifier_list(self,
@@ -1325,13 +1107,6 @@ elif result.is_error():
 Deletes an existing item modifier list and all modifier options
 associated with it.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeleteModifierList__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeleteModifierListRequest` object
@@ -1372,14 +1147,6 @@ elif result.is_error():
 
 Provides the details for a single modifier list.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def retrieve_modifier_list(self,
                           location_id,
@@ -1414,14 +1181,6 @@ elif result.is_error():
 ## Update Modifier List
 
 Modifies the details of an existing item modifier list.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def update_modifier_list(self,
@@ -1461,14 +1220,6 @@ elif result.is_error():
 
 Creates an item modifier option and adds it to a modifier list.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def create_modifier_option(self,
                           location_id,
@@ -1507,13 +1258,6 @@ elif result.is_error():
 
 Deletes an existing item modifier option from a modifier list.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeleteModifierOption__ returns nothing on success but Connect
 SDKs map the empty response to an empty `V1DeleteModifierOptionRequest`
@@ -1557,14 +1301,6 @@ elif result.is_error():
 
 Modifies the details of an existing item modifier option.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def update_modifier_option(self,
                           location_id,
@@ -1607,14 +1343,6 @@ elif result.is_error():
 Lists all Favorites pages (in Square Point of Sale) for a given
 location.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def list_pages(self,
               location_id)
@@ -1646,14 +1374,6 @@ elif result.is_error():
 ## Create Page
 
 Creates a Favorites page in Square Point of Sale.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def create_page(self,
@@ -1690,13 +1410,6 @@ elif result.is_error():
 
 Deletes an existing Favorites page and all of its cells.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeletePage__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeletePageRequest` object.
@@ -1736,14 +1449,6 @@ elif result.is_error():
 
 Modifies the details of a Favorites page in Square Point of Sale.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
-
 ```python
 def update_page(self,
                location_id,
@@ -1782,13 +1487,6 @@ elif result.is_error():
 
 Deletes a cell from a Favorites page in Square Point of Sale.
 
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 __DeletePageCell__ returns nothing on success but Connect SDKs
 map the empty response to an empty `V1DeletePageCellRequest` object
@@ -1832,14 +1530,6 @@ elif result.is_error():
 ## Update Page Cell
 
 Modifies a cell of a Favorites page in Square Point of Sale.
-
----
-
-- __Deprecation date__: 2019-11-20
-- [__Retirement date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#deprecated): 2020-11-18
-- [Migration guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-items)
-
----
 
 ```python
 def update_page_cell(self,

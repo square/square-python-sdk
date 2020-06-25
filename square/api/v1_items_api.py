@@ -20,15 +20,6 @@ class V1ItemsApi(BaseApi):
         """Does a GET request to /v1/{location_id}/categories.
 
         Lists all the item categories for a given location.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to list categories
@@ -79,15 +70,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/categories.
 
         Creates an item category.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to create an item
@@ -142,15 +124,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/categories/{category_id}.
 
         Deletes an existing item category.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeleteCategory__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeleteCategoryRequest` object
         as documented below.
@@ -206,15 +179,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/categories/{category_id}.
 
         Modifies the details of an existing item category.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the category's associated
@@ -270,15 +234,6 @@ class V1ItemsApi(BaseApi):
         """Does a GET request to /v1/{location_id}/discounts.
 
         Lists all the discounts for a given location.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to list categories
@@ -329,15 +284,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/discounts.
 
         Creates a discount.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to create an item
@@ -392,15 +338,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/discounts/{discount_id}.
 
         Deletes an existing discount.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeleteDiscount__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeleteDiscountRequest` object
         as documented below.
@@ -456,15 +393,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/discounts/{discount_id}.
 
         Modifies the details of an existing discount.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the category's associated
@@ -520,15 +448,6 @@ class V1ItemsApi(BaseApi):
         """Does a GET request to /v1/{location_id}/fees.
 
         Lists all the fees (taxes) for a given location.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to list fees for.
@@ -578,15 +497,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/fees.
 
         Creates a fee (tax).
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to create a fee for.
@@ -640,15 +550,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/fees/{fee_id}.
 
         Deletes an existing fee (tax).
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeleteFee__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeleteFeeRequest` object
         as documented below.
@@ -704,15 +605,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/fees/{fee_id}.
 
         Modifies the details of an existing fee (tax).
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the fee's associated location.
@@ -770,15 +662,6 @@ class V1ItemsApi(BaseApi):
 
         Provides inventory information for all inventory-enabled item
         variations.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -842,15 +725,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/inventory/{variation_id}.
 
         Adjusts the current available inventory of an item variation.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -907,15 +781,6 @@ class V1ItemsApi(BaseApi):
         """Does a GET request to /v1/{location_id}/items.
 
         Provides summary information of all items for a given location.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to list items for.
@@ -975,15 +840,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/items.
 
         Creates an item and at least one variation for it.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         Item-related entities include fields you can use to associate them
         with
         entities in a non-Square system.
@@ -1052,15 +908,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/items/{item_id}.
 
         Deletes an existing item and all item variations associated with it.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeleteItem__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeleteItemRequest` object
         as documented below.
@@ -1116,15 +963,6 @@ class V1ItemsApi(BaseApi):
 
         Provides the details for a single item, including associated modifier
         lists and fees.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -1177,15 +1015,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/items/{item_id}.
 
         Modifies the core details of an existing item.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -1243,15 +1072,6 @@ class V1ItemsApi(BaseApi):
 
         Removes a fee assocation from an item so the fee is no longer
         automatically applied to the item in Square Point of Sale.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the fee's associated location.
@@ -1307,15 +1127,6 @@ class V1ItemsApi(BaseApi):
 
         Associates a fee with an item so the fee is automatically applied to
         the item in Square Point of Sale.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the fee's associated location.
@@ -1371,15 +1182,6 @@ class V1ItemsApi(BaseApi):
 
         Removes a modifier list association from an item so the modifier
         options from the list can no longer be applied to the item.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -1436,15 +1238,6 @@ class V1ItemsApi(BaseApi):
 
         Associates a modifier list with an item so the associated modifier
         options can be applied to the item.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -1499,15 +1292,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/items/{item_id}/variations.
 
         Creates an item variation for an existing item.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -1564,15 +1348,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/items/{item_id}/variations/{variation_id}.
 
         Deletes an existing item variation from an item.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeleteVariation__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeleteVariationRequest` object
         as documented below.
@@ -1631,15 +1406,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/items/{item_id}/variations/{variation_id}.
 
         Modifies the details of an existing item variation.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -1696,15 +1462,6 @@ class V1ItemsApi(BaseApi):
         """Does a GET request to /v1/{location_id}/modifier-lists.
 
         Lists all the modifier lists for a given location.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to list modifier
@@ -1755,15 +1512,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/modifier-lists.
 
         Creates an item modifier list and at least 1 modifier option for it.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to create a modifier
@@ -1819,15 +1567,6 @@ class V1ItemsApi(BaseApi):
 
         Deletes an existing item modifier list and all modifier options
         associated with it.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeleteModifierList__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeleteModifierListRequest`
         object
@@ -1883,15 +1622,6 @@ class V1ItemsApi(BaseApi):
         """Does a GET request to /v1/{location_id}/modifier-lists/{modifier_list_id}.
 
         Provides the details for a single modifier list.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -1944,15 +1674,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/modifier-lists/{modifier_list_id}.
 
         Modifies the details of an existing item modifier list.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -2009,15 +1730,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/modifier-lists/{modifier_list_id}/modifier-options.
 
         Creates an item modifier option and adds it to a modifier list.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -2074,15 +1786,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/modifier-lists/{modifier_list_id}/modifier-options/{modifier_option_id}.
 
         Deletes an existing item modifier option from a modifier list.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeleteModifierOption__ returns nothing on success but Connect
         SDKs map the empty response to an empty
         `V1DeleteModifierOptionRequest`
@@ -2142,15 +1845,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/modifier-lists/{modifier_list_id}/modifier-options/{modifier_option_id}.
 
         Modifies the details of an existing item modifier option.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the item's associated location.
@@ -2208,15 +1902,6 @@ class V1ItemsApi(BaseApi):
 
         Lists all Favorites pages (in Square Point of Sale) for a given
         location.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to list Favorites
@@ -2267,15 +1952,6 @@ class V1ItemsApi(BaseApi):
         """Does a POST request to /v1/{location_id}/pages.
 
         Creates a Favorites page in Square Point of Sale.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the location to create an item
@@ -2330,15 +2006,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/pages/{page_id}.
 
         Deletes an existing Favorites page and all of its cells.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeletePage__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeletePageRequest` object.
 
@@ -2394,15 +2061,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/pages/{page_id}.
 
         Modifies the details of a Favorites page in Square Point of Sale.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the Favorites page's associated
@@ -2461,15 +2119,6 @@ class V1ItemsApi(BaseApi):
         """Does a DELETE request to /v1/{location_id}/pages/{page_id}/cells.
 
         Deletes a cell from a Favorites page in Square Point of Sale.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
         __DeletePageCell__ returns nothing on success but Connect SDKs
         map the empty response to an empty `V1DeletePageCellRequest` object
         as documented below.
@@ -2539,15 +2188,6 @@ class V1ItemsApi(BaseApi):
         """Does a PUT request to /v1/{location_id}/pages/{page_id}/cells.
 
         Modifies a cell of a Favorites page in Square Point of Sale.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-it
-        ems)
-        ---
 
         Args:
             location_id (string): The ID of the Favorites page's associated

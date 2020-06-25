@@ -27,5 +27,6 @@ __all__ = [
     'merchants_api',
     'payments_api',
     'refunds_api',
+    'team_api',
     'terminal_api',
 ]

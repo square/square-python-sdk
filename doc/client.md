@@ -25,15 +25,27 @@ client = Client(
 | API | Instance |
 | --- | --- |
 | [Apple Pay](apple-pay.md) | ```apple_pay_api = client.apple_pay``` |
+| [Bank Accounts](bank-accounts.md) | ```bank_accounts_api = client.bank_accounts``` |
+| [Cash Drawers](cash-drawers.md) | ```cash_drawers_api = client.cash_drawers``` |
 | [Catalog](catalog.md) | ```catalog_api = client.catalog``` |
 | [Checkout](checkout.md) | ```checkout_api = client.checkout``` |
+| [Customer Groups](customer-groups.md) | ```customer_groups_api = client.customer_groups``` |
+| [Customer Segments](customer-segments.md) | ```customer_segments_api = client.customer_segments``` |
 | [Customers](customers.md) | ```customers_api = client.customers``` |
+| [Devices](devices.md) | ```devices_api = client.devices``` |
+| [Disputes](disputes.md) | ```disputes_api = client.disputes``` |
 | [Employees](employees.md) | ```employees_api = client.employees``` |
 | [Inventory](inventory.md) | ```inventory_api = client.inventory``` |
 | [Labor](labor.md) | ```labor_api = client.labor``` |
 | [Locations](locations.md) | ```locations_api = client.locations``` |
+| [Loyalty](loyalty.md) | ```loyalty_api = client.loyalty``` |
+| [Merchants](merchants.md) | ```loyalty_api = client.loyalty``` |
 | [Orders](orders.md) | ```orders_api = client.orders``` |
+| [Payments](payments.md) | ```payments_api = client.payments``` |
+| [Refunds](refunds.md) | ```refunds_api = client.refunds``` |
 | [Reporting](reporting.md) | ```reporting_api = client.reporting``` |
+| [Team](team.md) | ```team_api = client.team``` |
+| [Terminal](terminal.md) | ```terminal_api = client.terminal``` |
 | [Transactions](transactions.md) | ```transactions_api = client.transactions``` |
 
 ### Authorization

@@ -354,18 +354,7 @@ class DisputesApi(BaseApi):
         Uploads a file to use as evidence in a dispute challenge. The endpoint
         accepts
         HTTP multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG,
-        and TIFF formats. The following is an example of such an HTTP
-        request:
-        ```
-        curl -X POST \
-        -H 'Accept: application/json' \
-        -H 'Authorization: Bearer {{ACCESS_TOKEN}}' \
-        -H 'Content-Type: multipart/form-data' \
-        -F 'evidence=@/path/to/file/filename.tiff' \
-        -F 'request={ "idempotency_key":"{{UNIQUE_KEY}}",
-        "evidence_type":"{{EVIDENCE_TYPE}}", "content_type":"image/tiff" }' \
-        'https://connect.squareup.com/v2/disputes/{{DISPUTE_ID}}/evidence_file'
-                ```
+        and TIFF formats.
         For more information, see [Challenge a
         Dispute](https://developer.squareup.com/docs/docs/disputes-api/process-
         disputes#challenge-a-dispute).
