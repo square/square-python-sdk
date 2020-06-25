@@ -22,7 +22,7 @@ See [Handling errors](#handlingerrors) for more information.
 ```json
 {
   "category": "INVALID_REQUEST_ERROR",
-  "code": "CARD_DECLINED_CALL_ISSUER",
+  "code": "GATEWAY_TIMEOUT",
   "detail": null,
   "field": null
 }

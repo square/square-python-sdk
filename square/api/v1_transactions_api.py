@@ -23,15 +23,6 @@ class V1TransactionsApi(BaseApi):
         bank accounts. This endpoint does not provide full bank account
         numbers, and there is no way to obtain a full bank account number with
         the Connect API.
-        ---
-        - __Deprecation date__: 2020-02-26
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
-        ycle#deprecated): 2021-02-26
-        - [Migration
-        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
-        v1-bankaccounts)
-        ---
 
         Args:
             location_id (string): The ID of the location to list bank accounts
@@ -85,15 +76,6 @@ class V1TransactionsApi(BaseApi):
         account. This endpoint does not provide full bank account numbers, and
         there is no way to obtain a full bank account number with the Connect
         API.
-        ---
-        - __Deprecation date__: 2020-02-26
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/docs/build-basics/api-lifec
-        ycle#deprecated): 2021-02-26
-        - [Migration
-        guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/
-        v1-bankaccounts)
-        ---
 
         Args:
             location_id (string): The ID of the bank account's associated
@@ -323,7 +305,7 @@ class V1TransactionsApi(BaseApi):
                       end_time=None,
                       limit=None,
                       batch_token=None,
-                      include_partial=None):
+                      include_partial=False):
         """Does a GET request to /v1/{location_id}/payments.
 
         Provides summary information for all payments taken for a given

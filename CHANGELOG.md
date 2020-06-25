@@ -1,5 +1,18 @@
 # Change Log
 
+## Version 6.0.0.20200625 (2020-06-25)
+
+## New API release 
+* Team API generally available (GA)
+  * For an overview, see [Team API Overview](https://developer.squareup.com/docs/team/overview).
+  * For technical reference, see [Team API](https://developer.squareup.com/reference/square_2020-06-25/team-api).
+
+## Existing API updates 
+* Catalog API
+  * [Pricing](https://developer.squareup.com/reference/square_2020-06-25/objects/CatalogPricingRule) is now GA. It allows an application to configure catalog item pricing rules for the specified discounts to apply automatically.
+* Payments API
+  * The [CardPaymentDetails](https://developer.squareup.com/reference/square_2020-06-25/objects/CardPaymentDetails) type now supports a new field, [refund_requires_card_presence](https://developer.squareup.com/reference/square_2020-06-25/objects/CardPaymentDetails#definition__property-refund_requires_card_presence). When set to true, the payment card must be physically present to refund a payment.
+
 ## Version 5.3.0.20200528 (2020-05-28)
 
 ## API releases
@@ -40,7 +53,7 @@
 ## Existing API updates
 
 * **OAuth API**
-  * [Obtain Token](https://developer.squareup.com/reference/square_2020-04-22/oauth-api/obtain-token) endpoint: Removed the `scopes` property from the request body.
+  * [Obtain Token](https://developer.squareup.com/reference/square/oauth-api/revoke-token) endpoint: Removed the `scopes` property from the request body.
 
 ## Version 5.2.1.20200422 (2020-04-22)
 ## API releases
@@ -53,17 +66,17 @@
 ## API releases
 * **Terminal API.** The new Terminal API lets a custom third-party POS app integrate with the Square Terminal to send terminal checkout requests to collect payments.
   * For an overview, see [Overview](/terminal-api/overview).
-  * For technical reference, see [Terminal API](${SQUARE_TECH_REF}/terminal-api).
+  * For technical reference, see [Terminal API](https://developer.squareup.com/reference/square/terminal-api).
 
-* **Devices API.** The new Devices API lets a custom third-party POS app generate a code used to sign in to a Square Terminal to create a pairing that lets the POS app send terminal checkout requests. For technical reference, see [Devices API](${SQUARE_TECH_REF}/devices-api).
+* **Devices API.** The new Devices API lets a custom third-party POS app generate a code used to sign in to a Square Terminal to create a pairing that lets the POS app send terminal checkout requests. For technical reference, see [Devices API](https://developer.squareup.com/reference/square/devices-api).
 
 * **Customer Groups API (beta).** The new Customer Groups API (Beta) enables full CRUD management of customer groups, including the ability to list, retrieve, create, update, and delete customer groups. Previously, this functionality was only available through the Square dashboard and point-of-sale product interfaces. 
   * For an overview, see [Overview](/customer-groups-api/what-it-does) 
-  * For technical reference, see [Customer Groups](${SQUARE_TECH_REF}/customer-groups-api).  
+  * For technical reference, see [Customer Groups](https://developer.squareup.com/reference/square/customer-groups-api).  
 
 * **Customer Segments API (beta).** The new Customer Segments API (Beta) lets you list and retrieve customer segment (also called smart groups) information. Coupled with the new `segment_ids` field on the customer resource, this API lets you better understand and track the customer segments to which a customer belongs.
   * For an overview, see [Overview](/customer-segmentss-api/what-it-does) 
-  * For technical reference, see [Customer Segments]( ${SQUARE_TECH_REF}/customer-segments-api).  
+  * For technical reference, see [Customer Segments]( https://developer.squareup.com/reference/square/customer-segments-api).  
 
    
 * **New webhooks.** v2 Webhooks (beta) now supports webhooks for the following APIs:
@@ -75,37 +88,37 @@
 
 ## Existing API updates
 * **Customers API**
-	* [AddGroupToCustomer](${SQUARE_TECH_REF}/customers-api/add-group-to-customer) endpoint. Added to add customer memberships to a customer group.  
-	* [RemoveGroupFromCustomer](${SQUARE_TECH_REF}/customers-api/remove-group-from-customer) endpoint. Added to remove customer memberships from a customer group.
-	* [Customer](${SQUARE_TECH_REF}/obects/Customer) object. Updated as follows:
-		* [`group_ids`](${SQUARE_TECH_REF}/obects/Customer#definition__property-group_ids) field. Added to designate groups the customer is in.
-		* [`segment_ids`](${SQUARE_TECH_REF}/obects/Customer#definition__property-segment_ids) field. Added to designate segments the customer is in. 
-		* [`groups`](${SQUARE_TECH_REF}/obects/Customer#definition__property-groups) field. Deprecated to be replaced by `group_ids` and `segment_ids`. It remains supported for one year from this release.
-	* [CustomerQuery](${SQUARE_TECH_REF}/objects/CustomerQuery) object's `filter` parameter. Updated as follows:  
+	* [AddGroupToCustomer](https://developer.squareup.com/reference/square/customers-api/add-group-to-customer) endpoint. Added to add customer memberships to a customer group.  
+	* [RemoveGroupFromCustomer](https://developer.squareup.com/reference/square/customers-api/remove-group-from-customer) endpoint. Added to remove customer memberships from a customer group.
+	* [Customer](https://developer.squareup.com/reference/square/obects/Customer) object. Updated as follows:
+		* [`group_ids`](https://developer.squareup.com/reference/square/obects/Customer#definition__property-group_ids) field. Added to designate groups the customer is in.
+		* [`segment_ids`](https://developer.squareup.com/reference/square/obects/Customer#definition__property-segment_ids) field. Added to designate segments the customer is in. 
+		* [`groups`](https://developer.squareup.com/reference/square/obects/Customer#definition__property-groups) field. Deprecated to be replaced by `group_ids` and `segment_ids`. It remains supported for one year from this release.
+	* [CustomerQuery](https://developer.squareup.com/reference/square/objects/CustomerQuery) object's `filter` parameter. Updated as follows:  
 		*  `group_ids` filter. Added to search for customers based on whether they belong to any, all, or none of the specified groups.
 
 
 * **Orders API**
-  * [OrderFulfillmentPickupDetails](${SQUARE_TECH_REF}/objects/OrderFulfillmentPickupDetails) type updated to support curbside pickup:
+  * [OrderFulfillmentPickupDetails](https://developer.squareup.com/reference/square/objects/OrderFulfillmentPickupDetails) type updated to support curbside pickup:
     * `is_curbside_pickup`. This Boolean field indicates curbside pickup.
     * `CurbsidePickupDetails`. This type provides supporting information for curbside pickup, including a buyer description (for example, "buyer is in a red car") and a timestamp when the buyer arrived for the pickup.
 
 
 * **OAuth API**
-  * [RevokeToken](${SQUARE_TECH_REF}/oauth-api/revoke-token) endpoint. Added a new field called [revoke_only_access_token](${SQUARE_TECH_REF}/oauth-api/revoke-token#request__property-revoke_only_access_token). This field allows a client to revoke an access token but leave the parent authorization active.
-  * [ObtainToken](${SQUARE_TECH_REF}/oauth-api/obtain-token) endpoint. Added a new field called [scopes](${SQUARE_TECH_REF}/oauth-api/obtain-token#request__property-scopes). This field lets a client change the set of permissions for an access token when making a request to refresh the token.
+  * [RevokeToken](https://developer.squareup.com/reference/square/oauth-api/revoke-token) endpoint. Added a new field called [revoke_only_access_token](https://developer.squareup.com/reference/square/oauth-api/revoke-token#request__property-revoke_only_access_token). This field allows a client to revoke an access token but leave the parent authorization active.
+  * [ObtainToken](https://developer.squareup.com/reference/square/oauth-api/obtain-token) endpoint. Added a new field called [scopes](https://developer.squareup.com/reference/square/oauth-api/obtain-token#request__property-scopes). This field lets a client change the set of permissions for an access token when making a request to refresh the token.
 
 
 * **Catalog API**
-  * [CatalogQuickAmountsSettings](${SQUARE_TECH_REF}/objects/CatalogQuickAmountsSettings) type. Added to support predefined custom payment amounts in the Square Register checkout dialog box.
+  * [CatalogQuickAmountsSettings](https://developer.squareup.com/reference/square/objects/CatalogQuickAmountsSettings) type. Added to support predefined custom payment amounts in the Square Register checkout dialog box.
   * ENUM`CatalogItemProductType`. The ENUM value `GIFT_CARD` is now deprecated.
 
-* **Payments API.** See [Take Payments and Collect Fees](/payments-api/take-payments-and-collect-fees) for updated information about permission requirements, Square reporting of the application fee collected by an app, and how to collect fees internationally.
+* **Payments API.** See [Take Payments and Collect Fees](/payments-api/take-payments-and-collect-fees) for updated information about permission requirements, Square reporting of the application fee collected by an app, and how to collect fees internationally.   
 
 ## Version 5.1.0.20200325 (2020-03-25)
 ## Existing API updates
-* **[Payments API](${SQUARE_TECH_REF}/payments-api).** In support of the existing [Delayed capture](payments-api/take-payments) for payments, the following fields are added to the [Payment](${SQUARE_TECH_REF}/objects/Payment) type:
-   * `delay_duration`. In a [CreatePayment](${SQUARE_TECH_REF}/payments-api/create-payment) request, you can set `autocomplete` to false to get  payment approval but not charge the payment source. You can now add this field to specify a time period to complete (or cancel) the payment. For more information, see [Delay capture](payments-api/take-payments).
+* **[Payments API](https://developer.squareup.com/reference/square/payments-api).** In support of the existing [Delayed capture](payments-api/take-payments) for payments, the following fields are added to the [Payment](https://developer.squareup.com/reference/square/objects/Payment) type:
+   * `delay_duration`. In a [CreatePayment](https://developer.squareup.com/reference/square/payments-api/create-payment) request, you can set `autocomplete` to false to get  payment approval but not charge the payment source. You can now add this field to specify a time period to complete (or cancel) the payment. For more information, see [Delay capture](payments-api/take-payments).
    * `delay_action`. Defines the action that Square takes on the payment when the `delay_duration` elapses. In this release, the API supports only the cancel payment action.
    * `delayed_until`. Provides the date and time on Square servers when Square applies `delay_action` on the payment.
 
@@ -151,11 +164,11 @@ All SDKs have been updated to support the following changes:
 Square is excited to announce the public release of customized SDKs for [Java](https://github.com/square/square-java-sdk) and [.NET](https://github.com/square/square-dotnet-sdk). For more information, see [Square SDKs](/sdks).
 !!!
 
-* __GA release:__ SDKs updated to support new `receipt_url` and `receipt_number` fields added to the  [Payment](${SQUARE_TECH_REF}/objects/Payment) type.  
+* __GA release:__ SDKs updated to support new `receipt_url` and `receipt_number` fields added to the  [Payment](https://developer.squareup.com/reference/square/objects/Payment) type.  
 
 * __Beta release:__ SDKs updated to support the new [CashDrawerShifts](cashdrawershift-api/reporting) API.
 
-* Square now follows the semantic versioning scheme for all SDKs except PHP and Node.js. This versioning scheme uses three numbers to delineate MAJOR, MINOR, and PATCH versions of our SDK. In addition, the SDK version also includes the API version so you know what Square API version the SDK is related to. For more information, see [Versioning and SDKs](build-basics/versioning-overview#versioning-and-sdks).
+* Square now follows the semantic versioning scheme for all SDKs except PHP and Node.js. This versioning scheme uses three numbers to delineate MAJOR, MINOR, and PATCH versions of our SDK. In addition, the SDK version also includes the API version so you know what Square API version the SDK is related to. For more information, see [Versioning and SDKs](build-basics/versioning-overview#versioning-and-sdks).
 * Java, .Net, Python, and Ruby SDKs are now version 4.0.0. Java and .Net SDKs have breaking changes in version 4.0.0. Ruby and Python do not have breaking changes.
 
 ## Version 3.20191120.0 (2019-11-20)

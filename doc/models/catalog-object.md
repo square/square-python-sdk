@@ -1,18 +1,23 @@
 ## Catalog Object
 
-The wrapper object for object types in the Catalog data model. The type
-of a particular `CatalogObject` is determined by the value of
-`type` and only the corresponding data field may be set.
+The wrapper object for the Catalog entries of a given object type. 
 
-- if type = `ITEM`, only `item_data` will be populated and it will contain a valid `CatalogItem` object.
-- if type = `ITEM_VARIATION`, only `item_variation_data` will be populated and it will contain a valid `CatalogItemVariation` object.
-- if type = `MODIFIER`, only `modifier_data` will be populated and it will contain a valid `CatalogModifier` object.
-- if type = `MODIFIER_LIST`, only `modifier_list_data` will be populated and it will contain a valid `CatalogModifierList` object.
-- if type = `CATEGORY`, only `category_data` will be populated and it will contain a valid `CatalogCategory` object.
-- if type = `DISCOUNT`, only `discount_data` will be populated and it will contain a valid `CatalogDiscount` object.
-- if type = `TAX`, only `tax_data` will be populated and it will contain a valid `CatalogTax` object.
-- if type = `IMAGE`, only `image_data` will be populated and it will contain a valid `CatalogImage` object.
-- if type = `QUICK_AMOUNTS_SETTINGS`, only `quick_amounts_settings_data` will be populated and will contain a valid `CatalogQuickAmountsSettings` object.
+The type of a particular `CatalogObject` is determined by the value of the
+`type` attribute and only the corresponding data attribute can be set on the `CatalogObject` instance.
+For example, the following list shows some instances of `CatalogObject` of a given `type` and
+their corresponding data atrribute that can be set:
+- For a `CatalogObject` of the `ITEM` type, set the `item_data` attribute to yield the `CatalogItem` object. 
+- For a `CatalogObject` of the `ITEM_VARIATION` type, set the `item_variation_data` attribute to yield the `CatalogItemVariation` object.
+- For a 'CatalogObject' of the `MODIFIER` type, set the `modifier_data` attribute to yield the `CatalogModifier` object.
+- For a 'CatalogObject' of the `MODIFIER_LIST` type, set the `modifier_list_data` attribute to yield the `CatalogModifierList` object.
+- For a 'CatalogObject' of the `CATEGORY` type, set the `category_data` attribute to yield the `CatalogCategory` object.
+- For a 'CatalogObject' of the `DISCOUNT` type, set the `discount_data` attribute to yield the `CatalogDiscount` object.
+- For a 'CatalogObject' of the `TAX` type, set the `tax_data` attribute to yield the `CatalogTax` object.
+- For a 'CatalogObject' of the `IMAGE` type, set the `image_data` attribute to yield the `CatalogImageData`  object.
+- For a 'CatalogObject' of the `QUICK_AMOUNTS_SETTINGS` type, set the `quick_amounts_settings_data` attribute to yield the `CatalogQuickAmountsSettings` object.
+- For a 'CatalogObject' of the `PRICING_RULE` type, set the `pricing_rule_data` attribute to yield the `CatalogPricingRule` object.
+- For a 'CatalogObject' of the `TIME_PERIOD` type, set the `time_period_data` attribute to yield the `CatalogTimePeriod` object.
+- For a 'CatalogObject' of the `PRODUCT_SET` type, set the `product_set_data` attribute to yield the `CatalogProductSet`  object.
 
 For a more detailed discussion of the Catalog data model, please see the
 [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
@@ -30,7 +35,7 @@ For a more detailed discussion of the Catalog data model, please see the
 | `updated_at` | `string` | Optional | Last modification [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`<br>would indicate the UTC time (denoted by `Z`) of August 15, 2016 at 23:59:33 and 123 milliseconds. |
 | `version` | `long|int` | Optional | The version of the object. When updating an object, the version supplied<br>must match the version in the database, otherwise the write will be rejected as conflicting. |
 | `is_deleted` | `bool` | Optional | If `true`, the object has been deleted from the database. Must be `false` for new objects<br>being inserted. When deleted, the `updated_at` field will equal the deletion time. |
-| `custom_attribute_values` | [`Dict`](/doc/models/catalog-custom-attribute-value.md) | Optional | Application-defined key/value attributes that are set at a global (location-independent) level.<br>Custom Attribute Values are intended to store additional information about a Catalog Object<br>or associations with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.).<br><br>For CustomAttributesDefinitions defined by the app making the request, the map key is the key defined in the<br>`CatalogCustomAttributeDefinition` (e.g. “reference_id”). For custom attributes created by other apps, the map key is<br>the key defined in `CatalogCustomAttributeDefinition` prefixed with the application ID and a colon<br>(eg. “abcd1234:reference_id”). |
+| `custom_attribute_values` | [`Dict`](/doc/models/catalog-custom-attribute-value.md) | Optional | A map (key-value pairs) of application-defined custom attribute values. The value of a key-value pair <br>is a [CatalogCustomAttributeValue](#type-CatalogCustomAttributeValue) object. The key is the `key` attribute <br>value defined in the associated [CatalogCustomAttributeDefinition](#type-CatalogCustomAttributeDefinition) <br>object defined by the application making the request. <br><br>If the `CatalogCustomAttributeDefinition` object is <br>defined by another application, the `CatalogCustomAttributeDefinition`'s key attribute value is prefixed by <br>the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key` attribute of <br>"cocoa_brand" and the defining application ID is "abcd1234", the key in the map is "abcd1234:cocoa_brand" if the<br>application making the request is different from the application defining the custom attribute definition. <br>Otherwise, the key used in the map is simply "cocoa-brand".<br><br>Application-defined custom attributes that are set at a global (location-independent) level.<br>Custom attribute values are intended to store additional information about a catalog object<br>or associations with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.). |
 | `catalog_v1_ids` | [`List of Catalog V1 Id`](/doc/models/catalog-v1-id.md) | Optional | The Connect v1 IDs for this object at each location where it is present, where they<br>differ from the object's Connect V2 ID. The field will only be present for objects that<br>have been created or modified by legacy APIs. |
 | `present_at_all_locations` | `bool` | Optional | If `true`, this object is present at all locations (including future locations), except where specified in<br>the `absent_at_location_ids` field. If `false`, this object is not present at any locations (including future locations),<br>except where specified in the `present_at_location_ids` field. If not specified, defaults to `true`. |
 | `present_at_location_ids` | `List of string` | Optional | A list of locations where the object is present, even if `present_at_all_locations` is `false`. |
@@ -45,7 +50,7 @@ For a more detailed discussion of the Catalog data model, please see the
 | `modifier_data` | [`Catalog Modifier`](/doc/models/catalog-modifier.md) | Optional | A modifier in the Catalog object model. |
 | `time_period_data` | [`Catalog Time Period`](/doc/models/catalog-time-period.md) | Optional | Represents a time period - either a single period or a repeating period. |
 | `product_set_data` | [`Catalog Product Set`](/doc/models/catalog-product-set.md) | Optional | Represents a collection of catalog objects for the purpose of applying a<br>`PricingRule`. Including a catalog object will include all of its subtypes.<br>For example, including a category in a product set will include all of its<br>items and associated item variations in the product set. Including an item in<br>a product set will also include its item variations. |
-| `pricing_rule_data` | [`Catalog Pricing Rule`](/doc/models/catalog-pricing-rule.md) | Optional | Defines how prices are modified or set for items that match the pricing rule<br>during the active time period. |
+| `pricing_rule_data` | [`Catalog Pricing Rule`](/doc/models/catalog-pricing-rule.md) | Optional | Defines how discounts are automatically applied to a set of items that match the pricing rule <br>during the active time period. |
 | `image_data` | [`Catalog Image`](/doc/models/catalog-image.md) | Optional | An image file to use in Square catalogs. Can be associated with catalog<br>items, item variations, and categories. |
 | `measurement_unit_data` | [`Catalog Measurement Unit`](/doc/models/catalog-measurement-unit.md) | Optional | Represents the unit used to measure a `CatalogItemVariation` and<br>specifies the precision for decimal quantities. |
 | `item_option_data` | [`Catalog Item Option`](/doc/models/catalog-item-option.md) | Optional | A group of variations for a `CatalogItem`. |

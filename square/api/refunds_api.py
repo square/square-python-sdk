@@ -41,8 +41,9 @@ class RefundsApi(BaseApi):
                 next set of results for the original query.  See
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination) for more information.
-            location_id (string, optional): ID of location associated with
-                payment.
+            location_id (string, optional): Limit results to the location
+                supplied. By default, results are returned for all locations
+                associated with the merchant.
             status (string, optional): If provided, only refunds with the
                 given status are returned. For a list of refund status values,
                 see [PaymentRefund](#type-paymentrefund).  Default: If omitted

@@ -156,15 +156,11 @@ body['batches'][0]['objects'][0]['item_data']['variations'].append({})
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['id'] = '#Tea_Mug'
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['present_at_all_locations'] = True
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data'] = {
-    "item_id": "#Tea",
-    "name": "Mug",
-    "pricing_type": "FIXED_PRICING",
-    "price_money": {
-      "amount": 150,
-      "currency": "USD"
-    }
-}
+body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data'] = {}
+body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Tea'
+body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['name'] = 'Mug'
+body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
+
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][1]['type'] = 'ITEM'
@@ -181,50 +177,40 @@ body['batches'][0]['objects'][1]['item_data']['variations'].append({})
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['id'] = '#Coffee_Regular'
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['present_at_all_locations'] = True
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data'] = {
-    "item_id": "#Coffee",
-    "name": "Regular",
-    "pricing_type": "FIXED_PRICING",
-    "price_money": {
-      "amount": 250,
-      "currency": "USD"
-    }
-}
+body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data'] = {}
+body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Coffee'
+body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['name'] = 'Regular'
+body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
 
 body['batches'][0]['objects'][1]['item_data']['variations'].append({})
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['type'] = 'ITEM_VARIATION'
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['id'] = '#Coffee_Large'
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['present_at_all_locations'] = True
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data'] = {
-    "item_id": "#Coffee",
-    "name": "Large",
-    "pricing_type": "FIXED_PRICING",
-    "price_money": {
-      "amount": 350,
-      "currency": "USD"
-    }
-}
+body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data'] = {}
+body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['item_id'] = '#Coffee'
+body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
+body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
+
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][2]['type'] = 'CATEGORY'
 body['batches'][0]['objects'][2]['id'] = '#Beverages'
 body['batches'][0]['objects'][2]['present_at_all_locations'] = True
-body['batches'][0]['objects'][2]['category_data'] = {
-    "name": "Beverages"
-}
+body['batches'][0]['objects'][2]['category_data'] = {}
+body['batches'][0]['objects'][2]['category_data']['name'] = 'Beverages'
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][3]['type'] = 'TAX'
 body['batches'][0]['objects'][3]['id'] = '#SalesTax'
 body['batches'][0]['objects'][3]['present_at_all_locations'] = True
-body['batches'][0]['objects'][3]['tax_data'] = {
-    "name": "Sales Tax",
-    "calculation_phase": "TAX_SUBTOTAL_PHASE",
-    "inclusion_type": "ADDITIVE",
-    "percentage": "5.0",
-    "applies_to_custom_amounts": True,
-    "enabled": True
-}
+body['batches'][0]['objects'][3]['tax_data'] = {}
+body['batches'][0]['objects'][3]['tax_data']['name'] = 'Sales Tax'
+body['batches'][0]['objects'][3]['tax_data']['calculation_phase'] = 'TAX_SUBTOTAL_PHASE'
+body['batches'][0]['objects'][3]['tax_data']['inclusion_type'] = 'ADDITIVE'
+body['batches'][0]['objects'][3]['tax_data']['percentage'] = '5.0'
+body['batches'][0]['objects'][3]['tax_data']['applies_to_custom_amounts'] = True
+body['batches'][0]['objects'][3]['tax_data']['enabled'] = True
+
 
 
 result = catalog_api.batch_upsert_catalog_objects(body)
@@ -242,37 +228,7 @@ Upload an image file to create a new [CatalogImage](#type-catalogimage) for an e
 (without an object assignment) and linked to a [CatalogObject](#type-catalogobject) at a later time.
 
 CreateCatalogImage accepts HTTP multipart/form-data requests with a JSON part and an image file part in
-JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB. The following is an example of such an HTTP request:
-
-```
-POST /v2/catalog/images
-Accept: application/json
-Content-Type: multipart/form-data;boundary="boundary"
-Square-Version: XXXX-XX-XX
-Authorization: Bearer {ACCESS_TOKEN}
-
---boundary
-Content-Disposition: form-data; name="request"
-Content-Type: application/json
-
-{
-"idempotency_key":"528dea59-7bfb-43c1-bd48-4a6bba7dd61f86",
-"object_id": "ND6EA5AAJEO5WL3JNNIAQA32",
-"image":{
-"id":"#TEMP_ID",
-"type":"IMAGE",
-"image_data":{
-"caption":"A picture of a cup of coffee"
-}
-}
-}
---boundary
-Content-Disposition: form-data; name="image"; filename="Coffee.jpg"
-Content-Type: image/jpeg
-
-{ACTUAL_IMAGE_BYTES}
---boundary
-```
+JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB. 
 
 Additional information and an example cURL request can be found in the [Create a Catalog Image recipe](https://developer.squareup.com/docs/more-apis/catalog/cookbook/create-catalog-images).
 
@@ -302,6 +258,8 @@ request['object_id'] = 'ND6EA5AAJEO5WL3JNNIAQA32'
 request['image'] = {}
 request['image']['type'] = 'IMAGE'
 request['image']['id'] = '#TEMP_ID'
+request['image']['image_data'] = {}
+request['image']['image_data']['caption'] = 'A picture of a cup of coffee'
 
 result = catalog_api.create_catalog_image(request)
 
@@ -465,7 +423,7 @@ any [CatalogTax](#type-catalogtax) objects that apply to it.
 ```python
 def retrieve_catalog_object(self,
                            object_id,
-                           include_related_objects=None)
+                           include_related_objects=False)
 ```
 
 ### Parameters
@@ -494,20 +452,17 @@ elif result.is_error():
 
 ## Search Catalog Objects
 
-Queries the targeted catalog using a variety of query types:
-[CatalogQuerySortedAttribute](#type-catalogquerysortedattribute),
-[CatalogQueryExact](#type-catalogqueryexact),
-[CatalogQueryRange](#type-catalogqueryrange),
-[CatalogQueryText](#type-catalogquerytext),
-[CatalogQueryItemsForTax](#type-catalogqueryitemsfortax), and
-[CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierlist).
---
---
-Future end of the above comment:
-[CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),
-[CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierlist),
-[CatalogQueryItemsForItemOptions](#type-catalogqueryitemsforitemoptions), and
-[CatalogQueryItemVariationsForItemOptionValues](#type-catalogqueryitemvariationsforitemoptionvalues).
+Queries the targeted catalog using a variety of query expressions.
+
+Supported query expressions are of the following types:
+- [CatalogQuerySortedAttribute](#type-catalogquerysortedattribute),
+- [CatalogQueryExact](#type-catalogqueryexact),
+- [CatalogQueryRange](#type-catalogqueryrange),
+- [CatalogQueryText](#type-catalogquerytext),
+- [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),
+- [CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierlist),
+- [CatalogQueryItemsForItemOptions](#type-catalogqueryitemsforitemoptions), and
+- [CatalogQueryItemVariationsForItemOptionValues](#type-catalogqueryitemvariationsforitemoptionvalues).
 
 ```python
 def search_catalog_objects(self,

@@ -19,15 +19,6 @@ class V1LocationsApi(BaseApi):
         """Does a GET request to /v1/me.
 
         Get the general information for a business.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-lo
-        cations)
-        ---
 
         Returns:
             V1Merchant: Response from the API. Success
@@ -70,15 +61,6 @@ class V1LocationsApi(BaseApi):
 
         Provides details for all business locations associated with a Square
         account, including the Square-assigned object ID for the location.
-        ---
-        - __Deprecation date__: 2019-11-20
-        - [__Retirement
-        date__](https://developer.squareup.com/docs/build-basics/api-lifecycle#
-        deprecated): 2020-11-18
-        - [Migration
-        guide](https://developer.squareup.com/docs/migrate-from-v1/guides/v1-lo
-        cations)
-        ---
 
         Returns:
             list of V1Merchant: Response from the API. Success

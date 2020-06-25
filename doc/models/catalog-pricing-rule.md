@@ -1,6 +1,6 @@
 ## Catalog Pricing Rule
 
-Defines how prices are modified or set for items that match the pricing rule
+Defines how discounts are automatically applied to a set of items that match the pricing rule 
 during the active time period.
 
 ### Structure

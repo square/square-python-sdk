@@ -316,7 +316,7 @@ class APIHelper(object):
         dictionary = dict()
 
         # Loop through all properties in this model
-        for name in obj._names:
+        for name in {k: v for k, v in obj.__dict__.items() if v is not None}:
             value = getattr(obj, name)
             if isinstance(value, list):
                 # Loop through each item

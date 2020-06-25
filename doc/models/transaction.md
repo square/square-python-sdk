@@ -16,7 +16,7 @@ the transaction.
 |  --- | --- | --- | --- |
 | `id` | `string` | Optional | The transaction's unique ID, issued by Square payments servers. |
 | `location_id` | `string` | Optional | The ID of the transaction's associated location. |
-| `created_at` | `string` | Optional | The time when the transaction was created, in RFC 3339 format. |
+| `created_at` | `string` | Optional | The timestamp for when the transaction was created, in RFC 3339 format. |
 | `tenders` | [`List of Tender`](/doc/models/tender.md) | Optional | The tenders used to pay in the transaction. |
 | `refunds` | [`List of Refund`](/doc/models/refund.md) | Optional | Refunds that have been applied to any tender in the transaction. |
 | `reference_id` | `string` | Optional | If the transaction was created with the [Charge](#endpoint-charge)<br>endpoint, this value is the same as the value provided for the `reference_id`<br>parameter in the request to that endpoint. Otherwise, it is not set. |
