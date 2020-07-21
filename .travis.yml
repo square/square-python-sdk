@@ -21,12 +21,12 @@ env:
     secure: ZCiFzWx69EVLAqklrXec52FXDK4brooa2NT6gXz+VXfaowKyZ1WaJh48AXF7lNEjCW1imQDJ3fJaPz8mxI+MwwZ2e8g2lCXC+jhedNNy72/oS2nqdzmO71adMSMDJuUBSWH6CfWiKhf79MazjhRIJB6JGOPiScTFmzBq2LD1/eOfLIQVmXqsGqnF0YsLFj7MyI/PJmASqtJWSYQkTmVVMGTVr1/7KQgVlaXwAdFQOUQwHzJCDIbdw3zZFP8+qBLkzNNP1yXn40J4cHn/OslcQCS5kcL3TwZ5iXOASk8IcrjF0cIj7/+/UXREKHppJSMwx/zafiSB5BWWGhRSNuWAm2/Jdl1vb37LiKWbbXhNWk/5DJrnD5lrGJWtR7sh7fPKORXojaputakhOAMlLq9lCqt5nZjkR59Q+zU+oLPD7elbbjbfXz6UOAxt24jTHQ/bUV075EWz1p8/Sc5ocdV4Xf6GbogQ63bDPu3+F7dWRcbNIaUaDsDCoOV5HmclfmoD0ovyDNtuXTWIeZGNPHuJXFi+zSTOFciNBsPQ8UvO2/ybw/UQ97QT78wt08+ZFGhzlOddQD45liBZmbDIT7CJIBiU/zdNXx81Qeiu+LnFrpynseFf9gYPhxid5ivW8he3L0X6enxLNZ9pMXyqUcrNZj4nhtA4OHcxG+0btQXHI6Y=
 notifications:
   slack:
-    secure: Gh641zg9Ch+sFZCWwxdi6ZPQk1csUGcwenfL9cgs3op+BfQOJbBgw3LWGqYVBBgTowO8ibg/q/kapzg9lGjLxQOVNPQZci7dFB5WHmdVwUoSoLxQCZcCa0IQkk0XfI7UYKBnuoqpBsEe6eXKyvdFEUrx51Z4XwFtjLpINYZ4DY2NmsA9QihFJBSqhB4si7l0yON2Q8JR4Dc6PXCLn+LrzNliHCgzWveF/FtRQocT4uj3e3frySdOHmb6fV2yGb8Z/jR01s/97cyX6Y37BWyGrZFTfyDb+V5lcAzJdgkYhLaeLo8coKwZwgWOu6Eo6EeQ4/Y/XKr9BjdKmyWY0Z2gc4FPWrHvfrGdUsSfr2ECdApMsNcNPeTtvAc2xe8wDVbASLdrg5pcZCba5PZBgZ4KvQ7Rg7olo9dbHRbUddy0VFM1Td9heBKXV9gL1bkv1eLMa400uGKoA6A7lim8AkjEBTiLQ3pZOalZGDUop5iDD8pmnwZ9rd51LI03hSIrC75j1ePlqxwQ6z6R2xjwCHznNveiI/CQGtLr4vMuexGG//afK8/WGlnVch+CpEkC/aEok/0L3ik3l6OgfXuHItgY3SrUny18uYNQK4NXPo+PT+m82qzSONpHxhdkYXsz8GP5/Rn5v2wUShLUKwU/EKi20fjcI1jO/JAW8gcJAwfBChA=
+    secure: gqDhk71YXBNCD0WTh+p0ugBJpF6RvCbKM5QBO4PHXwB6Q4e6midinB09iGz4aP27UwR0yF4tq8F2VAbW38xHoyoTaUh6Z+mQC+pE+zk8Nb+vnmgYAOovbRzhCanxPOWOK5koo3TdlbV2PgcE/YKFXLQ8Lx3b95wdYKi1LQZ+mjejXlkohYNj7bzVzagX0bNAAhObuQrfkCLwkZsfZcHnp0oTeLgxGhj0O81W1nO/NFAt+uT5BSMXMuXsA3GyXuZW3N7OW9Og0dhVUak7W2Q1OS5A/inQ38JfS+sPefVHEqVxFG/cVjf6cB9X2sKgMgTorlLA+GjbYArj23ykU1CdSTs6eYgwvfrLsEXj1OlFEuqTwo8LeaKdjefqW50Fe5yxyAABh3sUbTIRikwdhV14nAm1Me+SQM4BNsn3zJ/JeGsl8ky6ytWHC90C3kzd/UJpY5jwhlme82tvDMgYKRxIW/x9D7JqQ8wVKJxaARDFpAcS0hhIHLQj2F1wNQli82LqQ5/TbiICMbfrzLuX1T1jjlV8T3JhfFgn4c7/pxLaPLLnGTXW1d+fisMebft3npqOR2foXxkhNN7q5IuV1I1iZuFQ0AnY6nT4DigWHGaFuJP90ZeZPN5isE4UYm1tJdFJ5GNbSfKbrv58f01p8RIeABgxm7MlaXkbqulVkQuwE+k=
     on_success: change
     template:
-      - "@oncall"
-      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
+        - "@oncall"
+        - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
   email:
     recipients:
-      - dexteam-external@squareup.com
+      - devs-apex-alerts+travis@squareup.com
     on_success: change
