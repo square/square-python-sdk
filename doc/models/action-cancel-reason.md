@@ -1,8 +1,8 @@
-## Terminal Checkout Cancel Reason
+## Action Cancel Reason
 
 ### Enumeration
 
-`TerminalCheckoutCancelReason`
+`ActionCancelReason`
 
 ### Fields
 

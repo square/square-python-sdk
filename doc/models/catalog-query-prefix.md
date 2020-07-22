@@ -1,5 +1,7 @@
 ## Catalog Query Prefix
 
+The query filter to return the search result whose named attribute values are prefixed by the specified attribute value.
+
 ### Structure
 
 `CatalogQueryPrefix`

@@ -57,6 +57,9 @@ Square API.
 | `CUSTOMER_NOT_FOUND` | 400 Bad Request - the provided customer id can't be found in the merchant's customers list. |
 | `ONE_INSTRUMENT_EXPECTED` | 400 Bad Request - a general error occurred. |
 | `NO_FIELDS_SET` | 400 Bad Request - a general error occurred. |
+| `TOO_MANY_MAP_ENTRIES` | 400 Bad Request - too many entries in the map field. |
+| `MAP_KEY_LENGTH_TOO_SHORT` | 400 Bad Request - the length of one of the provided keys in the map is too short. |
+| `MAP_KEY_LENGTH_TOO_LONG` | 400 Bad Request - the length of one of the provided keys in the map is too long. |
 | `CARD_EXPIRED` | The card issuer declined the request because the card is expired. |
 | `INVALID_EXPIRATION` | The expiration date for the payment card is invalid. For example,<br>it indicates a date in the past. |
 | `INVALID_EXPIRATION_YEAR` | The expiration year for the payment card is invalid. For example,<br>it indicates a year in the past or contains invalid characters. |

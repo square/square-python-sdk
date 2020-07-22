@@ -1,6 +1,6 @@
 ## Catalog V1 Id
 
-An Items Connect V1 object ID along with its associated location ID.
+A Square API V1 identifier of an item, including the object ID and its associated location ID.
 
 ### Structure
 
@@ -10,7 +10,7 @@ An Items Connect V1 object ID along with its associated location ID.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalog_v1_id` | `string` | Optional | The ID for an object in Connect V1, if different from its Connect V2 ID. |
+| `catalog_v1_id` | `string` | Optional | The ID for an object used in the Square API V1, if the object ID differs from the Square API V2 object ID. |
 | `location_id` | `string` | Optional | The ID of the `Location` this Connect V1 ID is associated with. |
 
 ### Example (as JSON)

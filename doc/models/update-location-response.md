@@ -32,7 +32,7 @@ Response object returned by the [UpdateLocation](#endpoint-updatelocation) endpo
     ],
     "status": "ACTIVE",
     "created_at": "2019-07-19T17:58:25Z",
-    "merchant_id": "Q3X50GJ7A21EW",
+    "merchant_id": "MERCHANT_ID",
     "country": "US",
     "language_code": "en-US",
     "currency": "USD",

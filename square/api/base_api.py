@@ -19,10 +19,11 @@ class BaseApi(object):
 
     """
 
-    global_headers = {
-        'user-agent': 'Square-Python-SDK/6.0.0.20200625',
-        'Square-Version': '2020-06-25'
-    }
+    def global_headers(self):
+        return {
+            'user-agent': 'Square-Python-SDK/6.1.0.20200722',
+            'Square-Version': self.config.square_version
+        }
 
     def __init__(self, config, call_back=None):
         self._config = config
@@ -64,7 +65,7 @@ class BaseApi(object):
             self.http_call_back.on_before_request(request)
 
         # Add global headers to request
-        request.headers = APIHelper.merge_dicts(self.global_headers, request.headers)
+        request.headers = APIHelper.merge_dicts(self.global_headers(), request.headers)
         if self.config.additional_headers is not None:
             request.headers.update(self.config.additional_headers)
 

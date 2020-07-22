@@ -17,6 +17,7 @@ __all__ = [
     'disputes_api',
     'employees_api',
     'inventory_api',
+    'invoices_api',
     'labor_api',
     'locations_api',
     'reporting_api',

@@ -85,7 +85,10 @@ elif result.is_error():
 
 ## Retrieve Location
 
-Retrieves details of a location.
+Retrieves details of a location. You can specify "main" 
+as the location ID to retrieve details of the 
+main location. For more information, 
+see [Locations API Overview](https://developer.squareup.com/docs/docs/locations-api).
 
 ```python
 def retrieve_location(self,
@@ -96,7 +99,7 @@ def retrieve_location(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to retrieve. |
+| `location_id` | `string` | Template, Required | The ID of the location to retrieve. If you specify the string "main",<br>then the endpoint returns the main location. |
 
 ### Response Type
 

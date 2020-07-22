@@ -1,7 +1,6 @@
 ## Source Application
 
-Provides information about the application used to generate an inventory
-change.
+Provides information about the application used to generate a change.
 
 ### Structure
 

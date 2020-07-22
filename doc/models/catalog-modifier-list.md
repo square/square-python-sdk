@@ -1,12 +1,10 @@
 ## Catalog Modifier List
 
-A modifier list in the Catalog object model. A `CatalogModifierList`
-contains `CatalogModifier` objects that can be applied to a `CatalogItem` at
-the time of sale.
+A list of modifiers applicable to items at the time of sale.
 
-For example, a modifier list "Condiments" that would apply to a "Hot Dog"
-`CatalogItem` might contain `CatalogModifier`s "Ketchup", "Mustard", and "Relish".
-The `selection_type` field specifies whether or not multiple selections from
+For example, a "Condiments" modifier list applicable to a "Hot Dog" item
+may contain "Ketchup", "Mustard", and "Relish" modifiers.
+Use the `selection_type` field to specify whether or not multiple selections from
 the modifier list are allowed.
 
 ### Structure
@@ -17,8 +15,8 @@ the modifier list are allowed.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Optional | A searchable name for the `CatalogModifierList`. This field has max length of 255 Unicode code points. |
-| `ordinal` | `int` | Optional | Determines where this `CatalogModifierList` appears in a list of `CatalogModifierList` values. |
+| `name` | `string` | Optional | The name for the `CatalogModifierList` instance. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points. |
+| `ordinal` | `int` | Optional | Determines where this modifier list appears in a list of `CatalogModifierList` values. |
 | `selection_type` | [`str (Catalog Modifier List Selection Type)`](/doc/models/catalog-modifier-list-selection-type.md) | Optional | Indicates whether a CatalogModifierList supports multiple selections. |
 | `modifiers` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The options included in the `CatalogModifierList`.<br>You must include at least one `CatalogModifier`.<br>Each CatalogObject must have type `MODIFIER` and contain<br>`CatalogModifier` data. |
 

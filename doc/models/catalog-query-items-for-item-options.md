@@ -1,5 +1,7 @@
 ## Catalog Query Items for Item Options
 
+The query filter to return the items containing the specified item option IDs.
+
 ### Structure
 
 `CatalogQueryItemsForItemOptions`

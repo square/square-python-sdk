@@ -1,7 +1,6 @@
 ## Catalog Item Modifier List Info
 
-Controls the properties of a `CatalogModifierList` as it applies to
-this `CatalogItem`.
+Options to control the properties of a `CatalogModifierList` applied to a `CatalogItem` instance.
 
 ### Structure
 

@@ -111,10 +111,16 @@ class LocationsApi(BaseApi):
                           location_id):
         """Does a GET request to /v2/locations/{location_id}.
 
-        Retrieves details of a location.
+        Retrieves details of a location. You can specify "main" 
+        as the location ID to retrieve details of the 
+        main location. For more information, 
+        see [Locations API
+        Overview](https://developer.squareup.com/docs/docs/locations-api).
 
         Args:
-            location_id (string): The ID of the location to retrieve.
+            location_id (string): The ID of the location to retrieve. If you
+                specify the string "main", then the endpoint returns the main
+                location.
 
         Returns:
             RetrieveLocationResponse: Response from the API. Success

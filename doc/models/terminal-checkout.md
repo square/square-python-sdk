@@ -15,7 +15,7 @@
 | `device_options` | [`Device Checkout Options`](/doc/models/device-checkout-options.md) |  | - |
 | `deadline_duration` | `string` | Optional | The duration as an RFC 3339 duration, after which the checkout will be automatically canceled.<br>TerminalCheckouts that are PENDING will be automatically CANCELED and have a cancellation reason<br>of “TIMED\_OUT”.<br><br>Default: 5 minutes from creation<br><br>Maximum: 5 minutes |
 | `status` | `string` | Optional | The status of the `TerminalCheckout`.<br>Options: PENDING, IN\_PROGRESS, CANCELED, COMPLETED |
-| `cancel_reason` | [`str (Terminal Checkout Cancel Reason)`](/doc/models/terminal-checkout-cancel-reason.md) | Optional | - |
+| `cancel_reason` | [`str (Action Cancel Reason)`](/doc/models/action-cancel-reason.md) | Optional | - |
 | `payment_ids` | `List of string` | Optional | A list of payments created by this `TerminalCheckout`. |
 | `created_at` | `string` | Optional | The time when the `TerminalCheckout` was created as an RFC 3339 timestamp. |
 | `updated_at` | `string` | Optional | The time when the `TerminalCheckout` was last updated as an RFC 3339 timestamp. |

@@ -11,7 +11,7 @@ A named selection for this `SELECTION`-type custom attribute definition.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `uid` | `string` | Optional | Unique ID set by Square. |
-| `name` | `string` |  | Selection name, unique within `allowed_selections`.<br>Required. Min length of 1, max length of 255. |
+| `name` | `string` |  | Selection name, unique within `allowed_selections`. |
 
 ### Example (as JSON)
 

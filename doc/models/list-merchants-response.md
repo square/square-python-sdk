@@ -25,7 +25,8 @@ The response object returned by the [ListMerchant](#endpoint-listmerchant) endpo
       "country": "US",
       "language_code": "en-US",
       "currency": "USD",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "main_location_id": "9A65CGC72ZQG1"
     }
   ]
 }

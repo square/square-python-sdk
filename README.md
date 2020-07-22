@@ -44,6 +44,9 @@ python setup.py install --user
 ### Orders
 * [Orders]
 
+### Invoices
+* [Invoices]
+
 ### Items
 * [Catalog]
 * [Inventory]
@@ -362,6 +365,7 @@ You can also use the Square API to create applications or services that work wit
 [Locations]: https://github.com/square/square-python-sdk/blob/master/doc/locations.md
 [Merchants]: https://github.com/square/square-python-sdk/blob/master/doc/merchants.md
 [Orders]: https://github.com/square/square-python-sdk/blob/master/doc/orders.md
+[Invoices]: https://github.com/square/square-python-sdk/blob/master/doc/invoices.md
 [Apple Pay]: https://github.com/square/square-python-sdk/blob/master/doc/apple-pay.md
 [Refunds]: https://github.com/square/square-python-sdk/blob/master/doc/refunds.md
 [Reporting]: https://github.com/square/square-python-sdk/blob/master/doc/reporting.md

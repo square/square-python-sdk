@@ -29,6 +29,10 @@ class Configuration(object):
         return self._environment
 
     @property
+    def square_version(self):
+        return self._square_version
+
+    @property
     def access_token(self):
         return self._access_token
 
@@ -37,8 +41,8 @@ class Configuration(object):
         return deepcopy(self._additional_headers)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', access_token='TODO: Replace',
-                 additional_headers={}):
+                 environment='production', square_version='2020-07-22',
+                 access_token='TODO: Replace', additional_headers={}):
         # The value to use for connection timeout
         self._timeout = timeout
 
@@ -53,6 +57,9 @@ class Configuration(object):
         # Current API environment
         self._environment = environment
 
+        # Square Connect API versions
+        self._square_version = square_version
+
         # OAuth 2.0 Access Token
         self._access_token = access_token
 
@@ -63,17 +70,21 @@ class Configuration(object):
         self._http_client = self.create_http_client()
 
     def clone_with(self, timeout=None, max_retries=None, backoff_factor=None,
-                   environment=None, access_token=None, additional_headers=None):
+                   environment=None, square_version=None, access_token=None,
+                   additional_headers=None):
         timeout = timeout or self.timeout
         max_retries = max_retries or self.max_retries
         backoff_factor = backoff_factor or self.backoff_factor
         environment = environment or self.environment
+        square_version = square_version or self.square_version
         access_token = access_token or self.access_token
         additional_headers = additional_headers or self.additional_headers
 
         return Configuration(timeout=timeout, max_retries=max_retries,
                              backoff_factor=backoff_factor,
-                             environment=environment, access_token=access_token,
+                             environment=environment,
+                             square_version=square_version,
+                             access_token=access_token,
                              additional_headers=additional_headers)
 
     def create_http_client(self):

@@ -372,8 +372,8 @@ class InventoryApi(BaseApi):
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for the original query.  See the
-                [Pagination](https://developer.squareup.com/docs/docs/working-w
-                ith-apis/pagination) guide for more information.
+                [Pagination](https://developer.squareup.com/docs/working-with-a
+                pis/pagination) guide for more information.
 
         Returns:
             RetrieveInventoryChangesResponse: Response from the API. Success

@@ -1,6 +1,6 @@
 ## Catalog Tax
 
-A tax in the Catalog object model.
+A tax applicable to an item.
 
 ### Structure
 
@@ -10,7 +10,7 @@ A tax in the Catalog object model.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Optional | The tax's name. Searchable. This field has max length of 255 Unicode code points. |
+| `name` | `string` | Optional | The tax's name. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points. |
 | `calculation_phase` | [`str (Tax Calculation Phase)`](/doc/models/tax-calculation-phase.md) | Optional | When to calculate the taxes due on a cart. |
 | `inclusion_type` | [`str (Tax Inclusion Type)`](/doc/models/tax-inclusion-type.md) | Optional | Whether to the tax amount should be additional to or included in the CatalogItem price. |
 | `percentage` | `string` | Optional | The percentage of the tax in decimal form, using a `'.'` as the decimal separator and without a `'%'` sign.<br>A value of `7.5` corresponds to 7.5%. |
