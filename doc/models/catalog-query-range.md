@@ -1,5 +1,7 @@
 ## Catalog Query Range
 
+The query filter to return the search result whose named attribute values fall between the specified range.
+
 ### Structure
 
 `CatalogQueryRange`

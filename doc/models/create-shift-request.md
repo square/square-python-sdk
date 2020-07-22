@@ -11,7 +11,7 @@ Represents a request to create a `Shift`
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `idempotency_key` | `string` | Optional | Unique string value to insure the idempotency of the operation. |
-| `shift` | [`Shift`](/doc/models/shift.md) |  | A record of the hourly rate, start, and end times for a single work shift <br>for an employee. May include a record of the start and end times for breaks <br>taken during the shift. |
+| `shift` | [`Shift`](/doc/models/shift.md) |  | A record of the hourly rate, start, and end times for a single work shift<br>for an employee. May include a record of the start and end times for breaks<br>taken during the shift. |
 
 ### Example (as JSON)
 

@@ -27,7 +27,6 @@
       "note": "A brief note",
       "device_options": {
         "device_id": "dbb5d83a-7838-11ea-bc55-0242ac130003",
-        "print_receipt": false,
         "tip_settings": {
           "allow_tipping": false
         },
@@ -52,7 +51,6 @@
       "note": "A brief note",
       "device_options": {
         "device_id": "dbb5d83a-7838-11ea-bc55-0242ac130003",
-        "print_receipt": false,
         "tip_settings": {
           "allow_tipping": false
         },

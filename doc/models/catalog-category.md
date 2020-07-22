@@ -1,6 +1,6 @@
 ## Catalog Category
 
-A category to which a `CatalogItem` belongs in the `Catalog` object model.
+A category to which a `CatalogItem` instance belongs.
 
 ### Structure
 
@@ -10,7 +10,7 @@ A category to which a `CatalogItem` belongs in the `Catalog` object model.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Optional | The category name. Searchable. This field has max length of 255 Unicode code points. |
+| `name` | `string` | Optional | The category name. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points. |
 
 ### Example (as JSON)
 

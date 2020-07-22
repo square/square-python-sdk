@@ -12,7 +12,7 @@ the request resulted in errors.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `break_type` | [`Break Type`](/doc/models/break-type.md) | Optional | A defined break template that sets an expectation for possible `Break` <br>instances on a `Shift`. |
+| `break_type` | [`Break Type`](/doc/models/break-type.md) | Optional | A defined break template that sets an expectation for possible `Break`<br>instances on a `Shift`. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
 ### Example (as JSON)

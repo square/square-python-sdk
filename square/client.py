@@ -19,6 +19,7 @@ from square.api.devices_api import DevicesApi
 from square.api.disputes_api import DisputesApi
 from square.api.employees_api import EmployeesApi
 from square.api.inventory_api import InventoryApi
+from square.api.invoices_api import InvoicesApi
 from square.api.labor_api import LaborApi
 from square.api.locations_api import LocationsApi
 from square.api.reporting_api import ReportingApi
@@ -37,11 +38,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '6.0.0.20200625'
+        return '6.1.0.20200722'
 
     @staticmethod
     def square_version():
-        return '2020-06-25'
+        return '2020-07-22'
 
     @lazy_property
     def mobile_authorization(self):
@@ -112,6 +113,10 @@ class Client(object):
         return InventoryApi(self.config)
 
     @lazy_property
+    def invoices(self):
+        return InvoicesApi(self.config)
+
+    @lazy_property
     def labor(self):
         return LaborApi(self.config)
 
@@ -160,13 +165,15 @@ class Client(object):
         return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', access_token='TODO: Replace',
-                 additional_headers={}, config=None):
+                 environment='production', square_version='2020-07-22',
+                 access_token='TODO: Replace', additional_headers={},
+                 config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,
                                         max_retries=max_retries,
                                         backoff_factor=backoff_factor,
                                         environment=environment,
+                                        square_version=square_version,
                                         access_token=access_token,
                                         additional_headers=additional_headers)
         else:

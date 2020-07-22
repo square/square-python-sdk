@@ -63,7 +63,7 @@ def retrieve_merchant(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `merchant_id` | `string` | Template, Required | The ID of the merchant to retrieve. |
+| `merchant_id` | `string` | Template, Required | The ID of the merchant to retrieve. If the string "me" is supplied as the ID,<br>then retrieve the merchant that is currently accessible to this call. |
 
 ### Response Type
 

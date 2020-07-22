@@ -1,6 +1,6 @@
 ## Catalog Item Option for Item
 
-A list of item option values that can be assigned to item variations.
+An option that can be assigned to an item.
 For example, a t-shirt item may offer a color option or a size option.
 
 ### Structure

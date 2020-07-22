@@ -1,5 +1,7 @@
 ## Catalog Query Items for Modifier List
 
+The query filter to return the items containing the specified modifier list IDs.
+
 ### Structure
 
 `CatalogQueryItemsForModifierList`

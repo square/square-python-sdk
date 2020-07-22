@@ -22,7 +22,7 @@ See [Handling errors](#handlingerrors) for more information.
 ```json
 {
   "category": "INVALID_REQUEST_ERROR",
-  "code": "GATEWAY_TIMEOUT",
+  "code": "REFUND_ALREADY_PENDING",
   "detail": null,
   "field": null
 }

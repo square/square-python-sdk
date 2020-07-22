@@ -1,6 +1,6 @@
 ## Workweek Config
 
-Sets the Day of the week and hour of the day that a business starts a 
+Sets the Day of the week and hour of the day that a business starts a
 work week. Used for the calculation of overtime pay.
 
 ### Structure

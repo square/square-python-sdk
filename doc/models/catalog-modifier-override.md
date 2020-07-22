@@ -1,5 +1,7 @@
 ## Catalog Modifier Override
 
+Options to control how to override the default behavior of the specified modifier.
+
 ### Structure
 
 `CatalogModifierOverride`
