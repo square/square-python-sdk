@@ -213,7 +213,8 @@ class CatalogApi(BaseApi):
         Args:
             request (CreateCatalogImageRequest, optional): TODO: type
                 description here.
-            image_file (string, optional): TODO: type description here.
+            image_file (typing.BinaryIO, optional): TODO: type description
+                here.
 
         Returns:
             CreateCatalogImageResponse: Response from the API. Success

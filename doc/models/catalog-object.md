@@ -18,6 +18,8 @@ their corresponding data atrribute that can be set:
 - For a `CatalogObject` of the `PRICING_RULE` type, set the `pricing_rule_data` attribute to yield the `CatalogPricingRule` object.
 - For a `CatalogObject` of the `TIME_PERIOD` type, set the `time_period_data` attribute to yield the `CatalogTimePeriod` object.
 - For a `CatalogObject` of the `PRODUCT_SET` type, set the `product_set_data` attribute to yield the `CatalogProductSet`  object.
+- For a `CatalogObject` of the `SUBSCRIPTION_PLAN` type, set the `subscription_plan_data` attribute to yield the `CatalogSubscriptionPlan` object.
+
 
 For a more detailed discussion of the Catalog data model, please see the
 [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
@@ -53,6 +55,7 @@ For a more detailed discussion of the Catalog data model, please see the
 | `pricing_rule_data` | [`Catalog Pricing Rule`](/doc/models/catalog-pricing-rule.md) | Optional | Defines how discounts are automatically applied to a set of items that match the pricing rule <br>during the active time period. |
 | `image_data` | [`Catalog Image`](/doc/models/catalog-image.md) | Optional | An image file to use in Square catalogs. It can be associated with catalog<br>items, item variations, and categories. |
 | `measurement_unit_data` | [`Catalog Measurement Unit`](/doc/models/catalog-measurement-unit.md) | Optional | Represents the unit used to measure a `CatalogItemVariation` and<br>specifies the precision for decimal quantities. |
+| `subscription_plan_data` | [`Catalog Subscription Plan`](/doc/models/catalog-subscription-plan.md) | Optional | Describes a subscription plan. For more information, see<br>[Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/docs/subscriptions-api/setup-plan). |
 | `item_option_data` | [`Catalog Item Option`](/doc/models/catalog-item-option.md) | Optional | A group of variations for a `CatalogItem`. |
 | `item_option_value_data` | [`Catalog Item Option Value`](/doc/models/catalog-item-option-value.md) | Optional | An enumerated value that can link a<br>`CatalogItemVariation` to an item option as one of<br>its item option values. |
 | `custom_attribute_definition_data` | [`Catalog Custom Attribute Definition`](/doc/models/catalog-custom-attribute-definition.md) | Optional | Contains information defining a custom attribute. Custom attributes are<br>intended to store additional information about a catalog object or to associate a<br>catalog object with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.).<br>[Read more about custom attributes](https://developer.squareup.com/docs/catalog-api/add-custom-attributes) |
@@ -62,7 +65,7 @@ For a more detailed discussion of the Catalog data model, please see the
 
 ```json
 {
-  "type": "CUSTOM_ATTRIBUTE_DEFINITION",
+  "type": "ITEM_VARIATION",
   "id": "id0",
   "updated_at": null,
   "version": null,
@@ -85,6 +88,7 @@ For a more detailed discussion of the Catalog data model, please see the
   "pricing_rule_data": null,
   "image_data": null,
   "measurement_unit_data": null,
+  "subscription_plan_data": null,
   "item_option_data": null,
   "item_option_value_data": null,
   "custom_attribute_definition_data": null,

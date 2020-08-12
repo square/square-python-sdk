@@ -244,7 +244,7 @@ def create_catalog_image(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `request` | [`Create Catalog Image Request`](/doc/models/create-catalog-image-request.md) | Form, Optional | - |
-| `image_file` | `string` | Form, Optional | - |
+| `image_file` | `typing.BinaryIO` | Form, Optional | - |
 
 ### Response Type
 

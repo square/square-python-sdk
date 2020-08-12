@@ -364,7 +364,8 @@ class DisputesApi(BaseApi):
                 for.
             request (CreateDisputeEvidenceFileRequest, optional): Defines
                 parameters for a CreateDisputeEvidenceFile request.
-            image_file (string, optional): TODO: type description here.
+            image_file (typing.BinaryIO, optional): TODO: type description
+                here.
 
         Returns:
             CreateDisputeEvidenceFileResponse: Response from the API. Success
