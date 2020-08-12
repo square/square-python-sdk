@@ -44,6 +44,9 @@ python setup.py install --user
 ### Orders
 * [Orders]
 
+### Subscriptions
+* [Subscriptions]
+
 ### Invoices
 * [Invoices]
 
@@ -380,3 +383,4 @@ You can also use the Square API to create applications or services that work wit
 [Python SDK]: https://github.com/square/square-python-sdk
 [Locations overview]: https://developer.squareup.com/docs/locations-api/what-it-does
 [OAuth overview]: https://developer.squareup.com/docs/oauth-api/what-it-does
+[Subscriptions]: doc/subscriptions.md

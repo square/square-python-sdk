@@ -30,6 +30,7 @@ from square.api.loyalty_api import LoyaltyApi
 from square.api.merchants_api import MerchantsApi
 from square.api.payments_api import PaymentsApi
 from square.api.refunds_api import RefundsApi
+from square.api.subscriptions_api import SubscriptionsApi
 from square.api.team_api import TeamApi
 from square.api.terminal_api import TerminalApi
 
@@ -38,11 +39,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '6.1.0.20200722'
+        return '6.2.0.20200812'
 
     @staticmethod
     def square_version():
-        return '2020-07-22'
+        return '2020-08-12'
 
     @lazy_property
     def mobile_authorization(self):
@@ -157,6 +158,10 @@ class Client(object):
         return RefundsApi(self.config)
 
     @lazy_property
+    def subscriptions(self):
+        return SubscriptionsApi(self.config)
+
+    @lazy_property
     def team(self):
         return TeamApi(self.config)
 
@@ -165,7 +170,7 @@ class Client(object):
         return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2020-07-22',
+                 environment='production', square_version='2020-08-12',
                  access_token='TODO: Replace', additional_headers={},
                  config=None):
         if config is None:
