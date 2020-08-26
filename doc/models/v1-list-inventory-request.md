@@ -15,8 +15,8 @@
 
 ```json
 {
-  "limit": null,
-  "batch_token": null
+  "limit": 172,
+  "batch_token": "batch_token2"
 }
 ```
 

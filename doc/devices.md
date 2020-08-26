@@ -40,7 +40,11 @@ def list_device_codes(self,
 ### Example Usage
 
 ```python
-result = devices_api.list_device_codes()
+cursor = 'cursor6'
+location_id = 'location_id4'
+product_type = 'TERMINAL_API'
+
+result = devices_api.list_device_codes(cursor, location_id, product_type)
 
 if result.is_success():
     print(result.body)
@@ -74,7 +78,10 @@ def create_device_code(self,
 body = {}
 body['idempotency_key'] = '01bb00a6-0c86-4770-94ed-f5fca973cd56'
 body['device_code'] = {}
+body['device_code']['id'] = 'id0'
 body['device_code']['name'] = 'Counter 1'
+body['device_code']['code'] = 'code8'
+body['device_code']['device_id'] = 'device_id6'
 body['device_code']['product_type'] = 'TERMINAL_API'
 body['device_code']['location_id'] = 'B5E4484SHHNYH'
 

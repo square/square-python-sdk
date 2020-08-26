@@ -14,7 +14,7 @@
 
 ```json
 {
-  "batch_token": null
+  "batch_token": "batch_token2"
 }
 ```
 

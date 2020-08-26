@@ -15,18 +15,12 @@
 ```json
 {
   "body": {
-    "id": null,
+    "id": "id6",
     "employee_id": "employee_id4",
-    "deleted": null,
-    "clockin_time": null,
-    "clockout_time": null,
-    "clockin_location_id": null,
-    "clockout_location_id": null,
-    "created_at": null,
-    "updated_at": null,
-    "regular_seconds_worked": null,
-    "overtime_seconds_worked": null,
-    "doubletime_seconds_worked": null
+    "deleted": false,
+    "clockin_time": "clockin_time2",
+    "clockout_time": "clockout_time2",
+    "clockin_location_id": "clockin_location_id4"
   }
 }
 ```

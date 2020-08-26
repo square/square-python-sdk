@@ -14,7 +14,22 @@
 
 ```json
 {
-  "items": null
+  "items": [
+    {
+      "id": "id7",
+      "event_type": "DASHBOARD_SUPERVISOR_CLOSE",
+      "clockin_time": "clockin_time3",
+      "clockout_time": "clockout_time3",
+      "created_at": "created_at5"
+    },
+    {
+      "id": "id8",
+      "event_type": "REGISTER_CLOCKOUT",
+      "clockin_time": "clockin_time4",
+      "clockout_time": "clockout_time4",
+      "created_at": "created_at6"
+    }
+  ]
 }
 ```
 

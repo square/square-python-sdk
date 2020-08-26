@@ -58,8 +58,12 @@ def list_refunds(self,
 
 ```python
 location_id = 'location_id4'
+begin_time = 'begin_time2'
+end_time = 'end_time2'
+sort_order = 'DESC'
+cursor = 'cursor6'
 
-result = transactions_api.list_refunds(location_id)
+result = transactions_api.list_refunds(location_id, begin_time, end_time, sort_order, cursor)
 
 if result.is_success():
     print(result.body)
@@ -103,8 +107,12 @@ def list_transactions(self,
 
 ```python
 location_id = 'location_id4'
+begin_time = 'begin_time2'
+end_time = 'end_time2'
+sort_order = 'DESC'
+cursor = 'cursor6'
 
-result = transactions_api.list_transactions(location_id)
+result = transactions_api.list_transactions(location_id, begin_time, end_time, sort_order, cursor)
 
 if result.is_success():
     print(result.body)
@@ -162,19 +170,25 @@ body['amount_money'] = {}
 body['amount_money']['amount'] = 200
 body['amount_money']['currency'] = 'USD'
 body['card_nonce'] = 'card_nonce_from_square_123'
+body['customer_card_id'] = 'customer_card_id6'
 body['delay_capture'] = False
 body['reference_id'] = 'some optional reference id'
 body['note'] = 'some optional note'
 body['billing_address'] = {}
 body['billing_address']['address_line_1'] = '500 Electric Ave'
 body['billing_address']['address_line_2'] = 'Suite 600'
+body['billing_address']['address_line_3'] = 'address_line_38'
 body['billing_address']['locality'] = 'New York'
+body['billing_address']['sublocality'] = 'sublocality2'
 body['billing_address']['administrative_district_level_1'] = 'NY'
 body['billing_address']['postal_code'] = '10003'
 body['billing_address']['country'] = 'US'
 body['shipping_address'] = {}
 body['shipping_address']['address_line_1'] = '123 Main St'
+body['shipping_address']['address_line_2'] = 'address_line_24'
+body['shipping_address']['address_line_3'] = 'address_line_30'
 body['shipping_address']['locality'] = 'San Francisco'
+body['shipping_address']['sublocality'] = 'sublocality4'
 body['shipping_address']['administrative_district_level_1'] = 'CA'
 body['shipping_address']['postal_code'] = '94114'
 body['shipping_address']['country'] = 'US'
@@ -186,6 +200,7 @@ body['additional_recipients'][0]['description'] = 'Application fees'
 body['additional_recipients'][0]['amount_money'] = {}
 body['additional_recipients'][0]['amount_money']['amount'] = 20
 body['additional_recipients'][0]['amount_money']['currency'] = 'USD'
+body['additional_recipients'][0]['receivable_id'] = 'receivable_id5'
 
 
 result = transactions_api.charge(location_id, body)

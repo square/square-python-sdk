@@ -18,8 +18,29 @@ Describes a subscription plan. For more information, see
 
 ```json
 {
-  "name": null,
-  "phases": null
+  "name": "name0",
+  "phases": [
+    {
+      "uid": "uid5",
+      "cadence": "EVERY_FOUR_MONTHS",
+      "periods": 241,
+      "recurring_price_money": {
+        "amount": 193,
+        "currency": "MOP"
+      },
+      "ordinal": 207
+    },
+    {
+      "uid": "uid6",
+      "cadence": "QUARTERLY",
+      "periods": 242,
+      "recurring_price_money": {
+        "amount": 194,
+        "currency": "MRO"
+      },
+      "ordinal": 208
+    }
+  ]
 }
 ```
 

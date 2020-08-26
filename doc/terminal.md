@@ -40,6 +40,7 @@ def create_terminal_checkout(self,
 body = {}
 body['idempotency_key'] = '28a0c3bc-7839-11ea-bc55-0242ac130003'
 body['checkout'] = {}
+body['checkout']['id'] = 'id8'
 body['checkout']['amount_money'] = {}
 body['checkout']['amount_money']['amount'] = 2610
 body['checkout']['amount_money']['currency'] = 'USD'
@@ -47,6 +48,13 @@ body['checkout']['reference_id'] = 'id11572'
 body['checkout']['note'] = 'A brief note'
 body['checkout']['device_options'] = {}
 body['checkout']['device_options']['device_id'] = 'dbb5d83a-7838-11ea-bc55-0242ac130003'
+body['checkout']['device_options']['skip_receipt_screen'] = False
+body['checkout']['device_options']['tip_settings'] = {}
+body['checkout']['device_options']['tip_settings']['allow_tipping'] = False
+body['checkout']['device_options']['tip_settings']['separate_tip_screen'] = False
+body['checkout']['device_options']['tip_settings']['custom_tip_field'] = False
+body['checkout']['deadline_duration'] = 'deadline_duration0'
+body['checkout']['status'] = 'status0'
 
 result = terminal_api.create_terminal_checkout(body)
 
@@ -81,7 +89,14 @@ def search_terminal_checkouts(self,
 body = {}
 body['query'] = {}
 body['query']['filter'] = {}
+body['query']['filter']['device_id'] = 'device_id8'
+body['query']['filter']['created_at'] = {}
+body['query']['filter']['created_at']['start_at'] = 'start_at2'
+body['query']['filter']['created_at']['end_at'] = 'end_at0'
 body['query']['filter']['status'] = 'COMPLETED'
+body['query']['sort'] = {}
+body['query']['sort']['sort_order'] = 'sort_order8'
+body['cursor'] = 'cursor0'
 body['limit'] = 2
 
 result = terminal_api.search_terminal_checkouts(body)

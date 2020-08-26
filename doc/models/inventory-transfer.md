@@ -28,18 +28,11 @@ particular time from one location to another.
 
 ```json
 {
-  "id": null,
-  "reference_id": null,
-  "state": null,
-  "from_location_id": null,
-  "to_location_id": null,
-  "catalog_object_id": null,
-  "catalog_object_type": null,
-  "quantity": null,
-  "occurred_at": null,
-  "created_at": null,
-  "source": null,
-  "employee_id": null
+  "id": "id0",
+  "reference_id": "reference_id2",
+  "state": "IN_TRANSIT_TO",
+  "from_location_id": "from_location_id2",
+  "to_location_id": "to_location_id8"
 }
 ```
 

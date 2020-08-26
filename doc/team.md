@@ -48,7 +48,9 @@ def create_team_member(self,
 body = {}
 body['idempotency_key'] = 'idempotency-key-0'
 body['team_member'] = {}
+body['team_member']['id'] = 'id2'
 body['team_member']['reference_id'] = 'reference_id_1'
+body['team_member']['is_owner'] = False
 body['team_member']['status'] = 'ACTIVE'
 body['team_member']['given_name'] = 'Joe'
 body['team_member']['family_name'] = 'Doe'
@@ -172,6 +174,7 @@ body['query']['filter'] = {}
 body['query']['filter']['location_ids'] = ['0G5P3VGACMMQZ']
 body['query']['filter']['status'] = 'ACTIVE'
 body['limit'] = 10
+body['cursor'] = 'cursor0'
 
 result = team_api.search_team_members(body)
 
@@ -242,7 +245,9 @@ def update_team_member(self,
 team_member_id = 'team_member_id0'
 body = {}
 body['team_member'] = {}
+body['team_member']['id'] = 'id2'
 body['team_member']['reference_id'] = 'reference_id_1'
+body['team_member']['is_owner'] = False
 body['team_member']['status'] = 'ACTIVE'
 body['team_member']['given_name'] = 'Joe'
 body['team_member']['family_name'] = 'Doe'
@@ -325,11 +330,15 @@ def update_wage_setting(self,
 team_member_id = 'team_member_id0'
 body = {}
 body['wage_setting'] = {}
+body['wage_setting']['team_member_id'] = 'team_member_id2'
 body['wage_setting']['job_assignments'] = []
 
 body['wage_setting']['job_assignments'].append({})
 body['wage_setting']['job_assignments'][0]['job_title'] = 'Manager'
 body['wage_setting']['job_assignments'][0]['pay_type'] = 'SALARY'
+body['wage_setting']['job_assignments'][0]['hourly_rate'] = {}
+body['wage_setting']['job_assignments'][0]['hourly_rate']['amount'] = 117
+body['wage_setting']['job_assignments'][0]['hourly_rate']['currency'] = 'ERN'
 body['wage_setting']['job_assignments'][0]['annual_rate'] = {}
 body['wage_setting']['job_assignments'][0]['annual_rate']['amount'] = 3000000
 body['wage_setting']['job_assignments'][0]['annual_rate']['currency'] = 'USD'
@@ -341,8 +350,14 @@ body['wage_setting']['job_assignments'][1]['pay_type'] = 'HOURLY'
 body['wage_setting']['job_assignments'][1]['hourly_rate'] = {}
 body['wage_setting']['job_assignments'][1]['hourly_rate']['amount'] = 1200
 body['wage_setting']['job_assignments'][1]['hourly_rate']['currency'] = 'USD'
+body['wage_setting']['job_assignments'][1]['annual_rate'] = {}
+body['wage_setting']['job_assignments'][1]['annual_rate']['amount'] = 58
+body['wage_setting']['job_assignments'][1]['annual_rate']['currency'] = 'DZD'
+body['wage_setting']['job_assignments'][1]['weekly_hours'] = 226
 
 body['wage_setting']['is_overtime_exempt'] = True
+body['wage_setting']['version'] = 122
+body['wage_setting']['created_at'] = 'created_at0'
 
 result = team_api.update_wage_setting(team_member_id, body)
 

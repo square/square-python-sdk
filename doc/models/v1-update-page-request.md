@@ -15,10 +15,18 @@
 ```json
 {
   "body": {
-    "id": null,
-    "name": null,
-    "page_index": null,
-    "cells": null
+    "id": "id6",
+    "name": "name6",
+    "page_index": 224,
+    "cells": [
+      {
+        "page_id": "page_id8",
+        "row": 2,
+        "column": 80,
+        "object_type": "ITEM",
+        "object_id": "object_id6"
+      }
+    ]
   }
 }
 ```

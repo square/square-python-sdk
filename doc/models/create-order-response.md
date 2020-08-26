@@ -22,7 +22,7 @@ One of `errors` or `order` is present in a given response (never both).
 {
   "order": {
     "id": "CAISENgvlJ6jLWAzERDzjyHVybY",
-    "location_id": "LOCATION_ID",
+    "location_id": "057P5VYJ4A5X1",
     "line_items": [
       {
         "uid": "8uSwfzvUImn3IRrvciqlXC",

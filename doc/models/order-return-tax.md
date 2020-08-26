@@ -27,14 +27,11 @@ order subtotal.
 
 ```json
 {
-  "uid": null,
-  "source_tax_uid": null,
-  "catalog_object_id": null,
-  "name": null,
-  "type": null,
-  "percentage": null,
-  "applied_money": null,
-  "scope": null
+  "uid": "uid0",
+  "source_tax_uid": "source_tax_uid2",
+  "catalog_object_id": "catalog_object_id6",
+  "name": "name0",
+  "type": "INCLUSIVE"
 }
 ```
 

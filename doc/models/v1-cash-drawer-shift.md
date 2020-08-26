@@ -34,25 +34,11 @@ Contains details for a single cash drawer shift.
 
 ```json
 {
-  "id": null,
-  "event_type": null,
-  "opened_at": null,
-  "ended_at": null,
-  "closed_at": null,
-  "employee_ids": null,
-  "opening_employee_id": null,
-  "ending_employee_id": null,
-  "closing_employee_id": null,
-  "description": null,
-  "starting_cash_money": null,
-  "cash_payment_money": null,
-  "cash_refunds_money": null,
-  "cash_paid_in_money": null,
-  "cash_paid_out_money": null,
-  "expected_cash_money": null,
-  "closed_cash_money": null,
-  "device": null,
-  "events": null
+  "id": "id0",
+  "event_type": "ENDED",
+  "opened_at": "opened_at8",
+  "ended_at": "ended_at2",
+  "closed_at": "closed_at2"
 }
 ```
 

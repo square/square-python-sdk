@@ -23,14 +23,11 @@ V1BankAccount
 
 ```json
 {
-  "id": null,
-  "merchant_id": null,
-  "bank_name": null,
-  "name": null,
-  "routing_number": null,
-  "account_number_suffix": null,
-  "currency_code": null,
-  "type": null
+  "id": "id0",
+  "merchant_id": "merchant_id0",
+  "bank_name": "bank_name4",
+  "name": "name0",
+  "routing_number": "routing_number4"
 }
 ```
 

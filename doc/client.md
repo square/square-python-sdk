@@ -43,7 +43,6 @@ client = Client(
 | [Orders](orders.md) | ```orders_api = client.orders``` |
 | [Payments](payments.md) | ```payments_api = client.payments``` |
 | [Refunds](refunds.md) | ```refunds_api = client.refunds``` |
-| [Reporting](reporting.md) | ```reporting_api = client.reporting``` |
 | [Team](team.md) | ```team_api = client.team``` |
 | [Terminal](terminal.md) | ```terminal_api = client.terminal``` |
 | [Transactions](transactions.md) | ```transactions_api = client.transactions``` |

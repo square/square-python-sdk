@@ -17,8 +17,8 @@
 ```json
 {
   "location_id": "location_id4",
-  "limit": null,
-  "cursor": null
+  "limit": 172,
+  "cursor": "cursor6"
 }
 ```
 

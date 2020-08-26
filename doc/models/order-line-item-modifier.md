@@ -20,11 +20,17 @@ A [CatalogModifier](#type-catalogmodifier).
 
 ```json
 {
-  "uid": null,
-  "catalog_object_id": null,
-  "name": null,
-  "base_price_money": null,
-  "total_price_money": null
+  "uid": "uid0",
+  "catalog_object_id": "catalog_object_id6",
+  "name": "name0",
+  "base_price_money": {
+    "amount": 114,
+    "currency": "ALL"
+  },
+  "total_price_money": {
+    "amount": 52,
+    "currency": "MYR"
+  }
 }
 ```
 

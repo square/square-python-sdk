@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -13,6 +14,7 @@ class EmployeesApi(BaseApi):
     def __init__(self, config, call_back=None):
         super(EmployeesApi, self).__init__(config, call_back)
 
+    @deprecated()
     def list_employees(self,
                        location_id=None,
                        status=None,
@@ -23,8 +25,7 @@ class EmployeesApi(BaseApi):
         ListEmployees
 
         Args:
-            location_id (string, optional): Filter employees returned to only
-                those that are associated with the specified location.
+            location_id (string, optional): TODO: type description here.
             status (EmployeeStatus, optional): Specifies the EmployeeStatus to
                 filter the employee by.
             limit (int, optional): The number of employees to be returned on
@@ -77,6 +78,7 @@ class EmployeesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def retrieve_employee(self,
                           id):
         """Does a GET request to /v2/employees/{id}.

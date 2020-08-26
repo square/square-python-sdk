@@ -22,13 +22,14 @@ V1ModifierOption
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "price_money": null,
-  "on_by_default": null,
-  "ordinal": null,
-  "modifier_list_id": null,
-  "v2_id": null
+  "id": "id0",
+  "name": "name0",
+  "price_money": {
+    "amount": 202,
+    "currency_code": "XBB"
+  },
+  "on_by_default": false,
+  "ordinal": 80
 }
 ```
 

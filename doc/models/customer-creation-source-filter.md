@@ -21,8 +21,12 @@ criteria.
 
 ```json
 {
-  "values": null,
-  "rule": null
+  "values": [
+    "INSTANT_PROFILE",
+    "TERMINAL",
+    "THIRD_PARTY"
+  ],
+  "rule": "INCLUDE"
 }
 ```
 

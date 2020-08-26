@@ -24,17 +24,11 @@
 
 ```json
 {
-  "order": null,
-  "employee_id": null,
-  "begin_clockin_time": null,
-  "end_clockin_time": null,
-  "begin_clockout_time": null,
-  "end_clockout_time": null,
-  "begin_updated_at": null,
-  "end_updated_at": null,
-  "deleted": null,
-  "limit": null,
-  "batch_token": null
+  "order": "DESC",
+  "employee_id": "employee_id0",
+  "begin_clockin_time": "begin_clockin_time8",
+  "end_clockin_time": "end_clockin_time2",
+  "begin_clockout_time": "begin_clockout_time0"
 }
 ```
 

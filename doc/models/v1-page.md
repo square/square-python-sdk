@@ -19,10 +19,32 @@ V1Page
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "page_index": null,
-  "cells": null
+  "id": "id0",
+  "name": "name0",
+  "page_index": 216,
+  "cells": [
+    {
+      "page_id": "page_id2",
+      "row": 10,
+      "column": 72,
+      "object_type": "ITEM",
+      "object_id": "object_id0"
+    },
+    {
+      "page_id": "page_id3",
+      "row": 9,
+      "column": 73,
+      "object_type": "DISCOUNT",
+      "object_id": "object_id1"
+    },
+    {
+      "page_id": "page_id4",
+      "row": 8,
+      "column": 74,
+      "object_type": "CATEGORY",
+      "object_id": "object_id2"
+    }
+  ]
 }
 ```
 

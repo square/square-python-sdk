@@ -22,10 +22,10 @@ Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 
 ```json
 {
-  "begin_time": null,
-  "end_time": null,
-  "sort_order": null,
-  "cursor": null
+  "begin_time": "begin_time2",
+  "end_time": "end_time2",
+  "sort_order": "DESC",
+  "cursor": "cursor6"
 }
 ```
 

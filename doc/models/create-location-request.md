@@ -19,6 +19,7 @@ Request object for the [CreateLocation](#endpoint-createlocation) endpoint.
   "location": {
     "name": "New location name",
     "description": "My new location.",
+    "facebook_url": "null",
     "address": {
       "address_line_1": "1234 Peachtree St. NE",
       "administrative_district_level_1": "GA",

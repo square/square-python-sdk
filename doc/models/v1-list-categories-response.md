@@ -14,7 +14,18 @@
 
 ```json
 {
-  "items": null
+  "items": [
+    {
+      "id": "id7",
+      "name": "name7",
+      "v2_id": "v2_id5"
+    },
+    {
+      "id": "id8",
+      "name": "name8",
+      "v2_id": "v2_id4"
+    }
+  ]
 }
 ```
 

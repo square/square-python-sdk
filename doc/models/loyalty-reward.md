@@ -22,15 +22,13 @@
 
 ```json
 {
-  "id": null,
-  "status": null,
+  "id": "id0",
+  "status": "DELETED",
   "loyalty_account_id": "loyalty_account_id0",
   "reward_tier_id": "reward_tier_id6",
-  "points": null,
-  "order_id": null,
-  "created_at": null,
-  "updated_at": null,
-  "redeemed_at": null
+  "points": 236,
+  "order_id": "order_id6",
+  "created_at": "created_at2"
 }
 ```
 

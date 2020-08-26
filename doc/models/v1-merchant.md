@@ -31,21 +31,13 @@ a request to the **RetrieveBusiness** endpoint.
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "email": null,
-  "account_type": null,
-  "account_capabilities": null,
-  "country_code": null,
-  "language_code": null,
-  "currency_code": null,
-  "business_name": null,
-  "business_address": null,
-  "business_phone": null,
-  "business_type": null,
-  "shipping_address": null,
-  "location_details": null,
-  "market_url": null
+  "id": "id0",
+  "name": "name0",
+  "email": "email6",
+  "account_type": "LOCATION",
+  "account_capabilities": [
+    "account_capabilities8"
+  ]
 }
 ```
 

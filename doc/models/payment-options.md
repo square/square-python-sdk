@@ -14,7 +14,7 @@
 
 ```json
 {
-  "autocomplete": null
+  "autocomplete": false
 }
 ```
 

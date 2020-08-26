@@ -32,21 +32,11 @@ For an overview of the `Subscription` type, see
 
 ```json
 {
-  "id": null,
-  "location_id": null,
-  "plan_id": null,
-  "customer_id": null,
-  "start_date": null,
-  "canceled_date": null,
-  "status": null,
-  "tax_percentage": null,
-  "invoice_ids": null,
-  "price_override_money": null,
-  "version": null,
-  "created_at": null,
-  "card_id": null,
-  "paid_until_date": null,
-  "timezone": null
+  "id": "id0",
+  "location_id": "location_id4",
+  "plan_id": "plan_id8",
+  "customer_id": "customer_id8",
+  "start_date": "start_date6"
 }
 ```
 

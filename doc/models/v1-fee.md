@@ -25,16 +25,11 @@ V1Fee
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "rate": null,
-  "calculation_phase": null,
-  "adjustment_type": null,
-  "applies_to_custom_amounts": null,
-  "enabled": null,
-  "inclusion_type": null,
-  "type": null,
-  "v2_id": null
+  "id": "id0",
+  "name": "name0",
+  "rate": "rate0",
+  "calculation_phase": "FEE_TOTAL_PHASE",
+  "adjustment_type": "TAX"
 }
 ```
 

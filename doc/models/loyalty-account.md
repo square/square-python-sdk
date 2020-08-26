@@ -25,22 +25,20 @@ Describes a loyalty account. For more information, see
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "mappings": [
     {
-      "id": null,
+      "id": "id4",
       "type": "type6",
       "value": "value6",
-      "created_at": null
+      "created_at": "created_at8"
     }
   ],
   "program_id": "program_id0",
-  "balance": null,
-  "lifetime_points": null,
-  "customer_id": null,
-  "enrolled_at": null,
-  "created_at": null,
-  "updated_at": null
+  "balance": 64,
+  "lifetime_points": 88,
+  "customer_id": "customer_id8",
+  "enrolled_at": "enrolled_at0"
 }
 ```
 

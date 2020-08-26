@@ -28,18 +28,14 @@ up to nine payment requests for an invoice.
 
 ```json
 {
-  "uid": null,
-  "request_method": null,
-  "request_type": null,
-  "due_date": null,
-  "fixed_amount_requested_money": null,
-  "percentage_requested": null,
-  "tipping_enabled": null,
-  "card_id": null,
-  "reminders": null,
-  "computed_amount_money": null,
-  "total_completed_amount_money": null,
-  "rounding_adjustment_included_money": null
+  "uid": "uid0",
+  "request_method": "CHARGE_CARD_ON_FILE",
+  "request_type": "BALANCE",
+  "due_date": "due_date8",
+  "fixed_amount_requested_money": {
+    "amount": 162,
+    "currency": "TOP"
+  }
 }
 ```
 

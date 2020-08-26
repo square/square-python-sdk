@@ -16,9 +16,9 @@
 
 ```json
 {
-  "allow_tipping": null,
-  "separate_tip_screen": null,
-  "custom_tip_field": null
+  "allow_tipping": false,
+  "separate_tip_screen": false,
+  "custom_tip_field": false
 }
 ```
 

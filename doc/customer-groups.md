@@ -38,7 +38,9 @@ def list_customer_groups(self,
 ### Example Usage
 
 ```python
-result = customer_groups_api.list_customer_groups()
+cursor = 'cursor6'
+
+result = customer_groups_api.list_customer_groups(cursor)
 
 if result.is_success():
     print(result.body)
@@ -71,8 +73,12 @@ def create_customer_group(self,
 
 ```python
 body = {}
+body['idempotency_key'] = 'idempotency_key2'
 body['group'] = {}
+body['group']['id'] = 'id4'
 body['group']['name'] = 'Loyal Customers'
+body['group']['created_at'] = 'created_at2'
+body['group']['updated_at'] = 'updated_at0'
 
 result = customer_groups_api.create_customer_group(body)
 
@@ -173,7 +179,10 @@ def update_customer_group(self,
 group_id = 'group_id0'
 body = {}
 body['group'] = {}
+body['group']['id'] = 'id4'
 body['group']['name'] = 'Loyal Customers'
+body['group']['created_at'] = 'created_at2'
+body['group']['updated_at'] = 'updated_at0'
 
 result = customer_groups_api.update_customer_group(group_id, body)
 

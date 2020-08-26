@@ -14,7 +14,16 @@
 
 ```json
 {
-  "items": null
+  "items": [
+    {
+      "variation_id": "variation_id5",
+      "quantity_on_hand": 93.37
+    },
+    {
+      "variation_id": "variation_id4",
+      "quantity_on_hand": 93.38
+    }
+  ]
 }
 ```
 

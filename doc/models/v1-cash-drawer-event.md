@@ -21,12 +21,14 @@ V1CashDrawerEvent
 
 ```json
 {
-  "id": null,
-  "employee_id": null,
-  "event_type": null,
-  "event_money": null,
-  "created_at": null,
-  "description": null
+  "id": "id0",
+  "employee_id": "employee_id0",
+  "event_type": "OTHER_TENDER_CANCELED_PAYMENT",
+  "event_money": {
+    "amount": 148,
+    "currency_code": "COP"
+  },
+  "created_at": "created_at2"
 }
 ```
 

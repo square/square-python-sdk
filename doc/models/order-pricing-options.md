@@ -18,7 +18,7 @@ They can be used, for example, to apply automatic price adjustments that are bas
 
 ```json
 {
-  "auto_apply_discounts": null
+  "auto_apply_discounts": false
 }
 ```
 

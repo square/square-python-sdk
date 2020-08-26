@@ -14,7 +14,13 @@
 
 ```json
 {
-  "body": null
+  "body": {
+    "id": "id6",
+    "name": "name6",
+    "item_id": "item_id4",
+    "ordinal": 88,
+    "pricing_type": "FIXED_PRICING"
+  }
 }
 ```
 

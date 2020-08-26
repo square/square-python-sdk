@@ -10,7 +10,7 @@ A request for a set of `EmployeeWage` objects
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `employee_id` | `string` | Optional | Filter wages returned to only those that are associated with the<br>specified employee. |
+| `employee_id` | `string` | Optional | Filter wages returned to only those that are associated with the specified employee. |
 | `limit` | `int` | Optional | Maximum number of Employee Wages to return per page. Can range between<br>1 and 200. The default is the maximum at 200. |
 | `cursor` | `string` | Optional | Pointer to the next page of Employee Wage results to fetch. |
 
@@ -18,9 +18,9 @@ A request for a set of `EmployeeWage` objects
 
 ```json
 {
-  "employee_id": null,
-  "limit": null,
-  "cursor": null
+  "employee_id": "employee_id0",
+  "limit": 172,
+  "cursor": "cursor6"
 }
 ```
 

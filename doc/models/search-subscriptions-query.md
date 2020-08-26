@@ -16,7 +16,15 @@ Represents a query (including filtering criteria) used to search for subscriptio
 
 ```json
 {
-  "filter": null
+  "filter": {
+    "customer_ids": [
+      "customer_ids3",
+      "customer_ids2"
+    ],
+    "location_ids": [
+      "location_ids4"
+    ]
+  }
 }
 ```
 

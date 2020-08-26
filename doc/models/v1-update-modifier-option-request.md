@@ -15,13 +15,14 @@
 ```json
 {
   "body": {
-    "id": null,
-    "name": null,
-    "price_money": null,
-    "on_by_default": null,
-    "ordinal": null,
-    "modifier_list_id": null,
-    "v2_id": null
+    "id": "id6",
+    "name": "name6",
+    "price_money": {
+      "amount": 194,
+      "currency_code": "XBA"
+    },
+    "on_by_default": false,
+    "ordinal": 88
   }
 }
 ```

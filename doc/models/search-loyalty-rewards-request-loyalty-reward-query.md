@@ -18,7 +18,7 @@ The set of search requirements.
 ```json
 {
   "loyalty_account_id": "loyalty_account_id0",
-  "status": null
+  "status": "DELETED"
 }
 ```
 

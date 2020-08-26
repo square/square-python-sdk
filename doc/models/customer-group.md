@@ -22,10 +22,10 @@ the Customers API or within Customer Directory in the Square Dashboard or Point 
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "name": "name0",
-  "created_at": null,
-  "updated_at": null
+  "created_at": "created_at2",
+  "updated_at": "updated_at4"
 }
 ```
 

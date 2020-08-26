@@ -23,9 +23,12 @@ line items.
 
 ```json
 {
-  "uid": null,
+  "uid": "uid0",
   "discount_uid": "discount_uid4",
-  "applied_money": null
+  "applied_money": {
+    "amount": 196,
+    "currency": "PLN"
+  }
 }
 ```
 

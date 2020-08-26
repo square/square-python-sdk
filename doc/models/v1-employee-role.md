@@ -21,15 +21,15 @@ V1EmployeeRole
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "name": "name0",
   "permissions": [
     "REGISTER_OPEN_CASH_DRAWER_OUTSIDE_SALE",
     "REGISTER_VIEW_SUMMARY_REPORTS"
   ],
-  "is_owner": null,
-  "created_at": null,
-  "updated_at": null
+  "is_owner": false,
+  "created_at": "created_at2",
+  "updated_at": "updated_at4"
 }
 ```
 

@@ -26,10 +26,18 @@ Describes a loyalty program reward tier.
   "definition": {
     "scope": "ORDER",
     "discount_type": "FIXED_AMOUNT",
-    "percentage_discount": null,
-    "catalog_object_ids": null,
-    "fixed_discount_money": null,
-    "max_discount_money": null
+    "percentage_discount": "percentage_discount2",
+    "catalog_object_ids": [
+      "catalog_object_ids6"
+    ],
+    "fixed_discount_money": {
+      "amount": 132,
+      "currency": "TRY"
+    },
+    "max_discount_money": {
+      "amount": 176,
+      "currency": "MYR"
+    }
   },
   "created_at": "created_at2"
 }

@@ -32,10 +32,20 @@
       "definition": {
         "scope": "CATEGORY",
         "discount_type": "FIXED_PERCENTAGE",
-        "percentage_discount": null,
-        "catalog_object_ids": null,
-        "fixed_discount_money": null,
-        "max_discount_money": null
+        "percentage_discount": "percentage_discount1",
+        "catalog_object_ids": [
+          "catalog_object_ids3",
+          "catalog_object_ids4",
+          "catalog_object_ids5"
+        ],
+        "fixed_discount_money": {
+          "amount": 119,
+          "currency": "CUC"
+        },
+        "max_discount_money": {
+          "amount": 163,
+          "currency": "ZMK"
+        }
       },
       "created_at": "created_at7"
     },
@@ -46,15 +56,25 @@
       "definition": {
         "scope": "ORDER",
         "discount_type": "FIXED_AMOUNT",
-        "percentage_discount": null,
-        "catalog_object_ids": null,
-        "fixed_discount_money": null,
-        "max_discount_money": null
+        "percentage_discount": "percentage_discount2",
+        "catalog_object_ids": [
+          "catalog_object_ids4"
+        ],
+        "fixed_discount_money": {
+          "amount": 120,
+          "currency": "CUP"
+        },
+        "max_discount_money": {
+          "amount": 164,
+          "currency": "ZMW"
+        }
       },
       "created_at": "created_at8"
     }
   ],
-  "expiration_policy": null,
+  "expiration_policy": {
+    "expiration_duration": "expiration_duration0"
+  },
   "terminology": {
     "one": "one0",
     "other": "other6"
@@ -67,17 +87,29 @@
   "accrual_rules": [
     {
       "accrual_type": "ITEM_VARIATION",
-      "points": null,
-      "visit_minimum_amount_money": null,
-      "spend_amount_money": null,
-      "catalog_object_id": null
+      "points": 100,
+      "visit_minimum_amount_money": {
+        "amount": 238,
+        "currency": "ISK"
+      },
+      "spend_amount_money": {
+        "amount": 98,
+        "currency": "UGX"
+      },
+      "catalog_object_id": "catalog_object_id8"
     },
     {
       "accrual_type": "SPEND",
-      "points": null,
-      "visit_minimum_amount_money": null,
-      "spend_amount_money": null,
-      "catalog_object_id": null
+      "points": 99,
+      "visit_minimum_amount_money": {
+        "amount": 237,
+        "currency": "JMD"
+      },
+      "spend_amount_money": {
+        "amount": 99,
+        "currency": "USD"
+      },
+      "catalog_object_id": "catalog_object_id7"
     }
   ]
 }

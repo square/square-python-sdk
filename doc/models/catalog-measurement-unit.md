@@ -18,8 +18,17 @@ specifies the precision for decimal quantities.
 
 ```json
 {
-  "measurement_unit": null,
-  "precision": null
+  "measurement_unit": {
+    "custom_unit": {
+      "name": "name2",
+      "abbreviation": "abbreviation4"
+    },
+    "area_unit": "IMPERIAL_ACRE",
+    "length_unit": "IMPERIAL_INCH",
+    "volume_unit": "METRIC_LITER",
+    "weight_unit": "IMPERIAL_WEIGHT_OUNCE"
+  },
+  "precision": 196
 }
 ```
 

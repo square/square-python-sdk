@@ -65,7 +65,17 @@ def list_employees(self,
 ### Example Usage
 
 ```python
-result = v1_employees_api.list_employees()
+order = 'DESC'
+begin_updated_at = 'begin_updated_at6'
+end_updated_at = 'end_updated_at4'
+begin_created_at = 'begin_created_at6'
+end_created_at = 'end_created_at8'
+status = 'ACTIVE'
+external_id = 'external_id6'
+limit = 172
+batch_token = 'batch_token2'
+
+result = v1_employees_api.list_employees(order, begin_updated_at, end_updated_at, begin_created_at, end_created_at, status, external_id, limit, batch_token)
 
 if result.is_success():
     print(result.body)
@@ -105,8 +115,13 @@ def create_employee(self,
 
 ```python
 body = {}
+body['id'] = 'id6'
 body['first_name'] = 'first_name6'
 body['last_name'] = 'last_name4'
+body['role_ids'] = ['role_ids0', 'role_ids1']
+body['authorized_location_ids'] = ['authorized_location_ids7', 'authorized_location_ids8']
+body['email'] = 'email0'
+body['status'] = 'ACTIVE'
 
 result = v1_employees_api.create_employee(body)
 
@@ -174,8 +189,13 @@ def update_employee(self,
 ```python
 employee_id = 'employee_id0'
 body = {}
+body['id'] = 'id6'
 body['first_name'] = 'first_name6'
 body['last_name'] = 'last_name4'
+body['role_ids'] = ['role_ids0', 'role_ids1']
+body['authorized_location_ids'] = ['authorized_location_ids7', 'authorized_location_ids8']
+body['email'] = 'email0'
+body['status'] = 'ACTIVE'
 
 result = v1_employees_api.update_employee(employee_id, body)
 
@@ -211,7 +231,11 @@ def list_employee_roles(self,
 ### Example Usage
 
 ```python
-result = v1_employees_api.list_employee_roles()
+order = 'DESC'
+limit = 172
+batch_token = 'batch_token2'
+
+result = v1_employees_api.list_employee_roles(order, limit, batch_token)
 
 if result.is_success():
     print(result.body)
@@ -254,8 +278,12 @@ def create_employee_role(self,
 
 ```python
 body = {}
+body['id'] = 'id6'
 body['name'] = 'name6'
 body['permissions'] = ['REGISTER_APPLY_RESTRICTED_DISCOUNTS', 'REGISTER_CHANGE_SETTINGS', 'REGISTER_EDIT_ITEM']
+body['is_owner'] = False
+body['created_at'] = 'created_at4'
+body['updated_at'] = 'updated_at8'
 
 result = v1_employees_api.create_employee_role(body)
 
@@ -323,8 +351,12 @@ def update_employee_role(self,
 ```python
 role_id = 'role_id6'
 body = {}
+body['id'] = 'id6'
 body['name'] = 'name6'
 body['permissions'] = ['REGISTER_APPLY_RESTRICTED_DISCOUNTS', 'REGISTER_CHANGE_SETTINGS', 'REGISTER_EDIT_ITEM']
+body['is_owner'] = False
+body['created_at'] = 'created_at4'
+body['updated_at'] = 'updated_at8'
 
 result = v1_employees_api.update_employee_role(role_id, body)
 
@@ -376,7 +408,19 @@ def list_timecards(self,
 ### Example Usage
 
 ```python
-result = v1_employees_api.list_timecards()
+order = 'DESC'
+employee_id = 'employee_id0'
+begin_clockin_time = 'begin_clockin_time8'
+end_clockin_time = 'end_clockin_time2'
+begin_clockout_time = 'begin_clockout_time0'
+end_clockout_time = 'end_clockout_time2'
+begin_updated_at = 'begin_updated_at6'
+end_updated_at = 'end_updated_at4'
+deleted = False
+limit = 172
+batch_token = 'batch_token2'
+
+result = v1_employees_api.list_timecards(order, employee_id, begin_clockin_time, end_clockin_time, begin_clockout_time, end_clockout_time, begin_updated_at, end_updated_at, deleted, limit, batch_token)
 
 if result.is_success():
     print(result.body)
@@ -419,7 +463,12 @@ def create_timecard(self,
 
 ```python
 body = {}
+body['id'] = 'id6'
 body['employee_id'] = 'employee_id4'
+body['deleted'] = False
+body['clockin_time'] = 'clockin_time2'
+body['clockout_time'] = 'clockout_time2'
+body['clockin_location_id'] = 'clockin_location_id4'
 
 result = v1_employees_api.create_timecard(body)
 
@@ -541,7 +590,12 @@ def update_timecard(self,
 ```python
 timecard_id = 'timecard_id0'
 body = {}
+body['id'] = 'id6'
 body['employee_id'] = 'employee_id4'
+body['deleted'] = False
+body['clockin_time'] = 'clockin_time2'
+body['clockout_time'] = 'clockout_time2'
+body['clockin_location_id'] = 'clockin_location_id4'
 
 result = v1_employees_api.update_timecard(timecard_id, body)
 
@@ -620,8 +674,11 @@ def list_cash_drawer_shifts(self,
 
 ```python
 location_id = 'location_id4'
+order = 'DESC'
+begin_time = 'begin_time2'
+end_time = 'end_time2'
 
-result = v1_employees_api.list_cash_drawer_shifts(location_id)
+result = v1_employees_api.list_cash_drawer_shifts(location_id, order, begin_time, end_time)
 
 if result.is_success():
     print(result.body)

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -78,8 +79,8 @@ class LaborApi(BaseApi):
                           body):
         """Does a POST request to /v2/labor/break-types.
 
-        Creates a new `BreakType`. 
-        A `BreakType` is a template for creating `Break` objects. 
+        Creates a new `BreakType`.
+        A `BreakType` is a template for creating `Break` objects.
         You must provide the following values in your request to this
         endpoint:
         - `location_id`
@@ -137,7 +138,7 @@ class LaborApi(BaseApi):
                           id):
         """Does a DELETE request to /v2/labor/break-types/{id}.
 
-        Deletes an existing `BreakType`. 
+        Deletes an existing `BreakType`.
         A `BreakType` can be deleted even if it is referenced from a `Shift`.
 
         Args:
@@ -280,6 +281,7 @@ class LaborApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_employee_wages(self,
                             employee_id=None,
                             limit=None,
@@ -341,6 +343,7 @@ class LaborApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def get_employee_wage(self,
                           id):
         """Does a GET request to /v2/labor/employee-wages/{id}.
@@ -392,8 +395,8 @@ class LaborApi(BaseApi):
                      body):
         """Does a POST request to /v2/labor/shifts.
 
-        Creates a new `Shift`. 
-        A `Shift` represents a complete work day for a single employee. 
+        Creates a new `Shift`.
+        A `Shift` represents a complete work day for a single employee.
         You must provide the following values in your request to this
         endpoint:
         - `location_id`
@@ -402,8 +405,8 @@ class LaborApi(BaseApi):
         An attempt to create a new `Shift` can result in a `BAD_REQUEST` error
         when:
         - The `status` of the new `Shift` is `OPEN` and the employee has
-        another 
-        shift with an `OPEN` status. 
+        another
+        shift with an `OPEN` status.
         - The `start_at` date is in the future
         - the `start_at` or `end_at` overlaps another shift for the same
         employee
@@ -457,7 +460,7 @@ class LaborApi(BaseApi):
                       body):
         """Does a POST request to /v2/labor/shifts/search.
 
-        Returns a paginated list of `Shift` records for a business. 
+        Returns a paginated list of `Shift` records for a business.
         The list to be returned can be filtered by:
         - Location IDs **and**
         - employee IDs **and**
@@ -611,10 +614,10 @@ class LaborApi(BaseApi):
                      body):
         """Does a PUT request to /v2/labor/shifts/{id}.
 
-        Updates an existing `Shift`. 
+        Updates an existing `Shift`.
         When adding a `Break` to a `Shift`, any earlier `Breaks` in the
-        `Shift` have 
-        the `end_at` property set to a valid RFC-3339 datetime string. 
+        `Shift` have
+        the `end_at` property set to a valid RFC-3339 datetime string.
         When closing a `Shift`, all `Break` instances in the shift must be
         complete with `end_at`
         set on each `Break`.
@@ -653,6 +656,115 @@ class LaborApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def list_team_member_wages(self,
+                               team_member_id=None,
+                               limit=None,
+                               cursor=None):
+        """Does a GET request to /v2/labor/team-member-wages.
+
+        Returns a paginated list of `TeamMemberWage` instances for a
+        business.
+
+        Args:
+            team_member_id (string, optional): Filter wages returned to only
+                those that are associated with the specified team member.
+            limit (int, optional): Maximum number of Team Member Wages to
+                return per page. Can range between 1 and 200. The default is
+                the maximum at 200.
+            cursor (string, optional): Pointer to the next page of Employee
+                Wage results to fetch.
+
+        Returns:
+            ListTeamMemberWagesResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/labor/team-member-wages'
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_parameters = {
+            'team_member_id': team_member_id,
+            'limit': limit,
+            'cursor': cursor
+        }
+        _query_builder = APIHelper.append_url_with_query_parameters(
+            _query_builder,
+            _query_parameters
+        )
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.get(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def get_team_member_wage(self,
+                             id):
+        """Does a GET request to /v2/labor/team-member-wages/{id}.
+
+        Returns a single `TeamMemberWage` specified by id.
+
+        Args:
+            id (string): UUID for the `TeamMemberWage` being retrieved.
+
+        Returns:
+            GetTeamMemberWageResponse: Response from the API. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/labor/team-member-wages/{id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'id': id
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.get(_query_url, headers=_headers)
         OAuth2.apply(self.config, _request)
         _response = self.execute_request(_request)
 

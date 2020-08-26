@@ -17,8 +17,8 @@ V1ItemImage
 
 ```json
 {
-  "id": null,
-  "url": null
+  "id": "id0",
+  "url": "url4"
 }
 ```
 

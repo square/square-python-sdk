@@ -24,17 +24,12 @@
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "code": null,
-  "device_id": null,
+  "id": "id0",
+  "name": "name0",
+  "code": "code8",
+  "device_id": "device_id6",
   "product_type": "product_type4",
-  "location_id": null,
-  "status": null,
-  "pair_by": null,
-  "created_at": null,
-  "status_changed_at": null,
-  "paired_at": null
+  "location_id": "location_id4"
 }
 ```
 

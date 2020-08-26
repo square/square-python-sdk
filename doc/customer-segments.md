@@ -35,7 +35,9 @@ def list_customer_segments(self,
 ### Example Usage
 
 ```python
-result = customer_segments_api.list_customer_segments()
+cursor = 'cursor6'
+
+result = customer_segments_api.list_customer_segments(cursor)
 
 if result.is_success():
     print(result.body)

@@ -19,9 +19,9 @@ A request to adjust (add or subtract) points manually.
 {
   "idempotency_key": "idempotency_key6",
   "adjust_points": {
-    "loyalty_program_id": null,
+    "loyalty_program_id": "loyalty_program_id2",
     "points": 96,
-    "reason": null
+    "reason": "reason2"
   }
 }
 ```

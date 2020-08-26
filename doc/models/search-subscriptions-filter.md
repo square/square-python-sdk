@@ -17,8 +17,13 @@ Represents a set of SearchSubscriptionsQuery filters used to limit the set of Su
 
 ```json
 {
-  "customer_ids": null,
-  "location_ids": null
+  "customer_ids": [
+    "customer_ids1",
+    "customer_ids2"
+  ],
+  "location_ids": [
+    "location_ids0"
+  ]
 }
 ```
 

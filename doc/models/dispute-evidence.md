@@ -17,10 +17,10 @@
 
 ```json
 {
-  "evidence_id": null,
-  "dispute_id": null,
-  "uploaded_at": null,
-  "evidence_type": null
+  "evidence_id": "evidence_id2",
+  "dispute_id": "dispute_id2",
+  "uploaded_at": "uploaded_at4",
+  "evidence_type": "RECEIPT"
 }
 ```
 

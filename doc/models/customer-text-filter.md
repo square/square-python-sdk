@@ -19,8 +19,8 @@ the filter can be case sensitive. This filter can be either exact or fuzzy. It c
 
 ```json
 {
-  "exact": null,
-  "fuzzy": null
+  "exact": "exact0",
+  "fuzzy": "fuzzy4"
 }
 ```
 

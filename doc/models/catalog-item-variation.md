@@ -31,21 +31,11 @@ may have a maximum of 250 item variations.
 
 ```json
 {
-  "item_id": null,
-  "name": null,
-  "sku": null,
-  "upc": null,
-  "ordinal": null,
-  "pricing_type": null,
-  "price_money": null,
-  "location_overrides": null,
-  "track_inventory": null,
-  "inventory_alert_type": null,
-  "inventory_alert_threshold": null,
-  "user_data": null,
-  "service_duration": null,
-  "item_option_values": null,
-  "measurement_unit_id": null
+  "item_id": "item_id0",
+  "name": "name0",
+  "sku": "sku4",
+  "upc": "upc2",
+  "ordinal": 80
 }
 ```
 

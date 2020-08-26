@@ -22,10 +22,10 @@ Represents an additional recipient (other than the merchant) receiving a portion
   "location_id": "location_id4",
   "description": "description0",
   "amount_money": {
-    "amount": null,
-    "currency": null
+    "amount": 186,
+    "currency": "NGN"
   },
-  "receivable_id": null
+  "receivable_id": "receivable_id0"
 }
 ```
 

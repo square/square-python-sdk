@@ -109,6 +109,9 @@ def create_category(self,
 ```python
 location_id = 'location_id4'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['v2_id'] = 'v2_id6'
 
 result = v1_items_api.create_category(location_id, body)
 
@@ -187,6 +190,9 @@ def update_category(self,
 location_id = 'location_id4'
 category_id = 'category_id8'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['v2_id'] = 'v2_id6'
 
 result = v1_items_api.update_category(location_id, category_id, body)
 
@@ -254,6 +260,13 @@ def create_discount(self,
 ```python
 location_id = 'location_id4'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['rate'] = 'rate4'
+body['amount_money'] = {}
+body['amount_money']['amount'] = 194
+body['amount_money']['currency_code'] = 'KWD'
+body['discount_type'] = 'VARIABLE_AMOUNT'
 
 result = v1_items_api.create_discount(location_id, body)
 
@@ -332,6 +345,13 @@ def update_discount(self,
 location_id = 'location_id4'
 discount_id = 'discount_id8'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['rate'] = 'rate4'
+body['amount_money'] = {}
+body['amount_money']['amount'] = 194
+body['amount_money']['currency_code'] = 'KWD'
+body['discount_type'] = 'VARIABLE_AMOUNT'
 
 result = v1_items_api.update_discount(location_id, discount_id, body)
 
@@ -399,6 +419,11 @@ def create_fee(self,
 ```python
 location_id = 'location_id4'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['rate'] = 'rate4'
+body['calculation_phase'] = 'FEE_SUBTOTAL_PHASE'
+body['adjustment_type'] = 'TAX'
 
 result = v1_items_api.create_fee(location_id, body)
 
@@ -477,6 +502,11 @@ def update_fee(self,
 location_id = 'location_id4'
 fee_id = 'fee_id8'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['rate'] = 'rate4'
+body['calculation_phase'] = 'FEE_SUBTOTAL_PHASE'
+body['adjustment_type'] = 'TAX'
 
 result = v1_items_api.update_fee(location_id, fee_id, body)
 
@@ -514,8 +544,10 @@ def list_inventory(self,
 
 ```python
 location_id = 'location_id4'
+limit = 172
+batch_token = 'batch_token2'
 
-result = v1_items_api.list_inventory(location_id)
+result = v1_items_api.list_inventory(location_id, limit, batch_token)
 
 if result.is_success():
     print(result.body)
@@ -552,6 +584,9 @@ def adjust_inventory(self,
 location_id = 'location_id4'
 variation_id = 'variation_id2'
 body = {}
+body['quantity_delta'] = 87.82
+body['adjustment_type'] = 'SALE'
+body['memo'] = 'memo0'
 
 result = v1_items_api.adjust_inventory(location_id, variation_id, body)
 
@@ -586,8 +621,9 @@ def list_items(self,
 
 ```python
 location_id = 'location_id4'
+batch_token = 'batch_token2'
 
-result = v1_items_api.list_items(location_id)
+result = v1_items_api.list_items(location_id, batch_token)
 
 if result.is_success():
     print(result.body)
@@ -634,6 +670,11 @@ def create_item(self,
 ```python
 location_id = 'location_id4'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['description'] = 'description4'
+body['type'] = 'GIFT_CARD'
+body['color'] = '593c00'
 
 result = v1_items_api.create_item(location_id, body)
 
@@ -748,6 +789,11 @@ def update_item(self,
 location_id = 'location_id4'
 item_id = 'item_id0'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['description'] = 'description4'
+body['type'] = 'GIFT_CARD'
+body['color'] = '593c00'
 
 result = v1_items_api.update_item(location_id, item_id, body)
 
@@ -942,6 +988,11 @@ def create_variation(self,
 location_id = 'location_id4'
 item_id = 'item_id0'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['item_id'] = 'item_id4'
+body['ordinal'] = 88
+body['pricing_type'] = 'FIXED_PRICING'
 
 result = v1_items_api.create_variation(location_id, item_id, body)
 
@@ -1026,6 +1077,11 @@ location_id = 'location_id4'
 item_id = 'item_id0'
 variation_id = 'variation_id2'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['item_id'] = 'item_id4'
+body['ordinal'] = 88
+body['pricing_type'] = 'FIXED_PRICING'
 
 result = v1_items_api.update_variation(location_id, item_id, variation_id, body)
 
@@ -1093,6 +1149,30 @@ def create_modifier_list(self,
 ```python
 location_id = 'location_id4'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['selection_type'] = 'SINGLE'
+body['modifier_options'] = []
+
+body['modifier_options'].append({})
+body['modifier_options'][0]['id'] = 'id0'
+body['modifier_options'][0]['name'] = 'name0'
+body['modifier_options'][0]['price_money'] = {}
+body['modifier_options'][0]['price_money']['amount'] = 104
+body['modifier_options'][0]['price_money']['currency_code'] = 'UAH'
+body['modifier_options'][0]['on_by_default'] = False
+body['modifier_options'][0]['ordinal'] = 178
+
+body['modifier_options'].append({})
+body['modifier_options'][1]['id'] = 'id1'
+body['modifier_options'][1]['name'] = 'name1'
+body['modifier_options'][1]['price_money'] = {}
+body['modifier_options'][1]['price_money']['amount'] = 103
+body['modifier_options'][1]['price_money']['currency_code'] = 'TZS'
+body['modifier_options'][1]['on_by_default'] = True
+body['modifier_options'][1]['ordinal'] = 179
+
+body['v2_id'] = 'v2_id6'
 
 result = v1_items_api.create_modifier_list(location_id, body)
 
@@ -1207,6 +1287,8 @@ def update_modifier_list(self,
 location_id = 'location_id4'
 modifier_list_id = 'modifier_list_id6'
 body = {}
+body['name'] = 'name6'
+body['selection_type'] = 'SINGLE'
 
 result = v1_items_api.update_modifier_list(location_id, modifier_list_id, body)
 
@@ -1245,6 +1327,13 @@ def create_modifier_option(self,
 location_id = 'location_id4'
 modifier_list_id = 'modifier_list_id6'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['price_money'] = {}
+body['price_money']['amount'] = 194
+body['price_money']['currency_code'] = 'XBA'
+body['on_by_default'] = False
+body['ordinal'] = 88
 
 result = v1_items_api.create_modifier_option(location_id, modifier_list_id, body)
 
@@ -1329,6 +1418,13 @@ location_id = 'location_id4'
 modifier_list_id = 'modifier_list_id6'
 modifier_option_id = 'modifier_option_id6'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['price_money'] = {}
+body['price_money']['amount'] = 194
+body['price_money']['currency_code'] = 'XBA'
+body['on_by_default'] = False
+body['ordinal'] = 88
 
 result = v1_items_api.update_modifier_option(location_id, modifier_list_id, modifier_option_id, body)
 
@@ -1397,6 +1493,18 @@ def create_page(self,
 ```python
 location_id = 'location_id4'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['page_index'] = 224
+body['cells'] = []
+
+body['cells'].append({})
+body['cells'][0]['page_id'] = 'page_id8'
+body['cells'][0]['row'] = 2
+body['cells'][0]['column'] = 80
+body['cells'][0]['object_type'] = 'ITEM'
+body['cells'][0]['object_id'] = 'object_id6'
+
 
 result = v1_items_api.create_page(location_id, body)
 
@@ -1474,6 +1582,18 @@ def update_page(self,
 location_id = 'location_id4'
 page_id = 'page_id0'
 body = {}
+body['id'] = 'id6'
+body['name'] = 'name6'
+body['page_index'] = 224
+body['cells'] = []
+
+body['cells'].append({})
+body['cells'][0]['page_id'] = 'page_id8'
+body['cells'][0]['row'] = 2
+body['cells'][0]['column'] = 80
+body['cells'][0]['object_type'] = 'ITEM'
+body['cells'][0]['object_id'] = 'object_id6'
+
 
 result = v1_items_api.update_page(location_id, page_id, body)
 
@@ -1518,8 +1638,10 @@ def delete_page_cell(self,
 ```python
 location_id = 'location_id4'
 page_id = 'page_id0'
+row = 'row0'
+column = 'column4'
 
-result = v1_items_api.delete_page_cell(location_id, page_id)
+result = v1_items_api.delete_page_cell(location_id, page_id, row, column)
 
 if result.is_success():
     print(result.body)
@@ -1556,6 +1678,11 @@ def update_page_cell(self,
 location_id = 'location_id4'
 page_id = 'page_id0'
 body = {}
+body['page_id'] = 'page_id6'
+body['row'] = 22
+body['column'] = 60
+body['object_type'] = 'ITEM'
+body['object_id'] = 'object_id4'
 
 result = v1_items_api.update_page_cell(location_id, page_id, body)
 

@@ -23,14 +23,17 @@ V1PaymentSurcharge
 
 ```json
 {
-  "name": null,
-  "applied_money": null,
-  "rate": null,
-  "amount_money": null,
-  "type": null,
-  "taxable": null,
-  "taxes": null,
-  "surcharge_id": null
+  "name": "name0",
+  "applied_money": {
+    "amount": 196,
+    "currency_code": "LYD"
+  },
+  "rate": "rate0",
+  "amount_money": {
+    "amount": 186,
+    "currency_code": "KRW"
+  },
+  "type": "CUSTOM"
 }
 ```
 

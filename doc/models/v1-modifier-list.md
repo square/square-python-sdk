@@ -20,11 +20,42 @@ V1ModifierList
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "selection_type": null,
-  "modifier_options": null,
-  "v2_id": null
+  "id": "id0",
+  "name": "name0",
+  "selection_type": "SINGLE",
+  "modifier_options": [
+    {
+      "id": "id6",
+      "name": "name6",
+      "price_money": {
+        "amount": 96,
+        "currency_code": "CLP"
+      },
+      "on_by_default": false,
+      "ordinal": 186
+    },
+    {
+      "id": "id7",
+      "name": "name7",
+      "price_money": {
+        "amount": 95,
+        "currency_code": "CNY"
+      },
+      "on_by_default": true,
+      "ordinal": 187
+    },
+    {
+      "id": "id8",
+      "name": "name8",
+      "price_money": {
+        "amount": 94,
+        "currency_code": "COP"
+      },
+      "on_by_default": false,
+      "ordinal": 188
+    }
+  ],
+  "v2_id": "v2_id2"
 }
 ```
 

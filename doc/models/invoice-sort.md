@@ -18,7 +18,7 @@ Identifies the  sort field and sort order.
 ```json
 {
   "field": "field6",
-  "order": null
+  "order": "DESC"
 }
 ```
 

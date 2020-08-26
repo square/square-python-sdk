@@ -21,10 +21,16 @@ Defines an accrual rule, which is how buyers can earn points.
 ```json
 {
   "accrual_type": "ITEM_VARIATION",
-  "points": null,
-  "visit_minimum_amount_money": null,
-  "spend_amount_money": null,
-  "catalog_object_id": null
+  "points": 236,
+  "visit_minimum_amount_money": {
+    "amount": 118,
+    "currency": "BTN"
+  },
+  "spend_amount_money": {
+    "amount": 218,
+    "currency": "GNF"
+  },
+  "catalog_object_id": "catalog_object_id6"
 }
 ```
 

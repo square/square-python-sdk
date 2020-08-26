@@ -17,8 +17,13 @@ Filter based on [Order Fulfillment](#type-orderfulfillment) information.
 
 ```json
 {
-  "fulfillment_types": null,
-  "fulfillment_states": null
+  "fulfillment_types": [
+    "SHIPMENT",
+    "PICKUP"
+  ],
+  "fulfillment_states": [
+    "PROPOSED"
+  ]
 }
 ```
 

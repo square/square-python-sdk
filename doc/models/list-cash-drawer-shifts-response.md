@@ -16,9 +16,43 @@
 
 ```json
 {
-  "items": null,
-  "cursor": null,
-  "errors": null
+  "items": [
+    {
+      "id": "id7",
+      "state": "CLOSED",
+      "opened_at": "opened_at5",
+      "ended_at": "ended_at9",
+      "closed_at": "closed_at9"
+    },
+    {
+      "id": "id8",
+      "state": "ENDED",
+      "opened_at": "opened_at6",
+      "ended_at": "ended_at0",
+      "closed_at": "closed_at0"
+    }
+  ],
+  "cursor": "cursor6",
+  "errors": [
+    {
+      "category": "AUTHENTICATION_ERROR",
+      "code": "REQUEST_TIMEOUT",
+      "detail": "detail1",
+      "field": "field9"
+    },
+    {
+      "category": "INVALID_REQUEST_ERROR",
+      "code": "CONFLICT",
+      "detail": "detail2",
+      "field": "field0"
+    },
+    {
+      "category": "RATE_LIMIT_ERROR",
+      "code": "GONE",
+      "detail": "detail3",
+      "field": "field1"
+    }
+  ]
 }
 ```
 

@@ -25,16 +25,19 @@ Represents one of a business's employees.
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "first_name": "first_name0",
   "last_name": "last_name8",
-  "role_ids": null,
-  "authorized_location_ids": null,
-  "email": null,
-  "status": null,
-  "external_id": null,
-  "created_at": null,
-  "updated_at": null
+  "role_ids": [
+    "role_ids6",
+    "role_ids7",
+    "role_ids8"
+  ],
+  "authorized_location_ids": [
+    "authorized_location_ids1"
+  ],
+  "email": "email6",
+  "status": "ACTIVE"
 }
 ```
 

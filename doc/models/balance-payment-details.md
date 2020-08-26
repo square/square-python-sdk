@@ -17,8 +17,8 @@ Reflects the current status of a balance payment.
 
 ```json
 {
-  "account_id": null,
-  "status": null
+  "account_id": "account_id2",
+  "status": "status8"
 }
 ```
 

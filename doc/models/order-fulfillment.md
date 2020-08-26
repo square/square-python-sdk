@@ -21,12 +21,33 @@ Contains details on how to fulfill this order.
 
 ```json
 {
-  "uid": null,
-  "type": null,
-  "state": null,
-  "metadata": null,
-  "pickup_details": null,
-  "shipment_details": null
+  "uid": "uid0",
+  "type": "PICKUP",
+  "state": "PREPARED",
+  "metadata": {
+    "key0": "metadata3",
+    "key1": "metadata4",
+    "key2": "metadata5"
+  },
+  "pickup_details": {
+    "recipient": {
+      "customer_id": "customer_id8",
+      "display_name": "display_name0",
+      "email_address": "email_address8",
+      "phone_number": "phone_number8",
+      "address": {
+        "address_line_1": "address_line_16",
+        "address_line_2": "address_line_26",
+        "address_line_3": "address_line_32",
+        "locality": "locality6",
+        "sublocality": "sublocality6"
+      }
+    },
+    "expires_at": "expires_at2",
+    "auto_complete_duration": "auto_complete_duration2",
+    "schedule_type": "SCHEDULED",
+    "pickup_at": "pickup_at6"
+  }
 }
 ```
 

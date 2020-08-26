@@ -17,8 +17,40 @@ Defines fields in a ListDisputeEvidence response.
 
 ```json
 {
-  "evidence": null,
-  "errors": null
+  "evidence": [
+    {
+      "evidence_id": "evidence_id6",
+      "dispute_id": "dispute_id8",
+      "uploaded_at": "uploaded_at0",
+      "evidence_type": "REBUTTAL_EXPLANATION"
+    },
+    {
+      "evidence_id": "evidence_id5",
+      "dispute_id": "dispute_id9",
+      "uploaded_at": "uploaded_at1",
+      "evidence_type": "RELATED_TRANSACTION_DOCUMENTATION"
+    }
+  ],
+  "errors": [
+    {
+      "category": "AUTHENTICATION_ERROR",
+      "code": "REQUEST_TIMEOUT",
+      "detail": "detail1",
+      "field": "field9"
+    },
+    {
+      "category": "INVALID_REQUEST_ERROR",
+      "code": "CONFLICT",
+      "detail": "detail2",
+      "field": "field0"
+    },
+    {
+      "category": "RATE_LIMIT_ERROR",
+      "code": "GONE",
+      "detail": "detail3",
+      "field": "field1"
+    }
+  ]
 }
 ```
 

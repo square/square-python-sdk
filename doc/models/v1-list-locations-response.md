@@ -14,7 +14,27 @@
 
 ```json
 {
-  "items": null
+  "items": [
+    {
+      "id": "id7",
+      "name": "name7",
+      "email": "email9",
+      "account_type": "BUSINESS",
+      "account_capabilities": [
+        "account_capabilities5"
+      ]
+    },
+    {
+      "id": "id8",
+      "name": "name8",
+      "email": "email8",
+      "account_type": "LOCATION",
+      "account_capabilities": [
+        "account_capabilities6",
+        "account_capabilities7"
+      ]
+    }
+  ]
 }
 ```
 

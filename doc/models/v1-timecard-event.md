@@ -20,11 +20,11 @@ V1TimecardEvent
 
 ```json
 {
-  "id": null,
-  "event_type": null,
-  "clockin_time": null,
-  "clockout_time": null,
-  "created_at": null
+  "id": "id0",
+  "event_type": "API_CREATE",
+  "clockin_time": "clockin_time6",
+  "clockout_time": "clockout_time4",
+  "created_at": "created_at2"
 }
 ```
 
