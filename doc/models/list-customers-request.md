@@ -19,9 +19,9 @@ ListCustomers endpoint.
 
 ```json
 {
-  "cursor": null,
-  "sort_field": null,
-  "sort_order": null
+  "cursor": "cursor6",
+  "sort_field": "DEFAULT",
+  "sort_order": "DESC"
 }
 ```
 

@@ -22,15 +22,11 @@
 
 ```json
 {
-  "order": null,
-  "begin_updated_at": null,
-  "end_updated_at": null,
-  "begin_created_at": null,
-  "end_created_at": null,
-  "status": null,
-  "external_id": null,
-  "limit": null,
-  "batch_token": null
+  "order": "DESC",
+  "begin_updated_at": "begin_updated_at6",
+  "end_updated_at": "end_updated_at4",
+  "begin_created_at": "begin_created_at6",
+  "end_created_at": "end_created_at8"
 }
 ```
 

@@ -33,20 +33,22 @@ to store any sensitive information (personally identifiable information, card de
 {
   "type": "NUMBER",
   "name": "name0",
-  "description": null,
-  "source_application": null,
+  "description": "description0",
+  "source_application": {
+    "product": "BILLING",
+    "application_id": "application_id8",
+    "name": "name2"
+  },
   "allowed_object_types": [
     "PRICING_RULE",
     "PRODUCT_SET",
     "TIME_PERIOD"
   ],
-  "seller_visibility": null,
-  "app_visibility": null,
-  "string_config": null,
-  "number_config": null,
-  "selection_config": null,
-  "custom_attribute_usage_count": null,
-  "key": null
+  "seller_visibility": "SELLER_VISIBILITY_HIDDEN",
+  "app_visibility": "APP_VISIBILITY_HIDDEN",
+  "string_config": {
+    "enforce_uniqueness": false
+  }
 }
 ```
 

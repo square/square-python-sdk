@@ -19,9 +19,9 @@ A lightweight description of an [Order](#type-order) that is returned when `retu
 
 ```json
 {
-  "order_id": null,
-  "version": null,
-  "location_id": null
+  "order_id": "order_id6",
+  "version": 172,
+  "location_id": "location_id4"
 }
 ```
 

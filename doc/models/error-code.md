@@ -99,6 +99,7 @@ Square API.
 | `REFUND_AMOUNT_INVALID` | The requested refund amount exceeds the amount available to refund. |
 | `REFUND_ALREADY_PENDING` | The payment already has a pending refund. |
 | `PAYMENT_NOT_REFUNDABLE` | The payment is not refundable. For example, a previous refund has<br>already been rejected and no new refunds can be accepted. |
+| `REFUND_DECLINED` | Request failed - The card issuer declined the refund. |
 | `INVALID_CARD_DATA` | Generic error - the provided card data is invalid. |
 | `LOCATION_MISMATCH` | Generic error - the given location does not matching what is expected. |
 | `IDEMPOTENCY_KEY_REUSED` | The provided idempotency key has already been used. |

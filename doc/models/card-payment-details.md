@@ -30,21 +30,17 @@ Reflects the current status of a card payment.
 
 ```json
 {
-  "status": null,
-  "card": null,
-  "entry_method": null,
-  "cvv_status": null,
-  "avs_status": null,
-  "auth_result_code": null,
-  "application_identifier": null,
-  "application_name": null,
-  "application_cryptogram": null,
-  "verification_method": null,
-  "verification_results": null,
-  "statement_description": null,
-  "device_details": null,
-  "refund_requires_card_presence": null,
-  "errors": null
+  "status": "status8",
+  "card": {
+    "id": "id6",
+    "card_brand": "AMERICAN_EXPRESS",
+    "last_4": "last_48",
+    "exp_month": 228,
+    "exp_year": 68
+  },
+  "entry_method": "entry_method6",
+  "cvv_status": "cvv_status8",
+  "avs_status": "avs_status4"
 }
 ```
 

@@ -24,24 +24,24 @@
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "amount_money": {
-    "amount": null,
-    "currency": null
+    "amount": 186,
+    "currency": "NGN"
   },
-  "reference_id": null,
-  "note": null,
+  "reference_id": "reference_id2",
+  "note": "note4",
   "device_options": {
     "device_id": "device_id6",
-    "skip_receipt_screen": null,
-    "tip_settings": null
+    "skip_receipt_screen": false,
+    "tip_settings": {
+      "allow_tipping": false,
+      "separate_tip_screen": false,
+      "custom_tip_field": false
+    }
   },
-  "deadline_duration": null,
-  "status": null,
-  "cancel_reason": null,
-  "payment_ids": null,
-  "created_at": null,
-  "updated_at": null
+  "deadline_duration": "deadline_duration8",
+  "status": "status8"
 }
 ```
 

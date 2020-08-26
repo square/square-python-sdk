@@ -19,6 +19,7 @@ Request object for the [UpdateLocation](#endpoint-updatelocation) endpoint.
   "location": {
     "name": "Updated nickname",
     "description": "Updated description",
+    "facebook_url": "null",
     "twitter_username": "twitter",
     "instagram_username": "instagram",
     "address": {

@@ -15,8 +15,8 @@
 
 ```json
 {
-  "row": null,
-  "column": null
+  "row": "row0",
+  "column": "column4"
 }
 ```
 

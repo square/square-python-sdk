@@ -23,8 +23,10 @@ returns only active team members assigned to either location "A" or "B".
 
 ```json
 {
-  "location_ids": null,
-  "status": null
+  "location_ids": [
+    "location_ids0"
+  ],
+  "status": "ACTIVE"
 }
 ```
 

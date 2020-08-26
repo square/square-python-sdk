@@ -17,8 +17,11 @@ The hourly wage rate used to compensate an employee for this shift.
 
 ```json
 {
-  "title": null,
-  "hourly_rate": null
+  "title": "title4",
+  "hourly_rate": {
+    "amount": 172,
+    "currency": "TJS"
+  }
 }
 ```
 

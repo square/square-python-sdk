@@ -22,12 +22,11 @@ from square.api.inventory_api import InventoryApi
 from square.api.invoices_api import InvoicesApi
 from square.api.labor_api import LaborApi
 from square.api.locations_api import LocationsApi
-from square.api.reporting_api import ReportingApi
 from square.api.checkout_api import CheckoutApi
-from square.api.orders_api import OrdersApi
 from square.api.transactions_api import TransactionsApi
 from square.api.loyalty_api import LoyaltyApi
 from square.api.merchants_api import MerchantsApi
+from square.api.orders_api import OrdersApi
 from square.api.payments_api import PaymentsApi
 from square.api.refunds_api import RefundsApi
 from square.api.subscriptions_api import SubscriptionsApi
@@ -39,11 +38,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '6.2.0.20200812'
+        return '6.3.0.20200826'
 
     @staticmethod
     def square_version():
-        return '2020-08-12'
+        return '2020-08-26'
 
     @lazy_property
     def mobile_authorization(self):
@@ -126,16 +125,8 @@ class Client(object):
         return LocationsApi(self.config)
 
     @lazy_property
-    def reporting(self):
-        return ReportingApi(self.config)
-
-    @lazy_property
     def checkout(self):
         return CheckoutApi(self.config)
-
-    @lazy_property
-    def orders(self):
-        return OrdersApi(self.config)
 
     @lazy_property
     def transactions(self):
@@ -148,6 +139,10 @@ class Client(object):
     @lazy_property
     def merchants(self):
         return MerchantsApi(self.config)
+
+    @lazy_property
+    def orders(self):
+        return OrdersApi(self.config)
 
     @lazy_property
     def payments(self):
@@ -170,7 +165,7 @@ class Client(object):
         return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2020-08-12',
+                 environment='production', square_version='2020-08-26',
                  access_token='TODO: Replace', additional_headers={},
                  config=None):
         if config is None:

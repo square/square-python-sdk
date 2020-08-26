@@ -21,10 +21,10 @@ or more information, see
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "type": "type0",
   "value": "value2",
-  "created_at": null
+  "created_at": "created_at2"
 }
 ```
 

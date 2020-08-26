@@ -18,9 +18,9 @@ Provides metadata when the event `type` is `ADJUST_POINTS`.
 
 ```json
 {
-  "loyalty_program_id": null,
+  "loyalty_program_id": "loyalty_program_id0",
   "points": 236,
-  "reason": null
+  "reason": "reason4"
 }
 ```
 

@@ -21,6 +21,7 @@ the request resulted in errors.
 {
   "shift": {
     "id": "K0YH4CV5462JB",
+    "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
     "employee_id": "ormj0jJJZ5OZIzxrZYJI",
     "location_id": "PAA1RJZZKXBFG",
     "timezone": "America/New_York",

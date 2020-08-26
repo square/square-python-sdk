@@ -29,7 +29,7 @@ def list_employees(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Optional | Filter employees returned to only those that are associated with the specified location. |
+| `location_id` | `string` | Query, Optional | - |
 | `status` | [`str (Employee Status)`](/doc/models/employee-status.md) | Query, Optional | Specifies the EmployeeStatus to filter the employee by. |
 | `limit` | `int` | Query, Optional | The number of employees to be returned on each page. |
 | `cursor` | `string` | Query, Optional | The token required to retrieve the specified page of results. |
@@ -41,7 +41,12 @@ def list_employees(self,
 ### Example Usage
 
 ```python
-result = employees_api.list_employees()
+location_id = 'location_id4'
+status = 'ACTIVE'
+limit = 172
+cursor = 'cursor6'
+
+result = employees_api.list_employees(location_id, status, limit, cursor)
 
 if result.is_success():
     print(result.body)

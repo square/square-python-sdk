@@ -50,7 +50,15 @@ def list_payment_refunds(self,
 ### Example Usage
 
 ```python
-result = refunds_api.list_payment_refunds()
+begin_time = 'begin_time2'
+end_time = 'end_time2'
+sort_order = 'sort_order0'
+cursor = 'cursor6'
+location_id = 'location_id4'
+status = 'status8'
+source_type = 'source_type0'
+
+result = refunds_api.list_payment_refunds(begin_time, end_time, sort_order, cursor, location_id, status, source_type)
 
 if result.is_success():
     print(result.body)
@@ -87,7 +95,11 @@ body['idempotency_key'] = 'a7e36d40-d24b-11e8-b568-0800200c9a66'
 body['amount_money'] = {}
 body['amount_money']['amount'] = 100
 body['amount_money']['currency'] = 'USD'
+body['app_fee_money'] = {}
+body['app_fee_money']['amount'] = 114
+body['app_fee_money']['currency'] = 'GEL'
 body['payment_id'] = 'UNOE3kv2BZwqHlJ830RCt5YCuaB'
+body['reason'] = 'reason8'
 
 result = refunds_api.refund_payment(body)
 

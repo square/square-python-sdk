@@ -359,8 +359,8 @@ class InventoryApi(BaseApi):
         their
         `occurred_at` timestamp (newest first).
         There are no limits on how far back the caller can page. This endpoint
-        is
-        useful when displaying recent changes for a specific item. For more
+        can be 
+        used to display recent changes for a specific item. For more
         sophisticated queries, use a batch endpoint.
 
         Args:

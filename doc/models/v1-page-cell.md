@@ -21,12 +21,11 @@ V1PageCell
 
 ```json
 {
-  "page_id": null,
-  "row": null,
-  "column": null,
-  "object_type": null,
-  "object_id": null,
-  "placeholder_type": null
+  "page_id": "page_id0",
+  "row": 30,
+  "column": 204,
+  "object_type": "ITEM",
+  "object_id": "object_id8"
 }
 ```
 

@@ -18,9 +18,9 @@ V1Category
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "v2_id": null
+  "id": "id0",
+  "name": "name0",
+  "v2_id": "v2_id2"
 }
 ```
 

@@ -25,14 +25,11 @@ added to `ITEM` and `ITEM_VARIATION` type catalog objects.
 
 ```json
 {
-  "name": null,
-  "string_value": null,
-  "custom_attribute_definition_id": null,
-  "type": null,
-  "number_value": null,
-  "boolean_value": null,
-  "selection_uid_values": null,
-  "key": null
+  "name": "name0",
+  "string_value": "string_value4",
+  "custom_attribute_definition_id": "custom_attribute_definition_id2",
+  "type": "NUMBER",
+  "number_value": "number_value0"
 }
 ```
 

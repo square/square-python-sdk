@@ -12,9 +12,9 @@ orders_api = client.orders
 
 * [Create Order](/doc/orders.md#create-order)
 * [Batch Retrieve Orders](/doc/orders.md#batch-retrieve-orders)
-* [Update Order](/doc/orders.md#update-order)
 * [Calculate Order](/doc/orders.md#calculate-order)
 * [Search Orders](/doc/orders.md#search-orders)
+* [Update Order](/doc/orders.md#update-order)
 * [Pay Order](/doc/orders.md#pay-order)
 
 ## Create Order
@@ -32,7 +32,6 @@ To learn more about the Orders API, see the
 
 ```python
 def create_order(self,
-                location_id,
                 body)
 ```
 
@@ -40,7 +39,6 @@ def create_order(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the business location to associate the order with. |
 | `body` | [`Create Order Request`](/doc/models/create-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
@@ -50,10 +48,118 @@ def create_order(self,
 ### Example Usage
 
 ```python
-location_id = 'location_id4'
 body = {}
+body['order'] = {}
+body['order']['id'] = 'id0'
+body['order']['location_id'] = '057P5VYJ4A5X1'
+body['order']['reference_id'] = 'my-order-001'
+body['order']['source'] = {}
+body['order']['source']['name'] = 'name6'
+body['order']['customer_id'] = 'customer_id8'
+body['order']['line_items'] = []
 
-result = orders_api.create_order(location_id, body)
+body['order']['line_items'].append({})
+body['order']['line_items'][0]['uid'] = 'uid1'
+body['order']['line_items'][0]['name'] = 'New York Strip Steak'
+body['order']['line_items'][0]['quantity'] = '1'
+body['order']['line_items'][0]['quantity_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name9'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation1'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_INCH'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit'] = 'METRIC_KILOMETER'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
+body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['note'] = 'note3'
+body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
+body['order']['line_items'][0]['base_price_money'] = {}
+body['order']['line_items'][0]['base_price_money']['amount'] = 1599
+body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
+
+body['order']['line_items'].append({})
+body['order']['line_items'][1]['uid'] = 'uid0'
+body['order']['line_items'][1]['name'] = 'name0'
+body['order']['line_items'][1]['quantity'] = '2'
+body['order']['line_items'][1]['quantity_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name8'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation0'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_ACRE'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit'] = 'IMPERIAL_INCH'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
+body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['note'] = 'note4'
+body['order']['line_items'][1]['catalog_object_id'] = 'BEMYCSMIJL46OCDV4KYIKXIB'
+body['order']['line_items'][1]['modifiers'] = []
+
+body['order']['line_items'][1]['modifiers'].append({})
+body['order']['line_items'][1]['modifiers'][0]['uid'] = 'uid1'
+body['order']['line_items'][1]['modifiers'][0]['catalog_object_id'] = 'CHQX7Y4KY6N5KINJKZCFURPZ'
+body['order']['line_items'][1]['modifiers'][0]['name'] = 'name1'
+body['order']['line_items'][1]['modifiers'][0]['base_price_money'] = {}
+body['order']['line_items'][1]['modifiers'][0]['base_price_money']['amount'] = 53
+body['order']['line_items'][1]['modifiers'][0]['base_price_money']['currency'] = 'TTD'
+body['order']['line_items'][1]['modifiers'][0]['total_price_money'] = {}
+body['order']['line_items'][1]['modifiers'][0]['total_price_money']['amount'] = 51
+body['order']['line_items'][1]['modifiers'][0]['total_price_money']['currency'] = 'EUR'
+
+body['order']['line_items'][1]['applied_discounts'] = []
+
+body['order']['line_items'][1]['applied_discounts'].append({})
+body['order']['line_items'][1]['applied_discounts'][0]['uid'] = 'uid4'
+body['order']['line_items'][1]['applied_discounts'][0]['discount_uid'] = 'one-dollar-off'
+body['order']['line_items'][1]['applied_discounts'][0]['applied_money'] = {}
+body['order']['line_items'][1]['applied_discounts'][0]['applied_money']['amount'] = 164
+body['order']['line_items'][1]['applied_discounts'][0]['applied_money']['currency'] = 'CUC'
+
+
+body['order']['taxes'] = []
+
+body['order']['taxes'].append({})
+body['order']['taxes'][0]['uid'] = 'state-sales-tax'
+body['order']['taxes'][0]['catalog_object_id'] = 'catalog_object_id1'
+body['order']['taxes'][0]['name'] = 'State Sales Tax'
+body['order']['taxes'][0]['type'] = 'UNKNOWN_TAX'
+body['order']['taxes'][0]['percentage'] = '9'
+body['order']['taxes'][0]['scope'] = 'ORDER'
+
+body['order']['discounts'] = []
+
+body['order']['discounts'].append({})
+body['order']['discounts'][0]['uid'] = 'labor-day-sale'
+body['order']['discounts'][0]['catalog_object_id'] = 'catalog_object_id5'
+body['order']['discounts'][0]['name'] = 'Labor Day Sale'
+body['order']['discounts'][0]['type'] = 'FIXED_PERCENTAGE'
+body['order']['discounts'][0]['percentage'] = '5'
+body['order']['discounts'][0]['scope'] = 'ORDER'
+
+body['order']['discounts'].append({})
+body['order']['discounts'][1]['uid'] = 'membership-discount'
+body['order']['discounts'][1]['catalog_object_id'] = 'DB7L55ZH2BGWI4H23ULIWOQ7'
+body['order']['discounts'][1]['name'] = 'name2'
+body['order']['discounts'][1]['type'] = 'FIXED_AMOUNT'
+body['order']['discounts'][1]['percentage'] = 'percentage0'
+body['order']['discounts'][1]['scope'] = 'ORDER'
+
+body['order']['discounts'].append({})
+body['order']['discounts'][2]['uid'] = 'one-dollar-off'
+body['order']['discounts'][2]['catalog_object_id'] = 'catalog_object_id7'
+body['order']['discounts'][2]['name'] = 'Sale - $1.00 off'
+body['order']['discounts'][2]['type'] = 'VARIABLE_PERCENTAGE'
+body['order']['discounts'][2]['percentage'] = 'percentage1'
+body['order']['discounts'][2]['amount_money'] = {}
+body['order']['discounts'][2]['amount_money']['amount'] = 100
+body['order']['discounts'][2]['amount_money']['currency'] = 'USD'
+body['order']['discounts'][2]['scope'] = 'LINE_ITEM'
+
+body['location_id'] = 'location_id0'
+body['idempotency_key'] = '8193148c-9586-11e6-99f9-28cfe92138cf'
+
+result = orders_api.create_order(body)
 
 if result.is_success():
     print(result.body)
@@ -69,7 +175,6 @@ If a given Order ID does not exist, the ID is ignored instead of generating an e
 
 ```python
 def batch_retrieve_orders(self,
-                         location_id,
                          body)
 ```
 
@@ -77,7 +182,6 @@ def batch_retrieve_orders(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the orders' associated location. |
 | `body` | [`Batch Retrieve Orders Request`](/doc/models/batch-retrieve-orders-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
@@ -87,65 +191,11 @@ def batch_retrieve_orders(self,
 ### Example Usage
 
 ```python
-location_id = 'location_id4'
 body = {}
+body['location_id'] = '057P5VYJ4A5X1'
 body['order_ids'] = ['CAISEM82RcpmcFBM0TfOyiHV3es', 'CAISENgvlJ6jLWAzERDzjyHVybY']
 
-result = orders_api.batch_retrieve_orders(location_id, body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
-```
-
-## Update Order
-
-Updates an open [Order](#type-order) by adding, replacing, or deleting
-fields. Orders with a `COMPLETED` or `CANCELED` state cannot be updated.
-
-An UpdateOrder request requires the following:
-
-- The `order_id` in the endpoint path, identifying the order to update.
-- The latest `version` of the order to update.
-- The [sparse order](https://developer.squareup.com/docs/orders-api/manage-orders#sparse-order-objects)
-containing only the fields to update and the version the update is
-being applied to.
-- If deleting fields, the [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-notation)
-identifying fields to clear.
-
-To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders) guide.
-
-To learn more about the Orders API, see the
-[Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
-
-```python
-def update_order(self,
-                location_id,
-                order_id,
-                body)
-```
-
-### Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the order's associated location. |
-| `order_id` | `string` | Template, Required | The ID of the order to update. |
-| `body` | [`Update Order Request`](/doc/models/update-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
-
-### Response Type
-
-[`Update Order Response`](/doc/models/update-order-response.md)
-
-### Example Usage
-
-```python
-location_id = 'location_id4'
-order_id = 'order_id6'
-body = {}
-
-result = orders_api.update_order(location_id, order_id, body)
+result = orders_api.batch_retrieve_orders(body)
 
 if result.is_success():
     print(result.body)
@@ -177,19 +227,50 @@ def calculate_order(self,
 ```python
 body = {}
 body['order'] = {}
+body['order']['id'] = 'id0'
 body['order']['location_id'] = 'D7AVYMEAPJ3A3'
+body['order']['reference_id'] = 'reference_id8'
+body['order']['source'] = {}
+body['order']['source']['name'] = 'name6'
+body['order']['customer_id'] = 'customer_id8'
 body['order']['line_items'] = []
 
 body['order']['line_items'].append({})
+body['order']['line_items'][0]['uid'] = 'uid1'
 body['order']['line_items'][0]['name'] = 'Item 1'
 body['order']['line_items'][0]['quantity'] = '1'
+body['order']['line_items'][0]['quantity_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name9'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation1'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_INCH'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit'] = 'METRIC_KILOMETER'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
+body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['note'] = 'note3'
+body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
 body['order']['line_items'][0]['base_price_money'] = {}
 body['order']['line_items'][0]['base_price_money']['amount'] = 500
 body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 
 body['order']['line_items'].append({})
+body['order']['line_items'][1]['uid'] = 'uid0'
 body['order']['line_items'][1]['name'] = 'Item 2'
 body['order']['line_items'][1]['quantity'] = '2'
+body['order']['line_items'][1]['quantity_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name8'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation0'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_ACRE'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit'] = 'IMPERIAL_INCH'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
+body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['note'] = 'note4'
+body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'
 body['order']['line_items'][1]['base_price_money'] = {}
 body['order']['line_items'][1]['base_price_money']['amount'] = 300
 body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
@@ -197,9 +278,26 @@ body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
 body['order']['discounts'] = []
 
 body['order']['discounts'].append({})
+body['order']['discounts'][0]['uid'] = 'uid1'
+body['order']['discounts'][0]['catalog_object_id'] = 'catalog_object_id5'
 body['order']['discounts'][0]['name'] = '50% Off'
+body['order']['discounts'][0]['type'] = 'FIXED_PERCENTAGE'
 body['order']['discounts'][0]['percentage'] = '50'
 body['order']['discounts'][0]['scope'] = 'ORDER'
+
+body['proposed_rewards'] = []
+
+body['proposed_rewards'].append({})
+body['proposed_rewards'][0]['id'] = 'id6'
+body['proposed_rewards'][0]['reward_tier_id'] = 'reward_tier_id2'
+
+body['proposed_rewards'].append({})
+body['proposed_rewards'][1]['id'] = 'id7'
+body['proposed_rewards'][1]['reward_tier_id'] = 'reward_tier_id3'
+
+body['proposed_rewards'].append({})
+body['proposed_rewards'][2]['id'] = 'id8'
+body['proposed_rewards'][2]['reward_tier_id'] = 'reward_tier_id4'
 
 
 result = orders_api.calculate_order(body)
@@ -250,14 +348,28 @@ def search_orders(self,
 ```python
 body = {}
 body['location_ids'] = ['057P5VYJ4A5X1', '18YC4JDH91E1H']
+body['cursor'] = 'cursor0'
 body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['state_filter'] = {}
 body['query']['filter']['state_filter']['states'] = ['COMPLETED']
 body['query']['filter']['date_time_filter'] = {}
+body['query']['filter']['date_time_filter']['created_at'] = {}
+body['query']['filter']['date_time_filter']['created_at']['start_at'] = 'start_at8'
+body['query']['filter']['date_time_filter']['created_at']['end_at'] = 'end_at4'
+body['query']['filter']['date_time_filter']['updated_at'] = {}
+body['query']['filter']['date_time_filter']['updated_at']['start_at'] = 'start_at6'
+body['query']['filter']['date_time_filter']['updated_at']['end_at'] = 'end_at6'
 body['query']['filter']['date_time_filter']['closed_at'] = {}
 body['query']['filter']['date_time_filter']['closed_at']['start_at'] = '2018-03-03T20:00:00+00:00'
 body['query']['filter']['date_time_filter']['closed_at']['end_at'] = '2019-03-04T21:54:45+00:00'
+body['query']['filter']['fulfillment_filter'] = {}
+body['query']['filter']['fulfillment_filter']['fulfillment_types'] = ['SHIPMENT']
+body['query']['filter']['fulfillment_filter']['fulfillment_states'] = ['CANCELED', 'FAILED']
+body['query']['filter']['source_filter'] = {}
+body['query']['filter']['source_filter']['source_names'] = ['source_names8']
+body['query']['filter']['customer_filter'] = {}
+body['query']['filter']['customer_filter']['customer_ids'] = ['customer_ids5', 'customer_ids6']
 body['query']['sort'] = {}
 body['query']['sort']['sort_field'] = 'CLOSED_AT'
 body['query']['sort']['sort_order'] = 'DESC'
@@ -265,6 +377,102 @@ body['limit'] = 3
 body['return_entries'] = True
 
 result = orders_api.search_orders(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Update Order
+
+Updates an open [Order](#type-order) by adding, replacing, or deleting
+fields. Orders with a `COMPLETED` or `CANCELED` state cannot be updated.
+
+An UpdateOrder request requires the following:
+
+- The `order_id` in the endpoint path, identifying the order to update.
+- The latest `version` of the order to update.
+- The [sparse order](https://developer.squareup.com/docs/orders-api/manage-orders#sparse-order-objects)
+containing only the fields to update and the version the update is
+being applied to.
+- If deleting fields, the [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-notation)
+identifying fields to clear.
+
+To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders) guide.
+
+To learn more about the Orders API, see the
+[Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
+
+```python
+def update_order(self,
+                order_id,
+                body)
+```
+
+### Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `order_id` | `string` | Template, Required | The ID of the order to update. |
+| `body` | [`Update Order Request`](/doc/models/update-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+### Response Type
+
+[`Update Order Response`](/doc/models/update-order-response.md)
+
+### Example Usage
+
+```python
+order_id = 'order_id6'
+body = {}
+body['order'] = {}
+body['order']['id'] = 'id0'
+body['order']['location_id'] = 'location_id4'
+body['order']['reference_id'] = 'reference_id8'
+body['order']['source'] = {}
+body['order']['source']['name'] = 'name6'
+body['order']['customer_id'] = 'customer_id8'
+body['order']['line_items'] = []
+
+body['order']['line_items'].append({})
+body['order']['line_items'][0]['uid'] = 'uid1'
+body['order']['line_items'][0]['name'] = 'name1'
+body['order']['line_items'][0]['quantity'] = 'quantity7'
+body['order']['line_items'][0]['quantity_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit'] = {}
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name9'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation1'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_INCH'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit'] = 'METRIC_KILOMETER'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
+body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
+body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['note'] = 'note3'
+body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
+
+body['order']['line_items'].append({})
+body['order']['line_items'][1]['uid'] = 'uid0'
+body['order']['line_items'][1]['name'] = 'name0'
+body['order']['line_items'][1]['quantity'] = 'quantity6'
+body['order']['line_items'][1]['quantity_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit'] = {}
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name8'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation0'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_ACRE'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit'] = 'IMPERIAL_INCH'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
+body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
+body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['note'] = 'note4'
+body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'
+
+body['fields_to_clear'] = ['fields_to_clear7', 'fields_to_clear8']
+body['idempotency_key'] = 'idempotency_key2'
+
+result = orders_api.update_order(order_id, body)
 
 if result.is_success():
     print(result.body)
@@ -314,6 +522,7 @@ def pay_order(self,
 order_id = 'order_id6'
 body = {}
 body['idempotency_key'] = 'c043a359-7ad9-4136-82a9-c3f1d66dcbff'
+body['order_version'] = 82
 body['payment_ids'] = ['EnZdNAlWCmfh6Mt5FMNST1o7taB', '0LRiVlbXVwe8ozu4KbZxd12mvaB']
 
 result = orders_api.pay_order(order_id, body)

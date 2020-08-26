@@ -14,7 +14,7 @@
 
 ```json
 {
-  "include_related_objects": null
+  "include_related_objects": false
 }
 ```
 

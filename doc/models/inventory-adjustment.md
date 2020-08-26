@@ -33,23 +33,11 @@ particular time and location.
 
 ```json
 {
-  "id": null,
-  "reference_id": null,
-  "from_state": null,
-  "to_state": null,
-  "location_id": null,
-  "catalog_object_id": null,
-  "catalog_object_type": null,
-  "quantity": null,
-  "total_price_money": null,
-  "occurred_at": null,
-  "created_at": null,
-  "source": null,
-  "employee_id": null,
-  "transaction_id": null,
-  "refund_id": null,
-  "purchase_order_id": null,
-  "goods_receipt_id": null
+  "id": "id0",
+  "reference_id": "reference_id2",
+  "from_state": "IN_TRANSIT_TO",
+  "to_state": "SOLD",
+  "location_id": "location_id4"
 }
 ```
 

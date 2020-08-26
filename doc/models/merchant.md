@@ -22,13 +22,12 @@ Represents a Square seller.
 
 ```json
 {
-  "id": null,
-  "business_name": null,
+  "id": "id0",
+  "business_name": "business_name4",
   "country": "FO",
-  "language_code": null,
-  "currency": null,
-  "status": null,
-  "main_location_id": null
+  "language_code": "language_code8",
+  "currency": "YER",
+  "status": "ACTIVE"
 }
 ```
 

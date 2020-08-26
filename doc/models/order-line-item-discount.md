@@ -31,17 +31,11 @@ amount contributed by the item to the order subtotal.
 
 ```json
 {
-  "uid": null,
-  "catalog_object_id": null,
-  "name": null,
-  "type": null,
-  "percentage": null,
-  "amount_money": null,
-  "applied_money": null,
-  "metadata": null,
-  "scope": null,
-  "reward_ids": null,
-  "pricing_rule_id": null
+  "uid": "uid0",
+  "catalog_object_id": "catalog_object_id6",
+  "name": "name0",
+  "type": "UNKNOWN_DISCOUNT",
+  "percentage": "percentage8"
 }
 ```
 

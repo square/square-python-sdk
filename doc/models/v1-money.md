@@ -15,8 +15,8 @@
 
 ```json
 {
-  "amount": null,
-  "currency_code": null
+  "amount": 46,
+  "currency_code": "BTN"
 }
 ```
 

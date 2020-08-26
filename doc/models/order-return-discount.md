@@ -29,15 +29,11 @@ order subtotal.
 
 ```json
 {
-  "uid": null,
-  "source_discount_uid": null,
-  "catalog_object_id": null,
-  "name": null,
-  "type": null,
-  "percentage": null,
-  "amount_money": null,
-  "applied_money": null,
-  "scope": null
+  "uid": "uid0",
+  "source_discount_uid": "source_discount_uid0",
+  "catalog_object_id": "catalog_object_id6",
+  "name": "name0",
+  "type": "UNKNOWN_DISCOUNT"
 }
 ```
 

@@ -1,6 +1,6 @@
 ## Date Range
 
-A range defined by two dates. Used for filtering a query for Connect v2 
+A range defined by two dates. Used for filtering a query for Connect v2
 objects that have date properties.
 
 ### Structure
@@ -18,8 +18,8 @@ objects that have date properties.
 
 ```json
 {
-  "start_date": null,
-  "end_date": null
+  "start_date": "start_date6",
+  "end_date": "end_date0"
 }
 ```
 

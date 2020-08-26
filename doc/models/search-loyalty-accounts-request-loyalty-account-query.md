@@ -16,7 +16,14 @@ The search criteria for the loyalty accounts.
 
 ```json
 {
-  "mappings": null
+  "mappings": [
+    {
+      "id": "id4",
+      "type": "type6",
+      "value": "value6",
+      "created_at": "created_at8"
+    }
+  ]
 }
 ```
 

@@ -27,14 +27,11 @@ contributes to the order subtotal.
 
 ```json
 {
-  "uid": null,
-  "catalog_object_id": null,
-  "name": null,
-  "type": null,
-  "percentage": null,
-  "metadata": null,
-  "applied_money": null,
-  "scope": null
+  "uid": "uid0",
+  "catalog_object_id": "catalog_object_id6",
+  "name": "name0",
+  "type": "INCLUSIVE",
+  "percentage": "percentage8"
 }
 ```
 

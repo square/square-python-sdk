@@ -16,7 +16,7 @@ Additional information for a single-location account specified by its associated
 
 ```json
 {
-  "nickname": null
+  "nickname": "nickname6"
 }
 ```
 

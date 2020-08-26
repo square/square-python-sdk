@@ -23,14 +23,14 @@ V1Discount
 
 ```json
 {
-  "id": null,
-  "name": null,
-  "rate": null,
-  "amount_money": null,
-  "discount_type": null,
-  "pin_required": null,
-  "color": null,
-  "v2_id": null
+  "id": "id0",
+  "name": "name0",
+  "rate": "rate0",
+  "amount_money": {
+    "amount": 186,
+    "currency_code": "KRW"
+  },
+  "discount_type": "VARIABLE_PERCENTAGE"
 }
 ```
 

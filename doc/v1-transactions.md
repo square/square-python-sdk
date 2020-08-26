@@ -118,8 +118,11 @@ def list_orders(self,
 
 ```python
 location_id = 'location_id4'
+order = 'DESC'
+limit = 172
+batch_token = 'batch_token2'
 
-result = v1_transactions_api.list_orders(location_id)
+result = v1_transactions_api.list_orders(location_id, order, limit, batch_token)
 
 if result.is_success():
     print(result.body)
@@ -192,6 +195,10 @@ location_id = 'location_id4'
 order_id = 'order_id6'
 body = {}
 body['action'] = 'REFUND'
+body['shipped_tracking_number'] = 'shipped_tracking_number6'
+body['completed_note'] = 'completed_note6'
+body['refunded_note'] = 'refunded_note0'
+body['canceled_note'] = 'canceled_note4'
 
 result = v1_transactions_api.update_order(location_id, order_id, body)
 
@@ -246,8 +253,14 @@ def list_payments(self,
 
 ```python
 location_id = 'location_id4'
+order = 'DESC'
+begin_time = 'begin_time2'
+end_time = 'end_time2'
+limit = 172
+batch_token = 'batch_token2'
+include_partial = False
 
-result = v1_transactions_api.list_payments(location_id)
+result = v1_transactions_api.list_payments(location_id, order, begin_time, end_time, limit, batch_token, include_partial)
 
 if result.is_success():
     print(result.body)
@@ -323,8 +336,13 @@ def list_refunds(self,
 
 ```python
 location_id = 'location_id4'
+order = 'DESC'
+begin_time = 'begin_time2'
+end_time = 'end_time2'
+limit = 172
+batch_token = 'batch_token2'
 
-result = v1_transactions_api.list_refunds(location_id)
+result = v1_transactions_api.list_refunds(location_id, order, begin_time, end_time, limit, batch_token)
 
 if result.is_success():
     print(result.body)
@@ -372,6 +390,10 @@ body = {}
 body['payment_id'] = 'payment_id6'
 body['type'] = 'FULL'
 body['reason'] = 'reason8'
+body['refunded_money'] = {}
+body['refunded_money']['amount'] = 222
+body['refunded_money']['currency_code'] = 'CLF'
+body['request_idempotence_key'] = 'request_idempotence_key2'
 
 result = v1_transactions_api.create_refund(location_id, body)
 
@@ -421,8 +443,14 @@ def list_settlements(self,
 
 ```python
 location_id = 'location_id4'
+order = 'DESC'
+begin_time = 'begin_time2'
+end_time = 'end_time2'
+limit = 172
+status = 'SENT'
+batch_token = 'batch_token2'
 
-result = v1_transactions_api.list_settlements(location_id)
+result = v1_transactions_api.list_settlements(location_id, order, begin_time, end_time, limit, status, batch_token)
 
 if result.is_success():
     print(result.body)

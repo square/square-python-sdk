@@ -18,9 +18,9 @@ Provides information about the application used to generate a change.
 
 ```json
 {
-  "product": null,
-  "application_id": null,
-  "name": null
+  "product": "SQUARE_POS",
+  "application_id": "application_id4",
+  "name": "name0"
 }
 ```
 

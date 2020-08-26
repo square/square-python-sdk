@@ -17,8 +17,8 @@ V1InventoryEntry
 
 ```json
 {
-  "variation_id": null,
-  "quantity_on_hand": null
+  "variation_id": "variation_id2",
+  "quantity_on_hand": 123.5
 }
 ```
 

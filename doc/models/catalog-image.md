@@ -19,9 +19,9 @@ items, item variations, and categories.
 
 ```json
 {
-  "name": null,
-  "url": null,
-  "caption": null
+  "name": "name0",
+  "url": "url4",
+  "caption": "caption4"
 }
 ```
 

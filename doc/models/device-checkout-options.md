@@ -17,8 +17,12 @@
 ```json
 {
   "device_id": "device_id6",
-  "skip_receipt_screen": null,
-  "tip_settings": null
+  "skip_receipt_screen": false,
+  "tip_settings": {
+    "allow_tipping": false,
+    "separate_tip_screen": false,
+    "custom_tip_field": false
+  }
 }
 ```
 

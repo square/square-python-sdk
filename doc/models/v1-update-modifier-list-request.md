@@ -17,8 +17,8 @@ V1UpdateModifierListRequest
 
 ```json
 {
-  "name": null,
-  "selection_type": null
+  "name": "name0",
+  "selection_type": "SINGLE"
 }
 ```
 

@@ -18,9 +18,12 @@ Represents Square processing fee.
 
 ```json
 {
-  "effective_at": null,
-  "type": null,
-  "amount_money": null
+  "effective_at": "effective_at6",
+  "type": "type0",
+  "amount_money": {
+    "amount": 186,
+    "currency": "NGN"
+  }
 }
 ```
 

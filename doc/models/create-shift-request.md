@@ -19,7 +19,7 @@ Represents a request to create a `Shift`
 {
   "idempotency_key": "HIDSNG5KS478L",
   "shift": {
-    "employee_id": "ormj0jJJZ5OZIzxrZYJI",
+    "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
     "location_id": "PAA1RJZZKXBFG",
     "start_at": "2019-01-25T03:11:00-05:00",
     "end_at": "2019-01-25T13:11:00-05:00",

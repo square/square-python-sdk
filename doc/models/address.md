@@ -30,21 +30,11 @@ Represents a physical address.
 
 ```json
 {
-  "address_line_1": null,
-  "address_line_2": null,
-  "address_line_3": null,
-  "locality": null,
-  "sublocality": null,
-  "sublocality_2": null,
-  "sublocality_3": null,
-  "administrative_district_level_1": null,
-  "administrative_district_level_2": null,
-  "administrative_district_level_3": null,
-  "postal_code": null,
-  "country": null,
-  "first_name": null,
-  "last_name": null,
-  "organization": null
+  "address_line_1": "address_line_10",
+  "address_line_2": "address_line_20",
+  "address_line_3": "address_line_36",
+  "locality": "locality0",
+  "sublocality": "sublocality0"
 }
 ```
 

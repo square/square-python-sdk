@@ -55,7 +55,16 @@ def list_payments(self,
 ### Example Usage
 
 ```python
-result = payments_api.list_payments()
+begin_time = 'begin_time2'
+end_time = 'end_time2'
+sort_order = 'sort_order0'
+cursor = 'cursor6'
+location_id = 'location_id4'
+total = 10
+last_4 = 'last_42'
+card_brand = 'card_brand6'
+
+result = payments_api.list_payments(begin_time, end_time, sort_order, cursor, location_id, total, last_4, card_brand)
 
 if result.is_success():
     print(result.body)
@@ -103,10 +112,15 @@ body['idempotency_key'] = '4935a656-a929-4792-b97c-8848be85c27c'
 body['amount_money'] = {}
 body['amount_money']['amount'] = 200
 body['amount_money']['currency'] = 'USD'
+body['tip_money'] = {}
+body['tip_money']['amount'] = 198
+body['tip_money']['currency'] = 'CHF'
 body['app_fee_money'] = {}
 body['app_fee_money']['amount'] = 10
 body['app_fee_money']['currency'] = 'USD'
+body['delay_duration'] = 'delay_duration6'
 body['autocomplete'] = True
+body['order_id'] = 'order_id0'
 body['customer_id'] = 'VDKXEEKPJN48QDG3BGGFAK05P8'
 body['location_id'] = 'XK3DBG77NJBFX'
 body['reference_id'] = '123456'

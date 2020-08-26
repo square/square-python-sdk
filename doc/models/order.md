@@ -40,6 +40,7 @@ itemization data.
 | `total_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `total_tax_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `total_discount_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+| `total_tip_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `total_service_charge_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `pricing_options` | [`Order Pricing Options`](/doc/models/order-pricing-options.md) | Optional | Pricing options for an order. The options affect how the order's price is calculated.<br>They can be used, for example, to apply automatic price adjustments that are based on pre-configured<br>[pricing rules](https://developer.squareup.com/docs/reference/square/objects/CatalogPricingRule). |
 | `rewards` | [`List of Order Reward`](/doc/models/order-reward.md) | Optional | A set-like list of rewards that have been added to the order. |
@@ -48,34 +49,75 @@ itemization data.
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "location_id": "location_id4",
-  "reference_id": null,
-  "source": null,
-  "customer_id": null,
-  "line_items": null,
-  "taxes": null,
-  "discounts": null,
-  "service_charges": null,
-  "fulfillments": null,
-  "returns": null,
-  "return_amounts": null,
-  "net_amounts": null,
-  "rounding_adjustment": null,
-  "tenders": null,
-  "refunds": null,
-  "metadata": null,
-  "created_at": null,
-  "updated_at": null,
-  "closed_at": null,
-  "state": null,
-  "version": null,
-  "total_money": null,
-  "total_tax_money": null,
-  "total_discount_money": null,
-  "total_service_charge_money": null,
-  "pricing_options": null,
-  "rewards": null
+  "reference_id": "reference_id2",
+  "source": {
+    "name": "name4"
+  },
+  "customer_id": "customer_id8",
+  "line_items": [
+    {
+      "uid": "uid9",
+      "name": "name9",
+      "quantity": "quantity5",
+      "quantity_unit": {
+        "measurement_unit": {
+          "custom_unit": {
+            "name": "name7",
+            "abbreviation": "abbreviation9"
+          },
+          "area_unit": "IMPERIAL_SQUARE_YARD",
+          "length_unit": "METRIC_CENTIMETER",
+          "volume_unit": "GENERIC_PINT",
+          "weight_unit": "METRIC_KILOGRAM"
+        },
+        "precision": 199
+      },
+      "note": "note5",
+      "catalog_object_id": "catalog_object_id7"
+    },
+    {
+      "uid": "uid0",
+      "name": "name0",
+      "quantity": "quantity6",
+      "quantity_unit": {
+        "measurement_unit": {
+          "custom_unit": {
+            "name": "name8",
+            "abbreviation": "abbreviation0"
+          },
+          "area_unit": "IMPERIAL_SQUARE_MILE",
+          "length_unit": "METRIC_MILLIMETER",
+          "volume_unit": "GENERIC_QUART",
+          "weight_unit": "METRIC_GRAM"
+        },
+        "precision": 200
+      },
+      "note": "note6",
+      "catalog_object_id": "catalog_object_id6"
+    },
+    {
+      "uid": "uid1",
+      "name": "name1",
+      "quantity": "quantity7",
+      "quantity_unit": {
+        "measurement_unit": {
+          "custom_unit": {
+            "name": "name9",
+            "abbreviation": "abbreviation1"
+          },
+          "area_unit": "METRIC_SQUARE_CENTIMETER",
+          "length_unit": "IMPERIAL_MILE",
+          "volume_unit": "GENERIC_GALLON",
+          "weight_unit": "METRIC_MILLIGRAM"
+        },
+        "precision": 201
+      },
+      "note": "note7",
+      "catalog_object_id": "catalog_object_id5"
+    }
+  ]
 }
 ```
 

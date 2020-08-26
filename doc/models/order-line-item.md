@@ -33,23 +33,24 @@ product to purchase, with its own quantity and price details.
 
 ```json
 {
-  "uid": null,
-  "name": null,
+  "uid": "uid0",
+  "name": "name0",
   "quantity": "quantity6",
-  "quantity_unit": null,
-  "note": null,
-  "catalog_object_id": null,
-  "variation_name": null,
-  "metadata": null,
-  "modifiers": null,
-  "applied_taxes": null,
-  "applied_discounts": null,
-  "base_price_money": null,
-  "variation_total_price_money": null,
-  "gross_sales_money": null,
-  "total_tax_money": null,
-  "total_discount_money": null,
-  "total_money": null
+  "quantity_unit": {
+    "measurement_unit": {
+      "custom_unit": {
+        "name": "name8",
+        "abbreviation": "abbreviation0"
+      },
+      "area_unit": "IMPERIAL_SQUARE_FOOT",
+      "length_unit": "METRIC_METER",
+      "volume_unit": "GENERIC_CUP",
+      "weight_unit": "IMPERIAL_WEIGHT_OUNCE"
+    },
+    "precision": 54
+  },
+  "note": "note4",
+  "catalog_object_id": "catalog_object_id6"
 }
 ```
 

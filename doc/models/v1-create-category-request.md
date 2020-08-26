@@ -14,7 +14,11 @@
 
 ```json
 {
-  "body": null
+  "body": {
+    "id": "id6",
+    "name": "name6",
+    "v2_id": "v2_id6"
+  }
 }
 ```
 

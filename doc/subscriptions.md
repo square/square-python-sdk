@@ -24,10 +24,9 @@ Creates a subscription for a customer to a subscription plan.
 If you provide a card on file in the request, Square charges the card for 
 the subscription. Otherwise, Square bills an invoice to the customer's email 
 address. The subscription starts immediately, unless the request includes 
-the optional `start_date`. Each individual subscription is associated with a particular location. 
+the optional `start_date`. Each individual subscription is associated with a particular location.
 
-For more information, 
-see [Subscription API Overview](https://developer.squareup.com/docs/docs/subscriptions-api/overview).
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#create-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#create-subscriptions)
 
 ```python
 def create_subscription(self,
@@ -53,6 +52,7 @@ body['location_id'] = 'S8GWD5R9QB376'
 body['plan_id'] = '6JHXF3B2CW3YKHDV4XEM674H'
 body['customer_id'] = 'CHFGVKYY8RSV93M5KCYTG4PN0G'
 body['start_date'] = '2020-08-01'
+body['canceled_date'] = 'canceled_date0'
 body['tax_percentage'] = '5'
 body['price_override_money'] = {}
 body['price_override_money']['amount'] = 100
@@ -87,6 +87,8 @@ customer by subscription creation date.
 For more information, see 
 [Retrieve subscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#retrieve-subscriptions).
 
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions)
+
 ```python
 def search_subscriptions(self,
                         body)
@@ -106,6 +108,8 @@ def search_subscriptions(self,
 
 ```python
 body = {}
+body['cursor'] = 'cursor0'
+body['limit'] = 164
 body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['customer_ids'] = ['CHFGVKYY8RSV93M5KCYTG4PN0G']
@@ -122,6 +126,8 @@ elif result.is_error():
 ## Retrieve Subscription
 
 Retrieves a subscription.
+
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions)
 
 ```python
 def retrieve_subscription(self,
@@ -154,8 +160,9 @@ elif result.is_error():
 ## Update Subscription
 
 Updates a subscription. You can set, modify, and clear the 
-`subscription` field values. For more information and examples, see 
-[Update subscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#update-subscriptions).
+`subscription` field values.
+
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#update-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#update-subscriptions)
 
 ```python
 def update_subscription(self,
@@ -180,6 +187,12 @@ def update_subscription(self,
 subscription_id = 'subscription_id0'
 body = {}
 body['subscription'] = {}
+body['subscription']['id'] = 'id8'
+body['subscription']['location_id'] = 'location_id2'
+body['subscription']['plan_id'] = 'plan_id0'
+body['subscription']['customer_id'] = 'customer_id6'
+body['subscription']['start_date'] = 'start_date2'
+body['subscription']['tax_percentage'] = 'null'
 body['subscription']['price_override_money'] = {}
 body['subscription']['price_override_money']['amount'] = 2000
 body['subscription']['price_override_money']['currency'] = 'USD'
@@ -195,11 +208,10 @@ elif result.is_error():
 
 ## Cancel Subscription
 
-Cancels a subscription immediately and sets the subscription
-`status` to `CANCELED`. You can also use the `UpdateSubscription`
-endpoint to cancel a subscription at a future date. For more
-information, see
-[CancelSubscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#cancel-subscriptions).
+Sets the `canceled_date` field to the end of the active billing period.
+After this date, the status changes from ACTIVE to CANCELED.
+
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#cancel-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#cancel-subscriptions)
 
 ```python
 def cancel_subscription(self,
@@ -234,6 +246,8 @@ elif result.is_error():
 Lists all events for a specific subscription.
 In the current implementation, only `START_SUBSCRIPTION` and `STOP_SUBSCRIPTION` (when the subscription was canceled) events are returned.
 
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#subscription-events](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-events)
+
 ```python
 def list_subscription_events(self,
                             subscription_id,
@@ -257,8 +271,10 @@ def list_subscription_events(self,
 
 ```python
 subscription_id = 'subscription_id0'
+cursor = 'cursor6'
+limit = 172
 
-result = subscriptions_api.list_subscription_events(subscription_id)
+result = subscriptions_api.list_subscription_events(subscription_id, cursor, limit)
 
 if result.is_success():
     print(result.body)

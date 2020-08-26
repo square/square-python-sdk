@@ -15,8 +15,8 @@
 
 ```json
 {
-  "cursor": null,
-  "types": null
+  "cursor": "cursor6",
+  "types": "types6"
 }
 ```
 

@@ -32,16 +32,33 @@ For more information, see [Loyalty events](https://developer.squareup.com/docs/d
   "id": "id0",
   "type": "EXPIRE_POINTS",
   "created_at": "created_at2",
-  "accumulate_points": null,
-  "create_reward": null,
-  "redeem_reward": null,
-  "delete_reward": null,
-  "adjust_points": null,
+  "accumulate_points": {
+    "loyalty_program_id": "loyalty_program_id8",
+    "points": 118,
+    "order_id": "order_id8"
+  },
+  "create_reward": {
+    "loyalty_program_id": "loyalty_program_id2",
+    "reward_id": "reward_id6",
+    "points": 90
+  },
+  "redeem_reward": {
+    "loyalty_program_id": "loyalty_program_id8",
+    "reward_id": "reward_id2",
+    "order_id": "order_id8"
+  },
+  "delete_reward": {
+    "loyalty_program_id": "loyalty_program_id4",
+    "reward_id": "reward_id8",
+    "points": 104
+  },
+  "adjust_points": {
+    "loyalty_program_id": "loyalty_program_id2",
+    "points": 96,
+    "reason": "reason2"
+  },
   "loyalty_account_id": "loyalty_account_id0",
-  "location_id": null,
-  "source": "SQUARE",
-  "expire_points": null,
-  "other_event": null
+  "source": "SQUARE"
 }
 ```
 

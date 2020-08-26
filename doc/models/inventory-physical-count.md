@@ -29,17 +29,11 @@ hand or from syncing with an external system.
 
 ```json
 {
-  "id": null,
-  "reference_id": null,
-  "catalog_object_id": null,
-  "catalog_object_type": null,
-  "state": null,
-  "location_id": null,
-  "quantity": null,
-  "source": null,
-  "employee_id": null,
-  "occurred_at": null,
-  "created_at": null
+  "id": "id0",
+  "reference_id": "reference_id2",
+  "catalog_object_id": "catalog_object_id6",
+  "catalog_object_type": "catalog_object_type6",
+  "state": "IN_TRANSIT_TO"
 }
 ```
 

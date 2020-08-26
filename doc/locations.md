@@ -67,13 +67,20 @@ def create_location(self,
 ```python
 body = {}
 body['location'] = {}
+body['location']['id'] = 'id0'
 body['location']['name'] = 'New location name'
 body['location']['address'] = {}
 body['location']['address']['address_line_1'] = '1234 Peachtree St. NE'
+body['location']['address']['address_line_2'] = 'address_line_26'
+body['location']['address']['address_line_3'] = 'address_line_32'
 body['location']['address']['locality'] = 'Atlanta'
+body['location']['address']['sublocality'] = 'sublocality6'
 body['location']['address']['administrative_district_level_1'] = 'GA'
 body['location']['address']['postal_code'] = '30309'
+body['location']['timezone'] = 'timezone0'
+body['location']['capabilities'] = ['CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING']
 body['location']['description'] = 'My new location.'
+body['location']['facebook_url'] = 'null'
 
 result = locations_api.create_location(body)
 
@@ -145,12 +152,18 @@ def update_location(self,
 location_id = 'location_id4'
 body = {}
 body['location'] = {}
+body['location']['id'] = 'id0'
 body['location']['name'] = 'Updated nickname'
 body['location']['address'] = {}
 body['location']['address']['address_line_1'] = '1234 Peachtree St. NE'
+body['location']['address']['address_line_2'] = 'address_line_26'
+body['location']['address']['address_line_3'] = 'address_line_32'
 body['location']['address']['locality'] = 'Atlanta'
+body['location']['address']['sublocality'] = 'sublocality6'
 body['location']['address']['administrative_district_level_1'] = 'GA'
 body['location']['address']['postal_code'] = '30309'
+body['location']['timezone'] = 'timezone0'
+body['location']['capabilities'] = ['CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING']
 body['location']['business_hours'] = {}
 body['location']['business_hours']['periods'] = []
 
@@ -162,6 +175,7 @@ body['location']['business_hours']['periods'][0]['end_local_time'] = '17:00'
 body['location']['description'] = 'Updated description'
 body['location']['twitter_username'] = 'twitter'
 body['location']['instagram_username'] = 'instagram'
+body['location']['facebook_url'] = 'null'
 
 result = locations_api.update_location(location_id, body)
 

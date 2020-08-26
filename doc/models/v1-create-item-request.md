@@ -14,7 +14,13 @@
 
 ```json
 {
-  "body": null
+  "body": {
+    "id": "id6",
+    "name": "name6",
+    "description": "description4",
+    "type": "GIFT_CARD",
+    "color": "593c00"
+  }
 }
 ```
 

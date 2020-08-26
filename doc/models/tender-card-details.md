@@ -18,9 +18,15 @@ Represents additional details of a tender with `type` `CARD` or `SQUARE_GIFT_CAR
 
 ```json
 {
-  "status": null,
-  "card": null,
-  "entry_method": null
+  "status": "AUTHORIZED",
+  "card": {
+    "id": "id6",
+    "card_brand": "AMERICAN_EXPRESS",
+    "last_4": "last_48",
+    "exp_month": 228,
+    "exp_year": 68
+  },
+  "entry_method": "KEYED"
 }
 ```
 

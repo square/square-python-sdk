@@ -20,6 +20,7 @@ request.
 {
   "subscription": {
     "version": 1594155459464,
+    "tax_percentage": "null",
     "price_override_money": {
       "amount": 2000,
       "currency": "USD"

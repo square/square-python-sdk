@@ -27,18 +27,14 @@ Represents a service charge applied to an order.
 
 ```json
 {
-  "uid": null,
-  "name": null,
-  "catalog_object_id": null,
-  "percentage": null,
-  "amount_money": null,
-  "applied_money": null,
-  "total_money": null,
-  "total_tax_money": null,
-  "calculation_phase": null,
-  "taxable": null,
-  "applied_taxes": null,
-  "metadata": null
+  "uid": "uid0",
+  "name": "name0",
+  "catalog_object_id": "catalog_object_id6",
+  "percentage": "percentage8",
+  "amount_money": {
+    "amount": 186,
+    "currency": "NGN"
+  }
 }
 ```
 

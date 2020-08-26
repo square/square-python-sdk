@@ -22,6 +22,7 @@ Represents a tender (i.e., a method of payment) used in a Square transaction.
 | `type` | [`str (Tender Type)`](/doc/models/tender-type.md) |  | Indicates a tender's type. |
 | `card_details` | [`Tender Card Details`](/doc/models/tender-card-details.md) | Optional | Represents additional details of a tender with `type` `CARD` or `SQUARE_GIFT_CARD` |
 | `cash_details` | [`Tender Cash Details`](/doc/models/tender-cash-details.md) | Optional | Represents the details of a tender with `type` `CASH`. |
+| `bank_transfer_details` | [`Tender Bank Transfer Details`](/doc/models/tender-bank-transfer-details.md) | Optional | Represents the details of a tender with `type` `BANK_TRANSFER`.<br><br>See [PaymentBankTransferDetails](#type-paymentbanktransferdetails) for more exposed details of a bank transfer payment. |
 | `additional_recipients` | [`List of Additional Recipient`](/doc/models/additional-recipient.md) | Optional | Additional recipients (other than the merchant) receiving a portion of this tender.<br>For example, fees assessed on the purchase by a third party integration. |
 | `payment_id` | `string` | Optional | The ID of the [Payment](#type-payment) that corresponds to this tender.<br>This value is only present for payments created with the v2 Payments API. |
 
@@ -29,20 +30,12 @@ Represents a tender (i.e., a method of payment) used in a Square transaction.
 
 ```json
 {
-  "id": null,
-  "location_id": null,
-  "transaction_id": null,
-  "created_at": null,
-  "note": null,
-  "amount_money": null,
-  "tip_money": null,
-  "processing_fee_money": null,
-  "customer_id": null,
-  "type": "THIRD_PARTY_CARD",
-  "card_details": null,
-  "cash_details": null,
-  "additional_recipients": null,
-  "payment_id": null
+  "id": "id0",
+  "location_id": "location_id4",
+  "transaction_id": "transaction_id8",
+  "created_at": "created_at2",
+  "note": "note4",
+  "type": "BANK_TRANSFER"
 }
 ```
 

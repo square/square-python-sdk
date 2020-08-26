@@ -16,7 +16,7 @@ Request object for the [ListMerchant](#endpoint-listmerchant) endpoint.
 
 ```json
 {
-  "cursor": null
+  "cursor": 210
 }
 ```
 

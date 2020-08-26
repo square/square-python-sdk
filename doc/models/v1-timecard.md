@@ -27,18 +27,12 @@ Represents a timecard for an employee.
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "employee_id": "employee_id0",
-  "deleted": null,
-  "clockin_time": null,
-  "clockout_time": null,
-  "clockin_location_id": null,
-  "clockout_location_id": null,
-  "created_at": null,
-  "updated_at": null,
-  "regular_seconds_worked": null,
-  "overtime_seconds_worked": null,
-  "doubletime_seconds_worked": null
+  "deleted": false,
+  "clockin_time": "clockin_time6",
+  "clockout_time": "clockout_time4",
+  "clockin_location_id": "clockin_location_id8"
 }
 ```
 

@@ -27,18 +27,11 @@ Represents the service charge applied to the original order.
 
 ```json
 {
-  "uid": null,
-  "source_service_charge_uid": null,
-  "name": null,
-  "catalog_object_id": null,
-  "percentage": null,
-  "amount_money": null,
-  "applied_money": null,
-  "total_money": null,
-  "total_tax_money": null,
-  "calculation_phase": null,
-  "taxable": null,
-  "applied_taxes": null
+  "uid": "uid0",
+  "source_service_charge_uid": "source_service_charge_uid6",
+  "name": "name0",
+  "catalog_object_id": "catalog_object_id6",
+  "percentage": "percentage8"
 }
 ```
 

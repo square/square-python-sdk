@@ -15,16 +15,16 @@
 ```json
 {
   "body": {
-    "id": null,
+    "id": "id6",
     "name": "name6",
     "permissions": [
       "REGISTER_APPLY_RESTRICTED_DISCOUNTS",
       "REGISTER_CHANGE_SETTINGS",
       "REGISTER_EDIT_ITEM"
     ],
-    "is_owner": null,
-    "created_at": null,
-    "updated_at": null
+    "is_owner": false,
+    "created_at": "created_at4",
+    "updated_at": "updated_at8"
   }
 }
 ```

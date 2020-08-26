@@ -18,9 +18,9 @@ V1AdjustInventoryRequest
 
 ```json
 {
-  "quantity_delta": null,
-  "adjustment_type": null,
-  "memo": null
+  "quantity_delta": 223.58,
+  "adjustment_type": "MANUAL_ADJUST",
+  "memo": "memo4"
 }
 ```
 
