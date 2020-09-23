@@ -22,9 +22,6 @@ class InvoicesApi(BaseApi):
         Returns a list of invoices for a given location. The response 
         is paginated. If truncated, the response includes a `cursor` that you 
                 use in a subsequent request to fetch the next set of invoices.
-        For more information about retrieving invoices, see [Retrieve
-        invoices](https://developer.squareup.com/docs/docs/invoices-api/overvie
-        w#retrieve-invoices).
 
         Args:
             location_id (string): The ID of the location for which to list
@@ -91,9 +88,7 @@ class InvoicesApi(BaseApi):
         for an order created using the Orders API.
         A draft invoice remains in your account and no action is taken. 
         You must publish the invoice before Square can process it (send it to
-        the customer's email address or charge the customer’s card on file). 
-        For more information, see [Manage Invoices Using the Invoices
-        API](https://developer.squareup.com/docs/docs/invoices-api/overview).
+        the customer's email address or charge the customer’s card on file).
 
         Args:
             body (CreateInvoiceRequest): An object containing the fields to
@@ -149,10 +144,7 @@ class InvoicesApi(BaseApi):
         The response is paginated. If truncated, the response includes a
         `cursor` 
         that you use in a subsequent request to fetch the next set of
-        invoices. 
-        For more information about retrieving invoices, see [Retrieve
-        invoices](https://developer.squareup.com/docs/docs/invoices-api/overvie
-        w#retrieve-invoices).
+        invoices.
 
         Args:
             body (SearchInvoicesRequest): An object containing the fields to
@@ -315,10 +307,7 @@ class InvoicesApi(BaseApi):
         or both 
         as specified in the request. 
         There are no restrictions to updating an invoice in a draft state. 
-        However, there are guidelines for updating a published invoice. 
-        For more information, see [Update an
-        invoice](https://developer.squareup.com/docs/docs/invoices-api/overview
-        #update-an-invoice).
+        However, there are guidelines for updating a published invoice.
 
         Args:
             invoice_id (string): The id of the invoice to update.
@@ -439,10 +428,6 @@ class InvoicesApi(BaseApi):
         Square emails the invoice or `PARTIALLY_PAID` if Square charge a card
         on file for a portion of the 
         invoice amount).
-        For more information, see 
-        [Create and publish an
-        invoice](https://developer.squareup.com/docs/docs/invoices-api/overview
-        #create-and-publish-an-invoice).
 
         Args:
             invoice_id (string): The id of the invoice to publish.

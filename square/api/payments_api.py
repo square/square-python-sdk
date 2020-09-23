@@ -21,7 +21,8 @@ class PaymentsApi(BaseApi):
                       location_id=None,
                       total=None,
                       last_4=None,
-                      card_brand=None):
+                      card_brand=None,
+                      limit=None):
         """Does a GET request to /v2/payments.
 
         Retrieves a list of payments taken by the account making the request.
@@ -43,13 +44,18 @@ class PaymentsApi(BaseApi):
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination) for more information.
             location_id (string, optional): Limit results to the location
-                supplied. By default, results are returned for all locations
-                associated with the merchant.
+                supplied. By default, results are returned for the default
+                (main) location associated with the merchant.
             total (long|int, optional): The exact amount in the total_money
                 for a `Payment`.
             last_4 (string, optional): The last 4 digits of `Payment` card.
             card_brand (string, optional): The brand of `Payment` card. For
                 example, `VISA`
+            limit (int, optional): Maximum number of results to be returned in
+                a single page. It is possible to receive fewer results than
+                the specified limit on a given page.  If the supplied value is
+                greater than 100, at most 100 results will be returned. 
+                Default: `100`
 
         Returns:
             ListPaymentsResponse: Response from the API. Success
@@ -74,7 +80,8 @@ class PaymentsApi(BaseApi):
             'location_id': location_id,
             'total': total,
             'last_4': last_4,
-            'card_brand': card_brand
+            'card_brand': card_brand,
+            'limit': limit
         }
         _query_builder = APIHelper.append_url_with_query_parameters(
             _query_builder,
@@ -113,10 +120,6 @@ class PaymentsApi(BaseApi):
         For example, tip money, whether to autocomplete the payment, or a
         reference ID
         to correlate this payment with another system. 
-        For more information about these 
-        payment options, see [Take
-        Payments](https://developer.squareup.com/docs/payments-api/take-payment
-        s).
         The `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is
         required
         to enable application fees.
@@ -278,11 +281,7 @@ class PaymentsApi(BaseApi):
 
         Cancels (voids) a payment. If you set `autocomplete` to false when
         creating a payment, 
-        you can cancel the payment using this endpoint. For more information,
-        see 
-        [Delayed
-        Payments](https://developer.squareup.com/docs/payments-api/take-payment
-        s#delayed-payments).
+        you can cancel the payment using this endpoint.
 
         Args:
             payment_id (string): `payment_id` identifying the payment to be
@@ -335,10 +334,7 @@ class PaymentsApi(BaseApi):
         created. 
         If you set autocomplete to false when creating a payment, you can
         complete (capture) 
-        the payment using this endpoint. For more information, see
-        [Delayed
-        Payments](https://developer.squareup.com/docs/payments-api/take-payment
-        s#delayed-payments).
+        the payment using this endpoint.
 
         Args:
             payment_id (string): Unique ID identifying the payment to be

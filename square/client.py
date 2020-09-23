@@ -38,11 +38,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '6.3.0.20200826'
+        return '6.4.0.20200923'
 
     @staticmethod
     def square_version():
-        return '2020-08-26'
+        return '2020-09-23'
 
     @lazy_property
     def mobile_authorization(self):
@@ -165,7 +165,7 @@ class Client(object):
         return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2020-08-26',
+                 environment='production', square_version='2020-09-23',
                  access_token='TODO: Replace', additional_headers={},
                  config=None):
         if config is None:
