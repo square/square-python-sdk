@@ -32,7 +32,8 @@ def list_payments(self,
                  location_id=None,
                  total=None,
                  last_4=None,
-                 card_brand=None)
+                 card_brand=None,
+                 limit=None)
 ```
 
 ### Parameters
@@ -43,10 +44,11 @@ def list_payments(self,
 | `end_time` | `string` | Query, Optional | Timestamp for the end of the requested reporting period, in RFC 3339 format.<br><br>Default: The current time. |
 | `sort_order` | `string` | Query, Optional | The order in which results are listed.<br>- `ASC` - oldest to newest<br>- `DESC` - newest to oldest (default). |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `location_id` | `string` | Query, Optional | Limit results to the location supplied. By default, results are returned<br>for all locations associated with the merchant. |
+| `location_id` | `string` | Query, Optional | Limit results to the location supplied. By default, results are returned<br>for the default (main) location associated with the merchant. |
 | `total` | `long|int` | Query, Optional | The exact amount in the total_money for a `Payment`. |
 | `last_4` | `string` | Query, Optional | The last 4 digits of `Payment` card. |
 | `card_brand` | `string` | Query, Optional | The brand of `Payment` card. For example, `VISA` |
+| `limit` | `int` | Query, Optional | Maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br><br>If the supplied value is greater than 100, at most 100 results will be returned.<br><br>Default: `100` |
 
 ### Response Type
 
@@ -63,8 +65,9 @@ location_id = 'location_id4'
 total = 10
 last_4 = 'last_42'
 card_brand = 'card_brand6'
+limit = 172
 
-result = payments_api.list_payments(begin_time, end_time, sort_order, cursor, location_id, total, last_4, card_brand)
+result = payments_api.list_payments(begin_time, end_time, sort_order, cursor, location_id, total, last_4, card_brand, limit)
 
 if result.is_success():
     print(result.body)
@@ -82,11 +85,11 @@ amount to accept for the payment.
 There are several optional parameters that you can include in the request. 
 For example, tip money, whether to autocomplete the payment, or a reference ID
 to correlate this payment with another system. 
-For more information about these 
-payment options, see [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
 
 The `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is required
 to enable application fees.
+
+Take Payments: [https://developer.squareup.com/docs/payments-api/take-payments](https://developer.squareup.com/docs/payments-api/take-payments)
 
 ```python
 def create_payment(self,
@@ -212,8 +215,9 @@ elif result.is_error():
 ## Cancel Payment
 
 Cancels (voids) a payment. If you set `autocomplete` to false when creating a payment, 
-you can cancel the payment using this endpoint. For more information, see 
-[Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
+you can cancel the payment using this endpoint.
+
+Delayed capture: [https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments)
 
 ```python
 def cancel_payment(self,
@@ -249,8 +253,9 @@ Completes (captures) a payment.
 
 By default, payments are set to complete immediately after they are created. 
 If you set autocomplete to false when creating a payment, you can complete (capture) 
-the payment using this endpoint. For more information, see
-[Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
+the payment using this endpoint.
+
+Delayed capture: [https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments)
 
 ```python
 def complete_payment(self,

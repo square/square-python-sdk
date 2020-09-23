@@ -28,7 +28,8 @@ def list_payment_refunds(self,
                         cursor=None,
                         location_id=None,
                         status=None,
-                        source_type=None)
+                        source_type=None,
+                        limit=None)
 ```
 
 ### Parameters
@@ -42,6 +43,7 @@ def list_payment_refunds(self,
 | `location_id` | `string` | Query, Optional | Limit results to the location supplied. By default, results are returned<br>for all locations associated with the merchant. |
 | `status` | `string` | Query, Optional | If provided, only refunds with the given status are returned.<br>For a list of refund status values, see [PaymentRefund](#type-paymentrefund).<br><br>Default: If omitted refunds are returned regardless of status. |
 | `source_type` | `string` | Query, Optional | If provided, only refunds with the given source type are returned.<br>- `CARD` - List refunds only for payments where card was specified as payment<br>source.<br><br>Default: If omitted refunds are returned regardless of source type. |
+| `limit` | `int` | Query, Optional | Maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br><br>If the supplied value is greater than 100, at most 100 results will be returned.<br><br>Default: `100` |
 
 ### Response Type
 
@@ -57,8 +59,9 @@ cursor = 'cursor6'
 location_id = 'location_id4'
 status = 'status8'
 source_type = 'source_type0'
+limit = 172
 
-result = refunds_api.list_payment_refunds(begin_time, end_time, sort_order, cursor, location_id, status, source_type)
+result = refunds_api.list_payment_refunds(begin_time, end_time, sort_order, cursor, location_id, status, source_type, limit)
 
 if result.is_success():
     print(result.body)
@@ -69,8 +72,9 @@ elif result.is_error():
 ## Refund Payment
 
 Refunds a payment. You can refund the entire payment amount or a 
-portion of it. For more information, see 
-[Payments and Refunds Overview](https://developer.squareup.com/docs/payments-api/overview).
+portion of it.
+
+Refund a payment: [https://developer.squareup.com/docs/payments-api/refund-payments#refund-a-payment](https://developer.squareup.com/docs/payments-api/refund-payments#refund-a-payment)
 
 ```python
 def refund_payment(self,
@@ -112,6 +116,8 @@ elif result.is_error():
 ## Get Payment Refund
 
 Retrieves a specific `Refund` using the `refund_id`.
+
+Retrieve refund information: [https://developer.squareup.com/docs/payments-api/refund-payments#retrieve-refund-information](https://developer.squareup.com/docs/payments-api/refund-payments#retrieve-refund-information)
 
 ```python
 def get_payment_refund(self,

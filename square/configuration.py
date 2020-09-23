@@ -41,7 +41,7 @@ class Configuration(object):
         return deepcopy(self._additional_headers)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2020-08-26',
+                 environment='production', square_version='2020-09-23',
                  access_token='TODO: Replace', additional_headers={}):
         # The value to use for connection timeout
         self._timeout = timeout

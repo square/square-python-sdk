@@ -20,7 +20,8 @@ class RefundsApi(BaseApi):
                              cursor=None,
                              location_id=None,
                              status=None,
-                             source_type=None):
+                             source_type=None,
+                             limit=None):
         """Does a GET request to /v2/refunds.
 
         Retrieves a list of refunds for the account making the request.
@@ -53,6 +54,11 @@ class RefundsApi(BaseApi):
                 for payments where card was specified as payment source. 
                 Default: If omitted refunds are returned regardless of source
                 type.
+            limit (int, optional): Maximum number of results to be returned in
+                a single page. It is possible to receive fewer results than
+                the specified limit on a given page.  If the supplied value is
+                greater than 100, at most 100 results will be returned. 
+                Default: `100`
 
         Returns:
             ListPaymentRefundsResponse: Response from the API. Success
@@ -76,7 +82,8 @@ class RefundsApi(BaseApi):
             'cursor': cursor,
             'location_id': location_id,
             'status': status,
-            'source_type': source_type
+            'source_type': source_type,
+            'limit': limit
         }
         _query_builder = APIHelper.append_url_with_query_parameters(
             _query_builder,
@@ -107,9 +114,7 @@ class RefundsApi(BaseApi):
         """Does a POST request to /v2/refunds.
 
         Refunds a payment. You can refund the entire payment amount or a 
-        portion of it. For more information, see 
-        [Payments and Refunds
-        Overview](https://developer.squareup.com/docs/payments-api/overview).
+        portion of it.
 
         Args:
             body (RefundPaymentRequest): An object containing the fields to

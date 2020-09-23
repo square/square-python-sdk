@@ -25,10 +25,7 @@ class OrdersApi(BaseApi):
                 guide.
         You can modify open orders using the
         [UpdateOrder](#endpoint-orders-updateorder) endpoint.
-        To learn more about the Orders API, see the
-        [Orders API
-        Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
-        
+
         Args:
             body (CreateOrderRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
@@ -258,10 +255,7 @@ class OrdersApi(BaseApi):
         To pay for an order, please refer to the [Pay for
         Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders)
         guide.
-        To learn more about the Orders API, see the
-        [Orders API
-        Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
-        
+
         Args:
             order_id (string): The ID of the order to update.
             body (UpdateOrderRequest): An object containing the fields to POST
@@ -331,8 +325,6 @@ class OrdersApi(BaseApi):
         #delayed-capture).
         Using a delayed capture payment with PayOrder will complete the
         approved payment.
-        Learn how to [pay for orders with a single payment using the Payments
-        API](https://developer.squareup.com/docs/orders-api/pay-for-orders).
 
         Args:
             order_id (string): The ID of the order being paid.

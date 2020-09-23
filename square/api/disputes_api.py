@@ -142,9 +142,6 @@ class DisputesApi(BaseApi):
         Square debits the disputed amount from the seller’s Square
         account. If the Square account balance does not have
         sufficient funds, Square debits the associated bank account.
-        For an overview of the Disputes API, see
-        [Overview](https://developer.squareup.com/docs/docs/disputes-api/overvi
-        ew).
 
         Args:
             dispute_id (string): ID of the dispute you want to accept.
@@ -355,9 +352,6 @@ class DisputesApi(BaseApi):
         accepts
         HTTP multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG,
         and TIFF formats.
-        For more information, see [Challenge a
-        Dispute](https://developer.squareup.com/docs/docs/disputes-api/process-
-        disputes#challenge-a-dispute).
 
         Args:
             dispute_id (string): ID of the dispute you want to upload evidence
@@ -423,11 +417,7 @@ class DisputesApi(BaseApi):
                                      body):
         """Does a POST request to /v2/disputes/{dispute_id}/evidence_text.
 
-        Uploads text to use as evidence for a dispute challenge. For more
-        information, see
-        [Challenge a
-        Dispute](https://developer.squareup.com/docs/docs/disputes-api/process-
-        disputes#challenge-a-dispute).
+        Uploads text to use as evidence for a dispute challenge.
 
         Args:
             dispute_id (string): The ID of the dispute you want to upload
@@ -488,10 +478,7 @@ class DisputesApi(BaseApi):
         [CreateDisputeEvidenceText](https://developer.squareup.com/docs/referen
         ce/square/disputes-api/create-dispute-evidence-text) endpoints,
         and evidence automatically provided by Square, when
-        available. For more information, see
-        [Challenge a
-        Dispute](https://developer.squareup.com/docs/docs/disputes-api/process-
-        disputes#challenge-a-dispute).
+        available.
 
         Args:
             dispute_id (string): The ID of the dispute you want to submit
