@@ -22,10 +22,17 @@ Install the latest SDK using pip:
 pip install squareup
 ```
 
-Alternatively, you can download or clone the sdk from [Python SDK] and then install the SDK by running Setuptools in the SDK installation directory:
+Alternatively in python 3, you can download or clone the sdk from [Python SDK] and then install the SDK by running Setuptools in the SDK installation directory:
 
 ```sh
 python setup.py install --user
+```
+
+In python 2, you can install via pip:
+
+```sh
+pip install -r requirement.txt
+pip install -r test-requirements.txt
 ```
 
 ### API Client
