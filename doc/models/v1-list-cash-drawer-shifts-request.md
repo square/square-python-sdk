@@ -1,10 +1,11 @@
-## V1 List Cash Drawer Shifts Request
 
-### Structure
+# V1 List Cash Drawer Shifts Request
 
-`V1ListCashDrawerShiftsRequest`
+## Structure
 
-### Fields
+`V1 List Cash Drawer Shifts Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -12,7 +13,7 @@
 | `begin_time` | `string` | Optional | The beginning of the requested reporting period, in ISO 8601 format. Default value: The current time minus 90 days. |
 | `end_time` | `string` | Optional | The beginning of the requested reporting period, in ISO 8601 format. Default value: The current time. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

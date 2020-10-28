@@ -1,12 +1,13 @@
-## Dispute Evidence Type
+
+# Dispute Evidence Type
 
 Type of the dispute evidence.
 
-### Enumeration
+## Enumeration
 
-`DisputeEvidenceType`
+`Dispute Evidence Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,12 +1,13 @@
-## Order Line Item Tax Type
+
+# Order Line Item Tax Type
 
 Indicates how the tax is applied to the associated line item or order.
 
-### Enumeration
+## Enumeration
 
-`OrderLineItemTaxType`
+`Order Line Item Tax Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

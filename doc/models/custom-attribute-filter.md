@@ -1,25 +1,26 @@
-## Custom Attribute Filter
 
-Supported custom attribute query expressions for calling the 
-[SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) 
+# Custom Attribute Filter
+
+Supported custom attribute query expressions for calling the
+[SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems)
 endpoint to search for items or item variations.
 
-### Structure
+## Structure
 
-`CustomAttributeFilter`
+`Custom Attribute Filter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `custom_attribute_definition_id` | `string` | Optional | A query expression to filter items or item variations by matching their custom attributes' <br>`custom_attribute_definition_id`  <br>property value against the the specified id. |
-| `key` | `string` | Optional | A query expression to filter items or item variations by matching their custom attributes'<br>`key` property value against <br>the specified key. |
-| `string_filter` | `string` | Optional | A query expression to filter items or item variations by matching their custom attributes' <br>`string_value`  property value <br>against the specified text. |
+| `custom_attribute_definition_id` | `string` | Optional | A query expression to filter items or item variations by matching their custom attributes'<br>`custom_attribute_definition_id`<br>property value against the the specified id. |
+| `key` | `string` | Optional | A query expression to filter items or item variations by matching their custom attributes'<br>`key` property value against<br>the specified key. |
+| `string_filter` | `string` | Optional | A query expression to filter items or item variations by matching their custom attributes'<br>`string_value`  property value<br>against the specified text. |
 | `number_filter` | [`Range`](/doc/models/range.md) | Optional | The range of a number value between the specified lower and upper bounds. |
-| `selection_uids_filter` | `List of string` | Optional | A query expression to filter items or item variations by matching  their custom attributes' <br>`selection_uid_values` <br>values against the specified selection uids. |
-| `bool_filter` | `bool` | Optional | A query expression to filter items or item variations by matching their custom attributes'<br>`boolean_value` property values <br>against the specified Boolean expression. |
+| `selection_uids_filter` | `List of string` | Optional | A query expression to filter items or item variations by matching  their custom attributes'<br>`selection_uid_values`<br>values against the specified selection uids. |
+| `bool_filter` | `bool` | Optional | A query expression to filter items or item variations by matching their custom attributes'<br>`boolean_value` property values<br>against the specified Boolean expression. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

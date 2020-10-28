@@ -1,10 +1,11 @@
-## Card Square Product
 
-### Enumeration
+# Card Square Product
 
-`CardSquareProduct`
+## Enumeration
 
-### Fields
+`Card Square Product`
+
+## Fields
 
 | Name |
 |  --- |

@@ -1,10 +1,11 @@
-## Cash Drawer Shift Event
 
-### Structure
+# Cash Drawer Shift Event
 
-`CashDrawerShiftEvent`
+## Structure
 
-### Fields
+`Cash Drawer Shift Event`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@
 | `created_at` | `string` | Optional | The event time in ISO 8601 format. |
 | `description` | `string` | Optional | An optional description of the event, entered by the employee that<br>created the event. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

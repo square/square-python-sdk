@@ -1,10 +1,11 @@
-## V1 Fee Inclusion Type
 
-### Enumeration
+# V1 Fee Inclusion Type
 
-`V1FeeInclusionType`
+## Enumeration
 
-### Fields
+`V1 Fee Inclusion Type`
+
+## Fields
 
 | Name |
 |  --- |

@@ -1,12 +1,13 @@
-## Order Line Item Discount Type
+
+# Order Line Item Discount Type
 
 Indicates how the discount is applied to the associated line item or order.
 
-### Enumeration
+## Enumeration
 
-`OrderLineItemDiscountType`
+`Order Line Item Discount Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

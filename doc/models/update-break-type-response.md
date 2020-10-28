@@ -1,33 +1,34 @@
-## Update Break Type Response
+
+# Update Break Type Response
 
 A response to a request to update a `BreakType`. Contains
 the requested `BreakType` objects. May contain a set of `Error` objects if
 the request resulted in errors.
 
-### Structure
+## Structure
 
-`UpdateBreakTypeResponse`
+`Update Break Type Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `break_type` | [`Break Type`](/doc/models/break-type.md) | Optional | A defined break template that sets an expectation for possible `Break`<br>instances on a `Shift`. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "break_type": {
-    "id": "Q6JSJS6D4DBCH",
-    "location_id": "26M7H24AZ9N6R",
     "break_name": "Lunch",
-    "expected_duration": "PT50M",
-    "is_paid": true,
-    "version": 2,
     "created_at": "2018-06-12T20:19:12Z",
-    "updated_at": "2019-02-26T23:12:59Z"
+    "expected_duration": "PT50M",
+    "id": "Q6JSJS6D4DBCH",
+    "is_paid": true,
+    "location_id": "26M7H24AZ9N6R",
+    "updated_at": "2019-02-26T23:12:59Z",
+    "version": 2
   }
 }
 ```

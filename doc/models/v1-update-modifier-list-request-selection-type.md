@@ -1,10 +1,11 @@
-## V1 Update Modifier List Request Selection Type
 
-### Enumeration
+# V1 Update Modifier List Request Selection Type
 
-`V1UpdateModifierListRequestSelectionType`
+## Enumeration
 
-### Fields
+`V1 Update Modifier List Request Selection Type`
+
+## Fields
 
 | Name |
 |  --- |

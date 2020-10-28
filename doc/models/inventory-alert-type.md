@@ -1,12 +1,13 @@
-## Inventory Alert Type
+
+# Inventory Alert Type
 
 Indicates whether Square should alert the merchant when the inventory quantity of a CatalogItemVariation is low.
 
-### Enumeration
+## Enumeration
 
-`InventoryAlertType`
+`Inventory Alert Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,12 +1,13 @@
-## Loyalty Program Reward Definition Scope
+
+# Loyalty Program Reward Definition Scope
 
 Indicates the scope of the reward tier.
 
-### Enumeration
+## Enumeration
 
-`LoyaltyProgramRewardDefinitionScope`
+`Loyalty Program Reward Definition Scope`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

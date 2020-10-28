@@ -1,12 +1,13 @@
-## Customer Creation Source
+
+# Customer Creation Source
 
 Indicates the method used to create the customer profile.
 
-### Enumeration
+## Enumeration
 
-`CustomerCreationSource`
+`Customer Creation Source`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

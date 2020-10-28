@@ -1,13 +1,14 @@
-## Checkout
+
+# Checkout
 
 Square Checkout lets merchants accept online payments for supported
 payment types using a checkout workflow hosted on squareup.com.
 
-### Structure
+## Structure
 
 `Checkout`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -22,7 +23,7 @@ payment types using a checkout workflow hosted on squareup.com.
 | `created_at` | `string` | Optional | The time when the checkout was created, in RFC 3339 format. |
 | `additional_recipients` | [`List of Additional Recipient`](/doc/models/additional-recipient.md) | Optional | Additional recipients (other than the merchant) receiving a portion of this checkout.<br>For example, fees assessed on the purchase by a third party integration. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

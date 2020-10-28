@@ -34,7 +34,8 @@ class EmployeesApi(BaseApi):
                 specified page of results.
 
         Returns:
-            ListEmployeesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -89,7 +90,8 @@ class EmployeesApi(BaseApi):
             id (string): UUID for the employee that was requested.
 
         Returns:
-            RetrieveEmployeeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -102,7 +104,7 @@ class EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/employees/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

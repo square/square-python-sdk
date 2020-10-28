@@ -1,16 +1,17 @@
-## Terminal Checkout Query Sort
 
-### Structure
+# Terminal Checkout Query Sort
 
-`TerminalCheckoutQuerySort`
+## Structure
 
-### Fields
+`Terminal Checkout Query Sort`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `sort_order` | `string` | Optional | The order in which results are listed.<br>- `ASC` - oldest to newest<br>- `DESC` - newest to oldest (default). |
+| `sort_order` | `string` | Optional | The order in which results are listed.<br><br>- `ASC` - oldest to newest<br>- `DESC` - newest to oldest (default). |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

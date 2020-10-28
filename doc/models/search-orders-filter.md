@@ -1,13 +1,14 @@
-## Search Orders Filter
+
+# Search Orders Filter
 
 Filtering criteria to use for a SearchOrders request. Multiple filters
 will be ANDed together.
 
-### Structure
+## Structure
 
-`SearchOrdersFilter`
+`Search Orders Filter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,7 +18,7 @@ will be ANDed together.
 | `source_filter` | [`Search Orders Source Filter`](/doc/models/search-orders-source-filter.md) | Optional | Filter based on order `source` information. |
 | `customer_filter` | [`Search Orders Customer Filter`](/doc/models/search-orders-customer-filter.md) | Optional | Filter based on Order `customer_id` and any Tender `customer_id`<br>associated with the Order. Does not filter based on the<br>[FulfillmentRecipient](#type-orderfulfillmentrecipient) `customer_id`. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,13 +1,14 @@
-## Dispute Reason
+
+# Dispute Reason
 
 List of possible reasons why a cardholder might initiate a
 dispute with their bank.
 
-### Enumeration
+## Enumeration
 
-`DisputeReason`
+`Dispute Reason`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

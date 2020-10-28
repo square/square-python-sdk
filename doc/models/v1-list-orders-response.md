@@ -1,16 +1,17 @@
-## V1 List Orders Response
 
-### Structure
+# V1 List Orders Response
 
-`V1ListOrdersResponse`
+## Structure
 
-### Fields
+`V1 List Orders Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `items` | [`List of V1 Order`](/doc/models/v1-order.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
@@ -19,19 +20,19 @@
       "errors": [
         {
           "category": "PAYMENT_METHOD_ERROR",
-          "code": "PAYMENT_LIMIT_EXCEEDED",
+          "code": "ARRAY_LENGTH_TOO_LONG",
           "detail": "detail8",
           "field": "field6"
         },
         {
           "category": "REFUND_ERROR",
-          "code": "GIFT_CARD_AVAILABLE_AMOUNT",
+          "code": "ARRAY_LENGTH_TOO_SHORT",
           "detail": "detail9",
           "field": "field7"
         },
         {
           "category": "API_ERROR",
-          "code": "DELAYED_TRANSACTION_EXPIRED",
+          "code": "ARRAY_EMPTY",
           "detail": "detail0",
           "field": "field8"
         }
@@ -45,7 +46,7 @@
       "errors": [
         {
           "category": "REFUND_ERROR",
-          "code": "GIFT_CARD_AVAILABLE_AMOUNT",
+          "code": "ARRAY_LENGTH_TOO_SHORT",
           "detail": "detail9",
           "field": "field7"
         }

@@ -1,13 +1,14 @@
-## Order Entry
+
+# Order Entry
 
 A lightweight description of an [Order](#type-order) that is returned when `returned_entries` is true on a
 [SearchOrderRequest](#type-searchorderrequest)
 
-### Structure
+## Structure
 
-`OrderEntry`
+`Order Entry`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@ A lightweight description of an [Order](#type-order) that is returned when `retu
 | `version` | `int` | Optional | Version number which is incremented each time an update is committed to the order.<br>Orders that were not created through the API will not include a version and<br>thus cannot be updated.<br><br>[Read more about working with versions](https://developer.squareup.com/docs/orders-api/manage-orders#update-orders). |
 | `location_id` | `string` | Optional | The location id the Order belongs to. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

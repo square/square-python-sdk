@@ -1,10 +1,11 @@
-## V1 Merchant Account Type
 
-### Enumeration
+# V1 Merchant Account Type
 
-`V1MerchantAccountType`
+## Enumeration
 
-### Fields
+`V1 Merchant Account Type`
+
+## Fields
 
 | Name |
 |  --- |

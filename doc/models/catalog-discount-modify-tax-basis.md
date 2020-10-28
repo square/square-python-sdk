@@ -1,10 +1,11 @@
-## Catalog Discount Modify Tax Basis
 
-### Enumeration
+# Catalog Discount Modify Tax Basis
 
-`CatalogDiscountModifyTaxBasis`
+## Enumeration
 
-### Fields
+`Catalog Discount Modify Tax Basis`
+
+## Fields
 
 | Name | Description |
 |  --- | --- |

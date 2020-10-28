@@ -1,12 +1,13 @@
-## Address
+
+# Address
 
 Represents a physical address.
 
-### Structure
+## Structure
 
 `Address`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -26,7 +27,7 @@ Represents a physical address.
 | `last_name` | `string` | Optional | Optional last name when it's representing recipient. |
 | `organization` | `string` | Optional | Optional organization name when it's representing recipient. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

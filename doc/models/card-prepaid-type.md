@@ -1,12 +1,13 @@
-## Card Prepaid Type
+
+# Card Prepaid Type
 
 Indicates a card's prepaid type, such as `NOT_PREPAID` or `PREPAID`.
 
-### Enumeration
+## Enumeration
 
-`CardPrepaidType`
+`Card Prepaid Type`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

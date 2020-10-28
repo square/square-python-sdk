@@ -32,7 +32,8 @@ class MerchantsApi(BaseApi):
                 response.
 
         Returns:
-            ListMerchantsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -85,7 +86,8 @@ class MerchantsApi(BaseApi):
                 that is currently accessible to this call.
 
         Returns:
-            RetrieveMerchantResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -98,7 +100,7 @@ class MerchantsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/merchants/{merchant_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'merchant_id': merchant_id
+            'merchant_id': {'value': merchant_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

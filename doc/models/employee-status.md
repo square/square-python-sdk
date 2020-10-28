@@ -1,12 +1,13 @@
-## Employee Status
+
+# Employee Status
 
 The status of the Employee being retrieved.
 
-### Enumeration
+## Enumeration
 
-`EmployeeStatus`
+`Employee Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

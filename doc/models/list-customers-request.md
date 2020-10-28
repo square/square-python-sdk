@@ -1,13 +1,14 @@
-## List Customers Request
+
+# List Customers Request
 
 Defines the query parameters that can be provided in a request to the
 ListCustomers endpoint.
 
-### Structure
+## Structure
 
-`ListCustomersRequest`
+`List Customers Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@ ListCustomers endpoint.
 | `sort_field` | [`str (Customer Sort Field)`](/doc/models/customer-sort-field.md) | Optional | Specifies customer attributes as the sort key to customer profiles returned from a search. |
 | `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

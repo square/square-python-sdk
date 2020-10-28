@@ -1,141 +1,23 @@
-## Batch Upsert Catalog Objects Response
 
-### Structure
+# Batch Upsert Catalog Objects Response
 
-`BatchUpsertCatalogObjectsResponse`
+## Structure
 
-### Fields
+`Batch Upsert Catalog Objects Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on any errors that encountered. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The created successfully created CatalogObjects. |
 | `updated_at` | `string` | Optional | The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) of this update in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z". |
 | `id_mappings` | [`List of Catalog Id Mapping`](/doc/models/catalog-id-mapping.md) | Optional | The mapping between client and server IDs for this upsert. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "objects": [
-    {
-      "type": "ITEM",
-      "id": "ZSDZN34NAXDLC6D5ZQMNSOUM",
-      "updated_at": "2017-05-10T18:48:39.798Z",
-      "version": 1494442119798,
-      "is_deleted": false,
-      "present_at_all_locations": true,
-      "item_data": {
-        "name": "Tea",
-        "description": "Hot Leaf Juice",
-        "category_id": "LYT72K3WGJFFCIMB63XARP3I",
-        "tax_ids": [
-          "XHSHLHNWSI3HVI4BW5ZUZXI3"
-        ],
-        "variations": [
-          {
-            "type": "ITEM_VARIATION",
-            "id": "NAYHET5R52MIYCEF34ZMAHFM",
-            "updated_at": "2017-05-10T18:48:39.798Z",
-            "version": 1494442119798,
-            "is_deleted": false,
-            "present_at_all_locations": true,
-            "item_variation_data": {
-              "item_id": "ZSDZN34NAXDLC6D5ZQMNSOUM",
-              "name": "Mug",
-              "ordinal": 0,
-              "pricing_type": "FIXED_PRICING",
-              "price_money": {
-                "amount": 150,
-                "currency": "USD"
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "ITEM",
-      "id": "PJMCEBHHUS3OKDB6PYUHLCPP",
-      "updated_at": "2017-05-10T18:48:39.798Z",
-      "version": 1494442119798,
-      "is_deleted": false,
-      "present_at_all_locations": true,
-      "item_data": {
-        "name": "Coffee",
-        "description": "Hot Bean Juice",
-        "category_id": "LYT72K3WGJFFCIMB63XARP3I",
-        "tax_ids": [
-          "XHSHLHNWSI3HVI4BW5ZUZXI3"
-        ],
-        "variations": [
-          {
-            "type": "ITEM_VARIATION",
-            "id": "OTYDX45SPG7LJQUVCBZI4INH",
-            "updated_at": "2017-05-10T18:48:39.798Z",
-            "version": 1494442119798,
-            "is_deleted": false,
-            "present_at_all_locations": true,
-            "item_variation_data": {
-              "item_id": "PJMCEBHHUS3OKDB6PYUHLCPP",
-              "name": "Regular",
-              "ordinal": 0,
-              "pricing_type": "FIXED_PRICING",
-              "price_money": {
-                "amount": 250,
-                "currency": "USD"
-              }
-            }
-          },
-          {
-            "type": "ITEM_VARIATION",
-            "id": "GZDA3JB37FYVOPI4AOEBOITI",
-            "updated_at": "2017-05-10T18:48:39.798Z",
-            "version": 1494442119798,
-            "is_deleted": false,
-            "present_at_all_locations": true,
-            "item_variation_data": {
-              "item_id": "PJMCEBHHUS3OKDB6PYUHLCPP",
-              "name": "Large",
-              "ordinal": 1,
-              "pricing_type": "FIXED_PRICING",
-              "price_money": {
-                "amount": 350,
-                "currency": "USD"
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "CATEGORY",
-      "id": "LYT72K3WGJFFCIMB63XARP3I",
-      "updated_at": "2017-05-10T18:48:39.798Z",
-      "version": 1494442119798,
-      "is_deleted": false,
-      "present_at_all_locations": true,
-      "category_data": {
-        "name": "Beverages"
-      }
-    },
-    {
-      "type": "TAX",
-      "id": "XHSHLHNWSI3HVI4BW5ZUZXI3",
-      "updated_at": "2017-05-10T18:48:39.798Z",
-      "version": 1494442119798,
-      "is_deleted": false,
-      "present_at_all_locations": true,
-      "tax_data": {
-        "name": "Sales Tax",
-        "calculation_phase": "TAX_SUBTOTAL_PHASE",
-        "inclusion_type": "ADDITIVE",
-        "percentage": "5.0",
-        "applies_to_custom_amounts": true,
-        "enabled": true
-      }
-    }
-  ],
   "id_mappings": [
     {
       "client_object_id": "#Tea",
@@ -164,6 +46,125 @@
     {
       "client_object_id": "#Coffee_Large",
       "object_id": "GZDA3JB37FYVOPI4AOEBOITI"
+    }
+  ],
+  "objects": [
+    {
+      "id": "ZSDZN34NAXDLC6D5ZQMNSOUM",
+      "is_deleted": false,
+      "item_data": {
+        "category_id": "LYT72K3WGJFFCIMB63XARP3I",
+        "description": "Hot Leaf Juice",
+        "name": "Tea",
+        "tax_ids": [
+          "XHSHLHNWSI3HVI4BW5ZUZXI3"
+        ],
+        "variations": [
+          {
+            "id": "NAYHET5R52MIYCEF34ZMAHFM",
+            "is_deleted": false,
+            "item_variation_data": {
+              "item_id": "ZSDZN34NAXDLC6D5ZQMNSOUM",
+              "name": "Mug",
+              "ordinal": 0,
+              "price_money": {
+                "amount": 150,
+                "currency": "USD"
+              },
+              "pricing_type": "FIXED_PRICING"
+            },
+            "present_at_all_locations": true,
+            "type": "ITEM_VARIATION",
+            "updated_at": "2017-05-10T18:48:39.798Z",
+            "version": 1494442119798
+          }
+        ]
+      },
+      "present_at_all_locations": true,
+      "type": "ITEM",
+      "updated_at": "2017-05-10T18:48:39.798Z",
+      "version": 1494442119798
+    },
+    {
+      "id": "PJMCEBHHUS3OKDB6PYUHLCPP",
+      "is_deleted": false,
+      "item_data": {
+        "category_id": "LYT72K3WGJFFCIMB63XARP3I",
+        "description": "Hot Bean Juice",
+        "name": "Coffee",
+        "tax_ids": [
+          "XHSHLHNWSI3HVI4BW5ZUZXI3"
+        ],
+        "variations": [
+          {
+            "id": "OTYDX45SPG7LJQUVCBZI4INH",
+            "is_deleted": false,
+            "item_variation_data": {
+              "item_id": "PJMCEBHHUS3OKDB6PYUHLCPP",
+              "name": "Regular",
+              "ordinal": 0,
+              "price_money": {
+                "amount": 250,
+                "currency": "USD"
+              },
+              "pricing_type": "FIXED_PRICING"
+            },
+            "present_at_all_locations": true,
+            "type": "ITEM_VARIATION",
+            "updated_at": "2017-05-10T18:48:39.798Z",
+            "version": 1494442119798
+          },
+          {
+            "id": "GZDA3JB37FYVOPI4AOEBOITI",
+            "is_deleted": false,
+            "item_variation_data": {
+              "item_id": "PJMCEBHHUS3OKDB6PYUHLCPP",
+              "name": "Large",
+              "ordinal": 1,
+              "price_money": {
+                "amount": 350,
+                "currency": "USD"
+              },
+              "pricing_type": "FIXED_PRICING"
+            },
+            "present_at_all_locations": true,
+            "type": "ITEM_VARIATION",
+            "updated_at": "2017-05-10T18:48:39.798Z",
+            "version": 1494442119798
+          }
+        ]
+      },
+      "present_at_all_locations": true,
+      "type": "ITEM",
+      "updated_at": "2017-05-10T18:48:39.798Z",
+      "version": 1494442119798
+    },
+    {
+      "category_data": {
+        "name": "Beverages"
+      },
+      "id": "LYT72K3WGJFFCIMB63XARP3I",
+      "is_deleted": false,
+      "present_at_all_locations": true,
+      "type": "CATEGORY",
+      "updated_at": "2017-05-10T18:48:39.798Z",
+      "version": 1494442119798
+    },
+    {
+      "id": "XHSHLHNWSI3HVI4BW5ZUZXI3",
+      "is_deleted": false,
+      "present_at_all_locations": true,
+      "tax_data": {
+        "applies_to_custom_amounts": true,
+        "calculation_phase": "TAX_SUBTOTAL_PHASE",
+        "enabled": true,
+        "inclusion_type": "ADDITIVE",
+        "name": "Sales Tax",
+        "percentage": "5.0"
+      },
+      "type": "TAX",
+      "updated_at": "2017-05-10T18:48:39.798Z",
+      "version": 1494442119798
     }
   ]
 }

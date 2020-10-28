@@ -1,4 +1,5 @@
-## V1 Tender
+
+# V1 Tender
 
 A tender represents a discrete monetary exchange. Square represents this
 exchange as a money object with a specific currency and amount, where the
@@ -23,11 +24,11 @@ reduced and the merchant receives no funds. A `Tender` object with a type of
 `SQUARE_GIFT_CARD` indicates a gift card was used for some or all of the
 associated payment.
 
-### Structure
+## Structure
 
-`V1Tender`
+`V1 Tender`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -48,7 +49,7 @@ associated payment.
 | `refunded_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
 | `is_exchange` | `bool` | Optional | Indicates whether or not the tender is associated with an exchange. If is_exchange is true, the tender represents the value of goods returned in an exchange not the actual money paid. The exchange value reduces the tender amounts needed to pay for items purchased in the exchange. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

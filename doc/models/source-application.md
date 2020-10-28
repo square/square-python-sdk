@@ -1,12 +1,13 @@
-## Source Application
+
+# Source Application
 
 Provides information about the application used to generate a change.
 
-### Structure
+## Structure
 
-`SourceApplication`
+`Source Application`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,7 +15,7 @@ Provides information about the application used to generate a change.
 | `application_id` | `string` | Optional | Read-only Square ID assigned to the application. Only used for<br>[Product](#type-product) type `EXTERNAL_API`. |
 | `name` | `string` | Optional | Read-only display name assigned to the application<br>(e.g. `"Custom Application"`, `"Square POS 4.74 for Android"`). |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

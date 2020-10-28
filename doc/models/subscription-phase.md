@@ -1,13 +1,14 @@
-## Subscription Phase
+
+# Subscription Phase
 
 Describes a phase in a subscription plan. For more information, see
 [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/docs/subscriptions-api/setup-plan).
 
-### Structure
+## Structure
 
-`SubscriptionPhase`
+`Subscription Phase`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,7 +18,7 @@ Describes a phase in a subscription plan. For more information, see
 | `recurring_price_money` | [`Money`](/doc/models/money.md) |  | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `ordinal` | `long|int` | Optional | The position this phase appears in the sequence of phases defined for the plan, indexed from 0. This field cannot be changed after a `SubscriptionPhase` is created. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

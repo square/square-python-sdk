@@ -1,13 +1,14 @@
-## Shift Filter
+
+# Shift Filter
 
 Defines a filter used in a search for `Shift` records. `AND` logic is
 used by Square's servers to apply each filter property specified.
 
-### Structure
+## Structure
 
-`ShiftFilter`
+`Shift Filter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -19,7 +20,7 @@ used by Square's servers to apply each filter property specified.
 | `workday` | [`Shift Workday`](/doc/models/shift-workday.md) | Optional | A `Shift` search query filter parameter that sets a range of days that<br>a `Shift` must start or end in before passing the filter condition. |
 | `team_member_ids` | `List of string` |  | Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26" |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

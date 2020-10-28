@@ -1,35 +1,36 @@
-## Update Team Member Request
+
+# Update Team Member Request
 
 Represents an update request for a `TeamMember` object.
 
-### Structure
+## Structure
 
-`UpdateTeamMemberRequest`
+`Update Team Member Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `team_member` | [`Team Member`](/doc/models/team-member.md) | Optional | A record representing an individual team member for a business. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "team_member": {
-    "reference_id": "reference_id_1",
-    "status": "ACTIVE",
-    "given_name": "Joe",
-    "family_name": "Doe",
-    "email_address": "joe_doe@gmail.com",
-    "phone_number": "+14159283333",
     "assigned_locations": {
+      "assignment_type": "EXPLICIT_LOCATIONS",
       "location_ids": [
         "YSGH2WBKG94QZ",
         "GA2Y9HSJ8KRYT"
-      ],
-      "assignment_type": "EXPLICIT_LOCATIONS"
-    }
+      ]
+    },
+    "email_address": "joe_doe@gmail.com",
+    "family_name": "Doe",
+    "given_name": "Joe",
+    "phone_number": "+14159283333",
+    "reference_id": "reference_id_1",
+    "status": "ACTIVE"
   }
 }
 ```

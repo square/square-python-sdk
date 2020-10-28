@@ -1,18 +1,19 @@
-## Update Wage Setting Request
+
+# Update Wage Setting Request
 
 Represents an update request for the `WageSetting` object describing a `TeamMember`.
 
-### Structure
+## Structure
 
-`UpdateWageSettingRequest`
+`Update Wage Setting Request`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `wage_setting` | [`Wage Setting`](/doc/models/wage-setting.md) | An object representing a team member's wage information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
@@ -20,21 +21,21 @@ Represents an update request for the `WageSetting` object describing a `TeamMemb
     "is_overtime_exempt": true,
     "job_assignments": [
       {
-        "job_title": "Manager",
-        "pay_type": "SALARY",
         "annual_rate": {
           "amount": 3000000,
           "currency": "USD"
         },
+        "job_title": "Manager",
+        "pay_type": "SALARY",
         "weekly_hours": 40
       },
       {
-        "job_title": "Cashier",
-        "pay_type": "HOURLY",
         "hourly_rate": {
           "amount": 1200,
           "currency": "USD"
-        }
+        },
+        "job_title": "Cashier",
+        "pay_type": "HOURLY"
       }
     ]
   }

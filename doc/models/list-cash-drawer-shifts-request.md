@@ -1,10 +1,11 @@
-## List Cash Drawer Shifts Request
 
-### Structure
+# List Cash Drawer Shifts Request
 
-`ListCashDrawerShiftsRequest`
+## Structure
 
-### Fields
+`List Cash Drawer Shifts Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@
 | `limit` | `int` | Optional | Number of cash drawer shift events in a page of results (200 by<br>default, 1000 max). |
 | `cursor` | `string` | Optional | Opaque cursor for fetching the next page of results. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

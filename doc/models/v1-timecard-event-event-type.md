@@ -1,14 +1,15 @@
-## V1 Timecard Event Event Type
+
+# V1 Timecard Event Event Type
 
 Actions that resulted in a change to a timecard. All timecard
 events created with the Connect API have an event type that begins with
 `API`.
 
-### Enumeration
+## Enumeration
 
-`V1TimecardEventEventType`
+`V1 Timecard Event Event Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

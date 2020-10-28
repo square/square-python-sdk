@@ -1,12 +1,13 @@
-## Loyalty Event Redeem Reward
+
+# Loyalty Event Redeem Reward
 
 Provides metadata when the event `type` is `REDEEM_REWARD`.
 
-### Structure
+## Structure
 
-`LoyaltyEventRedeemReward`
+`Loyalty Event Redeem Reward`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,7 +15,7 @@ Provides metadata when the event `type` is `REDEEM_REWARD`.
 | `reward_id` | `string` | Optional | The ID of the redeemed [loyalty reward](#type-LoyaltyReward).<br>This field is returned only if the event source is `LOYALTY_API`. |
 | `order_id` | `string` | Optional | The ID of the [order](#type-Order) that redeemed the reward.<br>This field is returned only if the Orders API is used to process orders. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

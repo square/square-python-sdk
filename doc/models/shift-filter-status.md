@@ -1,12 +1,13 @@
-## Shift Filter Status
+
+# Shift Filter Status
 
 Specifies the `status` of `Shift` records to be returned.
 
-### Enumeration
+## Enumeration
 
-`ShiftFilterStatus`
+`Shift Filter Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

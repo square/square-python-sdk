@@ -1,12 +1,13 @@
-## Tax Inclusion Type
+
+# Tax Inclusion Type
 
 Whether to the tax amount should be additional to or included in the CatalogItem price.
 
-### Enumeration
+## Enumeration
 
-`TaxInclusionType`
+`Tax Inclusion Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

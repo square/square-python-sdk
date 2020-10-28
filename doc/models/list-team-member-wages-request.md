@@ -1,12 +1,13 @@
-## List Team Member Wages Request
+
+# List Team Member Wages Request
 
 A request for a set of `TeamMemberWage` objects
 
-### Structure
+## Structure
 
-`ListTeamMemberWagesRequest`
+`List Team Member Wages Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,7 +15,7 @@ A request for a set of `TeamMemberWage` objects
 | `limit` | `int` | Optional | Maximum number of Team Member Wages to return per page. Can range between<br>1 and 200. The default is the maximum at 200. |
 | `cursor` | `string` | Optional | Pointer to the next page of Employee Wage results to fetch. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

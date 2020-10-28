@@ -1,13 +1,14 @@
-## Shift Workday
+
+# Shift Workday
 
 A `Shift` search query filter parameter that sets a range of days that
 a `Shift` must start or end in before passing the filter condition.
 
-### Structure
+## Structure
 
-`ShiftWorkday`
+`Shift Workday`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@ a `Shift` must start or end in before passing the filter condition.
 | `match_shifts_by` | [`str (Shift Workday Matcher)`](/doc/models/shift-workday-matcher.md) | Optional | Defines the logic used to apply a workday filter. |
 | `default_timezone` | `string` | Optional | Location-specific timezones convert workdays to datetime filters.<br>Every location included in the query must have a timezone, or this field<br>must be provided as a fallback. Format: the IANA timezone database<br>identifier for the relevant timezone. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

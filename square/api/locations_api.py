@@ -17,14 +17,14 @@ class LocationsApi(BaseApi):
         """Does a GET request to /v2/locations.
 
         Provides information of all locations of a business.
-        Most other Connect API endpoints have a required `location_id` path
-        parameter.
+        Many Square API endpoints require a `location_id` parameter.
         The `id` field of the [`Location`](#type-location) objects returned by
         this
         endpoint correspond to that `location_id` parameter.
 
         Returns:
-            ListLocationsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -63,8 +63,6 @@ class LocationsApi(BaseApi):
         """Does a POST request to /v2/locations.
 
         Creates a location.
-        For more information about locations, see [Locations API
-        Overview](https://developer.squareup.com/docs/locations-api).
 
         Args:
             body (CreateLocationRequest): An object containing the fields to
@@ -72,7 +70,8 @@ class LocationsApi(BaseApi):
                 for field details.
 
         Returns:
-            CreateLocationResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -113,9 +112,7 @@ class LocationsApi(BaseApi):
 
         Retrieves details of a location. You can specify "main" 
         as the location ID to retrieve details of the 
-        main location. For more information, 
-        see [Locations API
-        Overview](https://developer.squareup.com/docs/docs/locations-api).
+        main location.
 
         Args:
             location_id (string): The ID of the location to retrieve. If you
@@ -123,7 +120,8 @@ class LocationsApi(BaseApi):
                 location.
 
         Returns:
-            RetrieveLocationResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -136,7 +134,7 @@ class LocationsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -174,7 +172,8 @@ class LocationsApi(BaseApi):
                 for field details.
 
         Returns:
-            UpdateLocationResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -187,7 +186,7 @@ class LocationsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

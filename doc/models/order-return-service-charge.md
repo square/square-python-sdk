@@ -1,12 +1,13 @@
-## Order Return Service Charge
+
+# Order Return Service Charge
 
 Represents the service charge applied to the original order.
 
-### Structure
+## Structure
 
-`OrderReturnServiceCharge`
+`Order Return Service Charge`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -23,7 +24,7 @@ Represents the service charge applied to the original order.
 | `taxable` | `bool` | Optional | Indicates whether the surcharge can be taxed. Service charges<br>calculated in the `TOTAL_PHASE` cannot be marked as taxable. |
 | `applied_taxes` | [`List of Order Line Item Applied Tax`](/doc/models/order-line-item-applied-tax.md) | Optional | The list of references to `OrderReturnTax` entities applied to the<br>`OrderReturnServiceCharge`. Each `OrderLineItemAppliedTax` has a `tax_uid`<br>that references the `uid` of a top-level `OrderReturnTax` that is being<br>applied to the `OrderReturnServiceCharge`. On reads, the amount applied is<br>populated. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

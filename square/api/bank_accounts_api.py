@@ -20,10 +20,7 @@ class BankAccountsApi(BaseApi):
         """Does a GET request to /v2/bank-accounts.
 
         Returns a list of [BankAccount](#type-bankaccount) objects linked to a
-        Square account. 
-        For more information, see 
-        [Bank Accounts
-        API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+        Square account.
 
         Args:
             cursor (string, optional): The pagination cursor returned by a
@@ -41,7 +38,8 @@ class BankAccountsApi(BaseApi):
                 belonging to a specific location.
 
         Returns:
-            ListBankAccountsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -89,11 +87,7 @@ class BankAccountsApi(BaseApi):
         """Does a GET request to /v2/bank-accounts/by-v1-id/{v1_bank_account_id}.
 
         Returns details of a [BankAccount](#type-bankaccount) identified by V1
-        bank account ID. 
-        For more information, see 
-        [Retrieve a bank account by using an ID issued by V1 Bank Accounts
-        API](https://developer.squareup.com/docs/docs/bank-accounts-api#retriev
-        e-a-bank-account-by-using-an-id-issued-by-the-v1-bank-accounts-api).
+        bank account ID.
 
         Args:
             v1_bank_account_id (string): Connect V1 ID of the desired
@@ -104,7 +98,8 @@ class BankAccountsApi(BaseApi):
                 nts-api).
 
         Returns:
-            GetBankAccountByV1IdResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -117,7 +112,7 @@ class BankAccountsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/bank-accounts/by-v1-id/{v1_bank_account_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'v1_bank_account_id': v1_bank_account_id
+            'v1_bank_account_id': {'value': v1_bank_account_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -146,16 +141,15 @@ class BankAccountsApi(BaseApi):
         """Does a GET request to /v2/bank-accounts/{bank_account_id}.
 
         Returns details of a [BankAccount](#type-bankaccount) 
-        linked to a Square account. For more information, see 
-        [Bank Accounts
-        API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+        linked to a Square account.
 
         Args:
             bank_account_id (string): Square-issued ID of the desired
                 `BankAccount`.
 
         Returns:
-            GetBankAccountResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -168,7 +162,7 @@ class BankAccountsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/bank-accounts/{bank_account_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'bank_account_id': bank_account_id
+            'bank_account_id': {'value': bank_account_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

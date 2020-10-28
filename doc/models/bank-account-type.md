@@ -1,12 +1,13 @@
-## Bank Account Type
+
+# Bank Account Type
 
 Indicates the financial purpose of the bank account.
 
-### Enumeration
+## Enumeration
 
-`BankAccountType`
+`Bank Account Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

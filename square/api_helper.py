@@ -133,7 +133,7 @@ class APIHelper(object):
         return tuples
 
     @staticmethod
-    def append_url_with_template_parameters(url, parameters, encode=True):
+    def append_url_with_template_parameters(url, parameters):
         """Replaces template parameters in the given url.
 
         Args:
@@ -152,16 +152,17 @@ class APIHelper(object):
 
         # Iterate and replace parameters
         for key in parameters:
-            element = parameters[key]
+            value = parameters[key]['value']
+            encode = parameters[key]['encode']
             replace_value = ''
 
             # Load parameter value
-            if element is None:
+            if value is None:
                 replace_value = ''
-            elif isinstance(element, list):
-                replace_value = "/".join((quote(str(x), safe='') if encode else str(x)) for x in element)
+            elif isinstance(value, list):
+                replace_value = "/".join((quote(str(x), safe='') if encode else str(x)) for x in value)
             else:
-                replace_value = quote(str(element), safe='') if encode else str(element)
+                replace_value = quote(str(value), safe='') if encode else str(value)
 
             url = url.replace('{{{0}}}'.format(key), str(replace_value))
 

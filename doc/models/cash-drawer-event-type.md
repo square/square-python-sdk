@@ -1,14 +1,15 @@
-## Cash Drawer Event Type
+
+# Cash Drawer Event Type
 
 The types of events on a CashDrawerShift.
 Each event type represents an employee action on the actual cash drawer
 represented by a CashDrawerShift.
 
-### Enumeration
+## Enumeration
 
-`CashDrawerEventType`
+`Cash Drawer Event Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,15 +1,16 @@
-## Customer Group
 
-Represents a group of customer profiles. 
+# Customer Group
 
-Customer groups can be created, modified, and have their membership defined either via 
+Represents a group of customer profiles.
+
+Customer groups can be created, modified, and have their membership defined either via
 the Customers API or within Customer Directory in the Square Dashboard or Point of Sale.
 
-### Structure
+## Structure
 
-`CustomerGroup`
+`Customer Group`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -18,7 +19,7 @@ the Customers API or within Customer Directory in the Square Dashboard or Point 
 | `created_at` | `string` | Optional | The timestamp when the customer group was created, in RFC 3339 format. |
 | `updated_at` | `string` | Optional | The timesamp when the customer group was last updated, in RFC 3339 format. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

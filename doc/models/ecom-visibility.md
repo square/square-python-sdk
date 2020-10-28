@@ -1,12 +1,13 @@
-## Ecom Visibility
+
+# Ecom Visibility
 
 Determines item visibility in Ecom (Online Store) and Online Checkout.
 
-### Enumeration
+## Enumeration
 
-`EcomVisibility`
+`Ecom Visibility`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

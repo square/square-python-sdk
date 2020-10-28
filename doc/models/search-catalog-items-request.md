@@ -1,12 +1,13 @@
-## Search Catalog Items Request
+
+# Search Catalog Items Request
 
 Defines the request body for the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint.
 
-### Structure
+## Structure
 
-`SearchCatalogItemsRequest`
+`Search Catalog Items Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,28 +18,20 @@ Defines the request body for the [SearchCatalogItems](#endpoint-Catalog-SearchCa
 | `cursor` | `string` | Optional | The pagination token, returned in the previous response, used to fetch the next batch of pending results. |
 | `limit` | `int` | Optional | The maximum number of results to return per page. The default value is 100. |
 | `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. |
-| `product_types` | [`List of str (Catalog Item Product Type)`](/doc/models/catalog-item-product-type.md) | Optional | The product types query expression to return items or item variations having the specified product types.<br>See [CatalogItemProductType](#type-catalogitemproducttype) for possible values |
+| `product_types` | [`List of str (Catalog Item Product Type)`](/doc/models/catalog-item-product-type.md) | Optional | The product types query expression to return items or item variations having the specified product types. |
 | `custom_attribute_filters` | [`List of Custom Attribute Filter`](/doc/models/custom-attribute-filter.md) | Optional | The customer-attribute filter to return items or item variations matching the specified<br>custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in<br>a single call to the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "sort_order": "ASC",
-  "product_types": [
-    "REGULAR"
-  ],
   "category_ids": [
     "WINE_CATEGORY_ID"
   ],
-  "enabled_location_ids": [
-    "ATL_LOCATION_ID"
-  ],
-  "text_filter": "red",
   "custom_attribute_filters": [
     {
-      "custom_attribute_definition_id": "VEGAN_DEFINITION_ID",
-      "bool_filter": true
+      "bool_filter": true,
+      "custom_attribute_definition_id": "VEGAN_DEFINITION_ID"
     },
     {
       "custom_attribute_definition_id": "BRAND_DEFINITION_ID",
@@ -47,8 +40,8 @@ Defines the request body for the [SearchCatalogItems](#endpoint-Catalog-SearchCa
     {
       "key": "VINTAGE",
       "number_filter": {
-        "min": "2017",
-        "max": "2018"
+        "max": "2018",
+        "min": "2017"
       }
     },
     {
@@ -56,11 +49,19 @@ Defines the request body for the [SearchCatalogItems](#endpoint-Catalog-SearchCa
       "selection_ids_filter": "MERLOT_SELECTION_ID"
     }
   ],
+  "enabled_location_ids": [
+    "ATL_LOCATION_ID"
+  ],
+  "limit": 100,
+  "product_types": [
+    "REGULAR"
+  ],
+  "sort_order": "ASC",
   "stock_levels": [
     "OUT",
     "LOW"
   ],
-  "limit": 100
+  "text_filter": "red"
 }
 ```
 

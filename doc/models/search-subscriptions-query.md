@@ -1,18 +1,19 @@
-## Search Subscriptions Query
+
+# Search Subscriptions Query
 
 Represents a query (including filtering criteria) used to search for subscriptions.
 
-### Structure
+## Structure
 
-`SearchSubscriptionsQuery`
+`Search Subscriptions Query`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `filter` | [`Search Subscriptions Filter`](/doc/models/search-subscriptions-filter.md) | Optional | Represents a set of SearchSubscriptionsQuery filters used to limit the set of Subscriptions returned by SearchSubscriptions. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,20 +1,21 @@
-## Order Reward
+
+# Order Reward
 
 Represents a reward that may be applied to an order if the necessary
 reward tier criteria are met. Rewards are created through the Loyalty API.
 
-### Structure
+## Structure
 
-`OrderReward`
+`Order Reward`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `id` | `string` | The identifier of the reward. |
 | `reward_tier_id` | `string` | The identifier of the reward tier corresponding to this reward. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

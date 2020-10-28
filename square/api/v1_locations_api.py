@@ -21,7 +21,8 @@ class V1LocationsApi(BaseApi):
         Get the general information for a business.
 
         Returns:
-            V1Merchant: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -63,7 +64,8 @@ class V1LocationsApi(BaseApi):
         account, including the Square-assigned object ID for the location.
 
         Returns:
-            list of V1Merchant: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from

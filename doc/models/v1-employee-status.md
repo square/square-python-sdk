@@ -1,10 +1,11 @@
-## V1 Employee Status
 
-### Enumeration
+# V1 Employee Status
 
-`V1EmployeeStatus`
+## Enumeration
 
-### Fields
+`V1 Employee Status`
+
+## Fields
 
 | Name |
 |  --- |

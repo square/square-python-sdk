@@ -1,12 +1,13 @@
-## Job Assignment Pay Type
+
+# Job Assignment Pay Type
 
 Enumerates the possible pay types that a job can be assigned.
 
-### Enumeration
+## Enumeration
 
-`JobAssignmentPayType`
+`Job Assignment Pay Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

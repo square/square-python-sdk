@@ -1,10 +1,11 @@
-## V1 Discount Discount Type
 
-### Enumeration
+# V1 Discount Discount Type
 
-`V1DiscountDiscountType`
+## Enumeration
 
-### Fields
+`V1 Discount Discount Type`
+
+## Fields
 
 | Name |
 |  --- |

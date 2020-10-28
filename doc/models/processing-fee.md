@@ -1,12 +1,13 @@
-## Processing Fee
+
+# Processing Fee
 
 Represents Square processing fee.
 
-### Structure
+## Structure
 
-`ProcessingFee`
+`Processing Fee`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,7 +15,7 @@ Represents Square processing fee.
 | `type` | `string` | Optional | The type of fee assessed or adjusted. Can be one of: `INITIAL`, `ADJUSTMENT`. |
 | `amount_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

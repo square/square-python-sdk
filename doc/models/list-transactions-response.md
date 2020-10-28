@@ -1,15 +1,16 @@
-## List Transactions Response
+
+# List Transactions Response
 
 Defines the fields that are included in the response body of
 a request to the [ListTransactions](#endpoint-listtransactions) endpoint.
 
 One of `errors` or `transactions` is present in a given response (never both).
 
-### Structure
+## Structure
 
-`ListTransactionsResponse`
+`List Transactions Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,82 +18,82 @@ One of `errors` or `transactions` is present in a given response (never both).
 | `transactions` | [`List of Transaction`](/doc/models/transaction.md) | Optional | An array of transactions that match your query. |
 | `cursor` | `string` | Optional | A pagination cursor for retrieving the next set of results,<br>if any remain. Provide this value as the `cursor` parameter in a subsequent<br>request to this endpoint.<br><br>See [Paginating results](#paginatingresults) for more information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "transactions": [
     {
+      "created_at": "2016-01-20T22:57:56Z",
       "id": "KnL67ZIwXCPtzOrqj0HrkxMF",
       "location_id": "18YC4JDH91E1H",
-      "created_at": "2016-01-20T22:57:56Z",
-      "tenders": [
+      "product": "EXTERNAL_API",
+      "reference_id": "some optional reference id",
+      "refunds": [
         {
-          "id": "MtZRYYdDrYNQbOvV7nbuBvMF",
-          "location_id": "18YC4JDH91E1H",
-          "transaction_id": "KnL67ZIwXCPtzOrqj0HrkxMF",
-          "created_at": "2016-01-20T22:57:56Z",
-          "note": "some optional note",
+          "additional_recipients": [
+            {
+              "amount_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "description": "Application fees",
+              "location_id": "057P5VYJ4A5X1"
+            }
+          ],
           "amount_money": {
             "amount": 5000,
             "currency": "USD"
           },
+          "created_at": "2016-01-20T22:59:20Z",
+          "id": "7a5RcVI0CxbOcJ2wMOkE",
+          "location_id": "18YC4JDH91E1H",
           "processing_fee_money": {
             "amount": 138,
             "currency": "USD"
           },
-          "type": "CARD",
+          "reason": "some reason why",
+          "status": "APPROVED",
+          "tender_id": "MtZRYYdDrYNQbOvV7nbuBvMF",
+          "transaction_id": "KnL67ZIwXCPtzOrqj0HrkxMF"
+        }
+      ],
+      "tenders": [
+        {
+          "additional_recipients": [
+            {
+              "amount_money": {
+                "amount": 20,
+                "currency": "USD"
+              },
+              "description": "Application fees",
+              "location_id": "057P5VYJ4A5X1"
+            }
+          ],
+          "amount_money": {
+            "amount": 5000,
+            "currency": "USD"
+          },
           "card_details": {
-            "status": "CAPTURED",
             "card": {
               "card_brand": "VISA",
               "last_4": "1111"
             },
-            "entry_method": "KEYED"
+            "entry_method": "KEYED",
+            "status": "CAPTURED"
           },
-          "additional_recipients": [
-            {
-              "location_id": "057P5VYJ4A5X1",
-              "description": "Application fees",
-              "amount_money": {
-                "amount": 20,
-                "currency": "USD"
-              }
-            }
-          ]
-        }
-      ],
-      "refunds": [
-        {
-          "id": "7a5RcVI0CxbOcJ2wMOkE",
+          "created_at": "2016-01-20T22:57:56Z",
+          "id": "MtZRYYdDrYNQbOvV7nbuBvMF",
           "location_id": "18YC4JDH91E1H",
-          "transaction_id": "KnL67ZIwXCPtzOrqj0HrkxMF",
-          "tender_id": "MtZRYYdDrYNQbOvV7nbuBvMF",
-          "created_at": "2016-01-20T22:59:20Z",
-          "reason": "some reason why",
-          "amount_money": {
-            "amount": 5000,
-            "currency": "USD"
-          },
-          "status": "APPROVED",
+          "note": "some optional note",
           "processing_fee_money": {
             "amount": 138,
             "currency": "USD"
           },
-          "additional_recipients": [
-            {
-              "location_id": "057P5VYJ4A5X1",
-              "description": "Application fees",
-              "amount_money": {
-                "amount": 100,
-                "currency": "USD"
-              }
-            }
-          ]
+          "transaction_id": "KnL67ZIwXCPtzOrqj0HrkxMF",
+          "type": "CARD"
         }
-      ],
-      "reference_id": "some optional reference id",
-      "product": "EXTERNAL_API"
+      ]
     }
   ]
 }

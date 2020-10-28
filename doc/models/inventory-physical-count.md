@@ -1,15 +1,16 @@
-## Inventory Physical Count
+
+# Inventory Physical Count
 
 Represents the quantity of an item variation that is physically present
 at a specific location, verified by a seller or a seller's employee. For example,
 a physical count might come from an employee counting the item variations on
 hand or from syncing with an external system.
 
-### Structure
+## Structure
 
-`InventoryPhysicalCount`
+`Inventory Physical Count`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -25,7 +26,7 @@ hand or from syncing with an external system.
 | `occurred_at` | `string` | Optional | A client-generated timestamp in RFC 3339 format that indicates when<br>the physical count took place. For write actions, the `occurred_at`<br>timestamp cannot be older than 24 hours or in the future relative to the<br>time of the request. |
 | `created_at` | `string` | Optional | A read-only timestamp in RFC 3339 format that indicates when Square<br>received the physical count. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

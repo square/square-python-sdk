@@ -1,12 +1,13 @@
-## V1 Refund
+
+# V1 Refund
 
 V1Refund
 
-### Structure
+## Structure
 
-`V1Refund`
+`V1 Refund`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -29,7 +30,7 @@ V1Refund
 | `merchant_id` | `string` | Optional | - |
 | `is_exchange` | `bool` | Optional | Indicates whether or not the refund is associated with an exchange. If is_exchange is true, the refund reflects the value of goods returned in the exchange not the total money refunded. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,12 +1,13 @@
-## Order Fulfillment Pickup Details Schedule Type
+
+# Order Fulfillment Pickup Details Schedule Type
 
 The schedule type of the pickup fulfillment.
 
-### Enumeration
+## Enumeration
 
-`OrderFulfillmentPickupDetailsScheduleType`
+`Order Fulfillment Pickup Details Schedule Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

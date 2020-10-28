@@ -1,12 +1,13 @@
-## Loyalty Account Mapping Type
+
+# Loyalty Account Mapping Type
 
 The type of mapping.
 
-### Enumeration
+## Enumeration
 
-`LoyaltyAccountMappingType`
+`Loyalty Account Mapping Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,10 +1,11 @@
-## V1 Item Color
 
-### Enumeration
+# V1 Item Color
 
-`V1ItemColor`
+## Enumeration
 
-### Fields
+`V1 Item Color`
+
+## Fields
 
 | Name |
 |  --- |

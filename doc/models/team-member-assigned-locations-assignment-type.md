@@ -1,12 +1,13 @@
-## Team Member Assigned Locations Assignment Type
+
+# Team Member Assigned Locations Assignment Type
 
 Enumerates the possible assignment types the team member can have
 
-### Enumeration
+## Enumeration
 
-`TeamMemberAssignedLocationsAssignmentType`
+`Team Member Assigned Locations Assignment Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

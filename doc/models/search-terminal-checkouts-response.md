@@ -1,10 +1,11 @@
-## Search Terminal Checkouts Response
 
-### Structure
+# Search Terminal Checkouts Response
 
-`SearchTerminalCheckoutsResponse`
+## Structure
 
-### Fields
+`Search Terminal Checkouts Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -12,58 +13,58 @@
 | `checkouts` | [`List of Terminal Checkout`](/doc/models/terminal-checkout.md) | Optional | The requested search result of `TerminalCheckout`s. |
 | `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "checkouts": [
     {
-      "id": "tsQPvzwBpMqqO",
       "amount_money": {
         "amount": 2610,
         "currency": "USD"
       },
-      "reference_id": "id14467",
-      "note": "A brief note",
+      "app_id": "APP_ID",
+      "created_at": "2020-03-31T18:13:15.921Z",
+      "deadline_duration": "PT10M",
       "device_options": {
         "device_id": "dbb5d83a-7838-11ea-bc55-0242ac130003",
+        "skip_receipt_screen": false,
         "tip_settings": {
           "allow_tipping": false
-        },
-        "skip_receipt_screen": false
+        }
       },
-      "status": "COMPLETED",
+      "id": "tsQPvzwBpMqqO",
+      "note": "A brief note",
       "payment_ids": [
         "rXnhZzywrEk4vR6pw76fPZfgvaB"
       ],
-      "created_at": "2020-03-31T18:13:15.921Z",
-      "updated_at": "2020-03-31T18:13:52.725Z",
-      "app_id": "APP_ID",
-      "deadline_duration": "PT10M"
+      "reference_id": "id14467",
+      "status": "COMPLETED",
+      "updated_at": "2020-03-31T18:13:52.725Z"
     },
     {
-      "id": "XlOPTgcEhrbqO",
       "amount_money": {
         "amount": 2610,
         "currency": "USD"
       },
-      "reference_id": "id41623",
-      "note": "A brief note",
+      "app_id": "APP_ID",
+      "created_at": "2020-03-31T18:08:31.882Z",
+      "deadline_duration": "PT10M",
       "device_options": {
         "device_id": "dbb5d83a-7838-11ea-bc55-0242ac130003",
+        "skip_receipt_screen": true,
         "tip_settings": {
           "allow_tipping": false
-        },
-        "skip_receipt_screen": true
+        }
       },
-      "status": "COMPLETED",
+      "id": "XlOPTgcEhrbqO",
+      "note": "A brief note",
       "payment_ids": [
         "VYBF861PaoKPP7Pih0TlbZiNvaB"
       ],
-      "created_at": "2020-03-31T18:08:31.882Z",
-      "updated_at": "2020-03-31T18:08:41.635Z",
-      "app_id": "APP_ID",
-      "deadline_duration": "PT10M"
+      "reference_id": "id41623",
+      "status": "COMPLETED",
+      "updated_at": "2020-03-31T18:08:41.635Z"
     }
   ],
   "cursor": "RiTJqBoTuXlbLmmrPvEkX9iG7XnQ4W4RjGnH"

@@ -1,12 +1,13 @@
-## V1 Tender Card Brand
+
+# V1 Tender Card Brand
 
 The brand of a credit card.
 
-### Enumeration
+## Enumeration
 
-`V1TenderCardBrand`
+`V1 Tender Card Brand`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

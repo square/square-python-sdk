@@ -25,8 +25,8 @@ class InventoryApi(BaseApi):
                 [InventoryAdjustment](#type-inventoryadjustment) to retrieve.
 
         Returns:
-            RetrieveInventoryAdjustmentResponse: Response from the API.
-                Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -39,7 +39,7 @@ class InventoryApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/inventory/adjustment/{adjustment_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'adjustment_id': adjustment_id
+            'adjustment_id': {'value': adjustment_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -78,7 +78,8 @@ class InventoryApi(BaseApi):
                 definition for field details.
 
         Returns:
-            BatchChangeInventoryResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -131,8 +132,8 @@ class InventoryApi(BaseApi):
                 object definition for field details.
 
         Returns:
-            BatchRetrieveInventoryChangesResponse: Response from the API.
-                Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -190,8 +191,8 @@ class InventoryApi(BaseApi):
                 object definition for field details.
 
         Returns:
-            BatchRetrieveInventoryCountsResponse: Response from the API.
-                Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -239,8 +240,8 @@ class InventoryApi(BaseApi):
                 retrieve.
 
         Returns:
-            RetrieveInventoryPhysicalCountResponse: Response from the API.
-                Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -253,7 +254,7 @@ class InventoryApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/inventory/physical-count/{physical_count_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'physical_count_id': physical_count_id
+            'physical_count_id': {'value': physical_count_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -301,7 +302,8 @@ class InventoryApi(BaseApi):
                 ith-apis/pagination) guide for more information.
 
         Returns:
-            RetrieveInventoryCountResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -314,7 +316,7 @@ class InventoryApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/inventory/{catalog_object_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'catalog_object_id': catalog_object_id
+            'catalog_object_id': {'value': catalog_object_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -376,7 +378,8 @@ class InventoryApi(BaseApi):
                 pis/pagination) guide for more information.
 
         Returns:
-            RetrieveInventoryChangesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -389,7 +392,7 @@ class InventoryApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/inventory/{catalog_object_id}/changes'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'catalog_object_id': catalog_object_id
+            'catalog_object_id': {'value': catalog_object_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

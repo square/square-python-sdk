@@ -1,12 +1,13 @@
-## Catalog Quick Amounts Settings Option
+
+# Catalog Quick Amounts Settings Option
 
 Determines a seller's option on Quick Amounts feature.
 
-### Enumeration
+## Enumeration
 
-`CatalogQuickAmountsSettingsOption`
+`Catalog Quick Amounts Settings Option`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

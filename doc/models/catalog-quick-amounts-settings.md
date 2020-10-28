@@ -1,12 +1,13 @@
-## Catalog Quick Amounts Settings
+
+# Catalog Quick Amounts Settings
 
 A parent Catalog Object model represents a set of Quick Amounts and the settings control the amounts.
 
-### Structure
+## Structure
 
-`CatalogQuickAmountsSettings`
+`Catalog Quick Amounts Settings`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,7 +15,7 @@ A parent Catalog Object model represents a set of Quick Amounts and the settings
 | `eligible_for_auto_amounts` | `bool` | Optional | Represents location's eligibility for auto amounts<br>The boolean should be consistent with whether there are AUTO amounts in the `amounts`. |
 | `amounts` | [`List of Catalog Quick Amount`](/doc/models/catalog-quick-amount.md) | Optional | Represents a set of Quick Amounts at this location. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

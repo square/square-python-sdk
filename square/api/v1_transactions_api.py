@@ -29,7 +29,8 @@ class V1TransactionsApi(BaseApi):
                 for.
 
         Returns:
-            list of V1BankAccount: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -42,7 +43,7 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/bank-accounts'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -84,7 +85,8 @@ class V1TransactionsApi(BaseApi):
                 obtain this value from Settlement objects returned.
 
         Returns:
-            V1BankAccount: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -97,8 +99,8 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/bank-accounts/{bank_account_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'bank_account_id': bank_account_id
+            'location_id': {'value': location_id, 'encode': True},
+            'bank_account_id': {'value': bank_account_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -143,7 +145,8 @@ class V1TransactionsApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1Order: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -156,7 +159,7 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/orders'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -203,7 +206,8 @@ class V1TransactionsApi(BaseApi):
                 value from Order objects returned by the List Orders endpoint
 
         Returns:
-            V1Order: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -216,8 +220,8 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/orders/{order_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'order_id': order_id
+            'location_id': {'value': location_id, 'encode': True},
+            'order_id': {'value': order_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -259,7 +263,8 @@ class V1TransactionsApi(BaseApi):
                 for field details.
 
         Returns:
-            V1Order: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -272,8 +277,8 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/orders/{order_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'order_id': order_id
+            'location_id': {'value': location_id, 'encode': True},
+            'order_id': {'value': order_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -346,7 +351,8 @@ class V1TransactionsApi(BaseApi):
                 will be empty until the payment is completed.
 
         Returns:
-            list of V1Payment: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -359,7 +365,7 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/payments'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -412,7 +418,8 @@ class V1TransactionsApi(BaseApi):
                 endpoint.
 
         Returns:
-            V1Payment: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -425,8 +432,8 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/payments/{payment_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'payment_id': payment_id
+            'location_id': {'value': location_id, 'encode': True},
+            'payment_id': {'value': payment_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -486,7 +493,8 @@ class V1TransactionsApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1Refund: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -499,7 +507,7 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/refunds'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -561,7 +569,8 @@ class V1TransactionsApi(BaseApi):
                 for field details.
 
         Returns:
-            V1Refund: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -574,7 +583,7 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/refunds'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -640,7 +649,8 @@ class V1TransactionsApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1Settlement: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -653,7 +663,7 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/settlements'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -722,7 +732,8 @@ class V1TransactionsApi(BaseApi):
                 Settlements endpoint.
 
         Returns:
-            V1Settlement: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -735,8 +746,8 @@ class V1TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/settlements/{settlement_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'settlement_id': settlement_id
+            'location_id': {'value': location_id, 'encode': True},
+            'settlement_id': {'value': settlement_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

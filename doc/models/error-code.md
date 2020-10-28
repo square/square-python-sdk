@@ -1,13 +1,14 @@
-## Error Code
+
+# Error Code
 
 Indicates the specific error that occurred during a request to a
 Square API.
 
-### Enumeration
+## Enumeration
 
-`ErrorCode`
+`Error Code`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |
@@ -87,7 +88,7 @@ Square API.
 | `INVALID_FEES` | The app_fee_money on a payment is too high. |
 | `MANUALLY_ENTERED_PAYMENT_NOT_SUPPORTED` | The card must be swiped, tapped, or dipped. Payments attempted by manually entering the card number are declined. |
 | `PAYMENT_LIMIT_EXCEEDED` | Square declined the request because the payment amount exceeded the processing limit for this merchant. |
-| `GIFT_CARD_AVAILABLE_AMOUNT` | When using a gift card as a payment source in a `CreatePayment` request, you can allow<br>taking partial payment by adding the `accept_partial_authorization` parameter in the request.<br>If the gift card does not have sufficient balance to pay the entire `amount_money` specified<br>in the request, the request will succeed (an APPROVED payment for the remaining balance will be<br>returned). For more information, see [Partial amount with Square gift cards](https://developer.squareup.com/docs/docs/payments-api/take-payments#partial-payment-gift-card).\r\n\r\n<br>However, taking such a partial payment does not work if your request also includes `tip_money`,<br>`app_fee_money`, or both. Square declines such payment and returns this error.\r\n* The error<br>details provide the amount that was available on the gift card at the time of the request.<br>The amount is a string representation in the smallest denomination of the applicable currency.<br>For example, in USD the amount is specified in cents.\r\n* The error code appears in an array<br>along with the INSUFFICIENT_FUNDS error.\r\n\r\nThe following is an example set of<br>errors:\r\n```\r\n{\r\n  \"errors\": [\r\n    {\r\n  \"code\": \"INSUFFICIENT_FUNDS\",\r\n      \"detail\": \"Gift card does not have sufficient balance for requested amount and tip.\",\r\n      \"category\": \"PAYMENT_METHOD_ERROR\"\r\n    },\r\n    {\r\n      \"code\": \"GIFT_CARD_AVAILABLE_AMOUNT\",\r\n      \"detail\": \"4494\",\r\n      \"category\": \"PAYMENT_METHOD_ERROR\"\r\n    }\r\n  ]\r\n}\r\n```\r\n\r\n<br>In addition to the errors, it shows the gift card balance at 44.94 USD. You can review this amount and submit a new `CreatePayment` request with `tip_money` and `amount_money` that fit within the available balance. |
+| `GIFT_CARD_AVAILABLE_AMOUNT` | When using a gift card as a payment source in a `CreatePayment` request, you can allow<br>taking partial payment by adding the `accept_partial_authorization` parameter in the request.<br>If the gift card does not have sufficient balance to pay the entire `amount_money` specified<br>in the request, the request will succeed (an APPROVED payment for the remaining balance will be<br>returned). For more information, see [Partial amount with Square gift cards](https://developer.squareup.com/docs/docs/payments-api/take-payments#partial-payment-gift-card).\r\n\r\n<br>However, taking such a partial payment does not work if your request also includes `tip_money`,<br>`app_fee_money`, or both. Square declines such payment and returns this error.\r\n* The error<br>details provide the amount that was available on the gift card at the time of the request.<br>The amount is a string representation in the smallest denomination of the applicable currency.<br>For example, in USD the amount is specified in cents.\r\n* The error code appears in an array<br>along with the INSUFFICIENT_FUNDS error.\r\n\r\nThe following is an example set of<br>errors:\r\n`\r\n{\r\n \"errors\": [\r\n {\r\n \"code\": \"INSUFFICIENT_FUNDS\",\r\n \"detail\": \"Gift card does not have sufficient balance for requested amount and tip.\",\r\n \"category\": \"PAYMENT_METHOD_ERROR\"\r\n },\r\n {\r\n \"code\": \"GIFT_CARD_AVAILABLE_AMOUNT\",\r\n \"detail\": \"4494\",\r\n \"category\": \"PAYMENT_METHOD_ERROR\"\r\n }\r\n ]\r\n}\r\n`\r\n\r\n<br>In addition to the errors, it shows the gift card balance at 44.94 USD. You can review this amount and submit a new `CreatePayment` request with `tip_money` and `amount_money` that fit within the available balance. |
 | `DELAYED_TRANSACTION_EXPIRED` | The application tried to update a delayed-capture payment that has expired. |
 | `DELAYED_TRANSACTION_CANCELED` | The application tried to cancel a delayed-capture payment that was already cancelled. |
 | `DELAYED_TRANSACTION_CAPTURED` | The application tried to capture a delayed-capture payment that was already captured. |
@@ -101,6 +102,8 @@ Square API.
 | `PAYMENT_NOT_REFUNDABLE` | The payment is not refundable. For example, a previous refund has<br>already been rejected and no new refunds can be accepted. |
 | `REFUND_DECLINED` | Request failed - The card issuer declined the refund. |
 | `INVALID_CARD_DATA` | Generic error - the provided card data is invalid. |
+| `SOURCE_USED` | The provided source id was already used to create a card. |
+| `SOURCE_EXPIRED` | The provided source id has expired. |
 | `LOCATION_MISMATCH` | Generic error - the given location does not matching what is expected. |
 | `IDEMPOTENCY_KEY_REUSED` | The provided idempotency key has already been used. |
 | `UNEXPECTED_VALUE` | General error - the value provided was unexpected. |

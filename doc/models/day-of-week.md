@@ -1,12 +1,13 @@
-## Day of Week
+
+# Day of Week
 
 Indicates the specific day  of the week.
 
-### Enumeration
+## Enumeration
 
-`DayOfWeek`
+`Day of Week`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

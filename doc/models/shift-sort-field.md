@@ -1,12 +1,13 @@
-## Shift Sort Field
+
+# Shift Sort Field
 
 Enumerates the `Shift` fields to sort on.
 
-### Enumeration
+## Enumeration
 
-`ShiftSortField`
+`Shift Sort Field`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

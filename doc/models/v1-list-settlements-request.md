@@ -1,10 +1,11 @@
-## V1 List Settlements Request
 
-### Structure
+# V1 List Settlements Request
 
-`V1ListSettlementsRequest`
+## Structure
 
-### Fields
+`V1 List Settlements Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@
 | `status` | [`str (V1 List Settlements Request Status)`](/doc/models/v1-list-settlements-request-status.md) | Optional | - |
 | `batch_token` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

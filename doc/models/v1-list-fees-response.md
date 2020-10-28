@@ -1,16 +1,17 @@
-## V1 List Fees Response
 
-### Structure
+# V1 List Fees Response
 
-`V1ListFeesResponse`
+## Structure
 
-### Fields
+`V1 List Fees Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `items` | [`List of V1 Fee`](/doc/models/v1-fee.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

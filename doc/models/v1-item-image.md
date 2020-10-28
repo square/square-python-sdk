@@ -1,19 +1,20 @@
-## V1 Item Image
+
+# V1 Item Image
 
 V1ItemImage
 
-### Structure
+## Structure
 
-`V1ItemImage`
+`V1 Item Image`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Optional | The image's unique ID. |
 | `url` | `string` | Optional | The image's publicly accessible URL. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

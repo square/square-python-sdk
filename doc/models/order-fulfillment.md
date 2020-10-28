@@ -1,12 +1,13 @@
-## Order Fulfillment
+
+# Order Fulfillment
 
 Contains details on how to fulfill this order.
 
-### Structure
+## Structure
 
-`OrderFulfillment`
+`Order Fulfillment`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,7 +18,7 @@ Contains details on how to fulfill this order.
 | `pickup_details` | [`Order Fulfillment Pickup Details`](/doc/models/order-fulfillment-pickup-details.md) | Optional | Contains details necessary to fulfill a pickup order. |
 | `shipment_details` | [`Order Fulfillment Shipment Details`](/doc/models/order-fulfillment-shipment-details.md) | Optional | Contains details necessary to fulfill a shipment order. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,12 +1,13 @@
-## Measurement Unit Weight
+
+# Measurement Unit Weight
 
 Unit of weight used to measure a quantity.
 
-### Enumeration
+## Enumeration
 
-`MeasurementUnitWeight`
+`Measurement Unit Weight`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

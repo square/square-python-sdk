@@ -1,10 +1,11 @@
-## V1 Bank Account Type
 
-### Enumeration
+# V1 Bank Account Type
 
-`V1BankAccountType`
+## Enumeration
 
-### Fields
+`V1 Bank Account Type`
+
+## Fields
 
 | Name |
 |  --- |

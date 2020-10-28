@@ -1,12 +1,13 @@
-## Tender Card Details Entry Method
+
+# Tender Card Details Entry Method
 
 Indicates the method used to enter the card's details.
 
-### Enumeration
+## Enumeration
 
-`TenderCardDetailsEntryMethod`
+`Tender Card Details Entry Method`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

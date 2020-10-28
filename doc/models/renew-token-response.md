@@ -1,10 +1,11 @@
-## Renew Token Response
 
-### Structure
+# Renew Token Response
 
-`RenewTokenResponse`
+## Structure
 
-### Fields
+`Renew Token Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,14 +16,14 @@
 | `subscription_id` | `string` | Optional | __LEGACY FIELD__. The ID of the merchant subscription associated with<br>the authorization. Only present if the merchant signed up for a subscription<br>during authorization.. |
 | `plan_id` | `string` | Optional | __LEGACY FIELD__. The ID of the subscription plan the merchant signed<br>up for. Only present if the merchant signed up for a subscription during<br>authorization. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "access_token": "ACCESS_TOKEN",
-  "token_type": "bearer",
   "expires_at": "2006-01-02T15:04:05Z",
-  "merchant_id": "MERCHANT_ID"
+  "merchant_id": "MERCHANT_ID",
+  "token_type": "bearer"
 }
 ```
 

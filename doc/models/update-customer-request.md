@@ -1,13 +1,14 @@
-## Update Customer Request
+
+# Update Customer Request
 
 Defines the body parameters that can be provided in a request to the
 UpdateCustomer endpoint.
 
-### Structure
+## Structure
 
-`UpdateCustomerRequest`
+`Update Customer Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -20,15 +21,15 @@ UpdateCustomer endpoint.
 | `phone_number` | `string` | Optional | The 11-digit phone number associated with the customer profile. |
 | `reference_id` | `string` | Optional | An optional, second ID used to associate the customer profile with an<br>entity in another system. |
 | `note` | `string` | Optional | A custom note associated with the customer profile. |
-| `birthday` | `string` | Optional | The birthday associated with the customer profile, in RFC-3339 format.<br>Year is optional, timezone and times are not allowed.<br>For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.<br>`1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__. |
+| `birthday` | `string` | Optional | The birthday associated with the customer profile, in RFC 3339 format.<br>Year is optional, timezone and times are not allowed.<br>For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.<br>`1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "phone_number": "",
   "email_address": "New.Amelia.Earhart@example.com",
-  "note": "updated customer note"
+  "note": "updated customer note",
+  "phone_number": ""
 }
 ```
 

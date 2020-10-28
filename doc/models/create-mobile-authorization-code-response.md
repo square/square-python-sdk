@@ -1,13 +1,14 @@
-## Create Mobile Authorization Code Response
+
+# Create Mobile Authorization Code Response
 
 Defines the fields that are included in the response body of
 a request to the __CreateMobileAuthorizationCode__ endpoint.
 
-### Structure
+## Structure
 
-`CreateMobileAuthorizationCodeResponse`
+`Create Mobile Authorization Code Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@ a request to the __CreateMobileAuthorizationCode__ endpoint.
 | `expires_at` | `string` | Optional | The timestamp when `authorization_code` expires in<br>[RFC 3339](https://tools.ietf.org/html/rfc3339) format, e.g., "2016-09-04T23:59:33.123Z". |
 | `error` | [`Error`](/doc/models/error.md) | Optional | Represents an error encountered during a request to the Connect API.<br><br>See [Handling errors](#handlingerrors) for more information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

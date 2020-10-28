@@ -1,10 +1,11 @@
-## Merchant Status
 
-### Enumeration
+# Merchant Status
 
-`MerchantStatus`
+## Enumeration
 
-### Fields
+`Merchant Status`
+
+## Fields
 
 | Name | Description |
 |  --- | --- |

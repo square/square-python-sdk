@@ -1,6 +1,7 @@
-## V1 Payment Itemization
 
-Payment include an` itemizations` field that lists the items purchased,
+# V1 Payment Itemization
+
+Payment include an`itemizations` field that lists the items purchased,
 along with associated fees, modifiers, and discounts. Each itemization has an
 `itemization_type` field that indicates which of the following the itemization
 represents:
@@ -13,16 +14,15 @@ An action performed on a Square gift card, such as activating or
 reloading it.
 </li>
 </ul>
-
 *Note**: itemization information included in a `Payment` object reflects
 details collected **at the time of the payment**. Details such as the name or
 price of items might have changed since the payment was processed.
 
-### Structure
+## Structure
 
-`V1PaymentItemization`
+`V1 Payment Itemization`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -41,7 +41,7 @@ price of items might have changed since the payment was processed.
 | `discounts` | [`List of V1 Payment Discount`](/doc/models/v1-payment-discount.md) | Optional | All discounts applied to this itemization. |
 | `modifiers` | [`List of V1 Payment Modifier`](/doc/models/v1-payment-modifier.md) | Optional | All modifier options applied to this itemization. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,10 +1,11 @@
-## V1 Create Refund Request Type
 
-### Enumeration
+# V1 Create Refund Request Type
 
-`V1CreateRefundRequestType`
+## Enumeration
 
-### Fields
+`V1 Create Refund Request Type`
+
+## Fields
 
 | Name |
 |  --- |

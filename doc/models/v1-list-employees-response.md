@@ -1,16 +1,17 @@
-## V1 List Employees Response
 
-### Structure
+# V1 List Employees Response
 
-`V1ListEmployeesResponse`
+## Structure
 
-### Fields
+`V1 List Employees Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `items` | [`List of V1 Employee`](/doc/models/v1-employee.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

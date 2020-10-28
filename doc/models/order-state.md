@@ -1,12 +1,13 @@
-## Order State
+
+# Order State
 
 The state of the order.
 
-### Enumeration
+## Enumeration
 
-`OrderState`
+`Order State`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

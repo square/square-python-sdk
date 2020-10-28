@@ -1,13 +1,14 @@
-## List Employee Wages Response
 
-The response to a request for a set of `EmployeeWage` objects. Contains 
+# List Employee Wages Response
+
+The response to a request for a set of `EmployeeWage` objects. Contains
 a set of `EmployeeWage`.
 
-### Structure
+## Structure
 
-`ListEmployeeWagesResponse`
+`List Employee Wages Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,49 +16,49 @@ a set of `EmployeeWage`.
 | `cursor` | `string` | Optional | Value supplied in the subsequent request to fetch the next next page<br>of Employee Wage results. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
+  "cursor": "2fofTniCgT0yIPAq26kmk0YyFQJZfbWkh73OOnlTHmTAx13NgED",
   "employee_wages": [
     {
-      "id": "pXS3qCv7BERPnEGedM4S8mhm",
       "employee_id": "33fJchumvVdJwxV0H6L9",
-      "title": "Manager",
       "hourly_rate": {
         "amount": 3250,
         "currency": "USD"
-      }
+      },
+      "id": "pXS3qCv7BERPnEGedM4S8mhm",
+      "title": "Manager"
     },
     {
-      "id": "rZduCkzYDUVL3ovh1sQgbue6",
       "employee_id": "33fJchumvVdJwxV0H6L9",
-      "title": "Cook",
       "hourly_rate": {
         "amount": 2600,
         "currency": "USD"
-      }
+      },
+      "id": "rZduCkzYDUVL3ovh1sQgbue6",
+      "title": "Cook"
     },
     {
-      "id": "FxLbs5KpPUHa8wyt5ctjubDX",
       "employee_id": "33fJchumvVdJwxV0H6L9",
-      "title": "Barista",
       "hourly_rate": {
         "amount": 1600,
         "currency": "USD"
-      }
+      },
+      "id": "FxLbs5KpPUHa8wyt5ctjubDX",
+      "title": "Barista"
     },
     {
-      "id": "vD1wCgijMDR3cX5TPnu7VXto",
       "employee_id": "33fJchumvVdJwxV0H6L9",
-      "title": "Cashier",
       "hourly_rate": {
         "amount": 1700,
         "currency": "USD"
-      }
+      },
+      "id": "vD1wCgijMDR3cX5TPnu7VXto",
+      "title": "Cashier"
     }
-  ],
-  "cursor": "2fofTniCgT0yIPAq26kmk0YyFQJZfbWkh73OOnlTHmTAx13NgED"
+  ]
 }
 ```
 

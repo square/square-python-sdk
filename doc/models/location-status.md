@@ -1,12 +1,13 @@
-## Location Status
+
+# Location Status
 
 The status of the location, whether a location is active or inactive.
 
-### Enumeration
+## Enumeration
 
-`LocationStatus`
+`Location Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,12 +1,13 @@
-## V1 Variation
+
+# V1 Variation
 
 V1Variation
 
-### Structure
+## Structure
 
-`V1Variation`
+`V1 Variation`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -23,7 +24,7 @@ V1Variation
 | `user_data` | `string` | Optional | Arbitrary metadata associated with the variation. Cannot exceed 255 characters. |
 | `v2_id` | `string` | Optional | The ID of the CatalogObject in the Connect v2 API. Objects that are shared across multiple locations share the same v2 ID. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

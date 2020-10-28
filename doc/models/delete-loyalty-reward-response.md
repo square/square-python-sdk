@@ -1,18 +1,19 @@
-## Delete Loyalty Reward Response
+
+# Delete Loyalty Reward Response
 
 A response returned by the API call.
 
-### Structure
+## Structure
 
-`DeleteLoyaltyRewardResponse`
+`Delete Loyalty Reward Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {}

@@ -1,18 +1,19 @@
-## Loyalty Event Date Time Filter
+
+# Loyalty Event Date Time Filter
 
 Filter events by date time range.
 
-### Structure
+## Structure
 
-`LoyaltyEventDateTimeFilter`
+`Loyalty Event Date Time Filter`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `created_at` | [`Time Range`](/doc/models/time-range.md) | Represents a generic time range. The start and end values are<br>represented in RFC 3339 format. Time ranges are customized to be<br>inclusive or exclusive based on the needs of a particular endpoint.<br>Refer to the relevant endpoint-specific documentation to determine<br>how time ranges are handled. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

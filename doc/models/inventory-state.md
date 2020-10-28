@@ -1,12 +1,13 @@
-## Inventory State
+
+# Inventory State
 
 Indicates the state of a tracked item quantity in the lifecycle of goods.
 
-### Enumeration
+## Enumeration
 
-`InventoryState`
+`Inventory State`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,12 +1,13 @@
-## Catalog Pricing Type
+
+# Catalog Pricing Type
 
 Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
 
-### Enumeration
+## Enumeration
 
-`CatalogPricingType`
+`Catalog Pricing Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

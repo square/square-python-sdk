@@ -21,10 +21,10 @@ class CustomersApi(BaseApi):
 
         Lists customer profiles associated with a Square account.
         Under normal operating conditions, newly created or updated customer
-        profiles become available 
+        profiles become available
         for the listing operation in well under 30 seconds. Occasionally,
-        propagation of the new or updated 
-        profiles can take closer to one minute or longer, espeically during
+        propagation of the new or updated
+        profiles can take closer to one minute or longer, especially during
         network incidents and outages.
 
         Args:
@@ -41,7 +41,8 @@ class CustomersApi(BaseApi):
                 order.  Default: `ASC`.
 
         Returns:
-            ListCustomersResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -105,7 +106,8 @@ class CustomersApi(BaseApi):
                 for field details.
 
         Returns:
-            CreateCustomerResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -145,16 +147,16 @@ class CustomersApi(BaseApi):
         """Does a POST request to /v2/customers/search.
 
         Searches the customer profiles associated with a Square account using
-                one or more supported query filters. 
+        a supported query filter.
         Calling `SearchCustomers` without any explicit query filter returns
         all
         customer profiles ordered alphabetically based on `given_name` and
         `family_name`.
         Under normal operating conditions, newly created or updated customer
-        profiles become available 
+        profiles become available
         for the search operation in well under 30 seconds. Occasionally,
-        propagation of the new or updated 
-        profiles can take closer to one minute or longer, espeically during
+        propagation of the new or updated
+        profiles can take closer to one minute or longer, especially during
         network incidents and outages.
 
         Args:
@@ -163,7 +165,8 @@ class CustomersApi(BaseApi):
                 for field details.
 
         Returns:
-            SearchCustomersResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -212,7 +215,8 @@ class CustomersApi(BaseApi):
             customer_id (string): The ID of the customer to delete.
 
         Returns:
-            DeleteCustomerResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -225,7 +229,7 @@ class CustomersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/{customer_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': customer_id
+            'customer_id': {'value': customer_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -259,7 +263,8 @@ class CustomersApi(BaseApi):
             customer_id (string): The ID of the customer to retrieve.
 
         Returns:
-            RetrieveCustomerResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -272,7 +277,7 @@ class CustomersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/{customer_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': customer_id
+            'customer_id': {'value': customer_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -309,9 +314,10 @@ class CustomersApi(BaseApi):
         You cannot edit a customer's cards on file with this endpoint. To make
         changes
         to a card on file, you must delete the existing card on file with the
-        [DeleteCustomerCard](#endpoint-deletecustomercard) endpoint, then
-        create a new one with the
-        [CreateCustomerCard](#endpoint-createcustomercard) endpoint.
+        [DeleteCustomerCard](#endpoint-Customers-deletecustomercard) endpoint,
+        then create a new one with the
+        [CreateCustomerCard](#endpoint-Customers-createcustomercard)
+        endpoint.
 
         Args:
             customer_id (string): The ID of the customer to update.
@@ -320,7 +326,8 @@ class CustomersApi(BaseApi):
                 for field details.
 
         Returns:
-            UpdateCustomerResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -333,7 +340,7 @@ class CustomersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/{customer_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': customer_id
+            'customer_id': {'value': customer_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -378,7 +385,8 @@ class CustomersApi(BaseApi):
                 definition for field details.
 
         Returns:
-            CreateCustomerCardResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -391,7 +399,7 @@ class CustomersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/{customer_id}/cards'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': customer_id
+            'customer_id': {'value': customer_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -429,7 +437,8 @@ class CustomersApi(BaseApi):
             card_id (string): The ID of the card on file to delete.
 
         Returns:
-            DeleteCustomerCardResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -442,8 +451,8 @@ class CustomersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/{customer_id}/cards/{card_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': customer_id,
-            'card_id': card_id
+            'customer_id': {'value': customer_id, 'encode': True},
+            'card_id': {'value': card_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -483,7 +492,8 @@ class CustomersApi(BaseApi):
                 customer from.
 
         Returns:
-            RemoveGroupFromCustomerResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -496,8 +506,8 @@ class CustomersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/{customer_id}/groups/{group_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': customer_id,
-            'group_id': group_id
+            'customer_id': {'value': customer_id, 'encode': True},
+            'group_id': {'value': group_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -536,7 +546,8 @@ class CustomersApi(BaseApi):
                 customer to.
 
         Returns:
-            AddGroupToCustomerResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -549,8 +560,8 @@ class CustomersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/{customer_id}/groups/{group_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': customer_id,
-            'group_id': group_id
+            'customer_id': {'value': customer_id, 'encode': True},
+            'group_id': {'value': group_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

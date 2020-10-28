@@ -1,18 +1,19 @@
-## Loyalty Program Expiration Policy
+
+# Loyalty Program Expiration Policy
 
 Describes when the loyalty program expires.
 
-### Structure
+## Structure
 
-`LoyaltyProgramExpirationPolicy`
+`Loyalty Program Expiration Policy`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `expiration_duration` | `string` | The duration of time before points expire, in RFC 3339 format. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

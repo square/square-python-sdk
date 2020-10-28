@@ -1,12 +1,13 @@
-## Catalog Custom Attribute Definition Type
+
+# Catalog Custom Attribute Definition Type
 
 Defines the possible types for a custom attribute.
 
-### Enumeration
+## Enumeration
 
-`CatalogCustomAttributeDefinitionType`
+`Catalog Custom Attribute Definition Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,10 +1,11 @@
-## Obtain Token Request
 
-### Structure
+# Obtain Token Request
 
-`ObtainTokenRequest`
+## Structure
 
-### Fields
+`Obtain Token Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -16,7 +17,7 @@
 | `refresh_token` | `string` | Optional | A valid refresh token for generating a new OAuth access token.<br>A valid refresh token is required if `grant_type` is set to `refresh_token` ,<br>to indicate the application wants a replacement for an expired OAuth access token. |
 | `migration_token` | `string` | Optional | Legacy OAuth access token obtained using a Connect API version prior<br>to 2019-03-13. This parameter is required if `grant_type` is set to<br>`migration_token` to indicate that the application wants to get a replacement<br>OAuth access token. The response also returns a refresh token.<br>For more information, see [Migrate to Using Refresh Tokens](https://developer.squareup.com/docs/authz/oauth/migration). |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

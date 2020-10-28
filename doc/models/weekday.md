@@ -1,12 +1,13 @@
-## Weekday
+
+# Weekday
 
 The days of the week.
 
-### Enumeration
+## Enumeration
 
 `Weekday`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,18 +1,19 @@
-## Loyalty Event Location Filter
+
+# Loyalty Event Location Filter
 
 Filter events by location.
 
-### Structure
+## Structure
 
-`LoyaltyEventLocationFilter`
+`Loyalty Event Location Filter`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `location_ids` | `List of string` | The [location](#type-Location) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses <br>a logical OR to combine them. |
+| `location_ids` | `List of string` | The [location](#type-Location) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses<br>a logical OR to combine them. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

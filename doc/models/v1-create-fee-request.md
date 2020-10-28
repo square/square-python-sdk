@@ -1,16 +1,17 @@
-## V1 Create Fee Request
 
-### Structure
+# V1 Create Fee Request
 
-`V1CreateFeeRequest`
+## Structure
 
-### Fields
+`V1 Create Fee Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1 Fee`](/doc/models/v1-fee.md) | Optional | V1Fee |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

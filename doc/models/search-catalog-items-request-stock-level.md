@@ -1,12 +1,13 @@
-## Search Catalog Items Request Stock Level
+
+# Search Catalog Items Request Stock Level
 
 Defines supported stock levels of the item inventory.
 
-### Enumeration
+## Enumeration
 
-`SearchCatalogItemsRequestStockLevel`
+`Search Catalog Items Request Stock Level`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,12 +1,13 @@
-## Refund Status
+
+# Refund Status
 
 Indicates a refund's current status.
 
-### Enumeration
+## Enumeration
 
-`RefundStatus`
+`Refund Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

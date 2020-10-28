@@ -1,10 +1,11 @@
-## V1 List Payments Request
 
-### Structure
+# V1 List Payments Request
 
-`V1ListPaymentsRequest`
+## Structure
 
-### Fields
+`V1 List Payments Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@
 | `batch_token` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 | `include_partial` | `bool` | Optional | Indicates whether or not to include partial payments in the response. Partial payments will have the tenders collected so far, but the itemizations will be empty until the payment is completed. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

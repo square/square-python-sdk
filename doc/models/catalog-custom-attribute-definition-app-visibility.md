@@ -1,13 +1,14 @@
-## Catalog Custom Attribute Definition App Visibility
+
+# Catalog Custom Attribute Definition App Visibility
 
 Defines the visibility of a custom attribute to applications other than their
 creating application.
 
-### Enumeration
+## Enumeration
 
-`CatalogCustomAttributeDefinitionAppVisibility`
+`Catalog Custom Attribute Definition App Visibility`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

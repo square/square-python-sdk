@@ -32,7 +32,8 @@ class LaborApi(BaseApi):
                 results to fetch.
 
         Returns:
-            ListBreakTypesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -99,7 +100,8 @@ class LaborApi(BaseApi):
                 for field details.
 
         Returns:
-            CreateBreakTypeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -145,7 +147,8 @@ class LaborApi(BaseApi):
             id (string): UUID for the `BreakType` being deleted.
 
         Returns:
-            DeleteBreakTypeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -158,7 +161,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/break-types/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -192,7 +195,8 @@ class LaborApi(BaseApi):
             id (string): UUID for the `BreakType` being retrieved.
 
         Returns:
-            GetBreakTypeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -205,7 +209,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/break-types/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -243,7 +247,8 @@ class LaborApi(BaseApi):
                 for field details.
 
         Returns:
-            UpdateBreakTypeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -256,7 +261,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/break-types/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -300,7 +305,8 @@ class LaborApi(BaseApi):
                 Wage results to fetch.
 
         Returns:
-            ListEmployeeWagesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -354,7 +360,8 @@ class LaborApi(BaseApi):
             id (string): UUID for the `EmployeeWage` being retrieved.
 
         Returns:
-            GetEmployeeWageResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -367,7 +374,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/employee-wages/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -421,7 +428,8 @@ class LaborApi(BaseApi):
                 field details.
 
         Returns:
-            CreateShiftResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -480,7 +488,8 @@ class LaborApi(BaseApi):
                 for field details.
 
         Returns:
-            SearchShiftsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -525,7 +534,8 @@ class LaborApi(BaseApi):
             id (string): UUID for the `Shift` being deleted.
 
         Returns:
-            DeleteShiftResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -538,7 +548,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/shifts/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -572,7 +582,8 @@ class LaborApi(BaseApi):
             id (string): UUID for the `Shift` being retrieved.
 
         Returns:
-            GetShiftResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -585,7 +596,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/shifts/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -629,7 +640,8 @@ class LaborApi(BaseApi):
                 field details.
 
         Returns:
-            UpdateShiftResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -642,7 +654,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/shifts/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -686,7 +698,8 @@ class LaborApi(BaseApi):
                 Wage results to fetch.
 
         Returns:
-            ListTeamMemberWagesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -739,7 +752,8 @@ class LaborApi(BaseApi):
             id (string): UUID for the `TeamMemberWage` being retrieved.
 
         Returns:
-            GetTeamMemberWageResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -752,7 +766,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/team-member-wages/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -790,7 +804,8 @@ class LaborApi(BaseApi):
                 Config results to fetch.
 
         Returns:
-            ListWorkweekConfigsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -846,7 +861,8 @@ class LaborApi(BaseApi):
                 definition for field details.
 
         Returns:
-            UpdateWorkweekConfigResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -859,7 +875,7 @@ class LaborApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/labor/workweek-configs/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

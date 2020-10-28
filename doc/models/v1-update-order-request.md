@@ -1,12 +1,13 @@
-## V1 Update Order Request
+
+# V1 Update Order Request
 
 V1UpdateOrderRequest
 
-### Structure
+## Structure
 
-`V1UpdateOrderRequest`
+`V1 Update Order Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -16,7 +17,7 @@ V1UpdateOrderRequest
 | `refunded_note` | `string` | Optional | A merchant-specified note about the refunding of the order. Only valid if action is REFUND. |
 | `canceled_note` | `string` | Optional | A merchant-specified note about the canceling of the order. Only valid if action is CANCEL. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

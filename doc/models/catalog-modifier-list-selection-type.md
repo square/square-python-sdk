@@ -1,12 +1,13 @@
-## Catalog Modifier List Selection Type
+
+# Catalog Modifier List Selection Type
 
 Indicates whether a CatalogModifierList supports multiple selections.
 
-### Enumeration
+## Enumeration
 
-`CatalogModifierListSelectionType`
+`Catalog Modifier List Selection Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

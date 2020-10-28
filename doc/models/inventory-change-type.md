@@ -1,12 +1,13 @@
-## Inventory Change Type
+
+# Inventory Change Type
 
 Indicates how the inventory change was applied to a tracked quantity of items.
 
-### Enumeration
+## Enumeration
 
-`InventoryChangeType`
+`Inventory Change Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

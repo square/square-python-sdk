@@ -1,16 +1,17 @@
-## V1 List Locations Response
 
-### Structure
+# V1 List Locations Response
 
-`V1ListLocationsResponse`
+## Structure
 
-### Fields
+`V1 List Locations Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `items` | [`List of V1 Merchant`](/doc/models/v1-merchant.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

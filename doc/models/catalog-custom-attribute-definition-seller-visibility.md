@@ -1,14 +1,15 @@
-## Catalog Custom Attribute Definition Seller Visibility
+
+# Catalog Custom Attribute Definition Seller Visibility
 
 Defines the visibility of a custom attribute to sellers in Square
 client applications, Square APIs or in Square UIs (including Square Point
 of Sale applications and Square Dashboard).
 
-### Enumeration
+## Enumeration
 
-`CatalogCustomAttributeDefinitionSellerVisibility`
+`Catalog Custom Attribute Definition Seller Visibility`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |
