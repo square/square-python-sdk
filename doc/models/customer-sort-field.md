@@ -1,12 +1,13 @@
-## Customer Sort Field
+
+# Customer Sort Field
 
 Specifies customer attributes as the sort key to customer profiles returned from a search.
 
-### Enumeration
+## Enumeration
 
-`CustomerSortField`
+`Customer Sort Field`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

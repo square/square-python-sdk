@@ -1,15 +1,16 @@
-## Search Orders Request
+
+# Search Orders Request
 
 The request does not have any required fields. When given no query criteria,
 SearchOrders will return all results for all of the merchant’s locations. When fetching additional
 pages using a `cursor`, the `query` must be equal to the `query` used to fetch the first page of
 results.
 
-### Structure
+## Structure
 
-`SearchOrdersRequest`
+`Search Orders Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -19,11 +20,10 @@ results.
 | `limit` | `int` | Optional | Maximum number of results to be returned in a single page. It is<br>possible to receive fewer results than the specified limit on a given page.<br><br>Default: `500` |
 | `return_entries` | `bool` | Optional | Boolean that controls the format of the search results. If `true`,<br>SearchOrders will return [`OrderEntry`](#type-orderentry) objects. If `false`, SearchOrders<br>will return complete Order objects.<br><br>Default: `false`. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "return_entries": true,
   "limit": 3,
   "location_ids": [
     "057P5VYJ4A5X1",
@@ -33,8 +33,8 @@ results.
     "filter": {
       "date_time_filter": {
         "closed_at": {
-          "start_at": "2018-03-03T20:00:00+00:00",
-          "end_at": "2019-03-04T21:54:45+00:00"
+          "end_at": "2019-03-04T21:54:45+00:00",
+          "start_at": "2018-03-03T20:00:00+00:00"
         }
       },
       "state_filter": {
@@ -47,7 +47,8 @@ results.
       "sort_field": "CLOSED_AT",
       "sort_order": "DESC"
     }
-  }
+  },
+  "return_entries": true
 }
 ```
 

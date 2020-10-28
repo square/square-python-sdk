@@ -1,12 +1,13 @@
-## Subscription Cadence
+
+# Subscription Cadence
 
 Determines the billing cadence of a [Subscription](#type-Subscription)
 
-### Enumeration
+## Enumeration
 
-`SubscriptionCadence`
+`Subscription Cadence`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

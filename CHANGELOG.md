@@ -1,5 +1,36 @@
 # Change Log
 
+## Version 6.5.0.20201028 (2020-10-28T00:00)
+
+## Existing API updates
+
+* **Terminal API.** New endpoints to enable sellers in Canada refund Interac payments.
+    *  New endpoints:
+
+       * [CreateTerminalRefund](https://developer.squareup.com/reference/square_2020-10-28/terminal-api/create-terminal-refund)
+        * [GetTerminalRefund](https://developer.squareup.com/reference/square_2020-10-28/terminal-api/get-terminal-refund)
+       * [CancelTerminalRefund](https://developer.squareup.com/reference/square_2020-10-28/terminal-api/cancel-terminal-refund)
+       * [SearchTerminalRefunds](https://developer.squareup.com/reference/square_2020-10-28/terminal-api/search-terminal-refunds)
+
+  * New webhooks:
+     * `terminal.refund.created`. Notification of a new Terminal refund request.
+     * `terminal.refund.updated`. Notification that a Terminal refund request state is changed.
+
+  * New topic [Refund Interac Payments.](https://developer.squareup.com/docs/terminal-api/square-terminal-refunds). Describes how to refund Interac payments.
+  
+*  **Loyalty API (beta):** 
+   *  [SearchLoyaltyAccounts.](https://developer.squareup.com/reference/square_2020-10-28/loyalty-api/search-loyalty-accounts) The endpoint supports a new query parameter to search by customer ID.
+
+* **Locations API:** 
+  * [Location](https://developer.squareup.com/reference/square_2020-10-28/objects/Location) object. Has a new read-only field,[full_format_logo_url](https://developer.squareup.com/reference/square_2020-10-28/objects/Location#definition__property-full_format_logo_url), which provides URL of a full-format logo image for the location. 
+  * [Webhooks.](https://developer.squareup.com/docs/webhooks-api/subscribe-to-events#locations) The Locations API now supports notifications for when a location is created and when a location is updated.
+
+* **Orders API:** 
+  * [RetrieveOrder](https://developer.squareup.com/reference/square_2020-10-28/orders-api/retrieve-order), new endpoint. For more information, see the [Retrieve Orders](https://developer.squareup.com/docs/orders-api/manage-orders#retrieve-orders) overview.
+
+* **Invoices API (beta):**
+  * [Invoice](https://developer.squareup.com/reference/square_2020-10-28/objects/Invoice) object. The [payment_requests](https://developer.squareup.com/reference/square_2020-10-28/objects/Invoice#definition__property-payment_requests) field can now contain up to 13 payment requests, with a maximum of 12 `INSTALLMENT` request types. This is a service-level change that applies to all Square API versions. For more information, see [Payment requests.](https://developer.squareup.com/docs/invoices-api/overview#payment-requests)
+
 ## Version 6.4.0.20200923 (2020-09-23)
 ## Existing API updates 
 * Invoices API (beta)
@@ -167,17 +198,17 @@ Bug fixes:
 ## Version 5.2.0.20200422 (2020-04-22)
 ## API releases
 * **Terminal API.** The new Terminal API lets a custom third-party POS app integrate with the Square Terminal to send terminal checkout requests to collect payments.
-  * For an overview, see [Overview](/terminal-api/overview).
+  * For an overview, see [Overview](https://developer.squareup.com/docs/terminal-api/overview).
   * For technical reference, see [Terminal API](https://developer.squareup.com/reference/square/terminal-api).
 
 * **Devices API.** The new Devices API lets a custom third-party POS app generate a code used to sign in to a Square Terminal to create a pairing that lets the POS app send terminal checkout requests. For technical reference, see [Devices API](https://developer.squareup.com/reference/square/devices-api).
 
 * **Customer Groups API (beta).** The new Customer Groups API (Beta) enables full CRUD management of customer groups, including the ability to list, retrieve, create, update, and delete customer groups. Previously, this functionality was only available through the Square dashboard and point-of-sale product interfaces. 
-  * For an overview, see [Overview](/customer-groups-api/what-it-does) 
+  * For an overview, see [Overview](https://developer.squareup.com/docs/customer-groups-api/what-it-does) 
   * For technical reference, see [Customer Groups](https://developer.squareup.com/reference/square/customer-groups-api).  
 
 * **Customer Segments API (beta).** The new Customer Segments API (Beta) lets you list and retrieve customer segment (also called smart groups) information. Coupled with the new `segment_ids` field on the customer resource, this API lets you better understand and track the customer segments to which a customer belongs.
-  * For an overview, see [Overview](/customer-segmentss-api/what-it-does) 
+  * For an overview, see [Overview](https://developer.squareup.com/docs/customer-segmentss-api/what-it-does) 
   * For technical reference, see [Customer Segments]( https://developer.squareup.com/reference/square/customer-segments-api).  
 
    
@@ -215,7 +246,7 @@ Bug fixes:
   * [CatalogQuickAmountsSettings](https://developer.squareup.com/reference/square/objects/CatalogQuickAmountsSettings) type. Added to support predefined custom payment amounts in the Square Register checkout dialog box.
   * ENUM`CatalogItemProductType`. The ENUM value `GIFT_CARD` is now deprecated.
 
-* **Payments API.** See [Take Payments and Collect Fees](/payments-api/take-payments-and-collect-fees) for updated information about permission requirements, Square reporting of the application fee collected by an app, and how to collect fees internationally.   
+* **Payments API.** See [Take Payments and Collect Fees](https://developer.squareup.com/docs/payments-api/take-payments-and-collect-fees) for updated information about permission requirements, Square reporting of the application fee collected by an app, and how to collect fees internationally.   
 
 ## Version 5.1.0.20200325 (2020-03-25)
 ## Existing API updates
@@ -263,7 +294,7 @@ All SDKs have been updated to support the following changes:
 
 ## Version 4.0.0-20191217 (2019-12-17)
 !!!important
-Square is excited to announce the public release of customized SDKs for [Java](https://github.com/square/square-java-sdk) and [.NET](https://github.com/square/square-dotnet-sdk). For more information, see [Square SDKs](/sdks).
+Square is excited to announce the public release of customized SDKs for [Java](https://github.com/square/square-java-sdk) and [.NET](https://github.com/square/square-dotnet-sdk). For more information, see [Square SDKs](https://developer.squareup.com/docs/sdks).
 !!!
 
 * __GA release:__ SDKs updated to support new `receipt_url` and `receipt_number` fields added to the  [Payment](https://developer.squareup.com/reference/square/objects/Payment) type.  
@@ -275,7 +306,7 @@ Square is excited to announce the public release of customized SDKs for [Java](h
 
 ## Version 3.20191120.0 (2019-11-20)
 !!!important
-Square has begun the retirement process for Connect v1 APIs. See the [Connect v1 Retirement](/migrate-from-v1) information page for details.
+Square has begun the retirement process for Connect v1 APIs. See the [Connect v1 Retirement](https://developer.squareup.com/docs/migrate-from-v1) information page for details.
 !!!
 
 * __GA releases:__ SDKs now support the new `modify_tax_basis` field to Discounts and v2 Sandbox

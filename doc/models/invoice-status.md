@@ -1,12 +1,13 @@
-## Invoice Status
+
+# Invoice Status
 
 Indicates the status of an invoice.
 
-### Enumeration
+## Enumeration
 
-`InvoiceStatus`
+`Invoice Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |
@@ -19,5 +20,5 @@ Indicates the status of an invoice.
 | `REFUNDED` | The full amount that the customer paid for the invoice is refunded. |
 | `CANCELED` | The invoice is canceled. Square no longer requests payments from the customer.<br>The `public_url` page remains and is accessible, but it displays the invoice<br>as cancelled and does not accept payment. |
 | `FAILED` | Square canceled the invoice due to suspicious activity. |
-| `PAYMENT_PENDING` | A payment on the invoice was initiated but has not yet been processed. <br><br>When in this state, invoices cannot be updated and other payments cannot be initiated. |
+| `PAYMENT_PENDING` | A payment on the invoice was initiated but has not yet been processed.<br><br>When in this state, invoices cannot be updated and other payments cannot be initiated. |
 

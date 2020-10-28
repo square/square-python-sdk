@@ -1,16 +1,17 @@
-## V1 Update Fee Request
 
-### Structure
+# V1 Update Fee Request
 
-`V1UpdateFeeRequest`
+## Structure
 
-### Fields
+`V1 Update Fee Request`
+
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `body` | [`V1 Fee`](/doc/models/v1-fee.md) | V1Fee |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

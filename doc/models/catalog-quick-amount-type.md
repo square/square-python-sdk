@@ -1,12 +1,13 @@
-## Catalog Quick Amount Type
+
+# Catalog Quick Amount Type
 
 Determines the type of a specific Quick Amount.
 
-### Enumeration
+## Enumeration
 
-`CatalogQuickAmountType`
+`Catalog Quick Amount Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

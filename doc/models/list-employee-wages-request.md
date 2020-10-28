@@ -1,12 +1,13 @@
-## List Employee Wages Request
+
+# List Employee Wages Request
 
 A request for a set of `EmployeeWage` objects
 
-### Structure
+## Structure
 
-`ListEmployeeWagesRequest`
+`List Employee Wages Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,7 +15,7 @@ A request for a set of `EmployeeWage` objects
 | `limit` | `int` | Optional | Maximum number of Employee Wages to return per page. Can range between<br>1 and 200. The default is the maximum at 200. |
 | `cursor` | `string` | Optional | Pointer to the next page of Employee Wage results to fetch. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

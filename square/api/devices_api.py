@@ -16,7 +16,8 @@ class DevicesApi(BaseApi):
     def list_device_codes(self,
                           cursor=None,
                           location_id=None,
-                          product_type=None):
+                          product_type=None,
+                          status=None):
         """Does a GET request to /v2/devices/codes.
 
         Lists all DeviceCodes associated with the merchant.
@@ -32,9 +33,13 @@ class DevicesApi(BaseApi):
             product_type (ProductType, optional): If specified, only returns
                 DeviceCodes targeting the specified product type. Returns
                 DeviceCodes of all product types if empty.
+            status (DeviceCodeStatus, optional): If specified, returns
+                DeviceCodes with the specified statuses. Returns DeviceCodes
+                of status `PAIRED` and `UNPAIRED` if empty.
 
         Returns:
-            ListDeviceCodesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -51,7 +56,8 @@ class DevicesApi(BaseApi):
         _query_parameters = {
             'cursor': cursor,
             'location_id': location_id,
-            'product_type': product_type
+            'product_type': product_type,
+            'status': status
         }
         _query_builder = APIHelper.append_url_with_query_parameters(
             _query_builder,
@@ -91,7 +97,8 @@ class DevicesApi(BaseApi):
                 for field details.
 
         Returns:
-            CreateDeviceCodeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -136,7 +143,8 @@ class DevicesApi(BaseApi):
             id (string): The unique identifier for the device code.
 
         Returns:
-            GetDeviceCodeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -149,7 +157,7 @@ class DevicesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/devices/codes/{id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'id': id
+            'id': {'value': id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

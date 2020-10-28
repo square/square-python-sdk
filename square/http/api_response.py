@@ -42,9 +42,15 @@ class ApiResponse:
             self.cursor = body.get('cursor')
 
     def is_success(self):
+        """ Returns true if status code is between 200-300
+
+        """
         return 200 <= self.status_code < 300
 
     def is_error(self):
+        """ Returns true if status code is between 400-600
+
+        """
         return 400 <= self.status_code < 600
 
     def __repr__(self):

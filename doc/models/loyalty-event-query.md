@@ -1,18 +1,19 @@
-## Loyalty Event Query
+
+# Loyalty Event Query
 
 Represents a query used to search for loyalty events.
 
-### Structure
+## Structure
 
-`LoyaltyEventQuery`
+`Loyalty Event Query`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `filter` | [`Loyalty Event Filter`](/doc/models/loyalty-event-filter.md) | Optional | The filtering criteria. If the request specifies multiple filters, <br>the endpoint uses a logical AND to evaluate them. |
+| `filter` | [`Loyalty Event Filter`](/doc/models/loyalty-event-filter.md) | Optional | The filtering criteria. If the request specifies multiple filters,<br>the endpoint uses a logical AND to evaluate them. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,15 +1,16 @@
-## Create Refund Request
+
+# Create Refund Request
 
 Defines the body parameters that can be included in
 a request to the [CreateRefund](#endpoint-createrefund) endpoint.
 
 Deprecated - recommend using [RefundPayment](#endpoint-refunds-refundpayment)
 
-### Structure
+## Structure
 
-`CreateRefundRequest`
+`Create Refund Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -18,17 +19,17 @@ Deprecated - recommend using [RefundPayment](#endpoint-refunds-refundpayment)
 | `reason` | `string` | Optional | A description of the reason for the refund.<br><br>Default value: `Refund via API` |
 | `amount_money` | [`Money`](/doc/models/money.md) |  | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "idempotency_key": "86ae1696-b1e3-4328-af6d-f1e04d947ad2",
-  "tender_id": "MtZRYYdDrYNQbOvV7nbuBvMF",
-  "reason": "a reason",
   "amount_money": {
     "amount": 100,
     "currency": "USD"
-  }
+  },
+  "idempotency_key": "86ae1696-b1e3-4328-af6d-f1e04d947ad2",
+  "reason": "a reason",
+  "tender_id": "MtZRYYdDrYNQbOvV7nbuBvMF"
 }
 ```
 

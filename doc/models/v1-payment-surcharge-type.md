@@ -1,10 +1,11 @@
-## V1 Payment Surcharge Type
 
-### Enumeration
+# V1 Payment Surcharge Type
 
-`V1PaymentSurchargeType`
+## Enumeration
 
-### Fields
+`V1 Payment Surcharge Type`
+
+## Fields
 
 | Name |
 |  --- |

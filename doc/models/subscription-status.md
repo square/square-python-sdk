@@ -1,12 +1,13 @@
-## Subscription Status
+
+# Subscription Status
 
 Possible subscription status values.
 
-### Enumeration
+## Enumeration
 
-`SubscriptionStatus`
+`Subscription Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

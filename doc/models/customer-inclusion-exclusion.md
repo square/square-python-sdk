@@ -1,13 +1,14 @@
-## Customer Inclusion Exclusion
+
+# Customer Inclusion Exclusion
 
 Indicates whether customers should be included in, or excluded from,
 the result set when they match the filtering criteria.
 
-### Enumeration
+## Enumeration
 
-`CustomerInclusionExclusion`
+`Customer Inclusion Exclusion`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

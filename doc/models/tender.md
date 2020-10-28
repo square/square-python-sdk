@@ -1,12 +1,13 @@
-## Tender
+
+# Tender
 
 Represents a tender (i.e., a method of payment) used in a Square transaction.
 
-### Structure
+## Structure
 
 `Tender`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -22,11 +23,10 @@ Represents a tender (i.e., a method of payment) used in a Square transaction.
 | `type` | [`str (Tender Type)`](/doc/models/tender-type.md) |  | Indicates a tender's type. |
 | `card_details` | [`Tender Card Details`](/doc/models/tender-card-details.md) | Optional | Represents additional details of a tender with `type` `CARD` or `SQUARE_GIFT_CARD` |
 | `cash_details` | [`Tender Cash Details`](/doc/models/tender-cash-details.md) | Optional | Represents the details of a tender with `type` `CASH`. |
-| `bank_transfer_details` | [`Tender Bank Transfer Details`](/doc/models/tender-bank-transfer-details.md) | Optional | Represents the details of a tender with `type` `BANK_TRANSFER`.<br><br>See [PaymentBankTransferDetails](#type-paymentbanktransferdetails) for more exposed details of a bank transfer payment. |
 | `additional_recipients` | [`List of Additional Recipient`](/doc/models/additional-recipient.md) | Optional | Additional recipients (other than the merchant) receiving a portion of this tender.<br>For example, fees assessed on the purchase by a third party integration. |
 | `payment_id` | `string` | Optional | The ID of the [Payment](#type-payment) that corresponds to this tender.<br>This value is only present for payments created with the v2 Payments API. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
@@ -35,7 +35,7 @@ Represents a tender (i.e., a method of payment) used in a Square transaction.
   "transaction_id": "transaction_id8",
   "created_at": "created_at2",
   "note": "note4",
-  "type": "BANK_TRANSFER"
+  "type": "WALLET"
 }
 ```
 

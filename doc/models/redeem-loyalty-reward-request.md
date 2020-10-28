@@ -1,19 +1,20 @@
-## Redeem Loyalty Reward Request
+
+# Redeem Loyalty Reward Request
 
 A request to redeem a loyalty reward.
 
-### Structure
+## Structure
 
-`RedeemLoyaltyRewardRequest`
+`Redeem Loyalty Reward Request`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `idempotency_key` | `string` | A unique string that identifies this `RedeemLoyaltyReward` request. <br>Keys can be any valid string, but must be unique for every request. |
+| `idempotency_key` | `string` | A unique string that identifies this `RedeemLoyaltyReward` request.<br>Keys can be any valid string, but must be unique for every request. |
 | `location_id` | `string` | The ID of the [location](#type-Location) where the reward is redeemed. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

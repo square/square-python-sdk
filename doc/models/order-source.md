@@ -1,18 +1,19 @@
-## Order Source
+
+# Order Source
 
 Represents the origination details of an order.
 
-### Structure
+## Structure
 
-`OrderSource`
+`Order Source`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `name` | `string` | Optional | The name used to identify the place (physical or digital) that an order originates.<br>If unset, the name defaults to the name of the application that created the order. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,13 +1,14 @@
-## Pay Order Request
+
+# Pay Order Request
 
 Defines the fields that are included in requests to the
 [PayOrder](#endpoint-payorder) endpoint.
 
-### Structure
+## Structure
 
-`PayOrderRequest`
+`Pay Order Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@ Defines the fields that are included in requests to the
 | `order_version` | `int` | Optional | The version of the order being paid. If not supplied, the latest version will be paid. |
 | `payment_ids` | `List of string` | Optional | The IDs of the [payments](#type-payment) to collect.<br>The payment total must match the order total. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -25,7 +25,7 @@ class RefundsApi(BaseApi):
         """Does a GET request to /v2/refunds.
 
         Retrieves a list of refunds for the account making the request.
-        Max results per page: 100
+        The maximum results per page is 100.
 
         Args:
             begin_time (string, optional): Timestamp for the beginning of the
@@ -61,7 +61,8 @@ class RefundsApi(BaseApi):
                 Default: `100`
 
         Returns:
-            ListPaymentRefundsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -122,7 +123,8 @@ class RefundsApi(BaseApi):
                 for field details.
 
         Returns:
-            RefundPaymentResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -161,13 +163,14 @@ class RefundsApi(BaseApi):
                            refund_id):
         """Does a GET request to /v2/refunds/{refund_id}.
 
-        Retrieves a specific `Refund` using the `refund_id`.
+        Retrieves a specific refund using the `refund_id`.
 
         Args:
             refund_id (string): Unique ID for the desired `PaymentRefund`.
 
         Returns:
-            GetPaymentRefundResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -180,7 +183,7 @@ class RefundsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/refunds/{refund_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'refund_id': refund_id
+            'refund_id': {'value': refund_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

@@ -1,10 +1,11 @@
-## V1 Fee Adjustment Type
 
-### Enumeration
+# V1 Fee Adjustment Type
 
-`V1FeeAdjustmentType`
+## Enumeration
 
-### Fields
+`V1 Fee Adjustment Type`
+
+## Fields
 
 | Name |
 |  --- |

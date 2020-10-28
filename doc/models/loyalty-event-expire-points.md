@@ -1,19 +1,20 @@
-## Loyalty Event Expire Points
+
+# Loyalty Event Expire Points
 
 Provides metadata when the event `type` is `EXPIRE_POINTS`.
 
-### Structure
+## Structure
 
-`LoyaltyEventExpirePoints`
+`Loyalty Event Expire Points`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `loyalty_program_id` | `string` | The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram). |
 | `points` | `int` | The number of points expired. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

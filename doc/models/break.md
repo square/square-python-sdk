@@ -1,12 +1,13 @@
-## Break
+
+# Break
 
 A record of an employee's break during a shift.
 
-### Structure
+## Structure
 
 `Break`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -18,7 +19,7 @@ A record of an employee's break during a shift.
 | `expected_duration` | `string` |  | Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of<br>the break. |
 | `is_paid` | `bool` |  | Whether this break counts towards time worked for compensation<br>purposes. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

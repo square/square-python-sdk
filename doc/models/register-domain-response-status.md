@@ -1,12 +1,13 @@
-## Register Domain Response Status
+
+# Register Domain Response Status
 
 The status of domain registration.
 
-### Enumeration
+## Enumeration
 
-`RegisterDomainResponseStatus`
+`Register Domain Response Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

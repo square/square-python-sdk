@@ -1,12 +1,13 @@
-## Catalog Item
+
+# Catalog Item
 
 An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in the catalog.
 
-### Structure
+## Structure
 
-`CatalogItem`
+`Catalog Item`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -25,20 +26,20 @@ An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referr
 | `skip_modifier_screen` | `bool` | Optional | If `false`, the Square Point of Sale app will present the `CatalogItem`'s<br>details screen immediately, allowing the merchant to choose `CatalogModifier`s<br>before adding the item to the cart.  This is the default behavior.<br><br>If `true`, the Square Point of Sale app will immediately add the item to the cart with the pre-selected<br>modifiers, and merchants can edit modifiers by drilling down onto the item's details.<br><br>Third-party clients are encouraged to implement similar behaviors. |
 | `item_options` | [`List of Catalog Item Option for Item`](/doc/models/catalog-item-option-for-item.md) | Optional | List of item options IDs for this item. Used to manage and group item<br>variations in a specified order.<br><br>Maximum: 6 item options. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "object": {
-    "type": "ITEM",
     "id": "#Cocoa",
-    "present_at_all_locations": true,
     "item_data": {
-      "name": "Cocoa",
-      "description": "Hot chocolate",
       "abbreviation": "Ch",
+      "description": "Hot chocolate",
+      "name": "Cocoa",
       "visibility": "PRIVATE"
-    }
+    },
+    "present_at_all_locations": true,
+    "type": "ITEM"
   }
 }
 ```

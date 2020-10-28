@@ -1,13 +1,14 @@
-## Error Category
+
+# Error Category
 
 Indicates which high-level category of error has occurred during a
 request to the Connect API.
 
-### Enumeration
+## Enumeration
 
-`ErrorCategory`
+`Error Category`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

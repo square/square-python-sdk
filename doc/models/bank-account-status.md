@@ -1,12 +1,13 @@
-## Bank Account Status
+
+# Bank Account Status
 
 Indicates the current verification status of a `BankAccount` object.
 
-### Enumeration
+## Enumeration
 
-`BankAccountStatus`
+`Bank Account Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

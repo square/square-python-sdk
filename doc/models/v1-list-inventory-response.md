@@ -1,16 +1,17 @@
-## V1 List Inventory Response
 
-### Structure
+# V1 List Inventory Response
 
-`V1ListInventoryResponse`
+## Structure
 
-### Fields
+`V1 List Inventory Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `items` | [`List of V1 Inventory Entry`](/doc/models/v1-inventory-entry.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

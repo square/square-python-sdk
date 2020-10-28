@@ -1,10 +1,11 @@
-## V1 List Orders Request
 
-### Structure
+# V1 List Orders Request
 
-`V1ListOrdersRequest`
+## Structure
 
-### Fields
+`V1 List Orders Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -12,7 +13,7 @@
 | `limit` | `int` | Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
 | `batch_token` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

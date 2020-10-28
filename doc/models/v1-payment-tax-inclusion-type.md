@@ -1,10 +1,11 @@
-## V1 Payment Tax Inclusion Type
 
-### Enumeration
+# V1 Payment Tax Inclusion Type
 
-`V1PaymentTaxInclusionType`
+## Enumeration
 
-### Fields
+`V1 Payment Tax Inclusion Type`
+
+## Fields
 
 | Name |
 |  --- |

@@ -41,7 +41,8 @@ class CashDrawersApi(BaseApi):
                 page of results.
 
         Returns:
-            ListCashDrawerShiftsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -101,7 +102,8 @@ class CashDrawersApi(BaseApi):
             shift_id (string): The shift ID.
 
         Returns:
-            RetrieveCashDrawerShiftResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -114,7 +116,7 @@ class CashDrawersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/cash-drawers/shifts/{shift_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'shift_id': shift_id
+            'shift_id': {'value': shift_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -164,7 +166,8 @@ class CashDrawersApi(BaseApi):
                 page of results.
 
         Returns:
-            ListCashDrawerShiftEventsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -177,7 +180,7 @@ class CashDrawersApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/cash-drawers/shifts/{shift_id}/events'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'shift_id': shift_id
+            'shift_id': {'value': shift_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

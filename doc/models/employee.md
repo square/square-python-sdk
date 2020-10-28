@@ -1,12 +1,13 @@
-## Employee
+
+# Employee
 
 An employee object that is used by the external API.
 
-### Structure
+## Structure
 
 `Employee`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -21,7 +22,7 @@ An employee object that is used by the external API.
 | `created_at` | `string` | Optional | A read-only timestamp in RFC 3339 format. |
 | `updated_at` | `string` | Optional | A read-only timestamp in RFC 3339 format. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

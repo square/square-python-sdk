@@ -1,13 +1,14 @@
-## Search Orders Response
+
+# Search Orders Response
 
 Only one of `order_entries` or `orders` fields will be set, depending on whether
 `return_entries` was set on the [SearchOrdersRequest](#type-searchorderrequest).
 
-### Structure
+## Structure
 
-`SearchOrdersResponse`
+`Search Orders Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -16,26 +17,26 @@ Only one of `order_entries` or `orders` fields will be set, depending on whether
 | `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | [Errors](#type-error) encountered during the search. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
+  "cursor": "123",
   "order_entries": [
     {
-      "order_id": "CAISEM82RcpmcFBM0TfOyiHV3es",
       "location_id": "057P5VYJ4A5X1",
+      "order_id": "CAISEM82RcpmcFBM0TfOyiHV3es",
       "version": 1
     },
     {
-      "order_id": "CAISENgvlJ6jLWAzERDzjyHVybY",
-      "location_id": "18YC4JDH91E1H"
+      "location_id": "18YC4JDH91E1H",
+      "order_id": "CAISENgvlJ6jLWAzERDzjyHVybY"
     },
     {
-      "order_id": "CAISEM52YcpmcWAzERDOyiWS3ty",
-      "location_id": "057P5VYJ4A5X1"
+      "location_id": "057P5VYJ4A5X1",
+      "order_id": "CAISEM52YcpmcWAzERDOyiWS3ty"
     }
-  ],
-  "cursor": "123"
+  ]
 }
 ```
 

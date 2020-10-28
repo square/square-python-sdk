@@ -1,24 +1,25 @@
-## Update Workweek Config Request
+
+# Update Workweek Config Request
 
 A request to update a `WorkweekConfig` object
 
-### Structure
+## Structure
 
-`UpdateWorkweekConfigRequest`
+`Update Workweek Config Request`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `workweek_config` | [`Workweek Config`](/doc/models/workweek-config.md) | Sets the Day of the week and hour of the day that a business starts a<br>work week. Used for the calculation of overtime pay. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "workweek_config": {
-    "start_of_week": "MON",
     "start_of_day_local_time": "10:00",
+    "start_of_week": "MON",
     "version": 10
   }
 }

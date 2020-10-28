@@ -1,10 +1,11 @@
-## V1 Cash Drawer Shift Event Type
 
-### Enumeration
+# V1 Cash Drawer Shift Event Type
 
-`V1CashDrawerShiftEventType`
+## Enumeration
 
-### Fields
+`V1 Cash Drawer Shift Event Type`
+
+## Fields
 
 | Name |
 |  --- |

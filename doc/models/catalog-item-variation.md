@@ -1,13 +1,14 @@
-## Catalog Item Variation
+
+# Catalog Item Variation
 
 An item variation (i.e., product) in the Catalog object model. Each item
 may have a maximum of 250 item variations.
 
-### Structure
+## Structure
 
-`CatalogItemVariation`
+`Catalog Item Variation`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -27,7 +28,7 @@ may have a maximum of 250 item variations.
 | `item_option_values` | [`List of Catalog Item Option Value for Item Variation`](/doc/models/catalog-item-option-value-for-item-variation.md) | Optional | List of item option values associated with this item variation. Listed<br>in the same order as the item options of the parent item. |
 | `measurement_unit_id` | `string` | Optional | ID of the ‘CatalogMeasurementUnit’ that is used to measure the quantity<br>sold of this item variation. If left unset, the item will be sold in<br>whole quantities. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

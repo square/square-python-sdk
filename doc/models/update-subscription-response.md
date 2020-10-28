@@ -1,36 +1,37 @@
-## Update Subscription Response
+
+# Update Subscription Response
 
 Defines the fields that are included in the response from the
 [UpdateSubscription](#endpoint-subscriptions-updatesubscription) endpoint.
 
-### Structure
+## Structure
 
-`UpdateSubscriptionResponse`
+`Update Subscription Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
-| `subscription` | [`Subscription`](/doc/models/subscription.md) | Optional | Represents a customer subscription to a subscription plan.<br>For an overview of the `Subscription` type, see <br>[Subscription object](https://developer.squareup.com/docs/docs/subscriptions-api/overview#subscription-object-overview). |
+| `subscription` | [`Subscription`](/doc/models/subscription.md) | Optional | Represents a customer subscription to a subscription plan.<br>For an overview of the `Subscription` type, see<br>[Subscription object](https://developer.squareup.com/docs/docs/subscriptions-api/overview#subscription-object-overview). |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "subscription": {
+    "created_at": "2020-08-03T21:53:10Z",
+    "customer_id": "CHFGVKYY8RSV93M5KCYTG4PN0G",
     "id": "9ba40961-995a-4a3d-8c53-048c40cafc13",
     "location_id": "S8GWD5R9QB376",
     "plan_id": "6JHXF3B2CW3YKHDV4XEM674H",
-    "customer_id": "CHFGVKYY8RSV93M5KCYTG4PN0G",
-    "status": "ACTIVE",
     "price_override_money": {
       "amount": 2000,
       "currency": "USD"
     },
-    "version": 1594311617331,
-    "created_at": "2020-08-03T21:53:10Z",
-    "timezone": "America/Los_Angeles"
+    "status": "ACTIVE",
+    "timezone": "America/Los_Angeles",
+    "version": 1594311617331
   }
 }
 ```

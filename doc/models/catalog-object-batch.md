@@ -1,18 +1,19 @@
-## Catalog Object Batch
+
+# Catalog Object Batch
 
 A batch of catalog objects.
 
-### Structure
+## Structure
 
-`CatalogObjectBatch`
+`Catalog Object Batch`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | A list of CatalogObjects belonging to this batch. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

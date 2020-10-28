@@ -1,18 +1,19 @@
-## Catalog Query Item Variations for Item Option Values
+
+# Catalog Query Item Variations for Item Option Values
 
 The query filter to return the item variations containing the specified item option value IDs.
 
-### Structure
+## Structure
 
-`CatalogQueryItemVariationsForItemOptionValues`
+`Catalog Query Item Variations for Item Option Values`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `item_option_value_ids` | `List of string` | Optional | A set of `CatalogItemOptionValue` IDs to be used to find associated<br>`CatalogItemVariation`s. All ItemVariations that contain all of the given<br>Item Option Values (in any order) will be returned. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,10 +1,11 @@
-## V1 Variation Pricing Type
 
-### Enumeration
+# V1 Variation Pricing Type
 
-`V1VariationPricingType`
+## Enumeration
 
-### Fields
+`V1 Variation Pricing Type`
+
+## Fields
 
 | Name |
 |  --- |

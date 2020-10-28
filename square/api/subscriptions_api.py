@@ -33,7 +33,8 @@ class SubscriptionsApi(BaseApi):
                 definition for field details.
 
         Returns:
-            CreateSubscriptionResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -96,7 +97,8 @@ class SubscriptionsApi(BaseApi):
                 definition for field details.
 
         Returns:
-            SearchSubscriptionsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -141,7 +143,8 @@ class SubscriptionsApi(BaseApi):
             subscription_id (string): The ID of the subscription to retrieve.
 
         Returns:
-            RetrieveSubscriptionResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -154,7 +157,7 @@ class SubscriptionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/subscriptions/{subscription_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': subscription_id
+            'subscription_id': {'value': subscription_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -193,7 +196,8 @@ class SubscriptionsApi(BaseApi):
                 definition for field details.
 
         Returns:
-            UpdateSubscriptionResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -206,7 +210,7 @@ class SubscriptionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/subscriptions/{subscription_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': subscription_id
+            'subscription_id': {'value': subscription_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -243,7 +247,8 @@ class SubscriptionsApi(BaseApi):
             subscription_id (string): The ID of the subscription to cancel.
 
         Returns:
-            CancelSubscriptionResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -256,7 +261,7 @@ class SubscriptionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/subscriptions/{subscription_id}/cancel'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': subscription_id
+            'subscription_id': {'value': subscription_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -305,7 +310,8 @@ class SubscriptionsApi(BaseApi):
                 `200`
 
         Returns:
-            ListSubscriptionEventsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -318,7 +324,7 @@ class SubscriptionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/subscriptions/{subscription_id}/events'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': subscription_id
+            'subscription_id': {'value': subscription_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

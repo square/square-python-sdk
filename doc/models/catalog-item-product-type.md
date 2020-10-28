@@ -1,12 +1,13 @@
-## Catalog Item Product Type
+
+# Catalog Item Product Type
 
 The type of a CatalogItem. Connect V2 only allows the creation of `REGULAR` or `APPOINTMENTS_SERVICE` items.
 
-### Enumeration
+## Enumeration
 
-`CatalogItemProductType`
+`Catalog Item Product Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

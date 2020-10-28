@@ -1,12 +1,13 @@
-## Team Member Status
+
+# Team Member Status
 
 Enumerates the possible statuses the team member can have within a business.
 
-### Enumeration
+## Enumeration
 
-`TeamMemberStatus`
+`Team Member Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,14 +1,15 @@
-## Invoice Payment Reminder
+
+# Invoice Payment Reminder
 
 Describes a payment request reminder (automatic notification) that Square sends
 to the customer. You configure a reminder relative to the payment request
 `due_date`.
 
-### Structure
+## Structure
 
-`InvoicePaymentReminder`
+`Invoice Payment Reminder`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -18,7 +19,7 @@ to the customer. You configure a reminder relative to the payment request
 | `status` | [`str (Invoice Payment Reminder Status)`](/doc/models/invoice-payment-reminder-status.md) | Optional | The status of a payment request reminder. |
 | `sent_at` | `string` | Optional | If sent, the timestamp when the reminder was sent, in RFC 3339 format. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

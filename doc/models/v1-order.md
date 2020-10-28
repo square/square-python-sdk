@@ -1,12 +1,13 @@
-## V1 Order
+
+# V1 Order
 
 V1Order
 
-### Structure
+## Structure
 
-`V1Order`
+`V1 Order`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -36,26 +37,26 @@ V1Order
 | `btc_receive_address` | `string` | Optional | For Bitcoin transactions, the address that the buyer sent Bitcoin to. |
 | `btc_price_satoshi` | `float` | Optional | For Bitcoin transactions, the price of the buyer's order in satoshi (100 million satoshi equals 1 BTC). |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "errors": [
     {
       "category": "AUTHENTICATION_ERROR",
-      "code": "REQUEST_TIMEOUT",
+      "code": "MAP_KEY_LENGTH_TOO_SHORT",
       "detail": "detail1",
       "field": "field9"
     },
     {
       "category": "INVALID_REQUEST_ERROR",
-      "code": "CONFLICT",
+      "code": "MAP_KEY_LENGTH_TOO_LONG",
       "detail": "detail2",
       "field": "field0"
     },
     {
       "category": "RATE_LIMIT_ERROR",
-      "code": "GONE",
+      "code": "CARD_EXPIRED",
       "detail": "detail3",
       "field": "field1"
     }

@@ -1,12 +1,13 @@
-## Tax Calculation Phase
+
+# Tax Calculation Phase
 
 When to calculate the taxes due on a cart.
 
-### Enumeration
+## Enumeration
 
-`TaxCalculationPhase`
+`Tax Calculation Phase`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

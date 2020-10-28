@@ -1,10 +1,11 @@
-## Measurement Unit Generic
 
-### Enumeration
+# Measurement Unit Generic
 
-`MeasurementUnitGeneric`
+## Enumeration
 
-### Fields
+`Measurement Unit Generic`
+
+## Fields
 
 | Name | Description |
 |  --- | --- |

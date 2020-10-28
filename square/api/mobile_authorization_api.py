@@ -37,8 +37,8 @@ class MobileAuthorizationApi(BaseApi):
                 object definition for field details.
 
         Returns:
-            CreateMobileAuthorizationCodeResponse: Response from the API.
-                Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from

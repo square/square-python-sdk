@@ -1,16 +1,17 @@
-## V1 List Modifier Lists Response
 
-### Structure
+# V1 List Modifier Lists Response
 
-`V1ListModifierListsResponse`
+## Structure
 
-### Fields
+`V1 List Modifier Lists Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `items` | [`List of V1 Modifier List`](/doc/models/v1-modifier-list.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

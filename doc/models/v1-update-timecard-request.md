@@ -1,16 +1,17 @@
-## V1 Update Timecard Request
 
-### Structure
+# V1 Update Timecard Request
 
-`V1UpdateTimecardRequest`
+## Structure
 
-### Fields
+`V1 Update Timecard Request`
+
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `body` | [`V1 Timecard`](/doc/models/v1-timecard.md) | Represents a timecard for an employee. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -27,7 +27,8 @@ class CustomerSegmentsApi(BaseApi):
                 is/pagination) for more information.
 
         Returns:
-            ListCustomerSegmentsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -80,7 +81,8 @@ class CustomerSegmentsApi(BaseApi):
                 segment.
 
         Returns:
-            RetrieveCustomerSegmentResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -93,7 +95,7 @@ class CustomerSegmentsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/segments/{segment_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'segment_id': segment_id
+            'segment_id': {'value': segment_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

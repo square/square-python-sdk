@@ -1,12 +1,13 @@
-## Card Type
+
+# Card Type
 
 Indicates a card's type, such as `CREDIT` or `DEBIT`.
 
-### Enumeration
+## Enumeration
 
-`CardType`
+`Card Type`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

@@ -28,7 +28,8 @@ class CustomerGroupsApi(BaseApi):
                 gination) for more information.
 
         Returns:
-            ListCustomerGroupsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -82,7 +83,8 @@ class CustomerGroupsApi(BaseApi):
                 definition for field details.
 
         Returns:
-            CreateCustomerGroupResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -127,7 +129,8 @@ class CustomerGroupsApi(BaseApi):
             group_id (string): The ID of the customer group to delete.
 
         Returns:
-            DeleteCustomerGroupResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -140,7 +143,7 @@ class CustomerGroupsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/groups/{group_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'group_id': group_id
+            'group_id': {'value': group_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -175,7 +178,8 @@ class CustomerGroupsApi(BaseApi):
             group_id (string): The ID of the customer group to retrieve.
 
         Returns:
-            RetrieveCustomerGroupResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -188,7 +192,7 @@ class CustomerGroupsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/groups/{group_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'group_id': group_id
+            'group_id': {'value': group_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -226,7 +230,8 @@ class CustomerGroupsApi(BaseApi):
                 definition for field details.
 
         Returns:
-            UpdateCustomerGroupResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -239,7 +244,7 @@ class CustomerGroupsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/customers/groups/{group_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'group_id': group_id
+            'group_id': {'value': group_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

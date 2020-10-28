@@ -1,22 +1,23 @@
-## Invoice
+
+# Invoice
 
 Stores information about an invoice. You use the Invoices API to create and process
 invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.squareup.com/docs/docs/invoices-api/overview).
 
-### Structure
+## Structure
 
 `Invoice`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Optional | The Square-assigned ID of the invoice. |
-| `version` | `int` | Optional | The version number, which is incremented each time an update is committed to the invoice. |
+| `version` | `int` | Optional | The Square-assigned version number, which is incremented each time an update is committed to the invoice. |
 | `location_id` | `string` | Optional | The ID of the location that this invoice is associated with.<br>This field is required when creating an invoice. |
 | `order_id` | `string` | Optional | The ID of the [order](#type-order) for which the invoice is created.<br><br>This order must be in the `OPEN` state and must belong to the `location_id`<br>specified for this invoice. This field is required when creating an invoice. |
 | `primary_recipient` | [`Invoice Recipient`](/doc/models/invoice-recipient.md) | Optional | Provides customer data that Square uses to deliver an invoice. |
-| `payment_requests` | [`List of Invoice Payment Request`](/doc/models/invoice-payment-request.md) | Optional | An array of `InvoicePaymentRequest` objects. Each object defines<br>a payment request in an invoice payment schedule. It provides information<br>such as when and how Square processes payments. You can specify maximum of<br>nine payment requests. All all the payment requests must specify the<br>same `request_method`.<br><br>This field is required when creating an invoice. |
+| `payment_requests` | [`List of Invoice Payment Request`](/doc/models/invoice-payment-request.md) | Optional | An array of `InvoicePaymentRequest` objects. Each object defines<br>a payment request in an invoice payment schedule. It provides information<br>such as when and how Square processes payments. You must specify at least one payment request. For invoices<br>with multiple payment requests, you can specify a maximum of 12 `INSTALLMENT` request types. All of the payment requests must specify the<br>same `request_method`.<br><br>This field is required when creating an invoice. |
 | `invoice_number` | `string` | Optional | A user-friendly invoice number. The value is unique within a location.<br>If not provided when creating an invoice, Square assigns a value.<br>It increments from 1 and padded with zeros making it 7 characters long<br>for example, 0000001, 0000002. |
 | `title` | `string` | Optional | The title of the invoice. |
 | `description` | `string` | Optional | The description of the invoice. This is visible the customer receiving the invoice. |
@@ -28,7 +29,7 @@ invoices. For more information, see [Manage Invoices Using the Invoices API](htt
 | `created_at` | `string` | Optional | The timestamp when the invoice was created, in RFC 3339 format. |
 | `updated_at` | `string` | Optional | The timestamp when the invoice was last updated, in RFC 3339 format. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

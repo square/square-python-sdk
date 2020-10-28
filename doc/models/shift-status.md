@@ -1,12 +1,13 @@
-## Shift Status
+
+# Shift Status
 
 Enumerates the possible status of a `Shift`
 
-### Enumeration
+## Enumeration
 
-`ShiftStatus`
+`Shift Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

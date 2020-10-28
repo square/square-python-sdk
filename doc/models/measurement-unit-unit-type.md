@@ -1,12 +1,13 @@
-## Measurement Unit Unit Type
+
+# Measurement Unit Unit Type
 
 Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum.
 
-### Enumeration
+## Enumeration
 
-`MeasurementUnitUnitType`
+`Measurement Unit Unit Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

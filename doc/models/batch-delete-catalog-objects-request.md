@@ -1,16 +1,17 @@
-## Batch Delete Catalog Objects Request
 
-### Structure
+# Batch Delete Catalog Objects Request
 
-`BatchDeleteCatalogObjectsRequest`
+## Structure
 
-### Fields
+`Batch Delete Catalog Objects Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `object_ids` | `List of string` | Optional | The IDs of the CatalogObjects to be deleted. When an object is deleted, other objects<br>in the graph that depend on that object will be deleted as well (for example, deleting a<br>CatalogItem will delete its CatalogItemVariation. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

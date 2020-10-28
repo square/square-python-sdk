@@ -26,7 +26,8 @@ class V1ItemsApi(BaseApi):
                 for.
 
         Returns:
-            list of V1Category: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -39,7 +40,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/categories'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -79,7 +80,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Category: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -92,7 +94,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/categories'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -133,7 +135,8 @@ class V1ItemsApi(BaseApi):
             category_id (string): The ID of the category to delete.
 
         Returns:
-            V1Category: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -146,8 +149,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/categories/{category_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'category_id': category_id
+            'location_id': {'value': location_id, 'encode': True},
+            'category_id': {'value': category_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -189,7 +192,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Category: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -202,8 +206,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/categories/{category_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'category_id': category_id
+            'location_id': {'value': location_id, 'encode': True},
+            'category_id': {'value': category_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -240,7 +244,8 @@ class V1ItemsApi(BaseApi):
                 for.
 
         Returns:
-            list of V1Discount: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -253,7 +258,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/discounts'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -293,7 +298,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Discount: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -306,7 +312,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/discounts'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -347,7 +353,8 @@ class V1ItemsApi(BaseApi):
             discount_id (string): The ID of the discount to delete.
 
         Returns:
-            V1Discount: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -360,8 +367,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/discounts/{discount_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'discount_id': discount_id
+            'location_id': {'value': location_id, 'encode': True},
+            'discount_id': {'value': discount_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -403,7 +410,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Discount: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -416,8 +424,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/discounts/{discount_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'discount_id': discount_id
+            'location_id': {'value': location_id, 'encode': True},
+            'discount_id': {'value': discount_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -453,7 +461,8 @@ class V1ItemsApi(BaseApi):
             location_id (string): The ID of the location to list fees for.
 
         Returns:
-            list of V1Fee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -466,7 +475,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/fees'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -505,7 +514,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Fee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -518,7 +528,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/fees'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -559,7 +569,8 @@ class V1ItemsApi(BaseApi):
             fee_id (string): The ID of the fee to delete.
 
         Returns:
-            V1Fee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -572,8 +583,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/fees/{fee_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'fee_id': fee_id
+            'location_id': {'value': location_id, 'encode': True},
+            'fee_id': {'value': fee_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -614,7 +625,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Fee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -627,8 +639,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/fees/{fee_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'fee_id': fee_id
+            'location_id': {'value': location_id, 'encode': True},
+            'fee_id': {'value': fee_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -672,7 +684,8 @@ class V1ItemsApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1InventoryEntry: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -685,7 +698,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/inventory'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -735,7 +748,8 @@ class V1ItemsApi(BaseApi):
                 definition for field details.
 
         Returns:
-            V1InventoryEntry: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -748,8 +762,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/inventory/{variation_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'variation_id': variation_id
+            'location_id': {'value': location_id, 'encode': True},
+            'variation_id': {'value': variation_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -789,7 +803,8 @@ class V1ItemsApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -802,7 +817,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -863,7 +878,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -876,7 +892,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -917,7 +933,8 @@ class V1ItemsApi(BaseApi):
             item_id (string): The ID of the item to modify.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -930,8 +947,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -969,7 +986,8 @@ class V1ItemsApi(BaseApi):
             item_id (string): The item's ID.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -982,8 +1000,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1024,7 +1042,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1037,8 +1056,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1079,7 +1098,8 @@ class V1ItemsApi(BaseApi):
             fee_id (string): The ID of the fee to apply.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1092,9 +1112,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}/fees/{fee_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id,
-            'fee_id': fee_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True},
+            'fee_id': {'value': fee_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1134,7 +1154,8 @@ class V1ItemsApi(BaseApi):
             fee_id (string): The ID of the fee to apply.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1147,9 +1168,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}/fees/{fee_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id,
-            'fee_id': fee_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True},
+            'fee_id': {'value': fee_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1190,7 +1211,8 @@ class V1ItemsApi(BaseApi):
                 from.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1203,9 +1225,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}/modifier-lists/{modifier_list_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id,
-            'item_id': item_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1245,7 +1267,8 @@ class V1ItemsApi(BaseApi):
             item_id (string): The ID of the item to add the modifier list to.
 
         Returns:
-            V1Item: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1258,9 +1281,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}/modifier-lists/{modifier_list_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id,
-            'item_id': item_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1301,7 +1324,8 @@ class V1ItemsApi(BaseApi):
                 field details.
 
         Returns:
-            V1Variation: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1314,8 +1338,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}/variations'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1358,7 +1382,8 @@ class V1ItemsApi(BaseApi):
             variation_id (string): The ID of the variation to delete.
 
         Returns:
-            V1Variation: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1371,9 +1396,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}/variations/{variation_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id,
-            'variation_id': variation_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True},
+            'variation_id': {'value': variation_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1416,7 +1441,8 @@ class V1ItemsApi(BaseApi):
                 field details.
 
         Returns:
-            V1Variation: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1429,9 +1455,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/items/{item_id}/variations/{variation_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'item_id': item_id,
-            'variation_id': variation_id
+            'location_id': {'value': location_id, 'encode': True},
+            'item_id': {'value': item_id, 'encode': True},
+            'variation_id': {'value': variation_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1468,7 +1494,8 @@ class V1ItemsApi(BaseApi):
                 lists for.
 
         Returns:
-            list of V1ModifierList: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1481,7 +1508,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1521,7 +1548,8 @@ class V1ItemsApi(BaseApi):
                 field details.
 
         Returns:
-            V1ModifierList: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1534,7 +1562,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1577,7 +1605,8 @@ class V1ItemsApi(BaseApi):
             modifier_list_id (string): The ID of the modifier list to delete.
 
         Returns:
-            V1ModifierList: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1590,8 +1619,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists/{modifier_list_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1628,7 +1657,8 @@ class V1ItemsApi(BaseApi):
             modifier_list_id (string): The modifier list's ID.
 
         Returns:
-            V1ModifierList: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1641,8 +1671,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists/{modifier_list_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1683,7 +1713,8 @@ class V1ItemsApi(BaseApi):
                 definition for field details.
 
         Returns:
-            V1ModifierList: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1696,8 +1727,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists/{modifier_list_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1739,7 +1770,8 @@ class V1ItemsApi(BaseApi):
                 field details.
 
         Returns:
-            V1ModifierOption: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1752,8 +1784,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists/{modifier_list_id}/modifier-options'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1797,7 +1829,8 @@ class V1ItemsApi(BaseApi):
             modifier_option_id (string): The ID of the modifier list to edit.
 
         Returns:
-            V1ModifierOption: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1810,9 +1843,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists/{modifier_list_id}/modifier-options/{modifier_option_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id,
-            'modifier_option_id': modifier_option_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True},
+            'modifier_option_id': {'value': modifier_option_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1855,7 +1888,8 @@ class V1ItemsApi(BaseApi):
                 field details.
 
         Returns:
-            V1ModifierOption: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1868,9 +1902,9 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/modifier-lists/{modifier_list_id}/modifier-options/{modifier_option_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'modifier_list_id': modifier_list_id,
-            'modifier_option_id': modifier_option_id
+            'location_id': {'value': location_id, 'encode': True},
+            'modifier_list_id': {'value': modifier_list_id, 'encode': True},
+            'modifier_option_id': {'value': modifier_option_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1908,7 +1942,8 @@ class V1ItemsApi(BaseApi):
                 pages for.
 
         Returns:
-            list of V1Page: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1921,7 +1956,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/pages'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -1961,7 +1996,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Page: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -1974,7 +2010,7 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/pages'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -2015,7 +2051,8 @@ class V1ItemsApi(BaseApi):
             page_id (string): The ID of the page to delete.
 
         Returns:
-            V1Page: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -2028,8 +2065,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/pages/{page_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'page_id': page_id
+            'location_id': {'value': location_id, 'encode': True},
+            'page_id': {'value': page_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -2071,7 +2108,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Page: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -2084,8 +2122,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/pages/{page_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'page_id': page_id
+            'location_id': {'value': location_id, 'encode': True},
+            'page_id': {'value': page_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -2134,7 +2172,8 @@ class V1ItemsApi(BaseApi):
                 leftmost column.
 
         Returns:
-            V1Page: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -2147,8 +2186,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/pages/{page_id}/cells'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'page_id': page_id
+            'location_id': {'value': location_id, 'encode': True},
+            'page_id': {'value': page_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -2198,7 +2237,8 @@ class V1ItemsApi(BaseApi):
                 details.
 
         Returns:
-            V1Page: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -2211,8 +2251,8 @@ class V1ItemsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/pages/{page_id}/cells'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'page_id': page_id
+            'location_id': {'value': location_id, 'encode': True},
+            'page_id': {'value': page_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

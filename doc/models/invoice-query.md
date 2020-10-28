@@ -1,19 +1,20 @@
-## Invoice Query
+
+# Invoice Query
 
 Describes query criteria for searching invoices.
 
-### Structure
+## Structure
 
-`InvoiceQuery`
+`Invoice Query`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `filter` | [`Invoice Filter`](/doc/models/invoice-filter.md) |  | Describes query filters to apply. |
 | `sort` | [`Invoice Sort`](/doc/models/invoice-sort.md) | Optional | Identifies the  sort field and sort order. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

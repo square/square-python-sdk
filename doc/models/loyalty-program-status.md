@@ -1,15 +1,16 @@
-## Loyalty Program Status
+
+# Loyalty Program Status
 
 Whether the program is currently active.
 
-### Enumeration
+## Enumeration
 
-`LoyaltyProgramStatus`
+`Loyalty Program Status`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |
-| `INACTIVE` | The loyalty program does not have an active subscription. <br>Loyalty API requests fail. |
+| `INACTIVE` | The loyalty program does not have an active subscription.<br>Loyalty API requests fail. |
 | `ACTIVE` | The program is fully functional. The program has an active subscription. |
 

@@ -1,12 +1,13 @@
-## List Disputes Response
+
+# List Disputes Response
 
 Defines fields in a ListDisputes response.
 
-### Structure
+## Structure
 
-`ListDisputesResponse`
+`List Disputes Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,26 +15,26 @@ Defines fields in a ListDisputes response.
 | `disputes` | [`List of Dispute`](/doc/models/dispute.md) | Optional | The list of Disputes. |
 | `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request.<br>If unset, this is the final response.<br>For more information, see [Paginating](https://developer.squareup.com/docs/basics/api101/pagination). |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "errors": [
     {
       "category": "AUTHENTICATION_ERROR",
-      "code": "REQUEST_TIMEOUT",
+      "code": "MAP_KEY_LENGTH_TOO_SHORT",
       "detail": "detail1",
       "field": "field9"
     },
     {
       "category": "INVALID_REQUEST_ERROR",
-      "code": "CONFLICT",
+      "code": "MAP_KEY_LENGTH_TOO_LONG",
       "detail": "detail2",
       "field": "field0"
     },
     {
       "category": "RATE_LIMIT_ERROR",
-      "code": "GONE",
+      "code": "CARD_EXPIRED",
       "detail": "detail3",
       "field": "field1"
     }

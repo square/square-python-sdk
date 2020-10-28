@@ -1,12 +1,13 @@
-## Order Fulfillment Pickup Details
+
+# Order Fulfillment Pickup Details
 
 Contains details necessary to fulfill a pickup order.
 
-### Structure
+## Structure
 
-`OrderFulfillmentPickupDetails`
+`Order Fulfillment Pickup Details`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -29,7 +30,7 @@ Contains details necessary to fulfill a pickup order.
 | `is_curbside_pickup` | `bool` | Optional | If true, indicates this pickup order is for curbside pickup, not in-store pickup. |
 | `curbside_pickup_details` | [`Order Fulfillment Pickup Details Curbside Pickup Details`](/doc/models/order-fulfillment-pickup-details-curbside-pickup-details.md) | Optional | Specific details for curbside pickup. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

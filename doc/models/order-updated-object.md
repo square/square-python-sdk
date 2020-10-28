@@ -1,16 +1,17 @@
-## Order Updated Object
 
-### Structure
+# Order Updated Object
 
-`OrderUpdatedObject`
+## Structure
 
-### Fields
+`Order Updated Object`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `order_updated` | [`Order Updated`](/doc/models/order-updated.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

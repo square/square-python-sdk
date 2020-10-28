@@ -1,12 +1,13 @@
-## Item Variation Location Overrides
+
+# Item Variation Location Overrides
 
 Price and inventory alerting overrides for a `CatalogItemVariation` at a specific `Location`.
 
-### Structure
+## Structure
 
-`ItemVariationLocationOverrides`
+`Item Variation Location Overrides`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,7 +18,7 @@ Price and inventory alerting overrides for a `CatalogItemVariation` at a specifi
 | `inventory_alert_type` | [`str (Inventory Alert Type)`](/doc/models/inventory-alert-type.md) | Optional | Indicates whether Square should alert the merchant when the inventory quantity of a CatalogItemVariation is low. |
 | `inventory_alert_threshold` | `long|int` | Optional | If the inventory quantity for the variation is less than or equal to this value and `inventory_alert_type`<br>is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.<br><br>This value is always an integer. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

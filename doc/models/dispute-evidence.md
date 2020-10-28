@@ -1,10 +1,11 @@
-## Dispute Evidence
 
-### Structure
+# Dispute Evidence
 
-`DisputeEvidence`
+## Structure
 
-### Fields
+`Dispute Evidence`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -13,7 +14,7 @@
 | `uploaded_at` | `string` | Optional | The time when the next action is due, in RFC 3339 format. |
 | `evidence_type` | [`str (Dispute Evidence Type)`](/doc/models/dispute-evidence-type.md) | Optional | Type of the dispute evidence. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

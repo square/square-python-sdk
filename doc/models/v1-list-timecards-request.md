@@ -1,10 +1,11 @@
-## V1 List Timecards Request
 
-### Structure
+# V1 List Timecards Request
 
-`V1ListTimecardsRequest`
+## Structure
 
-### Fields
+`V1 List Timecards Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -20,7 +21,7 @@
 | `limit` | `int` | Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. |
 | `batch_token` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,10 +1,11 @@
-## Product Type
 
-### Enumeration
+# Product Type
 
-`ProductType`
+## Enumeration
 
-### Fields
+`Product Type`
+
+## Fields
 
 | Name |
 |  --- |

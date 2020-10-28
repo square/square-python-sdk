@@ -1,12 +1,13 @@
-## List Merchants Response
+
+# List Merchants Response
 
 The response object returned by the [ListMerchant](#endpoint-listmerchant) endpoint.
 
-### Structure
+## Structure
 
-`ListMerchantsResponse`
+`List Merchants Response`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -14,19 +15,19 @@ The response object returned by the [ListMerchant](#endpoint-listmerchant) endpo
 | `merchant` | [`List of Merchant`](/doc/models/merchant.md) | Optional | The requested `Merchant` entities. |
 | `cursor` | `int` | Optional | If the  response is truncated, the cursor to use in next  request to fetch next set of objects. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "merchant": [
     {
-      "id": "DM7VKY8Q63GNP",
       "business_name": "Apple A Day",
       "country": "US",
-      "language_code": "en-US",
       "currency": "USD",
-      "status": "ACTIVE",
-      "main_location_id": "9A65CGC72ZQG1"
+      "id": "DM7VKY8Q63GNP",
+      "language_code": "en-US",
+      "main_location_id": "9A65CGC72ZQG1",
+      "status": "ACTIVE"
     }
   ]
 }

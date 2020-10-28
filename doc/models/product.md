@@ -1,12 +1,13 @@
-## Product
+
+# Product
 
 Indicates the Square product used to generate an inventory change.
 
-### Enumeration
+## Enumeration
 
 `Product`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

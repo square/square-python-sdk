@@ -1,12 +1,13 @@
-## Order Fulfillment Type
+
+# Order Fulfillment Type
 
 The type of fulfillment.
 
-### Enumeration
+## Enumeration
 
-`OrderFulfillmentType`
+`Order Fulfillment Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

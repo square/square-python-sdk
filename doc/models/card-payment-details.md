@@ -1,12 +1,13 @@
-## Card Payment Details
+
+# Card Payment Details
 
 Reflects the current status of a card payment.
 
-### Structure
+## Structure
 
-`CardPaymentDetails`
+`Card Payment Details`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -26,7 +27,7 @@ Reflects the current status of a card payment.
 | `refund_requires_card_presence` | `bool` | Optional | Whether or not the card is required to be physically present in order for the payment to<br>be refunded.  If true, the card is required to be present. |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

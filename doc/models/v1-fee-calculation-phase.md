@@ -1,10 +1,11 @@
-## V1 Fee Calculation Phase
 
-### Enumeration
+# V1 Fee Calculation Phase
 
-`V1FeeCalculationPhase`
+## Enumeration
 
-### Fields
+`V1 Fee Calculation Phase`
+
+## Fields
 
 | Name |
 |  --- |

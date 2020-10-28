@@ -1,4 +1,5 @@
-## V1 Payment
+
+# V1 Payment
 
 A payment represents a paid transaction between a Square merchant and a
 customer. Payment details are usually available from Connect API endpoints
@@ -20,11 +21,12 @@ Monetary values are <b>negative</b> if they represent an
 </li>
 </ul>
 
-### Structure
 
-`V1Payment`
+## Structure
 
-### Fields
+`V1 Payment`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -56,7 +58,7 @@ Monetary values are <b>negative</b> if they represent an
 | `surcharges` | [`List of V1 Payment Surcharge`](/doc/models/v1-payment-surcharge.md) | Optional | A list of all surcharges associated with the payment. |
 | `is_partial` | `bool` | Optional | Indicates whether or not the payment is only partially paid for.<br>If true, this payment will have the tenders collected so far, but the<br>itemizations will be empty until the payment is completed. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

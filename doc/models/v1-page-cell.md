@@ -1,12 +1,13 @@
-## V1 Page Cell
+
+# V1 Page Cell
 
 V1PageCell
 
-### Structure
+## Structure
 
-`V1PageCell`
+`V1 Page Cell`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,7 +18,7 @@ V1PageCell
 | `object_id` | `string` | Optional | The unique identifier of the entity represented in the cell. Not present for cells with an object_type of PLACEHOLDER. |
 | `placeholder_type` | [`str (V1 Page Cell Placeholder Type)`](/doc/models/v1-page-cell-placeholder-type.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -54,7 +54,8 @@ class OAuthApi(BaseApi):
             authorization (string): Client APPLICATION_SECRET
 
         Returns:
-            RenewTokenResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -67,7 +68,7 @@ class OAuthApi(BaseApi):
         # Prepare query URL
         _url_path = '/oauth2/clients/{client_id}/access-token/renew'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'client_id': client_id
+            'client_id': {'value': client_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -123,7 +124,8 @@ class OAuthApi(BaseApi):
             authorization (string): Client APPLICATION_SECRET
 
         Returns:
-            RevokeTokenResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -183,7 +185,8 @@ class OAuthApi(BaseApi):
                 field details.
 
         Returns:
-            ObtainTokenResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from

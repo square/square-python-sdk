@@ -1,12 +1,13 @@
-## Order Line Item Tax Scope
+
+# Order Line Item Tax Scope
 
 Indicates whether this is a line item or order level tax.
 
-### Enumeration
+## Enumeration
 
-`OrderLineItemTaxScope`
+`Order Line Item Tax Scope`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

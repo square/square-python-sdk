@@ -1,12 +1,13 @@
-## Subscription Event Subscription Event Type
+
+# Subscription Event Subscription Event Type
 
 The possible subscription event types.
 
-### Enumeration
+## Enumeration
 
-`SubscriptionEventSubscriptionEventType`
+`Subscription Event Subscription Event Type`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,16 +1,17 @@
-## V1 List Items Request
 
-### Structure
+# V1 List Items Request
 
-`V1ListItemsRequest`
+## Structure
 
-### Fields
+`V1 List Items Request`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `batch_token` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

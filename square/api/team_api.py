@@ -21,8 +21,8 @@ class TeamApi(BaseApi):
         returned on successful creates.
         You must provide the following values in your request to this
         endpoint:
-        - `first_name`
-        - `last_name`
+        - `given_name`
+        - `family_name`
         Learn about [Troubleshooting the Teams
         API](https://developer.squareup.com/docs/docs/team/troubleshooting#crea
         teteammember).
@@ -33,7 +33,8 @@ class TeamApi(BaseApi):
                 for field details.
 
         Returns:
-            CreateTeamMemberResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -89,7 +90,8 @@ class TeamApi(BaseApi):
                 definition for field details.
 
         Returns:
-            BulkCreateTeamMembersResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -145,7 +147,8 @@ class TeamApi(BaseApi):
                 definition for field details.
 
         Returns:
-            BulkUpdateTeamMembersResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -187,7 +190,7 @@ class TeamApi(BaseApi):
         Returns a paginated list of `TeamMember` objects for a business.
         The list to be returned can be filtered by:
         - location IDs **and**
-        - `is_active`
+        - `status`
 
         Args:
             body (SearchTeamMembersRequest): An object containing the fields
@@ -195,7 +198,8 @@ class TeamApi(BaseApi):
                 definition for field details.
 
         Returns:
-            SearchTeamMembersResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -234,7 +238,7 @@ class TeamApi(BaseApi):
                              team_member_id):
         """Does a GET request to /v2/team-members/{team_member_id}.
 
-        Retrieve a `TeamMember` object for the given `TeamMember.id`
+        Retrieve a `TeamMember` object for the given `TeamMember.id`.
         Learn about [Troubleshooting the Teams
         API](https://developer.squareup.com/docs/docs/team/troubleshooting#retr
         ieveteammember).
@@ -243,7 +247,8 @@ class TeamApi(BaseApi):
             team_member_id (string): The ID of the team member to retrieve.
 
         Returns:
-            RetrieveTeamMemberResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -256,7 +261,7 @@ class TeamApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/team-members/{team_member_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': team_member_id
+            'team_member_id': {'value': team_member_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -298,7 +303,8 @@ class TeamApi(BaseApi):
                 for field details.
 
         Returns:
-            UpdateTeamMemberResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -311,7 +317,7 @@ class TeamApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/team-members/{team_member_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': team_member_id
+            'team_member_id': {'value': team_member_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -351,7 +357,8 @@ class TeamApi(BaseApi):
                 wage setting for
 
         Returns:
-            RetrieveWageSettingResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -364,7 +371,7 @@ class TeamApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/team-members/{team_member_id}/wage-setting'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': team_member_id
+            'team_member_id': {'value': team_member_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -410,7 +417,8 @@ class TeamApi(BaseApi):
                 definition for field details.
 
         Returns:
-            UpdateWageSettingResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -423,7 +431,7 @@ class TeamApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/team-members/{team_member_id}/wage-setting'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': team_member_id
+            'team_member_id': {'value': team_member_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

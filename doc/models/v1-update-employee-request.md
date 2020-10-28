@@ -1,16 +1,17 @@
-## V1 Update Employee Request
 
-### Structure
+# V1 Update Employee Request
 
-`V1UpdateEmployeeRequest`
+## Structure
 
-### Fields
+`V1 Update Employee Request`
+
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `body` | [`V1 Employee`](/doc/models/v1-employee.md) | Represents one of a business's employees. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

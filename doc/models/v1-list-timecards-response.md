@@ -1,16 +1,17 @@
-## V1 List Timecards Response
 
-### Structure
+# V1 List Timecards Response
 
-`V1ListTimecardsResponse`
+## Structure
 
-### Fields
+`V1 List Timecards Response`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `items` | [`List of V1 Timecard`](/doc/models/v1-timecard.md) | Optional | - |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -57,7 +57,8 @@ class V1EmployeesApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1Employee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -128,7 +129,8 @@ class V1EmployeesApi(BaseApi):
                 details.
 
         Returns:
-            V1Employee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -173,7 +175,8 @@ class V1EmployeesApi(BaseApi):
             employee_id (string): The employee's ID.
 
         Returns:
-            V1Employee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -186,7 +189,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/employees/{employee_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'employee_id': employee_id
+            'employee_id': {'value': employee_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -224,7 +227,8 @@ class V1EmployeesApi(BaseApi):
                 details.
 
         Returns:
-            V1Employee: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -237,7 +241,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/employees/{employee_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'employee_id': employee_id
+            'employee_id': {'value': employee_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -282,7 +286,8 @@ class V1EmployeesApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1EmployeeRole: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -352,7 +357,8 @@ class V1EmployeesApi(BaseApi):
                 permissions, and an optional owner flag.
 
         Returns:
-            V1EmployeeRole: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -397,7 +403,8 @@ class V1EmployeesApi(BaseApi):
             role_id (string): The role's ID.
 
         Returns:
-            V1EmployeeRole: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -410,7 +417,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/roles/{role_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'role_id': role_id
+            'role_id': {'value': role_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -448,7 +455,8 @@ class V1EmployeesApi(BaseApi):
                 field details.
 
         Returns:
-            V1EmployeeRole: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -461,7 +469,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/roles/{role_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'role_id': role_id
+            'role_id': {'value': role_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -539,7 +547,8 @@ class V1EmployeesApi(BaseApi):
                 endpoint.
 
         Returns:
-            list of V1Timecard: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -615,7 +624,8 @@ class V1EmployeesApi(BaseApi):
                 details.
 
         Returns:
-            V1Timecard: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -674,7 +684,8 @@ class V1EmployeesApi(BaseApi):
             timecard_id (string): The ID of the timecard to delete.
 
         Returns:
-            object: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -687,7 +698,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/timecards/{timecard_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'timecard_id': timecard_id
+            'timecard_id': {'value': timecard_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -722,7 +733,8 @@ class V1EmployeesApi(BaseApi):
             timecard_id (string): The timecard's ID.
 
         Returns:
-            V1Timecard: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -735,7 +747,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/timecards/{timecard_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'timecard_id': timecard_id
+            'timecard_id': {'value': timecard_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -776,7 +788,8 @@ class V1EmployeesApi(BaseApi):
                 details.
 
         Returns:
-            V1Timecard: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -789,7 +802,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/timecards/{timecard_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'timecard_id': timecard_id
+            'timecard_id': {'value': timecard_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -831,7 +844,8 @@ class V1EmployeesApi(BaseApi):
             timecard_id (string): The ID of the timecard to list events for.
 
         Returns:
-            list of V1TimecardEvent: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -844,7 +858,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/me/timecards/{timecard_id}/events'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'timecard_id': timecard_id
+            'timecard_id': {'value': timecard_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -893,7 +907,8 @@ class V1EmployeesApi(BaseApi):
                 current time.
 
         Returns:
-            list of V1CashDrawerShift: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -906,7 +921,7 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/cash-drawer-shifts'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -954,7 +969,8 @@ class V1EmployeesApi(BaseApi):
             shift_id (string): The shift's ID.
 
         Returns:
-            V1CashDrawerShift: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -967,8 +983,8 @@ class V1EmployeesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v1/{location_id}/cash-drawer-shifts/{shift_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'shift_id': shift_id
+            'location_id': {'value': location_id, 'encode': True},
+            'shift_id': {'value': shift_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

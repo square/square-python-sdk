@@ -1,10 +1,11 @@
-## V1 Employee Role Permissions
 
-### Enumeration
+# V1 Employee Role Permissions
 
-`V1EmployeeRolePermissions`
+## Enumeration
 
-### Fields
+`V1 Employee Role Permissions`
+
+## Fields
 
 | Name |
 |  --- |

@@ -1,52 +1,53 @@
-## Bulk Update Team Members Request
+
+# Bulk Update Team Members Request
 
 Represents a bulk update request for `TeamMember` objects.
 
-### Structure
+## Structure
 
-`BulkUpdateTeamMembersRequest`
+`Bulk Update Team Members Request`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `team_members` | [`Dict`](/doc/models/update-team-member-request.md) | The data which will be used to update the `TeamMember` objects. Each key is the `team_member_id` that maps to the `UpdateTeamMemberRequest`. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "team_members": {
+    "AFMwA08kR-MIF-3Vs0OE": {
+      "team_member": {
+        "assigned_locations": {
+          "assignment_type": "ALL_CURRENT_AND_FUTURE_LOCATIONS"
+        },
+        "email_address": "jane_smith@gmail.com",
+        "family_name": "Smith",
+        "given_name": "Jane",
+        "is_owner": false,
+        "phone_number": "+14159223334",
+        "reference_id": "reference_id_2",
+        "status": "ACTIVE"
+      }
+    },
     "fpgteZNMaf0qOK-a4t6P": {
       "team_member": {
-        "reference_id": "reference_id_1",
-        "is_owner": false,
-        "status": "ACTIVE",
-        "given_name": "Joe",
-        "family_name": "Doe",
-        "email_address": "joe_doe@gmail.com",
-        "phone_number": "+14159283333",
         "assigned_locations": {
+          "assignment_type": "EXPLICIT_LOCATIONS",
           "location_ids": [
             "YSGH2WBKG94QZ",
             "GA2Y9HSJ8KRYT"
-          ],
-          "assignment_type": "EXPLICIT_LOCATIONS"
-        }
-      }
-    },
-    "AFMwA08kR-MIF-3Vs0OE": {
-      "team_member": {
-        "reference_id": "reference_id_2",
+          ]
+        },
+        "email_address": "joe_doe@gmail.com",
+        "family_name": "Doe",
+        "given_name": "Joe",
         "is_owner": false,
-        "status": "ACTIVE",
-        "given_name": "Jane",
-        "family_name": "Smith",
-        "email_address": "jane_smith@gmail.com",
-        "phone_number": "+14159223334",
-        "assigned_locations": {
-          "assignment_type": "ALL_CURRENT_AND_FUTURE_LOCATIONS"
-        }
+        "phone_number": "+14159283333",
+        "reference_id": "reference_id_1",
+        "status": "ACTIVE"
       }
     }
   }

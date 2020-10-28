@@ -39,7 +39,8 @@ class CatalogApi(BaseApi):
                 definition for field details.
 
         Returns:
-            BatchDeleteCatalogObjectsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -94,8 +95,8 @@ class CatalogApi(BaseApi):
                 object definition for field details.
 
         Returns:
-            BatchRetrieveCatalogObjectsResponse: Response from the API.
-                Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -157,7 +158,8 @@ class CatalogApi(BaseApi):
                 definition for field details.
 
         Returns:
-            BatchUpsertCatalogObjectsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -197,7 +199,7 @@ class CatalogApi(BaseApi):
                              image_file=None):
         """Does a POST request to /v2/catalog/images.
 
-        Uploads an image file to be represented by an
+        Uploads an image file to be represented by a
         [CatalogImage](#type-catalogimage) object linked to an existing
         [CatalogObject](#type-catalogobject) instance. A call to this endpoint
         can upload an image, link an image to
@@ -205,10 +207,6 @@ class CatalogApi(BaseApi):
         This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data
         requests with a JSON part and an image file part in
         JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
-        Additional information and an example cURL request can be found in the
-        [Create a Catalog Image
-        recipe](https://developer.squareup.com/docs/more-apis/catalog/cookbook/
-        create-catalog-images).
 
         Args:
             request (CreateCatalogImageRequest, optional): TODO: type
@@ -217,7 +215,8 @@ class CatalogApi(BaseApi):
                 here.
 
         Returns:
-            CreateCatalogImageResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -272,7 +271,8 @@ class CatalogApi(BaseApi):
         limits that can be used by the `BatchUpsertCatalogObjects` endpoint.
 
         Returns:
-            CatalogInfoResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -339,7 +339,8 @@ class CatalogApi(BaseApi):
                 `MODIFIER_LIST`, or `IMAGE`.
 
         Returns:
-            ListCatalogResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -393,7 +394,8 @@ class CatalogApi(BaseApi):
                 definition for field details.
 
         Returns:
-            UpsertCatalogObjectResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -450,7 +452,8 @@ class CatalogApi(BaseApi):
                 variations).
 
         Returns:
-            DeleteCatalogObjectResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -463,7 +466,7 @@ class CatalogApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/catalog/object/{object_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'object_id': object_id
+            'object_id': {'value': object_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -509,16 +512,17 @@ class CatalogApi(BaseApi):
             include_related_objects (bool, optional): If `true`, the response
                 will include additional objects that are related to the
                 requested object, as follows:  If the `object` field of the
-                response contains a CatalogItem, its associated
-                CatalogCategory, CatalogTax objects, CatalogImages and
-                CatalogModifierLists will be returned in the `related_objects`
-                field of the response. If the `object` field of the response
-                contains a CatalogItemVariation, its parent CatalogItem will
-                be returned in the `related_objects` field of the response. 
-                Default value: `false`
+                response contains a `CatalogItem`, its associated
+                `CatalogCategory`, `CatalogTax`, `CatalogImage` and
+                `CatalogModifierList` objects will be returned in the
+                `related_objects` field of the response. If the `object` field
+                of the response contains a `CatalogItemVariation`, its parent
+                `CatalogItem` will be returned in the `related_objects` field
+                of the response.  Default value: `false`
 
         Returns:
-            RetrieveCatalogObjectResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -531,7 +535,7 @@ class CatalogApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/catalog/object/{object_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'object_id': object_id
+            'object_id': {'value': object_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -567,9 +571,9 @@ class CatalogApi(BaseApi):
         """Does a POST request to /v2/catalog/search.
 
         Searches for [CatalogObject](#type-CatalogObject) of any types against
-        supported search attribute values, 
+        supported search attribute values,
         excluding custom attribute values on items or item variations, against
-        one or more of the specified query expressions, 
+        one or more of the specified query expressions,
         This (`SearchCatalogObjects`) endpoint differs from the
         [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems)
         endpoint in the following aspects:
@@ -591,7 +595,8 @@ class CatalogApi(BaseApi):
                 definition for field details.
 
         Returns:
-            SearchCatalogObjectsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -633,7 +638,7 @@ class CatalogApi(BaseApi):
         Searches for catalog items or item variations by matching supported
         search attribute values, including
         custom attribute values, against one or more of the specified query
-        expressions, 
+        expressions,
         This (`SearchCatalogItems`) endpoint differs from the
         [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects)
         endpoint in the following aspects:
@@ -655,7 +660,8 @@ class CatalogApi(BaseApi):
                 definition for field details.
 
         Returns:
-            SearchCatalogItemsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -705,7 +711,8 @@ class CatalogApi(BaseApi):
                 definition for field details.
 
         Returns:
-            UpdateItemModifierListsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -755,7 +762,8 @@ class CatalogApi(BaseApi):
                 for field details.
 
         Returns:
-            UpdateItemTaxesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from

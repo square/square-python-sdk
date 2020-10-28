@@ -1,18 +1,19 @@
-## Loyalty Event Order Filter
+
+# Loyalty Event Order Filter
 
 Filter events by the order associated with the event.
 
-### Structure
+## Structure
 
-`LoyaltyEventOrderFilter`
+`Loyalty Event Order Filter`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `order_id` | `string` | The ID of the [order](#type-Order) associated with the event. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

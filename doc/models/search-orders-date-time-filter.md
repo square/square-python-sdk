@@ -1,4 +1,5 @@
-## Search Orders Date Time Filter
+
+# Search Orders Date Time Filter
 
 Filter for `Order` objects based on whether their `CREATED_AT`,
 `CLOSED_AT` or `UPDATED_AT` timestamps fall within a specified time range.
@@ -15,11 +16,11 @@ in DateTimeFilter, you must also set the `sort_field` in SearchOrdersSort to
 `CLOSED_AT`. Otherwise, SearchOrders will throw an error.
 [Learn more about filtering orders by time range](https://developer.squareup.com/docs/orders-api/manage-orders#important-note-on-filtering-orders-by-time-range).
 
-### Structure
+## Structure
 
-`SearchOrdersDateTimeFilter`
+`Search Orders Date Time Filter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -27,7 +28,7 @@ in DateTimeFilter, you must also set the `sort_field` in SearchOrdersSort to
 | `updated_at` | [`Time Range`](/doc/models/time-range.md) | Optional | Represents a generic time range. The start and end values are<br>represented in RFC 3339 format. Time ranges are customized to be<br>inclusive or exclusive based on the needs of a particular endpoint.<br>Refer to the relevant endpoint-specific documentation to determine<br>how time ranges are handled. |
 | `closed_at` | [`Time Range`](/doc/models/time-range.md) | Optional | Represents a generic time range. The start and end values are<br>represented in RFC 3339 format. Time ranges are customized to be<br>inclusive or exclusive based on the needs of a particular endpoint.<br>Refer to the relevant endpoint-specific documentation to determine<br>how time ranges are handled. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,10 +1,11 @@
-## V1 Payment Itemization Itemization Type
 
-### Enumeration
+# V1 Payment Itemization Itemization Type
 
-`V1PaymentItemizationItemizationType`
+## Enumeration
 
-### Fields
+`V1 Payment Itemization Itemization Type`
+
+## Fields
 
 | Name |
 |  --- |

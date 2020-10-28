@@ -1,10 +1,11 @@
-## V1 Modifier List Selection Type
 
-### Enumeration
+# V1 Modifier List Selection Type
 
-`V1ModifierListSelectionType`
+## Enumeration
 
-### Fields
+`V1 Modifier List Selection Type`
+
+## Fields
 
 | Name |
 |  --- |

@@ -1,12 +1,13 @@
-## Invoice Sort Field
+
+# Invoice Sort Field
 
 Field to use for sorting.
 
-### Enumeration
+## Enumeration
 
-`InvoiceSortField`
+`Invoice Sort Field`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

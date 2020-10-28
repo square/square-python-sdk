@@ -1,12 +1,13 @@
-## Sort Order
+
+# Sort Order
 
 The order (e.g., chronological or alphabetical) in which results from a request are returned.
 
-### Enumeration
+## Enumeration
 
-`SortOrder`
+`Sort Order`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

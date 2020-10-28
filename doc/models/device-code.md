@@ -1,10 +1,11 @@
-## Device Code
 
-### Structure
+# Device Code
 
-`DeviceCode`
+## Structure
 
-### Fields
+`Device Code`
+
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -20,7 +21,7 @@
 | `status_changed_at` | `string` | Optional | When this DeviceCode's status was last changed. Timestamp in RFC 3339 format. |
 | `paired_at` | `string` | Optional | When this DeviceCode was paired. Timestamp in RFC 3339 format. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

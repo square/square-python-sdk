@@ -1,4 +1,5 @@
-## Order Return Tax
+
+# Order Return Tax
 
 Represents a tax being returned that applies to one or more return line items in an order.
 
@@ -6,11 +7,11 @@ Fixed-amount, order-scoped taxes are distributed across all non-zero return line
 The amount distributed to each return line item is relative to that item’s contribution to the
 order subtotal.
 
-### Structure
+## Structure
 
-`OrderReturnTax`
+`Order Return Tax`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -23,7 +24,7 @@ order subtotal.
 | `applied_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `scope` | [`str (Order Line Item Tax Scope)`](/doc/models/order-line-item-tax-scope.md) | Optional | Indicates whether this is a line item or order level tax. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

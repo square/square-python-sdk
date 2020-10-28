@@ -1,15 +1,16 @@
-## List Refunds Request
+
+# List Refunds Request
 
 Defines the query parameters that can be included in
 a request to the [ListRefunds](#endpoint-listrefunds) endpoint.
 
 Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 
-### Structure
+## Structure
 
-`ListRefundsRequest`
+`List Refunds Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -18,7 +19,7 @@ Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 | `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. |
 | `cursor` | `string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](#paginatingresults) for more information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

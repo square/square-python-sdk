@@ -1,14 +1,15 @@
-## Error
+
+# Error
 
 Represents an error encountered during a request to the Connect API.
 
 See [Handling errors](#handlingerrors) for more information.
 
-### Structure
+## Structure
 
 `Error`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -17,12 +18,12 @@ See [Handling errors](#handlingerrors) for more information.
 | `detail` | `string` | Optional | A human-readable description of the error for debugging purposes. |
 | `field` | `string` | Optional | The name of the field provided in the original request (if any) that<br>the error pertains to. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "category": "INVALID_REQUEST_ERROR",
-  "code": "TEMPORARY_ERROR",
+  "code": "CARD_TOKEN_USED",
   "detail": "detail6",
   "field": "field6"
 }

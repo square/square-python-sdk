@@ -1,13 +1,14 @@
-## Charge Request Additional Recipient
+
+# Charge Request Additional Recipient
 
 Represents an additional recipient (other than the merchant) entitled to a portion of the tender.
 Support is currently limited to USD, CAD and GBP currencies
 
-### Structure
+## Structure
 
-`ChargeRequestAdditionalRecipient`
+`Charge Request Additional Recipient`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
@@ -15,7 +16,7 @@ Support is currently limited to USD, CAD and GBP currencies
 | `description` | `string` | The description of the additional recipient. |
 | `amount_money` | [`Money`](/doc/models/money.md) | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,10 +1,11 @@
-## Location
 
-### Structure
+# Location
+
+## Structure
 
 `Location`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -30,11 +31,12 @@
 | `instagram_username` | `string` | Optional | The Instagram username of the location without the '@' symbol. |
 | `facebook_url` | `string` | Optional | The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. |
 | `coordinates` | [`Coordinates`](/doc/models/coordinates.md) | Optional | Latitude and longitude coordinates. |
-| `logo_url` | `string` | Optional | The URL of the logo image for the location. |
+| `logo_url` | `string` | Optional | The URL of the logo image for the location. The Seller must choose this logo in the Seller<br>dashboard (Receipts section) for the logo to appear on transactions (such as receipts, invoices)<br>that Square generates on behalf of the Seller. This image should have an aspect ratio<br>close to 1:1 and is recommended to be at least 200x200 pixels. |
 | `pos_background_url` | `string` | Optional | The URL of the Point of Sale background image for the location. |
 | `mcc` | `string` | Optional | The merchant category code (MCC) of the location, as standardized by ISO 18245.<br>The MCC describes the kind of goods or services sold at the location. |
+| `full_format_logo_url` | `string` | Optional | The URL of a full-format logo image for the location. The Seller must choose this logo in the<br>Seller dashboard (Receipts section) for the logo to appear on transactions (such as receipts, invoices)<br>that Square generates on behalf of the Seller. This image can have an aspect ratio of 2:1 or greater<br>and is recommended to be at least 1280x648 pixels. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

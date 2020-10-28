@@ -1,10 +1,11 @@
-## V1 Order State
 
-### Enumeration
+# V1 Order State
 
-`V1OrderState`
+## Enumeration
 
-### Fields
+`V1 Order State`
+
+## Fields
 
 | Name |
 |  --- |

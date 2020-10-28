@@ -54,7 +54,8 @@ class TransactionsApi(BaseApi):
                 results](#paginatingresults) for more information.
 
         Returns:
-            ListRefundsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -67,7 +68,7 @@ class TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}/refunds'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -137,7 +138,8 @@ class TransactionsApi(BaseApi):
                 results](#paginatingresults) for more information.
 
         Returns:
-            ListTransactionsResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -150,7 +152,7 @@ class TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}/transactions'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -221,7 +223,8 @@ class TransactionsApi(BaseApi):
                 field details.
 
         Returns:
-            ChargeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -234,7 +237,7 @@ class TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}/transactions'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id
+            'location_id': {'value': location_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -273,7 +276,8 @@ class TransactionsApi(BaseApi):
             transaction_id (string): The ID of the transaction to retrieve.
 
         Returns:
-            RetrieveTransactionResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -286,8 +290,8 @@ class TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}/transactions/{transaction_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'transaction_id': transaction_id
+            'location_id': {'value': location_id, 'encode': True},
+            'transaction_id': {'value': transaction_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -330,7 +334,8 @@ class TransactionsApi(BaseApi):
             transaction_id (string): TODO: type description here.
 
         Returns:
-            CaptureTransactionResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -343,8 +348,8 @@ class TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}/transactions/{transaction_id}/capture'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'transaction_id': transaction_id
+            'location_id': {'value': location_id, 'encode': True},
+            'transaction_id': {'value': transaction_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -395,7 +400,8 @@ class TransactionsApi(BaseApi):
                 for field details.
 
         Returns:
-            CreateRefundResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -408,8 +414,8 @@ class TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}/transactions/{transaction_id}/refund'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'transaction_id': transaction_id
+            'location_id': {'value': location_id, 'encode': True},
+            'transaction_id': {'value': transaction_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -453,7 +459,8 @@ class TransactionsApi(BaseApi):
             transaction_id (string): TODO: type description here.
 
         Returns:
-            VoidTransactionResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -466,8 +473,8 @@ class TransactionsApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/locations/{location_id}/transactions/{transaction_id}/void'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': location_id,
-            'transaction_id': transaction_id
+            'location_id': {'value': location_id, 'encode': True},
+            'transaction_id': {'value': transaction_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

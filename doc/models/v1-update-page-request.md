@@ -1,16 +1,17 @@
-## V1 Update Page Request
 
-### Structure
+# V1 Update Page Request
 
-`V1UpdatePageRequest`
+## Structure
 
-### Fields
+`V1 Update Page Request`
+
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
 | `body` | [`V1 Page`](/doc/models/v1-page.md) | V1Page |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,12 +1,13 @@
-## Payment
+
+# Payment
 
 Represents a payment processed by the Square API.
 
-### Structure
+## Structure
 
 `Payment`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -39,7 +40,7 @@ Represents a payment processed by the Square API.
 | `receipt_number` | `string` | Optional | The payment's receipt number.<br>The field will be missing if a payment is CANCELED |
 | `receipt_url` | `string` | Optional | The URL for the payment's receipt.<br>The field will only be populated for COMPLETED payments. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

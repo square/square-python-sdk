@@ -1,19 +1,20 @@
-## Adjust Loyalty Points Request
+
+# Adjust Loyalty Points Request
 
 A request to adjust (add or subtract) points manually.
 
-### Structure
+## Structure
 
-`AdjustLoyaltyPointsRequest`
+`Adjust Loyalty Points Request`
 
-### Fields
+## Fields
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `idempotency_key` | `string` | A unique string that identifies this `AdjustLoyaltyPoints` request. <br>Keys can be any valid string, but must be unique for every request. |
+| `idempotency_key` | `string` | A unique string that identifies this `AdjustLoyaltyPoints` request.<br>Keys can be any valid string, but must be unique for every request. |
 | `adjust_points` | [`Loyalty Event Adjust Points`](/doc/models/loyalty-event-adjust-points.md) | Provides metadata when the event `type` is `ADJUST_POINTS`. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

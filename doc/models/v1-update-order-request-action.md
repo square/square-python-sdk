@@ -1,10 +1,11 @@
-## V1 Update Order Request Action
 
-### Enumeration
+# V1 Update Order Request Action
 
-`V1UpdateOrderRequestAction`
+## Enumeration
 
-### Fields
+`V1 Update Order Request Action`
+
+## Fields
 
 | Name |
 |  --- |

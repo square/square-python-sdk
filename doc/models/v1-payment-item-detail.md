@@ -1,12 +1,13 @@
-## V1 Payment Item Detail
+
+# V1 Payment Item Detail
 
 V1PaymentItemDetail
 
-### Structure
+## Structure
 
-`V1PaymentItemDetail`
+`V1 Payment Item Detail`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -15,7 +16,7 @@ V1PaymentItemDetail
 | `item_id` | `string` | Optional | The unique ID of the item purchased, if any. |
 | `item_variation_id` | `string` | Optional | The unique ID of the item variation purchased, if any. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

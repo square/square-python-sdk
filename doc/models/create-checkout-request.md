@@ -1,13 +1,14 @@
-## Create Checkout Request
+
+# Create Checkout Request
 
 Defines the parameters that can be included in the body of
 a request to the __CreateCheckout__ endpoint.
 
-### Structure
+## Structure
 
-`CreateCheckoutRequest`
+`Create Checkout Request`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -21,26 +22,40 @@ a request to the __CreateCheckout__ endpoint.
 | `additional_recipients` | [`List of Charge Request Additional Recipient`](/doc/models/charge-request-additional-recipient.md) | Optional | The basic primitive of multi-party transaction. The value is optional.<br>The transaction facilitated by you can be split from here.<br><br>If you provide this value, the `amount_money` value in your additional_recipients<br>must not be more than 90% of the `total_money` calculated by Square for your order.<br>The `location_id` must be the valid location of the app owner merchant.<br><br>This field requires `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission.<br><br>This field is currently not supported in sandbox. |
 | `note` | `string` | Optional | An optional note to associate with the checkout object.<br><br>This value cannot exceed 60 characters. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
+  "additional_recipients": [
+    {
+      "amount_money": {
+        "amount": 60,
+        "currency": "USD"
+      },
+      "description": "Application fees",
+      "location_id": "057P5VYJ4A5X1"
+    }
+  ],
+  "ask_for_shipping_address": true,
   "idempotency_key": "86ae1696-b1e3-4328-af6d-f1e04d947ad6",
-  "redirect_url": "https://merchant.website.com/order-confirm",
+  "merchant_support_email": "merchant+support@website.com",
   "order": {
     "idempotency_key": "12ae1696-z1e3-4328-af6d-f1e04d947gd4",
     "order": {
-      "location_id": "location_id",
       "customer_id": "customer_id",
-      "reference_id": "reference_id",
-      "line_items": [
+      "discounts": [
         {
-          "name": "Printed T Shirt",
-          "quantity": "2",
-          "base_price_money": {
-            "amount": 1500,
+          "amount_money": {
+            "amount": 100,
             "currency": "USD"
           },
+          "scope": "LINE_ITEM",
+          "type": "FIXED_AMOUNT",
+          "uid": "56ae1696-z1e3-9328-af6d-f1e04d947gd4"
+        }
+      ],
+      "line_items": [
+        {
           "applied_discounts": [
             {
               "discount_uid": "56ae1696-z1e3-9328-af6d-f1e04d947gd4"
@@ -50,69 +65,55 @@ a request to the __CreateCheckout__ endpoint.
             {
               "tax_uid": "38ze1696-z1e3-5628-af6d-f1e04d947fg3"
             }
-          ]
+          ],
+          "base_price_money": {
+            "amount": 1500,
+            "currency": "USD"
+          },
+          "name": "Printed T Shirt",
+          "quantity": "2"
         },
         {
-          "name": "Slim Jeans",
-          "quantity": "1",
           "base_price_money": {
             "amount": 2500,
             "currency": "USD"
-          }
+          },
+          "name": "Slim Jeans",
+          "quantity": "1"
         },
         {
-          "name": "Woven Sweater",
-          "quantity": "3",
           "base_price_money": {
             "amount": 3500,
             "currency": "USD"
-          }
+          },
+          "name": "Woven Sweater",
+          "quantity": "3"
         }
       ],
+      "location_id": "location_id",
+      "reference_id": "reference_id",
       "taxes": [
         {
-          "uid": "38ze1696-z1e3-5628-af6d-f1e04d947fg3",
-          "type": "INCLUSIVE",
           "percentage": "7.75",
-          "scope": "LINE_ITEM"
-        }
-      ],
-      "discounts": [
-        {
-          "uid": "56ae1696-z1e3-9328-af6d-f1e04d947gd4",
-          "type": "FIXED_AMOUNT",
           "scope": "LINE_ITEM",
-          "amount_money": {
-            "amount": 100,
-            "currency": "USD"
-          }
+          "type": "INCLUSIVE",
+          "uid": "38ze1696-z1e3-5628-af6d-f1e04d947fg3"
         }
       ]
     }
   },
-  "additional_recipients": [
-    {
-      "location_id": "057P5VYJ4A5X1",
-      "description": "Application fees",
-      "amount_money": {
-        "amount": 60,
-        "currency": "USD"
-      }
-    }
-  ],
-  "ask_for_shipping_address": true,
-  "merchant_support_email": "merchant+support@website.com",
   "pre_populate_buyer_email": "example@email.com",
   "pre_populate_shipping_address": {
     "address_line_1": "1455 Market St.",
     "address_line_2": "Suite 600",
-    "locality": "San Francisco",
     "administrative_district_level_1": "CA",
-    "postal_code": "94103",
     "country": "US",
     "first_name": "Jane",
-    "last_name": "Doe"
-  }
+    "last_name": "Doe",
+    "locality": "San Francisco",
+    "postal_code": "94103"
+  },
+  "redirect_url": "https://merchant.website.com/order-confirm"
 }
 ```
 

@@ -36,7 +36,8 @@ class ApplePayApi(BaseApi):
                 for field details.
 
         Returns:
-            RegisterDomainResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from

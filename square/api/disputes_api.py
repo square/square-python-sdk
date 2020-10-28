@@ -41,7 +41,8 @@ class DisputesApi(BaseApi):
                 locations.
 
         Returns:
-            ListDisputesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -95,7 +96,8 @@ class DisputesApi(BaseApi):
                 about.
 
         Returns:
-            RetrieveDisputeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -108,7 +110,7 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id
+            'dispute_id': {'value': dispute_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -147,7 +149,8 @@ class DisputesApi(BaseApi):
             dispute_id (string): ID of the dispute you want to accept.
 
         Returns:
-            AcceptDisputeResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -160,7 +163,7 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}/accept'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id
+            'dispute_id': {'value': dispute_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -194,7 +197,8 @@ class DisputesApi(BaseApi):
             dispute_id (string): The ID of the dispute.
 
         Returns:
-            ListDisputeEvidenceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -207,7 +211,7 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}/evidence'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id
+            'dispute_id': {'value': dispute_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -249,7 +253,8 @@ class DisputesApi(BaseApi):
             evidence_id (string): The ID of the evidence you want to remove.
 
         Returns:
-            RemoveDisputeEvidenceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -262,8 +267,8 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}/evidence/{evidence_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id,
-            'evidence_id': evidence_id
+            'dispute_id': {'value': dispute_id, 'encode': True},
+            'evidence_id': {'value': evidence_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -304,7 +309,8 @@ class DisputesApi(BaseApi):
             evidence_id (string): The ID of the evidence to retrieve.
 
         Returns:
-            RetrieveDisputeEvidenceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -317,8 +323,8 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}/evidence/{evidence_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id,
-            'evidence_id': evidence_id
+            'dispute_id': {'value': dispute_id, 'encode': True},
+            'evidence_id': {'value': evidence_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -362,7 +368,8 @@ class DisputesApi(BaseApi):
                 here.
 
         Returns:
-            CreateDisputeEvidenceFileResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -375,7 +382,7 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}/evidence_file'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id
+            'dispute_id': {'value': dispute_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -427,7 +434,8 @@ class DisputesApi(BaseApi):
                 definition for field details.
 
         Returns:
-            CreateDisputeEvidenceTextResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -440,7 +448,7 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}/evidence_text'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id
+            'dispute_id': {'value': dispute_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -485,7 +493,8 @@ class DisputesApi(BaseApi):
                 evidence for.
 
         Returns:
-            SubmitEvidenceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -498,7 +507,7 @@ class DisputesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/disputes/{dispute_id}/submit-evidence'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': dispute_id
+            'dispute_id': {'value': dispute_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

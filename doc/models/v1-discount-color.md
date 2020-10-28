@@ -1,10 +1,11 @@
-## V1 Discount Color
 
-### Enumeration
+# V1 Discount Color
 
-`V1DiscountColor`
+## Enumeration
 
-### Fields
+`V1 Discount Color`
+
+## Fields
 
 | Name |
 |  --- |

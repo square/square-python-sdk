@@ -1,10 +1,11 @@
-## V1 Page Cell Object Type
 
-### Enumeration
+# V1 Page Cell Object Type
 
-`V1PageCellObjectType`
+## Enumeration
 
-### Fields
+`V1 Page Cell Object Type`
+
+## Fields
 
 | Name |
 |  --- |

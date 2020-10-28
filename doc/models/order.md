@@ -1,4 +1,5 @@
-## Order
+
+# Order
 
 Contains all information related to a single order to process with Square,
 including line items that specify the products to purchase. Order objects also
@@ -7,11 +8,11 @@ include information on any associated tenders, refunds, and returns.
 All Connect V2 Transactions have all been converted to Orders including all associated
 itemization data.
 
-### Structure
+## Structure
 
 `Order`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -45,7 +46,7 @@ itemization data.
 | `pricing_options` | [`Order Pricing Options`](/doc/models/order-pricing-options.md) | Optional | Pricing options for an order. The options affect how the order's price is calculated.<br>They can be used, for example, to apply automatic price adjustments that are based on pre-configured<br>[pricing rules](https://developer.squareup.com/docs/reference/square/objects/CatalogPricingRule). |
 | `rewards` | [`List of Order Reward`](/doc/models/order-reward.md) | Optional | A set-like list of rewards that have been added to the order. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

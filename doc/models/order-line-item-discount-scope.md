@@ -1,12 +1,13 @@
-## Order Line Item Discount Scope
+
+# Order Line Item Discount Scope
 
 Indicates whether this is a line item or order level discount.
 
-### Enumeration
+## Enumeration
 
-`OrderLineItemDiscountScope`
+`Order Line Item Discount Scope`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

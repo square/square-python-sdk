@@ -1,14 +1,15 @@
-## Shift
+
+# Shift
 
 A record of the hourly rate, start, and end times for a single work shift
 for an employee. May include a record of the start and end times for breaks
 taken during the shift.
 
-### Structure
+## Structure
 
 `Shift`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -26,7 +27,7 @@ taken during the shift.
 | `updated_at` | `string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC. |
 | `team_member_id` | `string` | Optional | The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26" |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

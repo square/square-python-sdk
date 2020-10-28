@@ -37,7 +37,8 @@ class InvoicesApi(BaseApi):
                 uses a default limit of 100 invoices.
 
         Returns:
-            ListInvoicesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -96,7 +97,8 @@ class InvoicesApi(BaseApi):
                 for field details.
 
         Returns:
-            CreateInvoiceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -152,7 +154,8 @@ class InvoicesApi(BaseApi):
                 for field details.
 
         Returns:
-            SearchInvoicesResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -207,7 +210,8 @@ class InvoicesApi(BaseApi):
                 [ListInvoices](#endpoint-Invoices-ListInvoices).
 
         Returns:
-            DeleteInvoiceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -220,7 +224,7 @@ class InvoicesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/invoices/{invoice_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'invoice_id': invoice_id
+            'invoice_id': {'value': invoice_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -261,7 +265,8 @@ class InvoicesApi(BaseApi):
             invoice_id (string): The id of the invoice to retrieve.
 
         Returns:
-            GetInvoiceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -274,7 +279,7 @@ class InvoicesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/invoices/{invoice_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'invoice_id': invoice_id
+            'invoice_id': {'value': invoice_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -316,7 +321,8 @@ class InvoicesApi(BaseApi):
                 for field details.
 
         Returns:
-            UpdateInvoiceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -329,7 +335,7 @@ class InvoicesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/invoices/{invoice_id}'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'invoice_id': invoice_id
+            'invoice_id': {'value': invoice_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -372,7 +378,8 @@ class InvoicesApi(BaseApi):
                 for field details.
 
         Returns:
-            CancelInvoiceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -385,7 +392,7 @@ class InvoicesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/invoices/{invoice_id}/cancel'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'invoice_id': invoice_id
+            'invoice_id': {'value': invoice_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
@@ -436,7 +443,8 @@ class InvoicesApi(BaseApi):
                 for field details.
 
         Returns:
-            PublishInvoiceResponse: Response from the API. Success
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
 
         Raises:
             APIException: When an error occurs while fetching the data from
@@ -449,7 +457,7 @@ class InvoicesApi(BaseApi):
         # Prepare query URL
         _url_path = '/v2/invoices/{invoice_id}/publish'
         _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'invoice_id': invoice_id
+            'invoice_id': {'value': invoice_id, 'encode': True}
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path

@@ -1,4 +1,5 @@
-## Catalog Modifier List
+
+# Catalog Modifier List
 
 A list of modifiers applicable to items at the time of sale.
 
@@ -7,11 +8,11 @@ may contain "Ketchup", "Mustard", and "Relish" modifiers.
 Use the `selection_type` field to specify whether or not multiple selections from
 the modifier list are allowed.
 
-### Structure
+## Structure
 
-`CatalogModifierList`
+`Catalog Modifier List`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
@@ -20,52 +21,52 @@ the modifier list are allowed.
 | `selection_type` | [`str (Catalog Modifier List Selection Type)`](/doc/models/catalog-modifier-list-selection-type.md) | Optional | Indicates whether a CatalogModifierList supports multiple selections. |
 | `modifiers` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The options included in the `CatalogModifierList`.<br>You must include at least one `CatalogModifier`.<br>Each CatalogObject must have type `MODIFIER` and contain<br>`CatalogModifier` data. |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "type": "MODIFIER_LIST",
   "id": "#MilkType",
-  "present_at_all_locations": true,
   "modifier_list_data": {
-    "name": "Milk Type",
-    "selection_type": "SINGLE",
     "modifiers": [
       {
-        "type": "MODIFIER",
-        "present_at_all_locations": true,
         "modifier_data": {
           "name": "Whole Milk",
           "price_money": {
             "amount": 0,
             "currency": "USD"
           }
-        }
+        },
+        "present_at_all_locations": true,
+        "type": "MODIFIER"
       },
       {
-        "type": "MODIFIER",
-        "present_at_all_locations": true,
         "modifier_data": {
           "name": "Almond Milk",
           "price_money": {
             "amount": 250,
             "currency": "USD"
           }
-        }
+        },
+        "present_at_all_locations": true,
+        "type": "MODIFIER"
       },
       {
-        "type": "MODIFIER",
-        "present_at_all_locations": true,
         "modifier_data": {
           "name": "Soy Milk",
           "price_money": {
             "amount": 250,
             "currency": "USD"
           }
-        }
+        },
+        "present_at_all_locations": true,
+        "type": "MODIFIER"
       }
-    ]
-  }
+    ],
+    "name": "Milk Type",
+    "selection_type": "SINGLE"
+  },
+  "present_at_all_locations": true,
+  "type": "MODIFIER_LIST"
 }
 ```
 
