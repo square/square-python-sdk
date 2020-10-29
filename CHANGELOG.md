@@ -23,7 +23,7 @@
 
 * **Locations API:** 
   * [Location](https://developer.squareup.com/reference/square_2020-10-28/objects/Location) object. Has a new read-only field,[full_format_logo_url](https://developer.squareup.com/reference/square_2020-10-28/objects/Location#definition__property-full_format_logo_url), which provides URL of a full-format logo image for the location. 
-  * [Webhooks.](https://developer.squareup.com/docs/webhooks-api/subscribe-to-events#locations) The Locations API now supports notifications for when a location is created and when a location is updated.
+  * [Webhooks](https://developer.squareup.com/docs/webhooks-api/subscribe-to-events#locations) The Locations API now supports notifications for when a location is created and when a location is updated.
 
 * **Orders API:** 
   * [RetrieveOrder](https://developer.squareup.com/reference/square_2020-10-28/orders-api/retrieve-order), new endpoint. For more information, see the [Retrieve Orders](https://developer.squareup.com/docs/orders-api/manage-orders#retrieve-orders) overview.
@@ -212,7 +212,7 @@ Bug fixes:
   * For technical reference, see [Customer Segments]( https://developer.squareup.com/reference/square/customer-segments-api).  
 
    
-* **New webhooks.** v2 Webhooks (beta) now supports webhooks for the following APIs:
+* **New webhooks** v2 Webhooks (beta) now supports webhooks for the following APIs:
   * Orders API. `order.created`, `order.updated`, and `order.fulfillment.updated`
   * Terminal API. `terminal.checkout.created` and `terminal.checkout.updated`
   * Devices API. `device.code.paired`
