@@ -358,36 +358,36 @@ You can also use the Square API to create applications or services that work wit
 [Square API]: https://squareup.com/developers
 [sign up for a developer account]: https://squareup.com/signup?v=developers
 [Client]: doc/client.md
-[Devices]: doc/apis/devices.md
-[Disputes]: doc/apis/disputes.md
-[Terminal]: doc/apis/terminal.md
-[Cash Drawers]: doc/apis/cash-drawers.md
-[Customer Groups]: doc/apis/customer-groups.md
-[Customer Segments]: doc/apis/customer-segments.md
-[Bank Accounts]: doc/apis/bank-accounts
-[Payments]: doc/apis/payments.md
-[Checkout]: doc/apis/checkout.md
-[Catalog]: doc/apis/catalog.md
-[Customers]: doc/apis/customers.md
-[Employees]: doc/apis/employees.md
-[Inventory]: doc/apis/inventory.md
-[Labor]: doc/apis/labor.md
-[Loyalty]: doc/apis/loyalty.md
-[Locations]: doc/apis/locations.md
-[Merchants]: doc/apis/merchants.md
-[Orders]: doc/apis/orders.md
-[Invoices]: doc/apis/invoices.md
-[Apple Pay]: doc/apis/apple-pay.md
-[Refunds]: doc/apis/refunds.md
-[Subscriptions]: doc/apis/subscriptions.md
-[Mobile Authorization]: doc/apis/mobile-authorization.md
-[O Auth]: doc/apis/o-auth.md
-[V1 Locations]: doc/apis/v1-locations.md
-[V1 Employees]: doc/apis/v1-employees.md
-[V1 Transactions]: doc/apis/v1-transactions.md
-[V1 Items]: doc/apis/v1-items.md
-[Transactions]: doc/apis/transactions.md
-[Team]: doc/apis/team.md
+[Devices]: doc/api/devices.md
+[Disputes]: doc/api/disputes.md
+[Terminal]: doc/api/terminal.md
+[Cash Drawers]: doc/api/cash-drawers.md
+[Customer Groups]: doc/api/customer-groups.md
+[Customer Segments]: doc/api/customer-segments.md
+[Bank Accounts]: doc/api/bank-accounts
+[Payments]: doc/api/payments.md
+[Checkout]: doc/api/checkout.md
+[Catalog]: doc/api/catalog.md
+[Customers]: doc/api/customers.md
+[Employees]: doc/api/employees.md
+[Inventory]: doc/api/inventory.md
+[Labor]: doc/api/labor.md
+[Loyalty]: doc/api/loyalty.md
+[Locations]: doc/api/locations.md
+[Merchants]: doc/api/merchants.md
+[Orders]: doc/api/orders.md
+[Invoices]: doc/api/invoices.md
+[Apple Pay]: doc/api/apple-pay.md
+[Refunds]: doc/api/refunds.md
+[Subscriptions]: doc/api/subscriptions.md
+[Mobile Authorization]: doc/api/mobile-authorization.md
+[O Auth]: doc/api/o-auth.md
+[V1 Locations]: doc/api/v1-locations.md
+[V1 Employees]: doc/api/v1-employees.md
+[V1 Transactions]: doc/api/v1-transactions.md
+[V1 Items]: doc/api/v1-items.md
+[Transactions]: doc/api/transactions.md
+[Team]: doc/api/team.md
 [Python SDK]: https://github.com/square/square-python-sdk
 [Locations overview]: https://developer.squareup.com/docs/locations-api/what-it-does
 [OAuth overview]: https://developer.squareup.com/docs/oauth-api/what-it-does
