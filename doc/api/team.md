@@ -28,7 +28,7 @@ You must provide the following values in your request to this endpoint:
 - `given_name`
 - `family_name`
 
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/docs/team/troubleshooting#createteammember).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#createteammember).
 
 ```python
 def create_team_member(self,
@@ -79,7 +79,7 @@ This process is non-transactional and will process as much of the request as is 
 the request cannot be successfully processed, the request will NOT be marked as failed, but the body of the response
 will contain explicit error information for this particular create.
 
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/docs/team/troubleshooting#bulkcreateteammembers).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#bulkcreateteammembers).
 
 ```python
 def bulk_create_team_members(self,
@@ -117,7 +117,7 @@ Updates multiple `TeamMember` objects. The updated `TeamMember` objects will be 
 This process is non-transactional and will process as much of the request as is possible. If one of the updates in
 the request cannot be successfully processed, the request will NOT be marked as failed, but the body of the response
 will contain explicit error information for this particular update.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/docs/team/troubleshooting#bulkupdateteammembers).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#bulkupdateteammembers).
 
 ```python
 def bulk_update_team_members(self,
@@ -195,7 +195,7 @@ elif result.is_error():
 # Retrieve Team Member
 
 Retrieve a `TeamMember` object for the given `TeamMember.id`.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/docs/team/troubleshooting#retrieveteammember).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#retrieveteammember).
 
 ```python
 def retrieve_team_member(self,
@@ -229,7 +229,7 @@ elif result.is_error():
 # Update Team Member
 
 Updates a single `TeamMember` object. The `TeamMember` will be returned on successful updates.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/docs/team/troubleshooting#updateteammember).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#updateteammember).
 
 ```python
 def update_team_member(self,
@@ -279,7 +279,7 @@ elif result.is_error():
 
 Retrieve a `WageSetting` object for a team member specified
 by `TeamMember.id`.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/docs/team/troubleshooting#retrievewagesetting).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#retrievewagesetting).
 
 ```python
 def retrieve_wage_setting(self,
@@ -316,7 +316,7 @@ Creates or updates a `WageSetting` object. The object is created if a
 `WageSetting` with the specified `team_member_id` does not exist. Otherwise,
 it fully replaces the `WageSetting` object for the team member.
 The `WageSetting` will be returned upon successful update.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/docs/team/troubleshooting#updatewagesetting).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#updatewagesetting).
 
 ```python
 def update_wage_setting(self,

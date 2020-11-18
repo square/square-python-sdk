@@ -28,8 +28,8 @@ class MobileAuthorizationApi(BaseApi):
         ```
         Replace `ACCESS_TOKEN` with a
         [valid production authorization
-        credential](https://developer.squareup.com/docs/docs/build-basics/acces
-        s-tokens).
+        credential](https://developer.squareup.com/docs/build-basics/access-tok
+        ens).
 
         Args:
             body (CreateMobileAuthorizationCodeRequest): An object containing

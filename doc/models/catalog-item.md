@@ -1,7 +1,7 @@
 
 # Catalog Item
 
-An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in the catalog.
+A [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in the catalog.
 
 ## Structure
 

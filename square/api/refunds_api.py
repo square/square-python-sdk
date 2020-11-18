@@ -28,37 +28,38 @@ class RefundsApi(BaseApi):
         The maximum results per page is 100.
 
         Args:
-            begin_time (string, optional): Timestamp for the beginning of the
-                requested reporting period, in RFC 3339 format.  Default: The
-                current time minus one year.
-            end_time (string, optional): Timestamp for the end of the
+            begin_time (string, optional): The timestamp for the beginning of
+                the requested reporting period, in RFC 3339 format.  Default:
+                The current time minus one year.
+            end_time (string, optional): The timestamp for the end of the
                 requested reporting period, in RFC 3339 format.  Default: The
                 current time.
             sort_order (string, optional): The order in which results are
-                listed. - `ASC` - oldest to newest - `DESC` - newest to oldest
-                (default).
+                listed: - `ASC` - Oldest to newest. - `DESC` - Newest to
+                oldest (default).
             cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for the original query.  See
+                previous call to this endpoint. Provide this cursor to
+                retrieve the next set of results for the original query.  For
+                more information, see
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination) for more information.
+                pagination).
             location_id (string, optional): Limit results to the location
                 supplied. By default, results are returned for all locations
-                associated with the merchant.
+                associated with the seller.
             status (string, optional): If provided, only refunds with the
                 given status are returned. For a list of refund status values,
-                see [PaymentRefund](#type-paymentrefund).  Default: If omitted
-                refunds are returned regardless of status.
+                see [PaymentRefund](#type-paymentrefund).  Default: If
+                omitted, refunds are returned regardless of their status.
             source_type (string, optional): If provided, only refunds with the
                 given source type are returned. - `CARD` - List refunds only
-                for payments where card was specified as payment source. 
-                Default: If omitted refunds are returned regardless of source
-                type.
-            limit (int, optional): Maximum number of results to be returned in
-                a single page. It is possible to receive fewer results than
-                the specified limit on a given page.  If the supplied value is
-                greater than 100, at most 100 results will be returned. 
-                Default: `100`
+                for payments where `CARD` was specified as the payment source.
+                Default: If omitted, refunds are returned regardless of the
+                source type.
+            limit (int, optional): The maximum number of results to be
+                returned in a single page.  It is possible to receive fewer
+                results than the specified limit on a given page.  If the
+                supplied value is greater than 100, no more than 100 results
+                are returned.  Default: 100
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -166,7 +167,8 @@ class RefundsApi(BaseApi):
         Retrieves a specific refund using the `refund_id`.
 
         Args:
-            refund_id (string): Unique ID for the desired `PaymentRefund`.
+            refund_id (string): The unique ID for the desired
+                `PaymentRefund`.
 
         Returns:
             ApiResponse: An object with the response value as well as other

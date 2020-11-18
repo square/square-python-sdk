@@ -3,7 +3,15 @@
 
 A query composed of one or more different types of filters to narrow the scope of targeted objects when calling the `SearchCatalogObjects` endpoint.
 
-Although a query can have multiple filters, only one query is allowed per call to [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects).
+Although a query can have multiple filters, only certain query types can be combined per call to [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects).
+Any combination of the following types may be used together:
+
+- [exact_query](#type-CatalogExactQuery)
+- [prefix_query](#type-CatalogPrefixQuery)
+- [range_query](#type-CatalogRangeQuery)
+- [sorted_attribute_query](#type-CatalogSortedAttribute)
+- [text_query](#type-CatalogTextQuery)
+  All other query types cannot be combined with any others.
 
 When a query filter is based on an attribute, the attribute must be searchable.
 Searchable attributes are listed as follows, along their parent types that can be searched for with applicable query filters.

@@ -41,7 +41,7 @@ class Configuration(object):
         return deepcopy(self._additional_headers)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2020-10-28',
+                 environment='production', square_version='2020-11-18',
                  access_token='TODO: Replace', additional_headers={}):
         # The value to use for connection timeout
         self._timeout = timeout
@@ -60,7 +60,7 @@ class Configuration(object):
         # Square Connect API versions
         self._square_version = square_version
 
-        # OAuth 2.0 Access Token
+        # The OAuth 2.0 Access Token to use for API requests.
         self._access_token = access_token
 
         # Additional headers to add to each API request

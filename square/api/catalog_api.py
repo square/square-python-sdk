@@ -322,9 +322,9 @@ class CatalogApi(BaseApi):
         `DISCOUNT`, `TAX`, `IMAGE`.
         __Important:__ ListCatalog does not return deleted catalog items. To
         retrieve
-        deleted catalog items, use SearchCatalogObjects and set
-        `include_deleted_objects`
-        to `true`.
+        deleted catalog items, use
+        [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects) 
+        and set the `include_deleted_objects` attribute value to `true`.
 
         Args:
             cursor (string, optional): The pagination cursor returned in the

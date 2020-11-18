@@ -16,18 +16,15 @@
 
 ```json
 {
-  "idempotency_key": "idempotency_key6",
+  "idempotency_key": "402a640b-b26f-401f-b406-46f839590c04",
   "refund": {
-    "id": "id8",
-    "refund_id": "refund_id2",
-    "payment_id": "payment_id8",
-    "order_id": "order_id2",
     "amount_money": {
-      "amount": 120,
-      "currency": "AUD"
+      "amount": 111,
+      "currency": "CAD"
     },
-    "reason": "reason4",
-    "device_id": "device_id4"
+    "device_id": "f72dfb8e-4d65-4e56-aade-ec3fb8d33291",
+    "payment_id": "5O5OvgkcNUhl7JBuINflcjKqUzXZY",
+    "reason": "Returning items"
   }
 }
 ```

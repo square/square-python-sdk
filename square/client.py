@@ -10,6 +10,7 @@ from square.api.v1_transactions_api import V1TransactionsApi
 from square.api.v1_items_api import V1ItemsApi
 from square.api.apple_pay_api import ApplePayApi
 from square.api.bank_accounts_api import BankAccountsApi
+from square.api.bookings_api import BookingsApi
 from square.api.cash_drawers_api import CashDrawersApi
 from square.api.catalog_api import CatalogApi
 from square.api.customers_api import CustomersApi
@@ -38,11 +39,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '6.5.0.20201028'
+        return '7.0.0.20201118'
 
     @staticmethod
     def square_version():
-        return '2020-10-28'
+        return '2020-11-18'
 
     @lazy_property
     def mobile_authorization(self):
@@ -75,6 +76,10 @@ class Client(object):
     @lazy_property
     def bank_accounts(self):
         return BankAccountsApi(self.config)
+
+    @lazy_property
+    def bookings(self):
+        return BookingsApi(self.config)
 
     @lazy_property
     def cash_drawers(self):
@@ -165,7 +170,7 @@ class Client(object):
         return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2020-10-28',
+                 environment='production', square_version='2020-11-18',
                  access_token='TODO: Replace', additional_headers={},
                  config=None):
         if config is None:

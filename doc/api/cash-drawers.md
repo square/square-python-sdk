@@ -67,7 +67,7 @@ elif result.is_error():
 # Retrieve Cash Drawer Shift
 
 Provides the summary details for a single cash drawer shift. See
-RetrieveCashDrawerShiftEvents for a list of cash drawer shift events.
+[ListCashDrawerShiftEvents](#endpoint-CashDrawers-ListCashDrawerShiftEvents) for a list of cash drawer shift events.
 
 ```python
 def retrieve_cash_drawer_shift(self,

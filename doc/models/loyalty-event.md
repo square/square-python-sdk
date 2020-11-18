@@ -2,7 +2,7 @@
 # Loyalty Event
 
 Provides information about a loyalty event.
-For more information, see [Loyalty events](https://developer.squareup.com/docs/docs/loyalty-api/overview/#loyalty-events).
+For more information, see [Loyalty events](https://developer.squareup.com/docs/loyalty-api/overview/#loyalty-events).
 
 ## Structure
 

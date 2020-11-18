@@ -58,6 +58,8 @@ body['checkout']['device_options']['tip_settings'] = {}
 body['checkout']['device_options']['tip_settings']['allow_tipping'] = False
 body['checkout']['device_options']['tip_settings']['separate_tip_screen'] = False
 body['checkout']['device_options']['tip_settings']['custom_tip_field'] = False
+body['checkout']['device_options']['tip_settings']['tip_percentages'] = [148, 149, 150]
+body['checkout']['device_options']['tip_settings']['smart_tipping'] = False
 body['checkout']['deadline_duration'] = 'deadline_duration0'
 body['checkout']['status'] = 'status0'
 
@@ -203,17 +205,17 @@ def create_terminal_refund(self,
 
 ```python
 body = {}
-body['idempotency_key'] = 'idempotency_key2'
+body['idempotency_key'] = '402a640b-b26f-401f-b406-46f839590c04'
 body['refund'] = {}
 body['refund']['id'] = 'id4'
 body['refund']['refund_id'] = 'refund_id8'
-body['refund']['payment_id'] = 'payment_id4'
+body['refund']['payment_id'] = '5O5OvgkcNUhl7JBuINflcjKqUzXZY'
 body['refund']['order_id'] = 'order_id8'
 body['refund']['amount_money'] = {}
-body['refund']['amount_money']['amount'] = 128
-body['refund']['amount_money']['currency'] = 'AWG'
-body['refund']['reason'] = 'reason0'
-body['refund']['device_id'] = 'device_id0'
+body['refund']['amount_money']['amount'] = 111
+body['refund']['amount_money']['currency'] = 'CAD'
+body['refund']['reason'] = 'Returning items'
+body['refund']['device_id'] = 'f72dfb8e-4d65-4e56-aade-ec3fb8d33291'
 
 result = terminal_api.create_terminal_refund(body)
 
@@ -253,11 +255,11 @@ body['query']['filter']['device_id'] = 'device_id8'
 body['query']['filter']['created_at'] = {}
 body['query']['filter']['created_at']['start_at'] = 'start_at2'
 body['query']['filter']['created_at']['end_at'] = 'end_at0'
-body['query']['filter']['status'] = 'status6'
+body['query']['filter']['status'] = 'COMPLETED'
 body['query']['sort'] = {}
 body['query']['sort']['sort_order'] = 'sort_order8'
 body['cursor'] = 'cursor0'
-body['limit'] = 164
+body['limit'] = 1
 
 result = terminal_api.search_terminal_refunds(body)
 

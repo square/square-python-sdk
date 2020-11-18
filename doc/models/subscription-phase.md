@@ -2,7 +2,7 @@
 # Subscription Phase
 
 Describes a phase in a subscription plan. For more information, see
-[Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/docs/subscriptions-api/setup-plan).
+[Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-plan).
 
 ## Structure
 
