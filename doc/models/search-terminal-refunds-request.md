@@ -17,21 +17,12 @@
 
 ```json
 {
+  "limit": 1,
   "query": {
     "filter": {
-      "device_id": "device_id0",
-      "created_at": {
-        "start_at": "start_at4",
-        "end_at": "end_at8"
-      },
-      "status": "status4"
-    },
-    "sort": {
-      "sort_order": "sort_order8"
+      "status": "COMPLETED"
     }
-  },
-  "cursor": "cursor6",
-  "limit": 172
+  }
 }
 ```
 

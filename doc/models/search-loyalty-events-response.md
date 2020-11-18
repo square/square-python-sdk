@@ -14,7 +14,7 @@ criteria, in order by the `created_at` date.
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `events` | [`List of Loyalty Event`](/doc/models/loyalty-event.md) | Optional | The loyalty events that satisfy the search criteria. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent<br>request. If empty, this is the final response.<br>For more information,<br>see [Pagination](https://developer.squareup.com/docs/docs/basics/api101/pagination). |
+| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent<br>request. If empty, this is the final response.<br>For more information,<br>see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
 
 ## Example (as JSON)
 

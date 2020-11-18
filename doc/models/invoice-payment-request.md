@@ -5,7 +5,7 @@ Describes a specific payment request in an invoice. Invoices that contain multip
 specify a maximum of 12 `INSTALLMENT` request types. All of the payment requests must specify the same `request_method`.
 
 For more information,
-see [Payment requests](https://developer.squareup.com/docs/docs/invoices-api/overview#payment-requests).
+see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
 
 ## Structure
 
@@ -17,7 +17,7 @@ see [Payment requests](https://developer.squareup.com/docs/docs/invoices-api/ove
 |  --- | --- | --- | --- |
 | `uid` | `string` | Optional | The Square-generated ID of the payment request in an [invoice](#type-invoice). |
 | `request_method` | [`str (Invoice Request Method)`](/doc/models/invoice-request-method.md) | Optional | Specifies the action for Square to take for processing the invoice. For example,<br>email the invoice, charge a customer's card on file, or do nothing. |
-| `request_type` | [`str (Invoice Request Type)`](/doc/models/invoice-request-type.md) | Optional | Indicates the type of the payment request. An invoice supports the following payment request combinations:<br><br>- 1 balance<br>- 1 deposit with 1 balance<br>- 2 - 12 installments<br>- 1 deposit with 2 - 12 installments<br><br>For more information,<br>see [Payment requests](https://developer.squareup.com/docs/docs/invoices-api/overview#payment-requests). |
+| `request_type` | [`str (Invoice Request Type)`](/doc/models/invoice-request-type.md) | Optional | Indicates the type of the payment request. An invoice supports the following payment request combinations:<br><br>- 1 balance<br>- 1 deposit with 1 balance<br>- 2 - 12 installments<br>- 1 deposit with 2 - 12 installments<br><br>For more information,<br>see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests). |
 | `due_date` | `string` | Optional | The due date (in the invoice location's time zone) for the payment request.<br>After this date, the invoice becomes overdue. |
 | `fixed_amount_requested_money` | [`Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `percentage_requested` | `string` | Optional | Specifies the amount for the payment request in percentage:<br><br>- When the payment `request_type` is `DEPOSIT`, it is the percentage of the order total amount.<br>- When the payment `request_type` is `INSTALLMENT`, it is the percentage of the order total less<br>  the deposit, if requested. The sum of the `percentage_requested` in all installment<br>  payment requests must be equal to 100.<br><br>You cannot specify this when the payment `request_type` is `BALANCE` or when the<br>payment request specifies the `fixed_amount_requested_money` field. |

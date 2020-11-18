@@ -8,6 +8,7 @@ __all__ = [
     'v1_items_api',
     'apple_pay_api',
     'bank_accounts_api',
+    'bookings_api',
     'cash_drawers_api',
     'catalog_api',
     'customers_api',

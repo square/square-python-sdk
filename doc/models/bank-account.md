@@ -3,7 +3,7 @@
 
 Represents a bank account. For more information about
 linking a bank account to a Square account, see
-[Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+[Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
 
 ## Structure
 
@@ -19,8 +19,8 @@ linking a bank account to a Square account, see
 | `currency` | [`str (Currency)`](/doc/models/currency.md) |  | Indicates the associated currency for an amount of money. Values correspond<br>to [ISO 4217](https://wikipedia.org/wiki/ISO_4217). |
 | `account_type` | [`str (Bank Account Type)`](/doc/models/bank-account-type.md) |  | Indicates the financial purpose of the bank account. |
 | `holder_name` | `string` |  | Name of the account holder. This name must match the name<br>on the targeted bank account record. |
-| `primary_bank_identification_number` | `string` |  | Primary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api). |
-| `secondary_bank_identification_number` | `string` | Optional | Secondary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api). |
+| `primary_bank_identification_number` | `string` |  | Primary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api). |
+| `secondary_bank_identification_number` | `string` | Optional | Secondary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api). |
 | `debit_mandate_reference_id` | `string` | Optional | Reference identifier that will be displayed to UK bank account owners<br>when collecting direct debit authorization. Only required for UK bank accounts. |
 | `reference_id` | `string` | Optional | Client-provided identifier for linking the banking account to an entity<br>in a third-party system (for example, a bank account number or a user identifier). |
 | `location_id` | `string` | Optional | The location to which the bank account belongs. |

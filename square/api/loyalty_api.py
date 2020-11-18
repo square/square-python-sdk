@@ -178,8 +178,8 @@ class LoyaltyApi(BaseApi):
         [CalculateLoyaltyPoints](#endpoint-Loyalty-CalculateLoyaltyPoints) to
         compute the points. For more information, 
         see [Loyalty Program
-        Overview](https://developer.squareup.com/docs/docs/loyalty/overview).
-                You then provide the points in a request to this endpoint.
+        Overview](https://developer.squareup.com/docs/loyalty/overview). 
+        You then provide the points in a request to this endpoint.
 
         Args:
             account_id (string): The [loyalty account](#type-LoyaltyAccount)

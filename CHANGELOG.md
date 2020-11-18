@@ -1,5 +1,32 @@
 # Change Log
 
+## Version 7.0.0.20201118 (2020-11-18T00:00)
+## New API releases
+
+* **Bookings API** (beta). This API enables you, as an application developer, to create applications to set up and manage bookings for appointments of fixed duration in which  selected staff members of a Square seller provide specified services in supported locations for particular customers.   
+  * For an overview, see [Manage Bookings for Square Sellers](https://developer.squareup.com/docs/bookings-api/what-it-is).
+  * For technical reference, see [Bookings API](https://developer.squareup.com/reference/square_2020-11-18/bookings-api).
+    
+## Existing API updates
+
+*  **Payments API:** 
+   *  [Payment.](https://developer.squareup.com/reference/square_2020-11-18/objects/Payment) The object now includes the `risk_evaluation` field to identify the Square-assigned risk level associated with the payment. Sellers can use this information to provide the goods and services or refund the payment.
+
+## New SDK release
+* **New Square Node.js SDK (beta)**  
+
+  The new [Square Node.js SDK](https://github.com/square/square-nodejs-sdk) is available in beta and will eventually replace the deprecated Connect Node.js SDK. For migration information, see the [Connect SDK README.](https://github.com/square/connect-nodejs-sdk/blob/master/README.md) The following topics are updated to use the new SDK:
+   * [Walkthrough: Integrate Square Payments in a Website](https://developer.squareup.com/docs/payment-form/payment-form-walkthrough)
+   * [Verify the Buyer When Using a Nonce for an Online Payment](https://developer.squareup.com/docs/payment-form/cookbook/verify-buyer-on-card-charge)
+   * [Create a Gift Card Payment Endpoint](https://developer.squareup.com/docs/payment-form/gift-cards/part-2)
+
+
+## Documentation Updates
+
+* The **Testing** topics are moved from the end of the table of contents to the top, in the **Home** section under [Testing your App](https://developer.squareup.com/docs/testing-your-app). 
+* [Pay for orders.]](https://developer.squareup.com/docs/orders-api/pay-for-order) Topic revised to add clarity when to use Payments API and Orders API to pay for an order. The [Orders Integration]](https://developer.squareup.com/docs/payments-api/take-payments?preview=true#orders-integration) topic in Payments API simplified accordingly.
+
+
 ## Version 6.5.0.20201028 (2020-10-28T00:00)
 
 ## Existing API updates
@@ -23,7 +50,7 @@
 
 * **Locations API:** 
   * [Location](https://developer.squareup.com/reference/square_2020-10-28/objects/Location) object. Has a new read-only field,[full_format_logo_url](https://developer.squareup.com/reference/square_2020-10-28/objects/Location#definition__property-full_format_logo_url), which provides URL of a full-format logo image for the location. 
-  * [Webhooks.](https://developer.squareup.com/docs/webhooks-api/subscribe-to-events#locations) The Locations API now supports notifications for when a location is created and when a location is updated.
+  * [Webhooks](https://developer.squareup.com/docs/webhooks-api/subscribe-to-events#locations) The Locations API now supports notifications for when a location is created and when a location is updated.
 
 * **Orders API:** 
   * [RetrieveOrder](https://developer.squareup.com/reference/square_2020-10-28/orders-api/retrieve-order), new endpoint. For more information, see the [Retrieve Orders](https://developer.squareup.com/docs/orders-api/manage-orders#retrieve-orders) overview.
@@ -212,7 +239,7 @@ Bug fixes:
   * For technical reference, see [Customer Segments]( https://developer.squareup.com/reference/square/customer-segments-api).  
 
    
-* **New webhooks.** v2 Webhooks (beta) now supports webhooks for the following APIs:
+* **New webhooks** v2 Webhooks (beta) now supports webhooks for the following APIs:
   * Orders API. `order.created`, `order.updated`, and `order.fulfillment.updated`
   * Terminal API. `terminal.checkout.created` and `terminal.checkout.updated`
   * Devices API. `device.code.paired`
@@ -250,8 +277,8 @@ Bug fixes:
 
 ## Version 5.1.0.20200325 (2020-03-25)
 ## Existing API updates
-* **[Payments API](https://developer.squareup.com/reference/square/payments-api).** In support of the existing [Delayed capture](payments-api/take-payments) for payments, the following fields are added to the [Payment](https://developer.squareup.com/reference/square/objects/Payment) type:
-   * `delay_duration`. In a [CreatePayment](https://developer.squareup.com/reference/square/payments-api/create-payment) request, you can set `autocomplete` to false to get  payment approval but not charge the payment source. You can now add this field to specify a time period to complete (or cancel) the payment. For more information, see [Delay capture](payments-api/take-payments).
+* **[Payments API](https://developer.squareup.com/reference/square/payments-api).** In support of the existing [Delayed capture]](https://developer.squareup.com/docs/payments-api/take-payments) for payments, the following fields are added to the [Payment](https://developer.squareup.com/reference/square/objects/Payment) type:
+   * `delay_duration`. In a [CreatePayment](https://developer.squareup.com/reference/square/payments-api/create-payment) request, you can set `autocomplete` to false to get  payment approval but not charge the payment source. You can now add this field to specify a time period to complete (or cancel) the payment. For more information, see [Delay capture]](https://developer.squareup.com/docs/payments-api/take-payments).
    * `delay_action`. Defines the action that Square takes on the payment when the `delay_duration` elapses. In this release, the API supports only the cancel payment action.
    * `delayed_until`. Provides the date and time on Square servers when Square applies `delay_action` on the payment.
 

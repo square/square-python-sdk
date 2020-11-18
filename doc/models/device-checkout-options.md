@@ -22,7 +22,11 @@
   "tip_settings": {
     "allow_tipping": false,
     "separate_tip_screen": false,
-    "custom_tip_field": false
+    "custom_tip_field": false,
+    "tip_percentages": [
+      48
+    ],
+    "smart_tipping": false
   }
 }
 ```

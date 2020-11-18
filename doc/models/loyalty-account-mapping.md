@@ -3,7 +3,7 @@
 
 Associates a loyalty account with the buyer's phone number.
 For more information, see
-[Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview).
+[Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
 
 ## Structure
 

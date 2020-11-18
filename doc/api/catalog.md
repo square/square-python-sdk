@@ -429,8 +429,8 @@ is specified as a comma-separated list of valid [CatalogObject](#type-catalogobj
 `ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`.
 
 __Important:__ ListCatalog does not return deleted catalog items. To retrieve
-deleted catalog items, use SearchCatalogObjects and set `include_deleted_objects`
-to `true`.
+deleted catalog items, use [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects)
+and set the `include_deleted_objects` attribute value to `true`.
 
 ```python
 def list_catalog(self,

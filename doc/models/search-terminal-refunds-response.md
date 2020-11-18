@@ -17,65 +17,35 @@
 
 ```json
 {
-  "errors": [
-    {
-      "category": "AUTHENTICATION_ERROR",
-      "code": "MAP_KEY_LENGTH_TOO_SHORT",
-      "detail": "detail1",
-      "field": "field9"
-    },
-    {
-      "category": "INVALID_REQUEST_ERROR",
-      "code": "MAP_KEY_LENGTH_TOO_LONG",
-      "detail": "detail2",
-      "field": "field0"
-    },
-    {
-      "category": "RATE_LIMIT_ERROR",
-      "code": "CARD_EXPIRED",
-      "detail": "detail3",
-      "field": "field1"
-    }
-  ],
   "refunds": [
     {
-      "id": "id4",
-      "refund_id": "refund_id8",
-      "payment_id": "payment_id4",
-      "order_id": "order_id8",
       "amount_money": {
-        "amount": 186,
-        "currency": "YER"
+        "amount": 111,
+        "currency": "CAD"
       },
-      "reason": "reason0",
-      "device_id": "device_id0"
-    },
-    {
-      "id": "id5",
-      "refund_id": "refund_id9",
-      "payment_id": "payment_id5",
-      "order_id": "order_id9",
-      "amount_money": {
-        "amount": 187,
-        "currency": "ZAR"
+      "app_id": "sandbox-sq0idb-c2OuYt13YaCAeJq_2cd8OQ",
+      "card": {
+        "bin": "411111",
+        "card_brand": "INTERAC",
+        "card_type": "CREDIT",
+        "exp_month": 1,
+        "exp_year": 2022,
+        "fingerprint": "sq-1-B1fP9MNNmZgVVaPKRND6oDKYbz25S2cTvg9Mzwg3RMTK1zT1PiGRT-AE3nTA8vSmmw",
+        "last_4": "1111"
       },
-      "reason": "reason9",
-      "device_id": "device_id1"
-    },
-    {
-      "id": "id6",
-      "refund_id": "refund_id0",
-      "payment_id": "payment_id6",
-      "order_id": "order_id0",
-      "amount_money": {
-        "amount": 188,
-        "currency": "ZMK"
-      },
-      "reason": "reason8",
-      "device_id": "device_id2"
+      "created_at": "2020-09-29T15:21:46.771Z",
+      "deadline_duration": "PT5M",
+      "device_id": "f72dfb8e-4d65-4e56-aade-ec3fb8d33291",
+      "id": "009DP5HD-5O5OvgkcNUhl7JBuINflcjKqUzXZY",
+      "location_id": "76C9W6K8CNNQ5",
+      "order_id": "kcuKDKreRaI4gF4TjmEgZjHk8Z7YY",
+      "payment_id": "5O5OvgkcNUhl7JBuINflcjKqUzXZY",
+      "reason": "Returning item",
+      "refund_id": "5O5OvgkcNUhl7JBuINflcjKqUzXZY_43Q4iGp7sNeATiWrUruA1EYeMRUXaddXXlDDJ1EQLvb",
+      "status": "COMPLETED",
+      "updated_at": "2020-09-29T15:21:48.675Z"
     }
-  ],
-  "cursor": "cursor6"
+  ]
 }
 ```
 

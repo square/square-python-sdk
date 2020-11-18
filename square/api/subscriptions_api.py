@@ -88,8 +88,8 @@ class SubscriptionsApi(BaseApi):
         customer by subscription creation date.
         For more information, see 
         [Retrieve
-        subscriptions](https://developer.squareup.com/docs/docs/subscriptions-a
-        pi/overview#retrieve-subscriptions).
+        subscriptions](https://developer.squareup.com/docs/subscriptions-api/ov
+        erview#retrieve-subscriptions).
 
         Args:
             body (SearchSubscriptionsRequest): An object containing the fields
@@ -303,8 +303,8 @@ class SubscriptionsApi(BaseApi):
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for the original query.  For more
                 information, see
-                [Pagination](https://developer.squareup.com/docs/docs/working-w
-                ith-apis/pagination).
+                [Pagination](https://developer.squareup.com/docs/working-with-a
+                pis/pagination).
             limit (int, optional): The upper limit on the number of
                 subscription events to return  in the response.   Default:
                 `200`

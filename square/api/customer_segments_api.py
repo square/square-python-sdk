@@ -23,8 +23,8 @@ class CustomerSegmentsApi(BaseApi):
             cursor (string, optional): A pagination cursor returned by
                 previous calls to __ListCustomerSegments__. Used to retrieve
                 the next set of query results.  See the [Pagination
-                guide](https://developer.squareup.com/docs/docs/working-with-ap
-                is/pagination) for more information.
+                guide](https://developer.squareup.com/docs/working-with-apis/pa
+                gination) for more information.
 
         Returns:
             ApiResponse: An object with the response value as well as other
