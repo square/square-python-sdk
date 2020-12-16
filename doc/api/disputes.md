@@ -23,8 +23,7 @@ disputes_api = client.disputes
 
 # List Disputes
 
-Returns a list of disputes associated
-with a particular account.
+Returns a list of disputes associated with a particular account.
 
 ```python
 def list_disputes(self,
@@ -37,9 +36,9 @@ def list_disputes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br>For more information, see [Paginating](https://developer.squareup.com/docs/basics/api101/pagination). |
-| `states` | [`str (Dispute State)`](/doc/models/dispute-state.md) | Query, Optional | The dispute states to filter the result.<br>If not specified, the endpoint<br>returns all open disputes (dispute status is not<br>`INQUIRY_CLOSED`, `WON`, or `LOST`). |
-| `location_id` | `string` | Query, Optional | The ID of the location for which to return<br>a list of disputes. If not specified,<br>the endpoint returns all open disputes<br>(dispute status is not `INQUIRY_CLOSED`, `WON`, or<br>`LOST`) associated with all locations. |
+| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
+| `states` | [`str (Dispute State)`](/doc/models/dispute-state.md) | Query, Optional | The dispute states to filter the result.<br>If not specified, the endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`,<br>or `LOST`). |
+| `location_id` | `string` | Query, Optional | The ID of the location for which to return a list of disputes. If not specified, the endpoint returns<br>all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all locations. |
 
 ## Response Type
 
@@ -63,7 +62,7 @@ elif result.is_error():
 
 # Retrieve Dispute
 
-Returns details of a specific dispute.
+Returns details about a specific dispute.
 
 ```python
 def retrieve_dispute(self,
@@ -96,13 +95,11 @@ elif result.is_error():
 
 # Accept Dispute
 
-Accepts loss on a dispute. Square returns
-the disputed amount to the cardholder and updates the
-dispute state to ACCEPTED.
+Accepts the loss on a dispute. Square returns the disputed amount to the cardholder and
+updates the dispute state to ACCEPTED.
 
-Square debits the disputed amount from the seller’s Square
-account. If the Square account balance does not have
-sufficient funds, Square debits the associated bank account.
+Square debits the disputed amount from the seller’s Square account. If the Square account
+does not have sufficient funds, Square debits the associated bank account.
 
 ```python
 def accept_dispute(self,
@@ -113,7 +110,7 @@ def accept_dispute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | ID of the dispute you want to accept. |
+| `dispute_id` | `string` | Template, Required | The ID of the dispute you want to accept. |
 
 ## Response Type
 
@@ -170,8 +167,7 @@ elif result.is_error():
 
 Removes specified evidence from a dispute.
 
-Square does not send the bank any evidence that
-is removed. Also, you cannot remove evidence after
+Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
 submitting it to the bank using [SubmitEvidence](https://developer.squareup.com/docs/reference/square/disputes-api/submit-evidence).
 
 ```python
@@ -210,9 +206,8 @@ elif result.is_error():
 
 Returns the specific evidence metadata associated with a specific dispute.
 
-You must maintain a copy of the evidence you upload if you want to
-reference it later. You cannot download the evidence
-after you upload it.
+You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
+download the evidence after you upload it.
 
 ```python
 def retrieve_dispute_evidence(self,
@@ -248,9 +243,8 @@ elif result.is_error():
 
 # Create Dispute Evidence File
 
-Uploads a file to use as evidence in a dispute challenge. The endpoint accepts
-HTTP multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG,
-and TIFF formats.
+Uploads a file to use as evidence in a dispute challenge. The endpoint accepts HTTP
+multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats.
 
 ```python
 def create_dispute_evidence_file(self,
@@ -263,8 +257,8 @@ def create_dispute_evidence_file(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | ID of the dispute you want to upload evidence for. |
-| `request` | [`Create Dispute Evidence File Request`](/doc/models/create-dispute-evidence-file-request.md) | Form, Optional | Defines parameters for a CreateDisputeEvidenceFile request. |
+| `dispute_id` | `string` | Template, Required | The ID of the dispute you want to upload evidence for. |
+| `request` | [`Create Dispute Evidence File Request`](/doc/models/create-dispute-evidence-file-request.md) | Form, Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
 | `image_file` | `typing.BinaryIO` | Form, Optional | - |
 
 ## Response Type
@@ -333,12 +327,10 @@ elif result.is_error():
 
 Submits evidence to the cardholder's bank.
 
-Before submitting evidence, Square compiles all available evidence. This includes
-evidence uploaded using the
-[CreateDisputeEvidenceFile](https://developer.squareup.com/docs/reference/square/disputes-api/create-dispute-evidence-file) and
-[CreateDisputeEvidenceText](https://developer.squareup.com/docs/reference/square/disputes-api/create-dispute-evidence-text) endpoints,
-and evidence automatically provided by Square, when
-available.
+Before submitting evidence, Square compiles all available evidence. This includes evidence uploaded
+using the [CreateDisputeEvidenceFile](https://developer.squareup.com/docs/reference/square/disputes-api/create-dispute-evidence-file) and
+[CreateDisputeEvidenceText](https://developer.squareup.com/docs/reference/square/disputes-api/create-dispute-evidence-text) endpoints and
+evidence automatically provided by Square, when available.
 
 ```python
 def submit_evidence(self,
@@ -349,7 +341,7 @@ def submit_evidence(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute you want to submit evidence for. |
+| `dispute_id` | `string` | Template, Required | The ID of the dispute that you want to submit evidence for. |
 
 ## Response Type
 

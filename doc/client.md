@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2020-11-18'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2020-12-16'` |
 | `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `float` | The value to use for connection timeout. <br> **Default: 60** |
@@ -19,7 +19,7 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2020-11-18',
+    square_version='2020-12-16',
     access_token='AccessToken',
     environment = 'production',)
 ```
@@ -44,7 +44,7 @@ from square.configuration import Configuration
 from square.client import Client
 
 client = Client(
-    square_version='2020-11-18',
+    square_version='2020-12-16',
     access_token='AccessToken',)
 
 locations_api = client.locations
@@ -66,7 +66,6 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 |  --- | --- |
 | mobile_authorization | Provides access to MobileAuthorizationApi |
 | o_auth | Provides access to OAuthApi |
-| v1_locations | Provides access to V1LocationsApi |
 | v1_employees | Provides access to V1EmployeesApi |
 | v1_transactions | Provides access to V1TransactionsApi |
 | v1_items | Provides access to V1ItemsApi |

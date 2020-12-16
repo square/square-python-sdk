@@ -91,7 +91,6 @@ pip install -r test-requirements.txt
 * [O Auth]
 
 ### Deprecated APIs
-* [V1 Locations]
 * [V1 Employees]
 * [V1 Transactions]
 * [V1 Items]
@@ -386,7 +385,6 @@ You can also use the Square API to create applications or services that work wit
 [Subscriptions]: doc/api/subscriptions.md
 [Mobile Authorization]: doc/api/mobile-authorization.md
 [O Auth]: doc/api/o-auth.md
-[V1 Locations]: doc/api/v1-locations.md
 [V1 Employees]: doc/api/v1-employees.md
 [V1 Transactions]: doc/api/v1-transactions.md
 [V1 Items]: doc/api/v1-items.md

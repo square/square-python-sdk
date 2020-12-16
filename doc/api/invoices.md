@@ -192,8 +192,7 @@ elif result.is_error():
 
 Deletes the specified invoice. When an invoice is deleted, the
 associated Order status changes to CANCELED. You can only delete a draft
-invoice (you cannot delete an invoice scheduled for publication, or a
-published invoice).
+invoice (you cannot delete a published invoice, including one that is scheduled for processing).
 
 ```python
 def delete_invoice(self,
@@ -262,10 +261,10 @@ elif result.is_error():
 
 # Update Invoice
 
-Updates an invoice by modifying field values, clearing field values, or both
-as specified in the request.
-There are no restrictions to updating an invoice in a draft state.
-However, there are guidelines for updating a published invoice.
+Updates an invoice by modifying fields, clearing fields, or both. For most updates, you can use a sparse
+`Invoice` object to add fields or change values, and use the `fields_to_clear` field to specify fields to clear.
+However, some restrictions apply. For example, you cannot change the `order_id` or `location_id` field, and you
+must provide the complete `custom_fields` list to update a custom field. Published invoices have additional restrictions.
 
 ```python
 def update_invoice(self,
@@ -277,7 +276,7 @@ def update_invoice(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoice_id` | `string` | Template, Required | The id of the invoice to update. |
+| `invoice_id` | `string` | Template, Required | The ID of the invoice to update. |
 | `body` | [`Update Invoice Request`](/doc/models/update-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -309,7 +308,7 @@ body['invoice']['payment_requests'] = []
 
 body['invoice']['payment_requests'].append({})
 body['invoice']['payment_requests'][0]['uid'] = '2da7964f-f3d2-4f43-81e8-5aa220bf3355'
-body['invoice']['payment_requests'][0]['request_method'] = 'EMAIL'
+body['invoice']['payment_requests'][0]['request_method'] = 'SHARE_MANUALLY'
 body['invoice']['payment_requests'][0]['request_type'] = 'DEPOSIT'
 body['invoice']['payment_requests'][0]['due_date'] = 'due_date2'
 body['invoice']['payment_requests'][0]['fixed_amount_requested_money'] = {}
