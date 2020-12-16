@@ -4,7 +4,6 @@ from square.decorators import lazy_property
 from square.configuration import Configuration
 from square.api.mobile_authorization_api import MobileAuthorizationApi
 from square.api.o_auth_api import OAuthApi
-from square.api.v1_locations_api import V1LocationsApi
 from square.api.v1_employees_api import V1EmployeesApi
 from square.api.v1_transactions_api import V1TransactionsApi
 from square.api.v1_items_api import V1ItemsApi
@@ -39,11 +38,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '7.0.0.20201118'
+        return '8.0.0.20201216'
 
     @staticmethod
     def square_version():
-        return '2020-11-18'
+        return '2020-12-16'
 
     @lazy_property
     def mobile_authorization(self):
@@ -52,10 +51,6 @@ class Client(object):
     @lazy_property
     def o_auth(self):
         return OAuthApi(self.config)
-
-    @lazy_property
-    def v1_locations(self):
-        return V1LocationsApi(self.config)
 
     @lazy_property
     def v1_employees(self):
@@ -170,7 +165,7 @@ class Client(object):
         return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2020-11-18',
+                 environment='production', square_version='2020-12-16',
                  access_token='TODO: Replace', additional_headers={},
                  config=None):
         if config is None:

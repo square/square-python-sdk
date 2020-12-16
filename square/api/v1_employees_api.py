@@ -118,10 +118,8 @@ class V1EmployeesApi(BaseApi):
         Sale
         until they are activated from the Square Dashboard. Employee status
         cannot be changed with the Connect API.
-        <aside class="important">
         Employee entities cannot be deleted. To disable employee profiles,
         set the employee's status to <code>INACTIVE</code>
-        </aside>
 
         Args:
             body (V1Employee): An object containing the fields to POST for the
@@ -834,11 +832,9 @@ class V1EmployeesApi(BaseApi):
 
         Provides summary information for all events associated with a
         particular timecard.
-        <aside>
         Only approved accounts can manage their employees with Square.
         Unapproved accounts cannot use employee management features with the
         API.
-        </aside>
 
         Args:
             timecard_id (string): The ID of the timecard to list events for.

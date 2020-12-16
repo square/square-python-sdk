@@ -308,7 +308,8 @@ class CatalogApi(BaseApi):
 
     def list_catalog(self,
                      cursor=None,
-                     types=None):
+                     types=None,
+                     catalog_version=None):
         """Does a GET request to /v2/catalog/list.
 
         Returns a list of [CatalogObject](#type-catalogobject)s that includes
@@ -337,6 +338,11 @@ class CatalogApi(BaseApi):
                 taken from the CatalogObjectType enum: `ITEM`,
                 `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`, `MODIFIER`,
                 `MODIFIER_LIST`, or `IMAGE`.
+            catalog_version (long|int, optional): The specific version of the
+                catalog objects to be included in the response.  This allows
+                you to retrieve historical versions of objects. The specified
+                version value is matched against the
+                [CatalogObject](#type-catalogobject)s' `version` attribute.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -356,7 +362,8 @@ class CatalogApi(BaseApi):
         _query_builder += _url_path
         _query_parameters = {
             'cursor': cursor,
-            'types': types
+            'types': types,
+            'catalog_version': catalog_version
         }
         _query_builder = APIHelper.append_url_with_query_parameters(
             _query_builder,
@@ -492,7 +499,8 @@ class CatalogApi(BaseApi):
 
     def retrieve_catalog_object(self,
                                 object_id,
-                                include_related_objects=False):
+                                include_related_objects=False,
+                                catalog_version=None):
         """Does a GET request to /v2/catalog/object/{object_id}.
 
         Returns a single [CatalogItem](#type-catalogitem) as a
@@ -519,6 +527,11 @@ class CatalogApi(BaseApi):
                 of the response contains a `CatalogItemVariation`, its parent
                 `CatalogItem` will be returned in the `related_objects` field
                 of the response.  Default value: `false`
+            catalog_version (long|int, optional): Requests objects as of a
+                specific version of the catalog. This allows you to retrieve
+                historical versions of objects. The value to retrieve a
+                specific version of an object can be found in the version
+                field of [CatalogObject](#type-catalogobject)s.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -540,7 +553,8 @@ class CatalogApi(BaseApi):
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
         _query_parameters = {
-            'include_related_objects': include_related_objects
+            'include_related_objects': include_related_objects,
+            'catalog_version': catalog_version
         }
         _query_builder = APIHelper.append_url_with_query_parameters(
             _query_builder,

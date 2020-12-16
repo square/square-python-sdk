@@ -366,3 +366,57 @@ class BookingsApi(BaseApi):
             _errors = None
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
+
+    def cancel_booking(self,
+                       booking_id,
+                       body):
+        """Does a POST request to /v2/bookings/{booking_id}/cancel.
+
+        Cancels an existing booking.
+
+        Args:
+            booking_id (string): The ID of the [Booking](#type-booking) object
+                representing the to-be-cancelled booking.
+            body (CancelBookingRequest): An object containing the fields to
+                POST for the request.  See the corresponding object definition
+                for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/bookings/{booking_id}/cancel'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'booking_id': {'value': booking_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json',
+            'content-type': 'application/json; charset=utf-8'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
