@@ -721,11 +721,9 @@ class V1EmployeesApi(BaseApi):
         """Does a GET request to /v1/me/timecards/{timecard_id}.
 
         Provides the details for a single timecard.
-        <aside>
         Only approved accounts can manage their employees with Square.
         Unapproved accounts cannot use employee management features with the
         API.
-        </aside>
 
         Args:
             timecard_id (string): The timecard's ID.

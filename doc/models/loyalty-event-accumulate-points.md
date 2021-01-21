@@ -11,8 +11,8 @@ Provides metadata when the event `type` is `ACCUMULATE_POINTS`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_program_id` | `string` | Optional | The ID of the [loyalty program](#type-LoyaltyProgram). |
-| `points` | `int` | Optional | The number of points accumulated by the event. |
+| `loyalty_program_id` | `string` | Optional | The ID of the [loyalty program](#type-LoyaltyProgram).<br>**Constraints**: *Maximum Length*: `36` |
+| `points` | `int` | Optional | The number of points accumulated by the event.<br>**Constraints**: `>= 1` |
 | `order_id` | `string` | Optional | The ID of the [order](#type-Order) for which the buyer accumulated the points.<br>This field is returned only if the Orders API is used to process orders. |
 
 ## Example (as JSON)

@@ -584,10 +584,10 @@ class CatalogApi(BaseApi):
                                body):
         """Does a POST request to /v2/catalog/search.
 
-        Searches for [CatalogObject](#type-CatalogObject) of any types against
-        supported search attribute values,
+        Searches for [CatalogObject](#type-CatalogObject) of any type by
+        matching supported search attribute values,
         excluding custom attribute values on items or item variations, against
-        one or more of the specified query expressions,
+        one or more of the specified query expressions.
         This (`SearchCatalogObjects`) endpoint differs from the
         [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems)
         endpoint in the following aspects:
@@ -652,7 +652,7 @@ class CatalogApi(BaseApi):
         Searches for catalog items or item variations by matching supported
         search attribute values, including
         custom attribute values, against one or more of the specified query
-        expressions,
+        expressions.
         This (`SearchCatalogItems`) endpoint differs from the
         [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects)
         endpoint in the following aspects:

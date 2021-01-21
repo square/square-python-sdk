@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2020-12-16'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-01-21'` |
 | `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `float` | The value to use for connection timeout. <br> **Default: 60** |
@@ -19,7 +19,7 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2020-12-16',
+    square_version='2021-01-21',
     access_token='AccessToken',
     environment = 'production',)
 ```
@@ -44,7 +44,7 @@ from square.configuration import Configuration
 from square.client import Client
 
 client = Client(
-    square_version='2020-12-16',
+    square_version='2021-01-21',
     access_token='AccessToken',)
 
 locations_api = client.locations

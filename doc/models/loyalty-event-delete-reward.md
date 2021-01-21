@@ -11,8 +11,8 @@ Provides metadata when the event `type` is `DELETE_REWARD`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_program_id` | `string` |  | The ID of the [loyalty program](#type-LoyaltyProgram). |
-| `reward_id` | `string` | Optional | The ID of the deleted [loyalty reward](#type-LoyaltyReward).<br>This field is returned only if the event source is `LOYALTY_API`. |
+| `loyalty_program_id` | `string` |  | The ID of the [loyalty program](#type-LoyaltyProgram).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
+| `reward_id` | `string` | Optional | The ID of the deleted [loyalty reward](#type-LoyaltyReward).<br>This field is returned only if the event source is `LOYALTY_API`.<br>**Constraints**: *Maximum Length*: `36` |
 | `points` | `int` |  | The number of points returned to the loyalty account. |
 
 ## Example (as JSON)

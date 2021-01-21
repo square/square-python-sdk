@@ -25,6 +25,8 @@ v1_transactions_api = client.v1_transactions
 
 # List Bank Accounts
 
+**This endpoint is deprecated. **
+
 Provides non-confidential details for all of a location's associated bank accounts. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.
 
 ```python
@@ -57,6 +59,8 @@ elif result.is_error():
 
 
 # Retrieve Bank Account
+
+**This endpoint is deprecated. **
 
 Provides non-confidential details for a merchant's associated bank account. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.
 
@@ -249,7 +253,7 @@ def list_payments(self,
 | `end_time` | `string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
 | `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
-| `include_partial` | `bool` | Query, Optional | Indicates whether or not to include partial payments in the response. Partial payments will have the tenders collected so far, but the itemizations will be empty until the payment is completed. |
+| `include_partial` | `bool` | Query, Optional | Indicates whether or not to include partial payments in the response. Partial payments will have the tenders collected so far, but the itemizations will be empty until the payment is completed.<br>**Default**: `False` |
 
 ## Response Type
 

@@ -13,7 +13,7 @@ For an overview of the `Subscription` type, see
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The Square-assigned ID of the subscription. |
+| `id` | `string` | Optional | The Square-assigned ID of the subscription.<br>**Constraints**: *Maximum Length*: `255` |
 | `location_id` | `string` | Optional | The ID of the location associated with the subscription. |
 | `plan_id` | `string` | Optional | The ID of the associated [subscription plan](#type-catalogsubscriptionplan). |
 | `customer_id` | `string` | Optional | The ID of the associated [customer](#type-customer) profile. |

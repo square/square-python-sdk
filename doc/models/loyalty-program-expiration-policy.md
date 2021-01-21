@@ -11,7 +11,7 @@ Describes when the loyalty program expires.
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `expiration_duration` | `string` | The duration of time before points expire, in RFC 3339 format. |
+| `expiration_duration` | `string` | The duration of time before points expire, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` |
 
 ## Example (as JSON)
 

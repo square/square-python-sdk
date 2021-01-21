@@ -108,13 +108,14 @@ body['invoice']['payment_requests'] = []
 
 body['invoice']['payment_requests'].append({})
 body['invoice']['payment_requests'][0]['uid'] = 'uid4'
-body['invoice']['payment_requests'][0]['request_method'] = 'EMAIL'
+body['invoice']['payment_requests'][0]['request_method'] = 'SHARE_MANUALLY'
 body['invoice']['payment_requests'][0]['request_type'] = 'BALANCE'
 body['invoice']['payment_requests'][0]['due_date'] = '2030-01-24'
 body['invoice']['payment_requests'][0]['fixed_amount_requested_money'] = {}
 body['invoice']['payment_requests'][0]['fixed_amount_requested_money']['amount'] = 52
 body['invoice']['payment_requests'][0]['fixed_amount_requested_money']['currency'] = 'USS'
 body['invoice']['payment_requests'][0]['tipping_enabled'] = True
+body['invoice']['payment_requests'][0]['automatic_payment_source'] = 'NONE'
 body['invoice']['payment_requests'][0]['reminders'] = []
 
 body['invoice']['payment_requests'][0]['reminders'].append({})
@@ -125,6 +126,7 @@ body['invoice']['payment_requests'][0]['reminders'][0]['status'] = 'PENDING'
 body['invoice']['payment_requests'][0]['reminders'][0]['sent_at'] = 'sent_at2'
 
 
+body['invoice']['delivery_method'] = 'EMAIL'
 body['invoice']['invoice_number'] = 'inv-100'
 body['invoice']['title'] = 'Event Planning Services'
 body['invoice']['description'] = 'We appreciate your business!'
@@ -333,7 +335,7 @@ elif result.is_error():
 Cancels an invoice. The seller cannot collect payments for
 the canceled invoice.
 
-You cannot cancel an invoice in a terminal state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
+You cannot cancel an invoice in the `DRAFT` state or in a terminal state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
 
 ```python
 def cancel_invoice(self,

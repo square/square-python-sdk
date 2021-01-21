@@ -2,7 +2,7 @@
 
 # Square Python SDK
 
-[![Travis status](https://travis-ci.com/square/square-python-sdk.svg?branch=master)](https://travis-ci.com/square/square-python-sdk)
+[![Travis status](https://travis-ci.org/square/square-python-sdk.svg?branch=master)](https://travis-ci.org/square/square-python-sdk)
 [![PyPi version](https://badge.fury.io/py/squareup.svg?new)](https://badge.fury.io/py/squareup)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
