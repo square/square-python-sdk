@@ -21,7 +21,7 @@ a product set will also include its item variations.
 | `quantity_exact` | `long|int` | Optional | If set, there must be exactly this many items from `products_any` or `products_all`<br>in the cart for the discount to apply.<br><br>Cannot be combined with either `quantity_min` or `quantity_max`. |
 | `quantity_min` | `long|int` | Optional | If set, there must be at least this many items from `products_any` or `products_all`<br>in a cart for the discount to apply. See `quantity_exact`. Defaults to 0 if<br>`quantity_exact`, `quantity_min` and `quantity_max` are all unspecified. |
 | `quantity_max` | `long|int` | Optional | If set, the pricing rule will apply to a maximum of this many items from<br>`products_any` or `products_all`. |
-| `all_products` | `bool` | Optional | If set to `true`, the product set will include every item in the catalog.<br><br>Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set. |
+| `all_products` | `bool` | Optional | If set to `true`, the product set will include every item in the catalog.<br>Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set. |
 
 ## Example (as JSON)
 

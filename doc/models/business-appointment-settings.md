@@ -11,7 +11,7 @@ The service appointment settings, including where and how the service is provide
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_types` | [`List of str (Business Appointment Settings Booking Location Type)`](/doc/models/business-appointment-settings-booking-location-type.md) | Optional | Types of the location allowed for bookings.<br>See [BookingLocationType](#type-bookinglocationtype) for possible values |
+| `location_types` | [`List of str (Business Appointment Settings Booking Location Type)`](/doc/models/business-appointment-settings-booking-location-type.md) | Optional | Types of the location allowed for bookings.<br>See [BusinessAppointmentSettingsBookingLocationType](#type-businessappointmentsettingsbookinglocationtype) for possible values |
 | `alignment_time` | [`str (Business Appointment Settings Alignment Time)`](/doc/models/business-appointment-settings-alignment-time.md) | Optional | Time units of a service duration for bookings. |
 | `min_booking_lead_time_seconds` | `int` | Optional | The minimum lead time in seconds before a service can be booked. Bookings must be created at least this far ahead of the booking's starting time. |
 | `max_booking_lead_time_seconds` | `int` | Optional | The maximum lead time in seconds before a service can be booked. Bookings must be created at most this far ahead of the booking's starting time. |

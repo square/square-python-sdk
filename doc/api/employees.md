@@ -16,6 +16,8 @@ employees_api = client.employees
 
 # List Employees
 
+**This endpoint is deprecated. **
+
 ListEmployees
 
 ```python
@@ -57,6 +59,8 @@ elif result.is_error():
 
 
 # Retrieve Employee
+
+**This endpoint is deprecated. **
 
 RetrieveEmployee
 

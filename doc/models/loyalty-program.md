@@ -9,14 +9,14 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` |  | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier. |
+| `id` | `string` |  | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
 | `status` | [`str (Loyalty Program Status)`](/doc/models/loyalty-program-status.md) |  | Indicates whether the program is currently active. |
 | `reward_tiers` | [`List of Loyalty Program Reward Tier`](/doc/models/loyalty-program-reward-tier.md) |  | The list of rewards for buyers, sorted by ascending points. |
 | `expiration_policy` | [`Loyalty Program Expiration Policy`](/doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. |
 | `terminology` | [`Loyalty Program Terminology`](/doc/models/loyalty-program-terminology.md) |  | - |
 | `location_ids` | `List of string` |  | The [locations](#type-Location) at which the program is active. |
-| `created_at` | `string` |  | The timestamp when the program was created, in RFC 3339 format. |
-| `updated_at` | `string` |  | The timestamp when the reward was last updated, in RFC 3339 format. |
+| `created_at` | `string` |  | The timestamp when the program was created, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` |
+| `updated_at` | `string` |  | The timestamp when the reward was last updated, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` |
 | `accrual_rules` | [`List of Loyalty Program Accrual Rule`](/doc/models/loyalty-program-accrual-rule.md) |  | Defines how buyers can earn loyalty points. |
 
 ## Example (as JSON)

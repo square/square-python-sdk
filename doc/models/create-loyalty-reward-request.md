@@ -12,7 +12,7 @@ A request to create a loyalty reward.
 | Name | Type | Description |
 |  --- | --- | --- |
 | `reward` | [`Loyalty Reward`](/doc/models/loyalty-reward.md) | - |
-| `idempotency_key` | `string` | A unique string that identifies this `CreateLoyaltyReward` request.<br>Keys can be any valid string, but must be unique for every request. |
+| `idempotency_key` | `string` | A unique string that identifies this `CreateLoyaltyReward` request.<br>Keys can be any valid string, but must be unique for every request.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128` |
 
 ## Example (as JSON)
 

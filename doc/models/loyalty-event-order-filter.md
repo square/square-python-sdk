@@ -11,7 +11,7 @@ Filter events by the order associated with the event.
 
 | Name | Type | Description |
 |  --- | --- | --- |
-| `order_id` | `string` | The ID of the [order](#type-Order) associated with the event. |
+| `order_id` | `string` | The ID of the [order](#type-Order) associated with the event.<br>**Constraints**: *Minimum Length*: `1` |
 
 ## Example (as JSON)
 
