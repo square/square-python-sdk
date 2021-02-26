@@ -220,10 +220,20 @@ client = Client(
 
 To access production resources, set environment to production:
 
-```ruby
+```python
 client = Client(
     access_token='{{REPLACE_ACCESS_TOKEN}}',
     environment='production',
+)
+```
+
+To set a custom environment provide a `custom_url`, and set the environment to `custom`:
+
+```python
+client = Client(
+    access_token='{{REPLACE_ACCESS_TOKEN}}',
+    environment='custom',
+    custom_url='https://your.customdomain.com'
 )
 ```
  

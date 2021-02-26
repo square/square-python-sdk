@@ -9,9 +9,9 @@ Filter events by loyalty account.
 
 ## Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `loyalty_account_id` | `string` | The ID of the [loyalty account](#type-LoyaltyAccount) associated with loyalty events.<br>**Constraints**: *Minimum Length*: `1` |
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `loyalty_account_id` | `string` | Required | The ID of the [loyalty account](#type-LoyaltyAccount) associated with loyalty events.<br>**Constraints**: *Minimum Length*: `1` |
 
 ## Example (as JSON)
 

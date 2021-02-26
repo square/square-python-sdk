@@ -155,7 +155,6 @@ body['order']['discounts'][2]['amount_money']['amount'] = 100
 body['order']['discounts'][2]['amount_money']['currency'] = 'USD'
 body['order']['discounts'][2]['scope'] = 'LINE_ITEM'
 
-body['location_id'] = 'location_id0'
 body['idempotency_key'] = '8193148c-9586-11e6-99f9-28cfe92138cf'
 
 result = orders_api.create_order(body)

@@ -6,7 +6,6 @@ from square.api.mobile_authorization_api import MobileAuthorizationApi
 from square.api.o_auth_api import OAuthApi
 from square.api.v1_employees_api import V1EmployeesApi
 from square.api.v1_transactions_api import V1TransactionsApi
-from square.api.v1_items_api import V1ItemsApi
 from square.api.apple_pay_api import ApplePayApi
 from square.api.bank_accounts_api import BankAccountsApi
 from square.api.bookings_api import BookingsApi
@@ -38,11 +37,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '8.1.0.20210121'
+        return '9.0.0.20210226'
 
     @staticmethod
     def square_version():
-        return '2021-01-21'
+        return '2021-02-26'
 
     @lazy_property
     def mobile_authorization(self):
@@ -59,10 +58,6 @@ class Client(object):
     @lazy_property
     def v1_transactions(self):
         return V1TransactionsApi(self.config)
-
-    @lazy_property
-    def v1_items(self):
-        return V1ItemsApi(self.config)
 
     @lazy_property
     def apple_pay(self):
@@ -165,14 +160,16 @@ class Client(object):
         return TerminalApi(self.config)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2021-01-21',
-                 access_token='TODO: Replace', additional_headers={},
-                 config=None):
+                 environment='production',
+                 custom_url='https://connect.squareup.com',
+                 square_version='2021-02-26', access_token='TODO: Replace',
+                 additional_headers={}, config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,
                                         max_retries=max_retries,
                                         backoff_factor=backoff_factor,
                                         environment=environment,
+                                        custom_url=custom_url,
                                         square_version=square_version,
                                         access_token=access_token,
                                         additional_headers=additional_headers)

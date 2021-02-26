@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` |  | The ID of the location to query for a list of cash drawer shifts.<br>**Constraints**: *Minimum Length*: `1` |
+| `location_id` | `string` | Required | The ID of the location to query for a list of cash drawer shifts.<br>**Constraints**: *Minimum Length*: `1` |
 | `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. |
 | `begin_time` | `string` | Optional | The inclusive start time of the query on opened_at, in ISO 8601 format. |
 | `end_time` | `string` | Optional | The exclusive end date of the query on opened_at, in ISO 8601 format. |

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from copy import deepcopy
+from square.api_helper import APIHelper
 from square.http.requests_client import RequestsClient
 
 
@@ -29,6 +30,10 @@ class Configuration(object):
         return self._environment
 
     @property
+    def custom_url(self):
+        return self._custom_url
+
+    @property
     def square_version(self):
         return self._square_version
 
@@ -41,8 +46,10 @@ class Configuration(object):
         return deepcopy(self._additional_headers)
 
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production', square_version='2021-01-21',
-                 access_token='TODO: Replace', additional_headers={}):
+                 environment='production',
+                 custom_url='https://connect.squareup.com',
+                 square_version='2021-02-26', access_token='TODO: Replace',
+                 additional_headers={}):
         # The value to use for connection timeout
         self._timeout = timeout
 
@@ -57,6 +64,9 @@ class Configuration(object):
         # Current API environment
         self._environment = environment
 
+        # Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`
+        self._custom_url = custom_url
+
         # Square Connect API versions
         self._square_version = square_version
 
@@ -70,19 +80,20 @@ class Configuration(object):
         self._http_client = self.create_http_client()
 
     def clone_with(self, timeout=None, max_retries=None, backoff_factor=None,
-                   environment=None, square_version=None, access_token=None,
-                   additional_headers=None):
+                   environment=None, custom_url=None, square_version=None,
+                   access_token=None, additional_headers=None):
         timeout = timeout or self.timeout
         max_retries = max_retries or self.max_retries
         backoff_factor = backoff_factor or self.backoff_factor
         environment = environment or self.environment
+        custom_url = custom_url or self.custom_url
         square_version = square_version or self.square_version
         access_token = access_token or self.access_token
         additional_headers = additional_headers or self.additional_headers
 
         return Configuration(timeout=timeout, max_retries=max_retries,
                              backoff_factor=backoff_factor,
-                             environment=environment,
+                             environment=environment, custom_url=custom_url,
                              square_version=square_version,
                              access_token=access_token,
                              additional_headers=additional_headers)
@@ -99,6 +110,9 @@ class Configuration(object):
         },
         'sandbox': {
             'default': 'https://connect.squareupsandbox.com'
+        },
+        'custom': {
+            'default': '{custom_url}'
         }
     }
 
@@ -114,4 +128,10 @@ class Configuration(object):
             String: The base URI.
 
         """
-        return self.environments[self.environment][server]
+        parameters = {
+            "custom_url": {'value': self.custom_url, 'encode': False},
+        }
+
+        return APIHelper.append_url_with_template_parameters(
+            self.environments[self.environment][server], parameters
+        )
