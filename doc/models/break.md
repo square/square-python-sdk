@@ -12,12 +12,12 @@ A record of an employee's break during a shift.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Optional | UUID for this object |
-| `start_at` | `string` |  | RFC 3339; follows same timezone info as `Shift`. Precision up to<br>the minute is respected; seconds are truncated.<br>**Constraints**: *Minimum Length*: `1` |
+| `start_at` | `string` | Required | RFC 3339; follows same timezone info as `Shift`. Precision up to<br>the minute is respected; seconds are truncated.<br>**Constraints**: *Minimum Length*: `1` |
 | `end_at` | `string` | Optional | RFC 3339; follows same timezone info as `Shift`. Precision up to<br>the minute is respected; seconds are truncated. |
-| `break_type_id` | `string` |  | The `BreakType` this `Break` was templated on.<br>**Constraints**: *Minimum Length*: `1` |
-| `name` | `string` |  | A human-readable name.<br>**Constraints**: *Minimum Length*: `1` |
-| `expected_duration` | `string` |  | Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of<br>the break.<br>**Constraints**: *Minimum Length*: `1` |
-| `is_paid` | `bool` |  | Whether this break counts towards time worked for compensation<br>purposes. |
+| `break_type_id` | `string` | Required | The `BreakType` this `Break` was templated on.<br>**Constraints**: *Minimum Length*: `1` |
+| `name` | `string` | Required | A human-readable name.<br>**Constraints**: *Minimum Length*: `1` |
+| `expected_duration` | `string` | Required | Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of<br>the break.<br>**Constraints**: *Minimum Length*: `1` |
+| `is_paid` | `bool` | Required | Whether this break counts towards time worked for compensation<br>purposes. |
 
 ## Example (as JSON)
 

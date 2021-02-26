@@ -140,7 +140,6 @@ body['order']['order']['discounts'][0]['amount_money']['amount'] = 100
 body['order']['order']['discounts'][0]['amount_money']['currency'] = 'USD'
 body['order']['order']['discounts'][0]['scope'] = 'LINE_ITEM'
 
-body['order']['location_id'] = 'location_id4'
 body['order']['idempotency_key'] = '12ae1696-z1e3-4328-af6d-f1e04d947gd4'
 body['ask_for_shipping_address'] = True
 body['merchant_support_email'] = 'merchant+support@website.com'

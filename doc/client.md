@@ -5,8 +5,9 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-01-21'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-02-26'` |
 | `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
+| `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `float` | The value to use for connection timeout. <br> **Default: 60** |
 | `max_retries` | `int` | The number of times to retry an endpoint call if it fails. <br> **Default: 3** |
@@ -19,9 +20,10 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2021-01-21',
+    square_version='2021-02-26',
     access_token='AccessToken',
-    environment = 'production',)
+    environment = 'production',
+    custom_url = 'https://connect.squareup.com',)
 ```
 
 API calls return an `ApiResponse` object that includes the following fields:
@@ -44,7 +46,7 @@ from square.configuration import Configuration
 from square.client import Client
 
 client = Client(
-    square_version='2021-01-21',
+    square_version='2021-02-26',
     access_token='AccessToken',)
 
 locations_api = client.locations
@@ -56,7 +58,7 @@ elif result.is_error():
     print(result.errors)
 ```
 
-## SquareClient
+## Square Client
 
 The gateway for the SDK. This class acts as a factory for the Apis and also holds the configuration of the SDK.
 
@@ -68,7 +70,6 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | o_auth | Provides access to OAuthApi |
 | v1_employees | Provides access to V1EmployeesApi |
 | v1_transactions | Provides access to V1TransactionsApi |
-| v1_items | Provides access to V1ItemsApi |
 | apple_pay | Provides access to ApplePayApi |
 | bank_accounts | Provides access to BankAccountsApi |
 | bookings | Provides access to BookingsApi |

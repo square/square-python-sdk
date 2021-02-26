@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `object_ids` | `List of string` |  | The IDs of the CatalogObjects to be retrieved. |
+| `object_ids` | `List of string` | Required | The IDs of the CatalogObjects to be retrieved. |
 | `include_related_objects` | `bool` | Optional | If `true`, the response will include additional objects that are related to the<br>requested objects, as follows:<br><br>If the `objects` field of the response contains a CatalogItem, its associated<br>CatalogCategory objects, CatalogTax objects, CatalogImage objects and<br>CatalogModifierLists will be returned in the `related_objects` field of the<br>response. If the `objects` field of the response contains a CatalogItemVariation,<br>its parent CatalogItem will be returned in the `related_objects` field of<br>the response. |
 | `catalog_version` | `long|int` | Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical versions of objects. The specified version value is matched against<br>the [CatalogObject](#type-catalogobject)s' `version` attribute. |
 
