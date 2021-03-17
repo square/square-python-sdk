@@ -108,7 +108,7 @@ body['invoice']['payment_requests'] = []
 
 body['invoice']['payment_requests'].append({})
 body['invoice']['payment_requests'][0]['uid'] = 'uid4'
-body['invoice']['payment_requests'][0]['request_method'] = 'SHARE_MANUALLY'
+body['invoice']['payment_requests'][0]['request_method'] = 'SMS_CHARGE_CARD_ON_FILE'
 body['invoice']['payment_requests'][0]['request_type'] = 'BALANCE'
 body['invoice']['payment_requests'][0]['due_date'] = '2030-01-24'
 body['invoice']['payment_requests'][0]['fixed_amount_requested_money'] = {}
@@ -131,6 +131,18 @@ body['invoice']['invoice_number'] = 'inv-100'
 body['invoice']['title'] = 'Event Planning Services'
 body['invoice']['description'] = 'We appreciate your business!'
 body['invoice']['scheduled_at'] = '2030-01-13T10:00:00Z'
+body['invoice']['custom_fields'] = []
+
+body['invoice']['custom_fields'].append({})
+body['invoice']['custom_fields'][0]['label'] = 'Event Reference Number'
+body['invoice']['custom_fields'][0]['value'] = 'Ref. #1234'
+body['invoice']['custom_fields'][0]['placement'] = 'ABOVE_LINE_ITEMS'
+
+body['invoice']['custom_fields'].append({})
+body['invoice']['custom_fields'][1]['label'] = 'Terms of Service'
+body['invoice']['custom_fields'][1]['value'] = 'The terms of service are...'
+body['invoice']['custom_fields'][1]['placement'] = 'BELOW_LINE_ITEMS'
+
 body['idempotency_key'] = 'ce3748f9-5fc1-4762-aa12-aae5e843f1f4'
 
 result = invoices_api.create_invoice(body)
@@ -310,7 +322,7 @@ body['invoice']['payment_requests'] = []
 
 body['invoice']['payment_requests'].append({})
 body['invoice']['payment_requests'][0]['uid'] = '2da7964f-f3d2-4f43-81e8-5aa220bf3355'
-body['invoice']['payment_requests'][0]['request_method'] = 'SHARE_MANUALLY'
+body['invoice']['payment_requests'][0]['request_method'] = 'SMS_CHARGE_CARD_ON_FILE'
 body['invoice']['payment_requests'][0]['request_type'] = 'DEPOSIT'
 body['invoice']['payment_requests'][0]['due_date'] = 'due_date2'
 body['invoice']['payment_requests'][0]['fixed_amount_requested_money'] = {}

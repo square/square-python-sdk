@@ -22,7 +22,8 @@ terminal_api = client.terminal
 
 # Create Terminal Checkout
 
-Creates a new Terminal checkout request and sends it to the specified device to take a payment for the requested amount.
+Creates a Terminal checkout request and sends it to the specified device to take a payment
+for the requested amount.
 
 ```python
 def create_terminal_checkout(self,
@@ -118,7 +119,7 @@ elif result.is_error():
 
 # Get Terminal Checkout
 
-Retrieves a Terminal checkout request by checkout_id.
+Retrieves a Terminal checkout request by `checkout_id`.
 
 ```python
 def get_terminal_checkout(self,
@@ -129,7 +130,7 @@ def get_terminal_checkout(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `checkout_id` | `string` | Template, Required | Unique ID for the desired `TerminalCheckout` |
+| `checkout_id` | `string` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
 
 ## Response Type
 
@@ -162,7 +163,7 @@ def cancel_terminal_checkout(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `checkout_id` | `string` | Template, Required | Unique ID for the desired `TerminalCheckout` |
+| `checkout_id` | `string` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
 
 ## Response Type
 
@@ -228,7 +229,7 @@ elif result.is_error():
 
 # Search Terminal Refunds
 
-Retrieves a filtered list of Terminal Interac refund requests created by the seller making the request.
+Retrieves a filtered list of Interac Terminal refund requests created by the seller making the request.
 
 ```python
 def search_terminal_refunds(self,
@@ -272,7 +273,7 @@ elif result.is_error():
 
 # Get Terminal Refund
 
-Retrieves an Interac terminal refund object by ID.
+Retrieves an Interac Terminal refund object by ID.
 
 ```python
 def get_terminal_refund(self,
@@ -283,7 +284,7 @@ def get_terminal_refund(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `terminal_refund_id` | `string` | Template, Required | Unique ID for the desired `TerminalRefund` |
+| `terminal_refund_id` | `string` | Template, Required | The unique ID for the desired `TerminalRefund`. |
 
 ## Response Type
 
@@ -305,7 +306,7 @@ elif result.is_error():
 
 # Cancel Terminal Refund
 
-Cancels an Interac terminal refund request by refund request ID if the status of the request permits it.
+Cancels an Interac Terminal refund request by refund request ID if the status of the request permits it.
 
 ```python
 def cancel_terminal_refund(self,
@@ -316,7 +317,7 @@ def cancel_terminal_refund(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `terminal_refund_id` | `string` | Template, Required | Unique ID for the desired `TerminalRefund` |
+| `terminal_refund_id` | `string` | Template, Required | The unique ID for the desired `TerminalRefund`. |
 
 ## Response Type
 

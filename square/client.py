@@ -37,11 +37,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '9.0.0.20210226'
+        return '9.1.0.20210317'
 
     @staticmethod
     def square_version():
-        return '2021-02-26'
+        return '2021-03-17'
 
     @lazy_property
     def mobile_authorization(self):
@@ -162,7 +162,7 @@ class Client(object):
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
                  environment='production',
                  custom_url='https://connect.squareup.com',
-                 square_version='2021-02-26', access_token='TODO: Replace',
+                 square_version='2021-03-17', access_token='TODO: Replace',
                  additional_headers={}, config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,

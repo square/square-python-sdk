@@ -17,18 +17,18 @@ class ApplePayApi(BaseApi):
                         body):
         """Does a POST request to /v2/apple-pay/domains.
 
-        Activates a domain for use with Web Apple Pay and Square. A
+        Activates a domain for use with Apple Pay on the Web and Square. A
         validation
-        will be performed on this domain by Apple to ensure is it properly set
+        is performed on this domain by Apple to ensure that it is properly set
         up as
         an Apple Pay enabled domain.
         This endpoint provides an easy way for platform developers to bulk
         activate
-        Web Apple Pay with Square for merchants using their platform.
-        To learn more about Apple Pay on Web see the Apple Pay section in the
-        [Square Payment Form
-        Walkthrough](https://developer.squareup.com/docs/payment-form/payment-f
-        orm-walkthrough).
+        Apple Pay on the Web with Square for merchants using their platform.
+        To learn more about Web Apple Pay, see
+        [Add the Apple Pay on the Web
+        Button](https://developer.squareup.com/docs/payment-form/add-digital-wa
+        llets/apple-pay).
 
         Args:
             body (RegisterDomainRequest): An object containing the fields to

@@ -115,18 +115,14 @@ class PaymentsApi(BaseApi):
                        body):
         """Does a POST request to /v2/payments.
 
-        Charges a payment source (for example, a card 
-        represented by customer's card on file or a card nonce). In addition 
-        to the payment source, the request must include the 
-        amount to accept for the payment.
-        There are several optional parameters that you can include in the
-        request 
-        (for example, tip money, whether to autocomplete the payment, or a
-        reference ID 
-        to correlate this payment with another system). 
-        The `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is
-        required
-        to enable application fees.
+        Creates a payment using the provided source. You can use this endpoint
+                to charge a card (credit/debit card or    
+        Square gift card) or record a payment that the seller received outside
+        of Square 
+        (cash payment from a buyer or a payment that an external entity 
+        procesed on behalf of the seller).
+        The endpoint creates a 
+        `Payment` object and returns it in the response.
 
         Args:
             body (CreatePaymentRequest): An object containing the fields to
@@ -188,7 +184,7 @@ class PaymentsApi(BaseApi):
         canceling the payment, you can submit your `CreatePayment` request
         again.
         Note that if no payment with the specified idempotency key is found,
-        no action is taken and the endpoint 
+        no action is taken and the endpoint
         returns successfully.
 
         Args:
@@ -281,17 +277,71 @@ class PaymentsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    def update_payment(self,
+                       payment_id,
+                       body):
+        """Does a PUT request to /v2/payments/{payment_id}.
+
+        Updates a payment with the APPROVED status.
+        You can update the `amount_money` and `tip_money` using this
+        endpoint.
+
+        Args:
+            payment_id (string): The ID of the payment to update.
+            body (UpdatePaymentRequest): An object containing the fields to
+                POST for the request.  See the corresponding object definition
+                for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/payments/{payment_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'payment_id': {'value': payment_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json',
+            'content-type': 'application/json; charset=utf-8'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
     def cancel_payment(self,
                        payment_id):
         """Does a POST request to /v2/payments/{payment_id}/cancel.
 
-        Cancels (voids) a payment. If you set `autocomplete` to `false` when
-        creating a payment, 
-        you can cancel the payment using this endpoint.
+        Cancels (voids) a payment. You can use this endpoint to cancel a
+        payment with 
+        the APPROVED `status`.
 
         Args:
-            payment_id (string): The `payment_id` identifying the payment to
-                be canceled.
+            payment_id (string): The ID of the payment to cancel.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -338,10 +388,9 @@ class PaymentsApi(BaseApi):
 
         Completes (captures) a payment.
         By default, payments are set to complete immediately after they are
-        created. 
-        If you set `autocomplete` to `false` when creating a payment, you can
-        complete (capture) 
-        the payment using this endpoint.
+        created.
+        You can use this endpoint to complete a payment with the APPROVED
+        `status`.
 
         Args:
             payment_id (string): The unique ID identifying the payment to be

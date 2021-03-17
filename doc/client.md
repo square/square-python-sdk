@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-02-26'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-03-17'` |
 | `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
@@ -20,7 +20,7 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2021-02-26',
+    square_version='2021-03-17',
     access_token='AccessToken',
     environment = 'production',
     custom_url = 'https://connect.squareup.com',)
@@ -42,11 +42,10 @@ API calls return an `ApiResponse` object that includes the following fields:
 ## Make Calls with the API Client
 
 ```python
-from square.configuration import Configuration
 from square.client import Client
 
 client = Client(
-    square_version='2021-02-26',
+    square_version='2021-03-17',
     access_token='AccessToken',)
 
 locations_api = client.locations
@@ -66,33 +65,33 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 
 | Name | Description |
 |  --- | --- |
-| mobile_authorization | Provides access to MobileAuthorizationApi |
-| o_auth | Provides access to OAuthApi |
-| v1_employees | Provides access to V1EmployeesApi |
-| v1_transactions | Provides access to V1TransactionsApi |
-| apple_pay | Provides access to ApplePayApi |
-| bank_accounts | Provides access to BankAccountsApi |
-| bookings | Provides access to BookingsApi |
-| cash_drawers | Provides access to CashDrawersApi |
-| catalog | Provides access to CatalogApi |
-| customers | Provides access to CustomersApi |
-| customer_groups | Provides access to CustomerGroupsApi |
-| customer_segments | Provides access to CustomerSegmentsApi |
-| devices | Provides access to DevicesApi |
-| disputes | Provides access to DisputesApi |
-| employees | Provides access to EmployeesApi |
-| inventory | Provides access to InventoryApi |
-| invoices | Provides access to InvoicesApi |
-| labor | Provides access to LaborApi |
-| locations | Provides access to LocationsApi |
-| checkout | Provides access to CheckoutApi |
-| transactions | Provides access to TransactionsApi |
-| loyalty | Provides access to LoyaltyApi |
-| merchants | Provides access to MerchantsApi |
-| orders | Provides access to OrdersApi |
-| payments | Provides access to PaymentsApi |
-| refunds | Provides access to RefundsApi |
-| subscriptions | Provides access to SubscriptionsApi |
-| team | Provides access to TeamApi |
-| terminal | Provides access to TerminalApi |
+| mobile_authorization | Gets MobileAuthorizationApi |
+| o_auth | Gets OAuthApi |
+| v1_employees | Gets V1EmployeesApi |
+| v1_transactions | Gets V1TransactionsApi |
+| apple_pay | Gets ApplePayApi |
+| bank_accounts | Gets BankAccountsApi |
+| bookings | Gets BookingsApi |
+| cash_drawers | Gets CashDrawersApi |
+| catalog | Gets CatalogApi |
+| customers | Gets CustomersApi |
+| customer_groups | Gets CustomerGroupsApi |
+| customer_segments | Gets CustomerSegmentsApi |
+| devices | Gets DevicesApi |
+| disputes | Gets DisputesApi |
+| employees | Gets EmployeesApi |
+| inventory | Gets InventoryApi |
+| invoices | Gets InvoicesApi |
+| labor | Gets LaborApi |
+| locations | Gets LocationsApi |
+| checkout | Gets CheckoutApi |
+| transactions | Gets TransactionsApi |
+| loyalty | Gets LoyaltyApi |
+| merchants | Gets MerchantsApi |
+| orders | Gets OrdersApi |
+| payments | Gets PaymentsApi |
+| refunds | Gets RefundsApi |
+| subscriptions | Gets SubscriptionsApi |
+| team | Gets TeamApi |
+| terminal | Gets TerminalApi |
 
