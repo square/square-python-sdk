@@ -17,8 +17,9 @@ class TerminalApi(BaseApi):
                                  body):
         """Does a POST request to /v2/terminals/checkouts.
 
-        Creates a new Terminal checkout request and sends it to the specified
-        device to take a payment for the requested amount.
+        Creates a Terminal checkout request and sends it to the specified
+        device to take a payment
+        for the requested amount.
 
         Args:
             body (CreateTerminalCheckoutRequest): An object containing the
@@ -115,11 +116,11 @@ class TerminalApi(BaseApi):
                               checkout_id):
         """Does a GET request to /v2/terminals/checkouts/{checkout_id}.
 
-        Retrieves a Terminal checkout request by checkout_id.
+        Retrieves a Terminal checkout request by `checkout_id`.
 
         Args:
-            checkout_id (string): Unique ID for the desired
-                `TerminalCheckout`
+            checkout_id (string): The unique ID for the desired
+                `TerminalCheckout`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -168,8 +169,8 @@ class TerminalApi(BaseApi):
         permits it.
 
         Args:
-            checkout_id (string): Unique ID for the desired
-                `TerminalCheckout`
+            checkout_id (string): The unique ID for the desired
+                `TerminalCheckout`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -263,7 +264,7 @@ class TerminalApi(BaseApi):
                                 body):
         """Does a POST request to /v2/terminals/refunds/search.
 
-        Retrieves a filtered list of Terminal Interac refund requests created
+        Retrieves a filtered list of Interac Terminal refund requests created
         by the seller making the request.
 
         Args:
@@ -312,11 +313,11 @@ class TerminalApi(BaseApi):
                             terminal_refund_id):
         """Does a GET request to /v2/terminals/refunds/{terminal_refund_id}.
 
-        Retrieves an Interac terminal refund object by ID.
+        Retrieves an Interac Terminal refund object by ID.
 
         Args:
-            terminal_refund_id (string): Unique ID for the desired
-                `TerminalRefund`
+            terminal_refund_id (string): The unique ID for the desired
+                `TerminalRefund`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -361,12 +362,12 @@ class TerminalApi(BaseApi):
                                terminal_refund_id):
         """Does a POST request to /v2/terminals/refunds/{terminal_refund_id}/cancel.
 
-        Cancels an Interac terminal refund request by refund request ID if the
+        Cancels an Interac Terminal refund request by refund request ID if the
         status of the request permits it.
 
         Args:
-            terminal_refund_id (string): Unique ID for the desired
-                `TerminalRefund`
+            terminal_refund_id (string): The unique ID for the desired
+                `TerminalRefund`.
 
         Returns:
             ApiResponse: An object with the response value as well as other

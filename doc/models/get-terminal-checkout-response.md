@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
 | `checkout` | [`Terminal Checkout`](/doc/models/terminal-checkout.md) | Optional | - |
 
 ## Example (as JSON)

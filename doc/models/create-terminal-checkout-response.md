@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
 | `checkout` | [`Terminal Checkout`](/doc/models/terminal-checkout.md) | Optional | - |
 
 ## Example (as JSON)
@@ -33,6 +33,7 @@
     },
     "id": "08YceKh7B3ZqO",
     "note": "A brief note",
+    "payment_type": "CARD_PRESENT",
     "reference_id": "id11572",
     "status": "PENDING",
     "updated_at": "2020-04-06T16:39:32.545Z"

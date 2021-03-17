@@ -72,7 +72,7 @@ class APIHelper(object):
         return jsonpickle.encode(obj, False)
 
     @staticmethod
-    def json_deserialize(json, unboxing_function=None):
+    def json_deserialize(json, unboxing_function=None, as_dict=False):
         """JSON Deserialization of a given string.
 
         Args:
@@ -93,6 +93,9 @@ class APIHelper(object):
 
         if unboxing_function is None:
             return decoded
+
+        if as_dict:
+            return {k: unboxing_function(v) for k, v in decoded.items()}
         elif isinstance(decoded, list):
             return [unboxing_function(element) for element in decoded]
         else:

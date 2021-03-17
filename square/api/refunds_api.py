@@ -115,8 +115,13 @@ class RefundsApi(BaseApi):
                        body):
         """Does a POST request to /v2/refunds.
 
-        Refunds a payment. You can refund the entire payment amount or a 
-        portion of it.
+        Refunds a payment. You can refund the entire payment amount or a
+        portion of it. You can use this endpoint to refund a card payment or
+        record a 
+        refund of a cash or external payment. For more information, see
+        [Refund
+        Payment](https://developer.squareup.com/docs/payments-api/refund-paymen
+        ts).
 
         Args:
             body (RefundPaymentRequest): An object containing the fields to
