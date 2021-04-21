@@ -342,7 +342,7 @@ class V1EmployeesApi(BaseApi):
         an
         employee with a "Clerk" role might not.
         Roles are assigned with the
-        [V1UpdateEmployee](#endpoint-v1updateemployee)
+        [V1UpdateEmployee]($e/V1Employees/UpdateEmployeeRole)
         endpoint. An employee can have only one role at a time.
         If an employee has no role, they have none of the permissions
         associated

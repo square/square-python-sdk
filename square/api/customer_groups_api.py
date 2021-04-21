@@ -21,11 +21,11 @@ class CustomerGroupsApi(BaseApi):
 
         Args:
             cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  See the
-                [Pagination
-                guide](https://developer.squareup.com/docs/working-with-apis/pa
-                gination) for more information.
+                previous call to this endpoint. Provide this cursor to
+                retrieve the next set of results for your original query.  For
+                more information, see
+                [Pagination](https://developer.squareup.com/docs/working-with-a
+                pis/pagination).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -74,7 +74,7 @@ class CustomerGroupsApi(BaseApi):
                               body):
         """Does a POST request to /v2/customers/groups.
 
-        Creates a new customer group for a business. 
+        Creates a new customer group for a business.
         The request must include the `name` value of the group.
 
         Args:

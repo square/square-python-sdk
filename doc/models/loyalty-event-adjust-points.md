@@ -11,7 +11,7 @@ Provides metadata when the event `type` is `ADJUST_POINTS`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_program_id` | `string` | Optional | The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram).<br>**Constraints**: *Maximum Length*: `36` |
+| `loyalty_program_id` | `string` | Optional | The Square-assigned ID of the [loyalty program](/doc/models/loyalty-program.md).<br>**Constraints**: *Maximum Length*: `36` |
 | `points` | `int` | Required | The number of points added or removed. |
 | `reason` | `string` | Optional | The reason for the adjustment of points. |
 

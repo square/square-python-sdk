@@ -17,6 +17,7 @@ loyalty_api = client.loyalty
 * [Adjust Loyalty Points](/doc/api/loyalty.md#adjust-loyalty-points)
 * [Search Loyalty Events](/doc/api/loyalty.md#search-loyalty-events)
 * [List Loyalty Programs](/doc/api/loyalty.md#list-loyalty-programs)
+* [Retrieve Loyalty Program](/doc/api/loyalty.md#retrieve-loyalty-program)
 * [Calculate Loyalty Points](/doc/api/loyalty.md#calculate-loyalty-points)
 * [Create Loyalty Reward](/doc/api/loyalty.md#create-loyalty-reward)
 * [Search Loyalty Rewards](/doc/api/loyalty.md#search-loyalty-rewards)
@@ -27,7 +28,7 @@ loyalty_api = client.loyalty
 
 # Create Loyalty Account
 
-Creates a loyalty account.
+Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and either the `mapping` field (preferred) or the `mappings` field.
 
 ```python
 def create_loyalty_account(self,
@@ -55,14 +56,20 @@ body['loyalty_account']['mappings'] = []
 body['loyalty_account']['mappings'].append({})
 body['loyalty_account']['mappings'][0]['id'] = 'id0'
 body['loyalty_account']['mappings'][0]['type'] = 'PHONE'
-body['loyalty_account']['mappings'][0]['value'] = '+14155551234'
+body['loyalty_account']['mappings'][0]['value'] = 'value2'
 body['loyalty_account']['mappings'][0]['created_at'] = 'created_at8'
+body['loyalty_account']['mappings'][0]['phone_number'] = 'phone_number8'
 
 body['loyalty_account']['program_id'] = 'd619f755-2d17-41f3-990d-c04ecedd64dd'
 body['loyalty_account']['balance'] = 14
 body['loyalty_account']['lifetime_points'] = 38
 body['loyalty_account']['customer_id'] = 'customer_id0'
-body['loyalty_account']['enrolled_at'] = 'enrolled_at2'
+body['loyalty_account']['mapping'] = {}
+body['loyalty_account']['mapping']['id'] = 'id6'
+body['loyalty_account']['mapping']['type'] = 'PHONE'
+body['loyalty_account']['mapping']['value'] = 'value8'
+body['loyalty_account']['mapping']['created_at'] = 'created_at4'
+body['loyalty_account']['mapping']['phone_number'] = '+14155551234'
 body['idempotency_key'] = 'ec78c477-b1c3-4899-a209-a4e71337c996'
 
 result = loyalty_api.create_loyalty_account(body)
@@ -107,8 +114,9 @@ body['query']['mappings'] = []
 body['query']['mappings'].append({})
 body['query']['mappings'][0]['id'] = 'id4'
 body['query']['mappings'][0]['type'] = 'PHONE'
-body['query']['mappings'][0]['value'] = '+14155551234'
+body['query']['mappings'][0]['value'] = 'value6'
 body['query']['mappings'][0]['created_at'] = 'created_at8'
+body['query']['mappings'][0]['phone_number'] = '+14155551234'
 
 body['query']['customer_ids'] = ['customer_ids5', 'customer_ids4']
 body['limit'] = 10
@@ -136,7 +144,7 @@ def retrieve_loyalty_account(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the [loyalty account](#type-LoyaltyAccount) to retrieve. |
+| `account_id` | `string` | Template, Required | The ID of the [loyalty account](/doc/models/loyalty-account.md) to retrieve. |
 
 ## Response Type
 
@@ -165,7 +173,7 @@ Adds points to a loyalty account.
 - If you are not using the Orders API to manage orders,
   you first perform a client-side computation to compute the points.  
   For spend-based and visit-based programs, you can call
-  [CalculateLoyaltyPoints](#endpoint-Loyalty-CalculateLoyaltyPoints) to compute the points. For more information,
+  [CalculateLoyaltyPoints](/doc/api/loyalty.md#calculate-loyalty-points) to compute the points. For more information,
   see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
   You then provide the points in a request to this endpoint.
 
@@ -179,7 +187,7 @@ def accumulate_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The [loyalty account](#type-LoyaltyAccount) ID to which to add the points. |
+| `account_id` | `string` | Template, Required | The [loyalty account](/doc/models/loyalty-account.md) ID to which to add the points. |
 | `body` | [`Accumulate Loyalty Points Request`](/doc/models/accumulate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -212,7 +220,7 @@ elif result.is_error():
 Adds points to or subtracts points from a buyer's account.
 
 Use this endpoint only when you need to manually adjust points. Otherwise, in your application flow, you call
-[AccumulateLoyaltyPoints](#endpoint-Loyalty-AccumulateLoyaltyPoints)
+[AccumulateLoyaltyPoints](/doc/api/loyalty.md#accumulate-loyalty-points)
 to add points when a buyer pays for the purchase.
 
 ```python
@@ -225,7 +233,7 @@ def adjust_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the [loyalty account](#type-LoyaltyAccount) in which to adjust the points. |
+| `account_id` | `string` | Template, Required | The ID of the [loyalty account](/doc/models/loyalty-account.md) in which to adjust the points. |
 | `body` | [`Adjust Loyalty Points Request`](/doc/models/adjust-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -237,11 +245,11 @@ def adjust_loyalty_points(self,
 ```python
 account_id = 'account_id2'
 body = {}
-body['idempotency_key'] = 'idempotency_key2'
+body['idempotency_key'] = 'bc29a517-3dc9-450e-aa76-fae39ee849d1'
 body['adjust_points'] = {}
 body['adjust_points']['loyalty_program_id'] = 'loyalty_program_id4'
-body['adjust_points']['points'] = 112
-body['adjust_points']['reason'] = 'reason0'
+body['adjust_points']['points'] = 10
+body['adjust_points']['reason'] = 'Complimentary points'
 
 result = loyalty_api.adjust_loyalty_points(account_id, body)
 
@@ -260,6 +268,8 @@ A Square loyalty program maintains a ledger of events that occur during the life
 buyer's loyalty account. Each change in the point balance
 (for example, points earned, points redeemed, and points expired) is
 recorded in the ledger. Using this endpoint, you can search the ledger for events.
+
+Search results are sorted by `created_at` in descending order.
 
 ```python
 def search_loyalty_events(self,
@@ -331,6 +341,41 @@ elif result.is_error():
 ```
 
 
+# Retrieve Loyalty Program
+
+Retrieves the loyalty program in a seller's account, specified by the program ID or the keyword `main`.
+
+Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+
+```python
+def retrieve_loyalty_program(self,
+                            program_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `program_id` | `string` | Template, Required | The ID of the loyalty program or the keyword `main`. Either value can be used to retrieve the single loyalty program that belongs to the seller. |
+
+## Response Type
+
+[`Retrieve Loyalty Program Response`](/doc/models/retrieve-loyalty-program-response.md)
+
+## Example Usage
+
+```python
+program_id = 'program_id0'
+
+result = loyalty_api.retrieve_loyalty_program(program_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
 # Calculate Loyalty Points
 
 Calculates the points a purchase earns.
@@ -353,7 +398,7 @@ def calculate_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The [loyalty program](#type-LoyaltyProgram) ID, which defines the rules for accruing points. |
+| `program_id` | `string` | Template, Required | The [loyalty program](/doc/models/loyalty-program.md) ID, which defines the rules for accruing points. |
 | `body` | [`Calculate Loyalty Points Request`](/doc/models/calculate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -435,7 +480,9 @@ Searches for loyalty rewards in a loyalty account.
 In the current implementation, the endpoint supports search by the reward `status`.
 
 If you know a reward ID, use the
-[RetrieveLoyaltyReward](#endpoint-Loyalty-RetrieveLoyaltyReward) endpoint.
+[RetrieveLoyaltyReward](/doc/api/loyalty.md#retrieve-loyalty-reward) endpoint.
+
+Search results are sorted by `updated_at` in descending order.
 
 ```python
 def search_loyalty_rewards(self,
@@ -477,7 +524,7 @@ Deletes a loyalty reward by doing the following:
 
 - Returns the loyalty points back to the loyalty account.
 - If an order ID was specified when the reward was created
-  (see [CreateLoyaltyReward](#endpoint-Loyalty-CreateLoyaltyReward)),
+  (see [CreateLoyaltyReward](/doc/api/loyalty.md#create-loyalty-reward)),
   it updates the order by removing the reward and related
   discounts.
 
@@ -492,7 +539,7 @@ def delete_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](#type-LoyaltyReward) to delete. |
+| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to delete. |
 
 ## Response Type
 
@@ -525,7 +572,7 @@ def retrieve_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](#type-LoyaltyReward) to retrieve. |
+| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to retrieve. |
 
 ## Response Type
 
@@ -569,7 +616,7 @@ def redeem_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](#type-LoyaltyReward) to redeem. |
+| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to redeem. |
 | `body` | [`Redeem Loyalty Reward Request`](/doc/models/redeem-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type

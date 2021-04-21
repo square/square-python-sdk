@@ -25,6 +25,9 @@ class RefundsApi(BaseApi):
         """Does a GET request to /v2/refunds.
 
         Retrieves a list of refunds for the account making the request.
+        Results are eventually consistent, and new refunds or changes to
+        refunds might take several
+        seconds to appear.
         The maximum results per page is 100.
 
         Args:
@@ -48,8 +51,8 @@ class RefundsApi(BaseApi):
                 associated with the seller.
             status (string, optional): If provided, only refunds with the
                 given status are returned. For a list of refund status values,
-                see [PaymentRefund](#type-paymentrefund).  Default: If
-                omitted, refunds are returned regardless of their status.
+                see [PaymentRefund]($m/PaymentRefund).  Default: If omitted,
+                refunds are returned regardless of their status.
             source_type (string, optional): If provided, only refunds with the
                 given source type are returned. - `CARD` - List refunds only
                 for payments where `CARD` was specified as the payment source.

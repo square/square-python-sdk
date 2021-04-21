@@ -94,8 +94,8 @@ class CashDrawersApi(BaseApi):
         """Does a GET request to /v2/cash-drawers/shifts/{shift_id}.
 
         Provides the summary details for a single cash drawer shift. See
-        [ListCashDrawerShiftEvents](#endpoint-CashDrawers-ListCashDrawerShiftEv
-        ents) for a list of cash drawer shift events.
+        [ListCashDrawerShiftEvents]($e/CashDrawers/ListCashDrawerShiftEvents)
+        for a list of cash drawer shift events.
 
         Args:
             location_id (string): The ID of the location to retrieve cash

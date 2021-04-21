@@ -18,7 +18,7 @@ class CatalogApi(BaseApi):
                                      body):
         """Does a POST request to /v2/catalog/batch-delete.
 
-        Deletes a set of [CatalogItem](#type-catalogitem)s based on the
+        Deletes a set of [CatalogItem]($m/CatalogItem)s based on the
         provided list of target IDs and returns a set of successfully deleted
         IDs in
         the response. Deletion is a cascading event such that all children of
@@ -26,7 +26,7 @@ class CatalogApi(BaseApi):
         targeted object are also deleted. For example, deleting a CatalogItem
         will
         also delete all of its
-        [CatalogItemVariation](#type-catalogitemvariation)
+        [CatalogItemVariation]($m/CatalogItemVariation)
         children.
         `BatchDeleteCatalogObjects` succeeds even if only a portion of the
         targeted
@@ -80,14 +80,14 @@ class CatalogApi(BaseApi):
         """Does a POST request to /v2/catalog/batch-retrieve.
 
         Returns a set of objects based on the provided ID.
-        Each [CatalogItem](#type-catalogitem) returned in the set includes all
-        of its
+        Each [CatalogItem]($m/CatalogItem) returned in the set includes all of
+        its
         child information including: all of its
-        [CatalogItemVariation](#type-catalogitemvariation) objects, references
+        [CatalogItemVariation]($m/CatalogItemVariation) objects, references
         to
-        its [CatalogModifierList](#type-catalogmodifierlist) objects, and the
-        ids of
-        any [CatalogTax](#type-catalogtax) objects that apply to it.
+        its [CatalogModifierList]($m/CatalogModifierList) objects, and the ids
+        of
+        any [CatalogTax]($m/CatalogTax) objects that apply to it.
 
         Args:
             body (BatchRetrieveCatalogObjectsRequest): An object containing
@@ -200,8 +200,8 @@ class CatalogApi(BaseApi):
         """Does a POST request to /v2/catalog/images.
 
         Uploads an image file to be represented by a
-        [CatalogImage](#type-catalogimage) object linked to an existing
-        [CatalogObject](#type-catalogobject) instance. A call to this endpoint
+        [CatalogImage]($m/CatalogImage) object linked to an existing
+        [CatalogObject]($m/CatalogObject) instance. A call to this endpoint
         can upload an image, link an image to
         a catalog object, or do both.
         This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data
@@ -312,19 +312,19 @@ class CatalogApi(BaseApi):
                      catalog_version=None):
         """Does a GET request to /v2/catalog/list.
 
-        Returns a list of [CatalogObject](#type-catalogobject)s that includes
+        Returns a list of [CatalogObject]($m/CatalogObject)s that includes
         all objects of a set of desired types (for example, all
-        [CatalogItem](#type-catalogitem)
-        and [CatalogTax](#type-catalogtax) objects) in the catalog. The
-        `types` parameter
+        [CatalogItem]($m/CatalogItem)
+        and [CatalogTax]($m/CatalogTax) objects) in the catalog. The `types`
+        parameter
         is specified as a comma-separated list of valid
-        [CatalogObject](#type-catalogobject) types:
+        [CatalogObject]($m/CatalogObject) types:
         `ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`,
         `DISCOUNT`, `TAX`, `IMAGE`.
         __Important:__ ListCatalog does not return deleted catalog items. To
         retrieve
         deleted catalog items, use
-        [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects)
+        [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects)
         and set the `include_deleted_objects` attribute value to `true`.
 
         Args:
@@ -342,7 +342,7 @@ class CatalogApi(BaseApi):
                 catalog objects to be included in the response.  This allows
                 you to retrieve historical versions of objects. The specified
                 version value is matched against the
-                [CatalogObject](#type-catalogobject)s' `version` attribute.
+                [CatalogObject]($m/CatalogObject)s' `version` attribute.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -393,7 +393,7 @@ class CatalogApi(BaseApi):
                               body):
         """Does a POST request to /v2/catalog/object.
 
-        Creates or updates the target [CatalogObject](#type-catalogobject).
+        Creates or updates the target [CatalogObject]($m/CatalogObject).
 
         Args:
             body (UpsertCatalogObjectRequest): An object containing the fields
@@ -441,15 +441,15 @@ class CatalogApi(BaseApi):
                               object_id):
         """Does a DELETE request to /v2/catalog/object/{object_id}.
 
-        Deletes a single [CatalogObject](#type-catalogobject) based on the
+        Deletes a single [CatalogObject]($m/CatalogObject) based on the
         provided ID and returns the set of successfully deleted IDs in the
         response.
         Deletion is a cascading event such that all children of the targeted
         object
         are also deleted. For example, deleting a
-        [CatalogItem](#type-catalogitem)
+        [CatalogItem]($m/CatalogItem)
         will also delete all of its
-        [CatalogItemVariation](#type-catalogitemvariation) children.
+        [CatalogItemVariation]($m/CatalogItemVariation) children.
 
         Args:
             object_id (string): The ID of the catalog object to be deleted.
@@ -503,16 +503,15 @@ class CatalogApi(BaseApi):
                                 catalog_version=None):
         """Does a GET request to /v2/catalog/object/{object_id}.
 
-        Returns a single [CatalogItem](#type-catalogitem) as a
-        [CatalogObject](#type-catalogobject) based on the provided ID. The
+        Returns a single [CatalogItem]($m/CatalogItem) as a
+        [CatalogObject]($m/CatalogObject) based on the provided ID. The
         returned
-        object includes all of the relevant [CatalogItem](#type-catalogitem)
+        object includes all of the relevant [CatalogItem]($m/CatalogItem)
         information including:
-        [CatalogItemVariation](#type-catalogitemvariation)
+        [CatalogItemVariation]($m/CatalogItemVariation)
         children, references to its
-        [CatalogModifierList](#type-catalogmodifierlist) objects, and the ids
-        of
-        any [CatalogTax](#type-catalogtax) objects that apply to it.
+        [CatalogModifierList]($m/CatalogModifierList) objects, and the ids of
+        any [CatalogTax]($m/CatalogTax) objects that apply to it.
 
         Args:
             object_id (string): The object ID of any type of catalog objects
@@ -531,7 +530,7 @@ class CatalogApi(BaseApi):
                 specific version of the catalog. This allows you to retrieve
                 historical versions of objects. The value to retrieve a
                 specific version of an object can be found in the version
-                field of [CatalogObject](#type-catalogobject)s.
+                field of [CatalogObject]($m/CatalogObject)s.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -584,12 +583,12 @@ class CatalogApi(BaseApi):
                                body):
         """Does a POST request to /v2/catalog/search.
 
-        Searches for [CatalogObject](#type-CatalogObject) of any type by
-        matching supported search attribute values,
+        Searches for [CatalogObject]($m/CatalogObject) of any type by matching
+        supported search attribute values,
         excluding custom attribute values on items or item variations, against
         one or more of the specified query expressions.
         This (`SearchCatalogObjects`) endpoint differs from the
-        [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems)
+        [SearchCatalogItems]($e/Catalog/SearchCatalogItems)
         endpoint in the following aspects:
         - `SearchCatalogItems` can only search for items or item variations,
         whereas `SearchCatalogObjects` can search for any type of catalog
@@ -654,7 +653,7 @@ class CatalogApi(BaseApi):
         custom attribute values, against one or more of the specified query
         expressions.
         This (`SearchCatalogItems`) endpoint differs from the
-        [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects)
+        [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects)
         endpoint in the following aspects:
         - `SearchCatalogItems` can only search for items or item variations,
         whereas `SearchCatalogObjects` can search for any type of catalog
@@ -714,8 +713,8 @@ class CatalogApi(BaseApi):
                                    body):
         """Does a POST request to /v2/catalog/update-item-modifier-lists.
 
-        Updates the [CatalogModifierList](#type-catalogmodifierlist) objects
-        that apply to the targeted [CatalogItem](#type-catalogitem) without
+        Updates the [CatalogModifierList]($m/CatalogModifierList) objects
+        that apply to the targeted [CatalogItem]($m/CatalogItem) without
         having
         to perform an upsert on the entire item.
 
@@ -765,9 +764,8 @@ class CatalogApi(BaseApi):
                           body):
         """Does a POST request to /v2/catalog/update-item-taxes.
 
-        Updates the [CatalogTax](#type-catalogtax) objects that apply to the
-        targeted [CatalogItem](#type-catalogitem) without having to perform
-        an
+        Updates the [CatalogTax]($m/CatalogTax) objects that apply to the
+        targeted [CatalogItem]($m/CatalogItem) without having to perform an
         upsert on the entire item.
 
         Args:

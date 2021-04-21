@@ -29,14 +29,14 @@ class CustomersApi(BaseApi):
 
         Args:
             cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  See the
-                [Pagination
-                guide](https://developer.squareup.com/docs/working-with-apis/pa
-                gination) for more information.
-            sort_field (CustomerSortField, optional): Indicates how Customers
+                previous call to this endpoint. Provide this cursor to
+                retrieve the next set of results for your original query.  For
+                more information, see
+                [Pagination](https://developer.squareup.com/docs/working-with-a
+                pis/pagination).
+            sort_field (CustomerSortField, optional): Indicates how customers
                 should be sorted.  Default: `DEFAULT`.
-            sort_order (SortOrder, optional): Indicates whether Customers
+            sort_order (SortOrder, optional): Indicates whether customers
                 should be sorted in ascending (`ASC`) or descending (`DESC`)
                 order.  Default: `ASC`.
 
@@ -91,8 +91,8 @@ class CustomersApi(BaseApi):
 
         Creates a new customer for a business, which can have associated cards
         on file.
-        You must provide __at least one__ of the following values in your
-        request to this
+        You must provide at least one of the following values in your request
+        to this
         endpoint:
         - `given_name`
         - `family_name`
@@ -202,17 +202,30 @@ class CustomersApi(BaseApi):
         return _result
 
     def delete_customer(self,
-                        customer_id):
+                        customer_id,
+                        version=None):
         """Does a DELETE request to /v2/customers/{customer_id}.
 
-        Deletes a customer from a business, along with any linked cards on
-        file. When two profiles
-        are merged into a single profile, that profile is assigned a new
-        `customer_id`. You must use the
-        new `customer_id` to delete merged profiles.
+        Deletes a customer profile from a business, including any linked cards
+        on file. 
+        As a best practice, you should include the `version` field in the
+        request to enable [optimistic
+        concurrency](https://developer.squareup.com/docs/working-with-apis/opti
+        mistic-concurrency) control. The value must be set to the current
+        version of the customer profile. 
+        To delete a customer profile that was created by merging existing
+        profiles, you must use the ID of the newly created profile.
 
         Args:
             customer_id (string): The ID of the customer to delete.
+            version (long|int, optional): The current version of the customer
+                profile.   As a best practice, you should include this
+                parameter to enable [optimistic
+                concurrency](https://developer.squareup.com/docs/working-with-a
+                pis/optimistic-concurrency) control.  For more information,
+                see [Delete a customer
+                profile](https://developer.squareup.com/docs/customers-api/use-
+                the-api/keep-records#delete-customer-profile).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -233,6 +246,13 @@ class CustomersApi(BaseApi):
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
+        _query_parameters = {
+            'version': version
+        }
+        _query_builder = APIHelper.append_url_with_query_parameters(
+            _query_builder,
+            _query_parameters
+        )
         _query_url = APIHelper.clean_url(_query_builder)
 
         # Prepare headers
@@ -306,18 +326,21 @@ class CustomersApi(BaseApi):
                         body):
         """Does a PUT request to /v2/customers/{customer_id}.
 
-        Updates the details of an existing customer. When two profiles are
-        merged
-        into a single profile, that profile is assigned a new `customer_id`.
-        You must use
-        the new `customer_id` to update merged profiles.
-        You cannot edit a customer's cards on file with this endpoint. To make
-        changes
-        to a card on file, you must delete the existing card on file with the
-        [DeleteCustomerCard](#endpoint-Customers-deletecustomercard) endpoint,
-        then create a new one with the
-        [CreateCustomerCard](#endpoint-Customers-createcustomercard)
-        endpoint.
+        Updates a customer profile. To change an attribute, specify the new
+        value. To remove an attribute, specify the value as an empty string or
+        empty object.
+        As a best practice, you should include the `version` field in the
+        request to enable [optimistic
+        concurrency](https://developer.squareup.com/docs/working-with-apis/opti
+        mistic-concurrency) control. The value must be set to the current
+        version of the customer profile.
+        To update a customer profile that was created by merging existing
+        profiles, you must use the ID of the newly created profile.
+        You cannot use this endpoint to change cards on file. To change a card
+        on file, call [DeleteCustomerCard]($e/Customers/DeleteCustomerCard) to
+        delete the existing card and then call
+        [CreateCustomerCard]($e/Customers/CreateCustomerCard) to create a new
+        card.
 
         Args:
             customer_id (string): The ID of the customer to update.
@@ -481,8 +504,8 @@ class CustomersApi(BaseApi):
                                    group_id):
         """Does a DELETE request to /v2/customers/{customer_id}/groups/{group_id}.
 
-        Removes a group membership from a customer. 
-        The customer is identified by the `customer_id` value 
+        Removes a group membership from a customer.
+        The customer is identified by the `customer_id` value
         and the customer group is identified by the `group_id` value.
 
         Args:
@@ -536,8 +559,8 @@ class CustomersApi(BaseApi):
                               group_id):
         """Does a PUT request to /v2/customers/{customer_id}/groups/{group_id}.
 
-        Adds a group membership to a customer. 
-        The customer is identified by the `customer_id` value 
+        Adds a group membership to a customer.
+        The customer is identified by the `customer_id` value
         and the customer group is identified by the `group_id` value.
 
         Args:

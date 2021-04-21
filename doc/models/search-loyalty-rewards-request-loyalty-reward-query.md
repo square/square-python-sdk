@@ -11,7 +11,7 @@ The set of search requirements.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_account_id` | `string` | Required | The ID of the [loyalty account](#type-LoyaltyAccount) to which the loyalty reward belongs. |
+| `loyalty_account_id` | `string` | Required | The ID of the [loyalty account](/doc/models/loyalty-account.md) to which the loyalty reward belongs. |
 | `status` | [`str (Loyalty Reward Status)`](/doc/models/loyalty-reward-status.md) | Optional | The status of the loyalty reward. |
 
 ## Example (as JSON)

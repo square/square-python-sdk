@@ -26,7 +26,8 @@ class DevicesApi(BaseApi):
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for your original query.  See [Paginating
-                results](#paginatingresults) for more information.
+                results](https://developer.squareup.com/docs/working-with-apis/
+                pagination) for more information.
             location_id (string, optional): If specified, only returns
                 DeviceCodes of the specified location. Returns DeviceCodes of
                 all locations if empty.

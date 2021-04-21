@@ -17,7 +17,9 @@ class LoyaltyApi(BaseApi):
                                body):
         """Does a POST request to /v2/loyalty/accounts.
 
-        Creates a loyalty account.
+        Creates a loyalty account. To create a loyalty account, you must
+        provide the `program_id` and either the `mapping` field (preferred) or
+        the `mappings` field.
 
         Args:
             body (CreateLoyaltyAccountRequest): An object containing the
@@ -121,7 +123,7 @@ class LoyaltyApi(BaseApi):
 
         Args:
             account_id (string): The ID of the [loyalty
-                account](#type-LoyaltyAccount) to retrieve.
+                account]($m/LoyaltyAccount) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -175,15 +177,15 @@ class LoyaltyApi(BaseApi):
         - If you are not using the Orders API to manage orders, 
         you first perform a client-side computation to compute the points.  
         For spend-based and visit-based programs, you can call 
-        [CalculateLoyaltyPoints](#endpoint-Loyalty-CalculateLoyaltyPoints) to
-        compute the points. For more information, 
+        [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) to compute
+        the points. For more information, 
         see [Loyalty Program
         Overview](https://developer.squareup.com/docs/loyalty/overview). 
         You then provide the points in a request to this endpoint.
 
         Args:
-            account_id (string): The [loyalty account](#type-LoyaltyAccount)
-                ID to which to add the points.
+            account_id (string): The [loyalty account]($m/LoyaltyAccount) ID
+                to which to add the points.
             body (AccumulateLoyaltyPointsRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.
@@ -236,12 +238,12 @@ class LoyaltyApi(BaseApi):
         Adds points to or subtracts points from a buyer's account. 
         Use this endpoint only when you need to manually adjust points.
         Otherwise, in your application flow, you call 
-        [AccumulateLoyaltyPoints](#endpoint-Loyalty-AccumulateLoyaltyPoints) 
+        [AccumulateLoyaltyPoints]($e/Loyalty/AccumulateLoyaltyPoints) 
         to add points when a buyer pays for the purchase.
 
         Args:
             account_id (string): The ID of the [loyalty
-                account](#type-LoyaltyAccount) in which to adjust the points.
+                account]($m/LoyaltyAccount) in which to adjust the points.
             body (AdjustLoyaltyPointsRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.
@@ -297,6 +299,7 @@ class LoyaltyApi(BaseApi):
         (for example, points earned, points redeemed, and points expired) is 
         recorded in the ledger. Using this endpoint, you can search the ledger
         for events.
+        Search results are sorted by `created_at` in descending order.
 
         Args:
             body (SearchLoyaltyEventsRequest): An object containing the fields
@@ -382,6 +385,62 @@ class LoyaltyApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    def retrieve_loyalty_program(self,
+                                 program_id):
+        """Does a GET request to /v2/loyalty/programs/{program_id}.
+
+        Retrieves the loyalty program in a seller's account, specified by the
+        program ID or the keyword `main`. 
+        Loyalty programs define how buyers can earn points and redeem points
+        for rewards. Square sellers can have only one loyalty program, which
+        is created and managed from the Seller Dashboard. For more
+        information, see [Loyalty Program
+        Overview](https://developer.squareup.com/docs/loyalty/overview).
+
+        Args:
+            program_id (string): The ID of the loyalty program or the keyword
+                `main`. Either value can be used to retrieve the single
+                loyalty program that belongs to the seller.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/loyalty/programs/{program_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'program_id': {'value': program_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.get(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
     def calculate_loyalty_points(self,
                                  program_id,
                                  body):
@@ -399,8 +458,8 @@ class LoyaltyApi(BaseApi):
         specific purchase.
 
         Args:
-            program_id (string): The [loyalty program](#type-LoyaltyProgram)
-                ID, which defines the rules for accruing points.
+            program_id (string): The [loyalty program]($m/LoyaltyProgram) ID,
+                which defines the rules for accruing points.
             body (CalculateLoyaltyPointsRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.
@@ -509,8 +568,8 @@ class LoyaltyApi(BaseApi):
         In the current implementation, the endpoint supports search by the
         reward `status`.
         If you know a reward ID, use the 
-        [RetrieveLoyaltyReward](#endpoint-Loyalty-RetrieveLoyaltyReward)
-        endpoint.
+        [RetrieveLoyaltyReward]($e/Loyalty/RetrieveLoyaltyReward) endpoint.
+        Search results are sorted by `updated_at` in descending order.
 
         Args:
             body (SearchLoyaltyRewardsRequest): An object containing the
@@ -561,7 +620,7 @@ class LoyaltyApi(BaseApi):
         Deletes a loyalty reward by doing the following:
         - Returns the loyalty points back to the loyalty account.
         - If an order ID was specified when the reward was created 
-        (see [CreateLoyaltyReward](#endpoint-Loyalty-CreateLoyaltyReward)), 
+        (see [CreateLoyaltyReward]($e/Loyalty/CreateLoyaltyReward)), 
         it updates the order by removing the reward and related 
         discounts.
         You cannot delete a reward that has reached the terminal state
@@ -569,7 +628,7 @@ class LoyaltyApi(BaseApi):
 
         Args:
             reward_id (string): The ID of the [loyalty
-                reward](#type-LoyaltyReward) to delete.
+                reward]($m/LoyaltyReward) to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -618,7 +677,7 @@ class LoyaltyApi(BaseApi):
 
         Args:
             reward_id (string): The ID of the [loyalty
-                reward](#type-LoyaltyReward) to retrieve.
+                reward]($m/LoyaltyReward) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -675,7 +734,7 @@ class LoyaltyApi(BaseApi):
 
         Args:
             reward_id (string): The ID of the [loyalty
-                reward](#type-LoyaltyReward) to redeem.
+                reward]($m/LoyaltyReward) to redeem.
             body (RedeemLoyaltyRewardRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.

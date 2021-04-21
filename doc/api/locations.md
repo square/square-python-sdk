@@ -21,7 +21,7 @@ locations_api = client.locations
 Provides information of all locations of a business.
 
 Many Square API endpoints require a `location_id` parameter.
-The `id` field of the [`Location`](#type-location) objects returned by this
+The `id` field of the [`Location`](/doc/models/location.md) objects returned by this
 endpoint correspond to that `location_id` parameter.
 
 ```python
@@ -79,7 +79,7 @@ body['location']['address']['sublocality'] = 'sublocality6'
 body['location']['address']['administrative_district_level_1'] = 'GA'
 body['location']['address']['postal_code'] = '30309'
 body['location']['timezone'] = 'timezone0'
-body['location']['capabilities'] = ['CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING']
+body['location']['capabilities'] = ['AUTOMATIC_TRANSFERS', 'CREDIT_CARD_PROCESSING', 'AUTOMATIC_TRANSFERS']
 body['location']['description'] = 'My new location.'
 body['location']['facebook_url'] = 'null'
 
@@ -165,7 +165,7 @@ body['location']['address']['sublocality'] = 'sublocality6'
 body['location']['address']['administrative_district_level_1'] = 'GA'
 body['location']['address']['postal_code'] = '30309'
 body['location']['timezone'] = 'timezone0'
-body['location']['capabilities'] = ['CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING', 'CREDIT_CARD_PROCESSING']
+body['location']['capabilities'] = ['AUTOMATIC_TRANSFERS', 'CREDIT_CARD_PROCESSING', 'AUTOMATIC_TRANSFERS']
 body['location']['business_hours'] = {}
 body['location']['business_hours']['periods'] = []
 

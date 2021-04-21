@@ -32,26 +32,30 @@ class TransactionsApi(BaseApi):
         Refunds with a `status` of `PENDING` are not currently included in
         this
         endpoint's response.
-        Max results per [page](#paginatingresults): 50
+        Max results per
+        [page](https://developer.squareup.com/docs/working-with-apis/pagination
+        ): 50
 
         Args:
             location_id (string): The ID of the location to list refunds for.
             begin_time (string, optional): The beginning of the requested
                 reporting period, in RFC 3339 format.  See [Date
-                ranges](#dateranges) for details on date
-                inclusivity/exclusivity.  Default value: The current time
-                minus one year.
+                ranges](https://developer.squareup.com/docs/build-basics/workin
+                g-with-dates) for details on date inclusivity/exclusivity. 
+                Default value: The current time minus one year.
             end_time (string, optional): The end of the requested reporting
-                period, in RFC 3339 format.  See [Date ranges](#dateranges)
-                for details on date inclusivity/exclusivity.  Default value:
-                The current time.
+                period, in RFC 3339 format.  See [Date
+                ranges](https://developer.squareup.com/docs/build-basics/workin
+                g-with-dates) for details on date inclusivity/exclusivity. 
+                Default value: The current time.
             sort_order (SortOrder, optional): The order in which results are
                 listed in the response (`ASC` for oldest first, `DESC` for
                 newest first).  Default value: `DESC`
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for your original query.  See [Paginating
-                results](#paginatingresults) for more information.
+                results](https://developer.squareup.com/docs/working-with-apis/
+                pagination) for more information.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -115,27 +119,31 @@ class TransactionsApi(BaseApi):
         Transactions include payment information from sales and exchanges and
         refund
         information from returns and exchanges.
-        Max results per [page](#paginatingresults): 50
+        Max results per
+        [page](https://developer.squareup.com/docs/working-with-apis/pagination
+        ): 50
 
         Args:
             location_id (string): The ID of the location to list transactions
                 for.
             begin_time (string, optional): The beginning of the requested
                 reporting period, in RFC 3339 format.  See [Date
-                ranges](#dateranges) for details on date
-                inclusivity/exclusivity.  Default value: The current time
-                minus one year.
+                ranges](https://developer.squareup.com/docs/build-basics/workin
+                g-with-dates) for details on date inclusivity/exclusivity. 
+                Default value: The current time minus one year.
             end_time (string, optional): The end of the requested reporting
-                period, in RFC 3339 format.  See [Date ranges](#dateranges)
-                for details on date inclusivity/exclusivity.  Default value:
-                The current time.
+                period, in RFC 3339 format.  See [Date
+                ranges](https://developer.squareup.com/docs/build-basics/workin
+                g-with-dates) for details on date inclusivity/exclusivity. 
+                Default value: The current time.
             sort_order (SortOrder, optional): The order in which results are
                 listed in the response (`ASC` for oldest first, `DESC` for
                 newest first).  Default value: `DESC`
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for your original query.  See [Paginating
-                results](#paginatingresults) for more information.
+                results](https://developer.squareup.com/docs/working-with-apis/
+                pagination) for more information.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -211,9 +219,9 @@ class TransactionsApi(BaseApi):
         might not yet be
         calculated. To obtain the processing fee, wait about ten seconds and
         call
-        [RetrieveTransaction](#endpoint-retrievetransaction). See the
+        [RetrieveTransaction]($e/Transactions/RetrieveTransaction). See the
         `processing_fee_money`
-        field of each [Tender included](#type-tender) in the transaction.
+        field of each [Tender included]($m/Tender) in the transaction.
 
         Args:
             location_id (string): The ID of the location to associate the
@@ -322,7 +330,7 @@ class TransactionsApi(BaseApi):
         """Does a POST request to /v2/locations/{location_id}/transactions/{transaction_id}/capture.
 
         Captures a transaction that was created with the
-        [Charge](#endpoint-charge)
+        [Charge]($e/Transactions/Charge)
         endpoint with a `delay_capture` value of `true`.
         See [Delayed capture
         transactions](https://developer.squareup.com/docs/payments/transactions
@@ -447,7 +455,7 @@ class TransactionsApi(BaseApi):
         """Does a POST request to /v2/locations/{location_id}/transactions/{transaction_id}/void.
 
         Cancels a transaction that was created with the
-        [Charge](#endpoint-charge)
+        [Charge]($e/Transactions/Charge)
         endpoint with a `delay_capture` value of `true`.
         See [Delayed capture
         transactions](https://developer.squareup.com/docs/payments/transactions

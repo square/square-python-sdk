@@ -17,12 +17,12 @@ class InventoryApi(BaseApi):
                                       adjustment_id):
         """Does a GET request to /v2/inventory/adjustment/{adjustment_id}.
 
-        Returns the [InventoryAdjustment](#type-inventoryadjustment) object
+        Returns the [InventoryAdjustment]($m/InventoryAdjustment) object
         with the provided `adjustment_id`.
 
         Args:
             adjustment_id (string): ID of the
-                [InventoryAdjustment](#type-inventoryadjustment) to retrieve.
+                [InventoryAdjustment]($m/InventoryAdjustment) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -173,8 +173,8 @@ class InventoryApi(BaseApi):
         """Does a POST request to /v2/inventory/batch-retrieve-counts.
 
         Returns current counts for the provided
-        [CatalogObject](#type-catalogobject)s at the requested
-        [Location](#type-location)s.
+        [CatalogObject]($m/CatalogObject)s at the requested
+        [Location]($m/Location)s.
         Results are paginated and sorted in descending order according to
         their
         `calculated_at` timestamp (newest first).
@@ -231,12 +231,12 @@ class InventoryApi(BaseApi):
                                           physical_count_id):
         """Does a GET request to /v2/inventory/physical-count/{physical_count_id}.
 
-        Returns the [InventoryPhysicalCount](#type-inventoryphysicalcount)
+        Returns the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
         object with the provided `physical_count_id`.
 
         Args:
             physical_count_id (string): ID of the
-                [InventoryPhysicalCount](#type-inventoryphysicalcount) to
+                [InventoryPhysicalCount]($m/InventoryPhysicalCount) to
                 retrieve.
 
         Returns:
@@ -285,16 +285,16 @@ class InventoryApi(BaseApi):
         """Does a GET request to /v2/inventory/{catalog_object_id}.
 
         Retrieves the current calculated stock count for a given
-        [CatalogObject](#type-catalogobject) at a given set of
-        [Location](#type-location)s. Responses are paginated and unsorted.
+        [CatalogObject]($m/CatalogObject) at a given set of
+        [Location]($m/Location)s. Responses are paginated and unsorted.
         For more sophisticated queries, use a batch endpoint.
 
         Args:
             catalog_object_id (string): ID of the
-                [CatalogObject](#type-catalogobject) to retrieve.
-            location_ids (string, optional): The [Location](#type-location)
-                IDs to look up as a comma-separated list. An empty list
-                queries all locations.
+                [CatalogObject]($m/CatalogObject) to retrieve.
+            location_ids (string, optional): The [Location]($m/Location) IDs
+                to look up as a comma-separated list. An empty list queries
+                all locations.
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for the original query.  See the
@@ -355,8 +355,8 @@ class InventoryApi(BaseApi):
         """Does a GET request to /v2/inventory/{catalog_object_id}/changes.
 
         Returns a set of physical counts and inventory adjustments for the
-        provided [CatalogObject](#type-catalogobject) at the requested
-        [Location](#type-location)s.
+        provided [CatalogObject]($m/CatalogObject) at the requested
+        [Location]($m/Location)s.
         Results are paginated and sorted in descending order according to
         their
         `occurred_at` timestamp (newest first).
@@ -367,10 +367,10 @@ class InventoryApi(BaseApi):
 
         Args:
             catalog_object_id (string): ID of the
-                [CatalogObject](#type-catalogobject) to retrieve.
-            location_ids (string, optional): The [Location](#type-location)
-                IDs to look up as a comma-separated list. An empty list
-                queries all locations.
+                [CatalogObject]($m/CatalogObject) to retrieve.
+            location_ids (string, optional): The [Location]($m/Location) IDs
+                to look up as a comma-separated list. An empty list queries
+                all locations.
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for the original query.  See the

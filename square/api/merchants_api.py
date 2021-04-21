@@ -24,7 +24,7 @@ class MerchantsApi(BaseApi):
         information or specify an OAuth token
         to get the information for the  merchant that granted you access.
         If you know the merchant ID, you can also use the
-        [RetrieveMerchant](#endpoint-merchants-retrievemerchant)
+        [RetrieveMerchant]($e/Merchants/RetrieveMerchant)
         endpoint to get the merchant information.
 
         Args:
