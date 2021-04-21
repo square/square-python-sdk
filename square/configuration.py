@@ -48,7 +48,7 @@ class Configuration(object):
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
                  environment='production',
                  custom_url='https://connect.squareup.com',
-                 square_version='2021-03-17', access_token='TODO: Replace',
+                 square_version='2021-04-21', access_token='TODO: Replace',
                  additional_headers={}):
         # The value to use for connection timeout
         self._timeout = timeout

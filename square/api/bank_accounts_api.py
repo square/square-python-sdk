@@ -19,7 +19,7 @@ class BankAccountsApi(BaseApi):
                            location_id=None):
         """Does a GET request to /v2/bank-accounts.
 
-        Returns a list of [BankAccount](#type-bankaccount) objects linked to a
+        Returns a list of [BankAccount]($m/BankAccount) objects linked to a
         Square account.
 
         Args:
@@ -86,7 +86,7 @@ class BankAccountsApi(BaseApi):
                                   v1_bank_account_id):
         """Does a GET request to /v2/bank-accounts/by-v1-id/{v1_bank_account_id}.
 
-        Returns details of a [BankAccount](#type-bankaccount) identified by V1
+        Returns details of a [BankAccount]($m/BankAccount) identified by V1
         bank account ID.
 
         Args:
@@ -140,7 +140,7 @@ class BankAccountsApi(BaseApi):
                          bank_account_id):
         """Does a GET request to /v2/bank-accounts/{bank_account_id}.
 
-        Returns details of a [BankAccount](#type-bankaccount) 
+        Returns details of a [BankAccount]($m/BankAccount)
         linked to a Square account.
 
         Args:

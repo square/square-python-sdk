@@ -26,6 +26,9 @@ class PaymentsApi(BaseApi):
         """Does a GET request to /v2/payments.
 
         Retrieves a list of payments taken by the account making the request.
+        Results are eventually consistent, and new payments or changes to
+        payments might take several
+        seconds to appear.
         The maximum results per page is 100.
 
         Args:
@@ -120,7 +123,7 @@ class PaymentsApi(BaseApi):
         Square gift card) or record a payment that the seller received outside
         of Square 
         (cash payment from a buyer or a payment that an external entity 
-        procesed on behalf of the seller).
+        processed on behalf of the seller).
         The endpoint creates a 
         `Payment` object and returns it in the response.
 

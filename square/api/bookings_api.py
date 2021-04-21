@@ -271,7 +271,7 @@ class BookingsApi(BaseApi):
         Retrieves a booking.
 
         Args:
-            booking_id (string): The ID of the [Booking](#type-booking) object
+            booking_id (string): The ID of the [Booking]($m/Booking) object
                 representing the to-be-retrieved booking.
 
         Returns:
@@ -321,7 +321,7 @@ class BookingsApi(BaseApi):
         Updates a booking.
 
         Args:
-            booking_id (string): The ID of the [Booking](#type-booking) object
+            booking_id (string): The ID of the [Booking]($m/Booking) object
                 representing the to-be-updated booking.
             body (UpdateBookingRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
@@ -375,7 +375,7 @@ class BookingsApi(BaseApi):
         Cancels an existing booking.
 
         Args:
-            booking_id (string): The ID of the [Booking](#type-booking) object
+            booking_id (string): The ID of the [Booking]($m/Booking) object
                 representing the to-be-cancelled booking.
             body (CancelBookingRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition

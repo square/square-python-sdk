@@ -228,7 +228,7 @@ def retrieve_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](#type-booking) object representing the to-be-retrieved booking. |
+| `booking_id` | `string` | Template, Required | The ID of the [Booking](/doc/models/booking.md) object representing the to-be-retrieved booking. |
 
 ## Response Type
 
@@ -262,7 +262,7 @@ def update_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](#type-booking) object representing the to-be-updated booking. |
+| `booking_id` | `string` | Template, Required | The ID of the [Booking](/doc/models/booking.md) object representing the to-be-updated booking. |
 | `body` | [`Update Booking Request`](/doc/models/update-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -305,7 +305,7 @@ def cancel_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](#type-booking) object representing the to-be-cancelled booking. |
+| `booking_id` | `string` | Template, Required | The ID of the [Booking](/doc/models/booking.md) object representing the to-be-cancelled booking. |
 | `body` | [`Cancel Booking Request`](/doc/models/cancel-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type

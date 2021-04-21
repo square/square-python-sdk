@@ -81,8 +81,8 @@ class TeamApi(BaseApi):
         marked as failed, but the body of the response
         will contain explicit error information for this particular create.
         Learn about [Troubleshooting the Teams
-        API](https://developer.squareup.com/docs/team/troubleshooting#bulkcreat
-        eteammembers).
+        API](https://developer.squareup.com/docs/team/troubleshooting#bulk-crea
+        te-team-members).
 
         Args:
             body (BulkCreateTeamMembersRequest): An object containing the
@@ -138,8 +138,8 @@ class TeamApi(BaseApi):
         marked as failed, but the body of the response
         will contain explicit error information for this particular update.
         Learn about [Troubleshooting the Teams
-        API](https://developer.squareup.com/docs/team/troubleshooting#bulkupdat
-        eteammembers).
+        API](https://developer.squareup.com/docs/team/troubleshooting#bulk-upda
+        te-team-members).
 
         Args:
             body (BulkUpdateTeamMembersRequest): An object containing the
@@ -240,8 +240,8 @@ class TeamApi(BaseApi):
 
         Retrieve a `TeamMember` object for the given `TeamMember.id`.
         Learn about [Troubleshooting the Teams
-        API](https://developer.squareup.com/docs/team/troubleshooting#retrievet
-        eammember).
+        API](https://developer.squareup.com/docs/team/troubleshooting#retrieve-
+        a-team-member).
 
         Args:
             team_member_id (string): The ID of the team member to retrieve.
@@ -293,8 +293,8 @@ class TeamApi(BaseApi):
         Updates a single `TeamMember` object. The `TeamMember` will be
         returned on successful updates.
         Learn about [Troubleshooting the Teams
-        API](https://developer.squareup.com/docs/team/troubleshooting#updatetea
-        mmember).
+        API](https://developer.squareup.com/docs/team/troubleshooting#update-a-
+        team-member).
 
         Args:
             team_member_id (string): The ID of the team member to update.
@@ -406,8 +406,8 @@ class TeamApi(BaseApi):
         it fully replaces the `WageSetting` object for the team member.
         The `WageSetting` will be returned upon successful update.
         Learn about [Troubleshooting the Teams
-        API](https://developer.squareup.com/docs/team/troubleshooting#updatewag
-        esetting).
+        API](https://developer.squareup.com/docs/team/troubleshooting#create-or
+        -update-a-wage-setting).
 
         Args:
             team_member_id (string): The ID of the team member to update the
