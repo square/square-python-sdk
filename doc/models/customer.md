@@ -30,7 +30,7 @@ cards on file associated with it.
 | `creation_source` | [`str (Customer Creation Source)`](/doc/models/customer-creation-source.md) | Optional | Indicates the method used to create the customer profile. |
 | `group_ids` | `List of string` | Optional | The IDs of customer groups the customer belongs to. |
 | `segment_ids` | `List of string` | Optional | The IDs of segments the customer belongs to. |
-| `version` | `long|int` | Optional | The Square-assigned version number of the customer profile. The version number is incremented each time an update is committed to the customer profile, except for changes to customer segment membership and cards on file. |
+| `version` | `long\|int` | Optional | The Square-assigned version number of the customer profile. The version number is incremented each time an update is committed to the customer profile, except for changes to customer segment membership and cards on file. |
 
 ## Example (as JSON)
 

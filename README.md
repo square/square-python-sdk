@@ -2,7 +2,7 @@
 
 # Square Python SDK
 
-[![Travis status](https://travis-ci.org/square/square-python-sdk.svg?branch=master)](https://travis-ci.org/square/square-python-sdk)
+[![Build](https://github.com/square/square-python-sdk/actions/workflows/python-package.yml/badge.svg)](https://github.com/square/square-python-sdk/actions/workflows/python-package.yml)
 [![PyPi version](https://badge.fury.io/py/squareup.svg?new)](https://badge.fury.io/py/squareup)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -86,9 +86,13 @@ pip install -r test-requirements.txt
 ### Financials
 * [Bank Accounts]
 
+### Online
+* [Sites]
+* [Snippets]
+
 ### Authorization APIs
 * [Mobile Authorization]
-* [O Auth]
+* [OAuth]
 
 ### Deprecated APIs
 * [V1 Employees]
@@ -394,7 +398,7 @@ You can also use the Square API to create applications or services that work wit
 [Refunds]: doc/api/refunds.md
 [Subscriptions]: doc/api/subscriptions.md
 [Mobile Authorization]: doc/api/mobile-authorization.md
-[O Auth]: doc/api/o-auth.md
+[OAuth]: doc/api/o-auth.md
 [V1 Employees]: doc/api/v1-employees.md
 [V1 Transactions]: doc/api/v1-transactions.md
 [V1 Items]: doc/api/v1-items.md
@@ -403,3 +407,5 @@ You can also use the Square API to create applications or services that work wit
 [Python SDK]: https://github.com/square/square-python-sdk
 [Locations overview]: https://developer.squareup.com/docs/locations-api/what-it-does
 [OAuth overview]: https://developer.squareup.com/docs/oauth-api/what-it-does
+[Sites]: doc/api/sites.md
+[Snippets]: doc/api/snippets.md

@@ -29,19 +29,8 @@ A response that includes loyalty accounts that satisfy the search criteria.
       "mapping": {
         "created_at": "2020-05-08T21:44:32Z",
         "id": "66aaab3f-da99-49ed-8b19-b87f851c844f",
-        "phone_number": "+14155551234",
-        "type": "PHONE",
-        "value": "+14155551234"
+        "phone_number": "+14155551234"
       },
-      "mappings": [
-        {
-          "created_at": "2020-05-08T21:44:32Z",
-          "id": "66aaab3f-da99-49ed-8b19-b87f851c844f",
-          "phone_number": "+14155551234",
-          "type": "PHONE",
-          "value": "+14155551234"
-        }
-      ],
       "program_id": "d619f755-2d17-41f3-990d-c04ecedd64dd",
       "updated_at": "2020-05-08T21:44:32Z"
     }

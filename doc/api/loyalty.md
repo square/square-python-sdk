@@ -28,7 +28,7 @@ loyalty_api = client.loyalty
 
 # Create Loyalty Account
 
-Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and either the `mapping` field (preferred) or the `mappings` field.
+Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and a `mapping` with the `phone_number` of the buyer.
 
 ```python
 def create_loyalty_account(self,
@@ -51,23 +51,13 @@ def create_loyalty_account(self,
 body = {}
 body['loyalty_account'] = {}
 body['loyalty_account']['id'] = 'id2'
-body['loyalty_account']['mappings'] = []
-
-body['loyalty_account']['mappings'].append({})
-body['loyalty_account']['mappings'][0]['id'] = 'id0'
-body['loyalty_account']['mappings'][0]['type'] = 'PHONE'
-body['loyalty_account']['mappings'][0]['value'] = 'value2'
-body['loyalty_account']['mappings'][0]['created_at'] = 'created_at8'
-body['loyalty_account']['mappings'][0]['phone_number'] = 'phone_number8'
-
 body['loyalty_account']['program_id'] = 'd619f755-2d17-41f3-990d-c04ecedd64dd'
 body['loyalty_account']['balance'] = 14
 body['loyalty_account']['lifetime_points'] = 38
 body['loyalty_account']['customer_id'] = 'customer_id0'
+body['loyalty_account']['enrolled_at'] = 'enrolled_at2'
 body['loyalty_account']['mapping'] = {}
 body['loyalty_account']['mapping']['id'] = 'id6'
-body['loyalty_account']['mapping']['type'] = 'PHONE'
-body['loyalty_account']['mapping']['value'] = 'value8'
 body['loyalty_account']['mapping']['created_at'] = 'created_at4'
 body['loyalty_account']['mapping']['phone_number'] = '+14155551234'
 body['idempotency_key'] = 'ec78c477-b1c3-4899-a209-a4e71337c996'
@@ -113,8 +103,6 @@ body['query']['mappings'] = []
 
 body['query']['mappings'].append({})
 body['query']['mappings'][0]['id'] = 'id4'
-body['query']['mappings'][0]['type'] = 'PHONE'
-body['query']['mappings'][0]['value'] = 'value6'
 body['query']['mappings'][0]['created_at'] = 'created_at8'
 body['query']['mappings'][0]['phone_number'] = '+14155551234'
 
@@ -318,8 +306,12 @@ elif result.is_error():
 
 # List Loyalty Programs
 
+**This endpoint is deprecated. **
+
 Returns a list of loyalty programs in the seller's account.
-Currently, a seller can only have one loyalty program.
+Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+
+Replaced with [RetrieveLoyaltyProgram](/doc/api/loyalty.md#retrieve-loyalty-program) when used with the keyword `main`.
 
 ```python
 def list_loyalty_programs(self)

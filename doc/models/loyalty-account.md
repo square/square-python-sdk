@@ -13,7 +13,6 @@ Describes a loyalty account. For more information, see
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Optional | The Square-assigned ID of the loyalty account.<br>**Constraints**: *Maximum Length*: `36` |
-| `mappings` | [`List of Loyalty Account Mapping`](/doc/models/loyalty-account-mapping.md) | Optional | The list of mappings that the account is associated with.<br>Currently, a buyer can only be mapped to a loyalty account using<br>a phone number. Therefore, the list can only have one mapping.<br><br>One of the following is required when creating a loyalty account:<br><br>- (Preferred) The `mapping` field, with the buyer's phone number specified in the `phone_number` field.<br>- This `mappings` field. |
 | `program_id` | `string` | Required | The Square-assigned ID of the [loyalty program](/doc/models/loyalty-program.md) to which the account belongs.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
 | `balance` | `int` | Optional | The available point balance in the loyalty account.<br><br>Your application should be able to handle loyalty accounts that have a negative point balance (`balance` is less than 0). This might occur if a seller makes a manual adjustment or as a result of a refund or exchange. |
 | `lifetime_points` | `int` | Optional | The total points accrued during the lifetime of the account. |
@@ -28,19 +27,11 @@ Describes a loyalty account. For more information, see
 ```json
 {
   "id": "id0",
-  "mappings": [
-    {
-      "id": "id4",
-      "type": "PHONE",
-      "value": "value6",
-      "created_at": "created_at8",
-      "phone_number": "phone_number8"
-    }
-  ],
   "program_id": "program_id0",
   "balance": 64,
   "lifetime_points": 88,
-  "customer_id": "customer_id8"
+  "customer_id": "customer_id8",
+  "enrolled_at": "enrolled_at0"
 }
 ```
 

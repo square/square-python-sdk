@@ -21,8 +21,6 @@ The search criteria for the loyalty accounts.
   "mappings": [
     {
       "id": "id4",
-      "type": "PHONE",
-      "value": "value6",
       "created_at": "created_at8",
       "phone_number": "phone_number8"
     }
