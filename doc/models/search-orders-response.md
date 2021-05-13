@@ -1,8 +1,8 @@
 
 # Search Orders Response
 
-Only one of `order_entries` or `orders` fields will be set, depending on whether
-`return_entries` was set on the [SearchOrdersRequest](/doc/api/orders.md#search-orders).
+Either the `order_entries` or `orders` field is set, depending on whether
+`return_entries` is set on the [SearchOrdersRequest](/doc/api/orders.md#search-orders).
 
 ## Structure
 
@@ -12,9 +12,9 @@ Only one of `order_entries` or `orders` fields will be set, depending on whether
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_entries` | [`List of Order Entry`](/doc/models/order-entry.md) | Optional | List of [OrderEntries](/doc/models/order-entry.md) that fit the query<br>conditions. Populated only if `return_entries` was set to `true` in the request. |
-| `orders` | [`List of Order`](/doc/models/order.md) | Optional | List of<br>[Order](/doc/models/order.md) objects that match query conditions. Populated only if<br>`return_entries` in the request is set to `false`. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more<br>information. |
+| `order_entries` | [`List of Order Entry`](/doc/models/order-entry.md) | Optional | A list of [OrderEntries](/doc/models/order-entry.md) that fit the query<br>conditions. The list is populated only if `return_entries` is set to `true` in the request. |
+| `orders` | [`List of Order`](/doc/models/order.md) | Optional | A list of<br>[Order](/doc/models/order.md) objects that match the query conditions. The list is populated only if<br>`return_entries` is set to `false` in the request. |
+| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | [Errors](/doc/models/error.md) encountered during the search. |
 
 ## Example (as JSON)

@@ -2,7 +2,7 @@
 # Batch Retrieve Orders Request
 
 Defines the fields that are included in requests to the
-BatchRetrieveOrders endpoint.
+`BatchRetrieveOrders` endpoint.
 
 ## Structure
 

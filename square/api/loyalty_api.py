@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -18,8 +19,8 @@ class LoyaltyApi(BaseApi):
         """Does a POST request to /v2/loyalty/accounts.
 
         Creates a loyalty account. To create a loyalty account, you must
-        provide the `program_id` and either the `mapping` field (preferred) or
-        the `mappings` field.
+        provide the `program_id` and a `mapping` with the `phone_number` of
+        the buyer.
 
         Args:
             body (CreateLoyaltyAccountRequest): An object containing the
@@ -343,11 +344,19 @@ class LoyaltyApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_loyalty_programs(self):
         """Does a GET request to /v2/loyalty/programs.
 
         Returns a list of loyalty programs in the seller's account.
-        Currently, a seller can only have one loyalty program.
+        Loyalty programs define how buyers can earn points and redeem points
+        for rewards. Square sellers can have only one loyalty program, which
+        is created and managed from the Seller Dashboard. For more
+        information, see [Loyalty Program
+        Overview](https://developer.squareup.com/docs/loyalty/overview).
+        Replaced with
+        [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram) when used
+        with the keyword `main`.
 
         Returns:
             ApiResponse: An object with the response value as well as other

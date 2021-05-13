@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -13,6 +14,7 @@ class V1TransactionsApi(BaseApi):
     def __init__(self, config, call_back=None):
         super(V1TransactionsApi, self).__init__(config, call_back)
 
+    @deprecated()
     def list_orders(self,
                     location_id,
                     order=None,
@@ -81,6 +83,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def retrieve_order(self,
                        location_id,
                        order_id):
@@ -134,6 +137,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def update_order(self,
                      location_id,
                      order_id,
@@ -192,6 +196,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_payments(self,
                       location_id,
                       order=None,
@@ -290,6 +295,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def retrieve_payment(self,
                          location_id,
                          payment_id):
@@ -346,6 +352,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_refunds(self,
                      location_id,
                      order=None,
@@ -431,6 +438,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def create_refund(self,
                       location_id,
                       body):
@@ -497,6 +505,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def list_settlements(self,
                          location_id,
                          order=None,
@@ -588,6 +597,7 @@ class V1TransactionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    @deprecated()
     def retrieve_settlement(self,
                             location_id,
                             settlement_id):

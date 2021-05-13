@@ -28,6 +28,8 @@ from square.api.merchants_api import MerchantsApi
 from square.api.orders_api import OrdersApi
 from square.api.payments_api import PaymentsApi
 from square.api.refunds_api import RefundsApi
+from square.api.sites_api import SitesApi
+from square.api.snippets_api import SnippetsApi
 from square.api.subscriptions_api import SubscriptionsApi
 from square.api.team_api import TeamApi
 from square.api.terminal_api import TerminalApi
@@ -37,11 +39,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '10.0.0.20210421'
+        return '11.0.0.20210513'
 
     @staticmethod
     def square_version():
-        return '2021-04-21'
+        return '2021-05-13'
 
     @lazy_property
     def mobile_authorization(self):
@@ -148,6 +150,14 @@ class Client(object):
         return RefundsApi(self.config)
 
     @lazy_property
+    def sites(self):
+        return SitesApi(self.config)
+
+    @lazy_property
+    def snippets(self):
+        return SnippetsApi(self.config)
+
+    @lazy_property
     def subscriptions(self):
         return SubscriptionsApi(self.config)
 
@@ -162,7 +172,7 @@ class Client(object):
     def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
                  environment='production',
                  custom_url='https://connect.squareup.com',
-                 square_version='2021-04-21', access_token='TODO: Replace',
+                 square_version='2021-05-13', access_token='TODO: Replace',
                  additional_headers={}, config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,

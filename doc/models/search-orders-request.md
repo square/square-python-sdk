@@ -2,8 +2,8 @@
 # Search Orders Request
 
 The request does not have any required fields. When given no query criteria,
-SearchOrders will return all results for all of the merchant’s locations. When fetching additional
-pages using a `cursor`, the `query` must be equal to the `query` used to fetch the first page of
+`SearchOrders` returns all results for all of the seller's locations. When retrieving additional
+pages using a `cursor`, the `query` must be equal to the `query` used to retrieve the first page of
 results.
 
 ## Structure
@@ -14,11 +14,11 @@ results.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_ids` | `List of string` | Optional | The location IDs for the orders to query. All locations must belong to<br>the same merchant.<br><br>Min: 1 location IDs.<br><br>Max: 10 location IDs. |
-| `cursor` | `string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more<br>information. |
+| `location_ids` | `List of string` | Optional | The location IDs for the orders to query. All locations must belong to<br>the same merchant.<br><br>Min: 1 location ID.<br><br>Max: 10 location IDs. |
+| `cursor` | `string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
 | `query` | [`Search Orders Query`](/doc/models/search-orders-query.md) | Optional | Contains query criteria for the search. |
-| `limit` | `int` | Optional | Maximum number of results to be returned in a single page. It is<br>possible to receive fewer results than the specified limit on a given page.<br><br>Default: `500`<br>**Constraints**: `>= 1` |
-| `return_entries` | `bool` | Optional | Boolean that controls the format of the search results. If `true`,<br>SearchOrders will return [`OrderEntry`](/doc/models/order-entry.md) objects. If `false`, SearchOrders<br>will return complete Order objects.<br><br>Default: `false`. |
+| `limit` | `int` | Optional | The maximum number of results to be returned in a single page. It is<br>possible to receive fewer results than the specified limit on a given page.<br><br>Default: `500`<br>**Constraints**: `>= 1` |
+| `return_entries` | `bool` | Optional | A Boolean that controls the format of the search results. If `true`,<br>`SearchOrders` returns [OrderEntry](/doc/models/order-entry.md) objects. If `false`, `SearchOrders`<br>returns complete order objects.<br><br>Default: `false`. |
 
 ## Example (as JSON)
 
