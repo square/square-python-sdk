@@ -22,9 +22,9 @@ class OAuthApi(BaseApi):
 
         `RenewToken` is deprecated. For information about refreshing OAuth
         access tokens, see
-        [Renew OAuth
-        Token](https://developer.squareup.com/docs/oauth-api/cookbook/renew-oau
-        th-tokens).
+        [Migrate from Renew to Refresh OAuth
+        Tokens](https://developer.squareup.com/docs/oauth-api/migrate-to-refres
+        h-tokens).
         Renews an OAuth access token before it expires.
         OAuth access tokens besides your application's personal access token
         expire after __30 days__.
@@ -42,12 +42,12 @@ class OAuthApi(BaseApi):
         ```
         Replace `APPLICATION_SECRET` with the application secret on the
         Credentials
-        page in the [application
-        dashboard](https://connect.squareup.com/apps).
+        page in the [developer
+        dashboard](https://developer.squareup.com/apps).
 
         Args:
             client_id (string): Your application ID, available from the
-                [application dashboard](https://connect.squareup.com/apps).
+                [developer dashboard](https://developer.squareup.com/apps).
             body (RenewTokenRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
@@ -112,10 +112,9 @@ class OAuthApi(BaseApi):
         ```
         Authorization: Client APPLICATION_SECRET
         ```
-        Replace `APPLICATION_SECRET` with the application secret on the
-        Credentials
-        page in the [Developer
-        Dashboard](https://developer.squareup.com/apps).
+        Replace `APPLICATION_SECRET` with the application secret on the OAuth
+        page in the [developer
+        dashboard](https://developer.squareup.com/apps).
 
         Args:
             body (RevokeTokenRequest): An object containing the fields to POST

@@ -9,6 +9,7 @@ from square.api.v1_transactions_api import V1TransactionsApi
 from square.api.apple_pay_api import ApplePayApi
 from square.api.bank_accounts_api import BankAccountsApi
 from square.api.bookings_api import BookingsApi
+from square.api.cards_api import CardsApi
 from square.api.cash_drawers_api import CashDrawersApi
 from square.api.catalog_api import CatalogApi
 from square.api.customers_api import CustomersApi
@@ -17,6 +18,8 @@ from square.api.customer_segments_api import CustomerSegmentsApi
 from square.api.devices_api import DevicesApi
 from square.api.disputes_api import DisputesApi
 from square.api.employees_api import EmployeesApi
+from square.api.gift_cards_api import GiftCardsApi
+from square.api.gift_card_activities_api import GiftCardActivitiesApi
 from square.api.inventory_api import InventoryApi
 from square.api.invoices_api import InvoicesApi
 from square.api.labor_api import LaborApi
@@ -39,11 +42,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '11.0.0.20210513'
+        return '12.0.0.20210616'
 
     @staticmethod
     def square_version():
-        return '2021-05-13'
+        return '2021-06-16'
 
     @lazy_property
     def mobile_authorization(self):
@@ -72,6 +75,10 @@ class Client(object):
     @lazy_property
     def bookings(self):
         return BookingsApi(self.config)
+
+    @lazy_property
+    def cards(self):
+        return CardsApi(self.config)
 
     @lazy_property
     def cash_drawers(self):
@@ -104,6 +111,14 @@ class Client(object):
     @lazy_property
     def employees(self):
         return EmployeesApi(self.config)
+
+    @lazy_property
+    def gift_cards(self):
+        return GiftCardsApi(self.config)
+
+    @lazy_property
+    def gift_card_activities(self):
+        return GiftCardActivitiesApi(self.config)
 
     @lazy_property
     def inventory(self):
@@ -169,15 +184,18 @@ class Client(object):
     def terminal(self):
         return TerminalApi(self.config)
 
-    def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production',
+    def __init__(self, timeout=60, max_retries=0, backoff_factor=2,
+                 retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
+                 retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com',
-                 square_version='2021-05-13', access_token='TODO: Replace',
+                 square_version='2021-06-16', access_token='TODO: Replace',
                  additional_headers={}, config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,
                                         max_retries=max_retries,
                                         backoff_factor=backoff_factor,
+                                        retry_statuses=retry_statuses,
+                                        retry_methods=retry_methods,
                                         environment=environment,
                                         custom_url=custom_url,
                                         square_version=square_version,

@@ -99,12 +99,12 @@ body['changes'][0]['adjustment'] = {}
 body['changes'][0]['adjustment']['id'] = 'id6'
 body['changes'][0]['adjustment']['reference_id'] = 'reference_id4'
 body['changes'][0]['adjustment']['from_state'] = 'SOLD'
-body['changes'][0]['adjustment']['to_state'] = 'IN_TRANSIT_TO'
+body['changes'][0]['adjustment']['to_state'] = 'SOLD_ONLINE'
 body['changes'][0]['adjustment']['location_id'] = 'location_id0'
 body['changes'][0]['transfer'] = {}
 body['changes'][0]['transfer']['id'] = 'id0'
 body['changes'][0]['transfer']['reference_id'] = 'reference_id8'
-body['changes'][0]['transfer']['state'] = 'SOLD'
+body['changes'][0]['transfer']['state'] = 'UNLINKED_RETURN'
 body['changes'][0]['transfer']['from_location_id'] = 'from_location_id2'
 body['changes'][0]['transfer']['to_location_id'] = 'to_location_id2'
 body['changes'][0]['measurement_unit'] = {}
@@ -212,7 +212,7 @@ body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['59TNP9SA8VGDA']
 body['updated_after'] = '2016-11-16T00:00:00.000Z'
 body['cursor'] = 'cursor0'
-body['states'] = ['IN_TRANSIT_TO']
+body['states'] = ['SUPPORTED_BY_NEWER_VERSION']
 
 result = inventory_api.batch_retrieve_inventory_counts(body)
 

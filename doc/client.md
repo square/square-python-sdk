@@ -5,13 +5,15 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-05-13'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-06-16'` |
 | `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `float` | The value to use for connection timeout. <br> **Default: 60** |
-| `max_retries` | `int` | The number of times to retry an endpoint call if it fails. <br> **Default: 3** |
-| `backoff_factor` | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 0** |
+| `max_retries` | `int` | The number of times to retry an endpoint call if it fails. <br> **Default: 0** |
+| `backoff_factor` | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 2** |
+| `retry_statuses` | `Array of int` | The http statuses on which retry is to be done. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
+| `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
 | `additional_headers` | `dict` | Additional headers to add to each API request |
 
 The API client can be initialized as follows:
@@ -20,7 +22,7 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2021-05-13',
+    square_version='2021-06-16',
     access_token='AccessToken',
     environment = 'production',
     custom_url = 'https://connect.squareup.com',)
@@ -45,7 +47,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 from square.client import Client
 
 client = Client(
-    square_version='2021-05-13',
+    square_version='2021-06-16',
     access_token='AccessToken',)
 
 locations_api = client.locations
@@ -72,6 +74,7 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | apple_pay | Gets ApplePayApi |
 | bank_accounts | Gets BankAccountsApi |
 | bookings | Gets BookingsApi |
+| cards | Gets CardsApi |
 | cash_drawers | Gets CashDrawersApi |
 | catalog | Gets CatalogApi |
 | customers | Gets CustomersApi |
@@ -80,6 +83,8 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | devices | Gets DevicesApi |
 | disputes | Gets DisputesApi |
 | employees | Gets EmployeesApi |
+| gift_cards | Gets GiftCardsApi |
+| gift_card_activities | Gets GiftCardActivitiesApi |
 | inventory | Gets InventoryApi |
 | invoices | Gets InvoicesApi |
 | labor | Gets LaborApi |

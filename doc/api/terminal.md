@@ -104,7 +104,7 @@ body['query']['filter']['created_at']['start_at'] = 'start_at2'
 body['query']['filter']['created_at']['end_at'] = 'end_at0'
 body['query']['filter']['status'] = 'COMPLETED'
 body['query']['sort'] = {}
-body['query']['sort']['sort_order'] = 'sort_order8'
+body['query']['sort']['sort_order'] = 'DESC'
 body['cursor'] = 'cursor0'
 body['limit'] = 2
 

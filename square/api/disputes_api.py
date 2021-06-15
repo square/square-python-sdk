@@ -188,13 +188,20 @@ class DisputesApi(BaseApi):
         return _result
 
     def list_dispute_evidence(self,
-                              dispute_id):
+                              dispute_id,
+                              cursor=None):
         """Does a GET request to /v2/disputes/{dispute_id}/evidence.
 
         Returns a list of evidence associated with a dispute.
 
         Args:
             dispute_id (string): The ID of the dispute.
+            cursor (string, optional): A pagination cursor returned by a
+                previous call to this endpoint. Provide this cursor to
+                retrieve the next set of results for the original query. For
+                more information, see
+                [Pagination](https://developer.squareup.com/docs/basics/api101/
+                pagination).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -215,6 +222,13 @@ class DisputesApi(BaseApi):
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
+        _query_parameters = {
+            'cursor': cursor
+        }
+        _query_builder = APIHelper.append_url_with_query_parameters(
+            _query_builder,
+            _query_parameters
+        )
         _query_url = APIHelper.clean_url(_query_builder)
 
         # Prepare headers
@@ -235,7 +249,132 @@ class DisputesApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
-    def remove_dispute_evidence(self,
+    def create_dispute_evidence_file(self,
+                                     dispute_id,
+                                     request=None,
+                                     image_file=None):
+        """Does a POST request to /v2/disputes/{dispute_id}/evidence-files.
+
+        Uploads a file to use as evidence in a dispute challenge. The endpoint
+        accepts HTTP
+        multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and
+        TIFF formats.
+
+        Args:
+            dispute_id (string): The ID of the dispute you want to upload
+                evidence for.
+            request (CreateDisputeEvidenceFileRequest, optional): Defines the
+                parameters for a `CreateDisputeEvidenceFile` request.
+            image_file (typing.BinaryIO, optional): TODO: type description
+                here.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/disputes/{dispute_id}/evidence-files'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'dispute_id': {'value': dispute_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        if isinstance(image_file, FileWrapper):
+            image_file_wrapper = image_file.file_stream
+            image_file_content_type = image_file.content_type
+        else:
+            image_file_wrapper = image_file
+            image_file_content_type = 'image/jpeg'
+
+        # Prepare files
+        _files = {
+            'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
+            'image_file': (image_file_wrapper.name, image_file_wrapper, image_file_content_type)
+        }
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.post(_query_url, headers=_headers, files=_files)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def create_dispute_evidence_text(self,
+                                     dispute_id,
+                                     body):
+        """Does a POST request to /v2/disputes/{dispute_id}/evidence-text.
+
+        Uploads text to use as evidence for a dispute challenge.
+
+        Args:
+            dispute_id (string): The ID of the dispute you want to upload
+                evidence for.
+            body (CreateDisputeEvidenceTextRequest): An object containing the
+                fields to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/disputes/{dispute_id}/evidence-text'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'dispute_id': {'value': dispute_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json',
+            'content-type': 'application/json; charset=utf-8'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def delete_dispute_evidence(self,
                                 dispute_id,
                                 evidence_id):
         """Does a DELETE request to /v2/disputes/{dispute_id}/evidence/{evidence_id}.
@@ -296,8 +435,8 @@ class DisputesApi(BaseApi):
                                   evidence_id):
         """Does a GET request to /v2/disputes/{dispute_id}/evidence/{evidence_id}.
 
-        Returns the specific evidence metadata associated with a specific
-        dispute.
+        Returns the evidence metadata specified by the evidence ID in the
+        request URL path
         You must maintain a copy of the evidence you upload if you want to
         reference it later. You cannot
         download the evidence after you upload it.
@@ -336,131 +475,6 @@ class DisputesApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
-
-    def create_dispute_evidence_file(self,
-                                     dispute_id,
-                                     request=None,
-                                     image_file=None):
-        """Does a POST request to /v2/disputes/{dispute_id}/evidence_file.
-
-        Uploads a file to use as evidence in a dispute challenge. The endpoint
-        accepts HTTP
-        multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and
-        TIFF formats.
-
-        Args:
-            dispute_id (string): The ID of the dispute you want to upload
-                evidence for.
-            request (CreateDisputeEvidenceFileRequest, optional): Defines the
-                parameters for a `CreateDisputeEvidenceFile` request.
-            image_file (typing.BinaryIO, optional): TODO: type description
-                here.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers. Success
-
-        Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
-
-        """
-
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/evidence_file'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        if isinstance(image_file, FileWrapper):
-            image_file_wrapper = image_file.file_stream
-            image_file_content_type = image_file.content_type
-        else:
-            image_file_wrapper = image_file
-            image_file_content_type = 'image/jpeg'
-
-        # Prepare files
-        _files = {
-            'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
-            'image_file': (image_file_wrapper.name, image_file_wrapper, image_file_content_type)
-        }
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, files=_files)
-        OAuth2.apply(self.config, _request)
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
-
-    def create_dispute_evidence_text(self,
-                                     dispute_id,
-                                     body):
-        """Does a POST request to /v2/disputes/{dispute_id}/evidence_text.
-
-        Uploads text to use as evidence for a dispute challenge.
-
-        Args:
-            dispute_id (string): The ID of the dispute you want to upload
-                evidence for.
-            body (CreateDisputeEvidenceTextRequest): An object containing the
-                fields to POST for the request.  See the corresponding object
-                definition for field details.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers. Success
-
-        Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
-
-        """
-
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/evidence_text'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
         OAuth2.apply(self.config, _request)
         _response = self.execute_request(_request)
 

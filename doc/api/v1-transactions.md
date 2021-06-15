@@ -23,7 +23,7 @@ v1_transactions_api = client.v1_transactions
 
 # List Orders
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Provides summary information for a merchant's online store orders.
 
@@ -67,7 +67,7 @@ elif result.is_error():
 
 # Retrieve Order
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Provides comprehensive information for a single online store order, including the order's history.
 
@@ -105,7 +105,7 @@ elif result.is_error():
 
 # Update Order
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Updates the details of an online store order. Every update you perform on an order corresponds to one of three actions:
 
@@ -151,7 +151,7 @@ elif result.is_error():
 
 # List Payments
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Provides summary information for all payments taken for a given
 Square account during a date range. Date ranges cannot exceed 1 year in
@@ -214,7 +214,7 @@ elif result.is_error():
 
 # Retrieve Payment
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Provides comprehensive information for a single payment.
 
@@ -252,7 +252,7 @@ elif result.is_error():
 
 # List Refunds
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Provides the details for all refunds initiated by a merchant or any of the merchant's mobile staff during a date range. Date ranges cannot exceed one year in length.
 
@@ -302,7 +302,7 @@ elif result.is_error():
 
 # Create Refund
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Issues a refund for a previously processed payment. You must issue
 a refund within 60 days of the associated payment.
@@ -358,7 +358,7 @@ elif result.is_error():
 
 # List Settlements
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Provides summary information for all deposits and withdrawals
 initiated by Square to a linked bank account during a date range. Date
@@ -416,7 +416,7 @@ elif result.is_error():
 
 # Retrieve Settlement
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Provides comprehensive information for a single settlement.
 

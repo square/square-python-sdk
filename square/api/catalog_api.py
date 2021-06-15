@@ -334,11 +334,13 @@ class CatalogApi(BaseApi):
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination) for more information.
             types (string, optional): An optional case-insensitive,
-                comma-separated list of object types to retrieve, for example
-                `ITEM,ITEM_VARIATION,CATEGORY,IMAGE`.  The legal values are
-                taken from the CatalogObjectType enum: `ITEM`,
-                `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`, `MODIFIER`,
-                `MODIFIER_LIST`, or `IMAGE`.
+                comma-separated list of object types to retrieve.  The valid
+                values are defined in the
+                [CatalogObjectType]($m/CatalogObjectType) enum, including
+                `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
+                `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.  If this is
+                unspecified, the operation returns objects of all the types at
+                the version of the Square API used to make the request.
             catalog_version (long|int, optional): The specific version of the
                 catalog objects to be included in the response.  This allows
                 you to retrieve historical versions of objects. The specified

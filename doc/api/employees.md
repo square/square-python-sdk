@@ -16,7 +16,7 @@ employees_api = client.employees
 
 # List Employees
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 ListEmployees
 
@@ -60,7 +60,7 @@ elif result.is_error():
 
 # Retrieve Employee
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 RetrieveEmployee
 

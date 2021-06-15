@@ -445,7 +445,7 @@ def list_catalog(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `types` | `string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve, for example<br>`ITEM,ITEM_VARIATION,CATEGORY,IMAGE`.<br><br>The legal values are taken from the CatalogObjectType enum:<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, or `IMAGE`. |
+| `types` | `string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](/doc/models/catalog-object-type.md) enum, including<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.<br><br>If this is unspecified, the operation returns objects of all the types at the version of the Square API used to make the request. |
 | `catalog_version` | `long\|int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical<br>versions of objects. The specified version value is matched against<br>the [CatalogObject](/doc/models/catalog-object.md)s' `version` attribute. |
 
 ## Response Type
@@ -515,10 +515,65 @@ body['object']['catalog_v1_ids'][2]['location_id'] = 'location_id2'
 
 body['object']['item_data'] = {}
 body['object']['item_data']['name'] = 'Cocoa'
-body['object']['item_data']['description'] = 'Hot chocolate'
+body['object']['item_data']['description'] = 'Hot Chocolate'
 body['object']['item_data']['abbreviation'] = 'Ch'
 body['object']['item_data']['label_color'] = 'label_color4'
 body['object']['item_data']['available_online'] = False
+body['object']['item_data']['variations'] = []
+
+body['object']['item_data']['variations'].append({})
+body['object']['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
+body['object']['item_data']['variations'][0]['id'] = '#Small'
+body['object']['item_data']['variations'][0]['updated_at'] = 'updated_at9'
+body['object']['item_data']['variations'][0]['version'] = 69
+body['object']['item_data']['variations'][0]['is_deleted'] = True
+body['object']['item_data']['variations'][0]['custom_attribute_values'] = {}
+body['object']['item_data']['variations'][0]['catalog_v1_ids'] = []
+
+body['object']['item_data']['variations'][0]['catalog_v1_ids'].append({})
+body['object']['item_data']['variations'][0]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id9'
+body['object']['item_data']['variations'][0]['catalog_v1_ids'][0]['location_id'] = 'location_id9'
+
+body['object']['item_data']['variations'][0]['item_variation_data'] = {}
+body['object']['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Cocoa'
+body['object']['item_data']['variations'][0]['item_variation_data']['name'] = 'Small'
+body['object']['item_data']['variations'][0]['item_variation_data']['sku'] = 'sku3'
+body['object']['item_data']['variations'][0]['item_variation_data']['upc'] = 'upc1'
+body['object']['item_data']['variations'][0]['item_variation_data']['ordinal'] = 119
+body['object']['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'VARIABLE_PRICING'
+
+body['object']['item_data']['variations'].append({})
+body['object']['item_data']['variations'][1]['type'] = 'ITEM_VARIATION'
+body['object']['item_data']['variations'][1]['id'] = '#Large'
+body['object']['item_data']['variations'][1]['updated_at'] = 'updated_at0'
+body['object']['item_data']['variations'][1]['version'] = 68
+body['object']['item_data']['variations'][1]['is_deleted'] = False
+body['object']['item_data']['variations'][1]['custom_attribute_values'] = {}
+body['object']['item_data']['variations'][1]['catalog_v1_ids'] = []
+
+body['object']['item_data']['variations'][1]['catalog_v1_ids'].append({})
+body['object']['item_data']['variations'][1]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id8'
+body['object']['item_data']['variations'][1]['catalog_v1_ids'][0]['location_id'] = 'location_id8'
+
+body['object']['item_data']['variations'][1]['catalog_v1_ids'].append({})
+body['object']['item_data']['variations'][1]['catalog_v1_ids'][1]['catalog_v1_id'] = 'catalog_v1_id9'
+body['object']['item_data']['variations'][1]['catalog_v1_ids'][1]['location_id'] = 'location_id9'
+
+body['object']['item_data']['variations'][1]['catalog_v1_ids'].append({})
+body['object']['item_data']['variations'][1]['catalog_v1_ids'][2]['catalog_v1_id'] = 'catalog_v1_id0'
+body['object']['item_data']['variations'][1]['catalog_v1_ids'][2]['location_id'] = 'location_id0'
+
+body['object']['item_data']['variations'][1]['item_variation_data'] = {}
+body['object']['item_data']['variations'][1]['item_variation_data']['item_id'] = '#Cocoa'
+body['object']['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
+body['object']['item_data']['variations'][1]['item_variation_data']['sku'] = 'sku4'
+body['object']['item_data']['variations'][1]['item_variation_data']['upc'] = 'upc2'
+body['object']['item_data']['variations'][1]['item_variation_data']['ordinal'] = 118
+body['object']['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
+body['object']['item_data']['variations'][1]['item_variation_data']['price_money'] = {}
+body['object']['item_data']['variations'][1]['item_variation_data']['price_money']['amount'] = 400
+body['object']['item_data']['variations'][1]['item_variation_data']['price_money']['currency'] = 'USD'
+
 
 result = catalog_api.upsert_catalog_object(body)
 

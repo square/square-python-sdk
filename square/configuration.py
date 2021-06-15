@@ -26,6 +26,14 @@ class Configuration(object):
         return self._backoff_factor
 
     @property
+    def retry_statuses(self):
+        return self._retry_statuses
+
+    @property
+    def retry_methods(self):
+        return self._retry_methods
+
+    @property
     def environment(self):
         return self._environment
 
@@ -45,11 +53,13 @@ class Configuration(object):
     def additional_headers(self):
         return deepcopy(self._additional_headers)
 
-    def __init__(self, timeout=60, max_retries=3, backoff_factor=0,
-                 environment='production',
-                 custom_url='https://connect.squareup.com',
-                 square_version='2021-05-13', access_token='TODO: Replace',
-                 additional_headers={}):
+    def __init__(
+        self, timeout=60, max_retries=0, backoff_factor=2,
+        retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
+        retry_methods=['GET', 'PUT'], environment='production',
+        custom_url='https://connect.squareup.com', square_version='2021-06-16',
+        access_token='TODO: Replace', additional_headers={}
+    ):
         # The value to use for connection timeout
         self._timeout = timeout
 
@@ -60,6 +70,12 @@ class Configuration(object):
         # urllib3 will sleep for:
         # `{backoff factor} * (2 ** ({number of total retries} - 1))`
         self._backoff_factor = backoff_factor
+
+        # The http statuses on which retry is to be done
+        self._retry_statuses = retry_statuses
+
+        # The http methods on which retry is to be done
+        self._retry_methods = retry_methods
 
         # Current API environment
         self._environment = environment
@@ -80,11 +96,14 @@ class Configuration(object):
         self._http_client = self.create_http_client()
 
     def clone_with(self, timeout=None, max_retries=None, backoff_factor=None,
-                   environment=None, custom_url=None, square_version=None,
-                   access_token=None, additional_headers=None):
+                   retry_statuses=None, retry_methods=None, environment=None,
+                   custom_url=None, square_version=None, access_token=None,
+                   additional_headers=None):
         timeout = timeout or self.timeout
         max_retries = max_retries or self.max_retries
         backoff_factor = backoff_factor or self.backoff_factor
+        retry_statuses = retry_statuses or self.retry_statuses
+        retry_methods = retry_methods or self.retry_methods
         environment = environment or self.environment
         custom_url = custom_url or self.custom_url
         square_version = square_version or self.square_version
@@ -93,6 +112,8 @@ class Configuration(object):
 
         return Configuration(timeout=timeout, max_retries=max_retries,
                              backoff_factor=backoff_factor,
+                             retry_statuses=retry_statuses,
+                             retry_methods=retry_methods,
                              environment=environment, custom_url=custom_url,
                              square_version=square_version,
                              access_token=access_token,
@@ -101,7 +122,9 @@ class Configuration(object):
     def create_http_client(self):
         return RequestsClient(timeout=self.timeout,
                               max_retries=self.max_retries,
-                              backoff_factor=self.backoff_factor)
+                              backoff_factor=self.backoff_factor,
+                              retry_statuses=self.retry_statuses,
+                              retry_methods=self.retry_methods)
 
     # All the environments the SDK can run in
     environments = {
