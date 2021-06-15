@@ -1,6 +1,10 @@
 
 # Loyalty Program
 
+Represents a Square loyalty program. Loyalty programs define how buyers can earn points and redeem points for rewards.
+Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard.
+For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+
 ## Structure
 
 `Loyalty Program`
@@ -13,7 +17,7 @@
 | `status` | [`str (Loyalty Program Status)`](/doc/models/loyalty-program-status.md) | Required | Indicates whether the program is currently active. |
 | `reward_tiers` | [`List of Loyalty Program Reward Tier`](/doc/models/loyalty-program-reward-tier.md) | Required | The list of rewards for buyers, sorted by ascending points. |
 | `expiration_policy` | [`Loyalty Program Expiration Policy`](/doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. |
-| `terminology` | [`Loyalty Program Terminology`](/doc/models/loyalty-program-terminology.md) | Required | - |
+| `terminology` | [`Loyalty Program Terminology`](/doc/models/loyalty-program-terminology.md) | Required | Represents the naming used for loyalty points. |
 | `location_ids` | `List of string` | Required | The [locations](/doc/models/location.md) at which the program is active. |
 | `created_at` | `string` | Required | The timestamp when the program was created, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` |
 | `updated_at` | `string` | Required | The timestamp when the reward was last updated, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` |
@@ -105,7 +109,11 @@
         "amount": 98,
         "currency": "UGX"
       },
-      "catalog_object_id": "catalog_object_id8"
+      "catalog_object_id": "catalog_object_id8",
+      "excluded_category_ids": [
+        "excluded_category_ids6",
+        "excluded_category_ids5"
+      ]
     },
     {
       "accrual_type": "SPEND",
@@ -118,7 +126,12 @@
         "amount": 99,
         "currency": "USD"
       },
-      "catalog_object_id": "catalog_object_id7"
+      "catalog_object_id": "catalog_object_id7",
+      "excluded_category_ids": [
+        "excluded_category_ids5",
+        "excluded_category_ids4",
+        "excluded_category_ids3"
+      ]
     }
   ]
 }

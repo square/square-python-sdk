@@ -1,9 +1,9 @@
 
-# Terminal Checkout Payment Type
+# Checkout Options Payment Type
 
 ## Enumeration
 
-`Terminal Checkout Payment Type`
+`Checkout Options Payment Type`
 
 ## Fields
 

@@ -24,6 +24,8 @@ class RequestsClient(HttpClient):
                  cache=False,
                  max_retries=None,
                  backoff_factor=None,
+                 retry_statuses=None,
+                 retry_methods=None,
                  verify=True):
         """The constructor.
 
@@ -34,7 +36,8 @@ class RequestsClient(HttpClient):
         self.timeout = timeout
         self.session = session()
 
-        retries = Retry(total=max_retries, backoff_factor=backoff_factor)
+        retries = Retry(total=max_retries, backoff_factor=backoff_factor,
+                        status_forcelist=retry_statuses, allowed_methods=retry_methods)
         self.session.mount('http://', HTTPAdapter(max_retries=retries))
         self.session.mount('https://', HTTPAdapter(max_retries=retries))
 

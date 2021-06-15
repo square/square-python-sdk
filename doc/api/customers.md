@@ -67,7 +67,7 @@ elif result.is_error():
 
 # Create Customer
 
-Creates a new customer for a business, which can have associated cards on file.
+Creates a new customer for a business.
 
 You must provide at least one of the following values in your request to this
 endpoint:
@@ -194,7 +194,7 @@ elif result.is_error():
 
 # Delete Customer
 
-Deletes a customer profile from a business, including any linked cards on file.
+Deletes a customer profile from a business. This operation also unlinks any associated cards on file.
 
 As a best practice, you should include the `version` field in the request to enable [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-concurrency) control. The value must be set to the current version of the customer profile.
 
@@ -273,7 +273,7 @@ As a best practice, you should include the `version` field in the request to ena
 
 To update a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
 
-You cannot use this endpoint to change cards on file. To change a card on file, call [DeleteCustomerCard](/doc/api/customers.md#delete-customer-card) to delete the existing card and then call [CreateCustomerCard](/doc/api/customers.md#create-customer-card) to create a new card.
+You cannot use this endpoint to change cards on file. To make changes, use the [Cards API](/doc/api/cards.md) or [Gift Cards API](/doc/api/gift-cards.md).
 
 ```python
 def update_customer(self,
@@ -316,6 +316,8 @@ elif result.is_error():
 
 
 # Create Customer Card
+
+**This endpoint is deprecated.**
 
 Adds a card on file to an existing customer.
 
@@ -368,6 +370,8 @@ elif result.is_error():
 
 
 # Delete Customer Card
+
+**This endpoint is deprecated.**
 
 Removes a card on file from a customer.
 

@@ -238,7 +238,7 @@ elif result.is_error():
 
 # List Employee Wages
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Returns a paginated list of `EmployeeWage` instances for a business.
 
@@ -279,7 +279,7 @@ elif result.is_error():
 
 # Get Employee Wage
 
-**This endpoint is deprecated. **
+**This endpoint is deprecated.**
 
 Returns a single `EmployeeWage` specified by id.
 

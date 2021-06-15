@@ -14,10 +14,10 @@ disputes_api = client.disputes
 * [Retrieve Dispute](/doc/api/disputes.md#retrieve-dispute)
 * [Accept Dispute](/doc/api/disputes.md#accept-dispute)
 * [List Dispute Evidence](/doc/api/disputes.md#list-dispute-evidence)
-* [Remove Dispute Evidence](/doc/api/disputes.md#remove-dispute-evidence)
-* [Retrieve Dispute Evidence](/doc/api/disputes.md#retrieve-dispute-evidence)
 * [Create Dispute Evidence File](/doc/api/disputes.md#create-dispute-evidence-file)
 * [Create Dispute Evidence Text](/doc/api/disputes.md#create-dispute-evidence-text)
+* [Delete Dispute Evidence](/doc/api/disputes.md#delete-dispute-evidence)
+* [Retrieve Dispute Evidence](/doc/api/disputes.md#retrieve-dispute-evidence)
 * [Submit Evidence](/doc/api/disputes.md#submit-evidence)
 
 
@@ -136,7 +136,8 @@ Returns a list of evidence associated with a dispute.
 
 ```python
 def list_dispute_evidence(self,
-                         dispute_id)
+                         dispute_id,
+                         cursor=None)
 ```
 
 ## Parameters
@@ -144,6 +145,7 @@ def list_dispute_evidence(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `dispute_id` | `string` | Template, Required | The ID of the dispute. |
+| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
 
 ## Response Type
 
@@ -153,86 +155,9 @@ def list_dispute_evidence(self,
 
 ```python
 dispute_id = 'dispute_id2'
+cursor = 'cursor6'
 
-result = disputes_api.list_dispute_evidence(dispute_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
-```
-
-
-# Remove Dispute Evidence
-
-Removes specified evidence from a dispute.
-
-Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
-submitting it to the bank using [SubmitEvidence](/doc/api/disputes.md#submit-evidence).
-
-```python
-def remove_dispute_evidence(self,
-                           dispute_id,
-                           evidence_id)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute you want to remove evidence from. |
-| `evidence_id` | `string` | Template, Required | The ID of the evidence you want to remove. |
-
-## Response Type
-
-[`Remove Dispute Evidence Response`](/doc/models/remove-dispute-evidence-response.md)
-
-## Example Usage
-
-```python
-dispute_id = 'dispute_id2'
-evidence_id = 'evidence_id2'
-
-result = disputes_api.remove_dispute_evidence(dispute_id, evidence_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
-```
-
-
-# Retrieve Dispute Evidence
-
-Returns the specific evidence metadata associated with a specific dispute.
-
-You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
-download the evidence after you upload it.
-
-```python
-def retrieve_dispute_evidence(self,
-                             dispute_id,
-                             evidence_id)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute that you want to retrieve evidence from. |
-| `evidence_id` | `string` | Template, Required | The ID of the evidence to retrieve. |
-
-## Response Type
-
-[`Retrieve Dispute Evidence Response`](/doc/models/retrieve-dispute-evidence-response.md)
-
-## Example Usage
-
-```python
-dispute_id = 'dispute_id2'
-evidence_id = 'evidence_id2'
-
-result = disputes_api.retrieve_dispute_evidence(dispute_id, evidence_id)
+result = disputes_api.list_dispute_evidence(dispute_id, cursor)
 
 if result.is_success():
     print(result.body)
@@ -315,6 +240,84 @@ body['evidence_type'] = 'TRACKING_NUMBER'
 body['evidence_text'] = '1Z8888888888888888'
 
 result = disputes_api.create_dispute_evidence_text(dispute_id, body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Delete Dispute Evidence
+
+Removes specified evidence from a dispute.
+
+Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
+submitting it to the bank using [SubmitEvidence](/doc/api/disputes.md#submit-evidence).
+
+```python
+def delete_dispute_evidence(self,
+                           dispute_id,
+                           evidence_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `dispute_id` | `string` | Template, Required | The ID of the dispute you want to remove evidence from. |
+| `evidence_id` | `string` | Template, Required | The ID of the evidence you want to remove. |
+
+## Response Type
+
+[`Delete Dispute Evidence Response`](/doc/models/delete-dispute-evidence-response.md)
+
+## Example Usage
+
+```python
+dispute_id = 'dispute_id2'
+evidence_id = 'evidence_id2'
+
+result = disputes_api.delete_dispute_evidence(dispute_id, evidence_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Retrieve Dispute Evidence
+
+Returns the evidence metadata specified by the evidence ID in the request URL path
+
+You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
+download the evidence after you upload it.
+
+```python
+def retrieve_dispute_evidence(self,
+                             dispute_id,
+                             evidence_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `dispute_id` | `string` | Template, Required | The ID of the dispute that you want to retrieve evidence from. |
+| `evidence_id` | `string` | Template, Required | The ID of the evidence to retrieve. |
+
+## Response Type
+
+[`Retrieve Dispute Evidence Response`](/doc/models/retrieve-dispute-evidence-response.md)
+
+## Example Usage
+
+```python
+dispute_id = 'dispute_id2'
+evidence_id = 'evidence_id2'
+
+result = disputes_api.retrieve_dispute_evidence(dispute_id, evidence_id)
 
 if result.is_success():
     print(result.body)

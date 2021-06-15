@@ -17,13 +17,13 @@ class TeamApi(BaseApi):
                            body):
         """Does a POST request to /v2/team-members.
 
-        Creates a single `TeamMember` object. The `TeamMember` will be
+        Creates a single `TeamMember` object. The `TeamMember` object is
         returned on successful creates.
         You must provide the following values in your request to this
         endpoint:
         - `given_name`
         - `family_name`
-        Learn about [Troubleshooting the Teams
+        Learn about [Troubleshooting the Team
         API](https://developer.squareup.com/docs/team/troubleshooting#createtea
         mmember).
 
@@ -74,13 +74,13 @@ class TeamApi(BaseApi):
         """Does a POST request to /v2/team-members/bulk-create.
 
         Creates multiple `TeamMember` objects. The created `TeamMember`
-        objects will be returned on successful creates.
-        This process is non-transactional and will process as much of the
-        request as is possible. If one of the creates in
-        the request cannot be successfully processed, the request will NOT be
+        objects are returned on successful creates.
+        This process is non-transactional and processes as much of the request
+        as possible. If one of the creates in
+        the request cannot be successfully processed, the request is not
         marked as failed, but the body of the response
-        will contain explicit error information for this particular create.
-        Learn about [Troubleshooting the Teams
+        contains explicit error information for the failed create.
+        Learn about [Troubleshooting the Team
         API](https://developer.squareup.com/docs/team/troubleshooting#bulk-crea
         te-team-members).
 
@@ -131,13 +131,13 @@ class TeamApi(BaseApi):
         """Does a POST request to /v2/team-members/bulk-update.
 
         Updates multiple `TeamMember` objects. The updated `TeamMember`
-        objects will be returned on successful updates.
-        This process is non-transactional and will process as much of the
-        request as is possible. If one of the updates in
-        the request cannot be successfully processed, the request will NOT be
+        objects are returned on successful updates.
+        This process is non-transactional and processes as much of the request
+        as possible. If one of the updates in
+        the request cannot be successfully processed, the request is not
         marked as failed, but the body of the response
-        will contain explicit error information for this particular update.
-        Learn about [Troubleshooting the Teams
+        contains explicit error information for the failed update.
+        Learn about [Troubleshooting the Team
         API](https://developer.squareup.com/docs/team/troubleshooting#bulk-upda
         te-team-members).
 
@@ -188,8 +188,8 @@ class TeamApi(BaseApi):
         """Does a POST request to /v2/team-members/search.
 
         Returns a paginated list of `TeamMember` objects for a business.
-        The list to be returned can be filtered by:
-        - location IDs **and**
+        The list can be filtered by the following:
+        - location IDs
         - `status`
 
         Args:
@@ -238,8 +238,8 @@ class TeamApi(BaseApi):
                              team_member_id):
         """Does a GET request to /v2/team-members/{team_member_id}.
 
-        Retrieve a `TeamMember` object for the given `TeamMember.id`.
-        Learn about [Troubleshooting the Teams
+        Retrieves a `TeamMember` object for the given `TeamMember.id`.
+        Learn about [Troubleshooting the Team
         API](https://developer.squareup.com/docs/team/troubleshooting#retrieve-
         a-team-member).
 
@@ -290,9 +290,9 @@ class TeamApi(BaseApi):
                            body):
         """Does a PUT request to /v2/team-members/{team_member_id}.
 
-        Updates a single `TeamMember` object. The `TeamMember` will be
+        Updates a single `TeamMember` object. The `TeamMember` object is
         returned on successful updates.
-        Learn about [Troubleshooting the Teams
+        Learn about [Troubleshooting the Team
         API](https://developer.squareup.com/docs/team/troubleshooting#update-a-
         team-member).
 
@@ -346,15 +346,15 @@ class TeamApi(BaseApi):
                               team_member_id):
         """Does a GET request to /v2/team-members/{team_member_id}/wage-setting.
 
-        Retrieve a `WageSetting` object for a team member specified
+        Retrieves a `WageSetting` object for a team member specified
         by `TeamMember.id`.
-        Learn about [Troubleshooting the Teams
+        Learn about [Troubleshooting the Team
         API](https://developer.squareup.com/docs/team/troubleshooting#retrievew
         agesetting).
 
         Args:
-            team_member_id (string): The ID of the team member to retrieve
-                wage setting for
+            team_member_id (string): The ID of the team member for which to
+                retrieve the wage setting.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -404,14 +404,14 @@ class TeamApi(BaseApi):
         `WageSetting` with the specified `team_member_id` does not exist.
         Otherwise,
         it fully replaces the `WageSetting` object for the team member.
-        The `WageSetting` will be returned upon successful update.
-        Learn about [Troubleshooting the Teams
+        The `WageSetting` is returned on a successful update.
+        Learn about [Troubleshooting the Team
         API](https://developer.squareup.com/docs/team/troubleshooting#create-or
         -update-a-wage-setting).
 
         Args:
-            team_member_id (string): The ID of the team member to update the
-                `WageSetting` object for.
+            team_member_id (string): The ID of the team member for which to
+                update the `WageSetting` object.
             body (UpdateWageSettingRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.
