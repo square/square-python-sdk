@@ -71,6 +71,7 @@ body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
 body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
 body['order']['line_items'][0]['note'] = 'note3'
 body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
 body['order']['line_items'][0]['base_price_money'] = {}
@@ -91,6 +92,7 @@ body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
 body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
 body['order']['line_items'][1]['note'] = 'note4'
 body['order']['line_items'][1]['catalog_object_id'] = 'BEMYCSMIJL46OCDV4KYIKXIB'
 body['order']['line_items'][1]['modifiers'] = []
@@ -98,13 +100,11 @@ body['order']['line_items'][1]['modifiers'] = []
 body['order']['line_items'][1]['modifiers'].append({})
 body['order']['line_items'][1]['modifiers'][0]['uid'] = 'uid1'
 body['order']['line_items'][1]['modifiers'][0]['catalog_object_id'] = 'CHQX7Y4KY6N5KINJKZCFURPZ'
+body['order']['line_items'][1]['modifiers'][0]['catalog_version'] = 69
 body['order']['line_items'][1]['modifiers'][0]['name'] = 'name1'
 body['order']['line_items'][1]['modifiers'][0]['base_price_money'] = {}
 body['order']['line_items'][1]['modifiers'][0]['base_price_money']['amount'] = 53
 body['order']['line_items'][1]['modifiers'][0]['base_price_money']['currency'] = 'TTD'
-body['order']['line_items'][1]['modifiers'][0]['total_price_money'] = {}
-body['order']['line_items'][1]['modifiers'][0]['total_price_money']['amount'] = 51
-body['order']['line_items'][1]['modifiers'][0]['total_price_money']['currency'] = 'EUR'
 
 body['order']['line_items'][1]['applied_discounts'] = []
 
@@ -121,6 +121,7 @@ body['order']['taxes'] = []
 body['order']['taxes'].append({})
 body['order']['taxes'][0]['uid'] = 'state-sales-tax'
 body['order']['taxes'][0]['catalog_object_id'] = 'catalog_object_id1'
+body['order']['taxes'][0]['catalog_version'] = 189
 body['order']['taxes'][0]['name'] = 'State Sales Tax'
 body['order']['taxes'][0]['type'] = 'UNKNOWN_TAX'
 body['order']['taxes'][0]['percentage'] = '9'
@@ -131,6 +132,7 @@ body['order']['discounts'] = []
 body['order']['discounts'].append({})
 body['order']['discounts'][0]['uid'] = 'labor-day-sale'
 body['order']['discounts'][0]['catalog_object_id'] = 'catalog_object_id5'
+body['order']['discounts'][0]['catalog_version'] = 89
 body['order']['discounts'][0]['name'] = 'Labor Day Sale'
 body['order']['discounts'][0]['type'] = 'FIXED_PERCENTAGE'
 body['order']['discounts'][0]['percentage'] = '5'
@@ -139,17 +141,17 @@ body['order']['discounts'][0]['scope'] = 'ORDER'
 body['order']['discounts'].append({})
 body['order']['discounts'][1]['uid'] = 'membership-discount'
 body['order']['discounts'][1]['catalog_object_id'] = 'DB7L55ZH2BGWI4H23ULIWOQ7'
+body['order']['discounts'][1]['catalog_version'] = 90
 body['order']['discounts'][1]['name'] = 'name2'
 body['order']['discounts'][1]['type'] = 'FIXED_AMOUNT'
-body['order']['discounts'][1]['percentage'] = 'percentage0'
 body['order']['discounts'][1]['scope'] = 'ORDER'
 
 body['order']['discounts'].append({})
 body['order']['discounts'][2]['uid'] = 'one-dollar-off'
 body['order']['discounts'][2]['catalog_object_id'] = 'catalog_object_id7'
+body['order']['discounts'][2]['catalog_version'] = 91
 body['order']['discounts'][2]['name'] = 'Sale - $1.00 off'
 body['order']['discounts'][2]['type'] = 'VARIABLE_PERCENTAGE'
-body['order']['discounts'][2]['percentage'] = 'percentage1'
 body['order']['discounts'][2]['amount_money'] = {}
 body['order']['discounts'][2]['amount_money']['amount'] = 100
 body['order']['discounts'][2]['amount_money']['currency'] = 'USD'
@@ -249,6 +251,7 @@ body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
 body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
 body['order']['line_items'][0]['note'] = 'note3'
 body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
 body['order']['line_items'][0]['base_price_money'] = {}
@@ -269,6 +272,7 @@ body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
 body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
 body['order']['line_items'][1]['note'] = 'note4'
 body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'
 body['order']['line_items'][1]['base_price_money'] = {}
@@ -280,6 +284,7 @@ body['order']['discounts'] = []
 body['order']['discounts'].append({})
 body['order']['discounts'][0]['uid'] = 'uid1'
 body['order']['discounts'][0]['catalog_object_id'] = 'catalog_object_id5'
+body['order']['discounts'][0]['catalog_version'] = 89
 body['order']['discounts'][0]['name'] = '50% Off'
 body['order']['discounts'][0]['type'] = 'FIXED_PERCENTAGE'
 body['order']['discounts'][0]['percentage'] = '50'
@@ -482,6 +487,7 @@ body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
 body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
 body['order']['line_items'][0]['note'] = 'note3'
 body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
 
@@ -499,6 +505,7 @@ body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
 body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
 body['order']['line_items'][1]['note'] = 'note4'
 body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'
 

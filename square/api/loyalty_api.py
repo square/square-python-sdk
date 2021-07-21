@@ -177,12 +177,16 @@ class LoyaltyApi(BaseApi):
         account.
         - If you are not using the Orders API to manage orders, 
         you first perform a client-side computation to compute the points.  
-        For spend-based and visit-based programs, you can call 
+        For spend-based and visit-based programs, you can first call 
         [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) to compute
-        the points. For more information, 
-        see [Loyalty Program
-        Overview](https://developer.squareup.com/docs/loyalty/overview). 
-        You then provide the points in a request to this endpoint.
+        the points  
+        that you provide to this endpoint. 
+        __Note:__ The country of the seller's Square account determines
+        whether tax is included in the purchase amount when accruing points
+        for spend-based and visit-based programs. 
+        For more information, see [Availability of Square
+        Loyalty](https://developer.squareup.com/docs/loyalty-api/overview#loyal
+        ty-market-availability).
 
         Args:
             account_id (string): The [loyalty account]($m/LoyaltyAccount) ID
@@ -465,6 +469,12 @@ class LoyaltyApi(BaseApi):
         An application might call this endpoint to show the points that a
         buyer can earn with the 
         specific purchase.
+        __Note:__ The country of the seller's Square account determines
+        whether tax is included in the purchase amount when accruing points
+        for spend-based and visit-based programs. 
+        For more information, see [Availability of Square
+        Loyalty](https://developer.squareup.com/docs/loyalty-api/overview#loyal
+        ty-market-availability).
 
         Args:
             program_id (string): The [loyalty program]($m/LoyaltyProgram) ID,
