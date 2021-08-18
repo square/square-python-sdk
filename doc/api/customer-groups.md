@@ -23,7 +23,8 @@ Retrieves the list of customer groups of a business.
 
 ```python
 def list_customer_groups(self,
-                        cursor=None)
+                        cursor=None,
+                        limit=None)
 ```
 
 ## Parameters
@@ -31,6 +32,7 @@ def list_customer_groups(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `limit` | `int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>The limit is ignored if it is less than 1 or greater than 50. The default value is 50.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 
 ## Response Type
 
@@ -40,8 +42,9 @@ def list_customer_groups(self,
 
 ```python
 cursor = 'cursor6'
+limit = 172
 
-result = customer_groups_api.list_customer_groups(cursor)
+result = customer_groups_api.list_customer_groups(cursor, limit)
 
 if result.is_success():
     print(result.body)
