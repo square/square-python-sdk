@@ -46,9 +46,6 @@ pip install -r test-requirements.txt
 * [Disputes]
 * [Checkout]
 * [Apple Pay]
-* [Cards]
-
-### Terminal
 * [Terminal]
 
 ### Orders
@@ -72,10 +69,6 @@ pip install -r test-requirements.txt
 ### Loyalty
 * [Loyalty]
 
-### Gift Cards
-* [Gift Cards]
-* [Gift Card Activities]
-
 ### Bookings
 * [Bookings]
 
@@ -83,11 +76,12 @@ pip install -r test-requirements.txt
 * [Merchants]
 * [Locations]
 * [Devices]
-* [Cash Drawers]
 
 ### Team
 * [Team]
+* [Employees]
 * [Labor]
+* [Cash Drawers]
 
 ### Financials
 * [Bank Accounts]
@@ -101,7 +95,6 @@ pip install -r test-requirements.txt
 * [OAuth]
 
 ### Deprecated APIs
-* [Employees]
 * [V1 Employees]
 * [V1 Transactions]
 * [V1 Items]
@@ -416,6 +409,3 @@ You can also use the Square API to create applications or services that work wit
 [OAuth overview]: https://developer.squareup.com/docs/oauth-api/what-it-does
 [Sites]: doc/api/sites.md
 [Snippets]: doc/api/snippets.md
-[Cards]: doc/api/cards.md
-[Gift Cards]: doc/api/gift-cards.md
-[Gift Card Activities]: doc/api/gift-card-activities.md

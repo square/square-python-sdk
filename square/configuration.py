@@ -57,7 +57,7 @@ class Configuration(object):
         self, timeout=60, max_retries=0, backoff_factor=2,
         retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
         retry_methods=['GET', 'PUT'], environment='production',
-        custom_url='https://connect.squareup.com', square_version='2021-07-21',
+        custom_url='https://connect.squareup.com', square_version='2021-08-18',
         access_token='TODO: Replace', additional_headers={}
     ):
         # The value to use for connection timeout
