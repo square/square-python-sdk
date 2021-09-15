@@ -33,7 +33,6 @@ profiles can take closer to one minute or longer, especially during network inci
 ```python
 def list_customers(self,
                   cursor=None,
-                  limit=None,
                   sort_field=None,
                   sort_order=None)
 ```
@@ -43,9 +42,8 @@ def list_customers(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `limit` | `int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>The limit is ignored if it is less than 1 or greater than 100. The default value is 100.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `sort_field` | [`str (Customer Sort Field)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how customers should be sorted.<br><br>The default value is `DEFAULT`. |
-| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>The default value is `ASC`. |
+| `sort_field` | [`str (Customer Sort Field)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how customers should be sorted.<br><br>Default: `DEFAULT`. |
+| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>Default: `ASC`. |
 
 ## Response Type
 
@@ -55,11 +53,10 @@ def list_customers(self,
 
 ```python
 cursor = 'cursor6'
-limit = 172
 sort_field = 'DEFAULT'
 sort_order = 'DESC'
 
-result = customers_api.list_customers(cursor, limit, sort_field, sort_order)
+result = customers_api.list_customers(cursor, sort_field, sort_order)
 
 if result.is_success():
     print(result.body)

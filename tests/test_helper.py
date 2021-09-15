@@ -114,7 +114,7 @@ class TestHelper(object):
  
         """
         if url not in cls.cache:
-            cls.cache[url] = tempfile.TemporaryFile()
+            cls.cache[url] = tempfile.NamedTemporaryFile()
             cls.cache[url].write(requests.get(url).content)
         cls.cache[url].seek(0)
         return cls.cache[url]
