@@ -12,7 +12,7 @@ Use this Python library to manage Square resources (payments, orders, items, inv
 
 The SDK supports the following versions of Python:
 * Python 2 versions 2.7.9 and later
-* Python 3 versions 3.7 and later
+* Python 3 versions 3.4 and later
 
 ## Installation
 

@@ -16,7 +16,6 @@ class CustomersApi(BaseApi):
 
     def list_customers(self,
                        cursor=None,
-                       limit=None,
                        sort_field=None,
                        sort_order=None):
         """Does a GET request to /v2/customers.
@@ -36,18 +35,11 @@ class CustomersApi(BaseApi):
                 more information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
-            limit (int, optional): The maximum number of results to return in
-                a single page. This limit is advisory. The response might
-                contain more or fewer results.  The limit is ignored if it is
-                less than 1 or greater than 100. The default value is 100. 
-                For more information, see
-                [Pagination](https://developer.squareup.com/docs/working-with-a
-                pis/pagination).
             sort_field (CustomerSortField, optional): Indicates how customers
-                should be sorted.  The default value is `DEFAULT`.
+                should be sorted.  Default: `DEFAULT`.
             sort_order (SortOrder, optional): Indicates whether customers
                 should be sorted in ascending (`ASC`) or descending (`DESC`)
-                order.  The default value is `ASC`.
+                order.  Default: `ASC`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -67,7 +59,6 @@ class CustomersApi(BaseApi):
         _query_builder += _url_path
         _query_parameters = {
             'cursor': cursor,
-            'limit': limit,
             'sort_field': sort_field,
             'sort_order': sort_order
         }
@@ -228,7 +219,7 @@ class CustomersApi(BaseApi):
         Args:
             customer_id (string): The ID of the customer to delete.
             version (long|int, optional): The current version of the customer
-                profile.  As a best practice, you should include this
+                profile.   As a best practice, you should include this
                 parameter to enable [optimistic
                 concurrency](https://developer.squareup.com/docs/working-with-a
                 pis/optimistic-concurrency) control.  For more information,

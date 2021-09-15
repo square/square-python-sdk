@@ -23,5 +23,6 @@ class APIException(Exception):
 
         """
         super(APIException, self).__init__(reason)
+        self.reason = reason
         self.response = response
         self.response_code = response.status_code
