@@ -21,6 +21,7 @@ returns only active team members assigned to either location "A" or "B".
 |  --- | --- | --- | --- |
 | `location_ids` | `List of string` | Optional | When present, filters by team members assigned to the specified locations.<br>When empty, includes team members assigned to any location. |
 | `status` | [`str (Team Member Status)`](/doc/models/team-member-status.md) | Optional | Enumerates the possible statuses the team member can have within a business. |
+| `is_owner` | `bool` | Optional | When present and set to true, returns the team member who is the owner of the Square account. |
 
 ## Example (as JSON)
 
@@ -29,7 +30,8 @@ returns only active team members assigned to either location "A" or "B".
   "location_ids": [
     "location_ids0"
   ],
-  "status": "ACTIVE"
+  "status": "ACTIVE",
+  "is_owner": false
 }
 ```
 

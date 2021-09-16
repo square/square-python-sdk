@@ -59,6 +59,7 @@ body['order']['order']['line_items'][0]['quantity_unit']['measurement_unit']['le
 body['order']['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_SHOT'
 body['order']['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
 body['order']['order']['line_items'][0]['quantity_unit']['precision'] = 191
+body['order']['order']['line_items'][0]['quantity_unit']['catalog_object_id'] = 'catalog_object_id7'
 body['order']['order']['line_items'][0]['quantity_unit']['catalog_version'] = 131
 body['order']['order']['line_items'][0]['note'] = 'note1'
 body['order']['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id3'
@@ -95,6 +96,7 @@ body['order']['order']['line_items'][1]['quantity_unit']['measurement_unit']['le
 body['order']['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_CUP'
 body['order']['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'IMPERIAL_STONE'
 body['order']['order']['line_items'][1]['quantity_unit']['precision'] = 192
+body['order']['order']['line_items'][1]['quantity_unit']['catalog_object_id'] = 'catalog_object_id6'
 body['order']['order']['line_items'][1]['quantity_unit']['catalog_version'] = 130
 body['order']['order']['line_items'][1]['note'] = 'note0'
 body['order']['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id2'
@@ -113,6 +115,7 @@ body['order']['order']['line_items'][2]['quantity_unit']['measurement_unit']['le
 body['order']['order']['line_items'][2]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
 body['order']['order']['line_items'][2]['quantity_unit']['measurement_unit']['weight_unit'] = 'IMPERIAL_POUND'
 body['order']['order']['line_items'][2]['quantity_unit']['precision'] = 193
+body['order']['order']['line_items'][2]['quantity_unit']['catalog_object_id'] = 'catalog_object_id5'
 body['order']['order']['line_items'][2]['quantity_unit']['catalog_version'] = 129
 body['order']['order']['line_items'][2]['note'] = 'note9'
 body['order']['order']['line_items'][2]['catalog_object_id'] = 'catalog_object_id1'

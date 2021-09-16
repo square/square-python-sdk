@@ -13,6 +13,7 @@ orders_api = client.orders
 * [Create Order](/doc/api/orders.md#create-order)
 * [Batch Retrieve Orders](/doc/api/orders.md#batch-retrieve-orders)
 * [Calculate Order](/doc/api/orders.md#calculate-order)
+* [Clone Order](/doc/api/orders.md#clone-order)
 * [Search Orders](/doc/api/orders.md#search-orders)
 * [Retrieve Order](/doc/api/orders.md#retrieve-order)
 * [Update Order](/doc/api/orders.md#update-order)
@@ -71,6 +72,7 @@ body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
 body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['quantity_unit']['catalog_object_id'] = 'catalog_object_id1'
 body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
 body['order']['line_items'][0]['note'] = 'note3'
 body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
@@ -92,6 +94,7 @@ body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
 body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['quantity_unit']['catalog_object_id'] = 'catalog_object_id0'
 body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
 body['order']['line_items'][1]['note'] = 'note4'
 body['order']['line_items'][1]['catalog_object_id'] = 'BEMYCSMIJL46OCDV4KYIKXIB'
@@ -251,6 +254,7 @@ body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
 body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['quantity_unit']['catalog_object_id'] = 'catalog_object_id1'
 body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
 body['order']['line_items'][0]['note'] = 'note3'
 body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
@@ -272,6 +276,7 @@ body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
 body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['quantity_unit']['catalog_object_id'] = 'catalog_object_id0'
 body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
 body['order']['line_items'][1]['note'] = 'note4'
 body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'
@@ -306,6 +311,43 @@ body['proposed_rewards'][2]['reward_tier_id'] = 'reward_tier_id4'
 
 
 result = orders_api.calculate_order(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Clone Order
+
+Creates a new order, in the `DRAFT` state, by duplicating an existing order. The newly created order has
+only the core fields (such as line items, taxes, and discounts) copied from the original order.
+
+```python
+def clone_order(self,
+               body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Clone Order Request`](/doc/models/clone-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`Clone Order Response`](/doc/models/clone-order-response.md)
+
+## Example Usage
+
+```python
+body = {}
+body['order_id'] = 'ZAISEM52YcpmcWAzERDOyiWS123'
+body['version'] = 3
+body['idempotency_key'] = 'UNIQUE_STRING'
+
+result = orders_api.clone_order(body)
 
 if result.is_success():
     print(result.body)
@@ -487,6 +529,7 @@ body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
 body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
 body['order']['line_items'][0]['quantity_unit']['precision'] = 189
+body['order']['line_items'][0]['quantity_unit']['catalog_object_id'] = 'catalog_object_id1'
 body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
 body['order']['line_items'][0]['note'] = 'note3'
 body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
@@ -505,6 +548,7 @@ body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
 body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
 body['order']['line_items'][1]['quantity_unit']['precision'] = 188
+body['order']['line_items'][1]['quantity_unit']['catalog_object_id'] = 'catalog_object_id0'
 body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
 body['order']['line_items'][1]['note'] = 'note4'
 body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'

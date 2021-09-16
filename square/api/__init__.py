@@ -2,7 +2,6 @@ __all__ = [
     'base_api',
     'mobile_authorization_api',
     'o_auth_api',
-    'v1_employees_api',
     'v1_transactions_api',
     'apple_pay_api',
     'bank_accounts_api',

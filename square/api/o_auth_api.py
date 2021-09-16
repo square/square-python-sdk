@@ -46,8 +46,8 @@ class OAuthApi(BaseApi):
         dashboard](https://developer.squareup.com/apps).
 
         Args:
-            client_id (string): Your application ID, available from the
-                [developer dashboard](https://developer.squareup.com/apps).
+            client_id (string): Your application ID, available from the OAuth
+                page for your  application on the Developer Dashboard.
             body (RenewTokenRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
@@ -113,8 +113,7 @@ class OAuthApi(BaseApi):
         Authorization: Client APPLICATION_SECRET
         ```
         Replace `APPLICATION_SECRET` with the application secret on the OAuth
-        page in the [developer
-        dashboard](https://developer.squareup.com/apps).
+        page for your application on the Developer Dashboard.
 
         Args:
             body (RevokeTokenRequest): An object containing the fields to POST
@@ -163,17 +162,28 @@ class OAuthApi(BaseApi):
                      body):
         """Does a POST request to /oauth2/token.
 
-        Returns an OAuth access token.
-        The endpoint supports distinct methods of obtaining OAuth access
-        tokens.
-        Applications specify a method by adding the `grant_type` parameter
-        in the request and also provide relevant information.
-        __Note:__ Regardless of the method application specified,
-        the endpoint always returns two items; an OAuth access token and
-        a refresh token in the response.
-        __OAuth tokens should only live on secure servers. Application
-        clients
-        should never interact directly with OAuth tokens__.
+        Returns an OAuth access token and a refresh token unless the 
+        `short_lived` parameter is set to `true`, in which case the endpoint 
+        returns only an access token.
+        The `grant_type` parameter specifies the type of OAuth request. If 
+        `grant_type` is `authorization_code`, you must include the
+        authorization 
+        code you received when a seller granted you authorization. If
+        `grant_type` 
+        is `refresh_token`, you must provide a valid refresh token. If you are
+        using 
+        an old version of the Square APIs (prior to March 13, 2019),
+        `grant_type` 
+        can be `migration_token` and you must provide a valid migration
+        token.
+        You can use the `scopes` parameter to limit the set of permissions
+        granted 
+        to the access token and refresh token. You can use the `short_lived`
+        parameter 
+        to create an access token that expires in 24 hours.
+        __Note:__ OAuth tokens should be encrypted and stored on a secure
+        server. 
+        Application clients should never interact directly with OAuth tokens.
 
         Args:
             body (ObtainTokenRequest): An object containing the fields to POST
