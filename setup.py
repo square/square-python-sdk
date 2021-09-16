@@ -22,7 +22,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'requests>=2.9.1, <3.0',
-        'jsonpickle>=0.7.1, <1.0',
+        'jsonpickle>=1.4.1, <2.0',
         'cachecontrol>=0.11.7, <1.0',
         'python-dateutil>=2.5.3, <3.0',
         'deprecation>=2.0.6'
