@@ -23,13 +23,14 @@ class LaborApi(BaseApi):
         Returns a paginated list of `BreakType` instances for a business.
 
         Args:
-            location_id (string, optional): Filter Break Types returned to
-                only those that are associated with the specified location.
-            limit (int, optional): Maximum number of Break Types to return per
-                page. Can range between 1 and 200. The default is the maximum
-                at 200.
-            cursor (string, optional): Pointer to the next page of Break Type
-                results to fetch.
+            location_id (string, optional): Filter the returned `BreakType`
+                results to only those that are associated with the specified
+                location.
+            limit (int, optional): The maximum number of `BreakType` results
+                to return per page. The number can range between 1 and 200.
+                The default is 200.
+            cursor (string, optional): A pointer to the next page of
+                `BreakType` results to fetch.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -88,8 +89,8 @@ class LaborApi(BaseApi):
         - `break_name`
         - `expected_duration`
         - `is_paid`
-        You can only have 3 `BreakType` instances per location. If you attempt
-        to add a 4th
+        You can only have three `BreakType` instances per location. If you
+        attempt to add a fourth
         `BreakType` for a location, an `INVALID_REQUEST_ERROR` "Exceeded limit
         of 3 breaks per location."
         is returned.
@@ -144,7 +145,7 @@ class LaborApi(BaseApi):
         A `BreakType` can be deleted even if it is referenced from a `Shift`.
 
         Args:
-            id (string): UUID for the `BreakType` being deleted.
+            id (string): The UUID for the `BreakType` being deleted.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -189,10 +190,10 @@ class LaborApi(BaseApi):
                        id):
         """Does a GET request to /v2/labor/break-types/{id}.
 
-        Returns a single `BreakType` specified by id.
+        Returns a single `BreakType` specified by `id`.
 
         Args:
-            id (string): UUID for the `BreakType` being retrieved.
+            id (string): The UUID for the `BreakType` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -241,7 +242,7 @@ class LaborApi(BaseApi):
         Updates an existing `BreakType`.
 
         Args:
-            id (string): UUID for the `BreakType` being updated.
+            id (string): The UUID for the `BreakType` being updated.
             body (UpdateBreakTypeRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -296,13 +297,13 @@ class LaborApi(BaseApi):
         Returns a paginated list of `EmployeeWage` instances for a business.
 
         Args:
-            employee_id (string, optional): Filter wages returned to only
+            employee_id (string, optional): Filter the returned wages to only
                 those that are associated with the specified employee.
-            limit (int, optional): Maximum number of Employee Wages to return
-                per page. Can range between 1 and 200. The default is the
-                maximum at 200.
-            cursor (string, optional): Pointer to the next page of Employee
-                Wage results to fetch.
+            limit (int, optional): The maximum number of `EmployeeWage`
+                results to return per page. The number can range between 1 and
+                200. The default is 200.
+            cursor (string, optional): A pointer to the next page of
+                `EmployeeWage` results to fetch.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -354,10 +355,10 @@ class LaborApi(BaseApi):
                           id):
         """Does a GET request to /v2/labor/employee-wages/{id}.
 
-        Returns a single `EmployeeWage` specified by id.
+        Returns a single `EmployeeWage` specified by `id`.
 
         Args:
-            id (string): UUID for the `EmployeeWage` being retrieved.
+            id (string): The UUID for the `EmployeeWage` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -403,7 +404,7 @@ class LaborApi(BaseApi):
         """Does a POST request to /v2/labor/shifts.
 
         Creates a new `Shift`.
-        A `Shift` represents a complete work day for a single employee.
+        A `Shift` represents a complete workday for a single employee.
         You must provide the following values in your request to this
         endpoint:
         - `location_id`
@@ -414,13 +415,12 @@ class LaborApi(BaseApi):
         - The `status` of the new `Shift` is `OPEN` and the employee has
         another
         shift with an `OPEN` status.
-        - The `start_at` date is in the future
-        - the `start_at` or `end_at` overlaps another shift for the same
-        employee
-        - If `Break`s are set in the request, a break `start_at`
-        must not be before the `Shift.start_at`. A break `end_at` must not be
-        after
-        the `Shift.end_at`
+        - The `start_at` date is in the future.
+        - The `start_at` or `end_at` date overlaps another shift for the same
+        employee.
+        - The `Break` instances are set in the request and a break `start_at`
+        is before the `Shift.start_at`, a break `end_at` is after
+        the `Shift.end_at`, or both.
 
         Args:
             body (CreateShiftRequest): An object containing the fields to POST
@@ -470,17 +470,17 @@ class LaborApi(BaseApi):
 
         Returns a paginated list of `Shift` records for a business.
         The list to be returned can be filtered by:
-        - Location IDs **and**
-        - employee IDs **and**
-        - shift status (`OPEN`, `CLOSED`) **and**
-        - shift start **and**
-        - shift end **and**
-        - work day details
+        - Location IDs.
+        - Employee IDs.
+        - Shift status (`OPEN` and `CLOSED`).
+        - Shift start.
+        - Shift end.
+        - Workday details.
         The list can be sorted by:
-        - `start_at`
-        - `end_at`
-        - `created_at`
-        - `updated_at`
+        - `start_at`.
+        - `end_at`.
+        - `created_at`.
+        - `updated_at`.
 
         Args:
             body (SearchShiftsRequest): An object containing the fields to
@@ -531,7 +531,7 @@ class LaborApi(BaseApi):
         Deletes a `Shift`.
 
         Args:
-            id (string): UUID for the `Shift` being deleted.
+            id (string): The UUID for the `Shift` being deleted.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -576,10 +576,10 @@ class LaborApi(BaseApi):
                   id):
         """Does a GET request to /v2/labor/shifts/{id}.
 
-        Returns a single `Shift` specified by id.
+        Returns a single `Shift` specified by `id`.
 
         Args:
-            id (string): UUID for the `Shift` being retrieved.
+            id (string): The UUID for the `Shift` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -626,15 +626,15 @@ class LaborApi(BaseApi):
         """Does a PUT request to /v2/labor/shifts/{id}.
 
         Updates an existing `Shift`.
-        When adding a `Break` to a `Shift`, any earlier `Breaks` in the
-        `Shift` have
+        When adding a `Break` to a `Shift`, any earlier `Break` instances in
+        the `Shift` have
         the `end_at` property set to a valid RFC-3339 datetime string.
-        When closing a `Shift`, all `Break` instances in the shift must be
+        When closing a `Shift`, all `Break` instances in the `Shift` must be
         complete with `end_at`
         set on each `Break`.
 
         Args:
-            id (string): ID of the object being updated.
+            id (string): The ID of the object being updated.
             body (UpdateShiftRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
@@ -689,13 +689,14 @@ class LaborApi(BaseApi):
         business.
 
         Args:
-            team_member_id (string, optional): Filter wages returned to only
-                those that are associated with the specified team member.
-            limit (int, optional): Maximum number of Team Member Wages to
-                return per page. Can range between 1 and 200. The default is
-                the maximum at 200.
-            cursor (string, optional): Pointer to the next page of Employee
-                Wage results to fetch.
+            team_member_id (string, optional): Filter the returned wages to
+                only those that are associated with the specified team
+                member.
+            limit (int, optional): The maximum number of `TeamMemberWage`
+                results to return per page. The number can range between 1 and
+                200. The default is 200.
+            cursor (string, optional): A pointer to the next page of
+                `EmployeeWage` results to fetch.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -746,10 +747,10 @@ class LaborApi(BaseApi):
                              id):
         """Does a GET request to /v2/labor/team-member-wages/{id}.
 
-        Returns a single `TeamMemberWage` specified by id.
+        Returns a single `TeamMemberWage` specified by `id `.
 
         Args:
-            id (string): UUID for the `TeamMemberWage` being retrieved.
+            id (string): The UUID for the `TeamMemberWage` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -798,10 +799,10 @@ class LaborApi(BaseApi):
         Returns a list of `WorkweekConfig` instances for a business.
 
         Args:
-            limit (int, optional): Maximum number of Workweek Configs to
-                return per page.
-            cursor (string, optional): Pointer to the next page of Workweek
-                Config results to fetch.
+            limit (int, optional): The maximum number of `WorkweekConfigs`
+                results to return per page.
+            cursor (string, optional): A pointer to the next page of
+                `WorkweekConfig` results to fetch.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -855,7 +856,8 @@ class LaborApi(BaseApi):
         Updates a `WorkweekConfig`.
 
         Args:
-            id (string): UUID for the `WorkweekConfig` object being updated.
+            id (string): The UUID for the `WorkweekConfig` object being
+                updated.
             body (UpdateWorkweekConfigRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.

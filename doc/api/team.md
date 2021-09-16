@@ -180,6 +180,7 @@ body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['location_ids'] = ['0G5P3VGACMMQZ']
 body['query']['filter']['status'] = 'ACTIVE'
+body['query']['filter']['is_owner'] = False
 body['limit'] = 10
 body['cursor'] = 'cursor0'
 

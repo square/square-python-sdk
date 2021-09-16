@@ -4,7 +4,6 @@ from square.decorators import lazy_property
 from square.configuration import Configuration
 from square.api.mobile_authorization_api import MobileAuthorizationApi
 from square.api.o_auth_api import OAuthApi
-from square.api.v1_employees_api import V1EmployeesApi
 from square.api.v1_transactions_api import V1TransactionsApi
 from square.api.apple_pay_api import ApplePayApi
 from square.api.bank_accounts_api import BankAccountsApi
@@ -42,11 +41,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '14.0.0.20210915'
+        return '14.1.0.20210915'
 
     @staticmethod
     def square_version():
-        return '2021-07-21'
+        return '2021-09-15'
 
     @lazy_property
     def mobile_authorization(self):
@@ -55,10 +54,6 @@ class Client(object):
     @lazy_property
     def o_auth(self):
         return OAuthApi(self.config)
-
-    @lazy_property
-    def v1_employees(self):
-        return V1EmployeesApi(self.config)
 
     @lazy_property
     def v1_transactions(self):
@@ -188,7 +183,7 @@ class Client(object):
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com',
-                 square_version='2021-07-21', access_token='TODO: Replace',
+                 square_version='2021-09-15', access_token='TODO: Replace',
                  additional_headers={}, config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,

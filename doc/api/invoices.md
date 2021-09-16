@@ -147,6 +147,7 @@ body['invoice']['custom_fields'][1]['label'] = 'Terms of Service'
 body['invoice']['custom_fields'][1]['value'] = 'The terms of service are...'
 body['invoice']['custom_fields'][1]['placement'] = 'BELOW_LINE_ITEMS'
 
+body['invoice']['sale_or_service_date'] = '2030-01-24'
 body['idempotency_key'] = 'ce3748f9-5fc1-4762-aa12-aae5e843f1f4'
 
 result = invoices_api.create_invoice(body)

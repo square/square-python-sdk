@@ -19,7 +19,7 @@ The line item being returned in an order.
 | `note` | `string` | Optional | The note of the return line item.<br>**Constraints**: *Maximum Length*: `2000` |
 | `catalog_object_id` | `string` | Optional | The [CatalogItemVariation](/doc/models/catalog-item-variation.md) ID applied to this return line item.<br>**Constraints**: *Maximum Length*: `192` |
 | `catalog_version` | `long\|int` | Optional | The version of the catalog object that this line item references. |
-| `variation_name` | `string` | Optional | The name of the variation applied to this return line item.<br>**Constraints**: *Maximum Length*: `255` |
+| `variation_name` | `string` | Optional | The name of the variation applied to this return line item.<br>**Constraints**: *Maximum Length*: `400` |
 | `item_type` | [`str (Order Line Item Item Type)`](/doc/models/order-line-item-item-type.md) | Optional | Represents the line item type. |
 | `return_modifiers` | [`List of Order Return Line Item Modifier`](/doc/models/order-return-line-item-modifier.md) | Optional | The [CatalogModifier](/doc/models/catalog-modifier.md)s applied to this line item. |
 | `applied_taxes` | [`List of Order Line Item Applied Tax`](/doc/models/order-line-item-applied-tax.md) | Optional | The list of references to `OrderReturnTax` entities applied to the return line item. Each<br>`OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level<br>`OrderReturnTax` applied to the return line item. On reads, the applied amount<br>is populated. |
@@ -51,6 +51,7 @@ The line item being returned in an order.
       "weight_unit": "IMPERIAL_WEIGHT_OUNCE"
     },
     "precision": 54,
+    "catalog_object_id": "catalog_object_id0",
     "catalog_version": 12
   },
   "note": "note4"

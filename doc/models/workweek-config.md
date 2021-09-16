@@ -1,8 +1,8 @@
 
 # Workweek Config
 
-Sets the Day of the week and hour of the day that a business starts a
-work week. Used for the calculation of overtime pay.
+Sets the day of the week and hour of the day that a business starts a
+workweek. This is used to calculate overtime pay.
 
 ## Structure
 
@@ -12,12 +12,12 @@ work week. Used for the calculation of overtime pay.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | UUID for this object |
+| `id` | `string` | Optional | The UUID for this object. |
 | `start_of_week` | [`str (Weekday)`](/doc/models/weekday.md) | Required | The days of the week. |
-| `start_of_day_local_time` | `string` | Required | The local time at which a business week cuts over. Represented as a<br>string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are<br>truncated).<br>**Constraints**: *Minimum Length*: `1` |
-| `version` | `int` | Optional | Used for resolving concurrency issues; request will fail if version<br>provided does not match server version at time of request. If not provided,<br>Square executes a blind write; potentially overwriting data from another<br>write. |
-| `created_at` | `string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC |
-| `updated_at` | `string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC |
+| `start_of_day_local_time` | `string` | Required | The local time at which a business week ends. Represented as a<br>string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are<br>truncated).<br>**Constraints**: *Minimum Length*: `1` |
+| `version` | `int` | Optional | Used for resolving concurrency issues. The request fails if the version<br>provided does not match the server version at the time of the request. If not provided,<br>Square executes a blind write; potentially overwriting data from another<br>write. |
+| `created_at` | `string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC. |
+| `updated_at` | `string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC. |
 
 ## Example (as JSON)
 

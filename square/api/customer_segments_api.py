@@ -14,7 +14,8 @@ class CustomerSegmentsApi(BaseApi):
         super(CustomerSegmentsApi, self).__init__(config, call_back)
 
     def list_customer_segments(self,
-                               cursor=None):
+                               cursor=None,
+                               limit=None):
         """Does a GET request to /v2/customers/segments.
 
         Retrieves the list of customer segments of a business.
@@ -24,6 +25,13 @@ class CustomerSegmentsApi(BaseApi):
                 previous calls to `ListCustomerSegments`. This cursor is used
                 to retrieve the next set of query results.  For more
                 information, see
+                [Pagination](https://developer.squareup.com/docs/working-with-a
+                pis/pagination).
+            limit (int, optional): The maximum number of results to return in
+                a single page. This limit is advisory. The response might
+                contain more or fewer results.  The limit is ignored if it is
+                less than 1 or greater than 50. The default value is 50.  For
+                more information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
 
@@ -44,7 +52,8 @@ class CustomerSegmentsApi(BaseApi):
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
         _query_parameters = {
-            'cursor': cursor
+            'cursor': cursor,
+            'limit': limit
         }
         _query_builder = APIHelper.append_url_with_query_parameters(
             _query_builder,
