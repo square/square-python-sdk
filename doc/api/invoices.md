@@ -193,7 +193,6 @@ body['query']['filter'] = {}
 body['query']['filter']['location_ids'] = ['ES0RJRZYEC39A']
 body['query']['filter']['customer_ids'] = ['JDKYHBWT1D4F8MFH63DBMEN8Y4']
 body['query']['sort'] = {}
-body['query']['sort']['field'] = 'INVOICE_SORT_DATE'
 body['query']['sort']['order'] = 'DESC'
 body['limit'] = 164
 body['cursor'] = 'cursor0'

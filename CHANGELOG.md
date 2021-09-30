@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 14.1.1.20210915 (2021-09-15)
+## SDK updates
+* Upgraded josnpickle dependency
+
 ## Version 14.1.0.20210915 (2021-09-15)
 ## API updates
 

@@ -34,3 +34,22 @@ jobs:
       - name: Test with nose
         run: |
           nosetests
+
+  labeler:
+    needs: build
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: automerge-labeler
+        uses: fuxingloh/multi-labeler@v1
+
+  automerge:
+    needs: labeler
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: automerge
+        uses: "pascalgn/automerge-action@v0.14.2"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "automerge,automerge-branch,automerge-author"

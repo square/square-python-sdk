@@ -87,7 +87,6 @@ body['device_code']['id'] = 'id0'
 body['device_code']['name'] = 'Counter 1'
 body['device_code']['code'] = 'code8'
 body['device_code']['device_id'] = 'device_id6'
-body['device_code']['product_type'] = 'TERMINAL_API'
 body['device_code']['location_id'] = 'B5E4484SHHNYH'
 
 result = devices_api.create_device_code(body)
