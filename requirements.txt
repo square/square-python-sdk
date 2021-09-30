@@ -1,5 +1,5 @@
-requests~=2.24
 jsonpickle~=1.4, >= 1.4.1
+requests~=2.24
 cachecontrol~=0.12.6
 python-dateutil~=2.8.1
 deprecation~=2.1
