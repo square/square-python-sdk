@@ -8,9 +8,9 @@ client = Client(
 
 customers_api = client.customers
 
-result = customers_api.list()
+result = customers_api.list_customers()
 
-if result.success():
+if result.is_success():
     print(result.body)
-elif result.error():
+elif result.is_error():
     print(result.errors)
