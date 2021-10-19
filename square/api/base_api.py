@@ -65,7 +65,7 @@ class BaseApi(object):
             self.http_call_back.on_before_request(request)
 
         # Add global headers to request
-        request.headers = APIHelper.merge_dicts(self.global_headers(), request.headers)
+        request.headers = {**self.global_headers(), **request.headers}
         if self.config.additional_headers is not None:
             request.headers.update(self.config.additional_headers)
 

@@ -24,25 +24,6 @@ class APIHelper(object):
     """
 
     @staticmethod
-    def merge_dicts(dict1, dict2):
-        """Merges two dictionaries into one as a shallow copy.
-
-        Args:
-            dict1 (dict): The first dictionary.
-            dict2 (dict): The second dictionary.
-
-        Returns:
-            dict: A dictionary containing key value pairs
-            from both the argument dictionaries. In the case
-            of a key conflict, values from dict2 are used
-            and those from dict1 are lost.
-
-        """
-        temp = dict1.copy()
-        temp.update(dict2)
-        return temp
-
-    @staticmethod
     def json_serialize(obj):
         """JSON Serialization of a given object.
 
