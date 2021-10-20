@@ -51,7 +51,7 @@ body['idempotency_key'] = '8193148c-9586-11e6-99f9-28cfe92138cf'
 body['location_id'] = 'S8GWD5R9QB376'
 body['plan_id'] = '6JHXF3B2CW3YKHDV4XEM674H'
 body['customer_id'] = 'CHFGVKYY8RSV93M5KCYTG4PN0G'
-body['start_date'] = '2020-08-01'
+body['start_date'] = '2021-10-20'
 body['canceled_date'] = 'canceled_date0'
 body['tax_percentage'] = '5'
 body['price_override_money'] = {}
@@ -59,6 +59,8 @@ body['price_override_money']['amount'] = 100
 body['price_override_money']['currency'] = 'USD'
 body['card_id'] = 'ccof:qy5x8hHGYsgLrp4Q4GB'
 body['timezone'] = 'America/Los_Angeles'
+body['source'] = {}
+body['source']['name'] = 'My App'
 
 result = subscriptions_api.create_subscription(body)
 
@@ -113,6 +115,7 @@ body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['customer_ids'] = ['CHFGVKYY8RSV93M5KCYTG4PN0G']
 body['query']['filter']['location_ids'] = ['S8GWD5R9QB376']
+body['query']['filter']['source_names'] = ['My App']
 
 result = subscriptions_api.search_subscriptions(body)
 

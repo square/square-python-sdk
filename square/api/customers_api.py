@@ -38,7 +38,7 @@ class CustomersApi(BaseApi):
                 pis/pagination).
             limit (int, optional): The maximum number of results to return in
                 a single page. This limit is advisory. The response might
-                contain more or fewer results.  The limit is ignored if it is
+                contain more or fewer results. The limit is ignored if it is
                 less than 1 or greater than 100. The default value is 100. 
                 For more information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a

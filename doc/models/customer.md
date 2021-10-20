@@ -30,6 +30,7 @@ Represents a Square customer profile in the Customer Directory of a Square selle
 | `group_ids` | `List of string` | Optional | The IDs of customer groups the customer belongs to. |
 | `segment_ids` | `List of string` | Optional | The IDs of segments the customer belongs to. |
 | `version` | `long\|int` | Optional | The Square-assigned version number of the customer profile. The version number is incremented each time an update is committed to the customer profile, except for changes to customer segment membership and cards on file. |
+| `tax_ids` | [`Customer Tax Ids`](/doc/models/customer-tax-ids.md) | Optional | Represents the tax ID associated with a customer profile. The corresponding `tax_ids` field is available only for customers of sellers in France, Ireland, or the United Kingdom.<br>For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-it-does#customer-tax-ids). |
 
 ## Example (as JSON)
 
