@@ -386,7 +386,8 @@ class PaymentsApi(BaseApi):
         return _result
 
     def complete_payment(self,
-                         payment_id):
+                         payment_id,
+                         body):
         """Does a POST request to /v2/payments/{payment_id}/complete.
 
         Completes (captures) a payment.
@@ -398,6 +399,9 @@ class PaymentsApi(BaseApi):
         Args:
             payment_id (string): The unique ID identifying the payment to be
                 completed.
+            body (CompletePaymentRequest): An object containing the fields to
+                POST for the request.  See the corresponding object definition
+                for field details.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -422,11 +426,12 @@ class PaymentsApi(BaseApi):
 
         # Prepare headers
         _headers = {
-            'accept': 'application/json'
+            'accept': 'application/json',
+            'content-type': 'application/json; charset=utf-8'
         }
 
         # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers)
+        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
         OAuth2.apply(self.config, _request)
         _response = self.execute_request(_request)
 

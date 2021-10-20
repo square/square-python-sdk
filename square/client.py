@@ -41,11 +41,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '14.1.1.20210915'
+        return '15.0.0.20211020'
 
     @staticmethod
     def square_version():
-        return '2021-09-15'
+        return '2021-10-20'
 
     @lazy_property
     def mobile_authorization(self):
@@ -183,7 +183,7 @@ class Client(object):
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com',
-                 square_version='2021-09-15', access_token='TODO: Replace',
+                 square_version='2021-10-20', access_token='TODO: Replace',
                  additional_headers={}, config=None):
         if config is None:
             self.config = Configuration(timeout=timeout,

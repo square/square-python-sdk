@@ -100,15 +100,17 @@ def refund_payment(self,
 
 ```python
 body = {}
-body['idempotency_key'] = 'a7e36d40-d24b-11e8-b568-0800200c9a66'
+body['idempotency_key'] = '9b7f2dcf-49da-4411-b23e-a2d6af21333a'
 body['amount_money'] = {}
-body['amount_money']['amount'] = 100
+body['amount_money']['amount'] = 1000
 body['amount_money']['currency'] = 'USD'
 body['app_fee_money'] = {}
-body['app_fee_money']['amount'] = 114
-body['app_fee_money']['currency'] = 'GEL'
-body['payment_id'] = 'UNOE3kv2BZwqHlJ830RCt5YCuaB'
-body['reason'] = 'reason8'
+body['app_fee_money']['amount'] = 10
+body['app_fee_money']['currency'] = 'USD'
+body['payment_id'] = 'R2B3Z8WMVt3EAmzYWLZvz7Y69EbZY'
+body['reason'] = 'Example'
+body['payment_version_token'] = 'payment_version_token6'
+body['team_member_id'] = 'team_member_id4'
 
 result = refunds_api.refund_payment(body)
 

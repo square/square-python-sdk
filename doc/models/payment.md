@@ -35,7 +35,8 @@ Represents a payment processed by the Square API.
 | `order_id` | `string` | Optional | The ID of the order associated with the payment.<br>**Constraints**: *Maximum Length*: `192` |
 | `reference_id` | `string` | Optional | An optional ID that associates the payment with an entity in<br>another system.<br>**Constraints**: *Maximum Length*: `40` |
 | `customer_id` | `string` | Optional | The [Customer](/doc/models/customer.md) ID of the customer associated with the payment.<br>**Constraints**: *Maximum Length*: `191` |
-| `employee_id` | `string` | Optional | An optional ID of the employee associated with taking the payment.<br>**Constraints**: *Maximum Length*: `192` |
+| `employee_id` | `string` | Optional | __Deprecated__: Use `Payment.team_member_id` instead.<br><br>An optional ID of the employee associated with taking the payment.<br>**Constraints**: *Maximum Length*: `192` |
+| `team_member_id` | `string` | Optional | An optional ID of the [TeamMember](/doc/models/team-member.md) associated with taking the payment.<br>**Constraints**: *Maximum Length*: `192` |
 | `refund_ids` | `List of string` | Optional | A list of `refund_id`s identifying refunds for the payment. |
 | `risk_evaluation` | [`Risk Evaluation`](/doc/models/risk-evaluation.md) | Optional | Represents fraud risk information for the associated payment.<br><br>When you take a payment through Square's Payments API (using the `CreatePayment`<br>endpoint), Square evaluates it and assigns a risk level to the payment. Sellers<br>can use this information to determine the course of action (for example,<br>provide the goods/services or refund the payment). |
 | `buyer_email_address` | `string` | Optional | The buyer's email address.<br>**Constraints**: *Maximum Length*: `255` |
@@ -46,6 +47,8 @@ Represents a payment processed by the Square API.
 | `capabilities` | `List of string` | Optional | Actions that can be performed on this payment:<br><br>- `EDIT_AMOUNT_UP` - The payment amount can be edited up.<br>- `EDIT_AMOUNT_DOWN` - The payment amount can be edited down.<br>- `EDIT_TIP_AMOUNT_UP` - The tip amount can be edited up.<br>- `EDIT_TIP_AMOUNT_DOWN` - The tip amount can be edited down. |
 | `receipt_number` | `string` | Optional | The payment's receipt number.<br>The field is missing if a payment is canceled.<br>**Constraints**: *Maximum Length*: `4` |
 | `receipt_url` | `string` | Optional | The URL for the payment's receipt.<br>The field is only populated for COMPLETED payments.<br>**Constraints**: *Maximum Length*: `255` |
+| `device_details` | [`Device Details`](/doc/models/device-details.md) | Optional | Details about the device that took the payment. |
+| `application_details` | [`Application Details`](/doc/models/application-details.md) | Optional | Details about the application that took the payment. |
 | `version_token` | `string` | Optional | Used for optimistic concurrency. This opaque token identifies a specific version of the<br>`Payment` object. |
 
 ## Example (as JSON)
