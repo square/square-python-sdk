@@ -21,7 +21,7 @@ class BaseApi(object):
 
     def global_headers(self):
         return {
-            'user-agent': 'Square-Python-SDK/15.0.0.20211020',
+            'user-agent': 'Square-Python-SDK/16.0.0.20211117',
             'Square-Version': self.config.square_version
         }
 

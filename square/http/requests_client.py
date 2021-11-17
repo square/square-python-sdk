@@ -26,13 +26,41 @@ class RequestsClient(HttpClient):
                  backoff_factor=None,
                  retry_statuses=None,
                  retry_methods=None,
-                 verify=True):
+                 verify=True,
+                 http_client_instance=None,
+                 override_http_client_configuration=False):
         """The constructor.
 
         Args:
             timeout (float): The default global timeout(seconds).
 
         """
+        if http_client_instance == None:
+            self.create_default_http_cient(timeout, cache, max_retries,
+                                           backoff_factor, retry_statuses,
+                                           retry_methods, verify)
+        else:
+          if override_http_client_configuration == True:
+            http_client_instance.timeout = timeout
+            http_client_instance.session.verify = verify
+            adapters = http_client_instance.session.adapters
+            for adapter in adapters.values():
+                adapter.max_retries.total = max_retries
+                adapter.max_retries.backoff_factor = backoff_factor
+                adapter.max_retries.status_forcelist = retry_statuses
+                adapter.max_retries.allowed_methods = retry_methods        
+
+          self.timeout = http_client_instance.timeout
+          self.session = http_client_instance.session 
+
+    def create_default_http_cient(self,
+                                  timeout=60,
+                                  cache=False,
+                                  max_retries=None,
+                                  backoff_factor=None,
+                                  retry_statuses=None,
+                                  retry_methods=None,
+                                  verify=True):
         self.timeout = timeout
         self.session = session()
 

@@ -17,7 +17,7 @@ class SubscriptionsApi(BaseApi):
                             body):
         """Does a POST request to /v2/subscriptions.
 
-        Creates a subscription for a customer to a subscription plan.
+        Creates a subscription to a subscription plan by a customer.
         If you provide a card on file in the request, Square charges the card
         for
         the subscription. Otherwise, Square bills an invoice to the customer's
@@ -53,7 +53,7 @@ class SubscriptionsApi(BaseApi):
         # Prepare headers
         _headers = {
             'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request
@@ -117,7 +117,7 @@ class SubscriptionsApi(BaseApi):
         # Prepare headers
         _headers = {
             'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request
@@ -134,13 +134,18 @@ class SubscriptionsApi(BaseApi):
         return _result
 
     def retrieve_subscription(self,
-                              subscription_id):
+                              subscription_id,
+                              include=None):
         """Does a GET request to /v2/subscriptions/{subscription_id}.
 
         Retrieves a subscription.
 
         Args:
             subscription_id (string): The ID of the subscription to retrieve.
+            include (string, optional): A query parameter to specify related
+                information to be included in the response.   The supported
+                query parameter values are:   - `actions`: to include
+                scheduled actions on the targeted subscription.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -161,6 +166,13 @@ class SubscriptionsApi(BaseApi):
         })
         _query_builder = self.config.get_base_uri()
         _query_builder += _url_path
+        _query_parameters = {
+            'include': include
+        }
+        _query_builder = APIHelper.append_url_with_query_parameters(
+            _query_builder,
+            _query_parameters
+        )
         _query_url = APIHelper.clean_url(_query_builder)
 
         # Prepare headers
@@ -190,7 +202,7 @@ class SubscriptionsApi(BaseApi):
         `subscription` field values.
 
         Args:
-            subscription_id (string): The ID for the subscription to update.
+            subscription_id (string): The ID of the subscription to update.
             body (UpdateSubscriptionRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.
@@ -219,7 +231,7 @@ class SubscriptionsApi(BaseApi):
         # Prepare headers
         _headers = {
             'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request
@@ -235,13 +247,67 @@ class SubscriptionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    def delete_subscription_action(self,
+                                   subscription_id,
+                                   action_id):
+        """Does a DELETE request to /v2/subscriptions/{subscription_id}/actions/{action_id}.
+
+        Deletes a scheduled action for a subscription.
+
+        Args:
+            subscription_id (string): The ID of the subscription the targeted
+                action is to act upon.
+            action_id (string): The ID of the targeted action to be deleted.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/subscriptions/{subscription_id}/actions/{action_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'subscription_id': {'value': subscription_id, 'encode': True},
+            'action_id': {'value': action_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.delete(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
     def cancel_subscription(self,
                             subscription_id):
         """Does a POST request to /v2/subscriptions/{subscription_id}/cancel.
 
-        Sets the `canceled_date` field to the end of the active billing
-        period.
-        After this date, the status changes from ACTIVE to CANCELED.
+        Schedules a `CANCEL` action to cancel an active subscription 
+        by setting the `canceled_date` field to the end of the active billing
+        period 
+        and changing the subscription status from ACTIVE to CANCELED after
+        this date.
 
         Args:
             subscription_id (string): The ID of the subscription to cancel.
@@ -299,15 +365,16 @@ class SubscriptionsApi(BaseApi):
         Args:
             subscription_id (string): The ID of the subscription to retrieve
                 the events for.
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for the original query.  For more
+            cursor (string, optional): When the total number of resulting
+                subscription events exceeds the limit of a paged response, 
+                specify the cursor returned from a preceding response here to
+                fetch the next set of results. If the cursor is unset, the
+                response contains the last page of the results.  For more
                 information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
             limit (int, optional): The upper limit on the number of
-                subscription events to return in the response.  Default:
-                `200`
+                subscription events to return in a paged response.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -356,14 +423,72 @@ class SubscriptionsApi(BaseApi):
         _result = ApiResponse(_response, body=decoded, errors=_errors)
         return _result
 
+    def pause_subscription(self,
+                           subscription_id,
+                           body):
+        """Does a POST request to /v2/subscriptions/{subscription_id}/pause.
+
+        Schedules a `PAUSE` action to pause an active subscription.
+
+        Args:
+            subscription_id (string): The ID of the subscription to pause.
+            body (PauseSubscriptionRequest): An object containing the fields
+                to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/subscriptions/{subscription_id}/pause'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'subscription_id': {'value': subscription_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
     def resume_subscription(self,
-                            subscription_id):
+                            subscription_id,
+                            body):
         """Does a POST request to /v2/subscriptions/{subscription_id}/resume.
 
-        Resumes a deactivated subscription.
+        Schedules a `RESUME` action to resume a paused or a deactivated
+        subscription.
 
         Args:
             subscription_id (string): The ID of the subscription to resume.
+            body (ResumeSubscriptionRequest): An object containing the fields
+                to POST for the request.  See the corresponding object
+                definition for field details.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -388,11 +513,67 @@ class SubscriptionsApi(BaseApi):
 
         # Prepare headers
         _headers = {
-            'accept': 'application/json'
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers)
+        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def swap_plan(self,
+                  subscription_id,
+                  body):
+        """Does a POST request to /v2/subscriptions/{subscription_id}/swap-plan.
+
+        Schedules a `SWAP_PLAN` action to swap a subscription plan in an
+        existing subscription.
+
+        Args:
+            subscription_id (string): The ID of the subscription to swap the
+                subscription plan for.
+            body (SwapPlanRequest): An object containing the fields to POST
+                for the request.  See the corresponding object definition for
+                field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/subscriptions/{subscription_id}/swap-plan'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'subscription_id': {'value': subscription_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
         OAuth2.apply(self.config, _request)
         _response = self.execute_request(_request)
 

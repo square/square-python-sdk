@@ -13,6 +13,84 @@ class BookingsApi(BaseApi):
     def __init__(self, config, call_back=None):
         super(BookingsApi, self).__init__(config, call_back)
 
+    def list_bookings(self,
+                      limit=None,
+                      cursor=None,
+                      team_member_id=None,
+                      location_id=None,
+                      start_at_min=None,
+                      start_at_max=None):
+        """Does a GET request to /v2/bookings.
+
+        Retrieve a collection of bookings.
+
+        Args:
+            limit (int, optional): The maximum number of results per page to
+                return in a paged response.
+            cursor (string, optional): The pagination cursor from the
+                preceding response to return the next page of the results. Do
+                not set this when retrieving the first page of the results.
+            team_member_id (string, optional): The team member for whom to
+                retrieve bookings. If this is not set, bookings of all members
+                are retrieved.
+            location_id (string, optional): The location for which to retrieve
+                bookings. If this is not set, all locations' bookings are
+                retrieved.
+            start_at_min (string, optional): The RFC 3339 timestamp specifying
+                the earliest of the start time. If this is not set, the
+                current time is used.
+            start_at_max (string, optional): The RFC 3339 timestamp specifying
+                the latest of the start time. If this is not set, the time of
+                31 days after `start_at_min` is used.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/bookings'
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_parameters = {
+            'limit': limit,
+            'cursor': cursor,
+            'team_member_id': team_member_id,
+            'location_id': location_id,
+            'start_at_min': start_at_min,
+            'start_at_max': start_at_max
+        }
+        _query_builder = APIHelper.append_url_with_query_parameters(
+            _query_builder,
+            _query_parameters
+        )
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.get(_query_url, headers=_headers)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
     def create_booking(self,
                        body):
         """Does a POST request to /v2/bookings.
@@ -45,7 +123,7 @@ class BookingsApi(BaseApi):
         # Prepare headers
         _headers = {
             'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request
@@ -93,7 +171,7 @@ class BookingsApi(BaseApi):
         # Prepare headers
         _headers = {
             'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request
@@ -351,7 +429,7 @@ class BookingsApi(BaseApi):
         # Prepare headers
         _headers = {
             'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request
@@ -405,7 +483,7 @@ class BookingsApi(BaseApi):
         # Prepare headers
         _headers = {
             'accept': 'application/json',
-            'content-type': 'application/json; charset=utf-8'
+            'Content-Type': 'application/json'
         }
 
         # Prepare and execute request

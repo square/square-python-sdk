@@ -41,11 +41,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '15.0.0.20211020'
+        return '16.0.0.20211117'
 
     @staticmethod
     def square_version():
-        return '2021-10-20'
+        return '2021-11-17'
 
     @lazy_property
     def mobile_authorization(self):
@@ -179,22 +179,27 @@ class Client(object):
     def terminal(self):
         return TerminalApi(self.config)
 
-    def __init__(self, timeout=60, max_retries=0, backoff_factor=2,
+    def __init__(self, http_client_instance=None,
+                 override_http_client_configuration=False, timeout=60,
+                 max_retries=0, backoff_factor=2,
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com',
-                 square_version='2021-10-20', access_token='TODO: Replace',
+                 square_version='2021-11-17', access_token='',
                  additional_headers={}, config=None):
         if config is None:
-            self.config = Configuration(timeout=timeout,
-                                        max_retries=max_retries,
-                                        backoff_factor=backoff_factor,
-                                        retry_statuses=retry_statuses,
-                                        retry_methods=retry_methods,
-                                        environment=environment,
-                                        custom_url=custom_url,
-                                        square_version=square_version,
-                                        access_token=access_token,
-                                        additional_headers=additional_headers)
+            self.config = Configuration(
+                                         http_client_instance=http_client_instance,
+                                         override_http_client_configuration=override_http_client_configuration,
+                                         timeout=timeout,
+                                         max_retries=max_retries,
+                                         backoff_factor=backoff_factor,
+                                         retry_statuses=retry_statuses,
+                                         retry_methods=retry_methods,
+                                         environment=environment,
+                                         custom_url=custom_url,
+                                         square_version=square_version,
+                                         access_token=access_token,
+                                         additional_headers=additional_headers)
         else:
             self.config = config

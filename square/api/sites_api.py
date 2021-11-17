@@ -16,7 +16,8 @@ class SitesApi(BaseApi):
     def list_sites(self):
         """Does a GET request to /v2/sites.
 
-        Lists the Square Online sites that belong to a seller.
+        Lists the Square Online sites that belong to a seller. Sites are
+        listed in descending order by the `created_at` date.
         __Note:__ Square Online APIs are publicly available as part of an
         early access program. For more information, see [Early access program
         for Square Online

@@ -14,6 +14,14 @@ class Configuration(object):
         return self._http_client
 
     @property
+    def http_client_instance(self):
+        return self._http_client_instance
+
+    @property
+    def override_http_client_configuration(self):
+        return self._override_http_client_configuration
+
+    @property
     def timeout(self):
         return self._timeout
 
@@ -54,12 +62,20 @@ class Configuration(object):
         return deepcopy(self._additional_headers)
 
     def __init__(
-        self, timeout=60, max_retries=0, backoff_factor=2,
+        self, http_client_instance=None,
+        override_http_client_configuration=False, timeout=60, max_retries=0,
+        backoff_factor=2,
         retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
         retry_methods=['GET', 'PUT'], environment='production',
-        custom_url='https://connect.squareup.com', square_version='2021-10-20',
-        access_token='TODO: Replace', additional_headers={}
+        custom_url='https://connect.squareup.com', square_version='2021-11-17',
+        access_token='', additional_headers={}
     ):
+        # The Http Client passed from the sdk user for making requests
+        self._http_client_instance = http_client_instance
+
+        # The value which determines to override properties of the passed Http Client from the sdk user
+        self._override_http_client_configuration = override_http_client_configuration
+
         # The value to use for connection timeout
         self._timeout = timeout
 
@@ -95,10 +111,14 @@ class Configuration(object):
         # The Http Client to use for making requests.
         self._http_client = self.create_http_client()
 
-    def clone_with(self, timeout=None, max_retries=None, backoff_factor=None,
-                   retry_statuses=None, retry_methods=None, environment=None,
-                   custom_url=None, square_version=None, access_token=None,
+    def clone_with(self, http_client_instance=None,
+                   override_http_client_configuration=None, timeout=None,
+                   max_retries=None, backoff_factor=None, retry_statuses=None,
+                   retry_methods=None, environment=None, custom_url=None,
+                   square_version=None, access_token=None,
                    additional_headers=None):
+        http_client_instance = http_client_instance or self.http_client_instance
+        override_http_client_configuration = override_http_client_configuration or self.override_http_client_configuration
         timeout = timeout or self.timeout
         max_retries = max_retries or self.max_retries
         backoff_factor = backoff_factor or self.backoff_factor
@@ -110,21 +130,24 @@ class Configuration(object):
         access_token = access_token or self.access_token
         additional_headers = additional_headers or self.additional_headers
 
-        return Configuration(timeout=timeout, max_retries=max_retries,
-                             backoff_factor=backoff_factor,
-                             retry_statuses=retry_statuses,
-                             retry_methods=retry_methods,
-                             environment=environment, custom_url=custom_url,
-                             square_version=square_version,
-                             access_token=access_token,
-                             additional_headers=additional_headers)
+        return Configuration(
+            http_client_instance=http_client_instance,
+            override_http_client_configuration=override_http_client_configuration,
+            timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, environment=environment,
+            custom_url=custom_url, square_version=square_version,
+            access_token=access_token, additional_headers=additional_headers
+        )
 
     def create_http_client(self):
-        return RequestsClient(timeout=self.timeout,
-                              max_retries=self.max_retries,
-                              backoff_factor=self.backoff_factor,
-                              retry_statuses=self.retry_statuses,
-                              retry_methods=self.retry_methods)
+        return RequestsClient(
+            timeout=self.timeout, max_retries=self.max_retries,
+            backoff_factor=self.backoff_factor, retry_statuses=self.retry_statuses,
+            retry_methods=self.retry_methods,
+            http_client_instance=self.http_client_instance,
+            override_http_client_configuration=self.override_http_client_configuration
+        )
 
     # All the environments the SDK can run in
     environments = {

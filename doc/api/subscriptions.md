@@ -14,14 +14,17 @@ subscriptions_api = client.subscriptions
 * [Search Subscriptions](/doc/api/subscriptions.md#search-subscriptions)
 * [Retrieve Subscription](/doc/api/subscriptions.md#retrieve-subscription)
 * [Update Subscription](/doc/api/subscriptions.md#update-subscription)
+* [Delete Subscription Action](/doc/api/subscriptions.md#delete-subscription-action)
 * [Cancel Subscription](/doc/api/subscriptions.md#cancel-subscription)
 * [List Subscription Events](/doc/api/subscriptions.md#list-subscription-events)
+* [Pause Subscription](/doc/api/subscriptions.md#pause-subscription)
 * [Resume Subscription](/doc/api/subscriptions.md#resume-subscription)
+* [Swap Plan](/doc/api/subscriptions.md#swap-plan)
 
 
 # Create Subscription
 
-Creates a subscription for a customer to a subscription plan.
+Creates a subscription to a subscription plan by a customer.
 
 If you provide a card on file in the request, Square charges the card for
 the subscription. Otherwise, Square bills an invoice to the customer's email
@@ -74,6 +77,7 @@ elif result.is_error():
 # Search Subscriptions
 
 Searches for subscriptions.
+
 Results are ordered chronologically by subscription creation date. If
 the request specifies more than one location ID,
 the endpoint orders the result
@@ -116,6 +120,7 @@ body['query']['filter'] = {}
 body['query']['filter']['customer_ids'] = ['CHFGVKYY8RSV93M5KCYTG4PN0G']
 body['query']['filter']['location_ids'] = ['S8GWD5R9QB376']
 body['query']['filter']['source_names'] = ['My App']
+body['include'] = ['include4', 'include5', 'include6']
 
 result = subscriptions_api.search_subscriptions(body)
 
@@ -132,7 +137,8 @@ Retrieves a subscription.
 
 ```python
 def retrieve_subscription(self,
-                         subscription_id)
+                         subscription_id,
+                         include=None)
 ```
 
 ## Parameters
@@ -140,6 +146,7 @@ def retrieve_subscription(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to retrieve. |
+| `include` | `string` | Query, Optional | A query parameter to specify related information to be included in the response.<br><br>The supported query parameter values are:<br><br>- `actions`: to include scheduled actions on the targeted subscription. |
 
 ## Response Type
 
@@ -149,8 +156,9 @@ def retrieve_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
+include = 'include2'
 
-result = subscriptions_api.retrieve_subscription(subscription_id)
+result = subscriptions_api.retrieve_subscription(subscription_id, include)
 
 if result.is_success():
     print(result.body)
@@ -174,7 +182,7 @@ def update_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID for the subscription to update. |
+| `subscription_id` | `string` | Template, Required | The ID of the subscription to update. |
 | `body` | [`Update Subscription Request`](/doc/models/update-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -207,10 +215,47 @@ elif result.is_error():
 ```
 
 
+# Delete Subscription Action
+
+Deletes a scheduled action for a subscription.
+
+```python
+def delete_subscription_action(self,
+                              subscription_id,
+                              action_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscription_id` | `string` | Template, Required | The ID of the subscription the targeted action is to act upon. |
+| `action_id` | `string` | Template, Required | The ID of the targeted action to be deleted. |
+
+## Response Type
+
+[`Delete Subscription Action Response`](/doc/models/delete-subscription-action-response.md)
+
+## Example Usage
+
+```python
+subscription_id = 'subscription_id0'
+action_id = 'action_id6'
+
+result = subscriptions_api.delete_subscription_action(subscription_id, action_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
 # Cancel Subscription
 
-Sets the `canceled_date` field to the end of the active billing period.
-After this date, the status changes from ACTIVE to CANCELED.
+Schedules a `CANCEL` action to cancel an active subscription
+by setting the `canceled_date` field to the end of the active billing period
+and changing the subscription status from ACTIVE to CANCELED after this date.
 
 ```python
 def cancel_subscription(self,
@@ -258,8 +303,8 @@ def list_subscription_events(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to retrieve the events for. |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `limit` | `int` | Query, Optional | The upper limit on the number of subscription events to return<br>in the response.<br><br>Default: `200` |
+| `cursor` | `string` | Query, Optional | When the total number of resulting subscription events exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `limit` | `int` | Query, Optional | The upper limit on the number of subscription events to return<br>in a paged response. |
 
 ## Response Type
 
@@ -281,13 +326,55 @@ elif result.is_error():
 ```
 
 
+# Pause Subscription
+
+Schedules a `PAUSE` action to pause an active subscription.
+
+```python
+def pause_subscription(self,
+                      subscription_id,
+                      body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscription_id` | `string` | Template, Required | The ID of the subscription to pause. |
+| `body` | [`Pause Subscription Request`](/doc/models/pause-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`Pause Subscription Response`](/doc/models/pause-subscription-response.md)
+
+## Example Usage
+
+```python
+subscription_id = 'subscription_id0'
+body = {}
+body['pause_effective_date'] = 'pause_effective_date6'
+body['pause_cycle_duration'] = 94
+body['resume_effective_date'] = 'resume_effective_date4'
+body['resume_change_timing'] = 'IMMEDIATE'
+body['pause_reason'] = 'pause_reason2'
+
+result = subscriptions_api.pause_subscription(subscription_id, body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
 # Resume Subscription
 
-Resumes a deactivated subscription.
+Schedules a `RESUME` action to resume a paused or a deactivated subscription.
 
 ```python
 def resume_subscription(self,
-                       subscription_id)
+                       subscription_id,
+                       body)
 ```
 
 ## Parameters
@@ -295,6 +382,7 @@ def resume_subscription(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to resume. |
+| `body` | [`Resume Subscription Request`](/doc/models/resume-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
@@ -304,8 +392,48 @@ def resume_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
+body = {}
+body['resume_effective_date'] = 'resume_effective_date4'
+body['resume_change_timing'] = 'IMMEDIATE'
 
-result = subscriptions_api.resume_subscription(subscription_id)
+result = subscriptions_api.resume_subscription(subscription_id, body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Swap Plan
+
+Schedules a `SWAP_PLAN` action to swap a subscription plan in an existing subscription.
+
+```python
+def swap_plan(self,
+             subscription_id,
+             body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscription_id` | `string` | Template, Required | The ID of the subscription to swap the subscription plan for. |
+| `body` | [`Swap Plan Request`](/doc/models/swap-plan-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`Swap Plan Response`](/doc/models/swap-plan-response.md)
+
+## Example Usage
+
+```python
+subscription_id = 'subscription_id0'
+body = {}
+body['new_plan_id'] = 'new_plan_id2'
+
+result = subscriptions_api.swap_plan(subscription_id, body)
 
 if result.is_success():
     print(result.body)

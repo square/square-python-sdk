@@ -19,7 +19,7 @@ at a given location to a requesting customer in one or more appointment segments
 | `updated_at` | `string` | Optional | The timestamp specifying the most recent update time of this booking, in RFC 3339 format. |
 | `start_at` | `string` | Optional | The timestamp specifying the starting time of this booking, in RFC 3339 format. |
 | `location_id` | `string` | Optional | The ID of the [Location](/doc/models/location.md) object representing the location where the booked service is provided. |
-| `customer_id` | `string` | Optional | The ID of the [Customer](/doc/models/customer.md) object representing the customer attending this booking |
+| `customer_id` | `string` | Optional | The ID of the [Customer](/doc/models/customer.md) object representing the customer receiving the booked service. |
 | `customer_note` | `string` | Optional | The free-text field for the customer to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a relevant [CatalogObject](/doc/models/catalog-object.md) instance.<br>**Constraints**: *Maximum Length*: `4096` |
 | `seller_note` | `string` | Optional | The free-text field for the seller to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a specific [CatalogObject](/doc/models/catalog-object.md) instance.<br>This field should not be visible to customers.<br>**Constraints**: *Maximum Length*: `4096` |
 | `appointment_segments` | [`List of Appointment Segment`](/doc/models/appointment-segment.md) | Optional | A list of appointment segments for this booking. |
