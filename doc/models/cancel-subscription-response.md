@@ -1,8 +1,8 @@
 
 # Cancel Subscription Response
 
-Defines fields that are included in a
-[CancelSubscription](/doc/api/subscriptions.md#cancel-subscription) response.
+Defines output parameters in a response from the
+[CancelSubscription](/doc/api/subscriptions.md#cancel-subscription) endpoint.
 
 ## Structure
 
@@ -12,8 +12,9 @@ Defines fields that are included in a
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
-| `subscription` | [`Subscription`](/doc/models/subscription.md) | Optional | Represents a customer subscription to a subscription plan.<br>For an overview of the `Subscription` type, see<br>[Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview). |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Errors encountered during the request. |
+| `subscription` | [`Subscription`](/doc/models/subscription.md) | Optional | Represents a subscription to a subscription plan by a subscriber.<br><br>For an overview of the `Subscription` type, see<br>[Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview). |
+| `actions` | [`List of Subscription Action`](/doc/models/subscription-action.md) | Optional | A list of a single `CANCEL` action scheduled for the subscription. |
 
 ## Example (as JSON)
 

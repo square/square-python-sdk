@@ -1,8 +1,8 @@
 
 # List Gift Cards Response
 
-A response that contains one or more `GiftCard`. The response might contain a set of `Error`
-objects if the request resulted in errors.
+A response that contains a list of `GiftCard` objects. If the request resulted in errors,
+the response contains a set of `Error` objects.
 
 ## Structure
 
@@ -13,8 +13,8 @@ objects if the request resulted in errors.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `gift_cards` | [`List of Gift Card`](/doc/models/gift-card.md) | Optional | Gift cards retrieved. |
-| `cursor` | `string` | Optional | When a response is truncated, it includes a cursor that you can use in a<br>subsequent request to fetch the next set of gift cards. If empty, this is<br>the final response. |
+| `gift_cards` | [`List of Gift Card`](/doc/models/gift-card.md) | Optional | The requested gift cards or an empty object if none are found. |
+| `cursor` | `string` | Optional | When a response is truncated, it includes a cursor that you can use in a<br>subsequent request to retrieve the next set of gift cards. If a cursor is not present, this is<br>the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 
 ## Example (as JSON)
 

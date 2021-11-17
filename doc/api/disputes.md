@@ -48,7 +48,7 @@ def list_disputes(self,
 
 ```python
 cursor = 'cursor6'
-states = 'EVIDENCE_REQUIRED'
+states = 'INQUIRY_EVIDENCE_REQUIRED'
 location_id = 'location_id4'
 
 result = disputes_api.list_disputes(cursor, states, location_id)
