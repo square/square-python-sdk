@@ -2,7 +2,7 @@
 # Create Mobile Authorization Code Request
 
 Defines the body parameters that can be provided in a request to the
-__CreateMobileAuthorizationCode__ endpoint.
+`CreateMobileAuthorizationCode` endpoint.
 
 ## Structure
 
@@ -12,7 +12,7 @@ __CreateMobileAuthorizationCode__ endpoint.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Optional | The Square location ID the authorization code should be tied to.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `191` |
+| `location_id` | `string` | Optional | The Square location ID that the authorization code should be tied to.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `191` |
 
 ## Example (as JSON)
 

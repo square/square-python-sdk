@@ -61,14 +61,18 @@ class Configuration(object):
     def additional_headers(self):
         return deepcopy(self._additional_headers)
 
+    @property
+    def user_agent_detail(self):
+        return self._user_agent_detail
+
     def __init__(
         self, http_client_instance=None,
         override_http_client_configuration=False, timeout=60, max_retries=0,
         backoff_factor=2,
         retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
         retry_methods=['GET', 'PUT'], environment='production',
-        custom_url='https://connect.squareup.com', square_version='2021-11-17',
-        access_token='', additional_headers={}
+        custom_url='https://connect.squareup.com', square_version='2021-12-15',
+        access_token='', additional_headers={}, user_agent_detail=''
     ):
         # The Http Client passed from the sdk user for making requests
         self._http_client_instance = http_client_instance
@@ -116,7 +120,7 @@ class Configuration(object):
                    max_retries=None, backoff_factor=None, retry_statuses=None,
                    retry_methods=None, environment=None, custom_url=None,
                    square_version=None, access_token=None,
-                   additional_headers=None):
+                   additional_headers=None, user_agent_detail=None):
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration = override_http_client_configuration or self.override_http_client_configuration
         timeout = timeout or self.timeout
@@ -129,6 +133,7 @@ class Configuration(object):
         square_version = square_version or self.square_version
         access_token = access_token or self.access_token
         additional_headers = additional_headers or self.additional_headers
+        user_agent_detail = user_agent_detail or self.user_agent_detail
 
         return Configuration(
             http_client_instance=http_client_instance,
@@ -137,7 +142,8 @@ class Configuration(object):
             backoff_factor=backoff_factor, retry_statuses=retry_statuses,
             retry_methods=retry_methods, environment=environment,
             custom_url=custom_url, square_version=square_version,
-            access_token=access_token, additional_headers=additional_headers
+            access_token=access_token, additional_headers=additional_headers,
+            user_agent_detail=user_agent_detail
         )
 
     def create_http_client(self):

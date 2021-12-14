@@ -14,6 +14,7 @@ catalog_api = client.catalog
 * [Batch Retrieve Catalog Objects](/doc/api/catalog.md#batch-retrieve-catalog-objects)
 * [Batch Upsert Catalog Objects](/doc/api/catalog.md#batch-upsert-catalog-objects)
 * [Create Catalog Image](/doc/api/catalog.md#create-catalog-image)
+* [Update Catalog Image](/doc/api/catalog.md#update-catalog-image)
 * [Catalog Info](/doc/api/catalog.md#catalog-info)
 * [List Catalog](/doc/api/catalog.md#list-catalog)
 * [Upsert Catalog Object](/doc/api/catalog.md#upsert-catalog-object)
@@ -302,6 +303,7 @@ body['batches'][0]['objects'][2]['catalog_v1_ids'][2]['location_id'] = 'location
 body['batches'][0]['objects'][2]['present_at_all_locations'] = True
 body['batches'][0]['objects'][2]['category_data'] = {}
 body['batches'][0]['objects'][2]['category_data']['name'] = 'Beverages'
+body['batches'][0]['objects'][2]['category_data']['image_ids'] = ['image_ids1', 'image_ids2']
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][3]['type'] = 'TAX'
@@ -338,9 +340,9 @@ elif result.is_error():
 
 # Create Catalog Image
 
-Uploads an image file to be represented by a [CatalogImage](/doc/models/catalog-image.md) object linked to an existing
-[CatalogObject](/doc/models/catalog-object.md) instance. A call to this endpoint can upload an image, link an image to
-a catalog object, or do both.
+Uploads an image file to be represented by a [CatalogImage](/doc/models/catalog-image.md) object that can be linked to an existing
+[CatalogObject](/doc/models/catalog-object.md) instance. The resulting `CatalogImage` is unattached to any `CatalogObject` if the `object_id`
+is not specified.
 
 This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
 JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
@@ -385,9 +387,54 @@ request['image']['image_data'] = {}
 request['image']['image_data']['name'] = 'name0'
 request['image']['image_data']['url'] = 'url4'
 request['image']['image_data']['caption'] = 'A picture of a cup of coffee'
+request['image']['image_data']['photo_studio_order_id'] = 'photo_studio_order_id2'
+request['is_primary'] = False
 image_file = FileWrapper(open('dummy_file', 'rb'), 'optional-content-type')
 
 result = catalog_api.create_catalog_image(request, image_file)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Update Catalog Image
+
+Uploads a new image file to replace the existing one in the specified [CatalogImage](/doc/models/catalog-image.md) object.
+
+This `UpdateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
+JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
+
+```python
+def update_catalog_image(self,
+                        image_id,
+                        request=None,
+                        image_file=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `image_id` | `string` | Template, Required | The ID of the `CatalogImage` object to update the encapsulated image file. |
+| `request` | [`Update Catalog Image Request`](/doc/models/update-catalog-image-request.md) | Form, Optional | - |
+| `image_file` | `typing.BinaryIO` | Form, Optional | - |
+
+## Response Type
+
+[`Update Catalog Image Response`](/doc/models/update-catalog-image-response.md)
+
+## Example Usage
+
+```python
+image_id = 'image_id4'
+request = {}
+request['idempotency_key'] = '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86'
+image_file = FileWrapper(open('dummy_file', 'rb'), 'optional-content-type')
+
+result = catalog_api.update_catalog_image(image_id, request, image_file)
 
 if result.is_success():
     print(result.body)
@@ -423,11 +470,10 @@ elif result.is_error():
 
 # List Catalog
 
-Returns a list of [CatalogObject](/doc/models/catalog-object.md)s that includes
-all objects of a set of desired types (for example, all [CatalogItem](/doc/models/catalog-item.md)
-and [CatalogTax](/doc/models/catalog-tax.md) objects) in the catalog. The `types` parameter
-is specified as a comma-separated list of valid [CatalogObject](/doc/models/catalog-object.md) types:
-`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`.
+Returns a list of all [CatalogObject](/doc/models/catalog-object.md)s of the specified types in the catalog.
+
+The `types` parameter is specified as a comma-separated list of the [CatalogObjectType](/doc/models/catalog-object-type.md) values,
+for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
 
 __Important:__ ListCatalog does not return deleted catalog items. To retrieve
 deleted catalog items, use [SearchCatalogObjects](/doc/api/catalog.md#search-catalog-objects)
@@ -445,8 +491,8 @@ def list_catalog(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `types` | `string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](/doc/models/catalog-object-type.md) enum, including<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.<br><br>If this is unspecified, the operation returns objects of all the types at the version of the Square API used to make the request. |
-| `catalog_version` | `long\|int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical<br>versions of objects. The specified version value is matched against<br>the [CatalogObject](/doc/models/catalog-object.md)s' `version` attribute. |
+| `types` | `string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](/doc/models/catalog-object-type.md) enum, for example,<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.<br><br>If this is unspecified, the operation returns objects of all the top level types at the version<br>of the Square API used to make the request. Object types that are nested onto other object types<br>are not included in the defaults.<br><br>At the current API version the default object types are:<br>ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION,<br>SERVICE_CHARGE, PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,<br>SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS. |
+| `catalog_version` | `long\|int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical<br>versions of objects. The specified version value is matched against<br>the [CatalogObject](/doc/models/catalog-object.md)s' `version` attribute.  If not included, results will<br>be from the current version of the catalog. |
 
 ## Response Type
 
@@ -644,8 +690,8 @@ def retrieve_catalog_object(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `object_id` | `string` | Template, Required | The object ID of any type of catalog objects to be retrieved. |
-| `include_related_objects` | `bool` | Query, Optional | If `true`, the response will include additional objects that are related to the<br>requested object, as follows:<br><br>If the `object` field of the response contains a `CatalogItem`, its associated<br>`CatalogCategory`, `CatalogTax`, `CatalogImage` and `CatalogModifierList` objects will<br>be returned in the `related_objects` field of the response. If the `object` field of<br>the response contains a `CatalogItemVariation`, its parent `CatalogItem` will be returned<br>in the `related_objects` field of the response.<br><br>Default value: `false`<br>**Default**: `False` |
-| `catalog_version` | `long\|int` | Query, Optional | Requests objects as of a specific version of the catalog. This allows you to retrieve historical<br>versions of objects. The value to retrieve a specific version of an object can be found<br>in the version field of [CatalogObject](/doc/models/catalog-object.md)s. |
+| `include_related_objects` | `bool` | Query, Optional | If `true`, the response will include additional objects that are related to the<br>requested objects. Related objects are defined as any objects referenced by ID by the results in the `objects` field<br>of the response. These objects are put in the `related_objects` field. Setting this to `true` is<br>helpful when the objects are needed for immediate display to a user.<br>This process only goes one level deep. Objects referenced by the related objects will not be included. For example,<br><br>if the `objects` field of the response contains a CatalogItem, its associated<br>CatalogCategory objects, CatalogTax objects, CatalogImage objects and<br>CatalogModifierLists will be returned in the `related_objects` field of the<br>response. If the `objects` field of the response contains a CatalogItemVariation,<br>its parent CatalogItem will be returned in the `related_objects` field of<br>the response.<br><br>Default value: `false`<br>**Default**: `False` |
+| `catalog_version` | `long\|int` | Query, Optional | Requests objects as of a specific version of the catalog. This allows you to retrieve historical<br>versions of objects. The value to retrieve a specific version of an object can be found<br>in the version field of [CatalogObject](/doc/models/catalog-object.md)s. If not included, results will<br>be from the current version of the catalog. |
 
 ## Response Type
 

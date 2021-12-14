@@ -18,8 +18,8 @@ class MobileAuthorizationApi(BaseApi):
         """Does a POST request to /mobile/authorization-code.
 
         Generates code to authorize a mobile application to connect to a
-        Square card reader
-        Authorization codes are one-time-use and expire __60 minutes__ after
+        Square card reader.
+        Authorization codes are one-time-use codes and expire 60 minutes after
         being issued.
         __Important:__ The `Authorization` header you provide to this endpoint
         must have the following format:

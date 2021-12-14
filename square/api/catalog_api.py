@@ -200,10 +200,12 @@ class CatalogApi(BaseApi):
         """Does a POST request to /v2/catalog/images.
 
         Uploads an image file to be represented by a
-        [CatalogImage]($m/CatalogImage) object linked to an existing
-        [CatalogObject]($m/CatalogObject) instance. A call to this endpoint
-        can upload an image, link an image to
-        a catalog object, or do both.
+        [CatalogImage]($m/CatalogImage) object that can be linked to an
+        existing
+        [CatalogObject]($m/CatalogObject) instance. The resulting
+        `CatalogImage` is unattached to any `CatalogObject` if the
+        `object_id`
+        is not specified.
         This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data
         requests with a JSON part and an image file part in
         JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
@@ -252,6 +254,78 @@ class CatalogApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, files=_files)
+        OAuth2.apply(self.config, _request)
+        _response = self.execute_request(_request)
+
+        decoded = APIHelper.json_deserialize(_response.text)
+        if type(decoded) is dict:
+            _errors = decoded.get('errors')
+        else:
+            _errors = None
+        _result = ApiResponse(_response, body=decoded, errors=_errors)
+        return _result
+
+    def update_catalog_image(self,
+                             image_id,
+                             request=None,
+                             image_file=None):
+        """Does a PUT request to /v2/catalog/images/{image_id}.
+
+        Uploads a new image file to replace the existing one in the specified
+        [CatalogImage]($m/CatalogImage) object. 
+        This `UpdateCatalogImage` endpoint accepts HTTP multipart/form-data
+        requests with a JSON part and an image file part in
+        JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
+
+        Args:
+            image_id (string): The ID of the `CatalogImage` object to update
+                the encapsulated image file.
+            request (UpdateCatalogImageRequest, optional): TODO: type
+                description here.
+            image_file (typing.BinaryIO, optional): TODO: type description
+                here.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        # Prepare query URL
+        _url_path = '/v2/catalog/images/{image_id}'
+        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
+            'image_id': {'value': image_id, 'encode': True}
+        })
+        _query_builder = self.config.get_base_uri()
+        _query_builder += _url_path
+        _query_url = APIHelper.clean_url(_query_builder)
+
+        if isinstance(image_file, FileWrapper):
+            image_file_wrapper = image_file.file_stream
+            image_file_content_type = image_file.content_type
+        else:
+            image_file_wrapper = image_file
+            image_file_content_type = 'image/jpeg'
+
+        # Prepare files
+        _files = {
+            'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
+            'image_file': (image_file_wrapper.name, image_file_wrapper, image_file_content_type)
+        }
+
+        # Prepare headers
+        _headers = {
+            'accept': 'application/json'
+        }
+
+        # Prepare and execute request
+        _request = self.config.http_client.put(_query_url, headers=_headers, files=_files)
         OAuth2.apply(self.config, _request)
         _response = self.execute_request(_request)
 
@@ -312,15 +386,12 @@ class CatalogApi(BaseApi):
                      catalog_version=None):
         """Does a GET request to /v2/catalog/list.
 
-        Returns a list of [CatalogObject]($m/CatalogObject)s that includes
-        all objects of a set of desired types (for example, all
-        [CatalogItem]($m/CatalogItem)
-        and [CatalogTax]($m/CatalogTax) objects) in the catalog. The `types`
-        parameter
-        is specified as a comma-separated list of valid
-        [CatalogObject]($m/CatalogObject) types:
-        `ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`,
-        `DISCOUNT`, `TAX`, `IMAGE`.
+        Returns a list of all [CatalogObject]($m/CatalogObject)s of the
+        specified types in the catalog. 
+        The `types` parameter is specified as a comma-separated list of the
+        [CatalogObjectType]($m/CatalogObjectType) values, 
+        for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`,
+        `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
         __Important:__ ListCatalog does not return deleted catalog items. To
         retrieve
         deleted catalog items, use
@@ -336,16 +407,25 @@ class CatalogApi(BaseApi):
             types (string, optional): An optional case-insensitive,
                 comma-separated list of object types to retrieve.  The valid
                 values are defined in the
-                [CatalogObjectType]($m/CatalogObjectType) enum, including
+                [CatalogObjectType]($m/CatalogObjectType) enum, for example,
                 `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
-                `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.  If this is
-                unspecified, the operation returns objects of all the types at
-                the version of the Square API used to make the request.
+                `MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.  If this is
+                unspecified, the operation returns objects of all the top
+                level types at the version of the Square API used to make the
+                request. Object types that are nested onto other object types
+                are not included in the defaults.  At the current API version
+                the default object types are: ITEM, CATEGORY, TAX, DISCOUNT,
+                MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION, SERVICE_CHARGE,
+                PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
+                SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION,
+                QUICK_AMOUNT_SETTINGS.
             catalog_version (long|int, optional): The specific version of the
                 catalog objects to be included in the response.  This allows
                 you to retrieve historical versions of objects. The specified
                 version value is matched against the
-                [CatalogObject]($m/CatalogObject)s' `version` attribute.
+                [CatalogObject]($m/CatalogObject)s' `version` attribute.  If
+                not included, results will be from the current version of the
+                catalog.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -521,19 +601,26 @@ class CatalogApi(BaseApi):
                 to be retrieved.
             include_related_objects (bool, optional): If `true`, the response
                 will include additional objects that are related to the
-                requested object, as follows:  If the `object` field of the
-                response contains a `CatalogItem`, its associated
-                `CatalogCategory`, `CatalogTax`, `CatalogImage` and
-                `CatalogModifierList` objects will be returned in the
-                `related_objects` field of the response. If the `object` field
-                of the response contains a `CatalogItemVariation`, its parent
-                `CatalogItem` will be returned in the `related_objects` field
-                of the response.  Default value: `false`
+                requested objects. Related objects are defined as any objects
+                referenced by ID by the results in the `objects` field of the
+                response. These objects are put in the `related_objects`
+                field. Setting this to `true` is helpful when the objects are
+                needed for immediate display to a user. This process only goes
+                one level deep. Objects referenced by the related objects will
+                not be included. For example,  if the `objects` field of the
+                response contains a CatalogItem, its associated
+                CatalogCategory objects, CatalogTax objects, CatalogImage
+                objects and CatalogModifierLists will be returned in the
+                `related_objects` field of the response. If the `objects`
+                field of the response contains a CatalogItemVariation, its
+                parent CatalogItem will be returned in the `related_objects`
+                field of the response.  Default value: `false`
             catalog_version (long|int, optional): Requests objects as of a
                 specific version of the catalog. This allows you to retrieve
                 historical versions of objects. The value to retrieve a
                 specific version of an object can be found in the version
-                field of [CatalogObject]($m/CatalogObject)s.
+                field of [CatalogObject]($m/CatalogObject)s. If not included,
+                results will be from the current version of the catalog.
 
         Returns:
             ApiResponse: An object with the response value as well as other

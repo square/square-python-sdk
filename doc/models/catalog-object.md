@@ -30,7 +30,6 @@ For a more detailed discussion of the Catalog data model, please see the
 | `present_at_all_locations` | `bool` | Optional | If `true`, this object is present at all locations (including future locations), except where specified in<br>the `absent_at_location_ids` field. If `false`, this object is not present at any locations (including future locations),<br>except where specified in the `present_at_location_ids` field. If not specified, defaults to `true`. |
 | `present_at_location_ids` | `List of string` | Optional | A list of locations where the object is present, even if `present_at_all_locations` is `false`.<br>This can include locations that are deactivated. |
 | `absent_at_location_ids` | `List of string` | Optional | A list of locations where the object is not present, even if `present_at_all_locations` is `true`.<br>This can include locations that are deactivated. |
-| `image_id` | `string` | Optional | Identifies the `CatalogImage` attached to this `CatalogObject`. |
 | `item_data` | [`Catalog Item`](/doc/models/catalog-item.md) | Optional | A [CatalogObject](/doc/models/catalog-object.md) instance of the `ITEM` type, also referred to as an item, in the catalog. |
 | `category_data` | [`Catalog Category`](/doc/models/catalog-category.md) | Optional | A category to which a `CatalogItem` instance belongs. |
 | `item_variation_data` | [`Catalog Item Variation`](/doc/models/catalog-item-variation.md) | Optional | An item variation (i.e., product) in the Catalog object model. Each item<br>may have a maximum of 250 item variations. |

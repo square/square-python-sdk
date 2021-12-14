@@ -10,8 +10,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `item_ids` | `List of string` | Required | The IDs of the catalog items associated with the CatalogModifierList objects being updated. |
-| `modifier_lists_to_enable` | `List of string` | Optional | The IDs of the CatalogModifierList objects to enable for the CatalogItem. |
-| `modifier_lists_to_disable` | `List of string` | Optional | The IDs of the CatalogModifierList objects to disable for the CatalogItem. |
+| `modifier_lists_to_enable` | `List of string` | Optional | The IDs of the CatalogModifierList objects to enable for the CatalogItem.<br>At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified. |
+| `modifier_lists_to_disable` | `List of string` | Optional | The IDs of the CatalogModifierList objects to disable for the CatalogItem.<br>At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified. |
 
 ## Example (as JSON)
 
