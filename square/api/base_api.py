@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import platform
 from square.api_helper import APIHelper
 
 
@@ -21,7 +22,7 @@ class BaseApi(object):
 
     def global_headers(self):
         return {
-            'user-agent': 'Square-Python-SDK/16.0.0.20211117',
+            'user-agent': self.get_user_agent() ,
             'Square-Version': self.config.square_version
         }
 
@@ -78,3 +79,11 @@ class BaseApi(object):
             self.http_call_back.on_after_response(response)
 
         return response
+
+    def get_user_agent(self):
+        user_agent = 'Square-Python-SDK/17.0.0.20211215'
+        parameters = {
+        }
+
+        agent = APIHelper.append_url_with_template_parameters(user_agent, parameters)
+        return agent.replace('  ', ' ')

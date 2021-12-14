@@ -2,7 +2,6 @@
 
 import os
 import unittest
-
 from square.configuration import Configuration
 from square.client import Client
 

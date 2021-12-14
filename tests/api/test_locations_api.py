@@ -18,11 +18,8 @@ class LocationsApiTests(ApiTestBase):
         cls.response_catcher = HttpResponseCatcher()
         cls.controller = LocationsApi(cls.config, cls.response_catcher)
 
-    # Provides information of all locations of a business.
-    #
-    #Many Square API endpoints require a `location_id` parameter.
-    #The `id` field of the [`Location`]($m/Location) objects returned by this
-    #endpoint correspond to that `location_id` parameter.
+    # Provides details about all of the seller's locations,
+    #including those with an inactive status.
     def test_list_locations(self):
 
         # Perform the API call through the SDK function

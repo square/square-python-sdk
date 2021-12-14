@@ -102,6 +102,39 @@ class APIHelper(object):
             return unboxing_function(decoded)
 
     @staticmethod
+    def get_content_type(value):
+        """Get content type header for oneof.
+
+        Args:
+            value: The value passed by the user.
+
+        Returns:
+            dict: A dictionary representing the data contained in the
+                JSON serialized string.
+
+        """
+        if value is None:
+            return None
+        primitive = (int, str, bool, float)
+
+        if type(value) in primitive:
+            return 'text/plain; charset=utf-8'
+
+        else:
+            return 'application/json; charset=utf-8'
+
+    @staticmethod
+    def get_schema_path(path):
+        """Return the Schema's path
+
+        Returns:
+            string : returns Correct schema path
+
+        """
+        path = path.replace('\\models', '\\schemas').replace('/models', '/schemas').replace(".py", ".json")
+        return path
+
+    @staticmethod
     def serialize_array(key, array, formatting="indexed"):
         """Converts an array parameter to a list of key value tuples.
 
