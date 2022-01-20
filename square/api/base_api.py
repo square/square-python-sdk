@@ -15,6 +15,7 @@ class BaseApi(object):
             as well.
         http_call_back (HttpCallBack): An object which holds call back
             methods to be called before and after the execution of an HttpRequest.
+        auth_managers (dict): A dictionary which holds the instances of authentication managers.
         global_headers (dict): The global headers of the API which are sent with
             every request.
 
@@ -26,8 +27,9 @@ class BaseApi(object):
             'Square-Version': self.config.square_version
         }
 
-    def __init__(self, config, call_back=None):
+    def __init__(self, config, auth_managers, call_back=None):
         self._config = config
+        self._auth_managers = auth_managers
         self._http_call_back = call_back
 
     @property
@@ -37,6 +39,10 @@ class BaseApi(object):
     @property
     def http_call_back(self):
         return self._http_call_back
+
+    @property
+    def auth_managers(self):
+        return self._auth_managers
 
     def validate_parameters(self, **kwargs):
         """Validates required parameters of an endpoint.
@@ -81,9 +87,36 @@ class BaseApi(object):
         return response
 
     def get_user_agent(self):
-        user_agent = 'Square-Python-SDK/17.0.0.20211215'
+        user_agent = 'Square-Python-SDK/17.1.0.20220120 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
         parameters = {
+            'engine': {'value': platform.python_implementation(), 'encode': False},
+            'engine-version': {'value': "", 'encode': False},
+            'os-info': {'value': platform.system(), 'encode': False},
+            'api-version': {'value': self.config.square_version, 'encode': False},
+            'detail': {'value': self.config.user_agent_detail, 'encode': True},
         }
 
         agent = APIHelper.append_url_with_template_parameters(user_agent, parameters)
         return agent.replace('  ', ' ')
+
+
+    def apply_auth_schemes(self, request, *auth_options):
+        auth_error_message = []
+        # traverse all options for OR auth
+        for option in auth_options:
+            # split the option for AND auths
+            schemes = option.split()
+            # check if all AND auth credentials exist in auth managers
+            if all(scheme in self.auth_managers and self.auth_managers[scheme].validate_arguments() for scheme in schemes):
+                # apply each auth scheme in AND case to request then break
+                for scheme in schemes:
+                    self.auth_managers[scheme].apply(request)
+                break
+            else:
+                for scheme in schemes:
+                    if scheme in self.auth_managers:
+                       auth_error_message.append(self.auth_managers[scheme].error_message())
+            #if the auth credentials for this auth option are missing then move to next
+            ## or if this is the last/only option then throw exception with reasonable message
+            if option is auth_options[-1]:
+                raise PermissionError("Required authentication is missing for: " + " and ".join(auth_error_message))

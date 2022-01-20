@@ -16,9 +16,9 @@ class LocationsApiTests(ApiTestBase):
     def setUpClass(cls):
         super(LocationsApiTests, cls).setUpClass()
         cls.response_catcher = HttpResponseCatcher()
-        cls.controller = LocationsApi(cls.config, cls.response_catcher)
+        cls.controller = LocationsApi(cls.config, cls.auth_managers, cls.response_catcher)
 
-    # Provides details about all of the seller's locations,
+    # Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
     #including those with an inactive status.
     def test_list_locations(self):
 

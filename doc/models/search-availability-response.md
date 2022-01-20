@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `availabilities` | [`List of Availability`](/doc/models/availability.md) | Optional | List of slots available for booking. |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `availabilities` | [`List of Availability`](/doc/models/availability.md) | Optional | List of appointment slots available for booking. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Errors that occurred during the request. |
 
 ## Example (as JSON)
 

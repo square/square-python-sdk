@@ -18,7 +18,7 @@ locations_api = client.locations
 
 # List Locations
 
-Provides details about all of the seller's locations,
+Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
 including those with an inactive status.
 
 ```python
@@ -131,7 +131,7 @@ elif result.is_error():
 
 # Update Location
 
-Updates a location.
+Updates a [location](https://developer.squareup.com/docs/locations-api).
 
 ```python
 def update_location(self,

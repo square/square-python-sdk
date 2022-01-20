@@ -17,8 +17,8 @@ class ApiTestBase(unittest.TestCase):
         cls.request_timeout = 30
         cls.assert_precision = 0.01
         cls.config = ApiTestBase.create_configuration()
-        cls.client = Client()
-
+        cls.client = Client(access_token=cls.config.access_token)
+        cls.auth_managers = cls.client.auth_managers
     @staticmethod
     def create_configuration():
         return Configuration(access_token=os.environ['SQUARE_SANDBOX_TOKEN'],

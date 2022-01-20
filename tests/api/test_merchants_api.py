@@ -18,7 +18,7 @@ class MerchantsApiTests(ApiTestBase):
     def setUpClass(cls):
         super(MerchantsApiTests, cls).setUpClass()
         cls.response_catcher = HttpResponseCatcher()
-        cls.controller = MerchantsApi(cls.config, cls.response_catcher)
+        cls.controller = MerchantsApi(cls.config, cls.auth_managers, cls.response_catcher)
 
     # Returns `Merchant` information for a given access token.
     #

@@ -3,15 +3,13 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
-from square.http.auth.o_auth_2 import OAuth2
 
 
 class CashDrawersApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-
-    def __init__(self, config, call_back=None):
-        super(CashDrawersApi, self).__init__(config, call_back)
+    def __init__(self, config, auth_managers, call_back=None):
+        super(CashDrawersApi, self).__init__(config, auth_managers, call_back)
 
     def list_cash_drawer_shifts(self,
                                 location_id,
@@ -77,7 +75,9 @@ class CashDrawersApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -137,7 +137,9 @@ class CashDrawersApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -203,7 +205,9 @@ class CashDrawersApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)

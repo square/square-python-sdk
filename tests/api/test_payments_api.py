@@ -18,7 +18,7 @@ class PaymentsApiTests(ApiTestBase):
     def setUpClass(cls):
         super(PaymentsApiTests, cls).setUpClass()
         cls.response_catcher = HttpResponseCatcher()
-        cls.controller = PaymentsApi(cls.config, cls.response_catcher)
+        cls.controller = PaymentsApi(cls.config, cls.auth_managers, cls.response_catcher)
 
     # Retrieves a list of payments taken by the account making the request.
     #

@@ -25,6 +25,9 @@ bookings_api = client.bookings
 
 Retrieve a collection of bookings.
 
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
+
 ```python
 def list_bookings(self,
                  limit=None,
@@ -73,6 +76,9 @@ elif result.is_error():
 
 Creates a booking.
 
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
+
 ```python
 def create_booking(self,
                   body)
@@ -112,6 +118,9 @@ elif result.is_error():
 # Search Availability
 
 Searches for availabilities for booking.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
 ```python
 def search_availability(self,
@@ -206,8 +215,8 @@ def list_team_member_booking_profiles(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `bookable_only` | `bool` | Query, Optional | Indicates whether to include only bookable team members in the returned result (`true`) or not (`false`).<br>**Default**: `False` |
-| `limit` | `int` | Query, Optional | The maximum number of results to return. |
-| `cursor` | `string` | Query, Optional | The cursor for paginating through the results. |
+| `limit` | `int` | Query, Optional | The maximum number of results to return in a paged response. |
+| `cursor` | `string` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
 | `location_id` | `string` | Query, Optional | Indicates whether to include only team members enabled at the given location in the returned result. |
 
 ## Response Type
@@ -268,6 +277,9 @@ elif result.is_error():
 
 Retrieves a booking.
 
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
+
 ```python
 def retrieve_booking(self,
                     booking_id)
@@ -300,6 +312,9 @@ elif result.is_error():
 # Update Booking
 
 Updates a booking.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
 ```python
 def update_booking(self,
@@ -343,6 +358,9 @@ elif result.is_error():
 # Cancel Booking
 
 Cancels an existing booking.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
 ```python
 def cancel_booking(self,
