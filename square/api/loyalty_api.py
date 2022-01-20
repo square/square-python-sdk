@@ -4,15 +4,13 @@ from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
-from square.http.auth.o_auth_2 import OAuth2
 
 
 class LoyaltyApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-
-    def __init__(self, config, call_back=None):
-        super(LoyaltyApi, self).__init__(config, call_back)
+    def __init__(self, config, auth_managers, call_back=None):
+        super(LoyaltyApi, self).__init__(config, auth_managers, call_back)
 
     def create_loyalty_account(self,
                                body):
@@ -53,7 +51,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -105,7 +105,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -154,7 +156,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -180,13 +184,7 @@ class LoyaltyApi(BaseApi):
         For spend-based and visit-based programs, you can first call 
         [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) to compute
         the points  
-        that you provide to this endpoint. 
-        __Note:__ The country of the seller's Square account determines
-        whether tax is included in the purchase amount when accruing points
-        for spend-based and visit-based programs. 
-        For more information, see [Availability of Square
-        Loyalty](https://developer.squareup.com/docs/loyalty-api/overview#loyal
-        ty-market-availability).
+        that you provide to this endpoint.
 
         Args:
             account_id (string): The [loyalty account]($m/LoyaltyAccount) ID
@@ -224,7 +222,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -282,7 +282,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -337,7 +339,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -387,7 +391,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -443,7 +449,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -460,7 +468,7 @@ class LoyaltyApi(BaseApi):
         """Does a POST request to /v2/loyalty/programs/{program_id}/calculate.
 
         Calculates the points a purchase earns.
-        - If you are using the Orders API to manage orders, you provide
+        - If you are using the Orders API to manage orders, you provide the
         `order_id` in the request. The 
         endpoint calculates the points by reading the order.
         - If you are not using the Orders API to manage orders, you provide
@@ -469,12 +477,9 @@ class LoyaltyApi(BaseApi):
         An application might call this endpoint to show the points that a
         buyer can earn with the 
         specific purchase.
-        __Note:__ The country of the seller's Square account determines
-        whether tax is included in the purchase amount when accruing points
-        for spend-based and visit-based programs. 
-        For more information, see [Availability of Square
-        Loyalty](https://developer.squareup.com/docs/loyalty-api/overview#loyal
-        ty-market-availability).
+        For spend-based and visit-based programs, the `tax_mode` setting of
+        the accrual rule indicates how taxes should be treated for loyalty
+        points accrual.
 
         Args:
             program_id (string): The [loyalty program]($m/LoyaltyProgram) ID,
@@ -512,7 +517,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -568,7 +575,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -621,7 +630,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -677,7 +688,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.delete(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -726,7 +739,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -787,7 +802,9 @@ class LoyaltyApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)

@@ -3,15 +3,13 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
-from square.http.auth.o_auth_2 import OAuth2
 
 
 class BookingsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-
-    def __init__(self, config, call_back=None):
-        super(BookingsApi, self).__init__(config, call_back)
+    def __init__(self, config, auth_managers, call_back=None):
+        super(BookingsApi, self).__init__(config, auth_managers, call_back)
 
     def list_bookings(self,
                       limit=None,
@@ -22,7 +20,11 @@ class BookingsApi(BaseApi):
                       start_at_max=None):
         """Does a GET request to /v2/bookings.
 
-        Retrieve a collection of bookings.
+        Retrieve a collection of bookings. 
+        To call this endpoint with buyer-level permissions, set
+        `APPOINTMENTS_READ` for the OAuth scope.  
+        To call this endpoint with seller-level permissions, set
+        `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
             limit (int, optional): The maximum number of results per page to
@@ -80,7 +82,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -95,7 +99,12 @@ class BookingsApi(BaseApi):
                        body):
         """Does a POST request to /v2/bookings.
 
-        Creates a booking.
+        Creates a booking. 
+        To call this endpoint with buyer-level permissions, set
+        `APPOINTMENTS_WRITE` for the OAuth scope.  
+        To call this endpoint with seller-level permissions, set
+        `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
+        scope.
 
         Args:
             body (CreateBookingRequest): An object containing the fields to
@@ -128,7 +137,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -143,7 +154,11 @@ class BookingsApi(BaseApi):
                             body):
         """Does a POST request to /v2/bookings/availability/search.
 
-        Searches for availabilities for booking.
+        Searches for availabilities for booking. 
+        To call this endpoint with buyer-level permissions, set
+        `APPOINTMENTS_READ` for the OAuth scope.  
+        To call this endpoint with seller-level permissions, set
+        `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
             body (SearchAvailabilityRequest): An object containing the fields
@@ -176,7 +191,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -217,7 +234,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -241,9 +260,11 @@ class BookingsApi(BaseApi):
             bookable_only (bool, optional): Indicates whether to include only
                 bookable team members in the returned result (`true`) or not
                 (`false`).
-            limit (int, optional): The maximum number of results to return.
-            cursor (string, optional): The cursor for paginating through the
-                results.
+            limit (int, optional): The maximum number of results to return in
+                a paged response.
+            cursor (string, optional): The pagination cursor from the
+                preceding response to return the next page of the results. Do
+                not set this when retrieving the first page of the results.
             location_id (string, optional): Indicates whether to include only
                 team members enabled at the given location in the returned
                 result.
@@ -283,7 +304,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -331,7 +354,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -346,7 +371,11 @@ class BookingsApi(BaseApi):
                          booking_id):
         """Does a GET request to /v2/bookings/{booking_id}.
 
-        Retrieves a booking.
+        Retrieves a booking. 
+        To call this endpoint with buyer-level permissions, set
+        `APPOINTMENTS_READ` for the OAuth scope.  
+        To call this endpoint with seller-level permissions, set
+        `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
             booking_id (string): The ID of the [Booking]($m/Booking) object
@@ -380,7 +409,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -396,7 +427,12 @@ class BookingsApi(BaseApi):
                        body):
         """Does a PUT request to /v2/bookings/{booking_id}.
 
-        Updates a booking.
+        Updates a booking. 
+        To call this endpoint with buyer-level permissions, set
+        `APPOINTMENTS_WRITE` for the OAuth scope.  
+        To call this endpoint with seller-level permissions, set
+        `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
+        scope.
 
         Args:
             booking_id (string): The ID of the [Booking]($m/Booking) object
@@ -434,7 +470,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -450,7 +488,12 @@ class BookingsApi(BaseApi):
                        body):
         """Does a POST request to /v2/bookings/{booking_id}/cancel.
 
-        Cancels an existing booking.
+        Cancels an existing booking. 
+        To call this endpoint with buyer-level permissions, set
+        `APPOINTMENTS_WRITE` for the OAuth scope.  
+        To call this endpoint with seller-level permissions, set
+        `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
+        scope.
 
         Args:
             booking_id (string): The ID of the [Booking]($m/Booking) object
@@ -488,7 +531,9 @@ class BookingsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)

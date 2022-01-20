@@ -12,7 +12,7 @@ else:
 
 setup(
     name='squareup',
-    version='17.0.0.20211215',
+    version='17.1.0.20220120',
     description='Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.',
     long_description=long_description,
     long_description_content_type="text/markdown",

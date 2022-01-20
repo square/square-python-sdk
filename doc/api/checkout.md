@@ -160,8 +160,6 @@ body['pre_populate_shipping_address']['sublocality'] = 'sublocality0'
 body['pre_populate_shipping_address']['administrative_district_level_1'] = 'CA'
 body['pre_populate_shipping_address']['postal_code'] = '94103'
 body['pre_populate_shipping_address']['country'] = 'US'
-body['pre_populate_shipping_address']['first_name'] = 'Jane'
-body['pre_populate_shipping_address']['last_name'] = 'Doe'
 body['redirect_url'] = 'https://merchant.website.com/order-confirm'
 body['additional_recipients'] = []
 

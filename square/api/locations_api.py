@@ -3,20 +3,19 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
-from square.http.auth.o_auth_2 import OAuth2
 
 
 class LocationsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-
-    def __init__(self, config, call_back=None):
-        super(LocationsApi, self).__init__(config, call_back)
+    def __init__(self, config, auth_managers, call_back=None):
+        super(LocationsApi, self).__init__(config, auth_managers, call_back)
 
     def list_locations(self):
         """Does a GET request to /v2/locations.
 
-        Provides details about all of the seller's locations,
+        Provides details about all of the seller's
+        [locations](https://developer.squareup.com/docs/locations-api),
         including those with an inactive status.
 
         Returns:
@@ -44,7 +43,9 @@ class LocationsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -103,7 +104,9 @@ class LocationsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -155,7 +158,9 @@ class LocationsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -171,7 +176,8 @@ class LocationsApi(BaseApi):
                         body):
         """Does a PUT request to /v2/locations/{location_id}.
 
-        Updates a location.
+        Updates a
+        [location](https://developer.squareup.com/docs/locations-api).
 
         Args:
             location_id (string): The ID of the location to update.
@@ -208,7 +214,9 @@ class LocationsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)

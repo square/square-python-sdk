@@ -18,6 +18,7 @@ Represents a Square seller.
 | `currency` | [`str (Currency)`](/doc/models/currency.md) | Optional | Indicates the associated currency for an amount of money. Values correspond<br>to [ISO 4217](https://wikipedia.org/wiki/ISO_4217). |
 | `status` | [`str (Merchant Status)`](/doc/models/merchant-status.md) | Optional | - |
 | `main_location_id` | `string` | Optional | The ID of the main `Location` for this merchant. |
+| `created_at` | `string` | Optional | The time when the merchant was created, in RFC 3339 format.<br>For more information, see [Working with Dates](https://developer.squareup.com/docs/build-basics/working-with-dates). |
 
 ## Example (as JSON)
 

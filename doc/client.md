@@ -5,8 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2021-12-15'` |
-| `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2022-01-20'` |
 | `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
@@ -25,8 +24,7 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2021-12-15',
-    access_token='AccessToken',
+    square_version='2022-01-20',
     environment='production',
     custom_url = 'https://connect.squareup.com',)
 ```
@@ -50,8 +48,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 from square.client import Client
 
 client = Client(
-    square_version='2021-12-15',
-    access_token='AccessToken',)
+    square_version='2022-01-20',)
 
 locations_api = client.locations
 result = locations_api.list_locations()

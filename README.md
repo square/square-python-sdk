@@ -31,7 +31,7 @@ python setup.py install --user
 In Python 2, you can install via pip:
 
 ```sh
-pip install -r requirement.txt
+pip install -r requirements.txt
 pip install -r test-requirements.txt
 ```
 

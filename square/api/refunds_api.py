@@ -3,15 +3,13 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
-from square.http.auth.o_auth_2 import OAuth2
 
 
 class RefundsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-
-    def __init__(self, config, call_back=None):
-        super(RefundsApi, self).__init__(config, call_back)
+    def __init__(self, config, auth_managers, call_back=None):
+        super(RefundsApi, self).__init__(config, auth_managers, call_back)
 
     def list_payment_refunds(self,
                              begin_time=None,
@@ -53,11 +51,14 @@ class RefundsApi(BaseApi):
                 given status are returned. For a list of refund status values,
                 see [PaymentRefund]($m/PaymentRefund).  Default: If omitted,
                 refunds are returned regardless of their status.
-            source_type (string, optional): If provided, only refunds with the
-                given source type are returned. - `CARD` - List refunds only
-                for payments where `CARD` was specified as the payment source.
-                Default: If omitted, refunds are returned regardless of the
-                source type.
+            source_type (string, optional): If provided, only returns refunds
+                whose payments have the indicated source type. Current values
+                include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and
+                `EXTERNAL`. For information about these payment source types,
+                see [Take
+                Payments](https://developer.squareup.com/docs/payments-api/take
+                -payments).  Default: If omitted, refunds are returned
+                regardless of the source type.
             limit (int, optional): The maximum number of results to be
                 returned in a single page.  It is possible to receive fewer
                 results than the specified limit on a given page.  If the
@@ -103,7 +104,9 @@ class RefundsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -157,7 +160,9 @@ class RefundsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)
@@ -206,7 +211,9 @@ class RefundsApi(BaseApi):
 
         # Prepare and execute request
         _request = self.config.http_client.get(_query_url, headers=_headers)
-        OAuth2.apply(self.config, _request)
+        # Apply authentication scheme on request
+        self.apply_auth_schemes(_request, 'global')
+
         _response = self.execute_request(_request)
 
         decoded = APIHelper.json_deserialize(_response.text)

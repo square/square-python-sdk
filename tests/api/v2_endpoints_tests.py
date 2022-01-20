@@ -18,7 +18,7 @@ class V2EndpointsTests(ApiTestBase):
     def setUpClass(cls):
         super(V2EndpointsTests, cls).setUpClass()
         cls.response_catcher = HttpResponseCatcher()
-        cls.controller = CustomersApi(cls.config, cls.response_catcher)
+        cls.controller = CustomersApi(cls.config, cls.auth_managers, cls.response_catcher)
 
     def test_v2_endpoints_journey(self):
         phone_number, phone_number2 = "1-212-555-4240", "1-917-500-1000"

@@ -18,7 +18,7 @@ class LaborApiTests(ApiTestBase):
     def setUpClass(cls):
         super(LaborApiTests, cls).setUpClass()
         cls.response_catcher = HttpResponseCatcher()
-        cls.controller = LaborApi(cls.config, cls.response_catcher)
+        cls.controller = LaborApi(cls.config, cls.auth_managers, cls.response_catcher)
 
     # Returns a paginated list of `BreakType` instances for a business.
     def test_list_break_types(self):

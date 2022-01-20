@@ -9,9 +9,8 @@ from square.api.base_api import BaseApi
 class OAuthApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-
-    def __init__(self, config, call_back=None):
-        super(OAuthApi, self).__init__(config, call_back)
+    def __init__(self, config, auth_managers, call_back=None):
+        super(OAuthApi, self).__init__(config, auth_managers, call_back)
 
     @deprecated()
     def renew_token(self,

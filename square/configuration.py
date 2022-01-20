@@ -50,12 +50,12 @@ class Configuration(object):
         return self._custom_url
 
     @property
-    def square_version(self):
-        return self._square_version
-
-    @property
     def access_token(self):
         return self._access_token
+
+    @property
+    def square_version(self):
+        return self._square_version
 
     @property
     def additional_headers(self):
@@ -71,8 +71,9 @@ class Configuration(object):
         backoff_factor=2,
         retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
         retry_methods=['GET', 'PUT'], environment='production',
-        custom_url='https://connect.squareup.com', square_version='2021-12-15',
-        access_token='', additional_headers={}, user_agent_detail=''
+        custom_url='https://connect.squareup.com', access_token='',
+        square_version='2022-01-20', additional_headers={},
+        user_agent_detail=''
     ):
         # The Http Client passed from the sdk user for making requests
         self._http_client_instance = http_client_instance
@@ -103,14 +104,17 @@ class Configuration(object):
         # Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`
         self._custom_url = custom_url
 
-        # Square Connect API versions
-        self._square_version = square_version
-
         # The OAuth 2.0 Access Token to use for API requests.
         self._access_token = access_token
 
+        # Square Connect API versions
+        self._square_version = square_version
+
         # Additional headers to add to each API request
         self._additional_headers = deepcopy(additional_headers)
+
+        # User agent detail, to be appended with user-agent header.
+        self._user_agent_detail = Configuration.validate_user_agent(user_agent_detail)
 
         # The Http Client to use for making requests.
         self._http_client = self.create_http_client()
@@ -119,7 +123,7 @@ class Configuration(object):
                    override_http_client_configuration=None, timeout=None,
                    max_retries=None, backoff_factor=None, retry_statuses=None,
                    retry_methods=None, environment=None, custom_url=None,
-                   square_version=None, access_token=None,
+                   access_token=None, square_version=None,
                    additional_headers=None, user_agent_detail=None):
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration = override_http_client_configuration or self.override_http_client_configuration
@@ -130,8 +134,8 @@ class Configuration(object):
         retry_methods = retry_methods or self.retry_methods
         environment = environment or self.environment
         custom_url = custom_url or self.custom_url
-        square_version = square_version or self.square_version
         access_token = access_token or self.access_token
+        square_version = square_version or self.square_version
         additional_headers = additional_headers or self.additional_headers
         user_agent_detail = user_agent_detail or self.user_agent_detail
 
@@ -141,8 +145,8 @@ class Configuration(object):
             timeout=timeout, max_retries=max_retries,
             backoff_factor=backoff_factor, retry_statuses=retry_statuses,
             retry_methods=retry_methods, environment=environment,
-            custom_url=custom_url, square_version=square_version,
-            access_token=access_token, additional_headers=additional_headers,
+            custom_url=custom_url, access_token=access_token,
+            square_version=square_version, additional_headers=additional_headers,
             user_agent_detail=user_agent_detail
         )
 
@@ -187,3 +191,9 @@ class Configuration(object):
         return APIHelper.append_url_with_template_parameters(
             self.environments[self.environment][server], parameters
         )
+
+    @staticmethod
+    def validate_user_agent(user_agent):
+        if len(user_agent) > 128:
+            raise ValueError('The length of user-agent detail should not exceed 128 characters.') 
+        return user_agent
