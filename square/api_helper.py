@@ -135,13 +135,14 @@ class APIHelper(object):
         return path
 
     @staticmethod
-    def serialize_array(key, array, formatting="indexed"):
+    def serialize_array(key, array, formatting="indexed", is_query=False):
         """Converts an array parameter to a list of key value tuples.
 
         Args:
             key (str): The name of the parameter.
             array (list): The value of the parameter.
             formatting (str): The type of key formatting expected.
+            is_query (bool): Decides if the parameters are for query or form.
 
         Returns:
             list: A list with key value tuples for the array elements.
@@ -161,6 +162,16 @@ class APIHelper(object):
                 tuples += [("{0}[{1}]".format(key, index), element) for index, element in enumerate(array)]
             elif formatting == "plain":
                 tuples += [(key, element) for element in array]
+            elif is_query:
+                if formatting == "csv":
+                    tuples += [(key, ",".join(str(x) for x in array))]
+
+                elif formatting == "psv":
+                    tuples += [(key, "|".join(str(x) for x in array))]
+
+                elif formatting == "tsv":
+                    tuples += [(key, "\t".join(str(x) for x in array))]
+
             else:
                 raise ValueError("Invalid format provided.")
         else:
@@ -224,40 +235,24 @@ class APIHelper(object):
             raise ValueError("URL is None.")
         if parameters is None:
             return url
-
-        for key, value in parameters.items():
+        parameters = APIHelper.process_complex_types_parameters(parameters, array_serialization)
+        for index, value in enumerate(parameters):
+            key = value[0]
+            val = value[1]
             seperator = '&' if '?' in url else '?'
             if value is not None:
-                if isinstance(value, list):
-                    value = [element for element in value if element]
-                    if array_serialization == "csv":
-                        url += "{0}{1}={2}".format(
-                            seperator,
-                            key,
-                            ",".join(quote(str(x), safe='') for x in value)
-                        )
-                    elif array_serialization == "psv":
-                        url += "{0}{1}={2}".format(
-                            seperator,
-                            key,
-                            "|".join(quote(str(x), safe='') for x in value)
-                        )
-                    elif array_serialization == "tsv":
-                        url += "{0}{1}={2}".format(
-                            seperator,
-                            key,
-                            "\t".join(quote(str(x), safe='') for x in value)
-                        )
-                    else:
-                        url += "{0}{1}".format(
-                            seperator,
-                            "&".join(("{0}={1}".format(k, quote(str(v), safe='')))
-                                     for k, v in APIHelper.serialize_array(key, value, array_serialization))
-                        )
-                else:
-                    url += "{0}{1}={2}".format(seperator, key, quote(str(value), safe=''))
+                url += "{0}{1}={2}".format(seperator, key, quote(str(val), safe=''))
 
         return url
+
+    @staticmethod
+    def process_complex_types_parameters(query_parameters, array_serialization):
+        processed_params = []
+        for key, value in query_parameters.items():
+            processed_params.extend(
+                APIHelper.form_encode(value, key, array_serialization=array_serialization, is_query=True))
+        return processed_params
+
 
     @staticmethod
     def clean_url(url):
@@ -308,7 +303,7 @@ class APIHelper(object):
     @staticmethod
     def form_encode(obj,
                     instance_name,
-                    array_serialization="indexed"):
+                    array_serialization="indexed", is_query=False):
         """Encodes a model in a form-encoded manner such as person[Name]
 
         Args:
@@ -316,6 +311,7 @@ class APIHelper(object):
             instance_name (string): The base name to appear before each entry
                 for this object.
             array_serialization (string): The format of array parameter serialization.
+            is_query (bool): Decides if the parameters are for query or form.
 
         Returns:
             dict: A dictionary of form encoded properties of the model.
@@ -326,11 +322,11 @@ class APIHelper(object):
         if obj is None:
             return []
         elif isinstance(obj, list):
-            for element in APIHelper.serialize_array(instance_name, obj, array_serialization):
-                retval += APIHelper.form_encode(element[1], element[0], array_serialization)
+            for element in APIHelper.serialize_array(instance_name, obj, array_serialization, is_query):
+                retval += APIHelper.form_encode(element[1], element[0], array_serialization, is_query)
         elif isinstance(obj, dict):
             for item in obj:
-                retval += APIHelper.form_encode(obj[item], instance_name + "[" + item + "]", array_serialization)
+                retval += APIHelper.form_encode(obj[item], instance_name + "[" + item + "]", array_serialization, is_query)
         else:
             retval.append((instance_name, obj))
 

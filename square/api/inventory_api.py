@@ -19,7 +19,7 @@ class InventoryApi(BaseApi):
 
         Deprecated version of
         [RetrieveInventoryAdjustment]($e/Inventory/RetrieveInventoryAdjustment)
-        after the endpoint URL 
+        after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -126,7 +126,7 @@ class InventoryApi(BaseApi):
 
         Deprecated version of
         [BatchChangeInventory]($e/Inventory/BatchChangeInventory) after the
-        endpoint URL 
+        endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -180,7 +180,7 @@ class InventoryApi(BaseApi):
 
         Deprecated version of
         [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChan
-        ges) after the endpoint URL 
+        ges) after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -234,7 +234,7 @@ class InventoryApi(BaseApi):
 
         Deprecated version of
         [BatchRetrieveInventoryCounts]($e/Inventory/BatchRetrieveInventoryCount
-        s) after the endpoint URL 
+        s) after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -458,7 +458,7 @@ class InventoryApi(BaseApi):
 
         Deprecated version of
         [RetrieveInventoryPhysicalCount]($e/Inventory/RetrieveInventoryPhysical
-        Count) after the endpoint URL 
+        Count) after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -693,17 +693,17 @@ class InventoryApi(BaseApi):
 
         Returns a set of physical counts and inventory adjustments for the
         provided [CatalogObject]($m/CatalogObject) at the requested
-        [Location]($m/Location)s. 
+        [Location]($m/Location)s.
         You can achieve the same result by calling
         [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChan
-        ges) 
+        ges)
         and having the `catalog_object_ids` list contain a single element of
         the `CatalogObject` ID.
         Results are paginated and sorted in descending order according to
         their
         `occurred_at` timestamp (newest first).
         There are no limits on how far back the caller can page. This endpoint
-        can be 
+        can be
         used to display recent changes for a specific item. For more
         sophisticated queries, use a batch endpoint.
 

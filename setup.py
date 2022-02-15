@@ -12,7 +12,7 @@ else:
 
 setup(
     name='squareup',
-    version='17.1.0.20220120',
+    version='17.2.0.20220216',
     description='Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -22,7 +22,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'jsonpickle~=1.4, >= 1.4.1',
-        'requests~=2.24',
+        'requests~=2.25',
         'cachecontrol~=0.12.6',
         'python-dateutil~=2.8.1',
         'deprecation~=2.1'
