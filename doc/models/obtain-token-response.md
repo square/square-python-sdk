@@ -18,6 +18,7 @@
 | `id_token` | `string` | Optional | The OpenID token belonging to this person. This token is only present if the<br>OPENID scope is included in the authorization request. |
 | `refresh_token` | `string` | Optional | A refresh token. OAuth refresh tokens are 64 bytes long.<br>For more information, see [Refresh, Revoke, and Limit the Scope of OAuth Tokens](https://developer.squareup.com/docs/oauth-api/refresh-revoke-limit-scope).<br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `1024` |
 | `short_lived` | `bool` | Optional | A Boolean indicating that the access token is a short-lived access token.<br>The short-lived access token returned in the response expires in 24 hours. |
+| `errors` | [`List of Error`](/doc/models/error.md) | Optional | An error object that provides details about how creation of the obtain<br>token failed. |
 
 ## Example (as JSON)
 
