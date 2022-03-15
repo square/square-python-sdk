@@ -17,8 +17,8 @@ class RefundsApiTests(ApiTestBase):
     @classmethod
     def setUpClass(cls):
         super(RefundsApiTests, cls).setUpClass()
-        cls.response_catcher = HttpResponseCatcher()
-        cls.controller = RefundsApi(cls.config, cls.auth_managers, cls.response_catcher)
+        cls.controller = cls.client.refunds
+        cls.response_catcher = cls.controller.http_call_back
 
     # Retrieves a list of refunds for the account making the request.
     #

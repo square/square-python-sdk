@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `idempotency_key` | `string` | Required | A unique string that identifies this CreateDeviceCode request. Keys can<br>be any valid string but must be unique for every CreateDeviceCode request.<br><br>See [Idempotency keys](https://developer.squareup.com/docs/basics/api101/idempotency) for more information.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128` |
-| `device_code` | [`Device Code`](/doc/models/device-code.md) | Required | - |
+| `idempotency_key` | `string` | Required | A unique string that identifies this CreateDeviceCode request. Keys can<br>be any valid string but must be unique for every CreateDeviceCode request.<br><br>See [Idempotency keys](../../https://developer.squareup.com/docs/basics/api101/idempotency) for more information.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128` |
+| `device_code` | [`Device Code`](../../doc/models/device-code.md) | Required | - |
 
 ## Example (as JSON)
 

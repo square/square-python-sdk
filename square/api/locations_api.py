@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class LocationsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(LocationsApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(LocationsApi, self).__init__(config, auth_managers)
 
     def list_locations(self):
         """Does a GET request to /v2/locations.

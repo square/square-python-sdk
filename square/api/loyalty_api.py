@@ -9,8 +9,8 @@ from square.api.base_api import BaseApi
 class LoyaltyApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(LoyaltyApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(LoyaltyApi, self).__init__(config, auth_managers)
 
     def create_loyalty_account(self,
                                body):
@@ -592,9 +592,10 @@ class LoyaltyApi(BaseApi):
                                body):
         """Does a POST request to /v2/loyalty/rewards/search.
 
-        Searches for loyalty rewards in a loyalty account. 
-        In the current implementation, the endpoint supports search by the
-        reward `status`.
+        Searches for loyalty rewards. This endpoint accepts a request with no
+        query filters and returns results for all loyalty accounts. 
+        If you include a `query` object, `loyalty_account_id` is required and
+        `status` is  optional.
         If you know a reward ID, use the 
         [RetrieveLoyaltyReward]($e/Loyalty/RetrieveLoyaltyReward) endpoint.
         Search results are sorted by `updated_at` in descending order.

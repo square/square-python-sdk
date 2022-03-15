@@ -11,7 +11,7 @@ A request to update a `BreakType`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `break_type` | [`Break Type`](/doc/models/break-type.md) | Required | A defined break template that sets an expectation for possible `Break`<br>instances on a `Shift`. |
+| `break_type` | [`Break Type`](../../doc/models/break-type.md) | Required | A defined break template that sets an expectation for possible `Break`<br>instances on a `Shift`. |
 
 ## Example (as JSON)
 

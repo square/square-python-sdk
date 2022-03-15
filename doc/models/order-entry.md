@@ -1,8 +1,8 @@
 
 # Order Entry
 
-A lightweight description of an [order](/doc/models/order.md) that is returned when
-`returned_entries` is `true` on a [SearchOrdersRequest](/doc/api/orders.md#search-orders).
+A lightweight description of an [order](../../doc/models/order.md) that is returned when
+`returned_entries` is `true` on a [SearchOrdersRequest](../../doc/api/orders.md#search-orders).
 
 ## Structure
 
@@ -13,7 +13,7 @@ A lightweight description of an [order](/doc/models/order.md) that is returned w
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `order_id` | `string` | Optional | The ID of the order. |
-| `version` | `int` | Optional | The version number, which is incremented each time an update is committed to the order.<br>Orders that were not created through the API do not include a version number and<br>therefore cannot be updated.<br><br>[Read more about working with versions.](https://developer.squareup.com/docs/orders-api/manage-orders#update-orders) |
+| `version` | `int` | Optional | The version number, which is incremented each time an update is committed to the order.<br>Orders that were not created through the API do not include a version number and<br>therefore cannot be updated.<br><br>[Read more about working with versions.](../../https://developer.squareup.com/docs/orders-api/manage-orders#update-orders) |
 | `location_id` | `string` | Optional | The location ID the order belongs to. |
 
 ## Example (as JSON)

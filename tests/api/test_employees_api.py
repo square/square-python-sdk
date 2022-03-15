@@ -17,8 +17,8 @@ class EmployeesApiTests(ApiTestBase):
     @classmethod
     def setUpClass(cls):
         super(EmployeesApiTests, cls).setUpClass()
-        cls.response_catcher = HttpResponseCatcher()
-        cls.controller = EmployeesApi(cls.config, cls.auth_managers, cls.response_catcher)
+        cls.controller = cls.client.employees
+        cls.response_catcher = cls.controller.http_call_back
 
     # Gets a list of `Employee` objects for a business.
     def test_test_list_employees(self):

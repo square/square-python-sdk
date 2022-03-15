@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_updated` | [`Order Updated`](/doc/models/order-updated.md) | Optional | - |
+| `order_updated` | [`Order Updated`](../../doc/models/order-updated.md) | Optional | - |
 
 ## Example (as JSON)
 

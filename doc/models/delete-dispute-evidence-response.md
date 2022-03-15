@@ -11,7 +11,7 @@ Defines the fields in a `DeleteDisputeEvidence` response.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
 
 ## Example (as JSON)
 

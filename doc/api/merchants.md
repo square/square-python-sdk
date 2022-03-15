@@ -10,8 +10,8 @@ merchants_api = client.merchants
 
 ## Methods
 
-* [List Merchants](/doc/api/merchants.md#list-merchants)
-* [Retrieve Merchant](/doc/api/merchants.md#retrieve-merchant)
+* [List Merchants](../../doc/api/merchants.md#list-merchants)
+* [Retrieve Merchant](../../doc/api/merchants.md#retrieve-merchant)
 
 
 # List Merchants
@@ -24,7 +24,7 @@ with a single `Merchant` object. You can specify your personal access token
 to get your own merchant information or specify an OAuth token to get the
 information for the merchant that granted your application access.
 
-If you know the merchant ID, you can also use the [RetrieveMerchant](/doc/api/merchants.md#retrieve-merchant)
+If you know the merchant ID, you can also use the [RetrieveMerchant](../../doc/api/merchants.md#retrieve-merchant)
 endpoint to retrieve the merchant information.
 
 ```python
@@ -40,7 +40,7 @@ def list_merchants(self,
 
 ## Response Type
 
-[`List Merchants Response`](/doc/models/list-merchants-response.md)
+[`List Merchants Response`](../../doc/models/list-merchants-response.md)
 
 ## Example Usage
 
@@ -73,7 +73,7 @@ def retrieve_merchant(self,
 
 ## Response Type
 
-[`Retrieve Merchant Response`](/doc/models/retrieve-merchant-response.md)
+[`Retrieve Merchant Response`](../../doc/models/retrieve-merchant-response.md)
 
 ## Example Usage
 

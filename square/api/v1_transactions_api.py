@@ -9,8 +9,8 @@ from square.api.base_api import BaseApi
 class V1TransactionsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(V1TransactionsApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(V1TransactionsApi, self).__init__(config, auth_managers)
 
     @deprecated()
     def list_orders(self,

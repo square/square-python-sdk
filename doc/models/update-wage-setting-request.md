@@ -11,7 +11,7 @@ Represents an update request for the `WageSetting` object describing a `TeamMemb
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `wage_setting` | [`Wage Setting`](/doc/models/wage-setting.md) | Required | An object representing a team member's wage information. |
+| `wage_setting` | [`Wage Setting`](../../doc/models/wage-setting.md) | Required | An object representing a team member's wage information. |
 
 ## Example (as JSON)
 

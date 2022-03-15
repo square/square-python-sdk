@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class CheckoutApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(CheckoutApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(CheckoutApi, self).__init__(config, auth_managers)
 
     def create_checkout(self,
                         location_id,

@@ -11,9 +11,9 @@ Defines the fields in a `ListDisputeEvidence` response.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `evidence` | [`List of Dispute Evidence`](/doc/models/dispute-evidence.md) | Optional | The list of evidence previously uploaded to the specified dispute. |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request.<br>If unset, this is the final response. For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
+| `evidence` | [`List of Dispute Evidence`](../../doc/models/dispute-evidence.md) | Optional | The list of evidence previously uploaded to the specified dispute. |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request.<br>If unset, this is the final response. For more information, see [Pagination](../../https://developer.squareup.com/docs/basics/api101/pagination). |
 
 ## Example (as JSON)
 

@@ -2,7 +2,7 @@
 # Resume Subscription Request
 
 Defines input parameters in a request to the
-[ResumeSubscription](/doc/api/subscriptions.md#resume-subscription) endpoint.
+[ResumeSubscription](../../doc/api/subscriptions.md#resume-subscription) endpoint.
 
 ## Structure
 
@@ -13,7 +13,7 @@ Defines input parameters in a request to the
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `resume_effective_date` | `string` | Optional | The `YYYY-MM-DD`-formatted date when the subscription reactivated. |
-| `resume_change_timing` | [`str (Change Timing)`](/doc/models/change-timing.md) | Optional | Supported timings when a pending change, as an action, takes place to a subscription. |
+| `resume_change_timing` | [`str (Change Timing)`](../../doc/models/change-timing.md) | Optional | Supported timings when a pending change, as an action, takes place to a subscription. |
 
 ## Example (as JSON)
 

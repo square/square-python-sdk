@@ -15,8 +15,8 @@ class CatalogApiTests(ApiTestBase):
     @classmethod
     def setUpClass(cls):
         super(CatalogApiTests, cls).setUpClass()
-        cls.response_catcher = HttpResponseCatcher()
-        cls.controller = CatalogApi(cls.config, cls.auth_managers, cls.response_catcher)
+        cls.controller = cls.client.catalog
+        cls.response_catcher = cls.controller.http_call_back
 
     # Returns information about the Square Catalog API, such as batch size
     #limits for `BatchUpsertCatalogObjects`.

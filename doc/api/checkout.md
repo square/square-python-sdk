@@ -26,11 +26,11 @@ def create_checkout(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Template, Required | The ID of the business location to associate the checkout with. |
-| `body` | [`Create Checkout Request`](/doc/models/create-checkout-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Create Checkout Request`](../../doc/models/create-checkout-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Create Checkout Response`](/doc/models/create-checkout-response.md)
+[`Create Checkout Response`](../../doc/models/create-checkout-response.md)
 
 ## Example Usage
 

@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `counts` | [`List of Inventory Count`](/doc/models/inventory-count.md) | Optional | The current counts for all objects referenced in the request. |
-| `changes` | [`List of Inventory Change`](/doc/models/inventory-change.md) | Optional | Changes created for the request. |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `counts` | [`List of Inventory Count`](../../doc/models/inventory-count.md) | Optional | The current counts for all objects referenced in the request. |
+| `changes` | [`List of Inventory Change`](../../doc/models/inventory-change.md) | Optional | Changes created for the request. |
 
 ## Example (as JSON)
 

@@ -2,9 +2,9 @@
 
 import os
 import unittest
+from tests.http_response_catcher import HttpResponseCatcher
 from square.configuration import Configuration
 from square.client import Client
-
 
 class ApiTestBase(unittest.TestCase):
 
@@ -17,9 +17,10 @@ class ApiTestBase(unittest.TestCase):
         cls.request_timeout = 30
         cls.assert_precision = 0.01
         cls.config = ApiTestBase.create_configuration()
-        cls.client = Client(access_token=cls.config.access_token)
+        cls.client = Client(config=cls.config)
         cls.auth_managers = cls.client.auth_managers
     @staticmethod
     def create_configuration():
         return Configuration(access_token=os.environ['SQUARE_SANDBOX_TOKEN'],
-                             environment='sandbox')
+                             environment='sandbox',
+                             http_call_back=HttpResponseCatcher())

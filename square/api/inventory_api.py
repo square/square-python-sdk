@@ -9,8 +9,8 @@ from square.api.base_api import BaseApi
 class InventoryApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(InventoryApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(InventoryApi, self).__init__(config, auth_managers)
 
     @deprecated()
     def deprecated_retrieve_inventory_adjustment(self,

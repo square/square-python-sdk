@@ -9,8 +9,8 @@ from square.api.base_api import BaseApi
 class CustomersApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(CustomersApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(CustomersApi, self).__init__(config, auth_managers)
 
     def list_customers(self,
                        cursor=None,
@@ -32,15 +32,16 @@ class CustomersApi(BaseApi):
                 previous call to this endpoint. Provide this cursor to
                 retrieve the next set of results for your original query.  For
                 more information, see
-                [Pagination](https://developer.squareup.com/docs/working-with-a
-                pis/pagination).
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
             limit (int, optional): The maximum number of results to return in
                 a single page. This limit is advisory. The response might
-                contain more or fewer results. The limit is ignored if it is
-                less than 1 or greater than 100. The default value is 100. 
-                For more information, see
-                [Pagination](https://developer.squareup.com/docs/working-with-a
-                pis/pagination).
+                contain more or fewer results. If the specified limit is less
+                than 1 or greater than 100, Square returns a `400
+                VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH` error. The default
+                value is 100.  For more information, see
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
             sort_field (CustomerSortField, optional): Indicates how customers
                 should be sorted.  The default value is `DEFAULT`.
             sort_order (SortOrder, optional): Indicates whether customers
@@ -234,9 +235,9 @@ class CustomersApi(BaseApi):
             version (long|int, optional): The current version of the customer
                 profile.  As a best practice, you should include this
                 parameter to enable [optimistic
-                concurrency](https://developer.squareup.com/docs/working-with-a
-                pis/optimistic-concurrency) control.  For more information,
-                see [Delete a customer
+                concurrency](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/optimistic-concurrency) control.  For more
+                information, see [Delete a customer
                 profile](https://developer.squareup.com/docs/customers-api/use-
                 the-api/keep-records#delete-customer-profile).
 

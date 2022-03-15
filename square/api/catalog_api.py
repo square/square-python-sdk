@@ -9,8 +9,8 @@ from square.api.base_api import BaseApi
 class CatalogApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(CatalogApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(CatalogApi, self).__init__(config, auth_managers)
 
     def batch_delete_catalog_objects(self,
                                      body):

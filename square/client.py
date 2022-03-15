@@ -36,17 +36,18 @@ from square.api.snippets_api import SnippetsApi
 from square.api.subscriptions_api import SubscriptionsApi
 from square.api.team_api import TeamApi
 from square.api.terminal_api import TerminalApi
+from square.api.vendors_api import VendorsApi
 
 
 class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '17.2.0.20220216'
+        return '17.3.0.20220316'
 
     @staticmethod
     def square_version():
-        return '2022-02-16'
+        return '2022-03-16'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -185,18 +186,23 @@ class Client(object):
     def terminal(self):
         return TerminalApi(self.config, self.auth_managers)
 
+    @lazy_property
+    def vendors(self):
+        return VendorsApi(self.config, self.auth_managers)
+
     def __init__(self, http_client_instance=None,
-                 override_http_client_configuration=False, timeout=60,
-                 max_retries=0, backoff_factor=2,
+                 override_http_client_configuration=False, http_call_back=None,
+                 timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2022-02-16', additional_headers={},
+                 square_version='2022-03-16', additional_headers={},
                  user_agent_detail='', config=None):
         if config is None:
             self.config = Configuration(
                                          http_client_instance=http_client_instance,
                                          override_http_client_configuration=override_http_client_configuration,
+                                         http_call_back=http_call_back,
                                          timeout=timeout,
                                          max_retries=max_retries,
                                          backoff_factor=backoff_factor,

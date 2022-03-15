@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class TeamApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(TeamApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(TeamApi, self).__init__(config, auth_managers)
 
     def create_team_member(self,
                            body):

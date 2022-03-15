@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class BookingsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(BookingsApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(BookingsApi, self).__init__(config, auth_managers)
 
     def list_bookings(self,
                       limit=None,
@@ -20,9 +20,9 @@ class BookingsApi(BaseApi):
                       start_at_max=None):
         """Does a GET request to /v2/bookings.
 
-        Retrieve a collection of bookings. 
+        Retrieve a collection of bookings.
         To call this endpoint with buyer-level permissions, set
-        `APPOINTMENTS_READ` for the OAuth scope.  
+        `APPOINTMENTS_READ` for the OAuth scope.
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
@@ -99,9 +99,9 @@ class BookingsApi(BaseApi):
                        body):
         """Does a POST request to /v2/bookings.
 
-        Creates a booking. 
+        Creates a booking.
         To call this endpoint with buyer-level permissions, set
-        `APPOINTMENTS_WRITE` for the OAuth scope.  
+        `APPOINTMENTS_WRITE` for the OAuth scope.
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
         scope.
@@ -154,9 +154,9 @@ class BookingsApi(BaseApi):
                             body):
         """Does a POST request to /v2/bookings/availability/search.
 
-        Searches for availabilities for booking. 
+        Searches for availabilities for booking.
         To call this endpoint with buyer-level permissions, set
-        `APPOINTMENTS_READ` for the OAuth scope.  
+        `APPOINTMENTS_READ` for the OAuth scope.
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
@@ -371,9 +371,9 @@ class BookingsApi(BaseApi):
                          booking_id):
         """Does a GET request to /v2/bookings/{booking_id}.
 
-        Retrieves a booking. 
+        Retrieves a booking.
         To call this endpoint with buyer-level permissions, set
-        `APPOINTMENTS_READ` for the OAuth scope.  
+        `APPOINTMENTS_READ` for the OAuth scope.
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
@@ -427,9 +427,9 @@ class BookingsApi(BaseApi):
                        body):
         """Does a PUT request to /v2/bookings/{booking_id}.
 
-        Updates a booking. 
+        Updates a booking.
         To call this endpoint with buyer-level permissions, set
-        `APPOINTMENTS_WRITE` for the OAuth scope.  
+        `APPOINTMENTS_WRITE` for the OAuth scope.
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
         scope.
@@ -488,9 +488,9 @@ class BookingsApi(BaseApi):
                        body):
         """Does a POST request to /v2/bookings/{booking_id}/cancel.
 
-        Cancels an existing booking. 
+        Cancels an existing booking.
         To call this endpoint with buyer-level permissions, set
-        `APPOINTMENTS_WRITE` for the OAuth scope.  
+        `APPOINTMENTS_WRITE` for the OAuth scope.
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
         scope.

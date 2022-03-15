@@ -34,28 +34,28 @@ Monetary values are <b>negative</b> if they represent an
 | `merchant_id` | `string` | Optional | The unique identifier of the merchant that took the payment. |
 | `created_at` | `string` | Optional | The time when the payment was created, in ISO 8601 format. Reflects the time of the first payment if the object represents an incomplete partial payment, and the time of the last or complete payment otherwise. |
 | `creator_id` | `string` | Optional | The unique identifier of the Square account that took the payment. |
-| `device` | [`Device`](/doc/models/device.md) | Optional | - |
+| `device` | [`Device`](../../doc/models/device.md) | Optional | - |
 | `payment_url` | `string` | Optional | The URL of the payment's detail page in the merchant dashboard. The merchant must be signed in to the merchant dashboard to view this page. |
 | `receipt_url` | `string` | Optional | The URL of the receipt for the payment. Note that for split tender<br>payments, this URL corresponds to the receipt for the first tender<br>listed in the payment's tender field. Each Tender object has its own<br>receipt_url field you can use to get the other receipts associated with<br>a split tender payment. |
-| `inclusive_tax_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `additive_tax_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `tax_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `tip_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `discount_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `total_collected_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `processing_fee_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `net_total_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `refunded_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `swedish_rounding_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `gross_sales_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `net_sales_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `inclusive_tax` | [`List of V1 Payment Tax`](/doc/models/v1-payment-tax.md) | Optional | All of the inclusive taxes associated with the payment. |
-| `additive_tax` | [`List of V1 Payment Tax`](/doc/models/v1-payment-tax.md) | Optional | All of the additive taxes associated with the payment. |
-| `tender` | [`List of V1 Tender`](/doc/models/v1-tender.md) | Optional | All of the tenders associated with the payment. |
-| `refunds` | [`List of V1 Refund`](/doc/models/v1-refund.md) | Optional | All of the refunds applied to the payment. Note that the value of all refunds on a payment can exceed the value of all tenders if a merchant chooses to refund money to a tender after previously accepting returned goods as part of an exchange. |
-| `itemizations` | [`List of V1 Payment Itemization`](/doc/models/v1-payment-itemization.md) | Optional | The items purchased in the payment. |
-| `surcharge_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
-| `surcharges` | [`List of V1 Payment Surcharge`](/doc/models/v1-payment-surcharge.md) | Optional | A list of all surcharges associated with the payment. |
+| `inclusive_tax_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `additive_tax_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `tax_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `tip_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `discount_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `total_collected_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `processing_fee_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `net_total_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `refunded_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `swedish_rounding_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `gross_sales_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `net_sales_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `inclusive_tax` | [`List of V1 Payment Tax`](../../doc/models/v1-payment-tax.md) | Optional | All of the inclusive taxes associated with the payment. |
+| `additive_tax` | [`List of V1 Payment Tax`](../../doc/models/v1-payment-tax.md) | Optional | All of the additive taxes associated with the payment. |
+| `tender` | [`List of V1 Tender`](../../doc/models/v1-tender.md) | Optional | All of the tenders associated with the payment. |
+| `refunds` | [`List of V1 Refund`](../../doc/models/v1-refund.md) | Optional | All of the refunds applied to the payment. Note that the value of all refunds on a payment can exceed the value of all tenders if a merchant chooses to refund money to a tender after previously accepting returned goods as part of an exchange. |
+| `itemizations` | [`List of V1 Payment Itemization`](../../doc/models/v1-payment-itemization.md) | Optional | The items purchased in the payment. |
+| `surcharge_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
+| `surcharges` | [`List of V1 Payment Surcharge`](../../doc/models/v1-payment-surcharge.md) | Optional | A list of all surcharges associated with the payment. |
 | `is_partial` | `bool` | Optional | Indicates whether or not the payment is only partially paid for.<br>If true, this payment will have the tenders collected so far, but the<br>itemizations will be empty until the payment is completed. |
 
 ## Example (as JSON)
