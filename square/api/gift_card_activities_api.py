@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class GiftCardActivitiesApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(GiftCardActivitiesApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(GiftCardActivitiesApi, self).__init__(config, auth_managers)
 
     def list_gift_card_activities(self,
                                   gift_card_id=None,

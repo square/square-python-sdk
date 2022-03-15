@@ -33,4 +33,5 @@ __all__ = [
     'subscriptions_api',
     'team_api',
     'terminal_api',
+    'vendors_api',
 ]

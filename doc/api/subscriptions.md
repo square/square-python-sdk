@@ -10,16 +10,16 @@ subscriptions_api = client.subscriptions
 
 ## Methods
 
-* [Create Subscription](/doc/api/subscriptions.md#create-subscription)
-* [Search Subscriptions](/doc/api/subscriptions.md#search-subscriptions)
-* [Retrieve Subscription](/doc/api/subscriptions.md#retrieve-subscription)
-* [Update Subscription](/doc/api/subscriptions.md#update-subscription)
-* [Delete Subscription Action](/doc/api/subscriptions.md#delete-subscription-action)
-* [Cancel Subscription](/doc/api/subscriptions.md#cancel-subscription)
-* [List Subscription Events](/doc/api/subscriptions.md#list-subscription-events)
-* [Pause Subscription](/doc/api/subscriptions.md#pause-subscription)
-* [Resume Subscription](/doc/api/subscriptions.md#resume-subscription)
-* [Swap Plan](/doc/api/subscriptions.md#swap-plan)
+* [Create Subscription](../../doc/api/subscriptions.md#create-subscription)
+* [Search Subscriptions](../../doc/api/subscriptions.md#search-subscriptions)
+* [Retrieve Subscription](../../doc/api/subscriptions.md#retrieve-subscription)
+* [Update Subscription](../../doc/api/subscriptions.md#update-subscription)
+* [Delete Subscription Action](../../doc/api/subscriptions.md#delete-subscription-action)
+* [Cancel Subscription](../../doc/api/subscriptions.md#cancel-subscription)
+* [List Subscription Events](../../doc/api/subscriptions.md#list-subscription-events)
+* [Pause Subscription](../../doc/api/subscriptions.md#pause-subscription)
+* [Resume Subscription](../../doc/api/subscriptions.md#resume-subscription)
+* [Swap Plan](../../doc/api/subscriptions.md#swap-plan)
 
 
 # Create Subscription
@@ -40,11 +40,11 @@ def create_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Create Subscription Request`](/doc/models/create-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Create Subscription Request`](../../doc/models/create-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Create Subscription Response`](/doc/models/create-subscription-response.md)
+[`Create Subscription Response`](../../doc/models/create-subscription-response.md)
 
 ## Example Usage
 
@@ -92,7 +92,7 @@ first by location, within location by customer ID, and within
 customer by subscription creation date.
 
 For more information, see
-[Retrieve subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions).
+[Retrieve subscriptions](../../https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions).
 
 ```python
 def search_subscriptions(self,
@@ -103,11 +103,11 @@ def search_subscriptions(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Search Subscriptions Request`](/doc/models/search-subscriptions-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Search Subscriptions Request`](../../doc/models/search-subscriptions-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Search Subscriptions Response`](/doc/models/search-subscriptions-response.md)
+[`Search Subscriptions Response`](../../doc/models/search-subscriptions-response.md)
 
 ## Example Usage
 
@@ -150,7 +150,7 @@ def retrieve_subscription(self,
 
 ## Response Type
 
-[`Retrieve Subscription Response`](/doc/models/retrieve-subscription-response.md)
+[`Retrieve Subscription Response`](../../doc/models/retrieve-subscription-response.md)
 
 ## Example Usage
 
@@ -183,11 +183,11 @@ def update_subscription(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to update. |
-| `body` | [`Update Subscription Request`](/doc/models/update-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Update Subscription Request`](../../doc/models/update-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Subscription Response`](/doc/models/update-subscription-response.md)
+[`Update Subscription Response`](../../doc/models/update-subscription-response.md)
 
 ## Example Usage
 
@@ -234,7 +234,7 @@ def delete_subscription_action(self,
 
 ## Response Type
 
-[`Delete Subscription Action Response`](/doc/models/delete-subscription-action-response.md)
+[`Delete Subscription Action Response`](../../doc/models/delete-subscription-action-response.md)
 
 ## Example Usage
 
@@ -270,7 +270,7 @@ def cancel_subscription(self,
 
 ## Response Type
 
-[`Cancel Subscription Response`](/doc/models/cancel-subscription-response.md)
+[`Cancel Subscription Response`](../../doc/models/cancel-subscription-response.md)
 
 ## Example Usage
 
@@ -303,12 +303,12 @@ def list_subscription_events(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to retrieve the events for. |
-| `cursor` | `string` | Query, Optional | When the total number of resulting subscription events exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `cursor` | `string` | Query, Optional | When the total number of resulting subscription events exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](../../https://developer.squareup.com/docs/working-with-apis/pagination). |
 | `limit` | `int` | Query, Optional | The upper limit on the number of subscription events to return<br>in a paged response. |
 
 ## Response Type
 
-[`List Subscription Events Response`](/doc/models/list-subscription-events-response.md)
+[`List Subscription Events Response`](../../doc/models/list-subscription-events-response.md)
 
 ## Example Usage
 
@@ -341,11 +341,11 @@ def pause_subscription(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to pause. |
-| `body` | [`Pause Subscription Request`](/doc/models/pause-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Pause Subscription Request`](../../doc/models/pause-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Pause Subscription Response`](/doc/models/pause-subscription-response.md)
+[`Pause Subscription Response`](../../doc/models/pause-subscription-response.md)
 
 ## Example Usage
 
@@ -382,11 +382,11 @@ def resume_subscription(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to resume. |
-| `body` | [`Resume Subscription Request`](/doc/models/resume-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Resume Subscription Request`](../../doc/models/resume-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Resume Subscription Response`](/doc/models/resume-subscription-response.md)
+[`Resume Subscription Response`](../../doc/models/resume-subscription-response.md)
 
 ## Example Usage
 
@@ -420,11 +420,11 @@ def swap_plan(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `string` | Template, Required | The ID of the subscription to swap the subscription plan for. |
-| `body` | [`Swap Plan Request`](/doc/models/swap-plan-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Swap Plan Request`](../../doc/models/swap-plan-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Swap Plan Response`](/doc/models/swap-plan-response.md)
+[`Swap Plan Response`](../../doc/models/swap-plan-response.md)
 
 ## Example Usage
 

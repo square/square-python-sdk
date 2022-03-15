@@ -5,11 +5,12 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2022-02-16'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2022-03-16'` |
 | `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
 | `override_http_client_configuration` | `bool` | The value which determines to override properties of the passed Http Client from the sdk user |
+| `http_call_back` | `HttpCallBack` | The callback value that is invoked before and after an HTTP call is made to an endpoint |
 | `timeout` | `float` | The value to use for connection timeout. <br> **Default: 60** |
 | `max_retries` | `int` | The number of times to retry an endpoint call if it fails. <br> **Default: 0** |
 | `backoff_factor` | `float` | A backoff factor to apply between attempts after the second try. <br> **Default: 2** |
@@ -17,6 +18,7 @@ The following parameters are configurable for the API Client:
 | `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
 | `additional_headers` | `dict` | Additional headers to add to each API request |
 | `user_agent_detail` | `string` | User agent detail, to be appended with user-agent header. |
+| `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 
 The API client can be initialized as follows:
 
@@ -24,7 +26,8 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2022-02-16',
+    square_version='2022-03-16',
+    access_token='AccessToken',
     environment='production',
     custom_url = 'https://connect.squareup.com',)
 ```
@@ -48,7 +51,8 @@ API calls return an `ApiResponse` object that includes the following fields:
 from square.client import Client
 
 client = Client(
-    square_version='2022-02-16',)
+    square_version='2022-03-16',
+    access_token='AccessToken',)
 
 locations_api = client.locations
 result = locations_api.list_locations()
@@ -100,4 +104,5 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | subscriptions | Gets SubscriptionsApi |
 | team | Gets TeamApi |
 | terminal | Gets TerminalApi |
+| vendors | Gets VendorsApi |
 

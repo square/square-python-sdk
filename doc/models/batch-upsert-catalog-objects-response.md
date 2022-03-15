@@ -9,10 +9,10 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `objects` | [`List of Catalog Object`](/doc/models/catalog-object.md) | Optional | The created successfully created CatalogObjects. |
-| `updated_at` | `string` | Optional | The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) of this update in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z". |
-| `id_mappings` | [`List of Catalog Id Mapping`](/doc/models/catalog-id-mapping.md) | Optional | The mapping between client and server IDs for this upsert. |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `objects` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | The created successfully created CatalogObjects. |
+| `updated_at` | `string` | Optional | The database [timestamp](../../https://developer.squareup.com/docs/build-basics/working-with-dates) of this update in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z". |
+| `id_mappings` | [`List of Catalog Id Mapping`](../../doc/models/catalog-id-mapping.md) | Optional | The mapping between client and server IDs for this upsert. |
 
 ## Example (as JSON)
 

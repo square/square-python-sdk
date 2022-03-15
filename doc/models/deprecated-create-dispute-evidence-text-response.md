@@ -11,8 +11,8 @@ Defines the fields in a `DeprecatedCreateDisputeEvidenceText` response.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `evidence` | [`Dispute Evidence`](/doc/models/dispute-evidence.md) | Optional | - |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `evidence` | [`Dispute Evidence`](../../doc/models/dispute-evidence.md) | Optional | - |
 
 ## Example (as JSON)
 

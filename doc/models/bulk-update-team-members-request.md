@@ -11,7 +11,7 @@ Represents a bulk update request for `TeamMember` objects.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_members` | [`Dict`](/doc/models/update-team-member-request.md) | Required | The data used to update the `TeamMember` objects. Each key is the `team_member_id` that maps to the `UpdateTeamMemberRequest`. |
+| `team_members` | [`Dict`](../../doc/models/update-team-member-request.md) | Required | The data used to update the `TeamMember` objects. Each key is the `team_member_id` that maps to the `UpdateTeamMemberRequest`. |
 
 ## Example (as JSON)
 

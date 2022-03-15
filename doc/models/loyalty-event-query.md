@@ -11,7 +11,7 @@ Represents a query used to search for loyalty events.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `filter` | [`Loyalty Event Filter`](/doc/models/loyalty-event-filter.md) | Optional | The filtering criteria. If the request specifies multiple filters,<br>the endpoint uses a logical AND to evaluate them. |
+| `filter` | [`Loyalty Event Filter`](../../doc/models/loyalty-event-filter.md) | Optional | The filtering criteria. If the request specifies multiple filters,<br>the endpoint uses a logical AND to evaluate them. |
 
 ## Example (as JSON)
 

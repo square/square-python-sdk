@@ -1,7 +1,7 @@
 
 # Retrieve Location Response
 
-Defines the fields that the [RetrieveLocation](/doc/api/locations.md#retrieve-location)
+Defines the fields that the [RetrieveLocation](../../doc/api/locations.md#retrieve-location)
 endpoint returns in a response.
 
 ## Structure
@@ -12,8 +12,8 @@ endpoint returns in a response.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `location` | [`Location`](/doc/models/location.md) | Optional | Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api). |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `location` | [`Location`](../../doc/models/location.md) | Optional | Represents one of a business's [locations](../../https://developer.squareup.com/docs/locations-api). |
 
 ## Example (as JSON)
 

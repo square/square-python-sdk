@@ -27,10 +27,10 @@ class BaseApi(object):
             'Square-Version': self.config.square_version
         }
 
-    def __init__(self, config, auth_managers, call_back=None):
+    def __init__(self, config, auth_managers):
         self._config = config
         self._auth_managers = auth_managers
-        self._http_call_back = call_back
+        self._http_call_back = config.http_call_back
 
     @property
     def config(self):
@@ -87,7 +87,7 @@ class BaseApi(object):
         return response
 
     def get_user_agent(self):
-        user_agent = 'Square-Python-SDK/17.2.0.20220216 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        user_agent = 'Square-Python-SDK/17.3.0.20220316 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
         parameters = {
             'engine': {'value': platform.python_implementation(), 'encode': False},
             'engine-version': {'value': "", 'encode': False},

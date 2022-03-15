@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class TerminalApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(TerminalApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(TerminalApi, self).__init__(config, auth_managers)
 
     def create_terminal_checkout(self,
                                  body):

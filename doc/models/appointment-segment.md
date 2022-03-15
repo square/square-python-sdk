@@ -12,8 +12,8 @@ Defines an appointment segment of a booking.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `duration_minutes` | `int` | Required | The time span in minutes of an appointment segment.<br>**Constraints**: `<= 1500` |
-| `service_variation_id` | `string` | Required | The ID of the [CatalogItemVariation](/doc/models/catalog-item-variation.md) object representing the service booked in this segment.<br>**Constraints**: *Minimum Length*: `1` |
-| `team_member_id` | `string` | Required | The ID of the [TeamMember](/doc/models/team-member.md) object representing the team member booked in this segment.<br>**Constraints**: *Minimum Length*: `1` |
+| `service_variation_id` | `string` | Required | The ID of the [CatalogItemVariation](../../doc/models/catalog-item-variation.md) object representing the service booked in this segment.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
+| `team_member_id` | `string` | Required | The ID of the [TeamMember](../../doc/models/team-member.md) object representing the team member booked in this segment.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `32` |
 | `service_variation_version` | `long\|int` | Required | The current version of the item variation representing the service booked in this segment. |
 | `intermission_minutes` | `int` | Optional | Time between the end of this segment and the beginning of the subsequent segment. |
 | `any_team_member` | `bool` | Optional | Whether the customer accepts any team member, instead of a specific one, to serve this segment. |

@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class ApplePayApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(ApplePayApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(ApplePayApi, self).__init__(config, auth_managers)
 
     def register_domain(self,
                         body):

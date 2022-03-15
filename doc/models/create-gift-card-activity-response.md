@@ -12,8 +12,8 @@ The response might contain a set of `Error` objects if the request resulted in e
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `gift_card_activity` | [`Gift Card Activity`](/doc/models/gift-card-activity.md) | Optional | Represents an action performed on a gift card that affects its state or balance. |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `gift_card_activity` | [`Gift Card Activity`](../../doc/models/gift-card-activity.md) | Optional | Represents an action performed on a gift card that affects its state or balance. |
 
 ## Example (as JSON)
 

@@ -5,9 +5,7 @@ import dateutil.parser
 
 from tests.api.api_test_base import ApiTestBase
 from tests.test_helper import TestHelper
-from tests.http_response_catcher import HttpResponseCatcher
 from square.api_helper import APIHelper
-from square.api.locations_api import LocationsApi
 
 
 class LocationsApiTests(ApiTestBase):
@@ -15,8 +13,8 @@ class LocationsApiTests(ApiTestBase):
     @classmethod
     def setUpClass(cls):
         super(LocationsApiTests, cls).setUpClass()
-        cls.response_catcher = HttpResponseCatcher()
-        cls.controller = LocationsApi(cls.config, cls.auth_managers, cls.response_catcher)
+        cls.controller = cls.client.locations
+        cls.response_catcher = cls.controller.http_call_back
 
     # Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
     #including those with an inactive status.

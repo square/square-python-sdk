@@ -12,7 +12,7 @@ V1PaymentModifier
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `name` | `string` | Optional | The modifier option's name. |
-| `applied_money` | [`V1 Money`](/doc/models/v1-money.md) | Optional | - |
+| `applied_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
 | `modifier_option_id` | `string` | Optional | The ID of the applied modifier option, if available. Modifier options applied in older versions of Square Register might not have an ID. |
 
 ## Example (as JSON)

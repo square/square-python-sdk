@@ -10,9 +10,9 @@ cash_drawers_api = client.cash_drawers
 
 ## Methods
 
-* [List Cash Drawer Shifts](/doc/api/cash-drawers.md#list-cash-drawer-shifts)
-* [Retrieve Cash Drawer Shift](/doc/api/cash-drawers.md#retrieve-cash-drawer-shift)
-* [List Cash Drawer Shift Events](/doc/api/cash-drawers.md#list-cash-drawer-shift-events)
+* [List Cash Drawer Shifts](../../doc/api/cash-drawers.md#list-cash-drawer-shifts)
+* [Retrieve Cash Drawer Shift](../../doc/api/cash-drawers.md#retrieve-cash-drawer-shift)
+* [List Cash Drawer Shift Events](../../doc/api/cash-drawers.md#list-cash-drawer-shift-events)
 
 
 # List Cash Drawer Shifts
@@ -35,7 +35,7 @@ def list_cash_drawer_shifts(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `string` | Query, Required | The ID of the location to query for a list of cash drawer shifts. |
-| `sort_order` | [`str (Sort Order)`](/doc/models/sort-order.md) | Query, Optional | The order in which cash drawer shifts are listed in the response,<br>based on their opened_at field. Default value: ASC |
+| `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which cash drawer shifts are listed in the response,<br>based on their opened_at field. Default value: ASC |
 | `begin_time` | `string` | Query, Optional | The inclusive start time of the query on opened_at, in ISO 8601 format. |
 | `end_time` | `string` | Query, Optional | The exclusive end date of the query on opened_at, in ISO 8601 format. |
 | `limit` | `int` | Query, Optional | Number of cash drawer shift events in a page of results (200 by<br>default, 1000 max). |
@@ -43,7 +43,7 @@ def list_cash_drawer_shifts(self,
 
 ## Response Type
 
-[`List Cash Drawer Shifts Response`](/doc/models/list-cash-drawer-shifts-response.md)
+[`List Cash Drawer Shifts Response`](../../doc/models/list-cash-drawer-shifts-response.md)
 
 ## Example Usage
 
@@ -67,7 +67,7 @@ elif result.is_error():
 # Retrieve Cash Drawer Shift
 
 Provides the summary details for a single cash drawer shift. See
-[ListCashDrawerShiftEvents](/doc/api/cash-drawers.md#list-cash-drawer-shift-events) for a list of cash drawer shift events.
+[ListCashDrawerShiftEvents](../../doc/api/cash-drawers.md#list-cash-drawer-shift-events) for a list of cash drawer shift events.
 
 ```python
 def retrieve_cash_drawer_shift(self,
@@ -84,7 +84,7 @@ def retrieve_cash_drawer_shift(self,
 
 ## Response Type
 
-[`Retrieve Cash Drawer Shift Response`](/doc/models/retrieve-cash-drawer-shift-response.md)
+[`Retrieve Cash Drawer Shift Response`](../../doc/models/retrieve-cash-drawer-shift-response.md)
 
 ## Example Usage
 
@@ -124,7 +124,7 @@ def list_cash_drawer_shift_events(self,
 
 ## Response Type
 
-[`List Cash Drawer Shift Events Response`](/doc/models/list-cash-drawer-shift-events-response.md)
+[`List Cash Drawer Shift Events Response`](../../doc/models/list-cash-drawer-shift-events-response.md)
 
 ## Example Usage
 

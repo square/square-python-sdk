@@ -13,9 +13,9 @@ the request resulted in errors.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `shifts` | [`List of Shift`](/doc/models/shift.md) | Optional | Shifts. |
+| `shifts` | [`List of Shift`](../../doc/models/shift.md) | Optional | Shifts. |
 | `cursor` | `string` | Optional | An opaque cursor for fetching the next page. |
-| `errors` | [`List of Error`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
 ## Example (as JSON)
 

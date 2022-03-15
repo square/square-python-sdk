@@ -17,8 +17,8 @@ class CustomersApiTests(ApiTestBase):
     @classmethod
     def setUpClass(cls):
         super(CustomersApiTests, cls).setUpClass()
-        cls.response_catcher = HttpResponseCatcher()
-        cls.controller = CustomersApi(cls.config, cls.auth_managers, cls.response_catcher)
+        cls.controller = cls.client.customers
+        cls.response_catcher = cls.controller.http_call_back
 
     # Creates a new customer for a business, which can have associated cards on file.
     #

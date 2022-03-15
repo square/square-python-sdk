@@ -11,8 +11,8 @@ Describes query criteria for searching invoices.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `filter` | [`Invoice Filter`](/doc/models/invoice-filter.md) | Required | Describes query filters to apply. |
-| `sort` | [`Invoice Sort`](/doc/models/invoice-sort.md) | Optional | Identifies the sort field and sort order. |
+| `filter` | [`Invoice Filter`](../../doc/models/invoice-filter.md) | Required | Describes query filters to apply. |
+| `sort` | [`Invoice Sort`](../../doc/models/invoice-sort.md) | Optional | Identifies the sort field and sort order. |
 
 ## Example (as JSON)
 

@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `query` | [`Search Availability Query`](/doc/models/search-availability-query.md) | Required | The query used to search for buyer-accessible availabilities of bookings. |
+| `query` | [`Search Availability Query`](../../doc/models/search-availability-query.md) | Required | The query used to search for buyer-accessible availabilities of bookings. |
 
 ## Example (as JSON)
 

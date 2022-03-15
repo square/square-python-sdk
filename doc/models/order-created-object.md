@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_created` | [`Order Created`](/doc/models/order-created.md) | Optional | - |
+| `order_created` | [`Order Created`](../../doc/models/order-created.md) | Optional | - |
 
 ## Example (as JSON)
 

@@ -10,14 +10,14 @@ team_api = client.team
 
 ## Methods
 
-* [Create Team Member](/doc/api/team.md#create-team-member)
-* [Bulk Create Team Members](/doc/api/team.md#bulk-create-team-members)
-* [Bulk Update Team Members](/doc/api/team.md#bulk-update-team-members)
-* [Search Team Members](/doc/api/team.md#search-team-members)
-* [Retrieve Team Member](/doc/api/team.md#retrieve-team-member)
-* [Update Team Member](/doc/api/team.md#update-team-member)
-* [Retrieve Wage Setting](/doc/api/team.md#retrieve-wage-setting)
-* [Update Wage Setting](/doc/api/team.md#update-wage-setting)
+* [Create Team Member](../../doc/api/team.md#create-team-member)
+* [Bulk Create Team Members](../../doc/api/team.md#bulk-create-team-members)
+* [Bulk Update Team Members](../../doc/api/team.md#bulk-update-team-members)
+* [Search Team Members](../../doc/api/team.md#search-team-members)
+* [Retrieve Team Member](../../doc/api/team.md#retrieve-team-member)
+* [Update Team Member](../../doc/api/team.md#update-team-member)
+* [Retrieve Wage Setting](../../doc/api/team.md#retrieve-wage-setting)
+* [Update Wage Setting](../../doc/api/team.md#update-wage-setting)
 
 
 # Create Team Member
@@ -28,7 +28,7 @@ You must provide the following values in your request to this endpoint:
 - `given_name`
 - `family_name`
 
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#createteammember).
+Learn about [Troubleshooting the Team API](../../https://developer.squareup.com/docs/team/troubleshooting#createteammember).
 
 ```python
 def create_team_member(self,
@@ -39,11 +39,11 @@ def create_team_member(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Create Team Member Request`](/doc/models/create-team-member-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Create Team Member Request`](../../doc/models/create-team-member-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Create Team Member Response`](/doc/models/create-team-member-response.md)
+[`Create Team Member Response`](../../doc/models/create-team-member-response.md)
 
 ## Example Usage
 
@@ -79,7 +79,7 @@ This process is non-transactional and processes as much of the request as possib
 the request cannot be successfully processed, the request is not marked as failed, but the body of the response
 contains explicit error information for the failed create.
 
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#bulk-create-team-members).
+Learn about [Troubleshooting the Team API](../../https://developer.squareup.com/docs/team/troubleshooting#bulk-create-team-members).
 
 ```python
 def bulk_create_team_members(self,
@@ -90,11 +90,11 @@ def bulk_create_team_members(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Bulk Create Team Members Request`](/doc/models/bulk-create-team-members-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Bulk Create Team Members Request`](../../doc/models/bulk-create-team-members-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Bulk Create Team Members Response`](/doc/models/bulk-create-team-members-response.md)
+[`Bulk Create Team Members Response`](../../doc/models/bulk-create-team-members-response.md)
 
 ## Example Usage
 
@@ -117,7 +117,7 @@ Updates multiple `TeamMember` objects. The updated `TeamMember` objects are retu
 This process is non-transactional and processes as much of the request as possible. If one of the updates in
 the request cannot be successfully processed, the request is not marked as failed, but the body of the response
 contains explicit error information for the failed update.
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#bulk-update-team-members).
+Learn about [Troubleshooting the Team API](../../https://developer.squareup.com/docs/team/troubleshooting#bulk-update-team-members).
 
 ```python
 def bulk_update_team_members(self,
@@ -128,11 +128,11 @@ def bulk_update_team_members(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Bulk Update Team Members Request`](/doc/models/bulk-update-team-members-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Bulk Update Team Members Request`](../../doc/models/bulk-update-team-members-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Bulk Update Team Members Response`](/doc/models/bulk-update-team-members-response.md)
+[`Bulk Update Team Members Response`](../../doc/models/bulk-update-team-members-response.md)
 
 ## Example Usage
 
@@ -166,11 +166,11 @@ def search_team_members(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`Search Team Members Request`](/doc/models/search-team-members-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Search Team Members Request`](../../doc/models/search-team-members-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Search Team Members Response`](/doc/models/search-team-members-response.md)
+[`Search Team Members Response`](../../doc/models/search-team-members-response.md)
 
 ## Example Usage
 
@@ -196,7 +196,7 @@ elif result.is_error():
 # Retrieve Team Member
 
 Retrieves a `TeamMember` object for the given `TeamMember.id`.
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#retrieve-a-team-member).
+Learn about [Troubleshooting the Team API](../../https://developer.squareup.com/docs/team/troubleshooting#retrieve-a-team-member).
 
 ```python
 def retrieve_team_member(self,
@@ -211,7 +211,7 @@ def retrieve_team_member(self,
 
 ## Response Type
 
-[`Retrieve Team Member Response`](/doc/models/retrieve-team-member-response.md)
+[`Retrieve Team Member Response`](../../doc/models/retrieve-team-member-response.md)
 
 ## Example Usage
 
@@ -230,7 +230,7 @@ elif result.is_error():
 # Update Team Member
 
 Updates a single `TeamMember` object. The `TeamMember` object is returned on successful updates.
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#update-a-team-member).
+Learn about [Troubleshooting the Team API](../../https://developer.squareup.com/docs/team/troubleshooting#update-a-team-member).
 
 ```python
 def update_team_member(self,
@@ -243,11 +243,11 @@ def update_team_member(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `team_member_id` | `string` | Template, Required | The ID of the team member to update. |
-| `body` | [`Update Team Member Request`](/doc/models/update-team-member-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Update Team Member Request`](../../doc/models/update-team-member-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Team Member Response`](/doc/models/update-team-member-response.md)
+[`Update Team Member Response`](../../doc/models/update-team-member-response.md)
 
 ## Example Usage
 
@@ -280,7 +280,7 @@ elif result.is_error():
 
 Retrieves a `WageSetting` object for a team member specified
 by `TeamMember.id`.
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#retrievewagesetting).
+Learn about [Troubleshooting the Team API](../../https://developer.squareup.com/docs/team/troubleshooting#retrievewagesetting).
 
 ```python
 def retrieve_wage_setting(self,
@@ -295,7 +295,7 @@ def retrieve_wage_setting(self,
 
 ## Response Type
 
-[`Retrieve Wage Setting Response`](/doc/models/retrieve-wage-setting-response.md)
+[`Retrieve Wage Setting Response`](../../doc/models/retrieve-wage-setting-response.md)
 
 ## Example Usage
 
@@ -317,7 +317,7 @@ Creates or updates a `WageSetting` object. The object is created if a
 `WageSetting` with the specified `team_member_id` does not exist. Otherwise,
 it fully replaces the `WageSetting` object for the team member.
 The `WageSetting` is returned on a successful update.
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#create-or-update-a-wage-setting).
+Learn about [Troubleshooting the Team API](../../https://developer.squareup.com/docs/team/troubleshooting#create-or-update-a-wage-setting).
 
 ```python
 def update_wage_setting(self,
@@ -330,11 +330,11 @@ def update_wage_setting(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `team_member_id` | `string` | Template, Required | The ID of the team member for which to update the `WageSetting` object. |
-| `body` | [`Update Wage Setting Request`](/doc/models/update-wage-setting-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`Update Wage Setting Request`](../../doc/models/update-wage-setting-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Wage Setting Response`](/doc/models/update-wage-setting-response.md)
+[`Update Wage Setting Response`](../../doc/models/update-wage-setting-response.md)
 
 ## Example Usage
 

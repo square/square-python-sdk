@@ -1,9 +1,9 @@
 
 # Dispute Evidence Created Webhook
 
-Published when evidence is added to a [Dispute](/doc/models/dispute.md)
+Published when evidence is added to a [Dispute](../../doc/models/dispute.md)
 from the Disputes Dashboard in the Seller Dashboard, the Square Point of Sale app,
-or by calling either [CreateDisputeEvidenceFile](/doc/api/disputes.md#create-dispute-evidence-file) or [CreateDisputeEvidenceText](/doc/api/disputes.md#create-dispute-evidence-text).
+or by calling either [CreateDisputeEvidenceFile](../../doc/api/disputes.md#create-dispute-evidence-file) or [CreateDisputeEvidenceText](../../doc/api/disputes.md#create-dispute-evidence-text).
 
 ## Structure
 
@@ -18,7 +18,7 @@ or by calling either [CreateDisputeEvidenceFile](/doc/api/disputes.md#create-dis
 | `type` | `string` | Optional | The type of event this represents. |
 | `event_id` | `string` | Optional | A unique ID for the webhook event. |
 | `created_at` | `string` | Optional | Timestamp of when the webhook event was created, in RFC 3339 format. |
-| `data` | [`Dispute Evidence Created Webhook Data`](/doc/models/dispute-evidence-created-webhook-data.md) | Optional | - |
+| `data` | [`Dispute Evidence Created Webhook Data`](../../doc/models/dispute-evidence-created-webhook-data.md) | Optional | - |
 
 ## Example (as JSON)
 

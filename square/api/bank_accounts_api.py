@@ -8,8 +8,8 @@ from square.api.base_api import BaseApi
 class BankAccountsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers, call_back=None):
-        super(BankAccountsApi, self).__init__(config, auth_managers, call_back)
+    def __init__(self, config, auth_managers):
+        super(BankAccountsApi, self).__init__(config, auth_managers)
 
     def list_bank_accounts(self,
                            cursor=None,
