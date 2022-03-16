@@ -18,7 +18,7 @@ locations_api = client.locations
 
 # List Locations
 
-Provides details about all of the seller's [locations](../../https://developer.squareup.com/docs/locations-api),
+Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
 including those with an inactive status.
 
 ```python
@@ -43,7 +43,7 @@ elif result.is_error():
 
 # Create Location
 
-Creates a [location](../../https://developer.squareup.com/docs/locations-api).
+Creates a [location](https://developer.squareup.com/docs/locations-api).
 Creating new locations allows for separate configuration of receipt layouts, item prices,
 and sales reports. Developers can use locations to separate sales activity via applications
 that integrate with Square from sales activity elsewhere in a seller's account.
@@ -97,7 +97,7 @@ elif result.is_error():
 # Retrieve Location
 
 Retrieves details of a single location. Specify "main"
-as the location ID to retrieve details of the [main location](../../https://developer.squareup.com/docs/locations-api#about-the-main-location).
+as the location ID to retrieve details of the [main location](https://developer.squareup.com/docs/locations-api#about-the-main-location).
 
 ```python
 def retrieve_location(self,
@@ -130,7 +130,7 @@ elif result.is_error():
 
 # Update Location
 
-Updates a [location](../../https://developer.squareup.com/docs/locations-api).
+Updates a [location](https://developer.squareup.com/docs/locations-api).
 
 ```python
 def update_location(self,

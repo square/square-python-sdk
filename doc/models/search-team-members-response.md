@@ -12,7 +12,7 @@ Represents a response from a search request containing a filtered list of `TeamM
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `team_members` | [`List of Team Member`](../../doc/models/team-member.md) | Optional | The filtered list of `TeamMember` objects. |
-| `cursor` | `string` | Optional | The opaque cursor for fetching the next page. For more information, see<br>[pagination](../../https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `cursor` | `string` | Optional | The opaque cursor for fetching the next page. For more information, see<br>[pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 | `errors` | [`List of Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
 
 ## Example (as JSON)
