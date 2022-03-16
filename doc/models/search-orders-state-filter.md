@@ -11,7 +11,7 @@ Filter by the current order `state`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `states` | [`List of str (Order State)`](../../doc/models/order-state.md) | Required | States to filter for.<br>See [OrderState](../../#type-orderstate) for possible values |
+| `states` | [`List of str (Order State)`](../../doc/models/order-state.md) | Required | States to filter for.<br>See [OrderState](#type-orderstate) for possible values |
 
 ## Example (as JSON)
 

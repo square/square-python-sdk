@@ -12,7 +12,7 @@ HTTP requests at GET https://connect.squareup.com/v2/cards
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Pagination](../../https://developer.squareup.com/docs/basics/api101/pagination) for more information.<br>**Constraints**: *Maximum Length*: `256` |
+| `cursor` | `string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.<br>**Constraints**: *Maximum Length*: `256` |
 | `customer_id` | `string` | Optional | Limit results to cards associated with the customer supplied.<br>By default, all cards owned by the merchant are returned. |
 | `include_disabled` | `bool` | Optional | Includes disabled cards.<br>By default, all enabled cards owned by the merchant are returned. |
 | `reference_id` | `string` | Optional | Limit results to cards associated with the reference_id supplied. |

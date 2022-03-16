@@ -14,7 +14,7 @@ Defines output parameters in a response from the
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Errors encountered during the request. |
 | `subscriptions` | [`List of Subscription`](../../doc/models/subscription.md) | Optional | The subscriptions matching the specified query expressions. |
-| `cursor` | `string` | Optional | When the total number of resulting subscription exceeds the limit of a paged response,<br>the response includes a cursor for you to use in a subsequent request to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](../../https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `cursor` | `string` | Optional | When the total number of resulting subscription exceeds the limit of a paged response,<br>the response includes a cursor for you to use in a subsequent request to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 
 ## Example (as JSON)
 
