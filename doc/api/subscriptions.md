@@ -289,7 +289,6 @@ elif result.is_error():
 # List Subscription Events
 
 Lists all events for a specific subscription.
-In the current implementation, only `START_SUBSCRIPTION` and `STOP_SUBSCRIPTION` (when the subscription was canceled) events are returned.
 
 ```python
 def list_subscription_events(self,

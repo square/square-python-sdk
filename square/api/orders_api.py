@@ -439,7 +439,7 @@ class OrdersApi(BaseApi):
         `payment_ids` is canceled.
         - Be approved with [delayed
         capture](https://developer.squareup.com/docs/payments-api/take-payments
-        #delayed-capture).
+        /card-payments/delayed-capture).
         Using a delayed capture payment with `PayOrder` completes the approved
         payment.
 

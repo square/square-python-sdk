@@ -74,16 +74,36 @@ class RequestsClient(HttpClient):
 
         self.session.verify = verify
 
-    def execute_as_string(self, request):
+    def force_retries(self, request, to_retry=None):
+        """Reset retries according to each request
+
+        Args:
+            request (HttpRequest): The given HttpRequest to execute.
+            to_retry (boolean): whether to retry on a particular request
+
+        """
+        adapters = self.session.adapters
+        if to_retry is False:
+            for adapter in adapters.values():
+                adapter.max_retries = False
+        elif to_retry is True:
+            for adapter in adapters.values():
+                adapter.max_retries.allowed_methods = [request.http_method]
+
+    def execute_as_string(self, request, to_retry=None):
         """Execute a given HttpRequest to get a string response back
 
         Args:
             request (HttpRequest): The given HttpRequest to execute.
+            to_retry (boolean): whether to retry on a particular request
 
         Returns:
             HttpResponse: The response of the HttpRequest.
 
         """
+
+        old_adapters = self.session.adapters
+        self.force_retries(request, to_retry)
         response = self.session.request(
             HttpMethodEnum.to_string(request.http_method),
             request.query_url,
@@ -94,19 +114,23 @@ class RequestsClient(HttpClient):
             timeout=self.timeout
         )
 
+        self.session.adapters = old_adapters
         return self.convert_response(response, False, request)
 
-    def execute_as_binary(self, request):
+    def execute_as_binary(self, request, to_retry=None):
         """Execute a given HttpRequest to get a binary response back
 
         Args:
             request (HttpRequest): The given HttpRequest to execute.
+            to_retry (boolean): whether to retry on a particular request
 
         Returns:
             HttpResponse: The response of the HttpRequest.
 
         """
 
+        old_adapters = self.session.adapters
+        self.force_retries(request, to_retry)
         response = self.session.request(
             HttpMethodEnum.to_string(request.http_method),
             request.query_url,
@@ -116,7 +140,7 @@ class RequestsClient(HttpClient):
             files=request.files,
             timeout=self.timeout
         )
-
+        self.session.adapters = old_adapters
         return self.convert_response(response, True, request)
 
     def convert_response(self, response, binary, http_request):

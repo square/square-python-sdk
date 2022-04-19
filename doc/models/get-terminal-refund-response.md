@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
-| `refund` | [`Terminal Refund`](../../doc/models/terminal-refund.md) | Optional | - |
+| `refund` | [`Terminal Refund`](../../doc/models/terminal-refund.md) | Optional | Represents a payment refund processed by the Square Terminal. Only supports Interac (Canadian debit network) payment refunds. |
 
 ## Example (as JSON)
 

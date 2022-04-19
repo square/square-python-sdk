@@ -30,6 +30,7 @@ from square.api.loyalty_api import LoyaltyApi
 from square.api.merchants_api import MerchantsApi
 from square.api.orders_api import OrdersApi
 from square.api.payments_api import PaymentsApi
+from square.api.payouts_api import PayoutsApi
 from square.api.refunds_api import RefundsApi
 from square.api.sites_api import SitesApi
 from square.api.snippets_api import SnippetsApi
@@ -43,11 +44,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '17.3.0.20220316'
+        return '18.0.0.20220420'
 
     @staticmethod
     def square_version():
-        return '2022-03-16'
+        return '2022-04-20'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -163,6 +164,10 @@ class Client(object):
         return PaymentsApi(self.config, self.auth_managers)
 
     @lazy_property
+    def payouts(self):
+        return PayoutsApi(self.config, self.auth_managers)
+
+    @lazy_property
     def refunds(self):
         return RefundsApi(self.config, self.auth_managers)
 
@@ -196,7 +201,7 @@ class Client(object):
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2022-03-16', additional_headers={},
+                 square_version='2022-04-20', additional_headers={},
                  user_agent_detail='', config=None):
         if config is None:
             self.config = Configuration(
