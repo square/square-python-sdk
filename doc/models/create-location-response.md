@@ -1,7 +1,7 @@
 
 # Create Location Response
 
-Response object returned by the [CreateLocation](../../doc/api/locations.md#create-location) endpoint.
+The response object returned by the [CreateLocation](../../doc/api/locations.md#create-location) endpoint.
 
 ## Structure
 
@@ -11,8 +11,8 @@ Response object returned by the [CreateLocation](../../doc/api/locations.md#crea
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on [errors](https://developer.squareup.com/docs/build-basics/handling-errors) encountered during the request. |
-| `location` | [`Location`](../../doc/models/location.md) | Optional | Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api). |
+| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about [errors](https://developer.squareup.com/docs/build-basics/handling-errors) encountered during the request. |
+| `location` | [`Location`](../../doc/models/location.md) | Optional | Represents one of a business' [locations](https://developer.squareup.com/docs/locations-api). |
 
 ## Example (as JSON)
 

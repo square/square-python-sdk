@@ -55,13 +55,14 @@ class BaseApi(object):
             if value is None:
                 raise ValueError("Required parameter {} cannot be None.".format(name))
 
-    def execute_request(self, request, binary=False):
+    def execute_request(self, request, binary=False, to_retry=None):
         """Executes an HttpRequest.
 
         Args:
             request (HttpRequest): The HttpRequest to execute.
             binary (bool): A flag which should be set to True if
                 a binary response is expected.
+            to_retry (bool): whether to retry on a particular request
 
         Returns:
             HttpResponse: The HttpResponse received.
@@ -72,13 +73,14 @@ class BaseApi(object):
             self.http_call_back.on_before_request(request)
 
         # Add global headers to request
-        request.headers = APIHelper.merge_dicts(self.global_headers(), request.headers)
+        prepared_headers = {key: str(value) for key, value in request.headers.items()}
+        request.headers = APIHelper.merge_dicts(self.global_headers(), prepared_headers)
         if self.config.additional_headers is not None:
             request.headers.update(self.config.additional_headers)
 
         # Invoke the API call to fetch the response.
         func = self.config.http_client.execute_as_binary if binary else self.config.http_client.execute_as_string
-        response = func(request)
+        response = func(request, to_retry=to_retry)
 
         # Invoke the on after response HttpCallBack if specified
         if self.http_call_back is not None:
@@ -87,7 +89,7 @@ class BaseApi(object):
         return response
 
     def get_user_agent(self):
-        user_agent = 'Square-Python-SDK/17.3.0.20220316 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        user_agent = 'Square-Python-SDK/18.0.0.20220420 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
         parameters = {
             'engine': {'value': platform.python_implementation(), 'encode': False},
             'engine-version': {'value': "", 'encode': False},

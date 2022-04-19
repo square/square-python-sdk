@@ -368,9 +368,6 @@ class SubscriptionsApi(BaseApi):
         """Does a GET request to /v2/subscriptions/{subscription_id}/events.
 
         Lists all events for a specific subscription.
-        In the current implementation, only `START_SUBSCRIPTION` and
-        `STOP_SUBSCRIPTION` (when the subscription was canceled) events are
-        returned.
 
         Args:
             subscription_id (string): The ID of the subscription to retrieve

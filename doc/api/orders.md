@@ -105,9 +105,7 @@ body['order']['line_items'][1]['modifiers'][0]['uid'] = 'uid1'
 body['order']['line_items'][1]['modifiers'][0]['catalog_object_id'] = 'CHQX7Y4KY6N5KINJKZCFURPZ'
 body['order']['line_items'][1]['modifiers'][0]['catalog_version'] = 69
 body['order']['line_items'][1]['modifiers'][0]['name'] = 'name1'
-body['order']['line_items'][1]['modifiers'][0]['base_price_money'] = {}
-body['order']['line_items'][1]['modifiers'][0]['base_price_money']['amount'] = 53
-body['order']['line_items'][1]['modifiers'][0]['base_price_money']['currency'] = 'TTD'
+body['order']['line_items'][1]['modifiers'][0]['quantity'] = 'quantity7'
 
 body['order']['line_items'][1]['applied_discounts'] = []
 
@@ -579,7 +577,7 @@ To be used with `PayOrder`, a payment must:
 - Reference the order by specifying the `order_id` when [creating the payment](../../doc/api/payments.md#create-payment).
   Any approved payments that reference the same `order_id` not specified in the
   `payment_ids` is canceled.
-- Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments#delayed-capture).
+- Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments/card-payments/delayed-capture).
   Using a delayed capture payment with `PayOrder` completes the approved payment.
 
 ```python

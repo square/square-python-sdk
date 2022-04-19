@@ -13,7 +13,7 @@ Represents a refund processed for a Square transaction.
 |  --- | --- | --- | --- |
 | `id` | `string` | Required | The refund's unique ID.<br>**Constraints**: *Maximum Length*: `255` |
 | `location_id` | `string` | Required | The ID of the refund's associated location.<br>**Constraints**: *Maximum Length*: `50` |
-| `transaction_id` | `string` | Required | The ID of the transaction that the refunded tender is part of.<br>**Constraints**: *Maximum Length*: `192` |
+| `transaction_id` | `string` | Optional | The ID of the transaction that the refunded tender is part of.<br>**Constraints**: *Maximum Length*: `192` |
 | `tender_id` | `string` | Required | The ID of the refunded tender.<br>**Constraints**: *Maximum Length*: `192` |
 | `created_at` | `string` | Optional | The timestamp for when the refund was created, in RFC 3339 format.<br>**Constraints**: *Maximum Length*: `32` |
 | `reason` | `string` | Required | The reason for the refund being issued.<br>**Constraints**: *Maximum Length*: `192` |

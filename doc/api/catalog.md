@@ -100,6 +100,7 @@ body = {}
 body['object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI', 'AA27W3M2GGTF3H6AVPNB77CK']
 body['include_related_objects'] = True
 body['catalog_version'] = 118
+body['include_deleted_objects'] = False
 
 result = catalog_api.batch_retrieve_catalog_objects(body)
 

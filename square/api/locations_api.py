@@ -63,14 +63,15 @@ class LocationsApi(BaseApi):
         Creates a
         [location](https://developer.squareup.com/docs/locations-api).
         Creating new locations allows for separate configuration of receipt
-        layouts, item prices, 
+        layouts, item prices,
         and sales reports. Developers can use locations to separate sales
-        activity via applications 
+        activity through applications
         that integrate with Square from sales activity elsewhere in a seller's
-        account. 
-        Locations created programmatically with the Locations API will last
-        forever and 
-        are visible to the seller for their own management, so ensure that 
+        account.
+        Locations created programmatically with the Locations API last forever
+        and
+        are visible to the seller for their own management. Therefore, ensure
+        that
         each location has a sensible and unique name.
 
         Args:

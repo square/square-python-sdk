@@ -67,8 +67,10 @@ class TerminalApi(BaseApi):
                                   body):
         """Does a POST request to /v2/terminals/checkouts/search.
 
-        Retrieves a filtered list of Terminal checkout requests created by the
-        account making the request.
+        Returns a filtered list of Terminal checkout requests created by the
+        application making the request. Only Terminal checkout requests
+        created for the merchant scoped to the OAuth token are returned.
+        Terminal checkout requests are available for 30 days.
 
         Args:
             body (SearchTerminalCheckoutsRequest): An object containing the
@@ -118,7 +120,8 @@ class TerminalApi(BaseApi):
                               checkout_id):
         """Does a GET request to /v2/terminals/checkouts/{checkout_id}.
 
-        Retrieves a Terminal checkout request by `checkout_id`.
+        Retrieves a Terminal checkout request by `checkout_id`. Terminal
+        checkout requests are available for 30 days.
 
         Args:
             checkout_id (string): The unique ID for the desired
@@ -222,7 +225,10 @@ class TerminalApi(BaseApi):
         """Does a POST request to /v2/terminals/refunds.
 
         Creates a request to refund an Interac payment completed on a Square
-        Terminal.
+        Terminal. Refunds for Interac payments on a Square Terminal are
+        supported only for Interac debit cards in Canada. Other refunds for
+        Terminal payments should use the Refunds API. For more information,
+        see [Refunds API]($e/Refunds).
 
         Args:
             body (CreateTerminalRefundRequest): An object containing the
@@ -273,7 +279,8 @@ class TerminalApi(BaseApi):
         """Does a POST request to /v2/terminals/refunds/search.
 
         Retrieves a filtered list of Interac Terminal refund requests created
-        by the seller making the request.
+        by the seller making the request. Terminal refund requests are
+        available for 30 days.
 
         Args:
             body (SearchTerminalRefundsRequest): An object containing the
@@ -323,7 +330,8 @@ class TerminalApi(BaseApi):
                             terminal_refund_id):
         """Does a GET request to /v2/terminals/refunds/{terminal_refund_id}.
 
-        Retrieves an Interac Terminal refund object by ID.
+        Retrieves an Interac Terminal refund object by ID. Terminal refund
+        objects are available for 30 days.
 
         Args:
             terminal_refund_id (string): The unique ID for the desired

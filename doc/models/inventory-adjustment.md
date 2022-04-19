@@ -26,8 +26,8 @@ particular time and location.
 | `source` | [`Source Application`](../../doc/models/source-application.md) | Optional | Provides information about the application used to generate a change. |
 | `employee_id` | `string` | Optional | The Square-generated ID of the [Employee](../../doc/models/employee.md) responsible for the<br>inventory adjustment.<br>**Constraints**: *Maximum Length*: `100` |
 | `team_member_id` | `string` | Optional | The Square-generated ID of the [Team Member](../../doc/models/team-member.md) responsible for the<br>inventory adjustment.<br>**Constraints**: *Maximum Length*: `100` |
-| `transaction_id` | `string` | Optional | The Square-generated ID of the [Transaction][#type-transaction] that<br>caused the adjustment. Only relevant for payment-related state<br>transitions.<br>**Constraints**: *Maximum Length*: `255` |
-| `refund_id` | `string` | Optional | The Square-generated ID of the [Refund][#type-refund] that<br>caused the adjustment. Only relevant for refund-related state<br>transitions.<br>**Constraints**: *Maximum Length*: `255` |
+| `transaction_id` | `string` | Optional | The Square-generated ID of the [Transaction](../../doc/models/transaction.md) that<br>caused the adjustment. Only relevant for payment-related state<br>transitions.<br>**Constraints**: *Maximum Length*: `255` |
+| `refund_id` | `string` | Optional | The Square-generated ID of the [Refund](../../doc/models/refund.md) that<br>caused the adjustment. Only relevant for refund-related state<br>transitions.<br>**Constraints**: *Maximum Length*: `255` |
 | `purchase_order_id` | `string` | Optional | The Square-generated ID of the purchase order that caused the<br>adjustment. Only relevant for state transitions from the Square for Retail<br>app.<br>**Constraints**: *Maximum Length*: `100` |
 | `goods_receipt_id` | `string` | Optional | The Square-generated ID of the goods receipt that caused the<br>adjustment. Only relevant for state transitions from the Square for Retail<br>app.<br>**Constraints**: *Maximum Length*: `100` |
 | `adjustment_group` | [`Inventory Adjustment Group`](../../doc/models/inventory-adjustment-group.md) | Optional | - |
