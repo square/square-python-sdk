@@ -105,6 +105,9 @@ class BookingsApi(BaseApi):
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
         scope.
+        For calls to this endpoint with seller-level permissions to succeed,
+        the seller must have subscribed to *Appointments Plus*
+        or *Appointments Premium*.
 
         Args:
             body (CreateBookingRequest): An object containing the fields to
@@ -433,6 +436,9 @@ class BookingsApi(BaseApi):
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
         scope.
+        For calls to this endpoint with seller-level permissions to succeed,
+        the seller must have subscribed to *Appointments Plus*
+        or *Appointments Premium*.
 
         Args:
             booking_id (string): The ID of the [Booking]($m/Booking) object
@@ -494,6 +500,9 @@ class BookingsApi(BaseApi):
         To call this endpoint with seller-level permissions, set
         `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth
         scope.
+        For calls to this endpoint with seller-level permissions to succeed,
+        the seller must have subscribed to *Appointments Plus*
+        or *Appointments Premium*.
 
         Args:
             booking_id (string): The ID of the [Booking]($m/Booking) object

@@ -41,11 +41,7 @@ def list_bank_accounts(self,
 ## Example Usage
 
 ```python
-cursor = 'cursor6'
-limit = 172
-location_id = 'location_id4'
-
-result = bank_accounts_api.list_bank_accounts(cursor, limit, location_id)
+result = bank_accounts_api.list_bank_accounts()
 
 if result.is_success():
     print(result.body)

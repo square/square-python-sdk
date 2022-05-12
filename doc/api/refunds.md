@@ -56,16 +56,7 @@ def list_payment_refunds(self,
 ## Example Usage
 
 ```python
-begin_time = 'begin_time2'
-end_time = 'end_time2'
-sort_order = 'sort_order0'
-cursor = 'cursor6'
-location_id = 'location_id4'
-status = 'status8'
-source_type = 'source_type0'
-limit = 172
-
-result = refunds_api.list_payment_refunds(begin_time, end_time, sort_order, cursor, location_id, status, source_type, limit)
+result = refunds_api.list_payment_refunds()
 
 if result.is_success():
     print(result.body)
@@ -109,8 +100,6 @@ body['app_fee_money']['amount'] = 10
 body['app_fee_money']['currency'] = 'USD'
 body['payment_id'] = 'R2B3Z8WMVt3EAmzYWLZvz7Y69EbZY'
 body['reason'] = 'Example'
-body['payment_version_token'] = 'payment_version_token6'
-body['team_member_id'] = 'team_member_id4'
 
 result = refunds_api.refund_payment(body)
 

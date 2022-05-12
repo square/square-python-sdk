@@ -146,17 +146,6 @@ def create_vendor(self,
 ```python
 body = {}
 body['idempotency_key'] = 'idempotency_key2'
-body['vendor'] = {}
-body['vendor']['id'] = 'id2'
-body['vendor']['created_at'] = 'created_at0'
-body['vendor']['updated_at'] = 'updated_at8'
-body['vendor']['name'] = 'name2'
-body['vendor']['address'] = {}
-body['vendor']['address']['address_line_1'] = 'address_line_18'
-body['vendor']['address']['address_line_2'] = 'address_line_28'
-body['vendor']['address']['address_line_3'] = 'address_line_34'
-body['vendor']['address']['locality'] = 'locality8'
-body['vendor']['address']['sublocality'] = 'sublocality8'
 
 result = vendors_api.create_vendor(body)
 
@@ -190,13 +179,6 @@ def search_vendors(self,
 
 ```python
 body = {}
-body['filter'] = {}
-body['filter']['name'] = ['name8', 'name9']
-body['filter']['status'] = ['ACTIVE']
-body['sort'] = {}
-body['sort']['field'] = 'NAME'
-body['sort']['order'] = 'DESC'
-body['cursor'] = 'cursor0'
 
 result = vendors_api.search_vendors(body)
 
@@ -268,15 +250,7 @@ body = {}
 body['idempotency_key'] = '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe'
 body['vendor'] = {}
 body['vendor']['id'] = 'INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4'
-body['vendor']['created_at'] = 'created_at0'
-body['vendor']['updated_at'] = 'updated_at8'
 body['vendor']['name'] = 'Jack\'s Chicken Shack'
-body['vendor']['address'] = {}
-body['vendor']['address']['address_line_1'] = 'address_line_18'
-body['vendor']['address']['address_line_2'] = 'address_line_28'
-body['vendor']['address']['address_line_3'] = 'address_line_34'
-body['vendor']['address']['locality'] = 'locality8'
-body['vendor']['address']['sublocality'] = 'sublocality8'
 body['vendor']['version'] = 1
 body['vendor']['status'] = 'ACTIVE'
 vendor_id = 'vendor_id8'

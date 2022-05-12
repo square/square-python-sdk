@@ -50,81 +50,36 @@ def create_order(self,
 ```python
 body = {}
 body['order'] = {}
-body['order']['id'] = 'id0'
 body['order']['location_id'] = '057P5VYJ4A5X1'
 body['order']['reference_id'] = 'my-order-001'
-body['order']['source'] = {}
-body['order']['source']['name'] = 'name6'
-body['order']['customer_id'] = 'customer_id8'
 body['order']['line_items'] = []
 
 body['order']['line_items'].append({})
-body['order']['line_items'][0]['uid'] = 'uid1'
 body['order']['line_items'][0]['name'] = 'New York Strip Steak'
 body['order']['line_items'][0]['quantity'] = '1'
-body['order']['line_items'][0]['quantity_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name9'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation1'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_INCH'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit'] = 'METRIC_KILOMETER'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
-body['order']['line_items'][0]['quantity_unit']['precision'] = 189
-body['order']['line_items'][0]['quantity_unit']['catalog_object_id'] = 'catalog_object_id1'
-body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
-body['order']['line_items'][0]['note'] = 'note3'
-body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
 body['order']['line_items'][0]['base_price_money'] = {}
 body['order']['line_items'][0]['base_price_money']['amount'] = 1599
 body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 
 body['order']['line_items'].append({})
-body['order']['line_items'][1]['uid'] = 'uid0'
-body['order']['line_items'][1]['name'] = 'name0'
 body['order']['line_items'][1]['quantity'] = '2'
-body['order']['line_items'][1]['quantity_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name8'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation0'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_ACRE'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit'] = 'IMPERIAL_INCH'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
-body['order']['line_items'][1]['quantity_unit']['precision'] = 188
-body['order']['line_items'][1]['quantity_unit']['catalog_object_id'] = 'catalog_object_id0'
-body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
-body['order']['line_items'][1]['note'] = 'note4'
 body['order']['line_items'][1]['catalog_object_id'] = 'BEMYCSMIJL46OCDV4KYIKXIB'
 body['order']['line_items'][1]['modifiers'] = []
 
 body['order']['line_items'][1]['modifiers'].append({})
-body['order']['line_items'][1]['modifiers'][0]['uid'] = 'uid1'
 body['order']['line_items'][1]['modifiers'][0]['catalog_object_id'] = 'CHQX7Y4KY6N5KINJKZCFURPZ'
-body['order']['line_items'][1]['modifiers'][0]['catalog_version'] = 69
-body['order']['line_items'][1]['modifiers'][0]['name'] = 'name1'
-body['order']['line_items'][1]['modifiers'][0]['quantity'] = 'quantity7'
 
 body['order']['line_items'][1]['applied_discounts'] = []
 
 body['order']['line_items'][1]['applied_discounts'].append({})
-body['order']['line_items'][1]['applied_discounts'][0]['uid'] = 'uid4'
 body['order']['line_items'][1]['applied_discounts'][0]['discount_uid'] = 'one-dollar-off'
-body['order']['line_items'][1]['applied_discounts'][0]['applied_money'] = {}
-body['order']['line_items'][1]['applied_discounts'][0]['applied_money']['amount'] = 164
-body['order']['line_items'][1]['applied_discounts'][0]['applied_money']['currency'] = 'CUC'
 
 
 body['order']['taxes'] = []
 
 body['order']['taxes'].append({})
 body['order']['taxes'][0]['uid'] = 'state-sales-tax'
-body['order']['taxes'][0]['catalog_object_id'] = 'catalog_object_id1'
-body['order']['taxes'][0]['catalog_version'] = 189
 body['order']['taxes'][0]['name'] = 'State Sales Tax'
-body['order']['taxes'][0]['type'] = 'UNKNOWN_TAX'
 body['order']['taxes'][0]['percentage'] = '9'
 body['order']['taxes'][0]['scope'] = 'ORDER'
 
@@ -132,27 +87,18 @@ body['order']['discounts'] = []
 
 body['order']['discounts'].append({})
 body['order']['discounts'][0]['uid'] = 'labor-day-sale'
-body['order']['discounts'][0]['catalog_object_id'] = 'catalog_object_id5'
-body['order']['discounts'][0]['catalog_version'] = 89
 body['order']['discounts'][0]['name'] = 'Labor Day Sale'
-body['order']['discounts'][0]['type'] = 'FIXED_PERCENTAGE'
 body['order']['discounts'][0]['percentage'] = '5'
 body['order']['discounts'][0]['scope'] = 'ORDER'
 
 body['order']['discounts'].append({})
 body['order']['discounts'][1]['uid'] = 'membership-discount'
 body['order']['discounts'][1]['catalog_object_id'] = 'DB7L55ZH2BGWI4H23ULIWOQ7'
-body['order']['discounts'][1]['catalog_version'] = 90
-body['order']['discounts'][1]['name'] = 'name2'
-body['order']['discounts'][1]['type'] = 'FIXED_AMOUNT'
 body['order']['discounts'][1]['scope'] = 'ORDER'
 
 body['order']['discounts'].append({})
 body['order']['discounts'][2]['uid'] = 'one-dollar-off'
-body['order']['discounts'][2]['catalog_object_id'] = 'catalog_object_id7'
-body['order']['discounts'][2]['catalog_version'] = 91
 body['order']['discounts'][2]['name'] = 'Sale - $1.00 off'
-body['order']['discounts'][2]['type'] = 'VARIABLE_PERCENTAGE'
 body['order']['discounts'][2]['amount_money'] = {}
 body['order']['discounts'][2]['amount_money']['amount'] = 100
 body['order']['discounts'][2]['amount_money']['currency'] = 'USD'
@@ -230,54 +176,19 @@ def calculate_order(self,
 ```python
 body = {}
 body['order'] = {}
-body['order']['id'] = 'id0'
 body['order']['location_id'] = 'D7AVYMEAPJ3A3'
-body['order']['reference_id'] = 'reference_id8'
-body['order']['source'] = {}
-body['order']['source']['name'] = 'name6'
-body['order']['customer_id'] = 'customer_id8'
 body['order']['line_items'] = []
 
 body['order']['line_items'].append({})
-body['order']['line_items'][0]['uid'] = 'uid1'
 body['order']['line_items'][0]['name'] = 'Item 1'
 body['order']['line_items'][0]['quantity'] = '1'
-body['order']['line_items'][0]['quantity_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name9'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation1'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_INCH'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit'] = 'METRIC_KILOMETER'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
-body['order']['line_items'][0]['quantity_unit']['precision'] = 189
-body['order']['line_items'][0]['quantity_unit']['catalog_object_id'] = 'catalog_object_id1'
-body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
-body['order']['line_items'][0]['note'] = 'note3'
-body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
 body['order']['line_items'][0]['base_price_money'] = {}
 body['order']['line_items'][0]['base_price_money']['amount'] = 500
 body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 
 body['order']['line_items'].append({})
-body['order']['line_items'][1]['uid'] = 'uid0'
 body['order']['line_items'][1]['name'] = 'Item 2'
 body['order']['line_items'][1]['quantity'] = '2'
-body['order']['line_items'][1]['quantity_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name8'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation0'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_ACRE'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit'] = 'IMPERIAL_INCH'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
-body['order']['line_items'][1]['quantity_unit']['precision'] = 188
-body['order']['line_items'][1]['quantity_unit']['catalog_object_id'] = 'catalog_object_id0'
-body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
-body['order']['line_items'][1]['note'] = 'note4'
-body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'
 body['order']['line_items'][1]['base_price_money'] = {}
 body['order']['line_items'][1]['base_price_money']['amount'] = 300
 body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
@@ -285,27 +196,9 @@ body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
 body['order']['discounts'] = []
 
 body['order']['discounts'].append({})
-body['order']['discounts'][0]['uid'] = 'uid1'
-body['order']['discounts'][0]['catalog_object_id'] = 'catalog_object_id5'
-body['order']['discounts'][0]['catalog_version'] = 89
 body['order']['discounts'][0]['name'] = '50% Off'
-body['order']['discounts'][0]['type'] = 'FIXED_PERCENTAGE'
 body['order']['discounts'][0]['percentage'] = '50'
 body['order']['discounts'][0]['scope'] = 'ORDER'
-
-body['proposed_rewards'] = []
-
-body['proposed_rewards'].append({})
-body['proposed_rewards'][0]['id'] = 'id6'
-body['proposed_rewards'][0]['reward_tier_id'] = 'reward_tier_id2'
-
-body['proposed_rewards'].append({})
-body['proposed_rewards'][1]['id'] = 'id7'
-body['proposed_rewards'][1]['reward_tier_id'] = 'reward_tier_id3'
-
-body['proposed_rewards'].append({})
-body['proposed_rewards'][2]['id'] = 'id8'
-body['proposed_rewards'][2]['reward_tier_id'] = 'reward_tier_id4'
 
 
 result = orders_api.calculate_order(body)
@@ -394,28 +287,14 @@ def search_orders(self,
 ```python
 body = {}
 body['location_ids'] = ['057P5VYJ4A5X1', '18YC4JDH91E1H']
-body['cursor'] = 'cursor0'
 body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['state_filter'] = {}
 body['query']['filter']['state_filter']['states'] = ['COMPLETED']
 body['query']['filter']['date_time_filter'] = {}
-body['query']['filter']['date_time_filter']['created_at'] = {}
-body['query']['filter']['date_time_filter']['created_at']['start_at'] = 'start_at8'
-body['query']['filter']['date_time_filter']['created_at']['end_at'] = 'end_at4'
-body['query']['filter']['date_time_filter']['updated_at'] = {}
-body['query']['filter']['date_time_filter']['updated_at']['start_at'] = 'start_at6'
-body['query']['filter']['date_time_filter']['updated_at']['end_at'] = 'end_at6'
 body['query']['filter']['date_time_filter']['closed_at'] = {}
 body['query']['filter']['date_time_filter']['closed_at']['start_at'] = '2018-03-03T20:00:00+00:00'
 body['query']['filter']['date_time_filter']['closed_at']['end_at'] = '2019-03-04T21:54:45+00:00'
-body['query']['filter']['fulfillment_filter'] = {}
-body['query']['filter']['fulfillment_filter']['fulfillment_types'] = ['SHIPMENT']
-body['query']['filter']['fulfillment_filter']['fulfillment_states'] = ['CANCELED', 'FAILED']
-body['query']['filter']['source_filter'] = {}
-body['query']['filter']['source_filter']['source_names'] = ['source_names8']
-body['query']['filter']['customer_filter'] = {}
-body['query']['filter']['customer_filter']['customer_ids'] = ['customer_ids5', 'customer_ids6']
 body['query']['sort'] = {}
 body['query']['sort']['sort_field'] = 'CLOSED_AT'
 body['query']['sort']['sort_order'] = 'DESC'
@@ -504,55 +383,6 @@ def update_order(self,
 ```python
 order_id = 'order_id6'
 body = {}
-body['order'] = {}
-body['order']['id'] = 'id0'
-body['order']['location_id'] = 'location_id4'
-body['order']['reference_id'] = 'reference_id8'
-body['order']['source'] = {}
-body['order']['source']['name'] = 'name6'
-body['order']['customer_id'] = 'customer_id8'
-body['order']['line_items'] = []
-
-body['order']['line_items'].append({})
-body['order']['line_items'][0]['uid'] = 'uid1'
-body['order']['line_items'][0]['name'] = 'name1'
-body['order']['line_items'][0]['quantity'] = 'quantity7'
-body['order']['line_items'][0]['quantity_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit'] = {}
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name9'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation1'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_INCH'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['length_unit'] = 'METRIC_KILOMETER'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_QUART'
-body['order']['line_items'][0]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_MILLIGRAM'
-body['order']['line_items'][0]['quantity_unit']['precision'] = 189
-body['order']['line_items'][0]['quantity_unit']['catalog_object_id'] = 'catalog_object_id1'
-body['order']['line_items'][0]['quantity_unit']['catalog_version'] = 133
-body['order']['line_items'][0]['note'] = 'note3'
-body['order']['line_items'][0]['catalog_object_id'] = 'catalog_object_id5'
-
-body['order']['line_items'].append({})
-body['order']['line_items'][1]['uid'] = 'uid0'
-body['order']['line_items'][1]['name'] = 'name0'
-body['order']['line_items'][1]['quantity'] = 'quantity6'
-body['order']['line_items'][1]['quantity_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit'] = {}
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['name'] = 'name8'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation0'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_ACRE'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['length_unit'] = 'IMPERIAL_INCH'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['volume_unit'] = 'GENERIC_PINT'
-body['order']['line_items'][1]['quantity_unit']['measurement_unit']['weight_unit'] = 'METRIC_GRAM'
-body['order']['line_items'][1]['quantity_unit']['precision'] = 188
-body['order']['line_items'][1]['quantity_unit']['catalog_object_id'] = 'catalog_object_id0'
-body['order']['line_items'][1]['quantity_unit']['catalog_version'] = 134
-body['order']['line_items'][1]['note'] = 'note4'
-body['order']['line_items'][1]['catalog_object_id'] = 'catalog_object_id6'
-
-body['fields_to_clear'] = ['fields_to_clear7', 'fields_to_clear8']
-body['idempotency_key'] = 'idempotency_key2'
 
 result = orders_api.update_order(order_id, body)
 
@@ -603,7 +433,6 @@ def pay_order(self,
 order_id = 'order_id6'
 body = {}
 body['idempotency_key'] = 'c043a359-7ad9-4136-82a9-c3f1d66dcbff'
-body['order_version'] = 82
 body['payment_ids'] = ['EnZdNAlWCmfh6Mt5FMNST1o7taB', '0LRiVlbXVwe8ozu4KbZxd12mvaB']
 
 result = orders_api.pay_order(order_id, body)

@@ -54,12 +54,7 @@ def list_customers(self,
 ## Example Usage
 
 ```python
-cursor = 'cursor6'
-limit = 172
-sort_field = 'DEFAULT'
-sort_order = 'DESC'
-
-result = customers_api.list_customers(cursor, limit, sort_field, sort_order)
+result = customers_api.list_customers()
 
 if result.is_success():
     print(result.body)
@@ -100,18 +95,13 @@ def create_customer(self,
 
 ```python
 body = {}
-body['idempotency_key'] = 'idempotency_key2'
 body['given_name'] = 'Amelia'
 body['family_name'] = 'Earhart'
-body['company_name'] = 'company_name2'
-body['nickname'] = 'nickname2'
 body['email_address'] = 'Amelia.Earhart@example.com'
 body['address'] = {}
 body['address']['address_line_1'] = '500 Electric Ave'
 body['address']['address_line_2'] = 'Suite 600'
-body['address']['address_line_3'] = 'address_line_38'
 body['address']['locality'] = 'New York'
-body['address']['sublocality'] = 'sublocality2'
 body['address']['administrative_district_level_1'] = 'NY'
 body['address']['postal_code'] = '10003'
 body['address']['country'] = 'US'
@@ -159,7 +149,6 @@ def search_customers(self,
 
 ```python
 body = {}
-body['cursor'] = 'cursor0'
 body['limit'] = 2
 body['query'] = {}
 body['query']['filter'] = {}
@@ -169,19 +158,10 @@ body['query']['filter']['creation_source']['rule'] = 'INCLUDE'
 body['query']['filter']['created_at'] = {}
 body['query']['filter']['created_at']['start_at'] = '2018-01-01T00:00:00-00:00'
 body['query']['filter']['created_at']['end_at'] = '2018-02-01T00:00:00-00:00'
-body['query']['filter']['updated_at'] = {}
-body['query']['filter']['updated_at']['start_at'] = 'start_at4'
-body['query']['filter']['updated_at']['end_at'] = 'end_at8'
 body['query']['filter']['email_address'] = {}
-body['query']['filter']['email_address']['exact'] = 'exact0'
 body['query']['filter']['email_address']['fuzzy'] = 'example.com'
-body['query']['filter']['phone_number'] = {}
-body['query']['filter']['phone_number']['exact'] = 'exact0'
-body['query']['filter']['phone_number']['fuzzy'] = 'fuzzy6'
 body['query']['filter']['group_ids'] = {}
 body['query']['filter']['group_ids']['all'] = ['545AXB44B4XXWMVQ4W8SBT3HHF']
-body['query']['filter']['group_ids']['any'] = ['any0', 'any1', 'any2']
-body['query']['filter']['group_ids']['none'] = ['none5', 'none6']
 body['query']['sort'] = {}
 body['query']['sort']['field'] = 'CREATED_AT'
 body['query']['sort']['order'] = 'ASC'
@@ -224,9 +204,8 @@ def delete_customer(self,
 
 ```python
 customer_id = 'customer_id8'
-version = 172
 
-result = customers_api.delete_customer(customer_id, version)
+result = customers_api.delete_customer(customer_id)
 
 if result.is_success():
     print(result.body)
@@ -300,10 +279,6 @@ def update_customer(self,
 ```python
 customer_id = 'customer_id8'
 body = {}
-body['given_name'] = 'given_name8'
-body['family_name'] = 'family_name0'
-body['company_name'] = 'company_name2'
-body['nickname'] = 'nickname2'
 body['email_address'] = 'New.Amelia.Earhart@example.com'
 body['phone_number'] = ''
 body['note'] = 'updated customer note'
@@ -354,14 +329,11 @@ body['card_nonce'] = 'YOUR_CARD_NONCE'
 body['billing_address'] = {}
 body['billing_address']['address_line_1'] = '500 Electric Ave'
 body['billing_address']['address_line_2'] = 'Suite 600'
-body['billing_address']['address_line_3'] = 'address_line_38'
 body['billing_address']['locality'] = 'New York'
-body['billing_address']['sublocality'] = 'sublocality2'
 body['billing_address']['administrative_district_level_1'] = 'NY'
 body['billing_address']['postal_code'] = '10003'
 body['billing_address']['country'] = 'US'
 body['cardholder_name'] = 'Amelia Earhart'
-body['verification_token'] = 'verification_token0'
 
 result = customers_api.create_customer_card(customer_id, body)
 

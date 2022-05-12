@@ -44,12 +44,7 @@ def list_employees(self,
 ## Example Usage
 
 ```python
-location_id = 'location_id4'
-status = 'ACTIVE'
-limit = 172
-cursor = 'cursor6'
-
-result = employees_api.list_employees(location_id, status, limit, cursor)
+result = employees_api.list_employees()
 
 if result.is_success():
     print(result.body)

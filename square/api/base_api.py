@@ -89,7 +89,7 @@ class BaseApi(object):
         return response
 
     def get_user_agent(self):
-        user_agent = 'Square-Python-SDK/18.0.0.20220420 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        user_agent = 'Square-Python-SDK/19.0.0.20220512 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
         parameters = {
             'engine': {'value': platform.python_implementation(), 'encode': False},
             'engine-version': {'value': "", 'encode': False},

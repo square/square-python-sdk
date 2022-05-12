@@ -55,7 +55,6 @@ body['location_id'] = 'S8GWD5R9QB376'
 body['plan_id'] = '6JHXF3B2CW3YKHDV4XEM674H'
 body['customer_id'] = 'CHFGVKYY8RSV93M5KCYTG4PN0G'
 body['start_date'] = '2021-10-20'
-body['canceled_date'] = 'canceled_date0'
 body['tax_percentage'] = '5'
 body['price_override_money'] = {}
 body['price_override_money']['amount'] = 100
@@ -113,14 +112,11 @@ def search_subscriptions(self,
 
 ```python
 body = {}
-body['cursor'] = 'cursor0'
-body['limit'] = 164
 body['query'] = {}
 body['query']['filter'] = {}
 body['query']['filter']['customer_ids'] = ['CHFGVKYY8RSV93M5KCYTG4PN0G']
 body['query']['filter']['location_ids'] = ['S8GWD5R9QB376']
 body['query']['filter']['source_names'] = ['My App']
-body['include'] = ['include4', 'include5', 'include6']
 
 result = subscriptions_api.search_subscriptions(body)
 
@@ -156,9 +152,8 @@ def retrieve_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
-include = 'include2'
 
-result = subscriptions_api.retrieve_subscription(subscription_id, include)
+result = subscriptions_api.retrieve_subscription(subscription_id)
 
 if result.is_success():
     print(result.body)
@@ -195,11 +190,6 @@ def update_subscription(self,
 subscription_id = 'subscription_id0'
 body = {}
 body['subscription'] = {}
-body['subscription']['id'] = 'id8'
-body['subscription']['location_id'] = 'location_id2'
-body['subscription']['plan_id'] = 'plan_id0'
-body['subscription']['customer_id'] = 'customer_id6'
-body['subscription']['start_date'] = 'start_date2'
 body['subscription']['tax_percentage'] = 'null'
 body['subscription']['price_override_money'] = {}
 body['subscription']['price_override_money']['amount'] = 2000
@@ -313,10 +303,8 @@ def list_subscription_events(self,
 
 ```python
 subscription_id = 'subscription_id0'
-cursor = 'cursor6'
-limit = 172
 
-result = subscriptions_api.list_subscription_events(subscription_id, cursor, limit)
+result = subscriptions_api.list_subscription_events(subscription_id)
 
 if result.is_success():
     print(result.body)
@@ -351,11 +339,6 @@ def pause_subscription(self,
 ```python
 subscription_id = 'subscription_id0'
 body = {}
-body['pause_effective_date'] = 'pause_effective_date6'
-body['pause_cycle_duration'] = 94
-body['resume_effective_date'] = 'resume_effective_date4'
-body['resume_change_timing'] = 'IMMEDIATE'
-body['pause_reason'] = 'pause_reason2'
 
 result = subscriptions_api.pause_subscription(subscription_id, body)
 
@@ -392,8 +375,6 @@ def resume_subscription(self,
 ```python
 subscription_id = 'subscription_id0'
 body = {}
-body['resume_effective_date'] = 'resume_effective_date4'
-body['resume_change_timing'] = 'IMMEDIATE'
 
 result = subscriptions_api.resume_subscription(subscription_id, body)
 

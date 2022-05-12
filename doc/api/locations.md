@@ -71,18 +71,12 @@ def create_location(self,
 ```python
 body = {}
 body['location'] = {}
-body['location']['id'] = 'id0'
 body['location']['name'] = 'Midtown'
 body['location']['address'] = {}
 body['location']['address']['address_line_1'] = '1234 Peachtree St. NE'
-body['location']['address']['address_line_2'] = 'address_line_26'
-body['location']['address']['address_line_3'] = 'address_line_32'
 body['location']['address']['locality'] = 'Atlanta'
-body['location']['address']['sublocality'] = 'sublocality6'
 body['location']['address']['administrative_district_level_1'] = 'GA'
 body['location']['address']['postal_code'] = '30309'
-body['location']['timezone'] = 'timezone0'
-body['location']['capabilities'] = ['AUTOMATIC_TRANSFERS', 'CREDIT_CARD_PROCESSING', 'AUTOMATIC_TRANSFERS']
 body['location']['description'] = 'Midtown Atlanta store'
 
 result = locations_api.create_location(body)
@@ -155,16 +149,6 @@ def update_location(self,
 location_id = 'location_id4'
 body = {}
 body['location'] = {}
-body['location']['id'] = 'id0'
-body['location']['name'] = 'name0'
-body['location']['address'] = {}
-body['location']['address']['address_line_1'] = 'address_line_16'
-body['location']['address']['address_line_2'] = 'address_line_26'
-body['location']['address']['address_line_3'] = 'address_line_32'
-body['location']['address']['locality'] = 'locality6'
-body['location']['address']['sublocality'] = 'sublocality6'
-body['location']['timezone'] = 'timezone0'
-body['location']['capabilities'] = ['AUTOMATIC_TRANSFERS', 'CREDIT_CARD_PROCESSING', 'AUTOMATIC_TRANSFERS']
 body['location']['business_hours'] = {}
 body['location']['business_hours']['periods'] = []
 

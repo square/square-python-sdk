@@ -62,17 +62,7 @@ def list_payments(self,
 ## Example Usage
 
 ```python
-begin_time = 'begin_time2'
-end_time = 'end_time2'
-sort_order = 'sort_order0'
-cursor = 'cursor6'
-location_id = 'location_id4'
-total = 10
-last_4 = 'last_42'
-card_brand = 'card_brand6'
-limit = 172
-
-result = payments_api.list_payments(begin_time, end_time, sort_order, cursor, location_id, total, last_4, card_brand, limit)
+result = payments_api.list_payments()
 
 if result.is_success():
     print(result.body)
@@ -116,15 +106,10 @@ body['idempotency_key'] = '7b0f3ec5-086a-4871-8f13-3c81b3875218'
 body['amount_money'] = {}
 body['amount_money']['amount'] = 1000
 body['amount_money']['currency'] = 'USD'
-body['tip_money'] = {}
-body['tip_money']['amount'] = 198
-body['tip_money']['currency'] = 'CHF'
 body['app_fee_money'] = {}
 body['app_fee_money']['amount'] = 10
 body['app_fee_money']['currency'] = 'USD'
-body['delay_duration'] = 'delay_duration6'
 body['autocomplete'] = True
-body['order_id'] = 'order_id0'
 body['customer_id'] = 'W92WH6P11H4Z77CTET0RNTGFW8'
 body['location_id'] = 'L88917AVBK2S5'
 body['reference_id'] = '123456'
@@ -244,9 +229,6 @@ def update_payment(self,
 payment_id = 'payment_id0'
 body = {}
 body['payment'] = {}
-body['payment']['id'] = 'id2'
-body['payment']['created_at'] = 'created_at0'
-body['payment']['updated_at'] = 'updated_at8'
 body['payment']['amount_money'] = {}
 body['payment']['amount_money']['amount'] = 1000
 body['payment']['amount_money']['currency'] = 'USD'
@@ -328,7 +310,6 @@ def complete_payment(self,
 ```python
 payment_id = 'payment_id0'
 body = {}
-body['version_token'] = 'version_token2'
 
 result = payments_api.complete_payment(payment_id, body)
 

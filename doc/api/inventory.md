@@ -127,37 +127,13 @@ body['changes'] = []
 body['changes'].append({})
 body['changes'][0]['type'] = 'PHYSICAL_COUNT'
 body['changes'][0]['physical_count'] = {}
-body['changes'][0]['physical_count']['id'] = 'id0'
 body['changes'][0]['physical_count']['reference_id'] = '1536bfbf-efed-48bf-b17d-a197141b2a92'
 body['changes'][0]['physical_count']['catalog_object_id'] = 'W62UWFY35CWMYGVWK6TWJDNI'
-body['changes'][0]['physical_count']['catalog_object_type'] = 'catalog_object_type4'
 body['changes'][0]['physical_count']['state'] = 'IN_STOCK'
 body['changes'][0]['physical_count']['location_id'] = 'C6W5YS5QM06F5'
 body['changes'][0]['physical_count']['quantity'] = '53'
 body['changes'][0]['physical_count']['team_member_id'] = 'LRK57NSQ5X7PUD05'
 body['changes'][0]['physical_count']['occurred_at'] = '2016-11-16T22:25:24.878Z'
-body['changes'][0]['adjustment'] = {}
-body['changes'][0]['adjustment']['id'] = 'id6'
-body['changes'][0]['adjustment']['reference_id'] = 'reference_id4'
-body['changes'][0]['adjustment']['from_state'] = 'SOLD'
-body['changes'][0]['adjustment']['to_state'] = 'SOLD_ONLINE'
-body['changes'][0]['adjustment']['location_id'] = 'location_id0'
-body['changes'][0]['transfer'] = {}
-body['changes'][0]['transfer']['id'] = 'id0'
-body['changes'][0]['transfer']['reference_id'] = 'reference_id8'
-body['changes'][0]['transfer']['state'] = 'UNLINKED_RETURN'
-body['changes'][0]['transfer']['from_location_id'] = 'from_location_id2'
-body['changes'][0]['transfer']['to_location_id'] = 'to_location_id2'
-body['changes'][0]['measurement_unit'] = {}
-body['changes'][0]['measurement_unit']['measurement_unit'] = {}
-body['changes'][0]['measurement_unit']['measurement_unit']['custom_unit'] = {}
-body['changes'][0]['measurement_unit']['measurement_unit']['custom_unit']['name'] = 'name0'
-body['changes'][0]['measurement_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation2'
-body['changes'][0]['measurement_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_FOOT'
-body['changes'][0]['measurement_unit']['measurement_unit']['length_unit'] = 'METRIC_METER'
-body['changes'][0]['measurement_unit']['measurement_unit']['volume_unit'] = 'METRIC_MILLILITER'
-body['changes'][0]['measurement_unit']['measurement_unit']['weight_unit'] = 'IMPERIAL_WEIGHT_OUNCE'
-body['changes'][0]['measurement_unit']['precision'] = 26
 
 body['ignore_unchanged_counts'] = True
 
@@ -241,8 +217,6 @@ body = {}
 body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['59TNP9SA8VGDA']
 body['updated_after'] = '2016-11-16T00:00:00.000Z'
-body['cursor'] = 'cursor0'
-body['states'] = ['SUPPORTED_BY_NEWER_VERSION']
 
 result = inventory_api.deprecated_batch_retrieve_inventory_counts(body)
 
@@ -286,37 +260,13 @@ body['changes'] = []
 body['changes'].append({})
 body['changes'][0]['type'] = 'PHYSICAL_COUNT'
 body['changes'][0]['physical_count'] = {}
-body['changes'][0]['physical_count']['id'] = 'id0'
 body['changes'][0]['physical_count']['reference_id'] = '1536bfbf-efed-48bf-b17d-a197141b2a92'
 body['changes'][0]['physical_count']['catalog_object_id'] = 'W62UWFY35CWMYGVWK6TWJDNI'
-body['changes'][0]['physical_count']['catalog_object_type'] = 'catalog_object_type4'
 body['changes'][0]['physical_count']['state'] = 'IN_STOCK'
 body['changes'][0]['physical_count']['location_id'] = 'C6W5YS5QM06F5'
 body['changes'][0]['physical_count']['quantity'] = '53'
 body['changes'][0]['physical_count']['team_member_id'] = 'LRK57NSQ5X7PUD05'
 body['changes'][0]['physical_count']['occurred_at'] = '2016-11-16T22:25:24.878Z'
-body['changes'][0]['adjustment'] = {}
-body['changes'][0]['adjustment']['id'] = 'id6'
-body['changes'][0]['adjustment']['reference_id'] = 'reference_id4'
-body['changes'][0]['adjustment']['from_state'] = 'SOLD'
-body['changes'][0]['adjustment']['to_state'] = 'SOLD_ONLINE'
-body['changes'][0]['adjustment']['location_id'] = 'location_id0'
-body['changes'][0]['transfer'] = {}
-body['changes'][0]['transfer']['id'] = 'id0'
-body['changes'][0]['transfer']['reference_id'] = 'reference_id8'
-body['changes'][0]['transfer']['state'] = 'UNLINKED_RETURN'
-body['changes'][0]['transfer']['from_location_id'] = 'from_location_id2'
-body['changes'][0]['transfer']['to_location_id'] = 'to_location_id2'
-body['changes'][0]['measurement_unit'] = {}
-body['changes'][0]['measurement_unit']['measurement_unit'] = {}
-body['changes'][0]['measurement_unit']['measurement_unit']['custom_unit'] = {}
-body['changes'][0]['measurement_unit']['measurement_unit']['custom_unit']['name'] = 'name0'
-body['changes'][0]['measurement_unit']['measurement_unit']['custom_unit']['abbreviation'] = 'abbreviation2'
-body['changes'][0]['measurement_unit']['measurement_unit']['area_unit'] = 'IMPERIAL_SQUARE_FOOT'
-body['changes'][0]['measurement_unit']['measurement_unit']['length_unit'] = 'METRIC_METER'
-body['changes'][0]['measurement_unit']['measurement_unit']['volume_unit'] = 'METRIC_MILLILITER'
-body['changes'][0]['measurement_unit']['measurement_unit']['weight_unit'] = 'IMPERIAL_WEIGHT_OUNCE'
-body['changes'][0]['measurement_unit']['precision'] = 26
 
 body['ignore_unchanged_counts'] = True
 
@@ -411,8 +361,6 @@ body = {}
 body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['59TNP9SA8VGDA']
 body['updated_after'] = '2016-11-16T00:00:00.000Z'
-body['cursor'] = 'cursor0'
-body['states'] = ['SUPPORTED_BY_NEWER_VERSION']
 
 result = inventory_api.batch_retrieve_inventory_counts(body)
 
@@ -557,10 +505,8 @@ def retrieve_inventory_count(self,
 
 ```python
 catalog_object_id = 'catalog_object_id6'
-location_ids = 'location_ids0'
-cursor = 'cursor6'
 
-result = inventory_api.retrieve_inventory_count(catalog_object_id, location_ids, cursor)
+result = inventory_api.retrieve_inventory_count(catalog_object_id)
 
 if result.is_success():
     print(result.body)
@@ -610,10 +556,8 @@ def retrieve_inventory_changes(self,
 
 ```python
 catalog_object_id = 'catalog_object_id6'
-location_ids = 'location_ids0'
-cursor = 'cursor6'
 
-result = inventory_api.retrieve_inventory_changes(catalog_object_id, location_ids, cursor)
+result = inventory_api.retrieve_inventory_changes(catalog_object_id)
 
 if result.is_success():
     print(result.body)
