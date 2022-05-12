@@ -51,15 +51,7 @@ def list_payouts(self,
 ## Example Usage
 
 ```python
-location_id = 'location_id4'
-status = 'PAID'
-begin_time = 'begin_time2'
-end_time = 'end_time2'
-sort_order = 'DESC'
-cursor = 'cursor6'
-limit = 172
-
-result = payouts_api.list_payouts(location_id, status, begin_time, end_time, sort_order, cursor, limit)
+result = payouts_api.list_payouts()
 
 if result.is_success():
     print(result.body)
@@ -132,11 +124,8 @@ def list_payout_entries(self,
 
 ```python
 payout_id = 'payout_id6'
-sort_order = 'DESC'
-cursor = 'cursor6'
-limit = 172
 
-result = payouts_api.list_payout_entries(payout_id, sort_order, cursor, limit)
+result = payouts_api.list_payout_entries(payout_id)
 
 if result.is_success():
     print(result.body)

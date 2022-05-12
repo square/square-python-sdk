@@ -49,13 +49,8 @@ def list_cash_drawer_shifts(self,
 
 ```python
 location_id = 'location_id4'
-sort_order = 'DESC'
-begin_time = 'begin_time2'
-end_time = 'end_time2'
-limit = 172
-cursor = 'cursor6'
 
-result = cash_drawers_api.list_cash_drawer_shifts(location_id, sort_order, begin_time, end_time, limit, cursor)
+result = cash_drawers_api.list_cash_drawer_shifts(location_id)
 
 if result.is_success():
     print(result.body)
@@ -131,10 +126,8 @@ def list_cash_drawer_shift_events(self,
 ```python
 location_id = 'location_id4'
 shift_id = 'shift_id0'
-limit = 172
-cursor = 'cursor6'
 
-result = cash_drawers_api.list_cash_drawer_shift_events(location_id, shift_id, limit, cursor)
+result = cash_drawers_api.list_cash_drawer_shift_events(location_id, shift_id)
 
 if result.is_success():
     print(result.body)

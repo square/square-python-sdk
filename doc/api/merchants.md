@@ -45,9 +45,7 @@ def list_merchants(self,
 ## Example Usage
 
 ```python
-cursor = 210
-
-result = merchants_api.list_merchants(cursor)
+result = merchants_api.list_merchants()
 
 if result.is_success():
     print(result.body)

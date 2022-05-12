@@ -38,10 +38,7 @@ def list_customer_segments(self,
 ## Example Usage
 
 ```python
-cursor = 'cursor6'
-limit = 172
-
-result = customer_segments_api.list_customer_segments(cursor, limit)
+result = customer_segments_api.list_customer_segments()
 
 if result.is_success():
     print(result.body)

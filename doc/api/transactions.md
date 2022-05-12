@@ -54,12 +54,8 @@ def list_transactions(self,
 
 ```python
 location_id = 'location_id4'
-begin_time = 'begin_time2'
-end_time = 'end_time2'
-sort_order = 'DESC'
-cursor = 'cursor6'
 
-result = transactions_api.list_transactions(location_id, begin_time, end_time, sort_order, cursor)
+result = transactions_api.list_transactions(location_id)
 
 if result.is_success():
     print(result.body)

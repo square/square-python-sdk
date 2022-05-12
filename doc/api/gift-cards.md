@@ -50,13 +50,7 @@ def list_gift_cards(self,
 ## Example Usage
 
 ```python
-mtype = 'type0'
-state = 'state4'
-limit = 172
-cursor = 'cursor6'
-customer_id = 'customer_id8'
-
-result = gift_cards_api.list_gift_cards(mtype, state, limit, cursor, customer_id)
+result = gift_cards_api.list_gift_cards()
 
 if result.is_success():
     print(result.body)
@@ -67,9 +61,9 @@ elif result.is_error():
 
 # Create Gift Card
 
-Creates a digital gift card or registers a physical (plastic) gift card. You must activate the gift card before
-it can be used for payment. For more information, see
-[Selling gift cards](https://developer.squareup.com/docs/gift-cards/using-gift-cards-api#selling-square-gift-cards).
+Creates a digital gift card or registers a physical (plastic) gift card. After the gift card
+is created, you must call [CreateGiftCardActivity](../../doc/api/gift-card-activities.md#create-gift-card-activity)
+to activate the card with an initial balance before it can be used for payment.
 
 ```python
 def create_gift_card(self,
@@ -93,14 +87,7 @@ body = {}
 body['idempotency_key'] = 'NC9Tm69EjbjtConu'
 body['location_id'] = '81FN9BNFZTKS4'
 body['gift_card'] = {}
-body['gift_card']['id'] = 'id4'
 body['gift_card']['type'] = 'DIGITAL'
-body['gift_card']['gan_source'] = 'SQUARE'
-body['gift_card']['state'] = 'ACTIVE'
-body['gift_card']['balance_money'] = {}
-body['gift_card']['balance_money']['amount'] = 2
-body['gift_card']['balance_money']['currency'] = 'DOP'
-body['gift_card']['gan'] = 'gan0'
 
 result = gift_cards_api.create_gift_card(body)
 
@@ -255,7 +242,7 @@ elif result.is_error():
 
 # Retrieve Gift Card
 
-Retrieves a gift card using its ID.
+Retrieves a gift card using the gift card ID.
 
 ```python
 def retrieve_gift_card(self,

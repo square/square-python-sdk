@@ -47,11 +47,7 @@ def list_disputes(self,
 ## Example Usage
 
 ```python
-cursor = 'cursor6'
-states = 'INQUIRY_EVIDENCE_REQUIRED'
-location_id = 'location_id4'
-
-result = disputes_api.list_disputes(cursor, states, location_id)
+result = disputes_api.list_disputes()
 
 if result.is_success():
     print(result.body)
@@ -155,9 +151,8 @@ def list_dispute_evidence(self,
 
 ```python
 dispute_id = 'dispute_id2'
-cursor = 'cursor6'
 
-result = disputes_api.list_dispute_evidence(dispute_id, cursor)
+result = disputes_api.list_dispute_evidence(dispute_id)
 
 if result.is_success():
     print(result.body)
@@ -194,13 +189,8 @@ def create_dispute_evidence_file(self,
 
 ```python
 dispute_id = 'dispute_id2'
-request = {}
-request['idempotency_key'] = 'idempotency_key2'
-request['evidence_type'] = 'REBUTTAL_EXPLANATION'
-request['content_type'] = 'content_type0'
-image_file = FileWrapper(open('dummy_file', 'rb'), 'optional-content-type')
 
-result = disputes_api.create_dispute_evidence_file(dispute_id, request, image_file)
+result = disputes_api.create_dispute_evidence_file(dispute_id)
 
 if result.is_success():
     print(result.body)

@@ -10,6 +10,10 @@ terminal_api = client.terminal
 
 ## Methods
 
+* [Create Terminal Action](../../doc/api/terminal.md#create-terminal-action)
+* [Search Terminal Actions](../../doc/api/terminal.md#search-terminal-actions)
+* [Get Terminal Action](../../doc/api/terminal.md#get-terminal-action)
+* [Cancel Terminal Action](../../doc/api/terminal.md#cancel-terminal-action)
 * [Create Terminal Checkout](../../doc/api/terminal.md#create-terminal-checkout)
 * [Search Terminal Checkouts](../../doc/api/terminal.md#search-terminal-checkouts)
 * [Get Terminal Checkout](../../doc/api/terminal.md#get-terminal-checkout)
@@ -18,6 +22,154 @@ terminal_api = client.terminal
 * [Search Terminal Refunds](../../doc/api/terminal.md#search-terminal-refunds)
 * [Get Terminal Refund](../../doc/api/terminal.md#get-terminal-refund)
 * [Cancel Terminal Refund](../../doc/api/terminal.md#cancel-terminal-refund)
+
+
+# Create Terminal Action
+
+Creates a Terminal action request and sends it to the specified device to take a payment
+for the requested amount.
+
+```python
+def create_terminal_action(self,
+                          body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Create Terminal Action Request`](../../doc/models/create-terminal-action-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`Create Terminal Action Response`](../../doc/models/create-terminal-action-response.md)
+
+## Example Usage
+
+```python
+body = {}
+body['idempotency_key'] = 'thahn-70e75c10-47f7-4ab6-88cc-aaa4076d065e'
+body['action'] = {}
+body['action']['device_id'] = '{{DEVICE_ID}}'
+body['action']['deadline_duration'] = 'PT5M'
+body['action']['type'] = 'SAVE_CARD'
+body['action']['save_card_options'] = {}
+body['action']['save_card_options']['customer_id'] = '{{CUSTOMER_ID}}'
+body['action']['save_card_options']['reference_id'] = 'user-id-1'
+
+result = terminal_api.create_terminal_action(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Search Terminal Actions
+
+Retrieves a filtered list of Terminal action requests created by the account making the request. Terminal action requests are available for 30 days.
+
+```python
+def search_terminal_actions(self,
+                           body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Search Terminal Actions Request`](../../doc/models/search-terminal-actions-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`Search Terminal Actions Response`](../../doc/models/search-terminal-actions-response.md)
+
+## Example Usage
+
+```python
+body = {}
+body['query'] = {}
+body['query']['filter'] = {}
+body['query']['filter']['created_at'] = {}
+body['query']['filter']['created_at']['start_at'] = '2022-04-01T00:00:00.000Z'
+body['query']['sort'] = {}
+body['query']['sort']['sort_order'] = 'DESC'
+body['limit'] = 2
+
+result = terminal_api.search_terminal_actions(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Get Terminal Action
+
+Retrieves a Terminal action request by `action_id`. Terminal action requests are available for 30 days.
+
+```python
+def get_terminal_action(self,
+                       action_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+
+## Response Type
+
+[`Get Terminal Action Response`](../../doc/models/get-terminal-action-response.md)
+
+## Example Usage
+
+```python
+action_id = 'action_id6'
+
+result = terminal_api.get_terminal_action(action_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Cancel Terminal Action
+
+Cancels a Terminal action request if the status of the request permits it.
+
+```python
+def cancel_terminal_action(self,
+                          action_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+
+## Response Type
+
+[`Cancel Terminal Action Response`](../../doc/models/cancel-terminal-action-response.md)
+
+## Example Usage
+
+```python
+action_id = 'action_id6'
+
+result = terminal_api.cancel_terminal_action(action_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
 
 
 # Create Terminal Checkout
@@ -46,7 +198,6 @@ def create_terminal_checkout(self,
 body = {}
 body['idempotency_key'] = '28a0c3bc-7839-11ea-bc55-0242ac130003'
 body['checkout'] = {}
-body['checkout']['id'] = 'id8'
 body['checkout']['amount_money'] = {}
 body['checkout']['amount_money']['amount'] = 2610
 body['checkout']['amount_money']['currency'] = 'USD'
@@ -54,16 +205,6 @@ body['checkout']['reference_id'] = 'id11572'
 body['checkout']['note'] = 'A brief note'
 body['checkout']['device_options'] = {}
 body['checkout']['device_options']['device_id'] = 'dbb5d83a-7838-11ea-bc55-0242ac130003'
-body['checkout']['device_options']['skip_receipt_screen'] = False
-body['checkout']['device_options']['collect_signature'] = False
-body['checkout']['device_options']['tip_settings'] = {}
-body['checkout']['device_options']['tip_settings']['allow_tipping'] = False
-body['checkout']['device_options']['tip_settings']['separate_tip_screen'] = False
-body['checkout']['device_options']['tip_settings']['custom_tip_field'] = False
-body['checkout']['device_options']['tip_settings']['tip_percentages'] = [148, 149, 150]
-body['checkout']['device_options']['tip_settings']['smart_tipping'] = False
-body['checkout']['deadline_duration'] = 'deadline_duration0'
-body['checkout']['status'] = 'status0'
 
 result = terminal_api.create_terminal_checkout(body)
 
@@ -99,14 +240,7 @@ def search_terminal_checkouts(self,
 body = {}
 body['query'] = {}
 body['query']['filter'] = {}
-body['query']['filter']['device_id'] = 'device_id8'
-body['query']['filter']['created_at'] = {}
-body['query']['filter']['created_at']['start_at'] = 'start_at2'
-body['query']['filter']['created_at']['end_at'] = 'end_at0'
 body['query']['filter']['status'] = 'COMPLETED'
-body['query']['sort'] = {}
-body['query']['sort']['sort_order'] = 'DESC'
-body['cursor'] = 'cursor0'
 body['limit'] = 2
 
 result = terminal_api.search_terminal_checkouts(body)
@@ -209,17 +343,12 @@ def create_terminal_refund(self,
 body = {}
 body['idempotency_key'] = '402a640b-b26f-401f-b406-46f839590c04'
 body['refund'] = {}
-body['refund']['id'] = 'id4'
-body['refund']['refund_id'] = 'refund_id8'
 body['refund']['payment_id'] = '5O5OvgkcNUhl7JBuINflcjKqUzXZY'
-body['refund']['order_id'] = 'order_id8'
 body['refund']['amount_money'] = {}
 body['refund']['amount_money']['amount'] = 111
 body['refund']['amount_money']['currency'] = 'CAD'
 body['refund']['reason'] = 'Returning items'
 body['refund']['device_id'] = 'f72dfb8e-4d65-4e56-aade-ec3fb8d33291'
-body['refund']['deadline_duration'] = 'deadline_duration6'
-body['refund']['status'] = 'status6'
 
 result = terminal_api.create_terminal_refund(body)
 
@@ -255,14 +384,7 @@ def search_terminal_refunds(self,
 body = {}
 body['query'] = {}
 body['query']['filter'] = {}
-body['query']['filter']['device_id'] = 'device_id8'
-body['query']['filter']['created_at'] = {}
-body['query']['filter']['created_at']['start_at'] = 'start_at2'
-body['query']['filter']['created_at']['end_at'] = 'end_at0'
 body['query']['filter']['status'] = 'COMPLETED'
-body['query']['sort'] = {}
-body['query']['sort']['sort_order'] = 'sort_order8'
-body['cursor'] = 'cursor0'
 body['limit'] = 1
 
 result = terminal_api.search_terminal_refunds(body)

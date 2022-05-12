@@ -121,11 +121,7 @@ def upsert_snippet(self,
 site_id = 'site_id6'
 body = {}
 body['snippet'] = {}
-body['snippet']['id'] = 'id4'
-body['snippet']['site_id'] = 'site_id0'
 body['snippet']['content'] = '<script>var js = 1;</script>'
-body['snippet']['created_at'] = 'created_at8'
-body['snippet']['updated_at'] = 'updated_at0'
 
 result = snippets_api.upsert_snippet(site_id, body)
 

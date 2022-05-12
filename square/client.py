@@ -13,6 +13,8 @@ from square.api.cards_api import CardsApi
 from square.api.cash_drawers_api import CashDrawersApi
 from square.api.catalog_api import CatalogApi
 from square.api.customers_api import CustomersApi
+from square.api.customer_custom_attributes_api\
+    import CustomerCustomAttributesApi
 from square.api.customer_groups_api import CustomerGroupsApi
 from square.api.customer_segments_api import CustomerSegmentsApi
 from square.api.devices_api import DevicesApi
@@ -44,11 +46,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '18.0.0.20220420'
+        return '19.0.0.20220512'
 
     @staticmethod
     def square_version():
-        return '2022-04-20'
+        return '2022-05-12'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -94,6 +96,10 @@ class Client(object):
     @lazy_property
     def customers(self):
         return CustomersApi(self.config, self.auth_managers)
+
+    @lazy_property
+    def customer_custom_attributes(self):
+        return CustomerCustomAttributesApi(self.config, self.auth_managers)
 
     @lazy_property
     def customer_groups(self):
@@ -201,7 +207,7 @@ class Client(object):
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2022-04-20', additional_headers={},
+                 square_version='2022-05-12', additional_headers={},
                  user_agent_detail='', config=None):
         if config is None:
             self.config = Configuration(

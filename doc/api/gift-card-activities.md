@@ -53,16 +53,7 @@ def list_gift_card_activities(self,
 ## Example Usage
 
 ```python
-gift_card_id = 'gift_card_id8'
-mtype = 'type0'
-location_id = 'location_id4'
-begin_time = 'begin_time2'
-end_time = 'end_time2'
-limit = 172
-cursor = 'cursor6'
-sort_order = 'sort_order0'
-
-result = gift_card_activities_api.list_gift_card_activities(gift_card_id, mtype, location_id, begin_time, end_time, limit, cursor, sort_order)
+result = gift_card_activities_api.list_gift_card_activities()
 
 if result.is_success():
     print(result.body)
@@ -73,9 +64,9 @@ elif result.is_error():
 
 # Create Gift Card Activity
 
-Creates a gift card activity. For more information, see
-[GiftCardActivity](https://developer.squareup.com/docs/gift-cards/using-gift-cards-api#giftcardactivity) and
-[Using activated gift cards](https://developer.squareup.com/docs/gift-cards/using-gift-cards-api#using-activated-gift-cards).
+Creates a gift card activity to manage the balance or state of a [gift card](../../doc/models/gift-card.md).
+For example, you create an `ACTIVATE` activity to activate a gift card with an initial balance
+before the gift card can be used.
 
 ```python
 def create_gift_card_activity(self,
@@ -98,23 +89,12 @@ def create_gift_card_activity(self,
 body = {}
 body['idempotency_key'] = 'U16kfr-kA70er-q4Rsym-7U7NnY'
 body['gift_card_activity'] = {}
-body['gift_card_activity']['id'] = 'id2'
 body['gift_card_activity']['type'] = 'ACTIVATE'
 body['gift_card_activity']['location_id'] = '81FN9BNFZTKS4'
-body['gift_card_activity']['created_at'] = 'created_at0'
 body['gift_card_activity']['gift_card_id'] = 'gftc:6d55a72470d940c6ba09c0ab8ad08d20'
-body['gift_card_activity']['gift_card_gan'] = 'gift_card_gan8'
-body['gift_card_activity']['gift_card_balance_money'] = {}
-body['gift_card_activity']['gift_card_balance_money']['amount'] = 88
-body['gift_card_activity']['gift_card_balance_money']['currency'] = 'ANG'
 body['gift_card_activity']['activate_activity_details'] = {}
-body['gift_card_activity']['activate_activity_details']['amount_money'] = {}
-body['gift_card_activity']['activate_activity_details']['amount_money']['amount'] = 10
-body['gift_card_activity']['activate_activity_details']['amount_money']['currency'] = 'MXV'
 body['gift_card_activity']['activate_activity_details']['order_id'] = 'jJNGHm4gLI6XkFbwtiSLqK72KkAZY'
 body['gift_card_activity']['activate_activity_details']['line_item_uid'] = 'eIWl7X0nMuO9Ewbh0ChIx'
-body['gift_card_activity']['activate_activity_details']['reference_id'] = 'reference_id4'
-body['gift_card_activity']['activate_activity_details']['buyer_payment_instrument_ids'] = ['buyer_payment_instrument_ids4', 'buyer_payment_instrument_ids5', 'buyer_payment_instrument_ids6']
 
 result = gift_card_activities_api.create_gift_card_activity(body)
 

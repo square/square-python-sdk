@@ -10,6 +10,7 @@ __all__ = [
     'cash_drawers_api',
     'catalog_api',
     'customers_api',
+    'customer_custom_attributes_api',
     'customer_groups_api',
     'customer_segments_api',
     'devices_api',

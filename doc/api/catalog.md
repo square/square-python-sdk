@@ -99,8 +99,6 @@ def batch_retrieve_catalog_objects(self,
 body = {}
 body['object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI', 'AA27W3M2GGTF3H6AVPNB77CK']
 body['include_related_objects'] = True
-body['catalog_version'] = 118
-body['include_deleted_objects'] = False
 
 result = catalog_api.batch_retrieve_catalog_objects(body)
 
@@ -151,23 +149,10 @@ body['batches'][0]['objects'] = []
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][0]['type'] = 'ITEM'
 body['batches'][0]['objects'][0]['id'] = '#Tea'
-body['batches'][0]['objects'][0]['updated_at'] = 'updated_at6'
-body['batches'][0]['objects'][0]['version'] = 252
-body['batches'][0]['objects'][0]['is_deleted'] = False
-body['batches'][0]['objects'][0]['custom_attribute_values'] = {}
-body['batches'][0]['objects'][0]['catalog_v1_ids'] = []
-
-body['batches'][0]['objects'][0]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][0]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id4'
-body['batches'][0]['objects'][0]['catalog_v1_ids'][0]['location_id'] = 'location_id4'
-
 body['batches'][0]['objects'][0]['present_at_all_locations'] = True
 body['batches'][0]['objects'][0]['item_data'] = {}
 body['batches'][0]['objects'][0]['item_data']['name'] = 'Tea'
 body['batches'][0]['objects'][0]['item_data']['description'] = 'Hot Leaf Juice'
-body['batches'][0]['objects'][0]['item_data']['abbreviation'] = 'abbreviation0'
-body['batches'][0]['objects'][0]['item_data']['label_color'] = 'label_color0'
-body['batches'][0]['objects'][0]['item_data']['available_online'] = False
 body['batches'][0]['objects'][0]['item_data']['category_id'] = '#Beverages'
 body['batches'][0]['objects'][0]['item_data']['tax_ids'] = ['#SalesTax']
 body['batches'][0]['objects'][0]['item_data']['variations'] = []
@@ -175,50 +160,20 @@ body['batches'][0]['objects'][0]['item_data']['variations'] = []
 body['batches'][0]['objects'][0]['item_data']['variations'].append({})
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['id'] = '#Tea_Mug'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['updated_at'] = 'updated_at5'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['version'] = 99
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['is_deleted'] = True
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['custom_attribute_values'] = {}
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['catalog_v1_ids'] = []
-
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id3'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['catalog_v1_ids'][0]['location_id'] = 'location_id3'
-
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['present_at_all_locations'] = True
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data'] = {}
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Tea'
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['name'] = 'Mug'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['sku'] = 'sku9'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['upc'] = 'upc7'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['ordinal'] = 149
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
 
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][1]['type'] = 'ITEM'
 body['batches'][0]['objects'][1]['id'] = '#Coffee'
-body['batches'][0]['objects'][1]['updated_at'] = 'updated_at7'
-body['batches'][0]['objects'][1]['version'] = 253
-body['batches'][0]['objects'][1]['is_deleted'] = True
-body['batches'][0]['objects'][1]['custom_attribute_values'] = {}
-body['batches'][0]['objects'][1]['catalog_v1_ids'] = []
-
-body['batches'][0]['objects'][1]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][1]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id5'
-body['batches'][0]['objects'][1]['catalog_v1_ids'][0]['location_id'] = 'location_id5'
-
-body['batches'][0]['objects'][1]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][1]['catalog_v1_ids'][1]['catalog_v1_id'] = 'catalog_v1_id6'
-body['batches'][0]['objects'][1]['catalog_v1_ids'][1]['location_id'] = 'location_id6'
-
 body['batches'][0]['objects'][1]['present_at_all_locations'] = True
 body['batches'][0]['objects'][1]['item_data'] = {}
 body['batches'][0]['objects'][1]['item_data']['name'] = 'Coffee'
 body['batches'][0]['objects'][1]['item_data']['description'] = 'Hot Bean Juice'
-body['batches'][0]['objects'][1]['item_data']['abbreviation'] = 'abbreviation9'
-body['batches'][0]['objects'][1]['item_data']['label_color'] = 'label_color9'
-body['batches'][0]['objects'][1]['item_data']['available_online'] = True
 body['batches'][0]['objects'][1]['item_data']['category_id'] = '#Beverages'
 body['batches'][0]['objects'][1]['item_data']['tax_ids'] = ['#SalesTax']
 body['batches'][0]['objects'][1]['item_data']['variations'] = []
@@ -226,99 +181,32 @@ body['batches'][0]['objects'][1]['item_data']['variations'] = []
 body['batches'][0]['objects'][1]['item_data']['variations'].append({})
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['id'] = '#Coffee_Regular'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['updated_at'] = 'updated_at4'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['version'] = 100
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['is_deleted'] = False
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['custom_attribute_values'] = {}
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['catalog_v1_ids'] = []
-
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id4'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['catalog_v1_ids'][0]['location_id'] = 'location_id4'
-
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['catalog_v1_ids'][1]['catalog_v1_id'] = 'catalog_v1_id5'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['catalog_v1_ids'][1]['location_id'] = 'location_id5'
-
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['present_at_all_locations'] = True
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data'] = {}
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Coffee'
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['name'] = 'Regular'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['sku'] = 'sku8'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['upc'] = 'upc6'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['ordinal'] = 150
 body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
 
 body['batches'][0]['objects'][1]['item_data']['variations'].append({})
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['type'] = 'ITEM_VARIATION'
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['id'] = '#Coffee_Large'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['updated_at'] = 'updated_at3'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['version'] = 101
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['is_deleted'] = True
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['custom_attribute_values'] = {}
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'] = []
-
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id5'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'][0]['location_id'] = 'location_id5'
-
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'][1]['catalog_v1_id'] = 'catalog_v1_id6'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'][1]['location_id'] = 'location_id6'
-
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'][2]['catalog_v1_id'] = 'catalog_v1_id7'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['catalog_v1_ids'][2]['location_id'] = 'location_id7'
-
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['present_at_all_locations'] = True
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data'] = {}
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['item_id'] = '#Coffee'
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['sku'] = 'sku7'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['upc'] = 'upc5'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['ordinal'] = 151
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
 
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][2]['type'] = 'CATEGORY'
 body['batches'][0]['objects'][2]['id'] = '#Beverages'
-body['batches'][0]['objects'][2]['updated_at'] = 'updated_at8'
-body['batches'][0]['objects'][2]['version'] = 254
-body['batches'][0]['objects'][2]['is_deleted'] = False
-body['batches'][0]['objects'][2]['custom_attribute_values'] = {}
-body['batches'][0]['objects'][2]['catalog_v1_ids'] = []
-
-body['batches'][0]['objects'][2]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][2]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id6'
-body['batches'][0]['objects'][2]['catalog_v1_ids'][0]['location_id'] = 'location_id6'
-
-body['batches'][0]['objects'][2]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][2]['catalog_v1_ids'][1]['catalog_v1_id'] = 'catalog_v1_id7'
-body['batches'][0]['objects'][2]['catalog_v1_ids'][1]['location_id'] = 'location_id7'
-
-body['batches'][0]['objects'][2]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][2]['catalog_v1_ids'][2]['catalog_v1_id'] = 'catalog_v1_id8'
-body['batches'][0]['objects'][2]['catalog_v1_ids'][2]['location_id'] = 'location_id8'
-
 body['batches'][0]['objects'][2]['present_at_all_locations'] = True
 body['batches'][0]['objects'][2]['category_data'] = {}
 body['batches'][0]['objects'][2]['category_data']['name'] = 'Beverages'
-body['batches'][0]['objects'][2]['category_data']['image_ids'] = ['image_ids1', 'image_ids2']
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][3]['type'] = 'TAX'
 body['batches'][0]['objects'][3]['id'] = '#SalesTax'
-body['batches'][0]['objects'][3]['updated_at'] = 'updated_at9'
-body['batches'][0]['objects'][3]['version'] = 255
-body['batches'][0]['objects'][3]['is_deleted'] = True
-body['batches'][0]['objects'][3]['custom_attribute_values'] = {}
-body['batches'][0]['objects'][3]['catalog_v1_ids'] = []
-
-body['batches'][0]['objects'][3]['catalog_v1_ids'].append({})
-body['batches'][0]['objects'][3]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id7'
-body['batches'][0]['objects'][3]['catalog_v1_ids'][0]['location_id'] = 'location_id7'
-
 body['batches'][0]['objects'][3]['present_at_all_locations'] = True
 body['batches'][0]['objects'][3]['tax_data'] = {}
 body['batches'][0]['objects'][3]['tax_data']['name'] = 'Sales Tax'
@@ -374,25 +262,10 @@ request['object_id'] = 'ND6EA5AAJEO5WL3JNNIAQA32'
 request['image'] = {}
 request['image']['type'] = 'IMAGE'
 request['image']['id'] = '#TEMP_ID'
-request['image']['updated_at'] = 'updated_at4'
-request['image']['version'] = 68
-request['image']['is_deleted'] = False
-request['image']['custom_attribute_values'] = {}
-request['image']['catalog_v1_ids'] = []
-
-request['image']['catalog_v1_ids'].append({})
-request['image']['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id4'
-request['image']['catalog_v1_ids'][0]['location_id'] = 'location_id4'
-
 request['image']['image_data'] = {}
-request['image']['image_data']['name'] = 'name0'
-request['image']['image_data']['url'] = 'url4'
 request['image']['image_data']['caption'] = 'A picture of a cup of coffee'
-request['image']['image_data']['photo_studio_order_id'] = 'photo_studio_order_id2'
-request['is_primary'] = False
-image_file = FileWrapper(open('dummy_file', 'rb'), 'optional-content-type')
 
-result = catalog_api.create_catalog_image(request, image_file)
+result = catalog_api.create_catalog_image(request)
 
 if result.is_success():
     print(result.body)
@@ -433,9 +306,8 @@ def update_catalog_image(self,
 image_id = 'image_id4'
 request = {}
 request['idempotency_key'] = '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86'
-image_file = FileWrapper(open('dummy_file', 'rb'), 'optional-content-type')
 
-result = catalog_api.update_catalog_image(image_id, request, image_file)
+result = catalog_api.update_catalog_image(image_id, request)
 
 if result.is_success():
     print(result.body)
@@ -502,11 +374,7 @@ def list_catalog(self,
 ## Example Usage
 
 ```python
-cursor = 'cursor6'
-types = 'types6'
-catalog_version = 126
-
-result = catalog_api.list_catalog(cursor, types, catalog_version)
+result = catalog_api.list_catalog()
 
 if result.is_success():
     print(result.body)
@@ -542,80 +410,26 @@ body['idempotency_key'] = 'af3d1afc-7212-4300-b463-0bfc5314a5ae'
 body['object'] = {}
 body['object']['type'] = 'ITEM'
 body['object']['id'] = '#Cocoa'
-body['object']['updated_at'] = 'updated_at8'
-body['object']['version'] = 252
-body['object']['is_deleted'] = False
-body['object']['custom_attribute_values'] = {}
-body['object']['catalog_v1_ids'] = []
-
-body['object']['catalog_v1_ids'].append({})
-body['object']['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id0'
-body['object']['catalog_v1_ids'][0]['location_id'] = 'location_id0'
-
-body['object']['catalog_v1_ids'].append({})
-body['object']['catalog_v1_ids'][1]['catalog_v1_id'] = 'catalog_v1_id1'
-body['object']['catalog_v1_ids'][1]['location_id'] = 'location_id1'
-
-body['object']['catalog_v1_ids'].append({})
-body['object']['catalog_v1_ids'][2]['catalog_v1_id'] = 'catalog_v1_id2'
-body['object']['catalog_v1_ids'][2]['location_id'] = 'location_id2'
-
 body['object']['item_data'] = {}
 body['object']['item_data']['name'] = 'Cocoa'
 body['object']['item_data']['description'] = 'Hot Chocolate'
 body['object']['item_data']['abbreviation'] = 'Ch'
-body['object']['item_data']['label_color'] = 'label_color4'
-body['object']['item_data']['available_online'] = False
 body['object']['item_data']['variations'] = []
 
 body['object']['item_data']['variations'].append({})
 body['object']['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
 body['object']['item_data']['variations'][0]['id'] = '#Small'
-body['object']['item_data']['variations'][0]['updated_at'] = 'updated_at9'
-body['object']['item_data']['variations'][0]['version'] = 69
-body['object']['item_data']['variations'][0]['is_deleted'] = True
-body['object']['item_data']['variations'][0]['custom_attribute_values'] = {}
-body['object']['item_data']['variations'][0]['catalog_v1_ids'] = []
-
-body['object']['item_data']['variations'][0]['catalog_v1_ids'].append({})
-body['object']['item_data']['variations'][0]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id9'
-body['object']['item_data']['variations'][0]['catalog_v1_ids'][0]['location_id'] = 'location_id9'
-
 body['object']['item_data']['variations'][0]['item_variation_data'] = {}
 body['object']['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Cocoa'
 body['object']['item_data']['variations'][0]['item_variation_data']['name'] = 'Small'
-body['object']['item_data']['variations'][0]['item_variation_data']['sku'] = 'sku3'
-body['object']['item_data']['variations'][0]['item_variation_data']['upc'] = 'upc1'
-body['object']['item_data']['variations'][0]['item_variation_data']['ordinal'] = 119
 body['object']['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'VARIABLE_PRICING'
 
 body['object']['item_data']['variations'].append({})
 body['object']['item_data']['variations'][1]['type'] = 'ITEM_VARIATION'
 body['object']['item_data']['variations'][1]['id'] = '#Large'
-body['object']['item_data']['variations'][1]['updated_at'] = 'updated_at0'
-body['object']['item_data']['variations'][1]['version'] = 68
-body['object']['item_data']['variations'][1]['is_deleted'] = False
-body['object']['item_data']['variations'][1]['custom_attribute_values'] = {}
-body['object']['item_data']['variations'][1]['catalog_v1_ids'] = []
-
-body['object']['item_data']['variations'][1]['catalog_v1_ids'].append({})
-body['object']['item_data']['variations'][1]['catalog_v1_ids'][0]['catalog_v1_id'] = 'catalog_v1_id8'
-body['object']['item_data']['variations'][1]['catalog_v1_ids'][0]['location_id'] = 'location_id8'
-
-body['object']['item_data']['variations'][1]['catalog_v1_ids'].append({})
-body['object']['item_data']['variations'][1]['catalog_v1_ids'][1]['catalog_v1_id'] = 'catalog_v1_id9'
-body['object']['item_data']['variations'][1]['catalog_v1_ids'][1]['location_id'] = 'location_id9'
-
-body['object']['item_data']['variations'][1]['catalog_v1_ids'].append({})
-body['object']['item_data']['variations'][1]['catalog_v1_ids'][2]['catalog_v1_id'] = 'catalog_v1_id0'
-body['object']['item_data']['variations'][1]['catalog_v1_ids'][2]['location_id'] = 'location_id0'
-
 body['object']['item_data']['variations'][1]['item_variation_data'] = {}
 body['object']['item_data']['variations'][1]['item_variation_data']['item_id'] = '#Cocoa'
 body['object']['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
-body['object']['item_data']['variations'][1]['item_variation_data']['sku'] = 'sku4'
-body['object']['item_data']['variations'][1]['item_variation_data']['upc'] = 'upc2'
-body['object']['item_data']['variations'][1]['item_variation_data']['ordinal'] = 118
 body['object']['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
 body['object']['item_data']['variations'][1]['item_variation_data']['price_money'] = {}
 body['object']['item_data']['variations'][1]['item_variation_data']['price_money']['amount'] = 400
@@ -703,9 +517,8 @@ def retrieve_catalog_object(self,
 ```python
 object_id = 'object_id8'
 include_related_objects = False
-catalog_version = 126
 
-result = catalog_api.retrieve_catalog_object(object_id, include_related_objects, catalog_version)
+result = catalog_api.retrieve_catalog_object(object_id, include_related_objects)
 
 if result.is_success():
     print(result.body)
@@ -746,29 +559,11 @@ def search_catalog_objects(self,
 
 ```python
 body = {}
-body['cursor'] = 'cursor0'
 body['object_types'] = ['ITEM']
-body['include_deleted_objects'] = False
-body['include_related_objects'] = False
-body['begin_time'] = 'begin_time4'
 body['query'] = {}
-body['query']['sorted_attribute_query'] = {}
-body['query']['sorted_attribute_query']['attribute_name'] = 'attribute_name6'
-body['query']['sorted_attribute_query']['initial_attribute_value'] = 'initial_attribute_value4'
-body['query']['sorted_attribute_query']['sort_order'] = 'DESC'
-body['query']['exact_query'] = {}
-body['query']['exact_query']['attribute_name'] = 'attribute_name2'
-body['query']['exact_query']['attribute_value'] = 'attribute_value2'
-body['query']['set_query'] = {}
-body['query']['set_query']['attribute_name'] = 'attribute_name8'
-body['query']['set_query']['attribute_values'] = ['attribute_values0']
 body['query']['prefix_query'] = {}
 body['query']['prefix_query']['attribute_name'] = 'name'
 body['query']['prefix_query']['attribute_prefix'] = 'tea'
-body['query']['range_query'] = {}
-body['query']['range_query']['attribute_name'] = 'attribute_name6'
-body['query']['range_query']['attribute_min_value'] = 14
-body['query']['range_query']['attribute_max_value'] = 180
 body['limit'] = 100
 
 result = catalog_api.search_catalog_objects(body)
@@ -816,7 +611,6 @@ body['text_filter'] = 'red'
 body['category_ids'] = ['WINE_CATEGORY_ID']
 body['stock_levels'] = ['OUT', 'LOW']
 body['enabled_location_ids'] = ['ATL_LOCATION_ID']
-body['cursor'] = 'cursor0'
 body['limit'] = 100
 body['sort_order'] = 'ASC'
 body['product_types'] = ['REGULAR']
@@ -824,40 +618,20 @@ body['custom_attribute_filters'] = []
 
 body['custom_attribute_filters'].append({})
 body['custom_attribute_filters'][0]['custom_attribute_definition_id'] = 'VEGAN_DEFINITION_ID'
-body['custom_attribute_filters'][0]['key'] = 'key2'
-body['custom_attribute_filters'][0]['string_filter'] = 'string_filter4'
-body['custom_attribute_filters'][0]['number_filter'] = {}
-body['custom_attribute_filters'][0]['number_filter']['min'] = 'min0'
-body['custom_attribute_filters'][0]['number_filter']['max'] = 'max2'
-body['custom_attribute_filters'][0]['selection_uids_filter'] = ['selection_uids_filter2', 'selection_uids_filter3']
 body['custom_attribute_filters'][0]['bool_filter'] = True
 
 body['custom_attribute_filters'].append({})
 body['custom_attribute_filters'][1]['custom_attribute_definition_id'] = 'BRAND_DEFINITION_ID'
-body['custom_attribute_filters'][1]['key'] = 'key3'
 body['custom_attribute_filters'][1]['string_filter'] = 'Dark Horse'
-body['custom_attribute_filters'][1]['number_filter'] = {}
-body['custom_attribute_filters'][1]['number_filter']['min'] = 'min1'
-body['custom_attribute_filters'][1]['number_filter']['max'] = 'max1'
-body['custom_attribute_filters'][1]['selection_uids_filter'] = ['selection_uids_filter1']
 
 body['custom_attribute_filters'].append({})
-body['custom_attribute_filters'][2]['custom_attribute_definition_id'] = 'custom_attribute_definition_id8'
 body['custom_attribute_filters'][2]['key'] = 'VINTAGE'
-body['custom_attribute_filters'][2]['string_filter'] = 'string_filter6'
 body['custom_attribute_filters'][2]['number_filter'] = {}
 body['custom_attribute_filters'][2]['number_filter']['min'] = '2017'
 body['custom_attribute_filters'][2]['number_filter']['max'] = '2018'
-body['custom_attribute_filters'][2]['selection_uids_filter'] = ['selection_uids_filter0', 'selection_uids_filter1', 'selection_uids_filter2']
 
 body['custom_attribute_filters'].append({})
 body['custom_attribute_filters'][3]['custom_attribute_definition_id'] = 'VARIETAL_DEFINITION_ID'
-body['custom_attribute_filters'][3]['key'] = 'key5'
-body['custom_attribute_filters'][3]['string_filter'] = 'string_filter7'
-body['custom_attribute_filters'][3]['number_filter'] = {}
-body['custom_attribute_filters'][3]['number_filter']['min'] = 'min3'
-body['custom_attribute_filters'][3]['number_filter']['max'] = 'max9'
-body['custom_attribute_filters'][3]['selection_uids_filter'] = ['selection_uids_filter9', 'selection_uids_filter0']
 
 
 result = catalog_api.search_catalog_items(body)
