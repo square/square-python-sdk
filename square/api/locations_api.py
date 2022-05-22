@@ -31,10 +31,8 @@ class LocationsApi(BaseApi):
         """
 
         # Prepare query URL
-        _url_path = '/v2/locations'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
+        _query_builder = QueryBuilder('locations', self.config)
+        _query_url = APIHelper.clean_url(_query_builder.prepare())
 
         # Prepare headers
         _headers = {
