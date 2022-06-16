@@ -3,9 +3,8 @@
 
 class OAuth2:
 
-    def __init__(self, access_token, o_auth_scopes=None):
+    def __init__(self, access_token):
         self._access_token = access_token
-        self._o_auth_scopes = o_auth_scopes
 
     def validate_arguments(self):
         if self._access_token:

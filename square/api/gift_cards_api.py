@@ -20,7 +20,8 @@ class GiftCardsApi(BaseApi):
         """Does a GET request to /v2/gift-cards.
 
         Lists all gift cards. You can specify optional filters to retrieve 
-        a subset of the gift cards.
+        a subset of the gift cards. Results are sorted by `created_at` in
+        ascending order.
 
         Args:
             mtype (string, optional): If a [type]($m/GiftCardType) is

@@ -74,7 +74,7 @@ class BaseApi(object):
 
         # Add global headers to request
         prepared_headers = {key: str(value) for key, value in request.headers.items()}
-        request.headers = APIHelper.merge_dicts(self.global_headers(), prepared_headers)
+        request.headers = {**self.global_headers(), **prepared_headers}
         if self.config.additional_headers is not None:
             request.headers.update(self.config.additional_headers)
 
@@ -89,7 +89,7 @@ class BaseApi(object):
         return response
 
     def get_user_agent(self):
-        user_agent = 'Square-Python-SDK/19.0.0.20220512 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        user_agent = 'Square-Python-SDK/19.1.0.20220616 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
         parameters = {
             'engine': {'value': platform.python_implementation(), 'encode': False},
             'engine-version': {'value': "", 'encode': False},

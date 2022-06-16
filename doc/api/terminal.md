@@ -26,8 +26,7 @@ terminal_api = client.terminal
 
 # Create Terminal Action
 
-Creates a Terminal action request and sends it to the specified device to take a payment
-for the requested amount.
+Creates a Terminal action request and sends it to the specified device.
 
 ```python
 def create_terminal_action(self,

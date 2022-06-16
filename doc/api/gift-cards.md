@@ -22,7 +22,7 @@ gift_cards_api = client.gift_cards
 # List Gift Cards
 
 Lists all gift cards. You can specify optional filters to retrieve
-a subset of the gift cards.
+a subset of the gift cards. Results are sorted by `created_at` in ascending order.
 
 ```python
 def list_gift_cards(self,
