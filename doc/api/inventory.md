@@ -176,8 +176,8 @@ body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['C6W5YS5QM06F5']
 body['types'] = ['PHYSICAL_COUNT']
 body['states'] = ['IN_STOCK']
-body['updated_after'] = '2016-11-01T00:00:00.000Z'
-body['updated_before'] = '2016-12-01T00:00:00.000Z'
+body['updated_after'] = '2016-11-01T00:00:00Z'
+body['updated_before'] = '2016-12-01T00:00:00Z'
 
 result = inventory_api.deprecated_batch_retrieve_inventory_changes(body)
 
@@ -216,7 +216,7 @@ def deprecated_batch_retrieve_inventory_counts(self,
 body = {}
 body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['59TNP9SA8VGDA']
-body['updated_after'] = '2016-11-16T00:00:00.000Z'
+body['updated_after'] = '2016-11-16T00:00:00Z'
 
 result = inventory_api.deprecated_batch_retrieve_inventory_counts(body)
 
@@ -313,8 +313,8 @@ body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['C6W5YS5QM06F5']
 body['types'] = ['PHYSICAL_COUNT']
 body['states'] = ['IN_STOCK']
-body['updated_after'] = '2016-11-01T00:00:00.000Z'
-body['updated_before'] = '2016-12-01T00:00:00.000Z'
+body['updated_after'] = '2016-11-01T00:00:00Z'
+body['updated_before'] = '2016-12-01T00:00:00Z'
 
 result = inventory_api.batch_retrieve_inventory_changes(body)
 
@@ -360,7 +360,7 @@ def batch_retrieve_inventory_counts(self,
 body = {}
 body['catalog_object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI']
 body['location_ids'] = ['59TNP9SA8VGDA']
-body['updated_after'] = '2016-11-16T00:00:00.000Z'
+body['updated_after'] = '2016-11-16T00:00:00Z'
 
 result = inventory_api.batch_retrieve_inventory_counts(body)
 

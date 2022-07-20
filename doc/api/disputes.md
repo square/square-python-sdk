@@ -178,7 +178,7 @@ def create_dispute_evidence_file(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `dispute_id` | `string` | Template, Required | The ID of the dispute you want to upload evidence for. |
-| `request` | [`Create Dispute Evidence File Request`](../../doc/models/create-dispute-evidence-file-request.md) | Form, Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
+| `request` | [`Create Dispute Evidence File Request`](../../doc/models/create-dispute-evidence-file-request.md) | Form (JSON-Encoded), Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
 | `image_file` | `typing.BinaryIO` | Form, Optional | - |
 
 ## Response Type

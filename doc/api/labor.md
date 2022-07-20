@@ -341,8 +341,8 @@ body = {}
 body['idempotency_key'] = 'HIDSNG5KS478L'
 body['shift'] = {}
 body['shift']['location_id'] = 'PAA1RJZZKXBFG'
-body['shift']['start_at'] = '2019-01-25T03:11:00-05:00'
-body['shift']['end_at'] = '2019-01-25T13:11:00-05:00'
+body['shift']['start_at'] = '2019-01-25T08:11:00+00:00'
+body['shift']['end_at'] = '2019-01-25T18:11:00+00:00'
 body['shift']['wage'] = {}
 body['shift']['wage']['title'] = 'Barista'
 body['shift']['wage']['hourly_rate'] = {}
@@ -351,8 +351,8 @@ body['shift']['wage']['hourly_rate']['currency'] = 'USD'
 body['shift']['breaks'] = []
 
 body['shift']['breaks'].append({})
-body['shift']['breaks'][0]['start_at'] = '2019-01-25T06:11:00-05:00'
-body['shift']['breaks'][0]['end_at'] = '2019-01-25T06:16:00-05:00'
+body['shift']['breaks'][0]['start_at'] = '2019-01-25T11:11:00+00:00'
+body['shift']['breaks'][0]['end_at'] = '2019-01-25T11:16:00+00:00'
 body['shift']['breaks'][0]['break_type_id'] = 'REGS1EQR1TPZ5'
 body['shift']['breaks'][0]['name'] = 'Tea Break'
 body['shift']['breaks'][0]['expected_duration'] = 'PT5M'
@@ -407,6 +407,15 @@ def search_shifts(self,
 
 ```python
 body = {}
+body['query'] = {}
+body['query']['filter'] = {}
+body['query']['filter']['workday'] = {}
+body['query']['filter']['workday']['date_range'] = {}
+body['query']['filter']['workday']['date_range']['start_date'] = '2019-01-20'
+body['query']['filter']['workday']['date_range']['end_date'] = '2019-02-03'
+body['query']['filter']['workday']['match_shifts_by'] = 'START_AT'
+body['query']['filter']['workday']['default_timezone'] = 'America/Los_Angeles'
+body['limit'] = 100
 
 result = labor_api.search_shifts(body)
 
@@ -517,8 +526,8 @@ id = 'id0'
 body = {}
 body['shift'] = {}
 body['shift']['location_id'] = 'PAA1RJZZKXBFG'
-body['shift']['start_at'] = '2019-01-25T03:11:00-05:00'
-body['shift']['end_at'] = '2019-01-25T13:11:00-05:00'
+body['shift']['start_at'] = '2019-01-25T08:11:00+00:00'
+body['shift']['end_at'] = '2019-01-25T18:11:00+00:00'
 body['shift']['wage'] = {}
 body['shift']['wage']['title'] = 'Bartender'
 body['shift']['wage']['hourly_rate'] = {}
@@ -528,8 +537,8 @@ body['shift']['breaks'] = []
 
 body['shift']['breaks'].append({})
 body['shift']['breaks'][0]['id'] = 'X7GAQYVVRRG6P'
-body['shift']['breaks'][0]['start_at'] = '2019-01-25T06:11:00-05:00'
-body['shift']['breaks'][0]['end_at'] = '2019-01-25T06:16:00-05:00'
+body['shift']['breaks'][0]['start_at'] = '2019-01-25T11:11:00+00:00'
+body['shift']['breaks'][0]['end_at'] = '2019-01-25T11:16:00+00:00'
 body['shift']['breaks'][0]['break_type_id'] = 'REGS1EQR1TPZ5'
 body['shift']['breaks'][0]['name'] = 'Tea Break'
 body['shift']['breaks'][0]['expected_duration'] = 'PT5M'

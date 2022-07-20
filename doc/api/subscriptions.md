@@ -189,12 +189,6 @@ def update_subscription(self,
 ```python
 subscription_id = 'subscription_id0'
 body = {}
-body['subscription'] = {}
-body['subscription']['tax_percentage'] = 'null'
-body['subscription']['price_override_money'] = {}
-body['subscription']['price_override_money']['amount'] = 2000
-body['subscription']['price_override_money']['currency'] = 'USD'
-body['subscription']['version'] = 1594155459464
 
 result = subscriptions_api.update_subscription(subscription_id, body)
 

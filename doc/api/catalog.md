@@ -152,7 +152,6 @@ body['batches'][0]['objects'][0]['id'] = '#Tea'
 body['batches'][0]['objects'][0]['present_at_all_locations'] = True
 body['batches'][0]['objects'][0]['item_data'] = {}
 body['batches'][0]['objects'][0]['item_data']['name'] = 'Tea'
-body['batches'][0]['objects'][0]['item_data']['description'] = 'Hot Leaf Juice'
 body['batches'][0]['objects'][0]['item_data']['category_id'] = '#Beverages'
 body['batches'][0]['objects'][0]['item_data']['tax_ids'] = ['#SalesTax']
 body['batches'][0]['objects'][0]['item_data']['variations'] = []
@@ -166,6 +165,7 @@ body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_d
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['name'] = 'Mug'
 body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
 
+body['batches'][0]['objects'][0]['item_data']['description_html'] = '<p><strong>Hot</strong> Leaf Juice</p>'
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][1]['type'] = 'ITEM'
@@ -173,7 +173,6 @@ body['batches'][0]['objects'][1]['id'] = '#Coffee'
 body['batches'][0]['objects'][1]['present_at_all_locations'] = True
 body['batches'][0]['objects'][1]['item_data'] = {}
 body['batches'][0]['objects'][1]['item_data']['name'] = 'Coffee'
-body['batches'][0]['objects'][1]['item_data']['description'] = 'Hot Bean Juice'
 body['batches'][0]['objects'][1]['item_data']['category_id'] = '#Beverages'
 body['batches'][0]['objects'][1]['item_data']['tax_ids'] = ['#SalesTax']
 body['batches'][0]['objects'][1]['item_data']['variations'] = []
@@ -196,6 +195,7 @@ body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_d
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
 body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
 
+body['batches'][0]['objects'][1]['item_data']['description_html'] = '<p>Hot <em>Bean Juice</em></p>'
 
 body['batches'][0]['objects'].append({})
 body['batches'][0]['objects'][2]['type'] = 'CATEGORY'
@@ -246,7 +246,7 @@ def create_catalog_image(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request` | [`Create Catalog Image Request`](../../doc/models/create-catalog-image-request.md) | Form, Optional | - |
+| `request` | [`Create Catalog Image Request`](../../doc/models/create-catalog-image-request.md) | Form (JSON-Encoded), Optional | - |
 | `image_file` | `typing.BinaryIO` | Form, Optional | - |
 
 ## Response Type
@@ -293,7 +293,7 @@ def update_catalog_image(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `image_id` | `string` | Template, Required | The ID of the `CatalogImage` object to update the encapsulated image file. |
-| `request` | [`Update Catalog Image Request`](../../doc/models/update-catalog-image-request.md) | Form, Optional | - |
+| `request` | [`Update Catalog Image Request`](../../doc/models/update-catalog-image-request.md) | Form (JSON-Encoded), Optional | - |
 | `image_file` | `typing.BinaryIO` | Form, Optional | - |
 
 ## Response Type
@@ -412,7 +412,6 @@ body['object']['type'] = 'ITEM'
 body['object']['id'] = '#Cocoa'
 body['object']['item_data'] = {}
 body['object']['item_data']['name'] = 'Cocoa'
-body['object']['item_data']['description'] = 'Hot Chocolate'
 body['object']['item_data']['abbreviation'] = 'Ch'
 body['object']['item_data']['variations'] = []
 
@@ -435,6 +434,7 @@ body['object']['item_data']['variations'][1]['item_variation_data']['price_money
 body['object']['item_data']['variations'][1]['item_variation_data']['price_money']['amount'] = 400
 body['object']['item_data']['variations'][1]['item_variation_data']['price_money']['currency'] = 'USD'
 
+body['object']['item_data']['description_html'] = '<p><strong>Hot</strong> Chocolate</p>'
 
 result = catalog_api.upsert_catalog_object(body)
 
