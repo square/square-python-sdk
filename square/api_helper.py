@@ -26,11 +26,51 @@ class APIHelper(object):
     SKIP = '#$%^S0K1I2P3))*'
 
     @staticmethod
-    def json_serialize(obj):
+    def get_request_parameter(value, is_wrapped=False):
+        """get the correct serialization method for a oneof/anyof parameter type.
+
+        Args:
+            value: the value of the request parameter
+            is_wrapped: whether parameter are wrapped in object or not
+
+        Returns:
+             A correct serialized value which can be used
+             when sending a request.
+
+        """
+
+        if type(value) is str:
+            return value
+        if is_wrapped:
+            return APIHelper.json_serialize_wrapped_params(value)
+        return APIHelper.json_serialize(value)
+
+    @staticmethod
+    def json_serialize_wrapped_params(obj):
+        """JSON Serialization of a given wrapped object.
+
+        Args:
+            obj (object): The object to serialize.
+
+        Returns:
+            str: The JSON serialized string of the object.
+
+        """
+        if obj is None:
+            return None
+        val = dict()
+        for k,v in obj.items():
+            val[k] = APIHelper.json_serialize(v, should_encode=False)
+
+        return jsonpickle.encode(val, False)
+
+    @staticmethod
+    def json_serialize(obj, should_encode=True):
         """JSON Serialization of a given object.
 
         Args:
             obj (object): The object to serialize.
+            should_encode: whether to encode at end or not
 
         Returns:
             str: The JSON serialized string of the object.
@@ -51,7 +91,8 @@ class APIHelper(object):
         else:
             if hasattr(obj, "_names"):
                 obj = APIHelper.to_dictionary(obj)
-
+        if not should_encode:
+            return obj
         return jsonpickle.encode(obj, False)
 
     @staticmethod

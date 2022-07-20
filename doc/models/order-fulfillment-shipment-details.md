@@ -11,7 +11,7 @@ Contains the details necessary to fulfill a shipment order.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `recipient` | [`Order Fulfillment Recipient`](../../doc/models/order-fulfillment-recipient.md) | Optional | Contains information about the recipient of a fulfillment. |
+| `recipient` | [`Order Fulfillment Recipient`](../../doc/models/order-fulfillment-recipient.md) | Optional | Information about the fulfillment recipient. |
 | `carrier` | `string` | Optional | The shipping carrier being used to ship this fulfillment (such as UPS, FedEx, or USPS).<br>**Constraints**: *Maximum Length*: `50` |
 | `shipping_note` | `string` | Optional | A note with additional information for the shipping carrier.<br>**Constraints**: *Maximum Length*: `500` |
 | `shipping_type` | `string` | Optional | A description of the type of shipping product purchased from the carrier<br>(such as First Class, Priority, or Express).<br>**Constraints**: *Maximum Length*: `50` |

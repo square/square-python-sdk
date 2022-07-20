@@ -357,8 +357,8 @@ class OrdersApi(BaseApi):
         update.
         - The latest `version` of the order to update.
         - The [sparse
-        order](https://developer.squareup.com/docs/orders-api/manage-orders#spa
-        rse-order-objects)
+        order](https://developer.squareup.com/docs/orders-api/manage-orders/upd
+        ate-orders#sparse-order-objects)
         containing only the fields to update and the version to which the
         update is
         being applied.
