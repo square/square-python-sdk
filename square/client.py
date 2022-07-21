@@ -46,7 +46,7 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '20.0.0.20220720'
+        return '20.1.0.20220720'
 
     @staticmethod
     def square_version():
