@@ -36,4 +36,5 @@ __all__ = [
     'team_api',
     'terminal_api',
     'vendors_api',
+    'webhook_subscriptions_api',
 ]

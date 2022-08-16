@@ -16,14 +16,17 @@ class CustomerCustomAttributesApi(BaseApi):
                                                    cursor=None):
         """Does a GET request to /v2/customers/custom-attribute-definitions.
 
-        Lists the customer-related custom attribute definitions that belong to
-        a Square seller account.
+        Lists the customer-related [custom attribute
+        definitions]($m/CustomAttributeDefinition) that belong to a Square
+        seller account.
         When all response pages are retrieved, the results include all custom
         attribute definitions
         that are visible to the requesting application, including those that
         are created by other
         applications and set to `VISIBILITY_READ_ONLY` or
-        `VISIBILITY_READ_WRITE_VALUES`.
+        `VISIBILITY_READ_WRITE_VALUES`. Note that
+        seller-defined custom attributes (also known as custom fields) are
+        always set to `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
             limit (int, optional): The maximum number of results to return in
@@ -90,10 +93,11 @@ class CustomerCustomAttributesApi(BaseApi):
                                                     body):
         """Does a POST request to /v2/customers/custom-attribute-definitions.
 
-        Creates a customer-related custom attribute definition for a Square
-        seller account. Use this
-        endpoint to define a custom attribute that can be associated with
-        customer profiles.
+        Creates a customer-related [custom attribute
+        definition]($m/CustomAttributeDefinition) for a Square seller
+        account.
+        Use this endpoint to define a custom attribute that can be associated
+        with customer profiles.
         A custom attribute definition specifies the `key`, `visibility`,
         `schema`, and other properties
         for a custom attribute. After the definition is created, you can call
@@ -155,8 +159,9 @@ class CustomerCustomAttributesApi(BaseApi):
                                                     key):
         """Does a DELETE request to /v2/customers/custom-attribute-definitions/{key}.
 
-        Deletes a customer-related custom attribute definition from a Square
-        seller account.
+        Deletes a customer-related [custom attribute
+        definition]($m/CustomAttributeDefinition) from a Square seller
+        account.
         Deleting a custom attribute definition also deletes the corresponding
         custom attribute from
         all customer profiles in the seller's Customer Directory.
@@ -212,11 +217,15 @@ class CustomerCustomAttributesApi(BaseApi):
                                                       version=None):
         """Does a GET request to /v2/customers/custom-attribute-definitions/{key}.
 
-        Retrieves a customer-related custom attribute definition from a Square
-        seller account.
+        Retrieves a customer-related [custom attribute
+        definition]($m/CustomAttributeDefinition) from a Square seller
+        account.
         To retrieve a custom attribute definition created by another
         application, the `visibility`
         setting must be `VISIBILITY_READ_ONLY` or
+        `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom
+        attributes
+        (also known as custom fields) are always set to
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
@@ -284,8 +293,9 @@ class CustomerCustomAttributesApi(BaseApi):
                                                     body):
         """Does a PUT request to /v2/customers/custom-attribute-definitions/{key}.
 
-        Updates a customer-related custom attribute definition for a Square
-        seller account.
+        Updates a customer-related [custom attribute
+        definition]($m/CustomAttributeDefinition) for a Square seller
+        account.
         Use this endpoint to update the following fields: `name`,
         `description`, `visibility`, or the
         `schema` for a `Selection` data type.
@@ -347,8 +357,8 @@ class CustomerCustomAttributesApi(BaseApi):
                                                body):
         """Does a POST request to /v2/customers/custom-attributes/bulk-upsert.
 
-        Creates or updates custom attributes for customer profiles as a bulk
-        operation.
+        Creates or updates [custom attributes]($m/CustomAttribute) for
+        customer profiles as a bulk operation.
         Use this endpoint to set the value of one or more custom attributes
         for one or more customer profiles.
         A custom attribute is based on a custom attribute definition in a
@@ -365,7 +375,10 @@ class CustomerCustomAttributesApi(BaseApi):
         of the corresponding request.
         To create or update a custom attribute owned by another application,
         the `visibility` setting
-        must be `VISIBILITY_READ_WRITE_VALUES`.
+        must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined
+        custom attributes
+        (also known as custom fields) are always set to
+        `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
             body (BulkUpsertCustomerCustomAttributesRequest): An object
@@ -418,7 +431,8 @@ class CustomerCustomAttributesApi(BaseApi):
                                         with_definitions=False):
         """Does a GET request to /v2/customers/{customer_id}/custom-attributes.
 
-        Lists the custom attributes associated with a customer profile.
+        Lists the [custom attributes]($m/CustomAttribute) associated with a
+        customer profile.
         You can use the `with_definitions` query parameter to also retrieve
         custom attribute definitions
         in the same call.
@@ -506,9 +520,13 @@ class CustomerCustomAttributesApi(BaseApi):
                                          key):
         """Does a DELETE request to /v2/customers/{customer_id}/custom-attributes/{key}.
 
-        Deletes a custom attribute associated with a customer profile.
+        Deletes a [custom attribute]($m/CustomAttribute) associated with a
+        customer profile.
         To delete a custom attribute owned by another application, the
         `visibility` setting must be
+        `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom
+        attributes
+        (also known as custom fields) are always set to
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
@@ -568,13 +586,17 @@ class CustomerCustomAttributesApi(BaseApi):
                                            version=None):
         """Does a GET request to /v2/customers/{customer_id}/custom-attributes/{key}.
 
-        Retrieves a custom attribute associated with a customer profile.
+        Retrieves a [custom attribute]($m/CustomAttribute) associated with a
+        customer profile.
         You can use the `with_definition` query parameter to also retrieve the
         custom attribute definition
         in the same call.
         To retrieve a custom attribute owned by another application, the
         `visibility` setting must be
-        `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
+        `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note that
+        seller-defined custom attributes
+        (also known as custom fields) are always set to
+        `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
             customer_id (string): The ID of the target [customer
@@ -653,7 +675,8 @@ class CustomerCustomAttributesApi(BaseApi):
                                          body):
         """Does a POST request to /v2/customers/{customer_id}/custom-attributes/{key}.
 
-        Creates or updates a custom attribute for a customer profile.
+        Creates or updates a [custom attribute]($m/CustomAttribute) for a
+        customer profile.
         Use this endpoint to set the value of a custom attribute for a
         specified customer profile.
         A custom attribute is based on a custom attribute definition in a
@@ -663,7 +686,10 @@ class CustomerCustomAttributesApi(BaseApi):
         reateCustomerCustomAttributeDefinition) endpoint.
         To create or update a custom attribute owned by another application,
         the `visibility` setting
-        must be `VISIBILITY_READ_WRITE_VALUES`.
+        must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined
+        custom attributes
+        (also known as custom fields) are always set to
+        `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
             customer_id (string): The ID of the target [customer

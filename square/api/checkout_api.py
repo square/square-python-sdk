@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -11,6 +12,7 @@ class CheckoutApi(BaseApi):
     def __init__(self, config, auth_managers):
         super(CheckoutApi, self).__init__(config, auth_managers)
 
+    @deprecated()
     def create_checkout(self,
                         location_id,
                         body):
@@ -85,14 +87,14 @@ class CheckoutApi(BaseApi):
 
         Args:
             cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint.  Provide this cursor to
-                retrieve the next set of results for the original query.  If a
+                previous call to this endpoint. Provide this cursor to
+                retrieve the next set of results for the original query. If a
                 cursor is not provided, the endpoint returns the first page of
-                the results.  For more  information, see
+                the results. For more  information, see
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination).
             limit (int, optional): A limit on the number of results to return
-                per page. The limit is advisory and  the implementation might
+                per page. The limit is advisory and the implementation might
                 return more or less results. If the supplied limit is
                 negative, zero, or greater than the maximum limit of 1000, it
                 is ignored.  Default value: `100`
@@ -301,8 +303,8 @@ class CheckoutApi(BaseApi):
         """Does a PUT request to /v2/online-checkout/payment-links/{id}.
 
         Updates a payment link. You can update the `payment_link` fields such
-        as 
-        `description`, `checkout_options`, and  `pre_populated_data`. 
+        as
+        `description`, `checkout_options`, and  `pre_populated_data`.
         You cannot update other fields such as the `order_id`, `version`,
         `URL`, or `timestamp` field.
 

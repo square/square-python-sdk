@@ -27,15 +27,12 @@ class DisputesApi(BaseApi):
                 more information, see
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination).
-            states (DisputeState, optional): The dispute states to filter the
-                result. If not specified, the endpoint returns all open
-                disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`,
-                or `LOST`).
+            states (DisputeState, optional): The dispute states used to filter
+                the result. If not specified, the endpoint returns all
+                disputes.
             location_id (string, optional): The ID of the location for which
                 to return a list of disputes. If not specified, the endpoint
-                returns all open disputes (the dispute status is not
-                `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all
-                locations.
+                returns disputes associated with all locations.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -204,8 +201,8 @@ class DisputesApi(BaseApi):
                 previous call to this endpoint. Provide this cursor to
                 retrieve the next set of results for the original query. For
                 more information, see
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination).
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -267,8 +264,8 @@ class DisputesApi(BaseApi):
         TIFF formats.
 
         Args:
-            dispute_id (string): The ID of the dispute you want to upload
-                evidence for.
+            dispute_id (string): The ID of the dispute for which you want to
+                upload evidence.
             request (CreateDisputeEvidenceFileRequest, optional): Defines the
                 parameters for a `CreateDisputeEvidenceFile` request.
             image_file (typing.BinaryIO, optional): TODO: type description
@@ -336,8 +333,8 @@ class DisputesApi(BaseApi):
         Uploads text to use as evidence for a dispute challenge.
 
         Args:
-            dispute_id (string): The ID of the dispute you want to upload
-                evidence for.
+            dispute_id (string): The ID of the dispute for which you want to
+                upload evidence.
             body (CreateDisputeEvidenceTextRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.
@@ -390,14 +387,11 @@ class DisputesApi(BaseApi):
         """Does a DELETE request to /v2/disputes/{dispute_id}/evidence/{evidence_id}.
 
         Removes specified evidence from a dispute.
-        Square does not send the bank any evidence that is removed. Also, you
-        cannot remove evidence after
-        submitting it to the bank using
-        [SubmitEvidence]($e/Disputes/SubmitEvidence).
+        Square does not send the bank any evidence that is removed.
 
         Args:
-            dispute_id (string): The ID of the dispute you want to remove
-                evidence from.
+            dispute_id (string): The ID of the dispute from which you want to
+                remove evidence.
             evidence_id (string): The ID of the evidence you want to remove.
 
         Returns:
@@ -447,15 +441,15 @@ class DisputesApi(BaseApi):
                                   evidence_id):
         """Does a GET request to /v2/disputes/{dispute_id}/evidence/{evidence_id}.
 
-        Returns the evidence metadata specified by the evidence ID in the
-        request URL path
-        You must maintain a copy of the evidence you upload if you want to
-        reference it later. You cannot
-        download the evidence after you upload it.
+        Returns the metadata for the evidence specified in the request URL
+        path.
+        You must maintain a copy of any evidence uploaded if you want to
+        reference it later. Evidence cannot be downloaded after you upload
+        it.
 
         Args:
-            dispute_id (string): The ID of the dispute that you want to
-                retrieve evidence from.
+            dispute_id (string): The ID of the dispute from which you want to
+                retrieve evidence metadata.
             evidence_id (string): The ID of the evidence to retrieve.
 
         Returns:
@@ -505,18 +499,19 @@ class DisputesApi(BaseApi):
         """Does a POST request to /v2/disputes/{dispute_id}/submit-evidence.
 
         Submits evidence to the cardholder's bank.
-        Before submitting evidence, Square compiles all available evidence.
-        This includes evidence uploaded
+        The evidence submitted by this endpoint includes evidence uploaded
         using the
         [CreateDisputeEvidenceFile]($e/Disputes/CreateDisputeEvidenceFile)
         and
         [CreateDisputeEvidenceText]($e/Disputes/CreateDisputeEvidenceText)
         endpoints and
-        evidence automatically provided by Square, when available.
+        evidence automatically provided by Square, when available. Evidence
+        cannot be removed from
+        a dispute after submission.
 
         Args:
-            dispute_id (string): The ID of the dispute that you want to submit
-                evidence for.
+            dispute_id (string): The ID of the dispute for which you want to
+                submit evidence.
 
         Returns:
             ApiResponse: An object with the response value as well as other
