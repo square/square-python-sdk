@@ -159,7 +159,7 @@ class CustomersApi(BaseApi):
         """Does a POST request to /v2/customers/search.
 
         Searches the customer profiles associated with a Square account using
-        a supported query filter.
+        one or more supported query filters.
         Calling `SearchCustomers` without any explicit query filter returns
         all
         customer profiles ordered alphabetically based on `given_name` and

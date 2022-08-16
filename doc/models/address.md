@@ -17,9 +17,15 @@ For more information, see [Working with Addresses](https://developer.squareup.co
 | `address_line_3` | `string` | Optional | The third line of the address, if any. |
 | `locality` | `string` | Optional | The city or town of the address. For a full list of field meanings by country, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses). |
 | `sublocality` | `string` | Optional | A civil region within the address's `locality`, if any. |
+| `sublocality_2` | `string` | Optional | A civil region within the address's `sublocality`, if any. |
+| `sublocality_3` | `string` | Optional | A civil region within the address's `sublocality_2`, if any. |
 | `administrative_district_level_1` | `string` | Optional | A civil entity within the address's country. In the US, this<br>is the state. For a full list of field meanings by country, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses). |
+| `administrative_district_level_2` | `string` | Optional | A civil entity within the address's `administrative_district_level_1`.<br>In the US, this is the county. |
+| `administrative_district_level_3` | `string` | Optional | A civil entity within the address's `administrative_district_level_2`,<br>if any. |
 | `postal_code` | `string` | Optional | The address's postal code. For a full list of field meanings by country, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses). |
 | `country` | [`str (Country)`](../../doc/models/country.md) | Optional | Indicates the country associated with another entity, such as a business.<br>Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm). |
+| `first_name` | `string` | Optional | Optional first name when it's representing recipient. |
+| `last_name` | `string` | Optional | Optional last name when it's representing recipient. |
 
 ## Example (as JSON)
 
@@ -30,9 +36,15 @@ For more information, see [Working with Addresses](https://developer.squareup.co
   "address_line_3": null,
   "locality": null,
   "sublocality": null,
+  "sublocality_2": null,
+  "sublocality_3": null,
   "administrative_district_level_1": null,
+  "administrative_district_level_2": null,
+  "administrative_district_level_3": null,
   "postal_code": null,
-  "country": null
+  "country": null,
+  "first_name": null,
+  "last_name": null
 }
 ```
 

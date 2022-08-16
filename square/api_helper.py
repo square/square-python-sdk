@@ -148,14 +148,16 @@ class APIHelper(object):
             return 'application/json; charset=utf-8'
 
     @staticmethod
-    def get_schema_path(path):
+    def get_schema_path(path, file_name):
         """Return the Schema's path
 
         Returns:
             string : returns Correct schema path
 
         """
-        path = path.replace('\\models', '\\schemas').replace('/models', '/schemas').replace(".py", ".json")
+        pascal_name = file_name.replace("_", " ").title().replace(" ", "")
+        path = path.replace('\\models', '\\schemas').replace('/models', '/schemas') \
+            .replace(".py", ".json").replace(file_name, pascal_name)
         return path
 
     @staticmethod

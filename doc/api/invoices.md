@@ -283,6 +283,7 @@ def update_invoice(self,
 invoice_id = 'invoice_id0'
 body = {}
 body['invoice'] = {}
+body['invoice']['version'] = 1
 body['invoice']['payment_requests'] = []
 
 body['invoice']['payment_requests'].append({})

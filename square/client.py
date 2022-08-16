@@ -40,17 +40,18 @@ from square.api.subscriptions_api import SubscriptionsApi
 from square.api.team_api import TeamApi
 from square.api.terminal_api import TerminalApi
 from square.api.vendors_api import VendorsApi
+from square.api.webhook_subscriptions_api import WebhookSubscriptionsApi
 
 
 class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '20.1.0.20220720'
+        return '21.0.0.20220817'
 
     @staticmethod
     def square_version():
-        return '2022-07-20'
+        return '2022-08-17'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -199,13 +200,17 @@ class Client(object):
     def vendors(self):
         return VendorsApi(self.config, self.auth_managers)
 
+    @lazy_property
+    def webhook_subscriptions(self):
+        return WebhookSubscriptionsApi(self.config, self.auth_managers)
+
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2022-07-20', additional_headers={},
+                 square_version='2022-08-17', additional_headers={},
                  user_agent_detail='', config=None):
         if config is None:
             self.config = Configuration(
