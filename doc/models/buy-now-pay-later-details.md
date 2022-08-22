@@ -11,15 +11,17 @@ Additional details about a Buy Now Pay Later payment type.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `brand` | `string` | Optional | The brand used for the Buy Now Pay Later payment.<br>The brand can be `AFTERPAY` or `UNKNOWN`.<br>**Constraints**: *Maximum Length*: `50` |
+| `brand` | `string` | Optional | The brand used for the Buy Now Pay Later payment.<br>The brand can be `AFTERPAY`, `CLEARPAY` or `UNKNOWN`.<br>**Constraints**: *Maximum Length*: `50` |
 | `afterpay_details` | [`Afterpay Details`](../../doc/models/afterpay-details.md) | Optional | Additional details about Afterpay payments. |
+| `clearpay_details` | [`Clearpay Details`](../../doc/models/clearpay-details.md) | Optional | Additional details about Clearpay payments. |
 
 ## Example (as JSON)
 
 ```json
 {
   "brand": null,
-  "afterpay_details": null
+  "afterpay_details": null,
+  "clearpay_details": null
 }
 ```
 
