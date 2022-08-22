@@ -76,7 +76,7 @@ class Configuration(object):
         retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
         retry_methods=['GET', 'PUT'], environment='production',
         custom_url='https://connect.squareup.com', access_token='',
-        square_version='2022-08-17', additional_headers={},
+        square_version='2022-08-23', additional_headers={},
         user_agent_detail=''
     ):
         # The Http Client passed from the sdk user for making requests
