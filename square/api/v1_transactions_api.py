@@ -13,11 +13,11 @@ class V1TransactionsApi(BaseApi):
         super(V1TransactionsApi, self).__init__(config, auth_managers)
 
     @deprecated()
-    def list_orders(self,
-                    location_id,
-                    order=None,
-                    limit=None,
-                    batch_token=None):
+    def v1_list_orders(self,
+                       location_id,
+                       order=None,
+                       limit=None,
+                       batch_token=None):
         """Does a GET request to /v1/{location_id}/orders.
 
         Provides summary information for a merchant's online store orders.
@@ -84,9 +84,9 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def retrieve_order(self,
-                       location_id,
-                       order_id):
+    def v1_retrieve_order(self,
+                          location_id,
+                          order_id):
         """Does a GET request to /v1/{location_id}/orders/{order_id}.
 
         Provides comprehensive information for a single online store order,
@@ -140,10 +140,10 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def update_order(self,
-                     location_id,
-                     order_id,
-                     body):
+    def v1_update_order(self,
+                        location_id,
+                        order_id,
+                        body):
         """Does a PUT request to /v1/{location_id}/orders/{order_id}.
 
         Updates the details of an online store order. Every update you perform
@@ -201,14 +201,14 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def list_payments(self,
-                      location_id,
-                      order=None,
-                      begin_time=None,
-                      end_time=None,
-                      limit=None,
-                      batch_token=None,
-                      include_partial=False):
+    def v1_list_payments(self,
+                         location_id,
+                         order=None,
+                         begin_time=None,
+                         end_time=None,
+                         limit=None,
+                         batch_token=None,
+                         include_partial=False):
         """Does a GET request to /v1/{location_id}/payments.
 
         Provides summary information for all payments taken for a given
@@ -302,9 +302,9 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def retrieve_payment(self,
-                         location_id,
-                         payment_id):
+    def v1_retrieve_payment(self,
+                            location_id,
+                            payment_id):
         """Does a GET request to /v1/{location_id}/payments/{payment_id}.
 
         Provides comprehensive information for a single payment.
@@ -361,13 +361,13 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def list_refunds(self,
-                     location_id,
-                     order=None,
-                     begin_time=None,
-                     end_time=None,
-                     limit=None,
-                     batch_token=None):
+    def v1_list_refunds(self,
+                        location_id,
+                        order=None,
+                        begin_time=None,
+                        end_time=None,
+                        limit=None,
+                        batch_token=None):
         """Does a GET request to /v1/{location_id}/refunds.
 
         Provides the details for all refunds initiated by a merchant or any of
@@ -449,9 +449,9 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def create_refund(self,
-                      location_id,
-                      body):
+    def v1_create_refund(self,
+                         location_id,
+                         body):
         """Does a POST request to /v1/{location_id}/refunds.
 
         Issues a refund for a previously processed payment. You must issue
@@ -518,14 +518,14 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def list_settlements(self,
-                         location_id,
-                         order=None,
-                         begin_time=None,
-                         end_time=None,
-                         limit=None,
-                         status=None,
-                         batch_token=None):
+    def v1_list_settlements(self,
+                            location_id,
+                            order=None,
+                            begin_time=None,
+                            end_time=None,
+                            limit=None,
+                            status=None,
+                            batch_token=None):
         """Does a GET request to /v1/{location_id}/settlements.
 
         Provides summary information for all deposits and withdrawals
@@ -612,9 +612,9 @@ class V1TransactionsApi(BaseApi):
         return _result
 
     @deprecated()
-    def retrieve_settlement(self,
-                            location_id,
-                            settlement_id):
+    def v1_retrieve_settlement(self,
+                               location_id,
+                               settlement_id):
         """Does a GET request to /v1/{location_id}/settlements/{settlement_id}.
 
         Provides comprehensive information for a single settlement.
