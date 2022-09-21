@@ -159,7 +159,8 @@ Adds points earned from a purchase to a [loyalty account](../../doc/models/loyal
 - If you are not using the Orders API to manage orders, provide `points` with the number of points to add.
   You must first perform a client-side computation of the points earned from the loyalty program and
   loyalty promotion. For spend-based and visit-based programs, you can call [CalculateLoyaltyPoints](../../doc/api/loyalty.md#calculate-loyalty-points)
-  to compute the points earned from the loyalty program (but not points earned from a loyalty promotion).
+  to compute the points earned from the base loyalty program. For information about computing points earned from a loyalty promotion, see
+  [Calculating promotion points](https://developer.squareup.com/docs/loyalty-api/loyalty-promotions#calculate-promotion-points).
 
 ```python
 def accumulate_loyalty_points(self,
