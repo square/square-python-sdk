@@ -19,7 +19,7 @@ setup(
     author='Square Developer Platform',
     author_email='developers@squareup.com',
     url='https://squareup.com/developers',
-    packages=find_packages(),
+    packages=find_packages(exclude=('tests',)),
     install_requires=[
         'jsonpickle~=1.4, >= 1.4.1',
         'requests~=2.25',
