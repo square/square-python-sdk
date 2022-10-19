@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2022-09-21'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2022-10-19'` |
 | `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
@@ -26,7 +26,7 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2022-09-21',
+    square_version='2022-10-19',
     access_token='AccessToken',
     environment='production',
     custom_url = 'https://connect.squareup.com',)
@@ -52,7 +52,7 @@ import jsonpickle
 from square.client import Client
 
 client = Client(
-    square_version='2022-09-21',
+    square_version='2022-10-19',
     access_token='AccessToken',)
 
 locations_api = client.locations

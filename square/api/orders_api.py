@@ -3,13 +3,20 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class OrdersApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(OrdersApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(OrdersApi, self).__init__(config)
 
     def create_order(self,
                      body):
@@ -18,7 +25,7 @@ class OrdersApi(BaseApi):
         Creates a new [order]($m/Order) that can include information about
         products for
         purchase and settings to apply to the purchase.
-        To pay for a created order, see 
+        To pay for a created order, see
         [Pay for
         Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders).
                 You can modify open orders using the
@@ -41,32 +48,26 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def batch_retrieve_orders(self,
                               body):
@@ -93,32 +94,26 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders/batch-retrieve'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders/batch-retrieve')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def calculate_order(self,
                         body):
@@ -144,39 +139,33 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders/calculate'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders/calculate')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def clone_order(self,
                     body):
         """Does a POST request to /v2/orders/clone.
 
         Creates a new order, in the `DRAFT` state, by duplicating an existing
-        order. The newly created order has 
+        order. The newly created order has
         only the core fields (such as line items, taxes, and discounts) copied
         from the original order.
 
@@ -197,32 +186,26 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders/clone'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders/clone')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def search_orders(self,
                       body):
@@ -267,32 +250,26 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders/search'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders/search')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_order(self,
                        order_id):
@@ -315,34 +292,24 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders/{order_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'order_id': {'value': order_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders/{order_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('order_id')
+                            .value(order_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_order(self,
                      order_id,
@@ -366,7 +333,7 @@ class OrdersApi(BaseApi):
         paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-
         dot-notation)
         identifying the fields to clear.
-        To pay for an order, see 
+        To pay for an order, see
         [Pay for
         Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders).
         
@@ -388,35 +355,30 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders/{order_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'order_id': {'value': order_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders/{order_id}')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('order_id')
+                            .value(order_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def pay_order(self,
                   order_id,
@@ -461,32 +423,27 @@ class OrdersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/orders/{order_id}/pay'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'order_id': {'value': order_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/orders/{order_id}/pay')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('order_id')
+                            .value(order_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

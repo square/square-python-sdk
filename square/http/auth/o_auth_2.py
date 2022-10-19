@@ -1,28 +1,22 @@
 # -*- coding: utf-8 -*-
 
+from apimatic_core.authentication.header_auth import HeaderAuth
 
-class OAuth2:
 
-    def __init__(self, access_token):
-        self._access_token = access_token
+class OAuth2(HeaderAuth):
 
-    def validate_arguments(self):
-        if self._access_token:
-            return True
-
-    def apply(self, http_request):
-        """ Add OAuth2 authentication to the request.
-
-            http_request (HttpRequest): The HttpRequest object to which
-                authentication header will be added.
-
-        """
-        token = self._access_token
-        http_request.headers['Authorization'] = "Bearer {}".format(token)
-
+    @property
     def error_message(self):
-        """Display error message on occurrence of authentication faliure
+        """Display error message on occurrence of authentication failure
         in BearerAuth
 
         """
-        return "BearerAuth: _access_token is undefined."
+        return "BearerAuth: access_token is undefined."
+
+    def __init__(self, access_token):
+        auth_params = {}
+        self._access_token = access_token
+        if self._access_token:
+            auth_params["Authorization"] = "Bearer {}".format(self._access_token)
+        super().__init__(auth_params=auth_params)
+

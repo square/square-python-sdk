@@ -4,13 +4,20 @@ from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.utilities.file_wrapper import FileWrapper
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class CatalogApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(CatalogApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(CatalogApi, self).__init__(config)
 
     def batch_delete_catalog_objects(self,
                                      body):
@@ -48,32 +55,26 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/batch-delete'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/batch-delete')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def batch_retrieve_catalog_objects(self,
                                        body):
@@ -106,32 +107,26 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/batch-retrieve'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/batch-retrieve')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def batch_upsert_catalog_objects(self,
                                      body):
@@ -171,32 +166,26 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/batch-upsert'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/batch-upsert')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def create_catalog_image(self,
                              request=None,
@@ -232,44 +221,28 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/images'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        if isinstance(image_file, FileWrapper):
-            image_file_wrapper = image_file.file_stream
-            image_file_content_type = image_file.content_type
-        else:
-            image_file_wrapper = image_file
-            image_file_content_type = 'image/jpeg'
-
-        # Prepare files
-        _files = {
-            'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
-            'image_file': (image_file_wrapper.name, image_file_wrapper, image_file_content_type)
-        }
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, files=_files)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/images')
+            .http_method(HttpMethodEnum.POST)
+            .multipart_param(Parameter()
+                             .key('request')
+                             .value(APIHelper.json_serialize(request))
+                             .default_content_type('application/json; charset=utf-8'))
+            .multipart_param(Parameter()
+                             .key('image_file')
+                             .value(image_file)
+                             .default_content_type('image/jpeg'))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_catalog_image(self,
                              image_id,
@@ -303,47 +276,32 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/images/{image_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'image_id': {'value': image_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        if isinstance(image_file, FileWrapper):
-            image_file_wrapper = image_file.file_stream
-            image_file_content_type = image_file.content_type
-        else:
-            image_file_wrapper = image_file
-            image_file_content_type = 'image/jpeg'
-
-        # Prepare files
-        _files = {
-            'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
-            'image_file': (image_file_wrapper.name, image_file_wrapper, image_file_content_type)
-        }
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.put(_query_url, headers=_headers, files=_files)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/images/{image_id}')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('image_id')
+                            .value(image_id)
+                            .should_encode(True))
+            .multipart_param(Parameter()
+                             .key('request')
+                             .value(APIHelper.json_serialize(request))
+                             .default_content_type('application/json; charset=utf-8'))
+            .multipart_param(Parameter()
+                             .key('image_file')
+                             .value(image_file)
+                             .default_content_type('image/jpeg'))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def catalog_info(self):
         """Does a GET request to /v2/catalog/info.
@@ -364,31 +322,20 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/info'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/info')
+            .http_method(HttpMethodEnum.GET)
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def list_catalog(self,
                      cursor=None,
@@ -448,40 +395,29 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/list'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'cursor': cursor,
-            'types': types,
-            'catalog_version': catalog_version
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/list')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .query_param(Parameter()
+                         .key('types')
+                         .value(types))
+            .query_param(Parameter()
+                         .key('catalog_version')
+                         .value(catalog_version))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def upsert_catalog_object(self,
                               body):
@@ -506,32 +442,26 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/object'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/object')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def delete_catalog_object(self,
                               object_id):
@@ -566,34 +496,24 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/object/{object_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'object_id': {'value': object_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.delete(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/object/{object_id}')
+            .http_method(HttpMethodEnum.DELETE)
+            .template_param(Parameter()
+                            .key('object_id')
+                            .value(object_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_catalog_object(self,
                                 object_id,
@@ -649,42 +569,30 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/object/{object_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'object_id': {'value': object_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'include_related_objects': include_related_objects,
-            'catalog_version': catalog_version
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/object/{object_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('object_id')
+                            .value(object_id)
+                            .should_encode(True))
+            .query_param(Parameter()
+                         .key('include_related_objects')
+                         .value(include_related_objects))
+            .query_param(Parameter()
+                         .key('catalog_version')
+                         .value(catalog_version))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def search_catalog_objects(self,
                                body):
@@ -726,32 +634,26 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/search'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/search')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def search_catalog_items(self,
                              body):
@@ -793,32 +695,26 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/search-catalog-items'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/search-catalog-items')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_item_modifier_lists(self,
                                    body):
@@ -846,32 +742,26 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/update-item-modifier-lists'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/update-item-modifier-lists')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_item_taxes(self,
                           body):
@@ -898,29 +788,23 @@ class CatalogApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/catalog/update-item-taxes'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/catalog/update-item-taxes')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

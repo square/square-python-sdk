@@ -3,13 +3,20 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class TeamApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(TeamApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(TeamApi, self).__init__(config)
 
     def create_team_member(self,
                            body):
@@ -42,32 +49,26 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def bulk_create_team_members(self,
                                  body):
@@ -101,32 +102,26 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members/bulk-create'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members/bulk-create')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def bulk_update_team_members(self,
                                  body):
@@ -160,32 +155,26 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members/bulk-update'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members/bulk-update')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def search_team_members(self,
                             body):
@@ -213,32 +202,26 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members/search'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members/search')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_team_member(self,
                              team_member_id):
@@ -264,34 +247,24 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members/{team_member_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': {'value': team_member_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members/{team_member_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('team_member_id')
+                            .value(team_member_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_team_member(self,
                            team_member_id,
@@ -322,35 +295,30 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members/{team_member_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': {'value': team_member_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members/{team_member_id}')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('team_member_id')
+                            .value(team_member_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_wage_setting(self,
                               team_member_id):
@@ -378,34 +346,24 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members/{team_member_id}/wage-setting'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': {'value': team_member_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members/{team_member_id}/wage-setting')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('team_member_id')
+                            .value(team_member_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_wage_setting(self,
                             team_member_id,
@@ -440,32 +398,27 @@ class TeamApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/team-members/{team_member_id}/wage-setting'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'team_member_id': {'value': team_member_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/team-members/{team_member_id}/wage-setting')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('team_member_id')
+                            .value(team_member_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from square.decorators import lazy_property
+from apimatic_core.configurations.global_configuration import GlobalConfiguration
+from apimatic_core.decorators.lazy_property import LazyProperty
 from square.configuration import Configuration
+from square.api.base_api import BaseApi
 from square.http.auth.o_auth_2 import OAuth2
 from square.api.mobile_authorization_api import MobileAuthorizationApi
 from square.api.o_auth_api import OAuthApi
@@ -47,162 +49,162 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '22.0.0.20220921'
+        return '23.0.0.20221019'
 
     @staticmethod
     def square_version():
-        return '2022-09-21'
+        return '2022-10-19'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
 
-    @lazy_property
+    @LazyProperty
     def mobile_authorization(self):
-        return MobileAuthorizationApi(self.config, self.auth_managers)
+        return MobileAuthorizationApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def o_auth(self):
-        return OAuthApi(self.config, self.auth_managers)
+        return OAuthApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def v1_transactions(self):
-        return V1TransactionsApi(self.config, self.auth_managers)
+        return V1TransactionsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def apple_pay(self):
-        return ApplePayApi(self.config, self.auth_managers)
+        return ApplePayApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def bank_accounts(self):
-        return BankAccountsApi(self.config, self.auth_managers)
+        return BankAccountsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def bookings(self):
-        return BookingsApi(self.config, self.auth_managers)
+        return BookingsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def cards(self):
-        return CardsApi(self.config, self.auth_managers)
+        return CardsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def cash_drawers(self):
-        return CashDrawersApi(self.config, self.auth_managers)
+        return CashDrawersApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def catalog(self):
-        return CatalogApi(self.config, self.auth_managers)
+        return CatalogApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def customers(self):
-        return CustomersApi(self.config, self.auth_managers)
+        return CustomersApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def customer_custom_attributes(self):
-        return CustomerCustomAttributesApi(self.config, self.auth_managers)
+        return CustomerCustomAttributesApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def customer_groups(self):
-        return CustomerGroupsApi(self.config, self.auth_managers)
+        return CustomerGroupsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def customer_segments(self):
-        return CustomerSegmentsApi(self.config, self.auth_managers)
+        return CustomerSegmentsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def devices(self):
-        return DevicesApi(self.config, self.auth_managers)
+        return DevicesApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def disputes(self):
-        return DisputesApi(self.config, self.auth_managers)
+        return DisputesApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def employees(self):
-        return EmployeesApi(self.config, self.auth_managers)
+        return EmployeesApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def gift_cards(self):
-        return GiftCardsApi(self.config, self.auth_managers)
+        return GiftCardsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def gift_card_activities(self):
-        return GiftCardActivitiesApi(self.config, self.auth_managers)
+        return GiftCardActivitiesApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def inventory(self):
-        return InventoryApi(self.config, self.auth_managers)
+        return InventoryApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def invoices(self):
-        return InvoicesApi(self.config, self.auth_managers)
+        return InvoicesApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def labor(self):
-        return LaborApi(self.config, self.auth_managers)
+        return LaborApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def locations(self):
-        return LocationsApi(self.config, self.auth_managers)
+        return LocationsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def checkout(self):
-        return CheckoutApi(self.config, self.auth_managers)
+        return CheckoutApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def transactions(self):
-        return TransactionsApi(self.config, self.auth_managers)
+        return TransactionsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def loyalty(self):
-        return LoyaltyApi(self.config, self.auth_managers)
+        return LoyaltyApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def merchants(self):
-        return MerchantsApi(self.config, self.auth_managers)
+        return MerchantsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def orders(self):
-        return OrdersApi(self.config, self.auth_managers)
+        return OrdersApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def payments(self):
-        return PaymentsApi(self.config, self.auth_managers)
+        return PaymentsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def payouts(self):
-        return PayoutsApi(self.config, self.auth_managers)
+        return PayoutsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def refunds(self):
-        return RefundsApi(self.config, self.auth_managers)
+        return RefundsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def sites(self):
-        return SitesApi(self.config, self.auth_managers)
+        return SitesApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def snippets(self):
-        return SnippetsApi(self.config, self.auth_managers)
+        return SnippetsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def subscriptions(self):
-        return SubscriptionsApi(self.config, self.auth_managers)
+        return SubscriptionsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def team(self):
-        return TeamApi(self.config, self.auth_managers)
+        return TeamApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def terminal(self):
-        return TerminalApi(self.config, self.auth_managers)
+        return TerminalApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def vendors(self):
-        return VendorsApi(self.config, self.auth_managers)
+        return VendorsApi(self.global_configuration)
 
-    @lazy_property
+    @LazyProperty
     def webhook_subscriptions(self):
-        return WebhookSubscriptionsApi(self.config, self.auth_managers)
+        return WebhookSubscriptionsApi(self.global_configuration)
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
@@ -210,7 +212,7 @@ class Client(object):
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2022-09-21', additional_headers={},
+                 square_version='2022-10-19', additional_headers={},
                  user_agent_detail='', config=None):
         if config is None:
             self.config = Configuration(
@@ -230,9 +232,24 @@ class Client(object):
                                          user_agent_detail=user_agent_detail)
         else:
             self.config = config
-        self.initialize_auth_managers(self.config)
 
-    def initialize_auth_managers(self, config):
+        additional_user_agent_parameters = { 
+                'api-version': {'value': self.config.square_version, 'encode': False},
+                'detail': {'value': self.config.user_agent_detail, 'encode': True}} 
+        self.global_configuration = GlobalConfiguration(self.config)\
+            .global_errors(BaseApi.global_errors())\
+            .base_uri_executor(self.config.get_base_uri)\
+            .user_agent(BaseApi.user_agent(), 
+                        {** BaseApi.user_agent_parameters(), **additional_user_agent_parameters})\
+            .additional_headers(self.config.additional_headers)\
+            .global_header('Square-Version', self.config.square_version)
+
+        self.initialize_auth_managers(self.global_configuration)
+
+        self.global_configuration = self.global_configuration.auth_managers(self.auth_managers)
+
+    def initialize_auth_managers(self, global_config):
+        http_client_config = global_config.get_http_client_configuration()
         self.auth_managers = { key: None for key in ['global']}
-        self.auth_managers['global'] = OAuth2(config.access_token)
+        self.auth_managers['global'] = OAuth2(http_client_config.access_token)
         return self.auth_managers

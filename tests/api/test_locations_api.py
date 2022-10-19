@@ -4,7 +4,7 @@ import json
 import dateutil.parser
 
 from tests.api.api_test_base import ApiTestBase
-from tests.test_helper import TestHelper
+from apimatic_core.utilities.comparison_helper import ComparisonHelper
 from square.api_helper import APIHelper
 
 
@@ -24,5 +24,5 @@ class LocationsApiTests(ApiTestBase):
         result = self.controller.list_locations()
 
         # Test response code
-        self.assertEquals(self.response_catcher.response.status_code, 200)
+        assert self.response_catcher.response.status_code == 200
 

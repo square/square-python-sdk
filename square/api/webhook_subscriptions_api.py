@@ -3,13 +3,20 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class WebhookSubscriptionsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(WebhookSubscriptionsApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(WebhookSubscriptionsApi, self).__init__(config)
 
     def list_webhook_event_types(self,
                                  api_version=None):
@@ -34,38 +41,23 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/event-types'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'api_version': api_version
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/event-types')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('api_version')
+                         .value(api_version))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def list_webhook_subscriptions(self,
                                    cursor=None,
@@ -106,41 +98,32 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/subscriptions'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'cursor': cursor,
-            'include_disabled': include_disabled,
-            'sort_order': sort_order,
-            'limit': limit
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/subscriptions')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .query_param(Parameter()
+                         .key('include_disabled')
+                         .value(include_disabled))
+            .query_param(Parameter()
+                         .key('sort_order')
+                         .value(sort_order))
+            .query_param(Parameter()
+                         .key('limit')
+                         .value(limit))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def create_webhook_subscription(self,
                                     body):
@@ -165,32 +148,26 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/subscriptions'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/subscriptions')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def delete_webhook_subscription(self,
                                     subscription_id):
@@ -214,34 +191,24 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/subscriptions/{subscription_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': {'value': subscription_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.delete(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/subscriptions/{subscription_id}')
+            .http_method(HttpMethodEnum.DELETE)
+            .template_param(Parameter()
+                            .key('subscription_id')
+                            .value(subscription_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_webhook_subscription(self,
                                       subscription_id):
@@ -265,34 +232,24 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/subscriptions/{subscription_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': {'value': subscription_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/subscriptions/{subscription_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('subscription_id')
+                            .value(subscription_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_webhook_subscription(self,
                                     subscription_id,
@@ -320,35 +277,30 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/subscriptions/{subscription_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': {'value': subscription_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/subscriptions/{subscription_id}')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('subscription_id')
+                            .value(subscription_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_webhook_subscription_signature_key(self,
                                                   subscription_id,
@@ -377,35 +329,30 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/subscriptions/{subscription_id}/signature-key'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': {'value': subscription_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/subscriptions/{subscription_id}/signature-key')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('subscription_id')
+                            .value(subscription_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def test_webhook_subscription(self,
                                   subscription_id,
@@ -434,32 +381,27 @@ class WebhookSubscriptionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/webhooks/subscriptions/{subscription_id}/test'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'subscription_id': {'value': subscription_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/webhooks/subscriptions/{subscription_id}/test')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('subscription_id')
+                            .value(subscription_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

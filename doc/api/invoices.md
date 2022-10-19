@@ -114,6 +114,7 @@ body['invoice']['accepted_payment_methods'] = {}
 body['invoice']['accepted_payment_methods']['card'] = True
 body['invoice']['accepted_payment_methods']['square_gift_card'] = False
 body['invoice']['accepted_payment_methods']['bank_account'] = False
+body['invoice']['accepted_payment_methods']['buy_now_pay_later'] = False
 body['invoice']['custom_fields'] = []
 
 body['invoice']['custom_fields'].append({})

@@ -3,13 +3,20 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class CustomerCustomAttributesApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(CustomerCustomAttributesApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(CustomerCustomAttributesApi, self).__init__(config)
 
     def list_customer_custom_attribute_definitions(self,
                                                    limit=None,
@@ -55,39 +62,26 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/custom-attribute-definitions'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'limit': limit,
-            'cursor': cursor
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/custom-attribute-definitions')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('limit')
+                         .value(limit))
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def create_customer_custom_attribute_definition(self,
                                                     body):
@@ -128,32 +122,26 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/custom-attribute-definitions'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/custom-attribute-definitions')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def delete_customer_custom_attribute_definition(self,
                                                     key):
@@ -183,34 +171,24 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/custom-attribute-definitions/{key}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'key': {'value': key, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.delete(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/custom-attribute-definitions/{key}')
+            .http_method(HttpMethodEnum.DELETE)
+            .template_param(Parameter()
+                            .key('key')
+                            .value(key)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_customer_custom_attribute_definition(self,
                                                       key,
@@ -252,41 +230,27 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/custom-attribute-definitions/{key}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'key': {'value': key, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'version': version
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/custom-attribute-definitions/{key}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('key')
+                            .value(key)
+                            .should_encode(True))
+            .query_param(Parameter()
+                         .key('version')
+                         .value(version))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def update_customer_custom_attribute_definition(self,
                                                     key,
@@ -323,35 +287,30 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/custom-attribute-definitions/{key}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'key': {'value': key, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.put(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/custom-attribute-definitions/{key}')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('key')
+                            .value(key)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def bulk_upsert_customer_custom_attributes(self,
                                                body):
@@ -397,32 +356,26 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/custom-attributes/bulk-upsert'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/custom-attributes/bulk-upsert')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def list_customer_custom_attributes(self,
                                         customer_id,
@@ -477,43 +430,33 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/{customer_id}/custom-attributes'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': {'value': customer_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'limit': limit,
-            'cursor': cursor,
-            'with_definitions': with_definitions
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/{customer_id}/custom-attributes')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('customer_id')
+                            .value(customer_id)
+                            .should_encode(True))
+            .query_param(Parameter()
+                         .key('limit')
+                         .value(limit))
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .query_param(Parameter()
+                         .key('with_definitions')
+                         .value(with_definitions))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def delete_customer_custom_attribute(self,
                                          customer_id,
@@ -549,35 +492,28 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/{customer_id}/custom-attributes/{key}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': {'value': customer_id, 'encode': True},
-            'key': {'value': key, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.delete(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/{customer_id}/custom-attributes/{key}')
+            .http_method(HttpMethodEnum.DELETE)
+            .template_param(Parameter()
+                            .key('customer_id')
+                            .value(customer_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('key')
+                            .value(key)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_customer_custom_attribute(self,
                                            customer_id,
@@ -631,43 +567,34 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/{customer_id}/custom-attributes/{key}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': {'value': customer_id, 'encode': True},
-            'key': {'value': key, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'with_definition': with_definition,
-            'version': version
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/{customer_id}/custom-attributes/{key}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('customer_id')
+                            .value(customer_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('key')
+                            .value(key)
+                            .should_encode(True))
+            .query_param(Parameter()
+                         .key('with_definition')
+                         .value(with_definition))
+            .query_param(Parameter()
+                         .key('version')
+                         .value(version))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def upsert_customer_custom_attribute(self,
                                          customer_id,
@@ -714,33 +641,31 @@ class CustomerCustomAttributesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/customers/{customer_id}/custom-attributes/{key}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'customer_id': {'value': customer_id, 'encode': True},
-            'key': {'value': key, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/{customer_id}/custom-attributes/{key}')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('customer_id')
+                            .value(customer_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('key')
+                            .value(key)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

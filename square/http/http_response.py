@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from apimatic_core.http.response.http_response import HttpResponse
 
-class HttpResponse(object):
+
+class HttpResponse(HttpResponse):
 
     """Information about an HTTP Response including its status code, returned
         headers, and raw body
@@ -33,8 +35,4 @@ class HttpResponse(object):
             request (HttpRequest): The request that resulted in this response.
 
         """
-        self.status_code = status_code
-        self.reason_phrase = reason_phrase
-        self.headers = headers
-        self.text = text
-        self.request = request
+        super().__init__(status_code, reason_phrase, headers, text, request)

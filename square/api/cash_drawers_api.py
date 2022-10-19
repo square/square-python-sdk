@@ -3,13 +3,20 @@
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class CashDrawersApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(CashDrawersApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(CashDrawersApi, self).__init__(config)
 
     def list_cash_drawer_shifts(self,
                                 location_id,
@@ -50,43 +57,38 @@ class CashDrawersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/cash-drawers/shifts'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'location_id': location_id,
-            'sort_order': sort_order,
-            'begin_time': begin_time,
-            'end_time': end_time,
-            'limit': limit,
-            'cursor': cursor
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/cash-drawers/shifts')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('location_id')
+                         .value(location_id))
+            .query_param(Parameter()
+                         .key('sort_order')
+                         .value(sort_order))
+            .query_param(Parameter()
+                         .key('begin_time')
+                         .value(begin_time))
+            .query_param(Parameter()
+                         .key('end_time')
+                         .value(end_time))
+            .query_param(Parameter()
+                         .key('limit')
+                         .value(limit))
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_cash_drawer_shift(self,
                                    location_id,
@@ -114,41 +116,27 @@ class CashDrawersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/cash-drawers/shifts/{shift_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'shift_id': {'value': shift_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'location_id': location_id
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/cash-drawers/shifts/{shift_id}')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('location_id')
+                         .value(location_id))
+            .template_param(Parameter()
+                            .key('shift_id')
+                            .value(shift_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def list_cash_drawer_shift_events(self,
                                       location_id,
@@ -180,40 +168,30 @@ class CashDrawersApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/cash-drawers/shifts/{shift_id}/events'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'shift_id': {'value': shift_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'location_id': location_id,
-            'limit': limit,
-            'cursor': cursor
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/cash-drawers/shifts/{shift_id}/events')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('location_id')
+                         .value(location_id))
+            .template_param(Parameter()
+                            .key('shift_id')
+                            .value(shift_id)
+                            .should_encode(True))
+            .query_param(Parameter()
+                         .key('limit')
+                         .value(limit))
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

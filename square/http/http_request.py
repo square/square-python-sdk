@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from square.api_helper import APIHelper
+from apimatic_core.http.request.http_request import HttpRequest
 
 
-class HttpRequest(object):
+class HttpRequest(HttpRequest):
 
     """Information about an HTTP Request including its method, headers,
         parameters, URL, and Basic Auth details
@@ -39,43 +39,9 @@ class HttpRequest(object):
             files (dict, optional): Files to be sent with the request.
 
         """
-        self.http_method = http_method
-        self.query_url = query_url
-        self.headers = headers
-        self.query_parameters = query_parameters
-        self.parameters = parameters
-        self.files = files
-
-    def add_header(self, name, value):
-        """ Add a header to the HttpRequest.
-
-        Args:
-            name (string): The name of the header.
-            value (string): The value of the header.
-
-        """
-        self.headers[name] = value
-
-    def add_parameter(self, name, value):
-        """ Add a parameter to the HttpRequest.
-
-        Args:
-            name (string): The name of the parameter.
-            value (string): The value of the parameter.
-
-        """
-        self.parameters[name] = value
-
-    def add_query_parameter(self, name, value):
-        """ Add a query parameter to the HttpRequest.
-
-        Args:
-            name (string): The name of the query parameter.
-            value (string): The value of the query parameter.
-
-        """
-        self.query_url = APIHelper.append_url_with_query_parameters(
-            self.query_url,
-            {name: value}
-        )
-        self.query_url = APIHelper.clean_url(self.query_url)
+        super().__init__(http_method,
+                         query_url,
+                         headers,
+                         query_parameters,
+                         parameters,
+                         files)
