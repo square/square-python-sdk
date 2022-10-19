@@ -3,6 +3,5 @@ __all__ = [
     'apis',
     'client',
     'configuration',
-    'decorators',
     'http',
 ]

@@ -33,7 +33,7 @@ jobs:
           pip install -r test-requirements.txt
       - name: Test with nose
         run: |
-          nosetests
+          pytest
 
   labeler:
     needs: build

@@ -4,13 +4,20 @@ from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class TransactionsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(TransactionsApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(TransactionsApi, self).__init__(config)
 
     @deprecated()
     def list_transactions(self,
@@ -63,44 +70,36 @@ class TransactionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/locations/{location_id}/transactions'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': {'value': location_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'begin_time': begin_time,
-            'end_time': end_time,
-            'sort_order': sort_order,
-            'cursor': cursor
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/locations/{location_id}/transactions')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('location_id')
+                            .value(location_id)
+                            .should_encode(True))
+            .query_param(Parameter()
+                         .key('begin_time')
+                         .value(begin_time))
+            .query_param(Parameter()
+                         .key('end_time')
+                         .value(end_time))
+            .query_param(Parameter()
+                         .key('sort_order')
+                         .value(sort_order))
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     @deprecated()
     def retrieve_transaction(self,
@@ -127,35 +126,28 @@ class TransactionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/locations/{location_id}/transactions/{transaction_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': {'value': location_id, 'encode': True},
-            'transaction_id': {'value': transaction_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/locations/{location_id}/transactions/{transaction_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('location_id')
+                            .value(location_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('transaction_id')
+                            .value(transaction_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     @deprecated()
     def capture_transaction(self,
@@ -187,35 +179,28 @@ class TransactionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/locations/{location_id}/transactions/{transaction_id}/capture'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': {'value': location_id, 'encode': True},
-            'transaction_id': {'value': transaction_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/locations/{location_id}/transactions/{transaction_id}/capture')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('location_id')
+                            .value(location_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('transaction_id')
+                            .value(transaction_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     @deprecated()
     def void_transaction(self,
@@ -247,32 +232,25 @@ class TransactionsApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/locations/{location_id}/transactions/{transaction_id}/void'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'location_id': {'value': location_id, 'encode': True},
-            'transaction_id': {'value': transaction_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/locations/{location_id}/transactions/{transaction_id}/void')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('location_id')
+                            .value(location_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('transaction_id')
+                            .value(transaction_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

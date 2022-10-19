@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+from apimatic_core_interfaces.types.http_method_enum import HttpMethodEnum
 
-class HttpMethodEnum(object):
+
+class HttpMethodEnum(HttpMethodEnum):
 
     """Enumeration of an HTTP Method
 
@@ -13,31 +15,3 @@ class HttpMethodEnum(object):
         DELETE: A DELETE Request
 
     """
-
-    GET = "GET"
-
-    POST = "POST"
-
-    PUT = "PUT"
-
-    PATCH = "PATCH"
-
-    DELETE = "DELETE"
-
-    HEAD = "HEAD"
-
-    @classmethod
-    def to_string(cls, val):
-        """Returns the string equivalent for the Enum.
-
-        """
-        for k, v in list(vars(cls).items()):
-            if v == val:
-                return k
-
-    @classmethod
-    def from_string(cls, str):
-        """Creates an instance of the Enum from a given string.
-
-        """
-        return getattr(cls, str.upper(), None)

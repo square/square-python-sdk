@@ -4,13 +4,20 @@ from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.utilities.file_wrapper import FileWrapper
 from square.api.base_api import BaseApi
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from apimatic_core.authentication.multiple.and_auth_group import And
+from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class DisputesApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
-    def __init__(self, config, auth_managers):
-        super(DisputesApi, self).__init__(config, auth_managers)
+    def __init__(self, config):
+        super(DisputesApi, self).__init__(config)
 
     def list_disputes(self,
                       cursor=None,
@@ -46,40 +53,29 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes'
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'cursor': cursor,
-            'states': states,
-            'location_id': location_id
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .query_param(Parameter()
+                         .key('states')
+                         .value(states))
+            .query_param(Parameter()
+                         .key('location_id')
+                         .value(location_id))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_dispute(self,
                          dispute_id):
@@ -103,34 +99,24 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def accept_dispute(self,
                        dispute_id):
@@ -159,34 +145,24 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/accept'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}/accept')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def list_dispute_evidence(self,
                               dispute_id,
@@ -216,41 +192,27 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/evidence'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_parameters = {
-            'cursor': cursor
-        }
-        _query_builder = APIHelper.append_url_with_query_parameters(
-            _query_builder,
-            _query_parameters
-        )
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}/evidence')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def create_dispute_evidence_file(self,
                                      dispute_id,
@@ -283,47 +245,32 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/evidence-files'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        if isinstance(image_file, FileWrapper):
-            image_file_wrapper = image_file.file_stream
-            image_file_content_type = image_file.content_type
-        else:
-            image_file_wrapper = image_file
-            image_file_content_type = 'image/jpeg'
-
-        # Prepare files
-        _files = {
-            'request': (None, APIHelper.json_serialize(request), 'application/json; charset=utf-8'),
-            'image_file': (image_file_wrapper.name, image_file_wrapper, image_file_content_type)
-        }
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, files=_files)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}/evidence-files')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .multipart_param(Parameter()
+                             .key('request')
+                             .value(APIHelper.json_serialize(request))
+                             .default_content_type('application/json; charset=utf-8'))
+            .multipart_param(Parameter()
+                             .key('image_file')
+                             .value(image_file)
+                             .default_content_type('image/jpeg'))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def create_dispute_evidence_text(self,
                                      dispute_id,
@@ -351,35 +298,30 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/evidence-text'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers, parameters=APIHelper.json_serialize(body))
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}/evidence-text')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def delete_dispute_evidence(self,
                                 dispute_id,
@@ -406,35 +348,28 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/evidence/{evidence_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True},
-            'evidence_id': {'value': evidence_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.delete(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}/evidence/{evidence_id}')
+            .http_method(HttpMethodEnum.DELETE)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('evidence_id')
+                            .value(evidence_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def retrieve_dispute_evidence(self,
                                   dispute_id,
@@ -464,35 +399,28 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/evidence/{evidence_id}'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True},
-            'evidence_id': {'value': evidence_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.get(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}/evidence/{evidence_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('evidence_id')
+                            .value(evidence_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
 
     def submit_evidence(self,
                         dispute_id):
@@ -525,31 +453,21 @@ class DisputesApi(BaseApi):
 
         """
 
-        # Prepare query URL
-        _url_path = '/v2/disputes/{dispute_id}/submit-evidence'
-        _url_path = APIHelper.append_url_with_template_parameters(_url_path, {
-            'dispute_id': {'value': dispute_id, 'encode': True}
-        })
-        _query_builder = self.config.get_base_uri()
-        _query_builder += _url_path
-        _query_url = APIHelper.clean_url(_query_builder)
-
-        # Prepare headers
-        _headers = {
-            'accept': 'application/json'
-        }
-
-        # Prepare and execute request
-        _request = self.config.http_client.post(_query_url, headers=_headers)
-        # Apply authentication scheme on request
-        self.apply_auth_schemes(_request, 'global')
-
-        _response = self.execute_request(_request)
-
-        decoded = APIHelper.json_deserialize(_response.text)
-        if type(decoded) is dict:
-            _errors = decoded.get('errors')
-        else:
-            _errors = None
-        _result = ApiResponse(_response, body=decoded, errors=_errors)
-        return _result
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/disputes/{dispute_id}/submit-evidence')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('dispute_id')
+                            .value(dispute_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

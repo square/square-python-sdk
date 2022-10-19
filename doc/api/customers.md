@@ -105,7 +105,7 @@ body['address']['locality'] = 'New York'
 body['address']['administrative_district_level_1'] = 'NY'
 body['address']['postal_code'] = '10003'
 body['address']['country'] = 'US'
-body['phone_number'] = '1-212-555-4240'
+body['phone_number'] = '+1-212-555-4240'
 body['reference_id'] = 'YOUR_REFERENCE_ID'
 body['note'] = 'a customer'
 

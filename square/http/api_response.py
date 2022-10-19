@@ -1,7 +1,8 @@
-import json
+from apimatic_core.http.response.api_response import ApiResponse
+from apimatic_core.http.response.http_response import HttpResponse
 
 
-class ApiResponse:
+class ApiResponse(ApiResponse):
 
     """Http response received.
 
@@ -26,32 +27,20 @@ class ApiResponse:
 
         Args:
             http_response (HttpResponse): The original, raw response from the api
-            data (Object): The data field specified for the response
+            body (Object): The body of the actual response
             errors (Array<String>): Any errors returned by the server
 
         """
 
-        self.status_code = http_response.status_code
-        self.reason_phrase = http_response.reason_phrase
-        self.headers = http_response.headers
-        self.text = http_response.text
-        self.request = http_response.request
-        self.body = body
-        self.errors = errors
+        super().__init__(http_response, body, errors)
         if type(body) is dict:
             self.cursor = body.get('cursor')
 
-    def is_success(self):
-        """ Returns true if status code is between 200-300
-
-        """
-        return 200 <= self.status_code < 300
-
-    def is_error(self):
-        """ Returns true if status code is between 400-600
-
-        """
-        return 400 <= self.status_code < 600
-
     def __repr__(self):
-        return '<ApiResponse [%s]>' % (self.text)
+        return '<ApiResponse {}>'.format(self.text)
+
+    @classmethod
+    def create(cls, parent_instance):
+        return cls(HttpResponse(parent_instance.status_code, parent_instance.reason_phrase,
+                                parent_instance.headers, parent_instance.text, parent_instance.request),
+                   parent_instance.body, parent_instance.errors)
