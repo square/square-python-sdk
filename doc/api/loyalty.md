@@ -485,6 +485,10 @@ body['loyalty_promotion']['available_time']['time_periods'] = ['BEGIN:VEVENT\nDT
 body['loyalty_promotion']['trigger_limit'] = {}
 body['loyalty_promotion']['trigger_limit']['times'] = 1
 body['loyalty_promotion']['trigger_limit']['interval'] = 'DAY'
+body['loyalty_promotion']['minimum_spend_amount_money'] = {}
+body['loyalty_promotion']['minimum_spend_amount_money']['amount'] = 2000
+body['loyalty_promotion']['minimum_spend_amount_money']['currency'] = 'USD'
+body['loyalty_promotion']['qualifying_category_ids'] = ['XTQPYLR3IIU9C44VRCB3XD12']
 body['idempotency_key'] = 'ec78c477-b1c3-4899-a209-a4e71337c996'
 
 result = loyalty_api.create_loyalty_promotion(program_id, body)

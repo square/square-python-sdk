@@ -1,16 +1,7 @@
 # -*- coding: utf-8 -*-
 
-
-
-import json
-import dateutil.parser
-
-from tests.api.api_test_base import ApiTestBase
 from tests.test_helper import TestHelper
-from tests.http_response_catcher import HttpResponseCatcher
-from square.api_helper import APIHelper
-from square.api.refunds_api import RefundsApi
-
+from tests.api.api_test_base import ApiTestBase
 
 class RefundsApiTests(ApiTestBase):
 
@@ -44,5 +35,3 @@ class RefundsApiTests(ApiTestBase):
         expected_headers['content-type'] = 'application/json'
 
         self.assertTrue(TestHelper.match_headers(expected_headers, self.response_catcher.response.headers))
-
-

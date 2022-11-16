@@ -45,7 +45,7 @@ cd square-python-sdk
 Next, install dependencies.
 
 ```sh
-pip install -r test-requirements.txt
+python3 -m pip install .
 ```
 
 Before running the tests, find a sandbox token in your [Developer Dashboard] and set a `SQUARE_SANDBOX_TOKEN` environment variable.
@@ -54,10 +54,16 @@ Before running the tests, find a sandbox token in your [Developer Dashboard] and
 export SQUARE_SANDBOX_TOKEN="YOUR SANDBOX TOKEN HERE"
 ```
 
-And run the tests.
+Ensure you have `pytest` installed:
+
+```
+python3 -m pip install pytest
+```
+
+And lastly, run the tests.
 
 ```sh
-nosetests tests
+pytest
 ```
 
 ## SDK Reference

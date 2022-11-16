@@ -37,6 +37,11 @@ class CatalogApi(BaseApi):
         targeted
         IDs can be deleted. The response will only include IDs that were
         actually deleted.
+        To ensure consistency, only one delete request is processed at a time
+        per seller account.  
+        While one (batch or non-batch) delete request is being processed,
+        other (batched and non-batched) 
+        delete requests are rejected with the `429` error code.
 
         Args:
             body (BatchDeleteCatalogObjectsRequest): An object containing the
@@ -148,6 +153,11 @@ class CatalogApi(BaseApi):
         request (items, variations, modifier lists, discounts, and taxes) is
         no more
         than 10,000.
+        To ensure consistency, only one update request is processed at a time
+        per seller account.  
+        While one (batch or non-batch) update request is being processed,
+        other (batched and non-batched) 
+        update requests are rejected with the `429` error code.
 
         Args:
             body (BatchUpsertCatalogObjectsRequest): An object containing the
@@ -376,7 +386,7 @@ class CatalogApi(BaseApi):
                 MEASUREMENT_UNIT, SUBSCRIPTION_PLAN, ITEM_OPTION,
                 CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS.
             catalog_version (long|int, optional): The specific version of the
-                catalog objects to be included in the response.  This allows
+                catalog objects to be included in the response. This allows
                 you to retrieve historical versions of objects. The specified
                 version value is matched against the
                 [CatalogObject]($m/CatalogObject)s' `version` attribute.  If
@@ -423,7 +433,13 @@ class CatalogApi(BaseApi):
                               body):
         """Does a POST request to /v2/catalog/object.
 
-        Creates or updates the target [CatalogObject]($m/CatalogObject).
+        Creates a new or updates the specified
+        [CatalogObject]($m/CatalogObject).
+        To ensure consistency, only one update request is processed at a time
+        per seller account.  
+        While one (batch or non-batch) update request is being processed,
+        other (batched and non-batched) 
+        update requests are rejected with the `429` error code.
 
         Args:
             body (UpsertCatalogObjectRequest): An object containing the fields
@@ -476,6 +492,11 @@ class CatalogApi(BaseApi):
         [CatalogItem]($m/CatalogItem)
         will also delete all of its
         [CatalogItemVariation]($m/CatalogItemVariation) children.
+        To ensure consistency, only one delete request is processed at a time
+        per seller account.  
+        While one (batch or non-batch) delete request is being processed,
+        other (batched and non-batched) 
+        delete requests are rejected with the `429` error code.
 
         Args:
             object_id (string): The ID of the catalog object to be deleted.

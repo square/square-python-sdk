@@ -1,16 +1,6 @@
 # -*- coding: utf-8 -*-
 
-
-
-import json
-import dateutil.parser
-
 from tests.api.api_test_base import ApiTestBase
-from tests.test_helper import TestHelper
-from tests.http_response_catcher import HttpResponseCatcher
-from square.api_helper import APIHelper
-from square.api.customers_api import CustomersApi
-
 
 class V2EndpointsTests(ApiTestBase):
 
@@ -83,5 +73,3 @@ class V2EndpointsTests(ApiTestBase):
         response = self.controller.delete_customer(customer_id)
         self.assertEquals(response.body, {})
         self.assertEquals(response.status_code, 200)
-
-
