@@ -118,3 +118,4 @@ class TestHelper(object):
             cls.cache[url].write(requests.get(url).content)
         cls.cache[url].seek(0)
         return cls.cache[url]
+        

@@ -11,6 +11,7 @@ from square.api.v1_transactions_api import V1TransactionsApi
 from square.api.apple_pay_api import ApplePayApi
 from square.api.bank_accounts_api import BankAccountsApi
 from square.api.bookings_api import BookingsApi
+from square.api.booking_custom_attributes_api import BookingCustomAttributesApi
 from square.api.cards_api import CardsApi
 from square.api.cash_drawers_api import CashDrawersApi
 from square.api.catalog_api import CatalogApi
@@ -33,6 +34,7 @@ from square.api.transactions_api import TransactionsApi
 from square.api.loyalty_api import LoyaltyApi
 from square.api.merchants_api import MerchantsApi
 from square.api.orders_api import OrdersApi
+from square.api.order_custom_attributes_api import OrderCustomAttributesApi
 from square.api.payments_api import PaymentsApi
 from square.api.payouts_api import PayoutsApi
 from square.api.refunds_api import RefundsApi
@@ -49,11 +51,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '23.0.0.20221019'
+        return '24.0.0.20221116'
 
     @staticmethod
     def square_version():
-        return '2022-10-19'
+        return '2022-11-16'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -81,6 +83,10 @@ class Client(object):
     @LazyProperty
     def bookings(self):
         return BookingsApi(self.global_configuration)
+
+    @LazyProperty
+    def booking_custom_attributes(self):
+        return BookingCustomAttributesApi(self.global_configuration)
 
     @LazyProperty
     def cards(self):
@@ -167,6 +173,10 @@ class Client(object):
         return OrdersApi(self.global_configuration)
 
     @LazyProperty
+    def order_custom_attributes(self):
+        return OrderCustomAttributesApi(self.global_configuration)
+
+    @LazyProperty
     def payments(self):
         return PaymentsApi(self.global_configuration)
 
@@ -212,7 +222,7 @@ class Client(object):
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2022-10-19', additional_headers={},
+                 square_version='2022-11-16', additional_headers={},
                  user_agent_detail='', config=None):
         if config is None:
             self.config = Configuration(

@@ -1,16 +1,7 @@
 # -*- coding: utf-8 -*-
 
-
-
-import json
-import dateutil.parser
-
 from tests.api.api_test_base import ApiTestBase
-from tests.test_helper import TestHelper
-from tests.http_response_catcher import HttpResponseCatcher
 from square.api_helper import APIHelper
-from square.api.customers_api import CustomersApi
-
 
 class CustomersApiTests(ApiTestBase):
 
@@ -48,4 +39,3 @@ class CustomersApiTests(ApiTestBase):
 
         # Test response code
         self.assertEquals(self.response_catcher.response.status_code, 200)
-

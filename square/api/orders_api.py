@@ -330,8 +330,8 @@ class OrdersApi(BaseApi):
         update is
         being applied.
         - If deleting fields, the [dot notation
-        paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-
-        dot-notation)
+        paths](https://developer.squareup.com/docs/orders-api/manage-orders/upd
+        ate-orders#identifying-fields-to-delete)
         identifying the fields to clear.
         To pay for an order, see
         [Pay for

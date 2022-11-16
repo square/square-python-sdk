@@ -208,11 +208,12 @@ class CustomersApi(BaseApi):
 
         Deletes a customer profile from a business. This operation also
         unlinks any associated cards on file. 
-        As a best practice, you should include the `version` field in the
-        request to enable [optimistic
-        concurrency](https://developer.squareup.com/docs/working-with-apis/opti
-        mistic-concurrency) control. The value must be set to the current
-        version of the customer profile. 
+        As a best practice, include the `version` field in the request to
+        enable [optimistic
+        concurrency](https://developer.squareup.com/docs/build-basics/common-ap
+        i-patterns/optimistic-concurrency) control.
+        If included, the value must be set to the current version of the
+        customer profile. 
         To delete a customer profile that was created by merging existing
         profiles, you must use the ID of the newly created profile.
 
@@ -306,14 +307,17 @@ class CustomersApi(BaseApi):
                         body):
         """Does a PUT request to /v2/customers/{customer_id}.
 
-        Updates a customer profile. To change an attribute, specify the new
-        value. To remove an attribute, specify the value as an empty string or
-        empty object.
-        As a best practice, you should include the `version` field in the
-        request to enable [optimistic
-        concurrency](https://developer.squareup.com/docs/working-with-apis/opti
-        mistic-concurrency) control. The value must be set to the current
-        version of the customer profile.
+        Updates a customer profile. This endpoint supports sparse updates, so
+        only new or changed fields are required in the request.
+        To add or update a field, specify the new value. To remove a field,
+        specify `null` and include the `X-Clear-Null` header set to `true`
+        (recommended) or specify an empty string (string fields only).
+        As a best practice, include the `version` field in the request to
+        enable [optimistic
+        concurrency](https://developer.squareup.com/docs/build-basics/common-ap
+        i-patterns/optimistic-concurrency) control.
+        If included, the value must be set to the current version of the
+        customer profile.
         To update a customer profile that was created by merging existing
         profiles, you must use the ID of the newly created profile.
         You cannot use this endpoint to change cards on file. To make changes,
