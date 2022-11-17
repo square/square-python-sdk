@@ -2,7 +2,7 @@
 build-backend = "setuptools.build_meta"
 requires = ["setuptools>=61.0"]
 [project]
-name = "square"
+name = "squareup"
 description = "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management."
 version = "24.0.0.20221116"
 requires-python = ">=3.7"
