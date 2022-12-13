@@ -51,11 +51,11 @@ class Client(object):
 
     @staticmethod
     def sdk_version():
-        return '24.0.0.20221116'
+        return '25.0.0.20221214'
 
     @staticmethod
     def square_version():
-        return '2022-11-16'
+        return '2022-12-14'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -222,7 +222,7 @@ class Client(object):
                  retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
                  retry_methods=['GET', 'PUT'], environment='production',
                  custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2022-11-16', additional_headers={},
+                 square_version='2022-12-14', additional_headers={},
                  user_agent_detail='', config=None):
         if config is None:
             self.config = Configuration(
@@ -247,7 +247,6 @@ class Client(object):
                 'api-version': {'value': self.config.square_version, 'encode': False},
                 'detail': {'value': self.config.user_agent_detail, 'encode': True}} 
         self.global_configuration = GlobalConfiguration(self.config)\
-            .global_errors(BaseApi.global_errors())\
             .base_uri_executor(self.config.get_base_uri)\
             .user_agent(BaseApi.user_agent(), 
                         {** BaseApi.user_agent_parameters(), **additional_user_agent_parameters})\

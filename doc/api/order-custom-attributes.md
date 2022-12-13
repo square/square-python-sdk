@@ -91,6 +91,11 @@ def create_order_custom_attribute_definition(self,
 ```python
 body = {}
 body['custom_attribute_definition'] = {}
+body['custom_attribute_definition']['key'] = 'cover-count'
+body['custom_attribute_definition']['name'] = 'Cover count'
+body['custom_attribute_definition']['description'] = 'The number of people seated at a table'
+body['custom_attribute_definition']['visibility'] = 'VISIBILITY_READ_WRITE_VALUES'
+body['idempotency_key'] = 'IDEMPOTENCY_KEY'
 
 result = order_custom_attributes_api.create_order_custom_attribute_definition(body)
 
@@ -204,11 +209,10 @@ def update_order_custom_attribute_definition(self,
 key = 'key0'
 body = {}
 body['custom_attribute_definition'] = {}
-body['custom_attribute_definition']['key'] = 'wayne-test-15'
-body['custom_attribute_definition']['name'] = 'wayne-test-15'
-body['custom_attribute_definition']['description'] = 'updated'
-body['custom_attribute_definition']['visibility'] = 'VISIBILITY_READ_WRITE_VALUES'
-body['custom_attribute_definition']['version'] = 2
+body['custom_attribute_definition']['key'] = 'cover-count'
+body['custom_attribute_definition']['visibility'] = 'VISIBILITY_READ_ONLY'
+body['custom_attribute_definition']['version'] = 1
+body['idempotency_key'] = 'IDEMPOTENCY_KEY'
 
 result = order_custom_attributes_api.update_order_custom_attribute_definition(key, body)
 
