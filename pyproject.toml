@@ -4,7 +4,7 @@ requires = ["setuptools>=61.0"]
 [project]
 name = "squareup"
 description = "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management."
-version = "24.0.0.20221116"
+version = "25.0.0.20221214"
 requires-python = ">=3.7"
 authors = [{name = "Square Developer Platform", email = "developers@squareup.com"}]
 dependencies = ["apimatic-core~=0.1.0", "apimatic-core-interfaces~=0.1.0", "apimatic-requests-client-adapter~=0.1.0", "python-dateutil~=2.8.1", "deprecation~=2.1"]

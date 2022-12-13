@@ -221,3 +221,57 @@ class OAuthApi(BaseApi):
             .is_api_response(True)
             .convertor(ApiResponse.create)
         ).execute()
+
+    def retrieve_token_status(self,
+                              authorization):
+        """Does a POST request to /oauth2/token/status.
+
+        Returns information about an [OAuth access
+        token](https://developer.squareup.com/docs/build-basics/access-tokens#g
+        et-an-oauth-access-token) or an application’s [personal access
+        token](https://developer.squareup.com/docs/build-basics/access-tokens#g
+        et-a-personal-access-token).
+        Add the access token to the Authorization header of the request.
+        __Important:__ The `Authorization` header you provide to this endpoint
+        must have the following format:
+        ```
+        Authorization: Bearer ACCESS_TOKEN
+        ```
+        where `ACCESS_TOKEN` is a
+        [valid production authorization
+        credential](https://developer.squareup.com/docs/build-basics/access-tok
+        ens).
+        If the access token is expired or not a valid access token, the
+        endpoint returns an `UNAUTHORIZED` error.
+
+        Args:
+            authorization (string): Client APPLICATION_SECRET
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/oauth2/token/status')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Authorization')
+                          .value(authorization))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()

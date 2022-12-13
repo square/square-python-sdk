@@ -24,7 +24,7 @@ class BaseApi(object):
 
     @staticmethod
     def user_agent():
-        return 'Square-Python-SDK/24.0.0.20221116 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        return 'Square-Python-SDK/25.0.0.20221214 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
 
     @staticmethod
     def user_agent_parameters():
@@ -32,12 +32,6 @@ class BaseApi(object):
             'engine': {'value': platform.python_implementation(), 'encode': False},
             'engine-version': {'value': "", 'encode': False},
             'os-info': {'value': platform.system(), 'encode': False},
-        }
-
-    @staticmethod
-    def global_errors():
-        return{
-            'default': ErrorCase().description('HTTP response not OK.').exception_type(APIException),
         }
 
     def __init__(self, config):

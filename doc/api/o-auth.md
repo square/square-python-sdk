@@ -13,6 +13,7 @@ o_auth_api = client.o_auth
 * [Renew Token](../../doc/api/o-auth.md#renew-token)
 * [Revoke Token](../../doc/api/o-auth.md#revoke-token)
 * [Obtain Token](../../doc/api/o-auth.md#obtain-token)
+* [Retrieve Token Status](../../doc/api/o-auth.md#retrieve-token-status)
 
 
 # Renew Token
@@ -179,6 +180,54 @@ body['code'] = 'CODE_FROM_AUTHORIZE'
 body['grant_type'] = 'authorization_code'
 
 result = o_auth_api.obtain_token(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Retrieve Token Status
+
+Returns information about an [OAuth access token](https://developer.squareup.com/docs/build-basics/access-tokens#get-an-oauth-access-token) or an application’s [personal access token](https://developer.squareup.com/docs/build-basics/access-tokens#get-a-personal-access-token).
+
+Add the access token to the Authorization header of the request.
+
+__Important:__ The `Authorization` header you provide to this endpoint must have the following format:
+
+```
+Authorization: Bearer ACCESS_TOKEN
+```
+
+where `ACCESS_TOKEN` is a
+[valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-tokens).
+
+If the access token is expired or not a valid access token, the endpoint returns an `UNAUTHORIZED` error.
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```python
+def retrieve_token_status(self,
+                         authorization)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
+
+## Response Type
+
+[`Retrieve Token Status Response`](../../doc/models/retrieve-token-status-response.md)
+
+## Example Usage
+
+```python
+authorization = 'Client CLIENT_SECRET'
+
+result = o_auth_api.retrieve_token_status(authorization)
 
 if result.is_success():
     print(result.body)
