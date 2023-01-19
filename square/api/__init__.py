@@ -23,6 +23,7 @@ __all__ = [
     'invoices_api',
     'labor_api',
     'locations_api',
+    'location_custom_attributes_api',
     'checkout_api',
     'transactions_api',
     'loyalty_api',

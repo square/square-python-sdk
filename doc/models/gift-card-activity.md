@@ -33,6 +33,8 @@ includes a `redeem_activity_details` field that contains information about the r
 | `block_activity_details` | [`Gift Card Activity Block`](../../doc/models/gift-card-activity-block.md) | Optional | Represents details about a `BLOCK` [gift card activity type](../../doc/models/gift-card-activity-type.md). |
 | `unblock_activity_details` | [`Gift Card Activity Unblock`](../../doc/models/gift-card-activity-unblock.md) | Optional | Represents details about an `UNBLOCK` [gift card activity type](../../doc/models/gift-card-activity-type.md). |
 | `import_reversal_activity_details` | [`Gift Card Activity Import Reversal`](../../doc/models/gift-card-activity-import-reversal.md) | Optional | Represents details about an `IMPORT_REVERSAL` [gift card activity type](../../doc/models/gift-card-activity-type.md). |
+| `transfer_balance_to_activity_details` | [`Gift Card Activity Transfer Balance To`](../../doc/models/gift-card-activity-transfer-balance-to.md) | Optional | Represents details about a `TRANSFER_BALANCE_TO` [gift card activity type](../../doc/models/gift-card-activity-type.md). |
+| `transfer_balance_from_activity_details` | [`Gift Card Activity Transfer Balance From`](../../doc/models/gift-card-activity-transfer-balance-from.md) | Optional | Represents details about a `TRANSFER_BALANCE_FROM` [gift card activity type](../../doc/models/gift-card-activity-type.md). |
 
 ## Example (as JSON)
 
@@ -55,7 +57,9 @@ includes a `redeem_activity_details` field that contains information about the r
   "import_activity_details": null,
   "block_activity_details": null,
   "unblock_activity_details": null,
-  "import_reversal_activity_details": null
+  "import_reversal_activity_details": null,
+  "transfer_balance_to_activity_details": null,
+  "transfer_balance_from_activity_details": null
 }
 ```
 

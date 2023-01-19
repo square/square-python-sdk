@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2022-12-14'` |
+| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2023-01-19'` |
 | `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
@@ -26,7 +26,7 @@ The API client can be initialized as follows:
 from square.client import Client
 
 client = Client(
-    square_version='2022-12-14',
+    square_version='2023-01-19',
     access_token='AccessToken',
     environment='production',
     custom_url = 'https://connect.squareup.com',)
@@ -52,7 +52,7 @@ import jsonpickle
 from square.client import Client
 
 client = Client(
-    square_version='2022-12-14',
+    square_version='2023-01-19',
     access_token='AccessToken',)
 
 locations_api = client.locations
@@ -95,6 +95,7 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | invoices | Gets InvoicesApi |
 | labor | Gets LaborApi |
 | locations | Gets LocationsApi |
+| location_custom_attributes | Gets LocationCustomAttributesApi |
 | checkout | Gets CheckoutApi |
 | transactions | Gets TransactionsApi |
 | loyalty | Gets LoyaltyApi |
