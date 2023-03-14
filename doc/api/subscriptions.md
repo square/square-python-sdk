@@ -61,7 +61,6 @@ body['price_override_money']['amount'] = 100
 body['price_override_money']['currency'] = 'USD'
 body['card_id'] = 'ccof:qy5x8hHGYsgLrp4Q4GB'
 body['timezone'] = 'America/Los_Angeles'
-body['source'] = {}
 
 result = subscriptions_api.create_subscription(body)
 

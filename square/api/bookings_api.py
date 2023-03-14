@@ -102,6 +102,12 @@ class BookingsApi(BaseApi):
         """Does a POST request to /v2/bookings.
 
         Creates a booking.
+        The required input must include the following:
+        - `Booking.location_id`,
+        - `Booking.start_at`,
+        - `Booking.team_member_id`
+        - `Booking.AppointmentSegment.service_variation_id`
+        - `Booking.AppointmentSegment.service_variation_version`
         To call this endpoint with buyer-level permissions, set
         `APPOINTMENTS_WRITE` for the OAuth scope.
         To call this endpoint with seller-level permissions, set

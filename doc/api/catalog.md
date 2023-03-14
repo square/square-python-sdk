@@ -442,9 +442,6 @@ body['object']['item_data']['variations'][1]['item_variation_data'] = {}
 body['object']['item_data']['variations'][1]['item_variation_data']['item_id'] = '#Cocoa'
 body['object']['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
 body['object']['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
-body['object']['item_data']['variations'][1]['item_variation_data']['price_money'] = {}
-body['object']['item_data']['variations'][1]['item_variation_data']['price_money']['amount'] = 400
-body['object']['item_data']['variations'][1]['item_variation_data']['price_money']['currency'] = 'USD'
 
 body['object']['item_data']['description_html'] = '<p><strong>Hot</strong> Chocolate</p>'
 

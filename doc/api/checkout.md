@@ -74,23 +74,14 @@ body['order']['order']['line_items'][0]['applied_discounts'] = []
 body['order']['order']['line_items'][0]['applied_discounts'].append({})
 body['order']['order']['line_items'][0]['applied_discounts'][0]['discount_uid'] = '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
 
-body['order']['order']['line_items'][0]['base_price_money'] = {}
-body['order']['order']['line_items'][0]['base_price_money']['amount'] = 1500
-body['order']['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 
 body['order']['order']['line_items'].append({})
 body['order']['order']['line_items'][1]['name'] = 'Slim Jeans'
 body['order']['order']['line_items'][1]['quantity'] = '1'
-body['order']['order']['line_items'][1]['base_price_money'] = {}
-body['order']['order']['line_items'][1]['base_price_money']['amount'] = 2500
-body['order']['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
 
 body['order']['order']['line_items'].append({})
 body['order']['order']['line_items'][2]['name'] = 'Woven Sweater'
 body['order']['order']['line_items'][2]['quantity'] = '3'
-body['order']['order']['line_items'][2]['base_price_money'] = {}
-body['order']['order']['line_items'][2]['base_price_money']['amount'] = 3500
-body['order']['order']['line_items'][2]['base_price_money']['currency'] = 'USD'
 
 body['order']['order']['taxes'] = []
 
@@ -105,9 +96,6 @@ body['order']['order']['discounts'] = []
 body['order']['order']['discounts'].append({})
 body['order']['order']['discounts'][0]['uid'] = '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
 body['order']['order']['discounts'][0]['type'] = 'FIXED_AMOUNT'
-body['order']['order']['discounts'][0]['amount_money'] = {}
-body['order']['order']['discounts'][0]['amount_money']['amount'] = 100
-body['order']['order']['discounts'][0]['amount_money']['currency'] = 'USD'
 body['order']['order']['discounts'][0]['scope'] = 'LINE_ITEM'
 
 body['order']['idempotency_key'] = '12ae1696-z1e3-4328-af6d-f1e04d947gd4'
