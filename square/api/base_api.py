@@ -3,7 +3,6 @@
 import platform
 from apimatic_core.api_call import ApiCall
 from apimatic_core.types.error_case import ErrorCase
-from square.exceptions.api_exception import APIException
 
 
 class BaseApi(object):
@@ -24,7 +23,7 @@ class BaseApi(object):
 
     @staticmethod
     def user_agent():
-        return 'Square-Python-SDK/25.1.0.20230119 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        return 'Square-Python-SDK/25.2.0.20230315 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
 
     @staticmethod
     def user_agent_parameters():

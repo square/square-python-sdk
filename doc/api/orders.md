@@ -57,9 +57,6 @@ body['order']['line_items'] = []
 body['order']['line_items'].append({})
 body['order']['line_items'][0]['name'] = 'New York Strip Steak'
 body['order']['line_items'][0]['quantity'] = '1'
-body['order']['line_items'][0]['base_price_money'] = {}
-body['order']['line_items'][0]['base_price_money']['amount'] = 1599
-body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 
 body['order']['line_items'].append({})
 body['order']['line_items'][1]['quantity'] = '2'
@@ -99,9 +96,6 @@ body['order']['discounts'][1]['scope'] = 'ORDER'
 body['order']['discounts'].append({})
 body['order']['discounts'][2]['uid'] = 'one-dollar-off'
 body['order']['discounts'][2]['name'] = 'Sale - $1.00 off'
-body['order']['discounts'][2]['amount_money'] = {}
-body['order']['discounts'][2]['amount_money']['amount'] = 100
-body['order']['discounts'][2]['amount_money']['currency'] = 'USD'
 body['order']['discounts'][2]['scope'] = 'LINE_ITEM'
 
 body['idempotency_key'] = '8193148c-9586-11e6-99f9-28cfe92138cf'
@@ -182,16 +176,10 @@ body['order']['line_items'] = []
 body['order']['line_items'].append({})
 body['order']['line_items'][0]['name'] = 'Item 1'
 body['order']['line_items'][0]['quantity'] = '1'
-body['order']['line_items'][0]['base_price_money'] = {}
-body['order']['line_items'][0]['base_price_money']['amount'] = 500
-body['order']['line_items'][0]['base_price_money']['currency'] = 'USD'
 
 body['order']['line_items'].append({})
 body['order']['line_items'][1]['name'] = 'Item 2'
 body['order']['line_items'][1]['quantity'] = '2'
-body['order']['line_items'][1]['base_price_money'] = {}
-body['order']['line_items'][1]['base_price_money']['amount'] = 300
-body['order']['line_items'][1]['base_price_money']['currency'] = 'USD'
 
 body['order']['discounts'] = []
 
