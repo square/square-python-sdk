@@ -54,11 +54,12 @@ def v1_list_orders(self,
 location_id = 'location_id4'
 
 result = v1_transactions_api.v1_list_orders(location_id)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -89,14 +90,19 @@ def v1_retrieve_order(self,
 
 ```python
 location_id = 'location_id4'
+
 order_id = 'order_id6'
 
-result = v1_transactions_api.v1_retrieve_order(location_id, order_id)
+result = v1_transactions_api.v1_retrieve_order(
+    location_id,
+    order_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -129,16 +135,24 @@ def v1_update_order(self,
 
 ```python
 location_id = 'location_id4'
-order_id = 'order_id6'
-body = {}
-body['action'] = 'REFUND'
 
-result = v1_transactions_api.v1_update_order(location_id, order_id, body)
+order_id = 'order_id6'
+
+body = {
+    'action': 'REFUND'
+}
+
+result = v1_transactions_api.v1_update_order(
+    location_id,
+    order_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -189,14 +203,19 @@ def v1_list_payments(self,
 
 ```python
 location_id = 'location_id4'
+
 include_partial = False
 
-result = v1_transactions_api.v1_list_payments(location_id, None, None, None, None, None, include_partial)
+result = v1_transactions_api.v1_list_payments(
+    location_id,
+    include_partial
+)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -227,14 +246,19 @@ def v1_retrieve_payment(self,
 
 ```python
 location_id = 'location_id4'
+
 payment_id = 'payment_id0'
 
-result = v1_transactions_api.v1_retrieve_payment(location_id, payment_id)
+result = v1_transactions_api.v1_retrieve_payment(
+    location_id,
+    payment_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -275,11 +299,12 @@ def v1_list_refunds(self,
 location_id = 'location_id4'
 
 result = v1_transactions_api.v1_list_refunds(location_id)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -321,17 +346,23 @@ def v1_create_refund(self,
 
 ```python
 location_id = 'location_id4'
-body = {}
-body['payment_id'] = 'payment_id6'
-body['type'] = 'FULL'
-body['reason'] = 'reason8'
 
-result = v1_transactions_api.v1_create_refund(location_id, body)
+body = {
+    'payment_id': 'payment_id6',
+    'type': 'FULL',
+    'reason': 'reason8'
+}
+
+result = v1_transactions_api.v1_create_refund(
+    location_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -379,11 +410,12 @@ def v1_list_settlements(self,
 location_id = 'location_id4'
 
 result = v1_transactions_api.v1_list_settlements(location_id)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 
 
@@ -430,13 +462,18 @@ def v1_retrieve_settlement(self,
 
 ```python
 location_id = 'location_id4'
+
 settlement_id = 'settlement_id0'
 
-result = v1_transactions_api.v1_retrieve_settlement(location_id, settlement_id)
+result = v1_transactions_api.v1_retrieve_settlement(
+    location_id,
+    settlement_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
 elif result.is_error():
-    print(result.body)
+    print(result.errors)
 ```
 

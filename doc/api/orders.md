@@ -48,59 +48,64 @@ def create_order(self,
 ## Example Usage
 
 ```python
-body = {}
-body['order'] = {}
-body['order']['location_id'] = '057P5VYJ4A5X1'
-body['order']['reference_id'] = 'my-order-001'
-body['order']['line_items'] = []
-
-body['order']['line_items'].append({})
-body['order']['line_items'][0]['name'] = 'New York Strip Steak'
-body['order']['line_items'][0]['quantity'] = '1'
-
-body['order']['line_items'].append({})
-body['order']['line_items'][1]['quantity'] = '2'
-body['order']['line_items'][1]['catalog_object_id'] = 'BEMYCSMIJL46OCDV4KYIKXIB'
-body['order']['line_items'][1]['modifiers'] = []
-
-body['order']['line_items'][1]['modifiers'].append({})
-body['order']['line_items'][1]['modifiers'][0]['catalog_object_id'] = 'CHQX7Y4KY6N5KINJKZCFURPZ'
-
-body['order']['line_items'][1]['applied_discounts'] = []
-
-body['order']['line_items'][1]['applied_discounts'].append({})
-body['order']['line_items'][1]['applied_discounts'][0]['discount_uid'] = 'one-dollar-off'
-
-
-body['order']['taxes'] = []
-
-body['order']['taxes'].append({})
-body['order']['taxes'][0]['uid'] = 'state-sales-tax'
-body['order']['taxes'][0]['name'] = 'State Sales Tax'
-body['order']['taxes'][0]['percentage'] = '9'
-body['order']['taxes'][0]['scope'] = 'ORDER'
-
-body['order']['discounts'] = []
-
-body['order']['discounts'].append({})
-body['order']['discounts'][0]['uid'] = 'labor-day-sale'
-body['order']['discounts'][0]['name'] = 'Labor Day Sale'
-body['order']['discounts'][0]['percentage'] = '5'
-body['order']['discounts'][0]['scope'] = 'ORDER'
-
-body['order']['discounts'].append({})
-body['order']['discounts'][1]['uid'] = 'membership-discount'
-body['order']['discounts'][1]['catalog_object_id'] = 'DB7L55ZH2BGWI4H23ULIWOQ7'
-body['order']['discounts'][1]['scope'] = 'ORDER'
-
-body['order']['discounts'].append({})
-body['order']['discounts'][2]['uid'] = 'one-dollar-off'
-body['order']['discounts'][2]['name'] = 'Sale - $1.00 off'
-body['order']['discounts'][2]['scope'] = 'LINE_ITEM'
-
-body['idempotency_key'] = '8193148c-9586-11e6-99f9-28cfe92138cf'
+body = {
+    'order': {
+        'location_id': '057P5VYJ4A5X1',
+        'reference_id': 'my-order-001',
+        'line_items': [
+            {
+                'quantity': '1',
+                'name': 'New York Strip Steak',
+                'base_price_money': {}
+            },
+            {
+                'quantity': '2',
+                'catalog_object_id': 'BEMYCSMIJL46OCDV4KYIKXIB',
+                'modifiers': [
+                    {
+                        'catalog_object_id': 'CHQX7Y4KY6N5KINJKZCFURPZ'
+                    }
+                ],
+                'applied_discounts': [
+                    {
+                        'discount_uid': 'one-dollar-off'
+                    }
+                ]
+            }
+        ],
+        'taxes': [
+            {
+                'uid': 'state-sales-tax',
+                'name': 'State Sales Tax',
+                'percentage': '9',
+                'scope': 'ORDER'
+            }
+        ],
+        'discounts': [
+            {
+                'uid': 'labor-day-sale',
+                'name': 'Labor Day Sale',
+                'percentage': '5',
+                'scope': 'ORDER'
+            },
+            {
+                'uid': 'membership-discount',
+                'catalog_object_id': 'DB7L55ZH2BGWI4H23ULIWOQ7',
+                'scope': 'ORDER'
+            },
+            {
+                'uid': 'one-dollar-off',
+                'name': 'Sale - $1.00 off',
+                'amount_money': {},
+                'scope': 'LINE_ITEM'
+            }
+        ]
+    },
+    'idempotency_key': '8193148c-9586-11e6-99f9-28cfe92138cf'
+}
 
 result = orders_api.create_order(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -133,11 +138,16 @@ def batch_retrieve_orders(self,
 ## Example Usage
 
 ```python
-body = {}
-body['location_id'] = '057P5VYJ4A5X1'
-body['order_ids'] = ['CAISEM82RcpmcFBM0TfOyiHV3es', 'CAISENgvlJ6jLWAzERDzjyHVybY']
+body = {
+    'order_ids': [
+        'CAISEM82RcpmcFBM0TfOyiHV3es',
+        'CAISENgvlJ6jLWAzERDzjyHVybY'
+    ],
+    'location_id': '057P5VYJ4A5X1'
+}
 
 result = orders_api.batch_retrieve_orders(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -168,28 +178,33 @@ def calculate_order(self,
 ## Example Usage
 
 ```python
-body = {}
-body['order'] = {}
-body['order']['location_id'] = 'D7AVYMEAPJ3A3'
-body['order']['line_items'] = []
-
-body['order']['line_items'].append({})
-body['order']['line_items'][0]['name'] = 'Item 1'
-body['order']['line_items'][0]['quantity'] = '1'
-
-body['order']['line_items'].append({})
-body['order']['line_items'][1]['name'] = 'Item 2'
-body['order']['line_items'][1]['quantity'] = '2'
-
-body['order']['discounts'] = []
-
-body['order']['discounts'].append({})
-body['order']['discounts'][0]['name'] = '50% Off'
-body['order']['discounts'][0]['percentage'] = '50'
-body['order']['discounts'][0]['scope'] = 'ORDER'
-
+body = {
+    'order': {
+        'location_id': 'D7AVYMEAPJ3A3',
+        'line_items': [
+            {
+                'quantity': '1',
+                'name': 'Item 1',
+                'base_price_money': {}
+            },
+            {
+                'quantity': '2',
+                'name': 'Item 2',
+                'base_price_money': {}
+            }
+        ],
+        'discounts': [
+            {
+                'name': '50% Off',
+                'percentage': '50',
+                'scope': 'ORDER'
+            }
+        ]
+    }
+}
 
 result = orders_api.calculate_order(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -221,12 +236,14 @@ def clone_order(self,
 ## Example Usage
 
 ```python
-body = {}
-body['order_id'] = 'ZAISEM52YcpmcWAzERDOyiWS123'
-body['version'] = 3
-body['idempotency_key'] = 'UNIQUE_STRING'
+body = {
+    'order_id': 'ZAISEM52YcpmcWAzERDOyiWS123',
+    'version': 3,
+    'idempotency_key': 'UNIQUE_STRING'
+}
 
 result = orders_api.clone_order(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -273,23 +290,33 @@ def search_orders(self,
 ## Example Usage
 
 ```python
-body = {}
-body['location_ids'] = ['057P5VYJ4A5X1', '18YC4JDH91E1H']
-body['query'] = {}
-body['query']['filter'] = {}
-body['query']['filter']['state_filter'] = {}
-body['query']['filter']['state_filter']['states'] = ['COMPLETED']
-body['query']['filter']['date_time_filter'] = {}
-body['query']['filter']['date_time_filter']['closed_at'] = {}
-body['query']['filter']['date_time_filter']['closed_at']['start_at'] = '2018-03-03T20:00:00+00:00'
-body['query']['filter']['date_time_filter']['closed_at']['end_at'] = '2019-03-04T21:54:45+00:00'
-body['query']['sort'] = {}
-body['query']['sort']['sort_field'] = 'CLOSED_AT'
-body['query']['sort']['sort_order'] = 'DESC'
-body['limit'] = 3
-body['return_entries'] = True
+body = {
+    'location_ids': [
+        '057P5VYJ4A5X1',
+        '18YC4JDH91E1H'
+    ],
+    'query': {
+        'filter': {
+            'state_filter': {
+                'states': [
+                    'COMPLETED'
+                ]
+            },
+            'date_time_filter': {
+                'closed_at': {}
+            }
+        },
+        'sort': {
+            'sort_field': 'CLOSED_AT',
+            'sort_order': 'DESC'
+        }
+    },
+    'limit': 3,
+    'return_entries': True
+}
 
 result = orders_api.search_orders(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -323,6 +350,7 @@ def retrieve_order(self,
 order_id = 'order_id6'
 
 result = orders_api.retrieve_order(order_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -370,9 +398,14 @@ def update_order(self,
 
 ```python
 order_id = 'order_id6'
+
 body = {}
 
-result = orders_api.update_order(order_id, body)
+result = orders_api.update_order(
+    order_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -419,11 +452,20 @@ def pay_order(self,
 
 ```python
 order_id = 'order_id6'
-body = {}
-body['idempotency_key'] = 'c043a359-7ad9-4136-82a9-c3f1d66dcbff'
-body['payment_ids'] = ['EnZdNAlWCmfh6Mt5FMNST1o7taB', '0LRiVlbXVwe8ozu4KbZxd12mvaB']
 
-result = orders_api.pay_order(order_id, body)
+body = {
+    'idempotency_key': 'c043a359-7ad9-4136-82a9-c3f1d66dcbff',
+    'payment_ids': [
+        'EnZdNAlWCmfh6Mt5FMNST1o7taB',
+        '0LRiVlbXVwe8ozu4KbZxd12mvaB'
+    ]
+}
+
+result = orders_api.pay_order(
+    order_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

@@ -55,6 +55,7 @@ def list_break_types(self,
 
 ```python
 result = labor_api.list_break_types()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -98,15 +99,18 @@ def create_break_type(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = 'PAD3NG5KSN2GL'
-body['break_type'] = {}
-body['break_type']['location_id'] = 'CGJN03P1D08GF'
-body['break_type']['break_name'] = 'Lunch Break'
-body['break_type']['expected_duration'] = 'PT30M'
-body['break_type']['is_paid'] = True
+body = {
+    'break_type': {
+        'location_id': 'CGJN03P1D08GF',
+        'break_name': 'Lunch Break',
+        'expected_duration': 'PT30M',
+        'is_paid': True
+    },
+    'idempotency_key': 'PAD3NG5KSN2GL'
+}
 
 result = labor_api.create_break_type(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -142,6 +146,7 @@ def delete_break_type(self,
 id = 'id0'
 
 result = labor_api.delete_break_type(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -175,6 +180,7 @@ def get_break_type(self,
 id = 'id0'
 
 result = labor_api.get_break_type(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -208,15 +214,22 @@ def update_break_type(self,
 
 ```python
 id = 'id0'
-body = {}
-body['break_type'] = {}
-body['break_type']['location_id'] = '26M7H24AZ9N6R'
-body['break_type']['break_name'] = 'Lunch'
-body['break_type']['expected_duration'] = 'PT50M'
-body['break_type']['is_paid'] = True
-body['break_type']['version'] = 1
 
-result = labor_api.update_break_type(id, body)
+body = {
+    'break_type': {
+        'location_id': '26M7H24AZ9N6R',
+        'break_name': 'Lunch',
+        'expected_duration': 'PT50M',
+        'is_paid': True,
+        'version': 1
+    }
+}
+
+result = labor_api.update_break_type(
+    id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -254,6 +267,7 @@ def list_employee_wages(self,
 
 ```python
 result = labor_api.list_employee_wages()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -289,6 +303,7 @@ def get_employee_wage(self,
 id = 'id0'
 
 result = labor_api.get_employee_wage(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -337,30 +352,35 @@ def create_shift(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = 'HIDSNG5KS478L'
-body['shift'] = {}
-body['shift']['location_id'] = 'PAA1RJZZKXBFG'
-body['shift']['start_at'] = '2019-01-25T08:11:00+00:00'
-body['shift']['end_at'] = '2019-01-25T18:11:00+00:00'
-body['shift']['wage'] = {}
-body['shift']['wage']['title'] = 'Barista'
-body['shift']['wage']['hourly_rate'] = {}
-body['shift']['wage']['hourly_rate']['amount'] = 1100
-body['shift']['wage']['hourly_rate']['currency'] = 'USD'
-body['shift']['breaks'] = []
-
-body['shift']['breaks'].append({})
-body['shift']['breaks'][0]['start_at'] = '2019-01-25T11:11:00+00:00'
-body['shift']['breaks'][0]['end_at'] = '2019-01-25T11:16:00+00:00'
-body['shift']['breaks'][0]['break_type_id'] = 'REGS1EQR1TPZ5'
-body['shift']['breaks'][0]['name'] = 'Tea Break'
-body['shift']['breaks'][0]['expected_duration'] = 'PT5M'
-body['shift']['breaks'][0]['is_paid'] = True
-
-body['shift']['team_member_id'] = 'ormj0jJJZ5OZIzxrZYJI'
+body = {
+    'shift': {
+        'start_at': '2019-01-25T08:11:00+00:00',
+        'location_id': 'PAA1RJZZKXBFG',
+        'end_at': '2019-01-25T18:11:00+00:00',
+        'wage': {
+            'title': 'Barista',
+            'hourly_rate': {
+                'amount': 1100,
+                'currency': 'USD'
+            }
+        },
+        'breaks': [
+            {
+                'start_at': '2019-01-25T11:11:00+00:00',
+                'break_type_id': 'REGS1EQR1TPZ5',
+                'name': 'Tea Break',
+                'expected_duration': 'PT5M',
+                'is_paid': True,
+                'end_at': '2019-01-25T11:16:00+00:00'
+            }
+        ],
+        'team_member_id': 'ormj0jJJZ5OZIzxrZYJI'
+    },
+    'idempotency_key': 'HIDSNG5KS478L'
+}
 
 result = labor_api.create_shift(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -406,18 +426,24 @@ def search_shifts(self,
 ## Example Usage
 
 ```python
-body = {}
-body['query'] = {}
-body['query']['filter'] = {}
-body['query']['filter']['workday'] = {}
-body['query']['filter']['workday']['date_range'] = {}
-body['query']['filter']['workday']['date_range']['start_date'] = '2019-01-20'
-body['query']['filter']['workday']['date_range']['end_date'] = '2019-02-03'
-body['query']['filter']['workday']['match_shifts_by'] = 'START_AT'
-body['query']['filter']['workday']['default_timezone'] = 'America/Los_Angeles'
-body['limit'] = 100
+body = {
+    'query': {
+        'filter': {
+            'workday': {
+                'date_range': {
+                    'start_date': '2019-01-20',
+                    'end_date': '2019-02-03'
+                },
+                'match_shifts_by': 'START_AT',
+                'default_timezone': 'America/Los_Angeles'
+            }
+        }
+    },
+    'limit': 100
+}
 
 result = labor_api.search_shifts(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -451,6 +477,7 @@ def delete_shift(self,
 id = 'id0'
 
 result = labor_api.delete_shift(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -484,6 +511,7 @@ def get_shift(self,
 id = 'id0'
 
 result = labor_api.get_shift(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -523,31 +551,40 @@ def update_shift(self,
 
 ```python
 id = 'id0'
-body = {}
-body['shift'] = {}
-body['shift']['location_id'] = 'PAA1RJZZKXBFG'
-body['shift']['start_at'] = '2019-01-25T08:11:00+00:00'
-body['shift']['end_at'] = '2019-01-25T18:11:00+00:00'
-body['shift']['wage'] = {}
-body['shift']['wage']['title'] = 'Bartender'
-body['shift']['wage']['hourly_rate'] = {}
-body['shift']['wage']['hourly_rate']['amount'] = 1500
-body['shift']['wage']['hourly_rate']['currency'] = 'USD'
-body['shift']['breaks'] = []
 
-body['shift']['breaks'].append({})
-body['shift']['breaks'][0]['id'] = 'X7GAQYVVRRG6P'
-body['shift']['breaks'][0]['start_at'] = '2019-01-25T11:11:00+00:00'
-body['shift']['breaks'][0]['end_at'] = '2019-01-25T11:16:00+00:00'
-body['shift']['breaks'][0]['break_type_id'] = 'REGS1EQR1TPZ5'
-body['shift']['breaks'][0]['name'] = 'Tea Break'
-body['shift']['breaks'][0]['expected_duration'] = 'PT5M'
-body['shift']['breaks'][0]['is_paid'] = True
+body = {
+    'shift': {
+        'start_at': '2019-01-25T08:11:00+00:00',
+        'location_id': 'PAA1RJZZKXBFG',
+        'end_at': '2019-01-25T18:11:00+00:00',
+        'wage': {
+            'title': 'Bartender',
+            'hourly_rate': {
+                'amount': 1500,
+                'currency': 'USD'
+            }
+        },
+        'breaks': [
+            {
+                'start_at': '2019-01-25T11:11:00+00:00',
+                'break_type_id': 'REGS1EQR1TPZ5',
+                'name': 'Tea Break',
+                'expected_duration': 'PT5M',
+                'is_paid': True,
+                'id': 'X7GAQYVVRRG6P',
+                'end_at': '2019-01-25T11:16:00+00:00'
+            }
+        ],
+        'version': 1,
+        'team_member_id': 'ormj0jJJZ5OZIzxrZYJI'
+    }
+}
 
-body['shift']['version'] = 1
-body['shift']['team_member_id'] = 'ormj0jJJZ5OZIzxrZYJI'
-
-result = labor_api.update_shift(id, body)
+result = labor_api.update_shift(
+    id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -583,6 +620,7 @@ def list_team_member_wages(self,
 
 ```python
 result = labor_api.list_team_member_wages()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -616,6 +654,7 @@ def get_team_member_wage(self,
 id = 'id0'
 
 result = labor_api.get_team_member_wage(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -649,6 +688,7 @@ def list_workweek_configs(self,
 
 ```python
 result = labor_api.list_workweek_configs()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -682,13 +722,20 @@ def update_workweek_config(self,
 
 ```python
 id = 'id0'
-body = {}
-body['workweek_config'] = {}
-body['workweek_config']['start_of_week'] = 'MON'
-body['workweek_config']['start_of_day_local_time'] = '10:00'
-body['workweek_config']['version'] = 10
 
-result = labor_api.update_workweek_config(id, body)
+body = {
+    'workweek_config': {
+        'start_of_week': 'MON',
+        'start_of_day_local_time': '10:00',
+        'version': 10
+    }
+}
+
+result = labor_api.update_workweek_config(
+    id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

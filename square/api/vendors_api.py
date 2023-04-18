@@ -249,7 +249,8 @@ class VendorsApi(BaseApi):
         Retrieves the vendor of a specified [Vendor]($m/Vendor) ID.
 
         Args:
-            vendor_id (string): ID of the [Vendor]($m/Vendor) to retrieve.
+            vendor_id (string): ID of the [Vendor](entity:Vendor) to
+                retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other

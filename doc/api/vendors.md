@@ -41,10 +41,15 @@ def bulk_create_vendors(self,
 ## Example Usage
 
 ```python
-body = {}
-body['vendors'] = {}
+body = {
+    'vendors': {
+        "key0": {},
+        "key1": {}
+    }
+}
 
 result = vendors_api.bulk_create_vendors(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -75,10 +80,14 @@ def bulk_retrieve_vendors(self,
 ## Example Usage
 
 ```python
-body = {}
-body['vendor_ids'] = ['INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4']
+body = {
+    'vendor_ids': [
+        'INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4'
+    ]
+}
 
 result = vendors_api.bulk_retrieve_vendors(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -109,11 +118,19 @@ def bulk_update_vendors(self,
 ## Example Usage
 
 ```python
-body = {}
-body['vendors'] = {}
-body['vendors']['vendor'] = {}
+body = {
+    'vendors': {
+        "key0": {
+            'vendor': {}
+        },
+        "key1": {
+            'vendor': {}
+        }
+    }
+}
 
 result = vendors_api.bulk_update_vendors(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -144,10 +161,12 @@ def create_vendor(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = 'idempotency_key2'
+body = {
+    'idempotency_key': 'idempotency_key2'
+}
 
 result = vendors_api.create_vendor(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -181,6 +200,7 @@ def search_vendors(self,
 body = {}
 
 result = vendors_api.search_vendors(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -202,7 +222,7 @@ def retrieve_vendor(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `vendor_id` | `string` | Template, Required | ID of the [Vendor](../../doc/models/vendor.md) to retrieve. |
+| `vendor_id` | `string` | Template, Required | ID of the [Vendor](entity:Vendor) to retrieve. |
 
 ## Response Type
 
@@ -214,6 +234,7 @@ def retrieve_vendor(self,
 vendor_id = 'vendor_id8'
 
 result = vendors_api.retrieve_vendor(vendor_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -246,16 +267,23 @@ def update_vendor(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe'
-body['vendor'] = {}
-body['vendor']['id'] = 'INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4'
-body['vendor']['name'] = 'Jack\'s Chicken Shack'
-body['vendor']['version'] = 1
-body['vendor']['status'] = 'ACTIVE'
+body = {
+    'vendor': {
+        'id': 'INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4',
+        'name': 'Jack\'s Chicken Shack',
+        'version': 1,
+        'status': 'ACTIVE'
+    },
+    'idempotency_key': '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe'
+}
+
 vendor_id = 'vendor_id8'
 
-result = vendors_api.update_vendor(body, vendor_id)
+result = vendors_api.update_vendor(
+    body,
+    vendor_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)

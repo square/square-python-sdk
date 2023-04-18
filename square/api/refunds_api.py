@@ -36,28 +36,31 @@ class RefundsApi(BaseApi):
         The maximum results per page is 100.
 
         Args:
-            begin_time (string, optional): The timestamp for the beginning of
-                the requested reporting period, in RFC 3339 format.  Default:
-                The current time minus one year.
-            end_time (string, optional): The timestamp for the end of the
-                requested reporting period, in RFC 3339 format.  Default: The
-                current time.
+            begin_time (string, optional): Indicates the start of the time
+                range to retrieve each PaymentRefund` for, in RFC 3339 
+                format.  The range is determined using the `created_at` field
+                for each `PaymentRefund`.   Default: The current time minus
+                one year.
+            end_time (string, optional): Indicates the end of the time range
+                to retrieve each `PaymentRefund` for, in RFC 3339  format. 
+                The range is determined using the `created_at` field for each
+                `PaymentRefund`.  Default: The current time.
             sort_order (string, optional): The order in which results are
-                listed: - `ASC` - Oldest to newest. - `DESC` - Newest to
-                oldest (default).
+                listed by `PaymentRefund.created_at`: - `ASC` - Oldest to
+                newest. - `DESC` - Newest to oldest (default).
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this cursor to
                 retrieve the next set of results for the original query.  For
                 more information, see
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination).
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
             location_id (string, optional): Limit results to the location
                 supplied. By default, results are returned for all locations
                 associated with the seller.
             status (string, optional): If provided, only refunds with the
                 given status are returned. For a list of refund status values,
-                see [PaymentRefund]($m/PaymentRefund).  Default: If omitted,
-                refunds are returned regardless of their status.
+                see [PaymentRefund](entity:PaymentRefund).  Default: If
+                omitted, refunds are returned regardless of their status.
             source_type (string, optional): If provided, only returns refunds
                 whose payments have the indicated source type. Current values
                 include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and

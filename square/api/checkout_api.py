@@ -33,7 +33,7 @@ class CheckoutApi(BaseApi):
         highlights](https://developer.squareup.com/docs/checkout-api#checkout-a
         pi-highlights).
         We recommend that you use the
-        new [CreatePaymentLink]($e/Checkout/CreatePaymentLink) 
+        new [CreatePaymentLink](api-endpoint:Checkout-CreatePaymentLink) 
         endpoint in place of this previously released endpoint.
 
         Args:

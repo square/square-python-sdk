@@ -191,10 +191,11 @@ class InvoicesApi(BaseApi):
 
         Args:
             invoice_id (string): The ID of the invoice to delete.
-            version (int, optional): The version of the [invoice]($m/Invoice)
-                to delete. If you do not know the version, you can call
-                [GetInvoice]($e/Invoices/GetInvoice) or 
-                [ListInvoices]($e/Invoices/ListInvoices).
+            version (int, optional): The version of the
+                [invoice](entity:Invoice) to delete. If you do not know the
+                version, you can call
+                [GetInvoice](api-endpoint:Invoices-GetInvoice) or 
+                [ListInvoices](api-endpoint:Invoices-ListInvoices).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -338,7 +339,7 @@ class InvoicesApi(BaseApi):
         state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
 
         Args:
-            invoice_id (string): The ID of the [invoice]($m/Invoice) to
+            invoice_id (string): The ID of the [invoice](entity:Invoice) to
                 cancel.
             body (CancelInvoiceRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition

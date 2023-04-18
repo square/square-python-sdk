@@ -28,7 +28,7 @@ payment processing workflow hosted on connect.squareup.com.
 
 NOTE: The Checkout API has been updated with new features.
 For more information, see [Checkout API highlights](https://developer.squareup.com/docs/checkout-api#checkout-api-highlights).
-We recommend that you use the new [CreatePaymentLink](../../doc/api/checkout.md#create-payment-link) 
+We recommend that you use the new [CreatePaymentLink](api-endpoint:Checkout-CreatePaymentLink) 
 endpoint in place of this previously released endpoint.
 
 ```python
@@ -52,74 +52,91 @@ def create_checkout(self,
 
 ```python
 location_id = 'location_id4'
-body = {}
-body['idempotency_key'] = '86ae1696-b1e3-4328-af6d-f1e04d947ad6'
-body['order'] = {}
-body['order']['order'] = {}
-body['order']['order']['location_id'] = 'location_id'
-body['order']['order']['reference_id'] = 'reference_id'
-body['order']['order']['customer_id'] = 'customer_id'
-body['order']['order']['line_items'] = []
 
-body['order']['order']['line_items'].append({})
-body['order']['order']['line_items'][0]['name'] = 'Printed T Shirt'
-body['order']['order']['line_items'][0]['quantity'] = '2'
-body['order']['order']['line_items'][0]['applied_taxes'] = []
+body = {
+    'idempotency_key': '86ae1696-b1e3-4328-af6d-f1e04d947ad6',
+    'order': {
+        'order': {
+            'location_id': 'location_id',
+            'reference_id': 'reference_id',
+            'customer_id': 'customer_id',
+            'line_items': [
+                {
+                    'quantity': '2',
+                    'name': 'Printed T Shirt',
+                    'applied_taxes': [
+                        {
+                            'tax_uid': '38ze1696-z1e3-5628-af6d-f1e04d947fg3'
+                        }
+                    ],
+                    'applied_discounts': [
+                        {
+                            'discount_uid': '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
+                        }
+                    ],
+                    'base_price_money': {}
+                },
+                {
+                    'quantity': '1',
+                    'name': 'Slim Jeans',
+                    'base_price_money': {}
+                },
+                {
+                    'quantity': '3',
+                    'name': 'Woven Sweater',
+                    'base_price_money': {}
+                }
+            ],
+            'taxes': [
+                {
+                    'uid': '38ze1696-z1e3-5628-af6d-f1e04d947fg3',
+                    'type': 'INCLUSIVE',
+                    'percentage': '7.75',
+                    'scope': 'LINE_ITEM'
+                }
+            ],
+            'discounts': [
+                {
+                    'uid': '56ae1696-z1e3-9328-af6d-f1e04d947gd4',
+                    'type': 'FIXED_AMOUNT',
+                    'amount_money': {},
+                    'scope': 'LINE_ITEM'
+                }
+            ]
+        },
+        'idempotency_key': '12ae1696-z1e3-4328-af6d-f1e04d947gd4'
+    },
+    'ask_for_shipping_address': True,
+    'merchant_support_email': 'merchant+support@website.com',
+    'pre_populate_buyer_email': 'example@email.com',
+    'pre_populate_shipping_address': {
+        'address_line_1': '1455 Market St.',
+        'address_line_2': 'Suite 600',
+        'locality': 'San Francisco',
+        'administrative_district_level_1': 'CA',
+        'postal_code': '94103',
+        'country': 'US',
+        'first_name': 'Jane',
+        'last_name': 'Doe'
+    },
+    'redirect_url': 'https://merchant.website.com/order-confirm',
+    'additional_recipients': [
+        {
+            'location_id': '057P5VYJ4A5X1',
+            'description': 'Application fees',
+            'amount_money': {
+                'amount': 60,
+                'currency': 'USD'
+            }
+        }
+    ]
+}
 
-body['order']['order']['line_items'][0]['applied_taxes'].append({})
-body['order']['order']['line_items'][0]['applied_taxes'][0]['tax_uid'] = '38ze1696-z1e3-5628-af6d-f1e04d947fg3'
-
-body['order']['order']['line_items'][0]['applied_discounts'] = []
-
-body['order']['order']['line_items'][0]['applied_discounts'].append({})
-body['order']['order']['line_items'][0]['applied_discounts'][0]['discount_uid'] = '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
-
-
-body['order']['order']['line_items'].append({})
-body['order']['order']['line_items'][1]['name'] = 'Slim Jeans'
-body['order']['order']['line_items'][1]['quantity'] = '1'
-
-body['order']['order']['line_items'].append({})
-body['order']['order']['line_items'][2]['name'] = 'Woven Sweater'
-body['order']['order']['line_items'][2]['quantity'] = '3'
-
-body['order']['order']['taxes'] = []
-
-body['order']['order']['taxes'].append({})
-body['order']['order']['taxes'][0]['uid'] = '38ze1696-z1e3-5628-af6d-f1e04d947fg3'
-body['order']['order']['taxes'][0]['type'] = 'INCLUSIVE'
-body['order']['order']['taxes'][0]['percentage'] = '7.75'
-body['order']['order']['taxes'][0]['scope'] = 'LINE_ITEM'
-
-body['order']['order']['discounts'] = []
-
-body['order']['order']['discounts'].append({})
-body['order']['order']['discounts'][0]['uid'] = '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
-body['order']['order']['discounts'][0]['type'] = 'FIXED_AMOUNT'
-body['order']['order']['discounts'][0]['scope'] = 'LINE_ITEM'
-
-body['order']['idempotency_key'] = '12ae1696-z1e3-4328-af6d-f1e04d947gd4'
-body['ask_for_shipping_address'] = True
-body['merchant_support_email'] = 'merchant+support@website.com'
-body['pre_populate_buyer_email'] = 'example@email.com'
-body['pre_populate_shipping_address'] = {}
-body['pre_populate_shipping_address']['address_line_1'] = '1455 Market St.'
-body['pre_populate_shipping_address']['address_line_2'] = 'Suite 600'
-body['pre_populate_shipping_address']['locality'] = 'San Francisco'
-body['pre_populate_shipping_address']['administrative_district_level_1'] = 'CA'
-body['pre_populate_shipping_address']['postal_code'] = '94103'
-body['pre_populate_shipping_address']['country'] = 'US'
-body['pre_populate_shipping_address']['first_name'] = 'Jane'
-body['pre_populate_shipping_address']['last_name'] = 'Doe'
-body['redirect_url'] = 'https://merchant.website.com/order-confirm'
-body['additional_recipients'] = []
-
-body['additional_recipients'].append({})
-body['additional_recipients'][0]['location_id'] = '057P5VYJ4A5X1'
-body['additional_recipients'][0]['description'] = 'Application fees'
-
-
-result = checkout_api.create_checkout(location_id, body)
+result = checkout_api.create_checkout(
+    location_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -153,6 +170,7 @@ def list_payment_links(self,
 
 ```python
 result = checkout_api.list_payment_links()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -183,16 +201,20 @@ def create_payment_link(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = 'cd9e25dc-d9f2-4430-aedb-61605070e95f'
-body['quick_pay'] = {}
-body['quick_pay']['name'] = 'Auto Detailing'
-body['quick_pay']['price_money'] = {}
-body['quick_pay']['price_money']['amount'] = 10000
-body['quick_pay']['price_money']['currency'] = 'USD'
-body['quick_pay']['location_id'] = 'A9Y43N9ABXZBP'
+body = {
+    'idempotency_key': 'cd9e25dc-d9f2-4430-aedb-61605070e95f',
+    'quick_pay': {
+        'name': 'Auto Detailing',
+        'price_money': {
+            'amount': 10000,
+            'currency': 'USD'
+        },
+        'location_id': 'A9Y43N9ABXZBP'
+    }
+}
 
 result = checkout_api.create_payment_link(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -226,6 +248,7 @@ def delete_payment_link(self,
 id = 'id0'
 
 result = checkout_api.delete_payment_link(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -259,6 +282,7 @@ def retrieve_payment_link(self,
 id = 'id0'
 
 result = checkout_api.retrieve_payment_link(id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -294,13 +318,21 @@ def update_payment_link(self,
 
 ```python
 id = 'id0'
-body = {}
-body['payment_link'] = {}
-body['payment_link']['version'] = 1
-body['payment_link']['checkout_options'] = {}
-body['payment_link']['checkout_options']['ask_for_shipping_address'] = True
 
-result = checkout_api.update_payment_link(id, body)
+body = {
+    'payment_link': {
+        'version': 1,
+        'checkout_options': {
+            'ask_for_shipping_address': True
+        }
+    }
+}
+
+result = checkout_api.update_payment_link(
+    id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

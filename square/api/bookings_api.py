@@ -103,8 +103,8 @@ class BookingsApi(BaseApi):
 
         Creates a booking.
         The required input must include the following:
-        - `Booking.location_id`,
-        - `Booking.start_at`,
+        - `Booking.location_id`
+        - `Booking.start_at`
         - `Booking.team_member_id`
         - `Booking.AppointmentSegment.service_variation_id`
         - `Booking.AppointmentSegment.service_variation_version`
@@ -347,8 +347,8 @@ class BookingsApi(BaseApi):
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
-            booking_id (string): The ID of the [Booking]($m/Booking) object
-                representing the to-be-retrieved booking.
+            booking_id (string): The ID of the [Booking](entity:Booking)
+                object representing the to-be-retrieved booking.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -397,8 +397,8 @@ class BookingsApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            booking_id (string): The ID of the [Booking]($m/Booking) object
-                representing the to-be-updated booking.
+            booking_id (string): The ID of the [Booking](entity:Booking)
+                object representing the to-be-updated booking.
             body (UpdateBookingRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -456,8 +456,8 @@ class BookingsApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            booking_id (string): The ID of the [Booking]($m/Booking) object
-                representing the to-be-cancelled booking.
+            booking_id (string): The ID of the [Booking](entity:Booking)
+                object representing the to-be-cancelled booking.
             body (CancelBookingRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.

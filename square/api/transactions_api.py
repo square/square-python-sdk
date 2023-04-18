@@ -156,7 +156,7 @@ class TransactionsApi(BaseApi):
         """Does a POST request to /v2/locations/{location_id}/transactions/{transaction_id}/capture.
 
         Captures a transaction that was created with the
-        [Charge]($e/Transactions/Charge)
+        [Charge](api-endpoint:Transactions-Charge)
         endpoint with a `delay_capture` value of `true`.
         See [Delayed capture
         transactions](https://developer.squareup.com/docs/payments/transactions
@@ -209,7 +209,7 @@ class TransactionsApi(BaseApi):
         """Does a POST request to /v2/locations/{location_id}/transactions/{transaction_id}/void.
 
         Cancels a transaction that was created with the
-        [Charge]($e/Transactions/Charge)
+        [Charge](api-endpoint:Transactions-Charge)
         endpoint with a `delay_capture` value of `true`.
         See [Delayed capture
         transactions](https://developer.squareup.com/docs/payments/transactions

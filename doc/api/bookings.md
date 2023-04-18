@@ -57,6 +57,7 @@ def list_bookings(self,
 
 ```python
 result = bookings_api.list_bookings()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -71,8 +72,8 @@ Creates a booking.
 
 The required input must include the following:
 
-- `Booking.location_id`,
-- `Booking.start_at`,
+- `Booking.location_id`
+- `Booking.start_at`
 - `Booking.team_member_id`
 - `Booking.AppointmentSegment.service_variation_id`
 - `Booking.AppointmentSegment.service_variation_version`
@@ -101,10 +102,12 @@ def create_booking(self,
 ## Example Usage
 
 ```python
-body = {}
-body['booking'] = {}
+body = {
+    'booking': {}
+}
 
 result = bookings_api.create_booking(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -138,12 +141,16 @@ def search_availability(self,
 ## Example Usage
 
 ```python
-body = {}
-body['query'] = {}
-body['query']['filter'] = {}
-body['query']['filter']['start_at_range'] = {}
+body = {
+    'query': {
+        'filter': {
+            'start_at_range': {}
+        }
+    }
+}
 
 result = bookings_api.search_availability(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -168,6 +175,7 @@ def retrieve_business_booking_profile(self)
 
 ```python
 result = bookings_api.retrieve_business_booking_profile()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -206,7 +214,10 @@ def list_team_member_booking_profiles(self,
 ```python
 bookable_only = False
 
-result = bookings_api.list_team_member_booking_profiles(bookable_only)
+result = bookings_api.list_team_member_booking_profiles(
+    bookable_only
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -240,6 +251,7 @@ def retrieve_team_member_booking_profile(self,
 team_member_id = 'team_member_id0'
 
 result = bookings_api.retrieve_team_member_booking_profile(team_member_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -264,7 +276,7 @@ def retrieve_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-retrieved booking. |
+| `booking_id` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-retrieved booking. |
 
 ## Response Type
 
@@ -276,6 +288,7 @@ def retrieve_booking(self,
 booking_id = 'booking_id4'
 
 result = bookings_api.retrieve_booking(booking_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -304,7 +317,7 @@ def update_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-updated booking. |
+| `booking_id` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-updated booking. |
 | `body` | [`Update Booking Request`](../../doc/models/update-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -315,10 +328,16 @@ def update_booking(self,
 
 ```python
 booking_id = 'booking_id4'
-body = {}
-body['booking'] = {}
 
-result = bookings_api.update_booking(booking_id, body)
+body = {
+    'booking': {}
+}
+
+result = bookings_api.update_booking(
+    booking_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -347,7 +366,7 @@ def cancel_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-cancelled booking. |
+| `booking_id` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-cancelled booking. |
 | `body` | [`Cancel Booking Request`](../../doc/models/cancel-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -358,9 +377,14 @@ def cancel_booking(self,
 
 ```python
 booking_id = 'booking_id4'
+
 body = {}
 
-result = bookings_api.cancel_booking(booking_id, body)
+result = bookings_api.cancel_booking(
+    booking_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

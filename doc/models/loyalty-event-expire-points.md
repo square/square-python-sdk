@@ -11,7 +11,7 @@ Provides metadata when the event `type` is `EXPIRE_POINTS`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_program_id` | `string` | Required | The Square-assigned ID of the [loyalty program](../../doc/models/loyalty-program.md).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
+| `loyalty_program_id` | `string` | Required | The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
 | `points` | `int` | Required | The number of points expired. |
 
 ## Example (as JSON)

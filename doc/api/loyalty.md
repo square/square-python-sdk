@@ -52,14 +52,18 @@ def create_loyalty_account(self,
 ## Example Usage
 
 ```python
-body = {}
-body['loyalty_account'] = {}
-body['loyalty_account']['program_id'] = 'd619f755-2d17-41f3-990d-c04ecedd64dd'
-body['loyalty_account']['mapping'] = {}
-body['loyalty_account']['mapping']['phone_number'] = '+14155551234'
-body['idempotency_key'] = 'ec78c477-b1c3-4899-a209-a4e71337c996'
+body = {
+    'loyalty_account': {
+        'program_id': 'd619f755-2d17-41f3-990d-c04ecedd64dd',
+        'mapping': {
+            'phone_number': '+14155551234'
+        }
+    },
+    'idempotency_key': 'ec78c477-b1c3-4899-a209-a4e71337c996'
+}
 
 result = loyalty_api.create_loyalty_account(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -94,16 +98,19 @@ def search_loyalty_accounts(self,
 ## Example Usage
 
 ```python
-body = {}
-body['query'] = {}
-body['query']['mappings'] = []
-
-body['query']['mappings'].append({})
-body['query']['mappings'][0]['phone_number'] = '+14155551234'
-
-body['limit'] = 10
+body = {
+    'query': {
+        'mappings': [
+            {
+                'phone_number': '+14155551234'
+            }
+        ]
+    },
+    'limit': 10
+}
 
 result = loyalty_api.search_loyalty_accounts(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -125,7 +132,7 @@ def retrieve_loyalty_account(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the [loyalty account](../../doc/models/loyalty-account.md) to retrieve. |
+| `account_id` | `string` | Template, Required | The ID of the [loyalty account](entity:LoyaltyAccount) to retrieve. |
 
 ## Response Type
 
@@ -137,6 +144,7 @@ def retrieve_loyalty_account(self,
 account_id = 'account_id2'
 
 result = loyalty_api.retrieve_loyalty_account(account_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -172,7 +180,7 @@ def accumulate_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the target [loyalty account](../../doc/models/loyalty-account.md). |
+| `account_id` | `string` | Template, Required | The ID of the target [loyalty account](entity:LoyaltyAccount). |
 | `body` | [`Accumulate Loyalty Points Request`](../../doc/models/accumulate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -183,13 +191,20 @@ def accumulate_loyalty_points(self,
 
 ```python
 account_id = 'account_id2'
-body = {}
-body['accumulate_points'] = {}
-body['accumulate_points']['order_id'] = 'RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY'
-body['idempotency_key'] = '58b90739-c3e8-4b11-85f7-e636d48d72cb'
-body['location_id'] = 'P034NEENMD09F'
 
-result = loyalty_api.accumulate_loyalty_points(account_id, body)
+body = {
+    'accumulate_points': {
+        'order_id': 'RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY'
+    },
+    'idempotency_key': '58b90739-c3e8-4b11-85f7-e636d48d72cb',
+    'location_id': 'P034NEENMD09F'
+}
+
+result = loyalty_api.accumulate_loyalty_points(
+    account_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -216,7 +231,7 @@ def adjust_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the target [loyalty account](../../doc/models/loyalty-account.md). |
+| `account_id` | `string` | Template, Required | The ID of the target [loyalty account](entity:LoyaltyAccount). |
 | `body` | [`Adjust Loyalty Points Request`](../../doc/models/adjust-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -227,13 +242,20 @@ def adjust_loyalty_points(self,
 
 ```python
 account_id = 'account_id2'
-body = {}
-body['idempotency_key'] = 'bc29a517-3dc9-450e-aa76-fae39ee849d1'
-body['adjust_points'] = {}
-body['adjust_points']['points'] = 10
-body['adjust_points']['reason'] = 'Complimentary points'
 
-result = loyalty_api.adjust_loyalty_points(account_id, body)
+body = {
+    'idempotency_key': 'bc29a517-3dc9-450e-aa76-fae39ee849d1',
+    'adjust_points': {
+        'points': 10,
+        'reason': 'Complimentary points'
+    }
+}
+
+result = loyalty_api.adjust_loyalty_points(
+    account_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -271,14 +293,19 @@ def search_loyalty_events(self,
 ## Example Usage
 
 ```python
-body = {}
-body['query'] = {}
-body['query']['filter'] = {}
-body['query']['filter']['order_filter'] = {}
-body['query']['filter']['order_filter']['order_id'] = 'PyATxhYLfsMqpVkcKJITPydgEYfZY'
-body['limit'] = 30
+body = {
+    'query': {
+        'filter': {
+            'order_filter': {
+                'order_id': 'PyATxhYLfsMqpVkcKJITPydgEYfZY'
+            }
+        }
+    },
+    'limit': 30
+}
 
 result = loyalty_api.search_loyalty_events(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -294,7 +321,7 @@ elif result.is_error():
 Returns a list of loyalty programs in the seller's account.
 Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
 
-Replaced with [RetrieveLoyaltyProgram](../../doc/api/loyalty.md#retrieve-loyalty-program) when used with the keyword `main`.
+Replaced with [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) when used with the keyword `main`.
 
 ```python
 def list_loyalty_programs(self)
@@ -308,6 +335,7 @@ def list_loyalty_programs(self)
 
 ```python
 result = loyalty_api.list_loyalty_programs()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -343,6 +371,7 @@ def retrieve_loyalty_program(self,
 program_id = 'program_id0'
 
 result = loyalty_api.retrieve_loyalty_program(program_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -379,7 +408,7 @@ def calculate_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The ID of the [loyalty program](../../doc/models/loyalty-program.md), which defines the rules for accruing points. |
+| `program_id` | `string` | Template, Required | The ID of the [loyalty program](entity:LoyaltyProgram), which defines the rules for accruing points. |
 | `body` | [`Calculate Loyalty Points Request`](../../doc/models/calculate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -390,11 +419,17 @@ def calculate_loyalty_points(self,
 
 ```python
 program_id = 'program_id0'
-body = {}
-body['order_id'] = 'RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY'
-body['loyalty_account_id'] = '79b807d2-d786-46a9-933b-918028d7a8c5'
 
-result = loyalty_api.calculate_loyalty_points(program_id, body)
+body = {
+    'order_id': 'RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY',
+    'loyalty_account_id': '79b807d2-d786-46a9-933b-918028d7a8c5'
+}
+
+result = loyalty_api.calculate_loyalty_points(
+    program_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -420,7 +455,7 @@ def list_loyalty_promotions(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](../../doc/models/loyalty-program.md). To get the program ID,<br>call [RetrieveLoyaltyProgram](../../doc/api/loyalty.md#retrieve-loyalty-program) using the `main` keyword. |
+| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,<br>call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword. |
 | `status` | [`str (Loyalty Promotion Status)`](../../doc/models/loyalty-promotion-status.md) | Query, Optional | The status to filter the results by. If a status is provided, only loyalty promotions<br>with the specified status are returned. Otherwise, all loyalty promotions associated with<br>the loyalty program are returned. |
 | `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response.<br>The minimum value is 1 and the maximum value is 30. The default value is 30.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
@@ -435,6 +470,7 @@ def list_loyalty_promotions(self,
 program_id = 'program_id0'
 
 result = loyalty_api.list_loyalty_promotions(program_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -462,7 +498,7 @@ def create_loyalty_promotion(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The ID of the [loyalty program](../../doc/models/loyalty-program.md) to associate with the promotion.<br>To get the program ID, call [RetrieveLoyaltyProgram](../../doc/api/loyalty.md#retrieve-loyalty-program)<br>using the `main` keyword. |
+| `program_id` | `string` | Template, Required | The ID of the [loyalty program](entity:LoyaltyProgram) to associate with the promotion.<br>To get the program ID, call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram)<br>using the `main` keyword. |
 | `body` | [`Create Loyalty Promotion Request`](../../doc/models/create-loyalty-promotion-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -473,25 +509,41 @@ def create_loyalty_promotion(self,
 
 ```python
 program_id = 'program_id0'
-body = {}
-body['loyalty_promotion'] = {}
-body['loyalty_promotion']['name'] = 'Tuesday Happy Hour Promo'
-body['loyalty_promotion']['incentive'] = {}
-body['loyalty_promotion']['incentive']['type'] = 'POINTS_MULTIPLIER'
-body['loyalty_promotion']['incentive']['points_multiplier_data'] = {}
-body['loyalty_promotion']['incentive']['points_multiplier_data']['points_multiplier'] = 3
-body['loyalty_promotion']['available_time'] = {}
-body['loyalty_promotion']['available_time']['time_periods'] = ['BEGIN:VEVENT\nDTSTART:20220816T160000\nDURATION:PT2H\nRRULE:FREQ=WEEKLY;BYDAY=TU\nEND:VEVENT']
-body['loyalty_promotion']['trigger_limit'] = {}
-body['loyalty_promotion']['trigger_limit']['times'] = 1
-body['loyalty_promotion']['trigger_limit']['interval'] = 'DAY'
-body['loyalty_promotion']['minimum_spend_amount_money'] = {}
-body['loyalty_promotion']['minimum_spend_amount_money']['amount'] = 2000
-body['loyalty_promotion']['minimum_spend_amount_money']['currency'] = 'USD'
-body['loyalty_promotion']['qualifying_category_ids'] = ['XTQPYLR3IIU9C44VRCB3XD12']
-body['idempotency_key'] = 'ec78c477-b1c3-4899-a209-a4e71337c996'
 
-result = loyalty_api.create_loyalty_promotion(program_id, body)
+body = {
+    'loyalty_promotion': {
+        'name': 'Tuesday Happy Hour Promo',
+        'incentive': {
+            'type': 'POINTS_MULTIPLIER',
+            'points_multiplier_data': {
+                'points_multiplier': 3
+            }
+        },
+        'available_time': {
+            'time_periods': [
+                'BEGIN:VEVENT\nDTSTART:20220816T160000\nDURATION:PT2H\nRRULE:FREQ=WEEKLY;BYDAY=TU\nEND:VEVENT'
+            ]
+        },
+        'trigger_limit': {
+            'times': 1,
+            'interval': 'DAY'
+        },
+        'minimum_spend_amount_money': {
+            'amount': 2000,
+            'currency': 'USD'
+        },
+        'qualifying_category_ids': [
+            'XTQPYLR3IIU9C44VRCB3XD12'
+        ]
+    },
+    'idempotency_key': 'ec78c477-b1c3-4899-a209-a4e71337c996'
+}
+
+result = loyalty_api.create_loyalty_promotion(
+    program_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -514,8 +566,8 @@ def retrieve_loyalty_promotion(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `promotion_id` | `string` | Template, Required | The ID of the [loyalty promotion](../../doc/models/loyalty-promotion.md) to retrieve. |
-| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](../../doc/models/loyalty-program.md). To get the program ID,<br>call [RetrieveLoyaltyProgram](../../doc/api/loyalty.md#retrieve-loyalty-program) using the `main` keyword. |
+| `promotion_id` | `string` | Template, Required | The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve. |
+| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,<br>call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword. |
 
 ## Response Type
 
@@ -525,9 +577,14 @@ def retrieve_loyalty_promotion(self,
 
 ```python
 promotion_id = 'promotion_id0'
+
 program_id = 'program_id0'
 
-result = loyalty_api.retrieve_loyalty_promotion(promotion_id, program_id)
+result = loyalty_api.retrieve_loyalty_promotion(
+    promotion_id,
+    program_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -555,8 +612,8 @@ def cancel_loyalty_promotion(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `promotion_id` | `string` | Template, Required | The ID of the [loyalty promotion](../../doc/models/loyalty-promotion.md) to cancel. You can cancel a<br>promotion that has an `ACTIVE` or `SCHEDULED` status. |
-| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](../../doc/models/loyalty-program.md). |
+| `promotion_id` | `string` | Template, Required | The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a<br>promotion that has an `ACTIVE` or `SCHEDULED` status. |
+| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). |
 
 ## Response Type
 
@@ -566,9 +623,14 @@ def cancel_loyalty_promotion(self,
 
 ```python
 promotion_id = 'promotion_id0'
+
 program_id = 'program_id0'
 
-result = loyalty_api.cancel_loyalty_promotion(promotion_id, program_id)
+result = loyalty_api.cancel_loyalty_promotion(
+    promotion_id,
+    program_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -606,14 +668,17 @@ def create_loyalty_reward(self,
 ## Example Usage
 
 ```python
-body = {}
-body['reward'] = {}
-body['reward']['loyalty_account_id'] = '5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd'
-body['reward']['reward_tier_id'] = 'e1b39225-9da5-43d1-a5db-782cdd8ad94f'
-body['reward']['order_id'] = 'RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY'
-body['idempotency_key'] = '18c2e5ea-a620-4b1f-ad60-7b167285e451'
+body = {
+    'reward': {
+        'loyalty_account_id': '5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd',
+        'reward_tier_id': 'e1b39225-9da5-43d1-a5db-782cdd8ad94f',
+        'order_id': 'RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY'
+    },
+    'idempotency_key': '18c2e5ea-a620-4b1f-ad60-7b167285e451'
+}
 
 result = loyalty_api.create_loyalty_reward(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -650,12 +715,15 @@ def search_loyalty_rewards(self,
 ## Example Usage
 
 ```python
-body = {}
-body['query'] = {}
-body['query']['loyalty_account_id'] = '5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd'
-body['limit'] = 10
+body = {
+    'query': {
+        'loyalty_account_id': '5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd'
+    },
+    'limit': 10
+}
 
 result = loyalty_api.search_loyalty_rewards(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -685,7 +753,7 @@ def delete_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](../../doc/models/loyalty-reward.md) to delete. |
+| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to delete. |
 
 ## Response Type
 
@@ -697,6 +765,7 @@ def delete_loyalty_reward(self,
 reward_id = 'reward_id4'
 
 result = loyalty_api.delete_loyalty_reward(reward_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -718,7 +787,7 @@ def retrieve_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](../../doc/models/loyalty-reward.md) to retrieve. |
+| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to retrieve. |
 
 ## Response Type
 
@@ -730,6 +799,7 @@ def retrieve_loyalty_reward(self,
 reward_id = 'reward_id4'
 
 result = loyalty_api.retrieve_loyalty_reward(reward_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -762,7 +832,7 @@ def redeem_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](../../doc/models/loyalty-reward.md) to redeem. |
+| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to redeem. |
 | `body` | [`Redeem Loyalty Reward Request`](../../doc/models/redeem-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -773,11 +843,17 @@ def redeem_loyalty_reward(self,
 
 ```python
 reward_id = 'reward_id4'
-body = {}
-body['idempotency_key'] = '98adc7f7-6963-473b-b29c-f3c9cdd7d994'
-body['location_id'] = 'P034NEENMD09F'
 
-result = loyalty_api.redeem_loyalty_reward(reward_id, body)
+body = {
+    'idempotency_key': '98adc7f7-6963-473b-b29c-f3c9cdd7d994',
+    'location_id': 'P034NEENMD09F'
+}
+
+result = loyalty_api.redeem_loyalty_reward(
+    reward_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

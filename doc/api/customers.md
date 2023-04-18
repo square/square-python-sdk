@@ -55,6 +55,7 @@ def list_customers(self,
 
 ```python
 result = customers_api.list_customers()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -94,22 +95,25 @@ def create_customer(self,
 ## Example Usage
 
 ```python
-body = {}
-body['given_name'] = 'Amelia'
-body['family_name'] = 'Earhart'
-body['email_address'] = 'Amelia.Earhart@example.com'
-body['address'] = {}
-body['address']['address_line_1'] = '500 Electric Ave'
-body['address']['address_line_2'] = 'Suite 600'
-body['address']['locality'] = 'New York'
-body['address']['administrative_district_level_1'] = 'NY'
-body['address']['postal_code'] = '10003'
-body['address']['country'] = 'US'
-body['phone_number'] = '+1-212-555-4240'
-body['reference_id'] = 'YOUR_REFERENCE_ID'
-body['note'] = 'a customer'
+body = {
+    'given_name': 'Amelia',
+    'family_name': 'Earhart',
+    'email_address': 'Amelia.Earhart@example.com',
+    'address': {
+        'address_line_1': '500 Electric Ave',
+        'address_line_2': 'Suite 600',
+        'locality': 'New York',
+        'administrative_district_level_1': 'NY',
+        'postal_code': '10003',
+        'country': 'US'
+    },
+    'phone_number': '+1-212-555-4240',
+    'reference_id': 'YOUR_REFERENCE_ID',
+    'note': 'a customer'
+}
 
 result = customers_api.create_customer(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -148,25 +152,38 @@ def search_customers(self,
 ## Example Usage
 
 ```python
-body = {}
-body['limit'] = 2
-body['query'] = {}
-body['query']['filter'] = {}
-body['query']['filter']['creation_source'] = {}
-body['query']['filter']['creation_source']['values'] = ['THIRD_PARTY']
-body['query']['filter']['creation_source']['rule'] = 'INCLUDE'
-body['query']['filter']['created_at'] = {}
-body['query']['filter']['created_at']['start_at'] = '2018-01-01T00:00:00+00:00'
-body['query']['filter']['created_at']['end_at'] = '2018-02-01T00:00:00+00:00'
-body['query']['filter']['email_address'] = {}
-body['query']['filter']['email_address']['fuzzy'] = 'example.com'
-body['query']['filter']['group_ids'] = {}
-body['query']['filter']['group_ids']['all'] = ['545AXB44B4XXWMVQ4W8SBT3HHF']
-body['query']['sort'] = {}
-body['query']['sort']['field'] = 'CREATED_AT'
-body['query']['sort']['order'] = 'ASC'
+body = {
+    'limit': 2,
+    'query': {
+        'filter': {
+            'creation_source': {
+                'values': [
+                    'THIRD_PARTY'
+                ],
+                'rule': 'INCLUDE'
+            },
+            'created_at': {
+                'start_at': '2018-01-01T00:00:00+00:00',
+                'end_at': '2018-02-01T00:00:00+00:00'
+            },
+            'email_address': {
+                'fuzzy': 'example.com'
+            },
+            'group_ids': {
+                'all': [
+                    '545AXB44B4XXWMVQ4W8SBT3HHF'
+                ]
+            }
+        },
+        'sort': {
+            'field': 'CREATED_AT',
+            'order': 'ASC'
+        }
+    }
+}
 
 result = customers_api.search_customers(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -207,6 +224,7 @@ def delete_customer(self,
 customer_id = 'customer_id8'
 
 result = customers_api.delete_customer(customer_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -240,6 +258,7 @@ def retrieve_customer(self,
 customer_id = 'customer_id8'
 
 result = customers_api.retrieve_customer(customer_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -282,13 +301,19 @@ def update_customer(self,
 
 ```python
 customer_id = 'customer_id8'
-body = {}
-body['email_address'] = 'New.Amelia.Earhart@example.com'
-body['phone_number'] = ''
-body['note'] = 'updated customer note'
-body['version'] = 2
 
-result = customers_api.update_customer(customer_id, body)
+body = {
+    'email_address': 'New.Amelia.Earhart@example.com',
+    'phone_number': '',
+    'note': 'updated customer note',
+    'version': 2
+}
+
+result = customers_api.update_customer(
+    customer_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -328,18 +353,25 @@ def create_customer_card(self,
 
 ```python
 customer_id = 'customer_id8'
-body = {}
-body['card_nonce'] = 'YOUR_CARD_NONCE'
-body['billing_address'] = {}
-body['billing_address']['address_line_1'] = '500 Electric Ave'
-body['billing_address']['address_line_2'] = 'Suite 600'
-body['billing_address']['locality'] = 'New York'
-body['billing_address']['administrative_district_level_1'] = 'NY'
-body['billing_address']['postal_code'] = '10003'
-body['billing_address']['country'] = 'US'
-body['cardholder_name'] = 'Amelia Earhart'
 
-result = customers_api.create_customer_card(customer_id, body)
+body = {
+    'card_nonce': 'YOUR_CARD_NONCE',
+    'billing_address': {
+        'address_line_1': '500 Electric Ave',
+        'address_line_2': 'Suite 600',
+        'locality': 'New York',
+        'administrative_district_level_1': 'NY',
+        'postal_code': '10003',
+        'country': 'US'
+    },
+    'cardholder_name': 'Amelia Earhart'
+}
+
+result = customers_api.create_customer_card(
+    customer_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -375,9 +407,14 @@ def delete_customer_card(self,
 
 ```python
 customer_id = 'customer_id8'
+
 card_id = 'card_id4'
 
-result = customers_api.delete_customer_card(customer_id, card_id)
+result = customers_api.delete_customer_card(
+    customer_id,
+    card_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -414,9 +451,14 @@ def remove_group_from_customer(self,
 
 ```python
 customer_id = 'customer_id8'
+
 group_id = 'group_id0'
 
-result = customers_api.remove_group_from_customer(customer_id, group_id)
+result = customers_api.remove_group_from_customer(
+    customer_id,
+    group_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -453,9 +495,14 @@ def add_group_to_customer(self,
 
 ```python
 customer_id = 'customer_id8'
+
 group_id = 'group_id0'
 
-result = customers_api.add_group_to_customer(customer_id, group_id)
+result = customers_api.add_group_to_customer(
+    customer_id,
+    group_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)

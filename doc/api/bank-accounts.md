@@ -42,6 +42,7 @@ def list_bank_accounts(self,
 
 ```python
 result = bank_accounts_api.list_bank_accounts()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -75,6 +76,7 @@ def get_bank_account_by_v1_id(self,
 v1_bank_account_id = 'v1_bank_account_id8'
 
 result = bank_accounts_api.get_bank_account_by_v1_id(v1_bank_account_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -109,6 +111,7 @@ def get_bank_account(self,
 bank_account_id = 'bank_account_id0'
 
 result = bank_accounts_api.get_bank_account(bank_account_id)
+print(result)
 
 if result.is_success():
     print(result.body)

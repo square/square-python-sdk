@@ -42,10 +42,12 @@ def create_mobile_authorization_code(self,
 ## Example Usage
 
 ```python
-body = {}
-body['location_id'] = 'YOUR_LOCATION_ID'
+body = {
+    'location_id': 'YOUR_LOCATION_ID'
+}
 
 result = mobile_authorization_api.create_mobile_authorization_code(body)
+print(result)
 
 if result.is_success():
     print(result.body)

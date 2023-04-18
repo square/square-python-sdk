@@ -43,8 +43,8 @@ class GiftCardActivitiesApi(BaseApi):
                 the endpoint returns activities related  to the specified gift
                 card. Otherwise, the endpoint returns all gift card activities
                 for  the seller.
-            mtype (string, optional): If a [type]($m/GiftCardActivityType) is
-                provided, the endpoint returns gift card activities of the
+            mtype (string, optional): If a [type](entity:GiftCardActivityType)
+                is provided, the endpoint returns gift card activities of the
                 specified type.  Otherwise, the endpoint returns all types of
                 gift card activities.
             location_id (string, optional): If a location ID is provided, the

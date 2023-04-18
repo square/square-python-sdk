@@ -56,6 +56,7 @@ def list_transactions(self,
 location_id = 'location_id4'
 
 result = transactions_api.list_transactions(location_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -91,9 +92,14 @@ def retrieve_transaction(self,
 
 ```python
 location_id = 'location_id4'
+
 transaction_id = 'transaction_id8'
 
-result = transactions_api.retrieve_transaction(location_id, transaction_id)
+result = transactions_api.retrieve_transaction(
+    location_id,
+    transaction_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -106,7 +112,7 @@ elif result.is_error():
 
 **This endpoint is deprecated.**
 
-Captures a transaction that was created with the [Charge]($e/Transactions/Charge)
+Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
 endpoint with a `delay_capture` value of `true`.
 
 See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
@@ -133,9 +139,14 @@ def capture_transaction(self,
 
 ```python
 location_id = 'location_id4'
+
 transaction_id = 'transaction_id8'
 
-result = transactions_api.capture_transaction(location_id, transaction_id)
+result = transactions_api.capture_transaction(
+    location_id,
+    transaction_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -148,7 +159,7 @@ elif result.is_error():
 
 **This endpoint is deprecated.**
 
-Cancels a transaction that was created with the [Charge]($e/Transactions/Charge)
+Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
 endpoint with a `delay_capture` value of `true`.
 
 See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
@@ -175,9 +186,14 @@ def void_transaction(self,
 
 ```python
 location_id = 'location_id4'
+
 transaction_id = 'transaction_id8'
 
-result = transactions_api.void_transaction(location_id, transaction_id)
+result = transactions_api.void_transaction(
+    location_id,
+    transaction_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)

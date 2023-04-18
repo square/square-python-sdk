@@ -48,20 +48,27 @@ def create_team_member(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = 'idempotency-key-0'
-body['team_member'] = {}
-body['team_member']['reference_id'] = 'reference_id_1'
-body['team_member']['status'] = 'ACTIVE'
-body['team_member']['given_name'] = 'Joe'
-body['team_member']['family_name'] = 'Doe'
-body['team_member']['email_address'] = 'joe_doe@gmail.com'
-body['team_member']['phone_number'] = '+14159283333'
-body['team_member']['assigned_locations'] = {}
-body['team_member']['assigned_locations']['assignment_type'] = 'EXPLICIT_LOCATIONS'
-body['team_member']['assigned_locations']['location_ids'] = ['YSGH2WBKG94QZ', 'GA2Y9HSJ8KRYT']
+body = {
+    'idempotency_key': 'idempotency-key-0',
+    'team_member': {
+        'reference_id': 'reference_id_1',
+        'status': 'ACTIVE',
+        'given_name': 'Joe',
+        'family_name': 'Doe',
+        'email_address': 'joe_doe@gmail.com',
+        'phone_number': '+14159283333',
+        'assigned_locations': {
+            'assignment_type': 'EXPLICIT_LOCATIONS',
+            'location_ids': [
+                'YSGH2WBKG94QZ',
+                'GA2Y9HSJ8KRYT'
+            ]
+        }
+    }
+}
 
 result = team_api.create_team_member(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -97,10 +104,41 @@ def bulk_create_team_members(self,
 ## Example Usage
 
 ```python
-body = {}
-body['team_members'] = {}
+body = {
+    'team_members': {
+        "idempotency-key-1": {
+            'team_member': {
+                'reference_id': 'reference_id_1',
+                'given_name': 'Joe',
+                'family_name': 'Doe',
+                'email_address': 'joe_doe@gmail.com',
+                'phone_number': '+14159283333',
+                'assigned_locations': {
+                    'assignment_type': 'EXPLICIT_LOCATIONS',
+                    'location_ids': [
+                        'YSGH2WBKG94QZ',
+                        'GA2Y9HSJ8KRYT'
+                    ]
+                }
+            }
+        },
+        "idempotency-key-2": {
+            'team_member': {
+                'reference_id': 'reference_id_2',
+                'given_name': 'Jane',
+                'family_name': 'Smith',
+                'email_address': 'jane_smith@gmail.com',
+                'phone_number': '+14159223334',
+                'assigned_locations': {
+                    'assignment_type': 'ALL_CURRENT_AND_FUTURE_LOCATIONS'
+                }
+            }
+        }
+    }
+}
 
 result = team_api.bulk_create_team_members(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -135,10 +173,45 @@ def bulk_update_team_members(self,
 ## Example Usage
 
 ```python
-body = {}
-body['team_members'] = {}
+body = {
+    'team_members': {
+        "AFMwA08kR-MIF-3Vs0OE": {
+            'team_member': {
+                'reference_id': 'reference_id_2',
+                'is_owner': False,
+                'status': 'ACTIVE',
+                'given_name': 'Jane',
+                'family_name': 'Smith',
+                'email_address': 'jane_smith@gmail.com',
+                'phone_number': '+14159223334',
+                'assigned_locations': {
+                    'assignment_type': 'ALL_CURRENT_AND_FUTURE_LOCATIONS'
+                }
+            }
+        },
+        "fpgteZNMaf0qOK-a4t6P": {
+            'team_member': {
+                'reference_id': 'reference_id_1',
+                'is_owner': False,
+                'status': 'ACTIVE',
+                'given_name': 'Joe',
+                'family_name': 'Doe',
+                'email_address': 'joe_doe@gmail.com',
+                'phone_number': '+14159283333',
+                'assigned_locations': {
+                    'assignment_type': 'EXPLICIT_LOCATIONS',
+                    'location_ids': [
+                        'YSGH2WBKG94QZ',
+                        'GA2Y9HSJ8KRYT'
+                    ]
+                }
+            }
+        }
+    }
+}
 
 result = team_api.bulk_update_team_members(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -173,14 +246,20 @@ def search_team_members(self,
 ## Example Usage
 
 ```python
-body = {}
-body['query'] = {}
-body['query']['filter'] = {}
-body['query']['filter']['location_ids'] = ['0G5P3VGACMMQZ']
-body['query']['filter']['status'] = 'ACTIVE'
-body['limit'] = 10
+body = {
+    'query': {
+        'filter': {
+            'location_ids': [
+                '0G5P3VGACMMQZ'
+            ],
+            'status': 'ACTIVE'
+        }
+    },
+    'limit': 10
+}
 
 result = team_api.search_team_members(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -215,6 +294,7 @@ def retrieve_team_member(self,
 team_member_id = 'team_member_id0'
 
 result = team_api.retrieve_team_member(team_member_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -249,19 +329,30 @@ def update_team_member(self,
 
 ```python
 team_member_id = 'team_member_id0'
-body = {}
-body['team_member'] = {}
-body['team_member']['reference_id'] = 'reference_id_1'
-body['team_member']['status'] = 'ACTIVE'
-body['team_member']['given_name'] = 'Joe'
-body['team_member']['family_name'] = 'Doe'
-body['team_member']['email_address'] = 'joe_doe@gmail.com'
-body['team_member']['phone_number'] = '+14159283333'
-body['team_member']['assigned_locations'] = {}
-body['team_member']['assigned_locations']['assignment_type'] = 'EXPLICIT_LOCATIONS'
-body['team_member']['assigned_locations']['location_ids'] = ['YSGH2WBKG94QZ', 'GA2Y9HSJ8KRYT']
 
-result = team_api.update_team_member(team_member_id, body)
+body = {
+    'team_member': {
+        'reference_id': 'reference_id_1',
+        'status': 'ACTIVE',
+        'given_name': 'Joe',
+        'family_name': 'Doe',
+        'email_address': 'joe_doe@gmail.com',
+        'phone_number': '+14159283333',
+        'assigned_locations': {
+            'assignment_type': 'EXPLICIT_LOCATIONS',
+            'location_ids': [
+                'YSGH2WBKG94QZ',
+                'GA2Y9HSJ8KRYT'
+            ]
+        }
+    }
+}
+
+result = team_api.update_team_member(
+    team_member_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -297,6 +388,7 @@ def retrieve_wage_setting(self,
 team_member_id = 'team_member_id0'
 
 result = team_api.retrieve_wage_setting(team_member_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -334,28 +426,37 @@ def update_wage_setting(self,
 
 ```python
 team_member_id = 'team_member_id0'
-body = {}
-body['wage_setting'] = {}
-body['wage_setting']['job_assignments'] = []
 
-body['wage_setting']['job_assignments'].append({})
-body['wage_setting']['job_assignments'][0]['job_title'] = 'Manager'
-body['wage_setting']['job_assignments'][0]['pay_type'] = 'SALARY'
-body['wage_setting']['job_assignments'][0]['annual_rate'] = {}
-body['wage_setting']['job_assignments'][0]['annual_rate']['amount'] = 3000000
-body['wage_setting']['job_assignments'][0]['annual_rate']['currency'] = 'USD'
-body['wage_setting']['job_assignments'][0]['weekly_hours'] = 40
+body = {
+    'wage_setting': {
+        'job_assignments': [
+            {
+                'job_title': 'Manager',
+                'pay_type': 'SALARY',
+                'annual_rate': {
+                    'amount': 3000000,
+                    'currency': 'USD'
+                },
+                'weekly_hours': 40
+            },
+            {
+                'job_title': 'Cashier',
+                'pay_type': 'HOURLY',
+                'hourly_rate': {
+                    'amount': 1200,
+                    'currency': 'USD'
+                }
+            }
+        ],
+        'is_overtime_exempt': True
+    }
+}
 
-body['wage_setting']['job_assignments'].append({})
-body['wage_setting']['job_assignments'][1]['job_title'] = 'Cashier'
-body['wage_setting']['job_assignments'][1]['pay_type'] = 'HOURLY'
-body['wage_setting']['job_assignments'][1]['hourly_rate'] = {}
-body['wage_setting']['job_assignments'][1]['hourly_rate']['amount'] = 1200
-body['wage_setting']['job_assignments'][1]['hourly_rate']['currency'] = 'USD'
-
-body['wage_setting']['is_overtime_exempt'] = True
-
-result = team_api.update_wage_setting(team_member_id, body)
+result = team_api.update_wage_setting(
+    team_member_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

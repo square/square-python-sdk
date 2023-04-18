@@ -25,13 +25,14 @@ class InventoryApi(BaseApi):
         """Does a GET request to /v2/inventory/adjustment/{adjustment_id}.
 
         Deprecated version of
-        [RetrieveInventoryAdjustment]($e/Inventory/RetrieveInventoryAdjustment)
-        after the endpoint URL
+        [RetrieveInventoryAdjustment](api-endpoint:Inventory-RetrieveInventoryA
+        djustment) after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
             adjustment_id (string): ID of the
-                [InventoryAdjustment]($m/InventoryAdjustment) to retrieve.
+                [InventoryAdjustment](entity:InventoryAdjustment) to
+                retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -73,7 +74,8 @@ class InventoryApi(BaseApi):
 
         Args:
             adjustment_id (string): ID of the
-                [InventoryAdjustment]($m/InventoryAdjustment) to retrieve.
+                [InventoryAdjustment](entity:InventoryAdjustment) to
+                retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -112,8 +114,8 @@ class InventoryApi(BaseApi):
         """Does a POST request to /v2/inventory/batch-change.
 
         Deprecated version of
-        [BatchChangeInventory]($e/Inventory/BatchChangeInventory) after the
-        endpoint URL
+        [BatchChangeInventory](api-endpoint:Inventory-BatchChangeInventory)
+        after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -160,8 +162,8 @@ class InventoryApi(BaseApi):
         """Does a POST request to /v2/inventory/batch-retrieve-changes.
 
         Deprecated version of
-        [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChan
-        ges) after the endpoint URL
+        [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInv
+        entoryChanges) after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -208,8 +210,8 @@ class InventoryApi(BaseApi):
         """Does a POST request to /v2/inventory/batch-retrieve-counts.
 
         Deprecated version of
-        [BatchRetrieveInventoryCounts]($e/Inventory/BatchRetrieveInventoryCount
-        s) after the endpoint URL
+        [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInve
+        ntoryCounts) after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
@@ -408,13 +410,13 @@ class InventoryApi(BaseApi):
         """Does a GET request to /v2/inventory/physical-count/{physical_count_id}.
 
         Deprecated version of
-        [RetrieveInventoryPhysicalCount]($e/Inventory/RetrieveInventoryPhysical
-        Count) after the endpoint URL
+        [RetrieveInventoryPhysicalCount](api-endpoint:Inventory-RetrieveInvento
+        ryPhysicalCount) after the endpoint URL
         is updated to conform to the standard convention.
 
         Args:
             physical_count_id (string): ID of the
-                [InventoryPhysicalCount]($m/InventoryPhysicalCount) to
+                [InventoryPhysicalCount](entity:InventoryPhysicalCount) to
                 retrieve.
 
         Returns:
@@ -457,7 +459,7 @@ class InventoryApi(BaseApi):
 
         Args:
             physical_count_id (string): ID of the
-                [InventoryPhysicalCount]($m/InventoryPhysicalCount) to
+                [InventoryPhysicalCount](entity:InventoryPhysicalCount) to
                 retrieve.
 
         Returns:
@@ -500,7 +502,7 @@ class InventoryApi(BaseApi):
 
         Args:
             transfer_id (string): ID of the
-                [InventoryTransfer]($m/InventoryTransfer) to retrieve.
+                [InventoryTransfer](entity:InventoryTransfer) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -546,10 +548,10 @@ class InventoryApi(BaseApi):
 
         Args:
             catalog_object_id (string): ID of the
-                [CatalogObject]($m/CatalogObject) to retrieve.
-            location_ids (string, optional): The [Location]($m/Location) IDs
-                to look up as a comma-separated list. An empty list queries
-                all locations.
+                [CatalogObject](entity:CatalogObject) to retrieve.
+            location_ids (string, optional): The [Location](entity:Location)
+                IDs to look up as a comma-separated list. An empty list
+                queries all locations.
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for the original query.  See the
@@ -601,11 +603,11 @@ class InventoryApi(BaseApi):
         """Does a GET request to /v2/inventory/{catalog_object_id}/changes.
 
         Returns a set of physical counts and inventory adjustments for the
-        provided [CatalogObject]($m/CatalogObject) at the requested
-        [Location]($m/Location)s.
+        provided [CatalogObject](entity:CatalogObject) at the requested
+        [Location](entity:Location)s.
         You can achieve the same result by calling
-        [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChan
-        ges)
+        [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInv
+        entoryChanges)
         and having the `catalog_object_ids` list contain a single element of
         the `CatalogObject` ID.
         Results are paginated and sorted in descending order according to
@@ -618,10 +620,10 @@ class InventoryApi(BaseApi):
 
         Args:
             catalog_object_id (string): ID of the
-                [CatalogObject]($m/CatalogObject) to retrieve.
-            location_ids (string, optional): The [Location]($m/Location) IDs
-                to look up as a comma-separated list. An empty list queries
-                all locations.
+                [CatalogObject](entity:CatalogObject) to retrieve.
+            location_ids (string, optional): The [Location](entity:Location)
+                IDs to look up as a comma-separated list. An empty list
+                queries all locations.
             cursor (string, optional): A pagination cursor returned by a
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for the original query.  See the
