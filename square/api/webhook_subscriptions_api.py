@@ -76,11 +76,12 @@ class WebhookSubscriptionsApi(BaseApi):
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination).
             include_disabled (bool, optional): Includes disabled
-                [Subscription]($m/WebhookSubscription)s. By default, all
-                enabled [Subscription]($m/WebhookSubscription)s are returned.
+                [Subscription](entity:WebhookSubscription)s. By default, all
+                enabled [Subscription](entity:WebhookSubscription)s are
+                returned.
             sort_order (SortOrder, optional): Sorts the returned list by when
-                the [Subscription]($m/WebhookSubscription) was created with
-                the specified order. This field defaults to ASC.
+                the [Subscription](entity:WebhookSubscription) was created
+                with the specified order. This field defaults to ASC.
             limit (int, optional): The maximum number of results to be
                 returned in a single page. It is possible to receive fewer
                 results than the specified limit on a given page. The default
@@ -177,7 +178,7 @@ class WebhookSubscriptionsApi(BaseApi):
 
         Args:
             subscription_id (string): [REQUIRED] The ID of the
-                [Subscription]($m/WebhookSubscription) to delete.
+                [Subscription](entity:WebhookSubscription) to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -218,7 +219,7 @@ class WebhookSubscriptionsApi(BaseApi):
 
         Args:
             subscription_id (string): [REQUIRED] The ID of the
-                [Subscription]($m/WebhookSubscription) to retrieve.
+                [Subscription](entity:WebhookSubscription) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -260,7 +261,7 @@ class WebhookSubscriptionsApi(BaseApi):
 
         Args:
             subscription_id (string): [REQUIRED] The ID of the
-                [Subscription]($m/WebhookSubscription) to update.
+                [Subscription](entity:WebhookSubscription) to update.
             body (UpdateWebhookSubscriptionRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.
@@ -312,7 +313,7 @@ class WebhookSubscriptionsApi(BaseApi):
 
         Args:
             subscription_id (string): [REQUIRED] The ID of the
-                [Subscription]($m/WebhookSubscription) to update.
+                [Subscription](entity:WebhookSubscription) to update.
             body (UpdateWebhookSubscriptionSignatureKeyRequest): An object
                 containing the fields to POST for the request.  See the
                 corresponding object definition for field details.
@@ -364,7 +365,7 @@ class WebhookSubscriptionsApi(BaseApi):
 
         Args:
             subscription_id (string): [REQUIRED] The ID of the
-                [Subscription]($m/WebhookSubscription) to test.
+                [Subscription](entity:WebhookSubscription) to test.
             body (TestWebhookSubscriptionRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.

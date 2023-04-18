@@ -39,6 +39,7 @@ def list_customer_segments(self,
 
 ```python
 result = customer_segments_api.list_customer_segments()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -72,6 +73,7 @@ def retrieve_customer_segment(self,
 segment_id = 'segment_id4'
 
 result = customer_segments_api.retrieve_customer_segment(segment_id)
+print(result)
 
 if result.is_success():
     print(result.body)

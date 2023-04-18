@@ -18,10 +18,10 @@ at a given location to a requesting customer in one or more appointment segments
 | `created_at` | `string` | Optional | The RFC 3339 timestamp specifying the creation time of this booking. |
 | `updated_at` | `string` | Optional | The RFC 3339 timestamp specifying the most recent update time of this booking. |
 | `start_at` | `string` | Optional | The RFC 3339 timestamp specifying the starting time of this booking. |
-| `location_id` | `string` | Optional | The ID of the [Location](../../doc/models/location.md) object representing the location where the booked service is provided. Once set when the booking is created, its value cannot be changed.<br>**Constraints**: *Maximum Length*: `32` |
-| `customer_id` | `string` | Optional | The ID of the [Customer](../../doc/models/customer.md) object representing the customer receiving the booked service.<br>**Constraints**: *Maximum Length*: `192` |
-| `customer_note` | `string` | Optional | The free-text field for the customer to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a relevant [CatalogObject](../../doc/models/catalog-object.md) instance.<br>**Constraints**: *Maximum Length*: `4096` |
-| `seller_note` | `string` | Optional | The free-text field for the seller to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a specific [CatalogObject](../../doc/models/catalog-object.md) instance.<br>This field should not be visible to customers.<br>**Constraints**: *Maximum Length*: `4096` |
+| `location_id` | `string` | Optional | The ID of the [Location](entity:Location) object representing the location where the booked service is provided. Once set when the booking is created, its value cannot be changed.<br>**Constraints**: *Maximum Length*: `32` |
+| `customer_id` | `string` | Optional | The ID of the [Customer](entity:Customer) object representing the customer receiving the booked service.<br>**Constraints**: *Maximum Length*: `192` |
+| `customer_note` | `string` | Optional | The free-text field for the customer to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a relevant [CatalogObject](entity:CatalogObject) instance.<br>**Constraints**: *Maximum Length*: `4096` |
+| `seller_note` | `string` | Optional | The free-text field for the seller to supply notes about the booking. For example, the note can be preferences that cannot be expressed by supported attributes of a specific [CatalogObject](entity:CatalogObject) instance.<br>This field should not be visible to customers.<br>**Constraints**: *Maximum Length*: `4096` |
 | `appointment_segments` | [`List of Appointment Segment`](../../doc/models/appointment-segment.md) | Optional | A list of appointment segments for this booking. |
 | `transition_time_minutes` | `int` | Optional | Additional time at the end of a booking.<br>Applications should not make this field visible to customers of a seller. |
 | `all_day` | `bool` | Optional | Whether the booking is of a full business day. |
@@ -33,22 +33,39 @@ at a given location to a requesting customer in one or more appointment segments
 
 ```json
 {
-  "id": null,
-  "version": null,
-  "status": null,
-  "created_at": null,
-  "updated_at": null,
-  "start_at": null,
-  "location_id": null,
-  "customer_id": null,
-  "customer_note": null,
-  "seller_note": null,
-  "appointment_segments": null,
-  "transition_time_minutes": null,
-  "all_day": null,
-  "location_type": null,
-  "creator_details": null,
-  "source": null
+  "id": "id0",
+  "version": 172,
+  "status": "CANCELLED_BY_SELLER",
+  "created_at": "created_at2",
+  "updated_at": "updated_at4",
+  "start_at": "start_at2",
+  "location_id": "location_id4",
+  "customer_id": "customer_id8",
+  "customer_note": "customer_note2",
+  "seller_note": "seller_note8",
+  "appointment_segments": [
+    {
+      "duration_minutes": 4,
+      "service_variation_id": "service_variation_id4",
+      "team_member_id": "team_member_id0",
+      "service_variation_version": 172,
+      "intermission_minutes": 178,
+      "any_team_member": false,
+      "resource_ids": [
+        "resource_ids0",
+        "resource_ids1"
+      ]
+    }
+  ],
+  "transition_time_minutes": 248,
+  "all_day": false,
+  "location_type": "BUSINESS_LOCATION",
+  "creator_details": {
+    "creator_type": "TEAM_MEMBER",
+    "team_member_id": "team_member_id4",
+    "customer_id": "customer_id2"
+  },
+  "source": "FIRST_PARTY_MERCHANT"
 }
 ```
 

@@ -46,6 +46,7 @@ def list_merchants(self,
 
 ```python
 result = merchants_api.list_merchants()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -79,6 +80,7 @@ def retrieve_merchant(self,
 merchant_id = 'merchant_id0'
 
 result = merchants_api.retrieve_merchant(merchant_id)
+print(result)
 
 if result.is_success():
     print(result.body)

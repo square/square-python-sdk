@@ -45,6 +45,7 @@ def list_employees(self,
 
 ```python
 result = employees_api.list_employees()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -80,6 +81,7 @@ def retrieve_employee(self,
 id = 'id0'
 
 result = employees_api.retrieve_employee(id)
+print(result)
 
 if result.is_success():
     print(result.body)

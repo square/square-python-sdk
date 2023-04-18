@@ -438,7 +438,7 @@ class LocationCustomAttributesApi(BaseApi):
 
         Args:
             location_id (string): The ID of the target
-                [location]($m/Location).
+                [location](entity:Location).
             visibility_filter (VisibilityFilter, optional): Filters the
                 `CustomAttributeDefinition` results by their `visibility`
                 values.
@@ -456,8 +456,9 @@ class LocationCustomAttributesApi(BaseApi):
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
             with_definitions (bool, optional): Indicates whether to return the
-                [custom attribute definition]($m/CustomAttributeDefinition) in
-                the `definition` field of each custom attribute. Set this
+                [custom attribute
+                definition](entity:CustomAttributeDefinition) in the
+                `definition` field of each custom attribute. Set this
                 parameter to `true` to get the name and description of each
                 custom attribute, information about the data type, or other
                 definition details. The default value is `false`.
@@ -518,7 +519,7 @@ class LocationCustomAttributesApi(BaseApi):
 
         Args:
             location_id (string): The ID of the target
-                [location]($m/Location).
+                [location](entity:Location).
             key (string): The key of the custom attribute to delete. This key
                 must match the `key` of a custom attribute definition in the
                 Square seller account. If the requesting application is not
@@ -577,16 +578,17 @@ class LocationCustomAttributesApi(BaseApi):
 
         Args:
             location_id (string): The ID of the target
-                [location]($m/Location).
+                [location](entity:Location).
             key (string): The key of the custom attribute to retrieve. This
                 key must match the `key` of a custom attribute definition in
                 the Square seller account. If the requesting application is
                 not the definition owner, you must use the qualified key.
             with_definition (bool, optional): Indicates whether to return the
-                [custom attribute definition]($m/CustomAttributeDefinition) in
-                the `definition` field of the custom attribute. Set this
-                parameter to `true` to get the name and description of the
-                custom attribute, information about the data type, or other
+                [custom attribute
+                definition](entity:CustomAttributeDefinition) in the
+                `definition` field of the custom attribute. Set this parameter
+                to `true` to get the name and description of the custom
+                attribute, information about the data type, or other
                 definition details. The default value is `false`.
             version (int, optional): The current version of the custom
                 attribute, which is used for strongly consistent reads to
@@ -658,7 +660,7 @@ class LocationCustomAttributesApi(BaseApi):
 
         Args:
             location_id (string): The ID of the target
-                [location]($m/Location).
+                [location](entity:Location).
             key (string): The key of the custom attribute to create or update.
                 This key must match the `key` of a custom attribute definition
                 in the Square seller account. If the requesting application is

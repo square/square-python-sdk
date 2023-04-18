@@ -32,8 +32,8 @@ class DisputesApi(BaseApi):
                 previous call to this endpoint. Provide this cursor to
                 retrieve the next set of results for the original query. For
                 more information, see
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination).
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
             states (DisputeState, optional): The dispute states used to filter
                 the result. If not specified, the endpoint returns all
                 disputes.

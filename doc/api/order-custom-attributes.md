@@ -55,6 +55,7 @@ def list_order_custom_attribute_definitions(self,
 
 ```python
 result = order_custom_attributes_api.list_order_custom_attribute_definitions()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -89,15 +90,18 @@ def create_order_custom_attribute_definition(self,
 ## Example Usage
 
 ```python
-body = {}
-body['custom_attribute_definition'] = {}
-body['custom_attribute_definition']['key'] = 'cover-count'
-body['custom_attribute_definition']['name'] = 'Cover count'
-body['custom_attribute_definition']['description'] = 'The number of people seated at a table'
-body['custom_attribute_definition']['visibility'] = 'VISIBILITY_READ_WRITE_VALUES'
-body['idempotency_key'] = 'IDEMPOTENCY_KEY'
+body = {
+    'custom_attribute_definition': {
+        'key': 'cover-count',
+        'name': 'Cover count',
+        'description': 'The number of people seated at a table',
+        'visibility': 'VISIBILITY_READ_WRITE_VALUES'
+    },
+    'idempotency_key': 'IDEMPOTENCY_KEY'
+}
 
 result = order_custom_attributes_api.create_order_custom_attribute_definition(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -133,6 +137,7 @@ def delete_order_custom_attribute_definition(self,
 key = 'key0'
 
 result = order_custom_attributes_api.delete_order_custom_attribute_definition(key)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -172,6 +177,7 @@ def retrieve_order_custom_attribute_definition(self,
 key = 'key0'
 
 result = order_custom_attributes_api.retrieve_order_custom_attribute_definition(key)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -207,14 +213,21 @@ def update_order_custom_attribute_definition(self,
 
 ```python
 key = 'key0'
-body = {}
-body['custom_attribute_definition'] = {}
-body['custom_attribute_definition']['key'] = 'cover-count'
-body['custom_attribute_definition']['visibility'] = 'VISIBILITY_READ_ONLY'
-body['custom_attribute_definition']['version'] = 1
-body['idempotency_key'] = 'IDEMPOTENCY_KEY'
 
-result = order_custom_attributes_api.update_order_custom_attribute_definition(key, body)
+body = {
+    'custom_attribute_definition': {
+        'key': 'cover-count',
+        'visibility': 'VISIBILITY_READ_ONLY',
+        'version': 1
+    },
+    'idempotency_key': 'IDEMPOTENCY_KEY'
+}
+
+result = order_custom_attributes_api.update_order_custom_attribute_definition(
+    key,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -258,11 +271,21 @@ def bulk_delete_order_custom_attributes(self,
 ## Example Usage
 
 ```python
-body = {}
-body['values'] = {}
-body['values']['order_id'] = None
+body = {
+    'values': {
+        "cover-count": {
+            'order_id': '7BbXGEIWNldxAzrtGf9GPVZTwZ4F',
+            'key': 'cover-count'
+        },
+        "table-number": {
+            'order_id': '7BbXGEIWNldxAzrtGf9GPVZTwZ4F',
+            'key': 'table-number'
+        }
+    }
+}
 
 result = order_custom_attributes_api.bulk_delete_order_custom_attributes(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -306,12 +329,21 @@ def bulk_upsert_order_custom_attributes(self,
 ## Example Usage
 
 ```python
-body = {}
-body['values'] = {}
-body['values']['custom_attribute'] = {}
-body['values']['order_id'] = None
+body = {
+    'values': {
+        "key0": {
+            'custom_attribute': {},
+            'order_id': 'order_id2'
+        },
+        "key1": {
+            'custom_attribute': {},
+            'order_id': 'order_id1'
+        }
+    }
+}
 
 result = order_custom_attributes_api.bulk_upsert_order_custom_attributes(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -344,11 +376,11 @@ def list_order_custom_attributes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_id` | `string` | Template, Required | The ID of the target [order](../../doc/models/order.md). |
+| `order_id` | `string` | Template, Required | The ID of the target [order](entity:Order). |
 | `visibility_filter` | [`str (Visibility Filter)`](../../doc/models/visibility-filter.md) | Query, Optional | Requests that all of the custom attributes be returned, or only those that are read-only or read-write. |
 | `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `with_definitions` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](../../doc/models/custom-attribute-definition.md) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom attribute,<br>information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
+| `with_definitions` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom attribute,<br>information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 
 ## Response Type
 
@@ -358,9 +390,14 @@ def list_order_custom_attributes(self,
 
 ```python
 order_id = 'order_id6'
+
 with_definitions = False
 
-result = order_custom_attributes_api.list_order_custom_attributes(order_id, None, None, None, with_definitions)
+result = order_custom_attributes_api.list_order_custom_attributes(
+    order_id,
+    with_definitions
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -387,7 +424,7 @@ def delete_order_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_id` | `string` | Template, Required | The ID of the target [order](../../doc/models/order.md). |
+| `order_id` | `string` | Template, Required | The ID of the target [order](entity:Order). |
 | `custom_attribute_key` | `string` | Template, Required | The key of the custom attribute to delete.  This key must match the key of an<br>existing custom attribute definition. |
 
 ## Response Type
@@ -398,9 +435,14 @@ def delete_order_custom_attribute(self,
 
 ```python
 order_id = 'order_id6'
+
 custom_attribute_key = 'custom_attribute_key2'
 
-result = order_custom_attributes_api.delete_order_custom_attribute(order_id, custom_attribute_key)
+result = order_custom_attributes_api.delete_order_custom_attribute(
+    order_id,
+    custom_attribute_key
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -432,10 +474,10 @@ def retrieve_order_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_id` | `string` | Template, Required | The ID of the target [order](../../doc/models/order.md). |
+| `order_id` | `string` | Template, Required | The ID of the target [order](entity:Order). |
 | `custom_attribute_key` | `string` | Template, Required | The key of the custom attribute to retrieve.  This key must match the key of an<br>existing custom attribute definition. |
 | `version` | `int` | Query, Optional | To enable [optimistic concurrency](https://developer.squareup.com/docs/build-basics/common-api-patterns/optimistic-concurrency)<br>control, include this optional field and specify the current version of the custom attribute. |
-| `with_definition` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](../../doc/models/custom-attribute-definition.md) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom attribute,<br>information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
+| `with_definition` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom attribute,<br>information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 
 ## Response Type
 
@@ -445,10 +487,17 @@ def retrieve_order_custom_attribute(self,
 
 ```python
 order_id = 'order_id6'
+
 custom_attribute_key = 'custom_attribute_key2'
+
 with_definition = False
 
-result = order_custom_attributes_api.retrieve_order_custom_attribute(order_id, custom_attribute_key, None, with_definition)
+result = order_custom_attributes_api.retrieve_order_custom_attribute(
+    order_id,
+    custom_attribute_key,
+    with_definition
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -480,7 +529,7 @@ def upsert_order_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_id` | `string` | Template, Required | The ID of the target [order](../../doc/models/order.md). |
+| `order_id` | `string` | Template, Required | The ID of the target [order](entity:Order). |
 | `custom_attribute_key` | `string` | Template, Required | The key of the custom attribute to create or update.  This key must match the key<br>of an existing custom attribute definition. |
 | `body` | [`Upsert Order Custom Attribute Request`](../../doc/models/upsert-order-custom-attribute-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
@@ -492,11 +541,19 @@ def upsert_order_custom_attribute(self,
 
 ```python
 order_id = 'order_id6'
-custom_attribute_key = 'custom_attribute_key2'
-body = {}
-body['custom_attribute'] = {}
 
-result = order_custom_attributes_api.upsert_order_custom_attribute(order_id, custom_attribute_key, body)
+custom_attribute_key = 'custom_attribute_key2'
+
+body = {
+    'custom_attribute': {}
+}
+
+result = order_custom_attributes_api.upsert_order_custom_attribute(
+    order_id,
+    custom_attribute_key,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

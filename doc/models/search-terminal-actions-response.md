@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
 | `action` | [`List of Terminal Action`](../../doc/models/terminal-action.md) | Optional | The requested search result of `TerminalAction`s. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more<br>information. |
+| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more<br>information. |
 
 ## Example (as JSON)
 

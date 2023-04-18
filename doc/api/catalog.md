@@ -61,10 +61,15 @@ def batch_delete_catalog_objects(self,
 ## Example Usage
 
 ```python
-body = {}
-body['object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI', 'AA27W3M2GGTF3H6AVPNB77CK']
+body = {
+    'object_ids': [
+        'W62UWFY35CWMYGVWK6TWJDNI',
+        'AA27W3M2GGTF3H6AVPNB77CK'
+    ]
+}
 
 result = catalog_api.batch_delete_catalog_objects(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -100,11 +105,16 @@ def batch_retrieve_catalog_objects(self,
 ## Example Usage
 
 ```python
-body = {}
-body['object_ids'] = ['W62UWFY35CWMYGVWK6TWJDNI', 'AA27W3M2GGTF3H6AVPNB77CK']
-body['include_related_objects'] = True
+body = {
+    'object_ids': [
+        'W62UWFY35CWMYGVWK6TWJDNI',
+        'AA27W3M2GGTF3H6AVPNB77CK'
+    ],
+    'include_related_objects': True
+}
 
 result = catalog_api.batch_retrieve_catalog_objects(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -147,86 +157,111 @@ def batch_upsert_catalog_objects(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = '789ff020-f723-43a9-b4b5-43b5dc1fa3dc'
-body['batches'] = []
-
-body['batches'].append({})
-body['batches'][0]['objects'] = []
-
-body['batches'][0]['objects'].append({})
-body['batches'][0]['objects'][0]['type'] = 'ITEM'
-body['batches'][0]['objects'][0]['id'] = '#Tea'
-body['batches'][0]['objects'][0]['present_at_all_locations'] = True
-body['batches'][0]['objects'][0]['item_data'] = {}
-body['batches'][0]['objects'][0]['item_data']['name'] = 'Tea'
-body['batches'][0]['objects'][0]['item_data']['category_id'] = '#Beverages'
-body['batches'][0]['objects'][0]['item_data']['tax_ids'] = ['#SalesTax']
-body['batches'][0]['objects'][0]['item_data']['variations'] = []
-
-body['batches'][0]['objects'][0]['item_data']['variations'].append({})
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['id'] = '#Tea_Mug'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['present_at_all_locations'] = True
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data'] = {}
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Tea'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['name'] = 'Mug'
-body['batches'][0]['objects'][0]['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
-
-body['batches'][0]['objects'][0]['item_data']['description_html'] = '<p><strong>Hot</strong> Leaf Juice</p>'
-
-body['batches'][0]['objects'].append({})
-body['batches'][0]['objects'][1]['type'] = 'ITEM'
-body['batches'][0]['objects'][1]['id'] = '#Coffee'
-body['batches'][0]['objects'][1]['present_at_all_locations'] = True
-body['batches'][0]['objects'][1]['item_data'] = {}
-body['batches'][0]['objects'][1]['item_data']['name'] = 'Coffee'
-body['batches'][0]['objects'][1]['item_data']['category_id'] = '#Beverages'
-body['batches'][0]['objects'][1]['item_data']['tax_ids'] = ['#SalesTax']
-body['batches'][0]['objects'][1]['item_data']['variations'] = []
-
-body['batches'][0]['objects'][1]['item_data']['variations'].append({})
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['id'] = '#Coffee_Regular'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['present_at_all_locations'] = True
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data'] = {}
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Coffee'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['name'] = 'Regular'
-body['batches'][0]['objects'][1]['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
-
-body['batches'][0]['objects'][1]['item_data']['variations'].append({})
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['type'] = 'ITEM_VARIATION'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['id'] = '#Coffee_Large'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['present_at_all_locations'] = True
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data'] = {}
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['item_id'] = '#Coffee'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
-body['batches'][0]['objects'][1]['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
-
-body['batches'][0]['objects'][1]['item_data']['description_html'] = '<p>Hot <em>Bean Juice</em></p>'
-
-body['batches'][0]['objects'].append({})
-body['batches'][0]['objects'][2]['type'] = 'CATEGORY'
-body['batches'][0]['objects'][2]['id'] = '#Beverages'
-body['batches'][0]['objects'][2]['present_at_all_locations'] = True
-body['batches'][0]['objects'][2]['category_data'] = {}
-body['batches'][0]['objects'][2]['category_data']['name'] = 'Beverages'
-
-body['batches'][0]['objects'].append({})
-body['batches'][0]['objects'][3]['type'] = 'TAX'
-body['batches'][0]['objects'][3]['id'] = '#SalesTax'
-body['batches'][0]['objects'][3]['present_at_all_locations'] = True
-body['batches'][0]['objects'][3]['tax_data'] = {}
-body['batches'][0]['objects'][3]['tax_data']['name'] = 'Sales Tax'
-body['batches'][0]['objects'][3]['tax_data']['calculation_phase'] = 'TAX_SUBTOTAL_PHASE'
-body['batches'][0]['objects'][3]['tax_data']['inclusion_type'] = 'ADDITIVE'
-body['batches'][0]['objects'][3]['tax_data']['percentage'] = '5.0'
-body['batches'][0]['objects'][3]['tax_data']['applies_to_custom_amounts'] = True
-body['batches'][0]['objects'][3]['tax_data']['enabled'] = True
-
-
+body = {
+    'idempotency_key': '789ff020-f723-43a9-b4b5-43b5dc1fa3dc',
+    'batches': [
+        {
+            'objects': [
+                {
+                    'type': 'ITEM',
+                    'id': '#Tea',
+                    'present_at_all_locations': True,
+                    'item_data': {
+                        'name': 'Tea',
+                        'category_id': '#Beverages',
+                        'tax_ids': [
+                            '#SalesTax'
+                        ],
+                        'variations': [
+                            {
+                                'type': 'ITEM_VARIATION',
+                                'id': '#Tea_Mug',
+                                'present_at_all_locations': True,
+                                'item_variation_data': {
+                                    'item_id': '#Tea',
+                                    'name': 'Mug',
+                                    'pricing_type': 'FIXED_PRICING',
+                                    'price_money': {
+                                        'amount': 150,
+                                        'currency': 'USD'
+                                    }
+                                }
+                            }
+                        ],
+                        'description_html': '<p><strong>Hot</strong> Leaf Juice</p>'
+                    }
+                },
+                {
+                    'type': 'ITEM',
+                    'id': '#Coffee',
+                    'present_at_all_locations': True,
+                    'item_data': {
+                        'name': 'Coffee',
+                        'category_id': '#Beverages',
+                        'tax_ids': [
+                            '#SalesTax'
+                        ],
+                        'variations': [
+                            {
+                                'type': 'ITEM_VARIATION',
+                                'id': '#Coffee_Regular',
+                                'present_at_all_locations': True,
+                                'item_variation_data': {
+                                    'item_id': '#Coffee',
+                                    'name': 'Regular',
+                                    'pricing_type': 'FIXED_PRICING',
+                                    'price_money': {
+                                        'amount': 250,
+                                        'currency': 'USD'
+                                    }
+                                }
+                            },
+                            {
+                                'type': 'ITEM_VARIATION',
+                                'id': '#Coffee_Large',
+                                'present_at_all_locations': True,
+                                'item_variation_data': {
+                                    'item_id': '#Coffee',
+                                    'name': 'Large',
+                                    'pricing_type': 'FIXED_PRICING',
+                                    'price_money': {
+                                        'amount': 350,
+                                        'currency': 'USD'
+                                    }
+                                }
+                            }
+                        ],
+                        'description_html': '<p>Hot <em>Bean Juice</em></p>'
+                    }
+                },
+                {
+                    'type': 'CATEGORY',
+                    'id': '#Beverages',
+                    'present_at_all_locations': True,
+                    'category_data': {
+                        'name': 'Beverages'
+                    }
+                },
+                {
+                    'type': 'TAX',
+                    'id': '#SalesTax',
+                    'present_at_all_locations': True,
+                    'tax_data': {
+                        'name': 'Sales Tax',
+                        'calculation_phase': 'TAX_SUBTOTAL_PHASE',
+                        'inclusion_type': 'ADDITIVE',
+                        'percentage': '5.0',
+                        'applies_to_custom_amounts': True,
+                        'enabled': True
+                    }
+                }
+            ]
+        }
+    ]
+}
 
 result = catalog_api.batch_upsert_catalog_objects(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -264,16 +299,22 @@ def create_catalog_image(self,
 ## Example Usage
 
 ```python
-request = {}
-request['idempotency_key'] = '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86'
-request['object_id'] = 'ND6EA5AAJEO5WL3JNNIAQA32'
-request['image'] = {}
-request['image']['type'] = 'IMAGE'
-request['image']['id'] = '#TEMP_ID'
-request['image']['image_data'] = {}
-request['image']['image_data']['caption'] = 'A picture of a cup of coffee'
+request = {
+    'idempotency_key': '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86',
+    'image': {
+        'type': 'IMAGE',
+        'id': '#TEMP_ID',
+        'image_data': {
+            'caption': 'A picture of a cup of coffee'
+        }
+    },
+    'object_id': 'ND6EA5AAJEO5WL3JNNIAQA32'
+}
 
-result = catalog_api.create_catalog_image(request)
+result = catalog_api.create_catalog_image(
+    request
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -312,10 +353,16 @@ def update_catalog_image(self,
 
 ```python
 image_id = 'image_id4'
-request = {}
-request['idempotency_key'] = '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86'
 
-result = catalog_api.update_catalog_image(image_id, request)
+request = {
+    'idempotency_key': '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86'
+}
+
+result = catalog_api.update_catalog_image(
+    image_id,
+    request
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -341,6 +388,7 @@ def catalog_info(self)
 
 ```python
 result = catalog_api.catalog_info()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -371,8 +419,8 @@ def list_catalog(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `types` | `string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](../../doc/models/catalog-object-type.md) enum, for example,<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.<br><br>If this is unspecified, the operation returns objects of all the top level types at the version<br>of the Square API used to make the request. Object types that are nested onto other object types<br>are not included in the defaults.<br><br>At the current API version the default object types are:<br>ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST,<br>PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,<br>SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS. |
+| `cursor` | `string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
+| `types` | `string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](entity:CatalogObjectType) enum, for example,<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.<br><br>If this is unspecified, the operation returns objects of all the top level types at the version<br>of the Square API used to make the request. Object types that are nested onto other object types<br>are not included in the defaults.<br><br>At the current API version the default object types are:<br>ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST,<br>PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,<br>SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS. |
 | `catalog_version` | `long\|int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical versions of objects. The specified version value is matched against<br>the [CatalogObject](../../doc/models/catalog-object.md)s' `version` attribute.  If not included, results will be from the<br>current version of the catalog. |
 
 ## Response Type
@@ -383,6 +431,7 @@ def list_catalog(self,
 
 ```python
 result = catalog_api.list_catalog()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -417,35 +466,45 @@ def upsert_catalog_object(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = 'af3d1afc-7212-4300-b463-0bfc5314a5ae'
-body['object'] = {}
-body['object']['type'] = 'ITEM'
-body['object']['id'] = '#Cocoa'
-body['object']['item_data'] = {}
-body['object']['item_data']['name'] = 'Cocoa'
-body['object']['item_data']['abbreviation'] = 'Ch'
-body['object']['item_data']['variations'] = []
-
-body['object']['item_data']['variations'].append({})
-body['object']['item_data']['variations'][0]['type'] = 'ITEM_VARIATION'
-body['object']['item_data']['variations'][0]['id'] = '#Small'
-body['object']['item_data']['variations'][0]['item_variation_data'] = {}
-body['object']['item_data']['variations'][0]['item_variation_data']['item_id'] = '#Cocoa'
-body['object']['item_data']['variations'][0]['item_variation_data']['name'] = 'Small'
-body['object']['item_data']['variations'][0]['item_variation_data']['pricing_type'] = 'VARIABLE_PRICING'
-
-body['object']['item_data']['variations'].append({})
-body['object']['item_data']['variations'][1]['type'] = 'ITEM_VARIATION'
-body['object']['item_data']['variations'][1]['id'] = '#Large'
-body['object']['item_data']['variations'][1]['item_variation_data'] = {}
-body['object']['item_data']['variations'][1]['item_variation_data']['item_id'] = '#Cocoa'
-body['object']['item_data']['variations'][1]['item_variation_data']['name'] = 'Large'
-body['object']['item_data']['variations'][1]['item_variation_data']['pricing_type'] = 'FIXED_PRICING'
-
-body['object']['item_data']['description_html'] = '<p><strong>Hot</strong> Chocolate</p>'
+body = {
+    'idempotency_key': 'af3d1afc-7212-4300-b463-0bfc5314a5ae',
+    'object': {
+        'type': 'ITEM',
+        'id': '#Cocoa',
+        'item_data': {
+            'name': 'Cocoa',
+            'abbreviation': 'Ch',
+            'variations': [
+                {
+                    'type': 'ITEM_VARIATION',
+                    'id': '#Small',
+                    'item_variation_data': {
+                        'item_id': '#Cocoa',
+                        'name': 'Small',
+                        'pricing_type': 'VARIABLE_PRICING'
+                    }
+                },
+                {
+                    'type': 'ITEM_VARIATION',
+                    'id': '#Large',
+                    'item_variation_data': {
+                        'item_id': '#Cocoa',
+                        'name': 'Large',
+                        'pricing_type': 'FIXED_PRICING',
+                        'price_money': {
+                            'amount': 400,
+                            'currency': 'USD'
+                        }
+                    }
+                }
+            ],
+            'description_html': '<p><strong>Hot</strong> Chocolate</p>'
+        }
+    }
+}
 
 result = catalog_api.upsert_catalog_object(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -488,6 +547,7 @@ def delete_catalog_object(self,
 object_id = 'object_id8'
 
 result = catalog_api.delete_catalog_object(object_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -529,9 +589,14 @@ def retrieve_catalog_object(self,
 
 ```python
 object_id = 'object_id8'
+
 include_related_objects = False
 
-result = catalog_api.retrieve_catalog_object(object_id, include_related_objects)
+result = catalog_api.retrieve_catalog_object(
+    object_id,
+    include_related_objects
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -571,15 +636,21 @@ def search_catalog_objects(self,
 ## Example Usage
 
 ```python
-body = {}
-body['object_types'] = ['ITEM']
-body['query'] = {}
-body['query']['prefix_query'] = {}
-body['query']['prefix_query']['attribute_name'] = 'name'
-body['query']['prefix_query']['attribute_prefix'] = 'tea'
-body['limit'] = 100
+body = {
+    'object_types': [
+        'ITEM'
+    ],
+    'query': {
+        'prefix_query': {
+            'attribute_name': 'name',
+            'attribute_prefix': 'tea'
+        }
+    },
+    'limit': 100
+}
 
 result = catalog_api.search_catalog_objects(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -619,35 +690,47 @@ def search_catalog_items(self,
 ## Example Usage
 
 ```python
-body = {}
-body['text_filter'] = 'red'
-body['category_ids'] = ['WINE_CATEGORY_ID']
-body['stock_levels'] = ['OUT', 'LOW']
-body['enabled_location_ids'] = ['ATL_LOCATION_ID']
-body['limit'] = 100
-body['sort_order'] = 'ASC'
-body['product_types'] = ['REGULAR']
-body['custom_attribute_filters'] = []
-
-body['custom_attribute_filters'].append({})
-body['custom_attribute_filters'][0]['custom_attribute_definition_id'] = 'VEGAN_DEFINITION_ID'
-body['custom_attribute_filters'][0]['bool_filter'] = True
-
-body['custom_attribute_filters'].append({})
-body['custom_attribute_filters'][1]['custom_attribute_definition_id'] = 'BRAND_DEFINITION_ID'
-body['custom_attribute_filters'][1]['string_filter'] = 'Dark Horse'
-
-body['custom_attribute_filters'].append({})
-body['custom_attribute_filters'][2]['key'] = 'VINTAGE'
-body['custom_attribute_filters'][2]['number_filter'] = {}
-body['custom_attribute_filters'][2]['number_filter']['min'] = '2017'
-body['custom_attribute_filters'][2]['number_filter']['max'] = '2018'
-
-body['custom_attribute_filters'].append({})
-body['custom_attribute_filters'][3]['custom_attribute_definition_id'] = 'VARIETAL_DEFINITION_ID'
-
+body = {
+    'text_filter': 'red',
+    'category_ids': [
+        'WINE_CATEGORY_ID'
+    ],
+    'stock_levels': [
+        'OUT',
+        'LOW'
+    ],
+    'enabled_location_ids': [
+        'ATL_LOCATION_ID'
+    ],
+    'limit': 100,
+    'sort_order': 'ASC',
+    'product_types': [
+        'REGULAR'
+    ],
+    'custom_attribute_filters': [
+        {
+            'custom_attribute_definition_id': 'VEGAN_DEFINITION_ID',
+            'bool_filter': True
+        },
+        {
+            'custom_attribute_definition_id': 'BRAND_DEFINITION_ID',
+            'string_filter': 'Dark Horse'
+        },
+        {
+            'key': 'VINTAGE',
+            'number_filter': {
+                'min': '2017',
+                'max': '2018'
+            }
+        },
+        {
+            'custom_attribute_definition_id': 'VARIETAL_DEFINITION_ID'
+        }
+    ]
+}
 
 result = catalog_api.search_catalog_items(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -680,12 +763,22 @@ def update_item_modifier_lists(self,
 ## Example Usage
 
 ```python
-body = {}
-body['item_ids'] = ['H42BRLUJ5KTZTTMPVSLFAACQ', '2JXOBJIHCWBQ4NZ3RIXQGJA6']
-body['modifier_lists_to_enable'] = ['H42BRLUJ5KTZTTMPVSLFAACQ', '2JXOBJIHCWBQ4NZ3RIXQGJA6']
-body['modifier_lists_to_disable'] = ['7WRC16CJZDVLSNDQ35PP6YAD']
+body = {
+    'item_ids': [
+        'H42BRLUJ5KTZTTMPVSLFAACQ',
+        '2JXOBJIHCWBQ4NZ3RIXQGJA6'
+    ],
+    'modifier_lists_to_enable': [
+        'H42BRLUJ5KTZTTMPVSLFAACQ',
+        '2JXOBJIHCWBQ4NZ3RIXQGJA6'
+    ],
+    'modifier_lists_to_disable': [
+        '7WRC16CJZDVLSNDQ35PP6YAD'
+    ]
+}
 
 result = catalog_api.update_item_modifier_lists(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -718,12 +811,21 @@ def update_item_taxes(self,
 ## Example Usage
 
 ```python
-body = {}
-body['item_ids'] = ['H42BRLUJ5KTZTTMPVSLFAACQ', '2JXOBJIHCWBQ4NZ3RIXQGJA6']
-body['taxes_to_enable'] = ['4WRCNHCJZDVLSNDQ35PP6YAD']
-body['taxes_to_disable'] = ['AQCEGCEBBQONINDOHRGZISEX']
+body = {
+    'item_ids': [
+        'H42BRLUJ5KTZTTMPVSLFAACQ',
+        '2JXOBJIHCWBQ4NZ3RIXQGJA6'
+    ],
+    'taxes_to_enable': [
+        '4WRCNHCJZDVLSNDQ35PP6YAD'
+    ],
+    'taxes_to_disable': [
+        'AQCEGCEBBQONINDOHRGZISEX'
+    ]
+}
 
 result = catalog_api.update_item_taxes(body)
+print(result)
 
 if result.is_success():
     print(result.body)

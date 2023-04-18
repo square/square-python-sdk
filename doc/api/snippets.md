@@ -44,6 +44,7 @@ def delete_snippet(self,
 site_id = 'site_id6'
 
 result = snippets_api.delete_snippet(site_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -81,6 +82,7 @@ def retrieve_snippet(self,
 site_id = 'site_id6'
 
 result = snippets_api.retrieve_snippet(site_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -119,11 +121,18 @@ def upsert_snippet(self,
 
 ```python
 site_id = 'site_id6'
-body = {}
-body['snippet'] = {}
-body['snippet']['content'] = '<script>var js = 1;</script>'
 
-result = snippets_api.upsert_snippet(site_id, body)
+body = {
+    'snippet': {
+        'content': '<script>var js = 1;</script>'
+    }
+}
+
+result = snippets_api.upsert_snippet(
+    site_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

@@ -41,10 +41,12 @@ def register_domain(self,
 ## Example Usage
 
 ```python
-body = {}
-body['domain_name'] = 'example.com'
+body = {
+    'domain_name': 'example.com'
+}
 
 result = apple_pay_api.register_domain(body)
+print(result)
 
 if result.is_success():
     print(result.body)

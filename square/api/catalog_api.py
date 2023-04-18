@@ -369,14 +369,14 @@ class CatalogApi(BaseApi):
             cursor (string, optional): The pagination cursor returned in the
                 previous response. Leave unset for an initial request. The
                 page size is currently set to be 100. See
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination) for more information.
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination) for more information.
             types (string, optional): An optional case-insensitive,
                 comma-separated list of object types to retrieve.  The valid
                 values are defined in the
-                [CatalogObjectType]($m/CatalogObjectType) enum, for example,
-                `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
-                `MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.  If this is
+                [CatalogObjectType](entity:CatalogObjectType) enum, for
+                example, `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`,
+                `TAX`, `MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.  If this is
                 unspecified, the operation returns objects of all the top
                 level types at the version of the Square API used to make the
                 request. Object types that are nested onto other object types

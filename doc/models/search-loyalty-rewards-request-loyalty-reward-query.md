@@ -11,7 +11,7 @@ The set of search requirements.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_account_id` | `string` | Required | The ID of the [loyalty account](../../doc/models/loyalty-account.md) to which the loyalty reward belongs.<br>**Constraints**: *Minimum Length*: `1` |
+| `loyalty_account_id` | `string` | Required | The ID of the [loyalty account](entity:LoyaltyAccount) to which the loyalty reward belongs.<br>**Constraints**: *Minimum Length*: `1` |
 | `status` | [`str (Loyalty Reward Status)`](../../doc/models/loyalty-reward-status.md) | Optional | The status of the loyalty reward. |
 
 ## Example (as JSON)
@@ -19,7 +19,7 @@ The set of search requirements.
 ```json
 {
   "loyalty_account_id": "loyalty_account_id0",
-  "status": null
+  "status": "DELETED"
 }
 ```
 

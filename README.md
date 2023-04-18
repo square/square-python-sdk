@@ -129,6 +129,8 @@ pytest
 * [Mobile Authorization]
 * [OAuth]
 
+### Webhook Subscriptions
+* [Webhook Subscriptions]
 ## Deprecated APIs
 
 The following Square APIs are [deprecated](https://developer.squareup.com/docs/build-basics/api-lifecycle):
@@ -181,3 +183,4 @@ The following Square APIs are [deprecated](https://developer.squareup.com/docs/b
 [Gift Card Activities]: doc/api/gift-card-activities.md
 [Employees]: doc/api/employees.md
 [Transactions]: doc/api/transactions.md
+[Webhook Subscriptions]: doc/api/webhook-subscriptions.md

@@ -10,8 +10,8 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `objects` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | A list of [CatalogObject](../../doc/models/catalog-object.md)s returned. |
-| `related_objects` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | A list of [CatalogObject](../../doc/models/catalog-object.md)s referenced by the object in the `objects` field. |
+| `objects` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | A list of [CatalogObject](entity:CatalogObject)s returned. |
+| `related_objects` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | A list of [CatalogObject](entity:CatalogObject)s referenced by the object in the `objects` field. |
 
 ## Example (as JSON)
 

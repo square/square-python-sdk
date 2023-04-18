@@ -49,20 +49,24 @@ def create_subscription(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = '8193148c-9586-11e6-99f9-28cfe92138cf'
-body['location_id'] = 'S8GWD5R9QB376'
-body['plan_id'] = '6JHXF3B2CW3YKHDV4XEM674H'
-body['customer_id'] = 'CHFGVKYY8RSV93M5KCYTG4PN0G'
-body['start_date'] = '2021-10-20'
-body['tax_percentage'] = '5'
-body['price_override_money'] = {}
-body['price_override_money']['amount'] = 100
-body['price_override_money']['currency'] = 'USD'
-body['card_id'] = 'ccof:qy5x8hHGYsgLrp4Q4GB'
-body['timezone'] = 'America/Los_Angeles'
+body = {
+    'location_id': 'S8GWD5R9QB376',
+    'plan_id': '6JHXF3B2CW3YKHDV4XEM674H',
+    'customer_id': 'CHFGVKYY8RSV93M5KCYTG4PN0G',
+    'idempotency_key': '8193148c-9586-11e6-99f9-28cfe92138cf',
+    'start_date': '2021-10-20',
+    'tax_percentage': '5',
+    'price_override_money': {
+        'amount': 100,
+        'currency': 'USD'
+    },
+    'card_id': 'ccof:qy5x8hHGYsgLrp4Q4GB',
+    'timezone': 'America/Los_Angeles',
+    'source': {}
+}
 
 result = subscriptions_api.create_subscription(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -109,14 +113,24 @@ def search_subscriptions(self,
 ## Example Usage
 
 ```python
-body = {}
-body['query'] = {}
-body['query']['filter'] = {}
-body['query']['filter']['customer_ids'] = ['CHFGVKYY8RSV93M5KCYTG4PN0G']
-body['query']['filter']['location_ids'] = ['S8GWD5R9QB376']
-body['query']['filter']['source_names'] = ['My App']
+body = {
+    'query': {
+        'filter': {
+            'customer_ids': [
+                'CHFGVKYY8RSV93M5KCYTG4PN0G'
+            ],
+            'location_ids': [
+                'S8GWD5R9QB376'
+            ],
+            'source_names': [
+                'My App'
+            ]
+        }
+    }
+}
 
 result = subscriptions_api.search_subscriptions(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -152,6 +166,7 @@ def retrieve_subscription(self,
 subscription_id = 'subscription_id0'
 
 result = subscriptions_api.retrieve_subscription(subscription_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -186,14 +201,22 @@ def update_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
-body = {}
-body['subscription'] = {}
-body['subscription']['price_override_money'] = {}
-body['subscription']['price_override_money']['amount'] = 2000
-body['subscription']['price_override_money']['currency'] = 'USD'
-body['subscription']['version'] = 1594155459464
 
-result = subscriptions_api.update_subscription(subscription_id, body)
+body = {
+    'subscription': {
+        'price_override_money': {
+            'amount': 2000,
+            'currency': 'USD'
+        },
+        'version': 1594155459464
+    }
+}
+
+result = subscriptions_api.update_subscription(
+    subscription_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -227,9 +250,14 @@ def delete_subscription_action(self,
 
 ```python
 subscription_id = 'subscription_id0'
+
 action_id = 'action_id6'
 
-result = subscriptions_api.delete_subscription_action(subscription_id, action_id)
+result = subscriptions_api.delete_subscription_action(
+    subscription_id,
+    action_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -265,6 +293,7 @@ def cancel_subscription(self,
 subscription_id = 'subscription_id0'
 
 result = subscriptions_api.cancel_subscription(subscription_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -302,6 +331,7 @@ def list_subscription_events(self,
 subscription_id = 'subscription_id0'
 
 result = subscriptions_api.list_subscription_events(subscription_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -335,9 +365,14 @@ def pause_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
+
 body = {}
 
-result = subscriptions_api.pause_subscription(subscription_id, body)
+result = subscriptions_api.pause_subscription(
+    subscription_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -371,9 +406,14 @@ def resume_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
+
 body = {}
 
-result = subscriptions_api.resume_subscription(subscription_id, body)
+result = subscriptions_api.resume_subscription(
+    subscription_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -407,10 +447,16 @@ def swap_plan(self,
 
 ```python
 subscription_id = 'subscription_id0'
-body = {}
-body['new_plan_id'] = None
 
-result = subscriptions_api.swap_plan(subscription_id, body)
+body = {
+    None
+}
+
+result = subscriptions_api.swap_plan(
+    subscription_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

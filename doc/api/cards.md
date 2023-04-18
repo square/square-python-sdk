@@ -34,7 +34,7 @@ def list_cards(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
+| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
 | `customer_id` | `string` | Query, Optional | Limit results to cards associated with the customer supplied.<br>By default, all cards owned by the merchant are returned. |
 | `include_disabled` | `bool` | Query, Optional | Includes disabled cards.<br>By default, all enabled cards owned by the merchant are returned.<br>**Default**: `False` |
 | `reference_id` | `string` | Query, Optional | Limit results to cards associated with the reference_id supplied. |
@@ -49,7 +49,10 @@ def list_cards(self,
 ```python
 include_disabled = False
 
-result = cards_api.list_cards(None, None, include_disabled)
+result = cards_api.list_cards(
+    include_disabled
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -80,22 +83,26 @@ def create_card(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = '4935a656-a929-4792-b97c-8848be85c27c'
-body['source_id'] = 'cnon:uIbfJXhXETSP197M3GB'
-body['card'] = {}
-body['card']['cardholder_name'] = 'Amelia Earhart'
-body['card']['billing_address'] = {}
-body['card']['billing_address']['address_line_1'] = '500 Electric Ave'
-body['card']['billing_address']['address_line_2'] = 'Suite 600'
-body['card']['billing_address']['locality'] = 'New York'
-body['card']['billing_address']['administrative_district_level_1'] = 'NY'
-body['card']['billing_address']['postal_code'] = '10003'
-body['card']['billing_address']['country'] = 'US'
-body['card']['customer_id'] = 'VDKXEEKPJN48QDG3BGGFAK05P8'
-body['card']['reference_id'] = 'user-id-1'
+body = {
+    'idempotency_key': '4935a656-a929-4792-b97c-8848be85c27c',
+    'source_id': 'cnon:uIbfJXhXETSP197M3GB',
+    'card': {
+        'cardholder_name': 'Amelia Earhart',
+        'billing_address': {
+            'address_line_1': '500 Electric Ave',
+            'address_line_2': 'Suite 600',
+            'locality': 'New York',
+            'administrative_district_level_1': 'NY',
+            'postal_code': '10003',
+            'country': 'US'
+        },
+        'customer_id': 'VDKXEEKPJN48QDG3BGGFAK05P8',
+        'reference_id': 'user-id-1'
+    }
+}
 
 result = cards_api.create_card(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -129,6 +136,7 @@ def retrieve_card(self,
 card_id = 'card_id4'
 
 result = cards_api.retrieve_card(card_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -163,6 +171,7 @@ def disable_card(self,
 card_id = 'card_id4'
 
 result = cards_api.disable_card(card_id)
+print(result)
 
 if result.is_success():
     print(result.body)

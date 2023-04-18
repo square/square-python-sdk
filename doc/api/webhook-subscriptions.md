@@ -43,6 +43,7 @@ def list_webhook_event_types(self,
 
 ```python
 result = webhook_subscriptions_api.list_webhook_event_types()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -68,8 +69,8 @@ def list_webhook_subscriptions(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
-| `include_disabled` | `bool` | Query, Optional | Includes disabled [Subscription](../../doc/models/webhook-subscription.md)s.<br>By default, all enabled [Subscription](../../doc/models/webhook-subscription.md)s are returned.<br>**Default**: `False` |
-| `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | Sorts the returned list by when the [Subscription](../../doc/models/webhook-subscription.md) was created with the specified order.<br>This field defaults to ASC. |
+| `include_disabled` | `bool` | Query, Optional | Includes disabled [Subscription](entity:WebhookSubscription)s.<br>By default, all enabled [Subscription](entity:WebhookSubscription)s are returned.<br>**Default**: `False` |
+| `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | Sorts the returned list by when the [Subscription](entity:WebhookSubscription) was created with the specified order.<br>This field defaults to ASC. |
 | `limit` | `int` | Query, Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br>The default value of 100 is also the maximum allowed value.<br><br>Default: 100 |
 
 ## Response Type
@@ -81,7 +82,10 @@ def list_webhook_subscriptions(self,
 ```python
 include_disabled = False
 
-result = webhook_subscriptions_api.list_webhook_subscriptions(None, include_disabled)
+result = webhook_subscriptions_api.list_webhook_subscriptions(
+    include_disabled
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -112,15 +116,21 @@ def create_webhook_subscription(self,
 ## Example Usage
 
 ```python
-body = {}
-body['idempotency_key'] = '63f84c6c-2200-4c99-846c-2670a1311fbf'
-body['subscription'] = {}
-body['subscription']['name'] = 'Example Webhook Subscription'
-body['subscription']['event_types'] = ['payment.created', 'payment.updated']
-body['subscription']['notification_url'] = 'https://example-webhook-url.com'
-body['subscription']['api_version'] = '2021-12-15'
+body = {
+    'subscription': {
+        'name': 'Example Webhook Subscription',
+        'event_types': [
+            'payment.created',
+            'payment.updated'
+        ],
+        'notification_url': 'https://example-webhook-url.com',
+        'api_version': '2021-12-15'
+    },
+    'idempotency_key': '63f84c6c-2200-4c99-846c-2670a1311fbf'
+}
 
 result = webhook_subscriptions_api.create_webhook_subscription(body)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -142,7 +152,7 @@ def delete_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](../../doc/models/webhook-subscription.md) to delete. |
+| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to delete. |
 
 ## Response Type
 
@@ -154,6 +164,7 @@ def delete_webhook_subscription(self,
 subscription_id = 'subscription_id0'
 
 result = webhook_subscriptions_api.delete_webhook_subscription(subscription_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -175,7 +186,7 @@ def retrieve_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](../../doc/models/webhook-subscription.md) to retrieve. |
+| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to retrieve. |
 
 ## Response Type
 
@@ -187,6 +198,7 @@ def retrieve_webhook_subscription(self,
 subscription_id = 'subscription_id0'
 
 result = webhook_subscriptions_api.retrieve_webhook_subscription(subscription_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -209,7 +221,7 @@ def update_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](../../doc/models/webhook-subscription.md) to update. |
+| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to update. |
 | `body` | [`Update Webhook Subscription Request`](../../doc/models/update-webhook-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -220,12 +232,19 @@ def update_webhook_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
-body = {}
-body['subscription'] = {}
-body['subscription']['name'] = 'Updated Example Webhook Subscription'
-body['subscription']['enabled'] = False
 
-result = webhook_subscriptions_api.update_webhook_subscription(subscription_id, body)
+body = {
+    'subscription': {
+        'name': 'Updated Example Webhook Subscription',
+        'enabled': False
+    }
+}
+
+result = webhook_subscriptions_api.update_webhook_subscription(
+    subscription_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -248,7 +267,7 @@ def update_webhook_subscription_signature_key(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](../../doc/models/webhook-subscription.md) to update. |
+| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to update. |
 | `body` | [`Update Webhook Subscription Signature Key Request`](../../doc/models/update-webhook-subscription-signature-key-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -259,10 +278,16 @@ def update_webhook_subscription_signature_key(self,
 
 ```python
 subscription_id = 'subscription_id0'
-body = {}
-body['idempotency_key'] = 'ed80ae6b-0654-473b-bbab-a39aee89a60d'
 
-result = webhook_subscriptions_api.update_webhook_subscription_signature_key(subscription_id, body)
+body = {
+    'idempotency_key': 'ed80ae6b-0654-473b-bbab-a39aee89a60d'
+}
+
+result = webhook_subscriptions_api.update_webhook_subscription_signature_key(
+    subscription_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -285,7 +310,7 @@ def test_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](../../doc/models/webhook-subscription.md) to test. |
+| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to test. |
 | `body` | [`Test Webhook Subscription Request`](../../doc/models/test-webhook-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -296,10 +321,16 @@ def test_webhook_subscription(self,
 
 ```python
 subscription_id = 'subscription_id0'
-body = {}
-body['event_type'] = 'payment.created'
 
-result = webhook_subscriptions_api.test_webhook_subscription(subscription_id, body)
+body = {
+    'event_type': 'payment.created'
+}
+
+result = webhook_subscriptions_api.test_webhook_subscription(
+    subscription_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)

@@ -27,6 +27,7 @@ def list_sites(self)
 
 ```python
 result = sites_api.list_sites()
+print(result)
 
 if result.is_success():
     print(result.body)

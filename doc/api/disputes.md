@@ -36,7 +36,7 @@ def list_disputes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
+| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `states` | [`str (Dispute State)`](../../doc/models/dispute-state.md) | Query, Optional | The dispute states used to filter the result. If not specified, the endpoint returns all disputes. |
 | `location_id` | `string` | Query, Optional | The ID of the location for which to return a list of disputes.<br>If not specified, the endpoint returns disputes associated with all locations. |
 
@@ -48,6 +48,7 @@ def list_disputes(self,
 
 ```python
 result = disputes_api.list_disputes()
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -81,6 +82,7 @@ def retrieve_dispute(self,
 dispute_id = 'dispute_id2'
 
 result = disputes_api.retrieve_dispute(dispute_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -118,6 +120,7 @@ def accept_dispute(self,
 dispute_id = 'dispute_id2'
 
 result = disputes_api.accept_dispute(dispute_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -153,6 +156,7 @@ def list_dispute_evidence(self,
 dispute_id = 'dispute_id2'
 
 result = disputes_api.list_dispute_evidence(dispute_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -191,6 +195,7 @@ def create_dispute_evidence_file(self,
 dispute_id = 'dispute_id2'
 
 result = disputes_api.create_dispute_evidence_file(dispute_id)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -224,12 +229,18 @@ def create_dispute_evidence_text(self,
 
 ```python
 dispute_id = 'dispute_id2'
-body = {}
-body['idempotency_key'] = 'ed3ee3933d946f1514d505d173c82648'
-body['evidence_type'] = 'TRACKING_NUMBER'
-body['evidence_text'] = '1Z8888888888888888'
 
-result = disputes_api.create_dispute_evidence_text(dispute_id, body)
+body = {
+    'idempotency_key': 'ed3ee3933d946f1514d505d173c82648',
+    'evidence_text': '1Z8888888888888888',
+    'evidence_type': 'TRACKING_NUMBER'
+}
+
+result = disputes_api.create_dispute_evidence_text(
+    dispute_id,
+    body
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -264,9 +275,14 @@ def delete_dispute_evidence(self,
 
 ```python
 dispute_id = 'dispute_id2'
+
 evidence_id = 'evidence_id2'
 
-result = disputes_api.delete_dispute_evidence(dispute_id, evidence_id)
+result = disputes_api.delete_dispute_evidence(
+    dispute_id,
+    evidence_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -302,9 +318,14 @@ def retrieve_dispute_evidence(self,
 
 ```python
 dispute_id = 'dispute_id2'
+
 evidence_id = 'evidence_id2'
 
-result = disputes_api.retrieve_dispute_evidence(dispute_id, evidence_id)
+result = disputes_api.retrieve_dispute_evidence(
+    dispute_id,
+    evidence_id
+)
+print(result)
 
 if result.is_success():
     print(result.body)
@@ -344,6 +365,7 @@ def submit_evidence(self,
 dispute_id = 'dispute_id2'
 
 result = disputes_api.submit_evidence(dispute_id)
+print(result)
 
 if result.is_success():
     print(result.body)

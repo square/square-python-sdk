@@ -31,11 +31,11 @@ class GiftCardsApi(BaseApi):
         ascending order.
 
         Args:
-            mtype (string, optional): If a [type]($m/GiftCardType) is
+            mtype (string, optional): If a [type](entity:GiftCardType) is
                 provided, the endpoint returns gift cards of the specified
                 type. Otherwise, the endpoint returns gift cards of all
                 types.
-            state (string, optional): If a [state]($m/GiftCardStatus) is
+            state (string, optional): If a [state](entity:GiftCardStatus) is
                 provided, the endpoint returns the gift cards in the specified
                 state. Otherwise, the endpoint returns the gift cards of all
                 states.

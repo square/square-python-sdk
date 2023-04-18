@@ -447,7 +447,7 @@ class OrderCustomAttributesApi(BaseApi):
         and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order]($m/Order).
+            order_id (string): The ID of the target [order](entity:Order).
             visibility_filter (VisibilityFilter, optional): Requests that all
                 of the custom attributes be returned, or only those that are
                 read-only or read-write.
@@ -465,8 +465,9 @@ class OrderCustomAttributesApi(BaseApi):
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
             with_definitions (bool, optional): Indicates whether to return the
-                [custom attribute definition]($m/CustomAttributeDefinition) in
-                the `definition` field of each custom attribute. Set this
+                [custom attribute
+                definition](entity:CustomAttributeDefinition) in the
+                `definition` field of each custom attribute. Set this
                 parameter to `true` to get the name and description of each
                 custom attribute,  information about the data type, or other
                 definition details. The default value is `false`.
@@ -529,7 +530,7 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order]($m/Order).
+            order_id (string): The ID of the target [order](entity:Order).
             custom_attribute_key (string): The key of the custom attribute to
                 delete.  This key must match the key of an existing custom
                 attribute definition.
@@ -589,7 +590,7 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order]($m/Order).
+            order_id (string): The ID of the target [order](entity:Order).
             custom_attribute_key (string): The key of the custom attribute to
                 retrieve.  This key must match the key of an existing custom
                 attribute definition.
@@ -599,8 +600,9 @@ class OrderCustomAttributesApi(BaseApi):
                 this optional field and specify the current version of the
                 custom attribute.
             with_definition (bool, optional): Indicates whether to return the
-                [custom attribute definition]($m/CustomAttributeDefinition) in
-                the `definition` field of each  custom attribute. Set this
+                [custom attribute
+                definition](entity:CustomAttributeDefinition) in the
+                `definition` field of each  custom attribute. Set this
                 parameter to `true` to get the name and description of each
                 custom attribute,  information about the data type, or other
                 definition details. The default value is `false`.
@@ -669,7 +671,7 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order]($m/Order).
+            order_id (string): The ID of the target [order](entity:Order).
             custom_attribute_key (string): The key of the custom attribute to
                 create or update.  This key must match the key  of an existing
                 custom attribute definition.

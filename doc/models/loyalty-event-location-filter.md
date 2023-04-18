@@ -11,7 +11,7 @@ Filter events by location.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_ids` | `List of string` | Required | The [location](../../doc/models/location.md) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses<br>a logical OR to combine them. |
+| `location_ids` | `List of string` | Required | The [location](entity:Location) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses<br>a logical OR to combine them. |
 
 ## Example (as JSON)
 

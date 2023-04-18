@@ -28,14 +28,14 @@ class PayoutsApi(BaseApi):
                      limit=None):
         """Does a GET request to /v2/payouts.
 
-        Retrieves a list of all payouts for the default location. 
+        Retrieves a list of all payouts for the default location.
         You can filter payouts by location ID, status, time range, and order
-        them in ascending or descending order. 
+        them in ascending or descending order.
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
 
         Args:
             location_id (string, optional): The ID of the location for which
-                to list the payouts.  By default, payouts are returned for the
+                to list the payouts. By default, payouts are returned for the
                 default (main) location associated with the seller.
             status (PayoutStatus, optional): If provided, only payouts with
                 the given status are returned.
@@ -51,9 +51,10 @@ class PayoutsApi(BaseApi):
                 previous call to this endpoint. Provide this cursor to
                 retrieve the next set of results for the original query. For
                 more information, see
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination). If request parameters change between requests,
-                subsequent results may contain duplicates or missing records.
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination). If request parameters change
+                between requests, subsequent results may contain duplicates or
+                missing records.
             limit (int, optional): The maximum number of results to be
                 returned in a single page. It is possible to receive fewer
                 results than the specified limit on a given page. The default
@@ -113,7 +114,7 @@ class PayoutsApi(BaseApi):
                    payout_id):
         """Does a GET request to /v2/payouts/{payout_id}.
 
-        Retrieves details of a specific payout identified by a payout ID. 
+        Retrieves details of a specific payout identified by a payout ID.
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
 
         Args:
@@ -170,9 +171,10 @@ class PayoutsApi(BaseApi):
                 previous call to this endpoint. Provide this cursor to
                 retrieve the next set of results for the original query. For
                 more information, see
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination). If request parameters change between requests,
-                subsequent results may contain duplicates or missing records.
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination). If request parameters change
+                between requests, subsequent results may contain duplicates or
+                missing records.
             limit (int, optional): The maximum number of results to be
                 returned in a single page. It is possible to receive fewer
                 results than the specified limit on a given page. The default
