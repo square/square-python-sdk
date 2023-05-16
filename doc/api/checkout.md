@@ -74,17 +74,26 @@ body = {
                             'discount_uid': '56ae1696-z1e3-9328-af6d-f1e04d947gd4'
                         }
                     ],
-                    'base_price_money': {}
+                    'base_price_money': {
+                        'amount': 1500,
+                        'currency': 'USD'
+                    }
                 },
                 {
                     'quantity': '1',
                     'name': 'Slim Jeans',
-                    'base_price_money': {}
+                    'base_price_money': {
+                        'amount': 2500,
+                        'currency': 'USD'
+                    }
                 },
                 {
                     'quantity': '3',
                     'name': 'Woven Sweater',
-                    'base_price_money': {}
+                    'base_price_money': {
+                        'amount': 3500,
+                        'currency': 'USD'
+                    }
                 }
             ],
             'taxes': [
@@ -99,7 +108,10 @@ body = {
                 {
                     'uid': '56ae1696-z1e3-9328-af6d-f1e04d947gd4',
                     'type': 'FIXED_AMOUNT',
-                    'amount_money': {},
+                    'amount_money': {
+                        'amount': 100,
+                        'currency': 'USD'
+                    },
                     'scope': 'LINE_ITEM'
                 }
             ]

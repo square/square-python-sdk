@@ -1,9 +1,9 @@
 
-# Square Event Data
+# Event Data
 
 ## Structure
 
-`Square Event Data`
+`Event Data`
 
 ## Fields
 

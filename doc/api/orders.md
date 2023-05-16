@@ -56,7 +56,10 @@ body = {
             {
                 'quantity': '1',
                 'name': 'New York Strip Steak',
-                'base_price_money': {}
+                'base_price_money': {
+                    'amount': 1599,
+                    'currency': 'USD'
+                }
             },
             {
                 'quantity': '2',
@@ -96,7 +99,10 @@ body = {
             {
                 'uid': 'one-dollar-off',
                 'name': 'Sale - $1.00 off',
-                'amount_money': {},
+                'amount_money': {
+                    'amount': 100,
+                    'currency': 'USD'
+                },
                 'scope': 'LINE_ITEM'
             }
         ]
@@ -185,12 +191,18 @@ body = {
             {
                 'quantity': '1',
                 'name': 'Item 1',
-                'base_price_money': {}
+                'base_price_money': {
+                    'amount': 500,
+                    'currency': 'USD'
+                }
             },
             {
                 'quantity': '2',
                 'name': 'Item 2',
-                'base_price_money': {}
+                'base_price_money': {
+                    'amount': 300,
+                    'currency': 'USD'
+                }
             }
         ],
         'discounts': [
@@ -303,7 +315,10 @@ body = {
                 ]
             },
             'date_time_filter': {
-                'closed_at': {}
+                'closed_at': {
+                    'start_at': '2018-03-03T20:00:00+00:00',
+                    'end_at': '2019-03-04T21:54:45+00:00'
+                }
             }
         },
         'sort': {

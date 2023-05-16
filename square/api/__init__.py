@@ -28,6 +28,7 @@ __all__ = [
     'transactions_api',
     'loyalty_api',
     'merchants_api',
+    'merchant_custom_attributes_api',
     'orders_api',
     'order_custom_attributes_api',
     'payments_api',
