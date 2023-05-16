@@ -23,6 +23,9 @@ end based on summing all cash drawer shift events.
 | `opened_cash_money` | [`Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `expected_cash_money` | [`Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `closed_cash_money` | [`Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+| `created_at` | `string` | Optional | The shift start time in RFC 3339 format. |
+| `updated_at` | `string` | Optional | The shift updated at time in RFC 3339 format. |
+| `location_id` | `string` | Optional | The ID of the location the cash drawer shift belongs to. |
 
 ## Example (as JSON)
 
@@ -32,20 +35,7 @@ end based on summing all cash drawer shift events.
   "state": "CLOSED",
   "opened_at": "opened_at8",
   "ended_at": "ended_at2",
-  "closed_at": "closed_at2",
-  "description": "description0",
-  "opened_cash_money": {
-    "amount": 158,
-    "currency": "SBD"
-  },
-  "expected_cash_money": {
-    "amount": 68,
-    "currency": "CHF"
-  },
-  "closed_cash_money": {
-    "amount": 12,
-    "currency": "MRO"
-  }
+  "closed_at": "closed_at2"
 }
 ```
 

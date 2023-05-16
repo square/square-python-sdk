@@ -23,14 +23,15 @@ class MerchantsApi(BaseApi):
         """Does a GET request to /v2/merchants.
 
         Provides details about the merchant associated with a given access
-        token. 
+        token.
         The access token used to connect your application to a Square seller
-        is associated 
-        with a single merchant. That means that `ListMerchants` returns a list
-                with a single `Merchant` object. You can specify your personal access
-        token 
+        is associated
+        with a single merchant. That means that `ListMerchants` returns a
+        list
+        with a single `Merchant` object. You can specify your personal access
+        token
         to get your own merchant information or specify an OAuth token to get
-        the 
+        the
         information for the merchant that granted your application access.
         If you know the merchant ID, you can also use the
         [RetrieveMerchant]($e/Merchants/RetrieveMerchant)

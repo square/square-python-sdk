@@ -73,8 +73,8 @@ class WebhookSubscriptionsApi(BaseApi):
                 previous call to this endpoint. Provide this to retrieve the
                 next set of results for your original query.  For more
                 information, see
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination).
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
             include_disabled (bool, optional): Includes disabled
                 [Subscription](entity:WebhookSubscription)s. By default, all
                 enabled [Subscription](entity:WebhookSubscription)s are
