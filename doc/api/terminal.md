@@ -14,6 +14,7 @@ terminal_api = client.terminal
 * [Search Terminal Actions](../../doc/api/terminal.md#search-terminal-actions)
 * [Get Terminal Action](../../doc/api/terminal.md#get-terminal-action)
 * [Cancel Terminal Action](../../doc/api/terminal.md#cancel-terminal-action)
+* [Dismiss Terminal Action](../../doc/api/terminal.md#dismiss-terminal-action)
 * [Create Terminal Checkout](../../doc/api/terminal.md#create-terminal-checkout)
 * [Search Terminal Checkouts](../../doc/api/terminal.md#search-terminal-checkouts)
 * [Get Terminal Checkout](../../doc/api/terminal.md#get-terminal-checkout)
@@ -128,7 +129,7 @@ def get_terminal_action(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction`. |
 
 ## Response Type
 
@@ -162,7 +163,7 @@ def cancel_terminal_action(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction`. |
 
 ## Response Type
 
@@ -174,6 +175,42 @@ def cancel_terminal_action(self,
 action_id = 'action_id6'
 
 result = terminal_api.cancel_terminal_action(action_id)
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Dismiss Terminal Action
+
+Dismisses a Terminal action request if the status and type of the request permits it.
+
+See [Link and Dismiss Actions](https://developer.squareup.com/docs/terminal-api/advanced-features/custom-workflows/link-and-dismiss-actions) for more details.
+
+```python
+def dismiss_terminal_action(self,
+                           action_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `action_id` | `string` | Template, Required | Unique ID for the `TerminalAction` associated with the waiting dialog to be dismissed. |
+
+## Response Type
+
+[`Dismiss Terminal Action Response`](../../doc/models/dismiss-terminal-action-response.md)
+
+## Example Usage
+
+```python
+action_id = 'action_id6'
+
+result = terminal_api.dismiss_terminal_action(action_id)
 print(result)
 
 if result.is_success():

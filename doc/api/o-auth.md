@@ -37,7 +37,7 @@ following format:
 Authorization: Client APPLICATION_SECRET
 ```
 
-Replace `APPLICATION_SECRET` with the application secret on the Credentials
+Replace `APPLICATION_SECRET` with the application secret on the **Credentials**
 page in the [Developer Dashboard](https://developer.squareup.com/apps).
 
 :information_source: **Note** This endpoint does not require authentication.
@@ -53,7 +53,7 @@ def renew_token(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `client_id` | `string` | Template, Required | Your application ID, which is available in the OAuth page in the [Developer Dashboard](https://developer.squareup.com/apps). |
+| `client_id` | `string` | Template, Required | Your application ID, which is available on the **OAuth** page in the [Developer Dashboard](https://developer.squareup.com/apps). |
 | `body` | [`Renew Token Request`](../../doc/models/renew-token-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 | `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
 
@@ -102,8 +102,8 @@ following format:
 Authorization: Client APPLICATION_SECRET
 ```
 
-Replace `APPLICATION_SECRET` with the application secret on the OAuth
-page for your application on the Developer Dashboard.
+Replace `APPLICATION_SECRET` with the application secret on the **OAuth**
+page for your application in the Developer Dashboard.
 
 :information_source: **Note** This endpoint does not require authentication.
 
@@ -156,7 +156,7 @@ returns only an access token.
 The `grant_type` parameter specifies the type of OAuth request. If
 `grant_type` is `authorization_code`, you must include the authorization
 code you received when a seller granted you authorization. If `grant_type`
-is `refresh_token`, you must provide a valid refresh token. If you are using
+is `refresh_token`, you must provide a valid refresh token. If you're using
 an old version of the Square APIs (prior to March 13, 2019), `grant_type`
 can be `migration_token` and you must provide a valid migration token.
 

@@ -117,7 +117,7 @@ class TerminalApi(BaseApi):
         requests are available for 30 days.
 
         Args:
-            action_id (string): Unique ID for the desired `TerminalAction`
+            action_id (string): Unique ID for the desired `TerminalAction`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -158,7 +158,7 @@ class TerminalApi(BaseApi):
         it.
 
         Args:
-            action_id (string): Unique ID for the desired `TerminalAction`
+            action_id (string): Unique ID for the desired `TerminalAction`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -175,6 +175,51 @@ class TerminalApi(BaseApi):
         return super().new_api_call_builder.request(
             RequestBuilder().server('default')
             .path('/v2/terminals/actions/{action_id}/cancel')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('action_id')
+                            .value(action_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def dismiss_terminal_action(self,
+                                action_id):
+        """Does a POST request to /v2/terminals/actions/{action_id}/dismiss.
+
+        Dismisses a Terminal action request if the status and type of the
+        request permits it.
+        See [Link and Dismiss
+        Actions](https://developer.squareup.com/docs/terminal-api/advanced-feat
+        ures/custom-workflows/link-and-dismiss-actions) for more details.
+
+        Args:
+            action_id (string): Unique ID for the `TerminalAction` associated
+                with the waiting dialog to be dismissed.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/terminals/actions/{action_id}/dismiss')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                             .key('action_id')
