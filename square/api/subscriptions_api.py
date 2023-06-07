@@ -22,15 +22,18 @@ class SubscriptionsApi(BaseApi):
                             body):
         """Does a POST request to /v2/subscriptions.
 
-        Creates a subscription to a subscription plan by a customer.
+        Enrolls a customer in a subscription.
         If you provide a card on file in the request, Square charges the card
         for
-        the subscription. Otherwise, Square bills an invoice to the customer's
+        the subscription. Otherwise, Square sends an invoice to the customer's
         email
         address. The subscription starts immediately, unless the request
         includes
         the optional `start_date`. Each individual subscription is associated
         with a particular location.
+        For more information, see [Create a
+        subscription](https://developer.squareup.com/docs/subscriptions-api/man
+        age-subscriptions#create-a-subscription).
 
         Args:
             body (CreateSubscriptionRequest): An object containing the fields
@@ -87,10 +90,6 @@ class SubscriptionsApi(BaseApi):
         If the request specifies customer IDs, the endpoint orders results
         first by location, within location by customer ID, and within
         customer by subscription creation date.
-        For more information, see
-        [Retrieve
-        subscriptions](https://developer.squareup.com/docs/subscriptions-api/ov
-        erview#retrieve-subscriptions).
 
         Args:
             body (SearchSubscriptionsRequest): An object containing the fields
@@ -135,7 +134,7 @@ class SubscriptionsApi(BaseApi):
                               include=None):
         """Does a GET request to /v2/subscriptions/{subscription_id}.
 
-        Retrieves a subscription.
+        Retrieves a specific subscription.
 
         Args:
             subscription_id (string): The ID of the subscription to retrieve.
@@ -183,8 +182,9 @@ class SubscriptionsApi(BaseApi):
                             body):
         """Does a PUT request to /v2/subscriptions/{subscription_id}.
 
-        Updates a subscription. You can set, modify, and clear the
-        `subscription` field values.
+        Updates a subscription by modifying or clearing `subscription` field
+        values.
+        To clear a field, set its value to `null`.
 
         Args:
             subscription_id (string): The ID of the subscription to update.
@@ -280,11 +280,10 @@ class SubscriptionsApi(BaseApi):
                             subscription_id):
         """Does a POST request to /v2/subscriptions/{subscription_id}/cancel.
 
-        Schedules a `CANCEL` action to cancel an active subscription 
-        by setting the `canceled_date` field to the end of the active billing
-        period 
-        and changing the subscription status from ACTIVE to CANCELED after
-        this date.
+        Schedules a `CANCEL` action to cancel an active subscription. This 
+        sets the `canceled_date` field to the end of the active billing
+        period. After this date, 
+        the subscription status changes from ACTIVE to CANCELED.
 
         Args:
             subscription_id (string): The ID of the subscription to cancel.
@@ -326,7 +325,9 @@ class SubscriptionsApi(BaseApi):
                                  limit=None):
         """Does a GET request to /v2/subscriptions/{subscription_id}/events.
 
-        Lists all events for a specific subscription.
+        Lists all
+        [events](https://developer.squareup.com/docs/subscriptions-api/actions-
+        events) for a specific subscription.
 
         Args:
             subscription_id (string): The ID of the subscription to retrieve
@@ -337,8 +338,8 @@ class SubscriptionsApi(BaseApi):
                 fetch the next set of results. If the cursor is unset, the
                 response contains the last page of the results.  For more
                 information, see
-                [Pagination](https://developer.squareup.com/docs/working-with-a
-                pis/pagination).
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
             limit (int, optional): The upper limit on the number of
                 subscription events to return in a paged response.
 
@@ -485,8 +486,11 @@ class SubscriptionsApi(BaseApi):
                   body):
         """Does a POST request to /v2/subscriptions/{subscription_id}/swap-plan.
 
-        Schedules a `SWAP_PLAN` action to swap a subscription plan in an
-        existing subscription.
+        Schedules a `SWAP_PLAN` action to swap a subscription plan variation
+        in an existing subscription. 
+        For more information, see [Swap Subscription Plan
+        Variations](https://developer.squareup.com/docs/subscriptions-api/swap-
+        plan-variations).
 
         Args:
             subscription_id (string): The ID of the subscription to swap the
