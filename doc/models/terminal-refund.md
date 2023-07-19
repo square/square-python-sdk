@@ -24,7 +24,7 @@ Represents a payment refund processed by the Square Terminal. Only supports Inte
 | `created_at` | `string` | Optional | The time when the `TerminalRefund` was created, as an RFC 3339 timestamp. |
 | `updated_at` | `string` | Optional | The time when the `TerminalRefund` was last updated, as an RFC 3339 timestamp. |
 | `app_id` | `string` | Optional | The ID of the application that created the refund. |
-| `location_id` | `string` | Optional | The location of the device where the `TerminalRefund` was directed. |
+| `location_id` | `string` | Optional | The location of the device where the `TerminalRefund` was directed.<br>**Constraints**: *Maximum Length*: `64` |
 
 ## Example (as JSON)
 
@@ -36,7 +36,7 @@ Represents a payment refund processed by the Square Terminal. Only supports Inte
   "order_id": "order_id6",
   "amount_money": {
     "amount": 186,
-    "currency": "NGN"
+    "currency": "TZS"
   },
   "reason": "reason4",
   "device_id": "device_id6",

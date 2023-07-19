@@ -55,18 +55,19 @@ body = {
     'location_id': 'S8GWD5R9QB376',
     'customer_id': 'CHFGVKYY8RSV93M5KCYTG4PN0G',
     'idempotency_key': '8193148c-9586-11e6-99f9-28cfe92138cf',
-    'plan_id': '6JHXF3B2CW3YKHDV4XEM674H',
-    'start_date': '2021-10-20',
-    'tax_percentage': '5',
-    'price_override_money': {
-        'amount': 100,
-        'currency': 'USD'
-    },
+    'plan_variation_id': '6JHXF3B2CW3YKHDV4XEM674H',
+    'start_date': '2023-06-20',
     'card_id': 'ccof:qy5x8hHGYsgLrp4Q4GB',
     'timezone': 'America/Los_Angeles',
     'source': {
-        'name': 'My App'
-    }
+        'name': 'My Application'
+    },
+    'phases': [
+        {
+            'ordinal': 0,
+            'order_template_id': 'U2NaowWxzXwpsZU697x7ZHOAnCNZY'
+        }
+    ]
 }
 
 result = subscriptions_api.create_subscription(body)
@@ -444,7 +445,15 @@ def swap_plan(self,
 ```python
 subscription_id = 'subscription_id0'
 
-body = {}
+body = {
+    'new_plan_variation_id': 'FQ7CDXXWSLUJRPM3GFJSJGZ7',
+    'phases': [
+        {
+            'ordinal': 0,
+            'order_template_id': 'uhhnjH9osVv3shUADwaC0b3hNxQZY'
+        }
+    ]
+}
 
 result = subscriptions_api.swap_plan(
     subscription_id,

@@ -23,7 +23,8 @@ class CustomersApi(BaseApi):
                        cursor=None,
                        limit=None,
                        sort_field=None,
-                       sort_order=None):
+                       sort_order=None,
+                       count=False):
         """Does a GET request to /v2/customers.
 
         Lists customer profiles associated with a Square account.
@@ -54,6 +55,9 @@ class CustomersApi(BaseApi):
             sort_order (SortOrder, optional): Indicates whether customers
                 should be sorted in ascending (`ASC`) or descending (`DESC`)
                 order.  The default value is `ASC`.
+            count (bool, optional): Indicates whether to return the total
+                count of customers in the `count` field of the response.  The
+                default value is `false`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -83,6 +87,9 @@ class CustomersApi(BaseApi):
             .query_param(Parameter()
                          .key('sort_order')
                          .value(sort_order))
+            .query_param(Parameter()
+                         .key('count')
+                         .value(count))
             .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))
