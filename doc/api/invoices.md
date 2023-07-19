@@ -116,7 +116,8 @@ body = {
             'card': True,
             'square_gift_card': False,
             'bank_account': False,
-            'buy_now_pay_later': False
+            'buy_now_pay_later': False,
+            'cash_app_pay': False
         },
         'custom_fields': [
             {

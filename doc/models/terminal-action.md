@@ -19,6 +19,7 @@ Represents an action processed by the Square Terminal.
 | `created_at` | `string` | Optional | The time when the `TerminalAction` was created as an RFC 3339 timestamp. |
 | `updated_at` | `string` | Optional | The time when the `TerminalAction` was last updated as an RFC 3339 timestamp. |
 | `app_id` | `string` | Optional | The ID of the application that created the action. |
+| `location_id` | `string` | Optional | The location id the action is attached to, if a link can be made.<br>**Constraints**: *Maximum Length*: `64` |
 | `type` | [`str (Terminal Action Action Type)`](../../doc/models/terminal-action-action-type.md) | Optional | Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum. |
 | `qr_code_options` | [`Qr Code Options`](../../doc/models/qr-code-options.md) | Optional | Fields to describe the action that displays QR-Codes. |
 | `save_card_options` | [`Save Card Options`](../../doc/models/save-card-options.md) | Optional | Describes save-card action fields. |

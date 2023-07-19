@@ -41,7 +41,7 @@ class Configuration(HttpClientConfiguration):
         retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
         retry_methods=['GET', 'PUT'], environment='production',
         custom_url='https://connect.squareup.com', access_token='',
-        square_version='2023-06-08', additional_headers={},
+        square_version='2023-07-20', additional_headers={},
         user_agent_detail=''
     ):
         super().__init__(http_client_instance, override_http_client_configuration, http_call_back, timeout, max_retries,
