@@ -41,12 +41,12 @@ def create_checkout(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the business location to associate the checkout with. |
+| `location_id` | `str` | Template, Required | The ID of the business location to associate the checkout with. |
 | `body` | [`Create Checkout Request`](../../doc/models/create-checkout-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Create Checkout Response`](../../doc/models/create-checkout-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Checkout Response`](../../doc/models/create-checkout-response.md).
 
 ## Example Usage
 
@@ -171,12 +171,12 @@ def list_payment_links(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>If a cursor is not provided, the endpoint returns the first page of the results.<br>For more  information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>If a cursor is not provided, the endpoint returns the first page of the results.<br>For more  information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
 | `limit` | `int` | Query, Optional | A limit on the number of results to return per page. The limit is advisory and<br>the implementation might return more or less results. If the supplied limit is negative, zero, or<br>greater than the maximum limit of 1000, it is ignored.<br><br>Default value: `100` |
 
 ## Response Type
 
-[`List Payment Links Response`](../../doc/models/list-payment-links-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Payment Links Response`](../../doc/models/list-payment-links-response.md).
 
 ## Example Usage
 
@@ -208,7 +208,7 @@ def create_payment_link(self,
 
 ## Response Type
 
-[`Create Payment Link Response`](../../doc/models/create-payment-link-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Payment Link Response`](../../doc/models/create-payment-link-response.md).
 
 ## Example Usage
 
@@ -248,11 +248,11 @@ def delete_payment_link(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the payment link to delete. |
+| `id` | `str` | Template, Required | The ID of the payment link to delete. |
 
 ## Response Type
 
-[`Delete Payment Link Response`](../../doc/models/delete-payment-link-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Payment Link Response`](../../doc/models/delete-payment-link-response.md).
 
 ## Example Usage
 
@@ -282,11 +282,11 @@ def retrieve_payment_link(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of link to retrieve. |
+| `id` | `str` | Template, Required | The ID of link to retrieve. |
 
 ## Response Type
 
-[`Retrieve Payment Link Response`](../../doc/models/retrieve-payment-link-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Payment Link Response`](../../doc/models/retrieve-payment-link-response.md).
 
 ## Example Usage
 
@@ -319,12 +319,12 @@ def update_payment_link(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the payment link to update. |
+| `id` | `str` | Template, Required | The ID of the payment link to update. |
 | `body` | [`Update Payment Link Request`](../../doc/models/update-payment-link-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Payment Link Response`](../../doc/models/update-payment-link-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Payment Link Response`](../../doc/models/update-payment-link-response.md).
 
 ## Example Usage
 

@@ -37,9 +37,9 @@ class BookingCustomAttributesApi(BaseApi):
                 more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
-            cursor (string, optional): The cursor returned in the paged
-                response from the previous call to this endpoint. Provide this
-                cursor to retrieve the next page of results for your original
+            cursor (str, optional): The cursor returned in the paged response
+                from the previous call to this endpoint. Provide this cursor
+                to retrieve the next page of results for your original
                 request. For more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
@@ -144,8 +144,7 @@ class BookingCustomAttributesApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                delete.
+            key (str): The key of the custom attribute definition to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -190,9 +189,9 @@ class BookingCustomAttributesApi(BaseApi):
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                retrieve. If the requesting application is not the definition
-                owner, you must use the qualified key.
+            key (str): The key of the custom attribute definition to retrieve.
+                If the requesting application is not the definition owner, you
+                must use the qualified key.
             version (int, optional): The current version of the custom
                 attribute definition, which is used for strongly consistent
                 reads to guarantee that you receive the most up-to-date data.
@@ -251,8 +250,7 @@ class BookingCustomAttributesApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                update.
+            key (str): The key of the custom attribute definition to update.
             body (UpdateBookingCustomAttributeDefinitionRequest): An object
                 containing the fields to POST for the request.  See the
                 corresponding object definition for field details.
@@ -412,8 +410,7 @@ class BookingCustomAttributesApi(BaseApi):
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
-            booking_id (string): The ID of the target
-                [booking](entity:Booking).
+            booking_id (str): The ID of the target [booking](entity:Booking).
             limit (int, optional): The maximum number of results to return in
                 a single paged response. This limit is advisory. The response
                 might contain more or fewer results. The minimum value is 1
@@ -421,9 +418,9 @@ class BookingCustomAttributesApi(BaseApi):
                 more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
-            cursor (string, optional): The cursor returned in the paged
-                response from the previous call to this endpoint. Provide this
-                cursor to retrieve the next page of results for your original
+            cursor (str, optional): The cursor returned in the paged response
+                from the previous call to this endpoint. Provide this cursor
+                to retrieve the next page of results for your original
                 request. For more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
@@ -491,9 +488,8 @@ class BookingCustomAttributesApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            booking_id (string): The ID of the target
-                [booking](entity:Booking).
-            key (string): The key of the custom attribute to delete. This key
+            booking_id (str): The ID of the target [booking](entity:Booking).
+            key (str): The key of the custom attribute to delete. This key
                 must match the `key` of a custom attribute definition in the
                 Square seller account. If the requesting application is not
                 the definition owner, you must use the qualified key.
@@ -547,12 +543,11 @@ class BookingCustomAttributesApi(BaseApi):
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
-            booking_id (string): The ID of the target
-                [booking](entity:Booking).
-            key (string): The key of the custom attribute to retrieve. This
-                key must match the `key` of a custom attribute definition in
-                the Square seller account. If the requesting application is
-                not the definition owner, you must use the qualified key.
+            booking_id (str): The ID of the target [booking](entity:Booking).
+            key (str): The key of the custom attribute to retrieve. This key
+                must match the `key` of a custom attribute definition in the
+                Square seller account. If the requesting application is not
+                the definition owner, you must use the qualified key.
             with_definition (bool, optional): Indicates whether to return the
                 [custom attribute
                 definition](entity:CustomAttributeDefinition) in the
@@ -626,9 +621,8 @@ class BookingCustomAttributesApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            booking_id (string): The ID of the target
-                [booking](entity:Booking).
-            key (string): The key of the custom attribute to create or update.
+            booking_id (str): The ID of the target [booking](entity:Booking).
+            key (str): The key of the custom attribute to create or update.
                 This key must match the `key` of a custom attribute definition
                 in the Square seller account. If the requesting application is
                 not the definition owner, you must use the qualified key.

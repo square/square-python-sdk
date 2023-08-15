@@ -43,11 +43,11 @@ def list_location_custom_attribute_definitions(self,
 |  --- | --- | --- | --- |
 | `visibility_filter` | [`str (Visibility Filter)`](../../doc/models/visibility-filter.md) | Query, Optional | Filters the `CustomAttributeDefinition` results by their `visibility` values. |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Response Type
 
-[`List Location Custom Attribute Definitions Response`](../../doc/models/list-location-custom-attribute-definitions-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Location Custom Attribute Definitions Response`](../../doc/models/list-location-custom-attribute-definitions-response.md).
 
 ## Example Usage
 
@@ -85,7 +85,7 @@ def create_location_custom_attribute_definition(self,
 
 ## Response Type
 
-[`Create Location Custom Attribute Definition Response`](../../doc/models/create-location-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Location Custom Attribute Definition Response`](../../doc/models/create-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -125,11 +125,11 @@ def delete_location_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to delete. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to delete. |
 
 ## Response Type
 
-[`Delete Location Custom Attribute Definition Response`](../../doc/models/delete-location-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Location Custom Attribute Definition Response`](../../doc/models/delete-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -162,12 +162,12 @@ def retrieve_location_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to retrieve. If the requesting application<br>is not the definition owner, you must use the qualified key. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to retrieve. If the requesting application<br>is not the definition owner, you must use the qualified key. |
 | `version` | `int` | Query, Optional | The current version of the custom attribute definition, which is used for strongly consistent<br>reads to guarantee that you receive the most up-to-date data. When included in the request,<br>Square returns the specified version or a higher version if one exists. If the specified version<br>is higher than the current version, Square returns a `BAD_REQUEST` error. |
 
 ## Response Type
 
-[`Retrieve Location Custom Attribute Definition Response`](../../doc/models/retrieve-location-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Location Custom Attribute Definition Response`](../../doc/models/retrieve-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -201,12 +201,12 @@ def update_location_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to update. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to update. |
 | `body` | [`Update Location Custom Attribute Definition Request`](../../doc/models/update-location-custom-attribute-definition-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Location Custom Attribute Definition Response`](../../doc/models/update-location-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Location Custom Attribute Definition Response`](../../doc/models/update-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -252,16 +252,16 @@ def bulk_delete_location_custom_attributes(self,
 
 ## Response Type
 
-[`Bulk Delete Location Custom Attributes Response`](../../doc/models/bulk-delete-location-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Delete Location Custom Attributes Response`](../../doc/models/bulk-delete-location-custom-attributes-response.md).
 
 ## Example Usage
 
 ```python
 body = {
     'values': {
-        "id1": {},
-        "id2": {},
-        "id3": {}
+        'id1': {},
+        'id2': {},
+        'id3': {}
     }
 }
 
@@ -301,18 +301,18 @@ def bulk_upsert_location_custom_attributes(self,
 
 ## Response Type
 
-[`Bulk Upsert Location Custom Attributes Response`](../../doc/models/bulk-upsert-location-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Upsert Location Custom Attributes Response`](../../doc/models/bulk-upsert-location-custom-attributes-response.md).
 
 ## Example Usage
 
 ```python
 body = {
     'values': {
-        "key0": {
+        'key0': {
             'location_id': 'location_id8',
             'custom_attribute': {}
         },
-        "key1": {
+        'key1': {
             'location_id': 'location_id9',
             'custom_attribute': {}
         }
@@ -351,15 +351,15 @@ def list_location_custom_attributes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the target [location](entity:Location). |
+| `location_id` | `str` | Template, Required | The ID of the target [location](entity:Location). |
 | `visibility_filter` | [`str (Visibility Filter)`](../../doc/models/visibility-filter.md) | Query, Optional | Filters the `CustomAttributeDefinition` results by their `visibility` values. |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request. For more<br>information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request. For more<br>information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `with_definitions` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 
 ## Response Type
 
-[`List Location Custom Attributes Response`](../../doc/models/list-location-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Location Custom Attributes Response`](../../doc/models/list-location-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -397,12 +397,12 @@ def delete_location_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the target [location](entity:Location). |
-| `key` | `string` | Template, Required | The key of the custom attribute to delete. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
+| `location_id` | `str` | Template, Required | The ID of the target [location](entity:Location). |
+| `key` | `str` | Template, Required | The key of the custom attribute to delete. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
 
 ## Response Type
 
-[`Delete Location Custom Attribute Response`](../../doc/models/delete-location-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Location Custom Attribute Response`](../../doc/models/delete-location-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -444,14 +444,14 @@ def retrieve_location_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the target [location](entity:Location). |
-| `key` | `string` | Template, Required | The key of the custom attribute to retrieve. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
+| `location_id` | `str` | Template, Required | The ID of the target [location](entity:Location). |
+| `key` | `str` | Template, Required | The key of the custom attribute to retrieve. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
 | `with_definition` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of<br>the custom attribute. Set this parameter to `true` to get the name and description of the custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 | `version` | `int` | Query, Optional | The current version of the custom attribute, which is used for strongly consistent reads to<br>guarantee that you receive the most up-to-date data. When included in the request, Square<br>returns the specified version or a higher version if one exists. If the specified version is<br>higher than the current version, Square returns a `BAD_REQUEST` error. |
 
 ## Response Type
 
-[`Retrieve Location Custom Attribute Response`](../../doc/models/retrieve-location-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Location Custom Attribute Response`](../../doc/models/retrieve-location-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -496,13 +496,13 @@ def upsert_location_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the target [location](entity:Location). |
-| `key` | `string` | Template, Required | The key of the custom attribute to create or update. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key. |
+| `location_id` | `str` | Template, Required | The ID of the target [location](entity:Location). |
+| `key` | `str` | Template, Required | The key of the custom attribute to create or update. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key. |
 | `body` | [`Upsert Location Custom Attribute Request`](../../doc/models/upsert-location-custom-attribute-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Upsert Location Custom Attribute Response`](../../doc/models/upsert-location-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Upsert Location Custom Attribute Response`](../../doc/models/upsert-location-custom-attribute-response.md).
 
 ## Example Usage
 

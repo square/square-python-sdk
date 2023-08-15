@@ -34,16 +34,16 @@ def list_cash_drawer_shifts(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Required | The ID of the location to query for a list of cash drawer shifts. |
+| `location_id` | `str` | Query, Required | The ID of the location to query for a list of cash drawer shifts. |
 | `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which cash drawer shifts are listed in the response,<br>based on their opened_at field. Default value: ASC |
-| `begin_time` | `string` | Query, Optional | The inclusive start time of the query on opened_at, in ISO 8601 format. |
-| `end_time` | `string` | Query, Optional | The exclusive end date of the query on opened_at, in ISO 8601 format. |
+| `begin_time` | `str` | Query, Optional | The inclusive start time of the query on opened_at, in ISO 8601 format. |
+| `end_time` | `str` | Query, Optional | The exclusive end date of the query on opened_at, in ISO 8601 format. |
 | `limit` | `int` | Query, Optional | Number of cash drawer shift events in a page of results (200 by<br>default, 1000 max). |
-| `cursor` | `string` | Query, Optional | Opaque cursor for fetching the next page of results. |
+| `cursor` | `str` | Query, Optional | Opaque cursor for fetching the next page of results. |
 
 ## Response Type
 
-[`List Cash Drawer Shifts Response`](../../doc/models/list-cash-drawer-shifts-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Cash Drawer Shifts Response`](../../doc/models/list-cash-drawer-shifts-response.md).
 
 ## Example Usage
 
@@ -75,12 +75,12 @@ def retrieve_cash_drawer_shift(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Required | The ID of the location to retrieve cash drawer shifts from. |
-| `shift_id` | `string` | Template, Required | The shift ID. |
+| `location_id` | `str` | Query, Required | The ID of the location to retrieve cash drawer shifts from. |
+| `shift_id` | `str` | Template, Required | The shift ID. |
 
 ## Response Type
 
-[`Retrieve Cash Drawer Shift Response`](../../doc/models/retrieve-cash-drawer-shift-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Cash Drawer Shift Response`](../../doc/models/retrieve-cash-drawer-shift-response.md).
 
 ## Example Usage
 
@@ -118,14 +118,14 @@ def list_cash_drawer_shift_events(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Required | The ID of the location to list cash drawer shifts for. |
-| `shift_id` | `string` | Template, Required | The shift ID. |
+| `location_id` | `str` | Query, Required | The ID of the location to list cash drawer shifts for. |
+| `shift_id` | `str` | Template, Required | The shift ID. |
 | `limit` | `int` | Query, Optional | Number of resources to be returned in a page of results (200 by<br>default, 1000 max). |
-| `cursor` | `string` | Query, Optional | Opaque cursor for fetching the next page of results. |
+| `cursor` | `str` | Query, Optional | Opaque cursor for fetching the next page of results. |
 
 ## Response Type
 
-[`List Cash Drawer Shift Events Response`](../../doc/models/list-cash-drawer-shift-events-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Cash Drawer Shift Events Response`](../../doc/models/list-cash-drawer-shift-events-response.md).
 
 ## Example Usage
 

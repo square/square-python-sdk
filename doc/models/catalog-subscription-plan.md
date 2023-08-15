@@ -12,11 +12,11 @@ For more information, see [Subscription Plans and Variations](https://developer.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Required | The name of the plan. |
-| `phases` | [`List of Subscription Phase`](../../doc/models/subscription-phase.md) | Optional | A list of SubscriptionPhase containing the [SubscriptionPhase](entity:SubscriptionPhase) for this plan.<br>This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error |
-| `subscription_plan_variations` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | The list of subscription plan variations available for this product |
-| `eligible_item_ids` | `List of string` | Optional | The list of IDs of `CatalogItems` that are eligible for subscription by this SubscriptionPlan's variations. |
-| `eligible_category_ids` | `List of string` | Optional | The list of IDs of `CatalogCategory` that are eligible for subscription by this SubscriptionPlan's variations. |
+| `name` | `str` | Required | The name of the plan. |
+| `phases` | [`List Subscription Phase`](../../doc/models/subscription-phase.md) | Optional | A list of SubscriptionPhase containing the [SubscriptionPhase](entity:SubscriptionPhase) for this plan.<br>This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error |
+| `subscription_plan_variations` | [`List Catalog Object`](../../doc/models/catalog-object.md) | Optional | The list of subscription plan variations available for this product |
+| `eligible_item_ids` | `List[str]` | Optional | The list of IDs of `CatalogItems` that are eligible for subscription by this SubscriptionPlan's variations. |
+| `eligible_category_ids` | `List[str]` | Optional | The list of IDs of `CatalogCategory` that are eligible for subscription by this SubscriptionPlan's variations. |
 | `all_items` | `bool` | Optional | If true, all items in the merchant's catalog are subscribable by this SubscriptionPlan. |
 
 ## Example (as JSON)

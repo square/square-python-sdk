@@ -11,8 +11,8 @@ Defines supported query expressions to search for vendors by.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `List of string` | Optional | The names of the [Vendor](entity:Vendor) objects to retrieve. |
-| `status` | [`List of str (Vendor Status)`](../../doc/models/vendor-status.md) | Optional | The statuses of the [Vendor](entity:Vendor) objects to retrieve.<br>See [VendorStatus](#type-vendorstatus) for possible values |
+| `name` | `List[str]` | Optional | The names of the [Vendor](entity:Vendor) objects to retrieve. |
+| `status` | [`str (List Vendor Status)`](../../doc/models/vendor-status.md) | Optional | The statuses of the [Vendor](entity:Vendor) objects to retrieve.<br>See [VendorStatus](#type-vendorstatus) for possible values |
 
 ## Example (as JSON)
 

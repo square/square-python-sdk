@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payment_id` | `string` | Optional | The ID of the payment associated with this activity. |
-| `location_id` | `string` | Optional | The ID of the location of the merchant associated with the payment activity |
+| `payment_id` | `str` | Optional | The ID of the payment associated with this activity. |
+| `location_id` | `str` | Optional | The ID of the location of the merchant associated with the payment activity |
 
 ## Example (as JSON)
 

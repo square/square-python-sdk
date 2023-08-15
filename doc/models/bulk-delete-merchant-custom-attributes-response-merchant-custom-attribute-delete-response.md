@@ -12,7 +12,7 @@ request.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Errors that occurred while processing the individual MerchantCustomAttributeDeleteRequest request |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors that occurred while processing the individual MerchantCustomAttributeDeleteRequest request |
 
 ## Example (as JSON)
 

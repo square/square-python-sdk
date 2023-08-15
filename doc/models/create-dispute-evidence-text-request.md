@@ -11,9 +11,9 @@ Defines the parameters for a `CreateDisputeEvidenceText` request.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `idempotency_key` | `string` | Required | A unique key identifying the request. For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `45` |
+| `idempotency_key` | `str` | Required | A unique key identifying the request. For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `45` |
 | `evidence_type` | [`str (Dispute Evidence Type)`](../../doc/models/dispute-evidence-type.md) | Optional | The type of the dispute evidence. |
-| `evidence_text` | `string` | Required | The evidence string.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `500` |
+| `evidence_text` | `str` | Required | The evidence string.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `500` |
 
 ## Example (as JSON)
 

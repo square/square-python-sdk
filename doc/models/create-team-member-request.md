@@ -11,7 +11,7 @@ Represents a create request for a `TeamMember` object.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `idempotency_key` | `string` | Optional | A unique string that identifies this `CreateTeamMember` request.<br>Keys can be any valid string, but must be unique for every request.<br>For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br><br>The minimum length is 1 and the maximum length is 45. |
+| `idempotency_key` | `str` | Optional | A unique string that identifies this `CreateTeamMember` request.<br>Keys can be any valid string, but must be unique for every request.<br>For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br><br>The minimum length is 1 and the maximum length is 45. |
 | `team_member` | [`Team Member`](../../doc/models/team-member.md) | Optional | A record representing an individual team member for a business. |
 
 ## Example (as JSON)

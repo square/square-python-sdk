@@ -43,7 +43,7 @@ def create_order(self,
 
 ## Response Type
 
-[`Create Order Response`](../../doc/models/create-order-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Order Response`](../../doc/models/create-order-response.md).
 
 ## Example Usage
 
@@ -139,7 +139,7 @@ def batch_retrieve_orders(self,
 
 ## Response Type
 
-[`Batch Retrieve Orders Response`](../../doc/models/batch-retrieve-orders-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Retrieve Orders Response`](../../doc/models/batch-retrieve-orders-response.md).
 
 ## Example Usage
 
@@ -179,7 +179,7 @@ def calculate_order(self,
 
 ## Response Type
 
-[`Calculate Order Response`](../../doc/models/calculate-order-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Calculate Order Response`](../../doc/models/calculate-order-response.md).
 
 ## Example Usage
 
@@ -243,7 +243,7 @@ def clone_order(self,
 
 ## Response Type
 
-[`Clone Order Response`](../../doc/models/clone-order-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Clone Order Response`](../../doc/models/clone-order-response.md).
 
 ## Example Usage
 
@@ -297,7 +297,7 @@ def search_orders(self,
 
 ## Response Type
 
-[`Search Orders Response`](../../doc/models/search-orders-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Orders Response`](../../doc/models/search-orders-response.md).
 
 ## Example Usage
 
@@ -353,11 +353,11 @@ def retrieve_order(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_id` | `string` | Template, Required | The ID of the order to retrieve. |
+| `order_id` | `str` | Template, Required | The ID of the order to retrieve. |
 
 ## Response Type
 
-[`Retrieve Order Response`](../../doc/models/retrieve-order-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Order Response`](../../doc/models/retrieve-order-response.md).
 
 ## Example Usage
 
@@ -402,12 +402,12 @@ def update_order(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_id` | `string` | Template, Required | The ID of the order to update. |
+| `order_id` | `str` | Template, Required | The ID of the order to update. |
 | `body` | [`Update Order Request`](../../doc/models/update-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Order Response`](../../doc/models/update-order-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Order Response`](../../doc/models/update-order-response.md).
 
 ## Example Usage
 
@@ -456,12 +456,12 @@ def pay_order(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `order_id` | `string` | Template, Required | The ID of the order being paid. |
+| `order_id` | `str` | Template, Required | The ID of the order being paid. |
 | `body` | [`Pay Order Request`](../../doc/models/pay-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Pay Order Response`](../../doc/models/pay-order-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Pay Order Response`](../../doc/models/pay-order-response.md).
 
 ## Example Usage
 

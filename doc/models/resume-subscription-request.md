@@ -12,7 +12,7 @@ Defines input parameters in a request to the
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `resume_effective_date` | `string` | Optional | The `YYYY-MM-DD`-formatted date when the subscription reactivated. |
+| `resume_effective_date` | `str` | Optional | The `YYYY-MM-DD`-formatted date when the subscription reactivated. |
 | `resume_change_timing` | [`str (Change Timing)`](../../doc/models/change-timing.md) | Optional | Supported timings when a pending change, as an action, takes place to a subscription. |
 
 ## Example (as JSON)

@@ -15,9 +15,9 @@ present.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `event_types` | `List of string` | Optional | The list of event types. |
-| `metadata` | [`List of Event Type Metadata`](../../doc/models/event-type-metadata.md) | Optional | Contains the metadata of a webhook event type. For more information, see [EventTypeMetadata](entity:EventTypeMetadata). |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `event_types` | `List[str]` | Optional | The list of event types. |
+| `metadata` | [`List Event Type Metadata`](../../doc/models/event-type-metadata.md) | Optional | Contains the metadata of a webhook event type. For more information, see [EventTypeMetadata](entity:EventTypeMetadata). |
 
 ## Example (as JSON)
 

@@ -32,11 +32,11 @@ def delete_snippet(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `site_id` | `string` | Template, Required | The ID of the site that contains the snippet. |
+| `site_id` | `str` | Template, Required | The ID of the site that contains the snippet. |
 
 ## Response Type
 
-[`Delete Snippet Response`](../../doc/models/delete-snippet-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Snippet Response`](../../doc/models/delete-snippet-response.md).
 
 ## Example Usage
 
@@ -70,11 +70,11 @@ def retrieve_snippet(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `site_id` | `string` | Template, Required | The ID of the site that contains the snippet. |
+| `site_id` | `str` | Template, Required | The ID of the site that contains the snippet. |
 
 ## Response Type
 
-[`Retrieve Snippet Response`](../../doc/models/retrieve-snippet-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Snippet Response`](../../doc/models/retrieve-snippet-response.md).
 
 ## Example Usage
 
@@ -110,12 +110,12 @@ def upsert_snippet(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `site_id` | `string` | Template, Required | The ID of the site where you want to add or update the snippet. |
+| `site_id` | `str` | Template, Required | The ID of the site where you want to add or update the snippet. |
 | `body` | [`Upsert Snippet Request`](../../doc/models/upsert-snippet-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Upsert Snippet Response`](../../doc/models/upsert-snippet-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Upsert Snippet Response`](../../doc/models/upsert-snippet-response.md).
 
 ## Example Usage
 

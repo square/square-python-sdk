@@ -45,9 +45,9 @@ class MerchantCustomAttributesApi(BaseApi):
                 more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
-            cursor (string, optional): The cursor returned in the paged
-                response from the previous call to this endpoint. Provide this
-                cursor to retrieve the next page of results for your original
+            cursor (str, optional): The cursor returned in the paged response
+                from the previous call to this endpoint. Provide this cursor
+                to retrieve the next page of results for your original
                 request. For more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
@@ -157,8 +157,7 @@ class MerchantCustomAttributesApi(BaseApi):
         Only the definition owner can delete a custom attribute definition.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                delete.
+            key (str): The key of the custom attribute definition to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -205,9 +204,9 @@ class MerchantCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                retrieve. If the requesting application is not the definition
-                owner, you must use the qualified key.
+            key (str): The key of the custom attribute definition to retrieve.
+                If the requesting application is not the definition owner, you
+                must use the qualified key.
             version (int, optional): The current version of the custom
                 attribute definition, which is used for strongly consistent
                 reads to guarantee that you receive the most up-to-date data.
@@ -264,8 +263,7 @@ class MerchantCustomAttributesApi(BaseApi):
         Only the definition owner can update a custom attribute definition.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                update.
+            key (str): The key of the custom attribute definition to update.
             body (UpdateMerchantCustomAttributeDefinitionRequest): An object
                 containing the fields to POST for the request.  See the
                 corresponding object definition for field details.
@@ -437,7 +435,7 @@ class MerchantCustomAttributesApi(BaseApi):
         and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            merchant_id (string): The ID of the target
+            merchant_id (str): The ID of the target
                 [merchant](entity:Merchant).
             visibility_filter (VisibilityFilter, optional): Filters the
                 `CustomAttributeDefinition` results by their `visibility`
@@ -449,9 +447,9 @@ class MerchantCustomAttributesApi(BaseApi):
                 more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
-            cursor (string, optional): The cursor returned in the paged
-                response from the previous call to this endpoint. Provide this
-                cursor to retrieve the next page of results for your original
+            cursor (str, optional): The cursor returned in the paged response
+                from the previous call to this endpoint. Provide this cursor
+                to retrieve the next page of results for your original
                 request. For more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
@@ -518,9 +516,9 @@ class MerchantCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            merchant_id (string): The ID of the target
+            merchant_id (str): The ID of the target
                 [merchant](entity:Merchant).
-            key (string): The key of the custom attribute to delete. This key
+            key (str): The key of the custom attribute to delete. This key
                 must match the `key` of a custom attribute definition in the
                 Square seller account. If the requesting application is not
                 the definition owner, you must use the qualified key.
@@ -577,12 +575,12 @@ class MerchantCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            merchant_id (string): The ID of the target
+            merchant_id (str): The ID of the target
                 [merchant](entity:Merchant).
-            key (string): The key of the custom attribute to retrieve. This
-                key must match the `key` of a custom attribute definition in
-                the Square seller account. If the requesting application is
-                not the definition owner, you must use the qualified key.
+            key (str): The key of the custom attribute to retrieve. This key
+                must match the `key` of a custom attribute definition in the
+                Square seller account. If the requesting application is not
+                the definition owner, you must use the qualified key.
             with_definition (bool, optional): Indicates whether to return the
                 [custom attribute
                 definition](entity:CustomAttributeDefinition) in the
@@ -659,9 +657,9 @@ class MerchantCustomAttributesApi(BaseApi):
         must be `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            merchant_id (string): The ID of the target
+            merchant_id (str): The ID of the target
                 [merchant](entity:Merchant).
-            key (string): The key of the custom attribute to create or update.
+            key (str): The key of the custom attribute to create or update.
                 This key must match the `key` of a custom attribute definition
                 in the Square seller account. If the requesting application is
                 not the definition owner, you must use the qualified key.

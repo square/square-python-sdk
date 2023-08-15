@@ -11,7 +11,7 @@ Represents additional data for rules with the `CATEGORY` accrual type.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `category_id` | `string` | Required | The ID of the `CATEGORY` [catalog object](entity:CatalogObject) that buyers can purchase to earn<br>points.<br>**Constraints**: *Minimum Length*: `1` |
+| `category_id` | `str` | Required | The ID of the `CATEGORY` [catalog object](entity:CatalogObject) that buyers can purchase to earn<br>points.<br>**Constraints**: *Minimum Length*: `1` |
 
 ## Example (as JSON)
 

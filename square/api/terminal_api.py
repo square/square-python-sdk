@@ -117,7 +117,7 @@ class TerminalApi(BaseApi):
         requests are available for 30 days.
 
         Args:
-            action_id (string): Unique ID for the desired `TerminalAction`.
+            action_id (str): Unique ID for the desired `TerminalAction`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -158,7 +158,7 @@ class TerminalApi(BaseApi):
         it.
 
         Args:
-            action_id (string): Unique ID for the desired `TerminalAction`.
+            action_id (str): Unique ID for the desired `TerminalAction`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -202,7 +202,7 @@ class TerminalApi(BaseApi):
         ures/custom-workflows/link-and-dismiss-actions) for more details.
 
         Args:
-            action_id (string): Unique ID for the `TerminalAction` associated
+            action_id (str): Unique ID for the `TerminalAction` associated
                 with the waiting dialog to be dismissed.
 
         Returns:
@@ -337,7 +337,7 @@ class TerminalApi(BaseApi):
         checkout requests are available for 30 days.
 
         Args:
-            checkout_id (string): The unique ID for the desired
+            checkout_id (str): The unique ID for the desired
                 `TerminalCheckout`.
 
         Returns:
@@ -379,7 +379,7 @@ class TerminalApi(BaseApi):
         permits it.
 
         Args:
-            checkout_id (string): The unique ID for the desired
+            checkout_id (str): The unique ID for the desired
                 `TerminalCheckout`.
 
         Returns:
@@ -515,7 +515,7 @@ class TerminalApi(BaseApi):
         objects are available for 30 days.
 
         Args:
-            terminal_refund_id (string): The unique ID for the desired
+            terminal_refund_id (str): The unique ID for the desired
                 `TerminalRefund`.
 
         Returns:
@@ -557,7 +557,7 @@ class TerminalApi(BaseApi):
         status of the request permits it.
 
         Args:
-            terminal_refund_id (string): The unique ID for the desired
+            terminal_refund_id (str): The unique ID for the desired
                 `TerminalRefund`.
 
         Returns:

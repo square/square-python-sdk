@@ -249,8 +249,7 @@ class VendorsApi(BaseApi):
         Retrieves the vendor of a specified [Vendor]($m/Vendor) ID.
 
         Args:
-            vendor_id (string): ID of the [Vendor](entity:Vendor) to
-                retrieve.
+            vendor_id (str): ID of the [Vendor](entity:Vendor) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -295,7 +294,7 @@ class VendorsApi(BaseApi):
             body (UpdateVendorRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
-            vendor_id (string): TODO: type description here.
+            vendor_id (str): TODO: type description here.
 
         Returns:
             ApiResponse: An object with the response value as well as other

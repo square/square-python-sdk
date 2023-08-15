@@ -39,14 +39,14 @@ def v1_list_orders(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to list online store orders for. |
+| `location_id` | `str` | Template, Required | The ID of the location to list online store orders for. |
 | `order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
 | `limit` | `int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
-| `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
+| `batch_token` | `str` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ## Response Type
 
-[`List of V1 Order`](../../doc/models/v1-order.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List V1 Order`](../../doc/models/v1-order.md).
 
 ## Example Usage
 
@@ -79,12 +79,12 @@ def v1_retrieve_order(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the order's associated location. |
-| `order_id` | `string` | Template, Required | The order's Square-issued ID. You obtain this value from Order objects returned by the List Orders endpoint |
+| `location_id` | `str` | Template, Required | The ID of the order's associated location. |
+| `order_id` | `str` | Template, Required | The order's Square-issued ID. You obtain this value from Order objects returned by the List Orders endpoint |
 
 ## Response Type
 
-[`V1 Order`](../../doc/models/v1-order.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V1 Order`](../../doc/models/v1-order.md).
 
 ## Example Usage
 
@@ -123,13 +123,13 @@ def v1_update_order(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the order's associated location. |
-| `order_id` | `string` | Template, Required | The order's Square-issued ID. You obtain this value from Order objects returned by the List Orders endpoint |
+| `location_id` | `str` | Template, Required | The ID of the order's associated location. |
+| `order_id` | `str` | Template, Required | The order's Square-issued ID. You obtain this value from Order objects returned by the List Orders endpoint |
 | `body` | [`V1 Update Order Request`](../../doc/models/v1-update-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`V1 Order`](../../doc/models/v1-order.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V1 Order`](../../doc/models/v1-order.md).
 
 ## Example Usage
 
@@ -187,17 +187,17 @@ def v1_list_payments(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to list payments for. If you specify me, this endpoint returns payments aggregated from all of the business's locations. |
+| `location_id` | `str` | Template, Required | The ID of the location to list payments for. If you specify me, this endpoint returns payments aggregated from all of the business's locations. |
 | `order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
-| `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
-| `end_time` | `string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
+| `begin_time` | `str` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
+| `end_time` | `str` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
-| `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
+| `batch_token` | `str` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 | `include_partial` | `bool` | Query, Optional | Indicates whether or not to include partial payments in the response. Partial payments will have the tenders collected so far, but the itemizations will be empty until the payment is completed.<br>**Default**: `False` |
 
 ## Response Type
 
-[`List of V1 Payment`](../../doc/models/v1-payment.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List V1 Payment`](../../doc/models/v1-payment.md).
 
 ## Example Usage
 
@@ -235,12 +235,12 @@ def v1_retrieve_payment(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the payment's associated location. |
-| `payment_id` | `string` | Template, Required | The Square-issued payment ID. payment_id comes from Payment objects returned by the List Payments endpoint, Settlement objects returned by the List Settlements endpoint, or Refund objects returned by the List Refunds endpoint. |
+| `location_id` | `str` | Template, Required | The ID of the payment's associated location. |
+| `payment_id` | `str` | Template, Required | The Square-issued payment ID. payment_id comes from Payment objects returned by the List Payments endpoint, Settlement objects returned by the List Settlements endpoint, or Refund objects returned by the List Refunds endpoint. |
 
 ## Response Type
 
-[`V1 Payment`](../../doc/models/v1-payment.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V1 Payment`](../../doc/models/v1-payment.md).
 
 ## Example Usage
 
@@ -282,16 +282,16 @@ def v1_list_refunds(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to list refunds for. |
+| `location_id` | `str` | Template, Required | The ID of the location to list refunds for. |
 | `order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
-| `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
-| `end_time` | `string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
+| `begin_time` | `str` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
+| `end_time` | `str` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `int` | Query, Optional | The approximate number of refunds to return in a single response. Default: 100. Max: 200. Response may contain more results than the prescribed limit when refunds are made simultaneously to multiple tenders in a payment or when refunds are generated in an exchange to account for the value of returned goods. |
-| `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
+| `batch_token` | `str` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ## Response Type
 
-[`List of V1 Refund`](../../doc/models/v1-refund.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List V1 Refund`](../../doc/models/v1-refund.md).
 
 ## Example Usage
 
@@ -335,12 +335,12 @@ def v1_create_refund(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the original payment's associated location. |
+| `location_id` | `str` | Template, Required | The ID of the original payment's associated location. |
 | `body` | [`V1 Create Refund Request`](../../doc/models/v1-create-refund-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`V1 Refund`](../../doc/models/v1-refund.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V1 Refund`](../../doc/models/v1-refund.md).
 
 ## Example Usage
 
@@ -392,17 +392,17 @@ def v1_list_settlements(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to list settlements for. If you specify me, this endpoint returns settlements aggregated from all of the business's locations. |
+| `location_id` | `str` | Template, Required | The ID of the location to list settlements for. If you specify me, this endpoint returns settlements aggregated from all of the business's locations. |
 | `order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which settlements are listed in the response. |
-| `begin_time` | `string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
-| `end_time` | `string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
+| `begin_time` | `str` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
+| `end_time` | `str` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `int` | Query, Optional | The maximum number of settlements to return in a single response. This value cannot exceed 200. |
 | `status` | [`str (V1 List Settlements Request Status)`](../../doc/models/v1-list-settlements-request-status.md) | Query, Optional | Provide this parameter to retrieve only settlements with a particular status (SENT or FAILED). |
-| `batch_token` | `string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
+| `batch_token` | `str` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ## Response Type
 
-[`List of V1 Settlement`](../../doc/models/v1-settlement.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List V1 Settlement`](../../doc/models/v1-settlement.md).
 
 ## Example Usage
 
@@ -451,12 +451,12 @@ def v1_retrieve_settlement(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the settlements's associated location. |
-| `settlement_id` | `string` | Template, Required | The settlement's Square-issued ID. You obtain this value from Settlement objects returned by the List Settlements endpoint. |
+| `location_id` | `str` | Template, Required | The ID of the settlements's associated location. |
+| `settlement_id` | `str` | Template, Required | The settlement's Square-issued ID. You obtain this value from Settlement objects returned by the List Settlements endpoint. |
 
 ## Response Type
 
-[`V1 Settlement`](../../doc/models/v1-settlement.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`V1 Settlement`](../../doc/models/v1-settlement.md).
 
 ## Example Usage
 

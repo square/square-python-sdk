@@ -13,7 +13,7 @@ see [Specify checkout options](https://developer.squareup.com/docs/checkout-api/
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `title` | `string` | Required | The title of the custom field.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` |
+| `title` | `str` | Required | The title of the custom field.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` |
 
 ## Example (as JSON)
 

@@ -11,8 +11,8 @@ A Square API V1 identifier of an item, including the object ID and its associate
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalog_v1_id` | `string` | Optional | The ID for an object used in the Square API V1, if the object ID differs from the Square API V2 object ID. |
-| `location_id` | `string` | Optional | The ID of the `Location` this Connect V1 ID is associated with. |
+| `catalog_v1_id` | `str` | Optional | The ID for an object used in the Square API V1, if the object ID differs from the Square API V2 object ID. |
+| `location_id` | `str` | Optional | The ID of the `Location` this Connect V1 ID is associated with. |
 
 ## Example (as JSON)
 

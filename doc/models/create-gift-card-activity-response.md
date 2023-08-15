@@ -12,7 +12,7 @@ The response might contain a set of `Error` objects if the request resulted in e
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `gift_card_activity` | [`Gift Card Activity`](../../doc/models/gift-card-activity.md) | Optional | Represents an action performed on a [gift card](../../doc/models/gift-card.md) that affects its state or balance.<br>A gift card activity contains information about a specific activity type. For example, a `REDEEM` activity<br>includes a `redeem_activity_details` field that contains information about the redemption. |
 
 ## Example (as JSON)

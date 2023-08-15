@@ -12,8 +12,8 @@ Defines input parameters in a call to the
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `new_plan_variation_id` | `string` | Optional | The ID of the new subscription plan variation.<br><br>This field is required. |
-| `phases` | [`List of Phase Input`](../../doc/models/phase-input.md) | Optional | A list of PhaseInputs, to pass phase-specific information used in the swap. |
+| `new_plan_variation_id` | `str` | Optional | The ID of the new subscription plan variation.<br><br>This field is required. |
+| `phases` | [`List Phase Input`](../../doc/models/phase-input.md) | Optional | A list of PhaseInputs, to pass phase-specific information used in the swap. |
 
 ## Example (as JSON)
 

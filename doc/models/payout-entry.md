@@ -12,9 +12,9 @@ The total amount of the payout will equal the sum of the payout entries for a ba
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Required | A unique ID for the payout entry.<br>**Constraints**: *Minimum Length*: `1` |
-| `payout_id` | `string` | Required | The ID of the payout entries’ associated payout.<br>**Constraints**: *Minimum Length*: `1` |
-| `effective_at` | `string` | Optional | The timestamp of when the payout entry affected the balance, in RFC 3339 format. |
+| `id` | `str` | Required | A unique ID for the payout entry.<br>**Constraints**: *Minimum Length*: `1` |
+| `payout_id` | `str` | Required | The ID of the payout entries’ associated payout.<br>**Constraints**: *Minimum Length*: `1` |
+| `effective_at` | `str` | Optional | The timestamp of when the payout entry affected the balance, in RFC 3339 format. |
 | `type` | [`str (Activity Type)`](../../doc/models/activity-type.md) | Optional | - |
 | `gross_amount_money` | [`Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `fee_amount_money` | [`Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |

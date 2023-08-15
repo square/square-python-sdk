@@ -11,7 +11,7 @@ The query filter to return the items containing the specified modifier list IDs.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `modifier_list_ids` | `List of string` | Required | A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s. |
+| `modifier_list_ids` | `List[str]` | Required | A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s. |
 
 ## Example (as JSON)
 

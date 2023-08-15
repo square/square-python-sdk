@@ -15,8 +15,8 @@ how time ranges are handled.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `start_at` | `string` | Optional | A datetime value in RFC 3339 format indicating when the time range<br>starts. |
-| `end_at` | `string` | Optional | A datetime value in RFC 3339 format indicating when the time range<br>ends. |
+| `start_at` | `str` | Optional | A datetime value in RFC 3339 format indicating when the time range<br>starts. |
+| `end_at` | `str` | Optional | A datetime value in RFC 3339 format indicating when the time range<br>ends. |
 
 ## Example (as JSON)
 

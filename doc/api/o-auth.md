@@ -53,13 +53,13 @@ def renew_token(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `client_id` | `string` | Template, Required | Your application ID, which is available on the **OAuth** page in the [Developer Dashboard](https://developer.squareup.com/apps). |
+| `client_id` | `str` | Template, Required | Your application ID, which is available on the **OAuth** page in the [Developer Dashboard](https://developer.squareup.com/apps). |
 | `body` | [`Renew Token Request`](../../doc/models/renew-token-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
-| `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
+| `authorization` | `str` | Header, Required | Client APPLICATION_SECRET |
 
 ## Response Type
 
-[`Renew Token Response`](../../doc/models/renew-token-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Renew Token Response`](../../doc/models/renew-token-response.md).
 
 ## Example Usage
 
@@ -118,11 +118,11 @@ def revoke_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`Revoke Token Request`](../../doc/models/revoke-token-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
-| `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
+| `authorization` | `str` | Header, Required | Client APPLICATION_SECRET |
 
 ## Response Type
 
-[`Revoke Token Response`](../../doc/models/revoke-token-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Revoke Token Response`](../../doc/models/revoke-token-response.md).
 
 ## Example Usage
 
@@ -182,7 +182,7 @@ def obtain_token(self,
 
 ## Response Type
 
-[`Obtain Token Response`](../../doc/models/obtain-token-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Obtain Token Response`](../../doc/models/obtain-token-response.md).
 
 ## Example Usage
 
@@ -232,11 +232,11 @@ def retrieve_token_status(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
+| `authorization` | `str` | Header, Required | Client APPLICATION_SECRET |
 
 ## Response Type
 
-[`Retrieve Token Status Response`](../../doc/models/retrieve-token-status-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Token Status Response`](../../doc/models/retrieve-token-status-response.md).
 
 ## Example Usage
 

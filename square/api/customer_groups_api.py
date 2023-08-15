@@ -26,10 +26,10 @@ class CustomerGroupsApi(BaseApi):
         Retrieves the list of customer groups of a business.
 
         Args:
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for your original query.  For
-                more information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for your original query.  For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
             limit (int, optional): The maximum number of results to return in
@@ -126,7 +126,7 @@ class CustomerGroupsApi(BaseApi):
         Deletes a customer group as identified by the `group_id` value.
 
         Args:
-            group_id (string): The ID of the customer group to delete.
+            group_id (str): The ID of the customer group to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -167,7 +167,7 @@ class CustomerGroupsApi(BaseApi):
         value.
 
         Args:
-            group_id (string): The ID of the customer group to retrieve.
+            group_id (str): The ID of the customer group to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -208,7 +208,7 @@ class CustomerGroupsApi(BaseApi):
         Updates a customer group as identified by the `group_id` value.
 
         Args:
-            group_id (string): The ID of the customer group to update.
+            group_id (str): The ID of the customer group to update.
             body (UpdateCustomerGroupRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.

@@ -28,17 +28,17 @@ class DisputesApi(BaseApi):
         Returns a list of disputes associated with a particular account.
 
         Args:
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for the original query. For
-                more information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for the original query. For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
             states (DisputeState, optional): The dispute states used to filter
                 the result. If not specified, the endpoint returns all
                 disputes.
-            location_id (string, optional): The ID of the location for which
-                to return a list of disputes. If not specified, the endpoint
+            location_id (str, optional): The ID of the location for which to
+                return a list of disputes. If not specified, the endpoint
                 returns disputes associated with all locations.
 
         Returns:
@@ -84,7 +84,7 @@ class DisputesApi(BaseApi):
         Returns details about a specific dispute.
 
         Args:
-            dispute_id (string): The ID of the dispute you want more details
+            dispute_id (str): The ID of the dispute you want more details
                 about.
 
         Returns:
@@ -131,7 +131,7 @@ class DisputesApi(BaseApi):
         account.
 
         Args:
-            dispute_id (string): The ID of the dispute you want to accept.
+            dispute_id (str): The ID of the dispute you want to accept.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -172,11 +172,11 @@ class DisputesApi(BaseApi):
         Returns a list of evidence associated with a dispute.
 
         Args:
-            dispute_id (string): The ID of the dispute.
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for the original query. For
-                more information, see
+            dispute_id (str): The ID of the dispute.
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for the original query. For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
 
@@ -226,7 +226,7 @@ class DisputesApi(BaseApi):
         TIFF formats.
 
         Args:
-            dispute_id (string): The ID of the dispute for which you want to
+            dispute_id (str): The ID of the dispute for which you want to
                 upload evidence.
             request (CreateDisputeEvidenceFileRequest, optional): Defines the
                 parameters for a `CreateDisputeEvidenceFile` request.
@@ -280,7 +280,7 @@ class DisputesApi(BaseApi):
         Uploads text to use as evidence for a dispute challenge.
 
         Args:
-            dispute_id (string): The ID of the dispute for which you want to
+            dispute_id (str): The ID of the dispute for which you want to
                 upload evidence.
             body (CreateDisputeEvidenceTextRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
@@ -332,9 +332,9 @@ class DisputesApi(BaseApi):
         Square does not send the bank any evidence that is removed.
 
         Args:
-            dispute_id (string): The ID of the dispute from which you want to
+            dispute_id (str): The ID of the dispute from which you want to
                 remove evidence.
-            evidence_id (string): The ID of the evidence you want to remove.
+            evidence_id (str): The ID of the evidence you want to remove.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -383,9 +383,9 @@ class DisputesApi(BaseApi):
         it.
 
         Args:
-            dispute_id (string): The ID of the dispute from which you want to
+            dispute_id (str): The ID of the dispute from which you want to
                 retrieve evidence metadata.
-            evidence_id (string): The ID of the evidence to retrieve.
+            evidence_id (str): The ID of the evidence to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -438,7 +438,7 @@ class DisputesApi(BaseApi):
         a dispute after submission.
 
         Args:
-            dispute_id (string): The ID of the dispute for which you want to
+            dispute_id (str): The ID of the dispute for which you want to
                 submit evidence.
 
         Returns:

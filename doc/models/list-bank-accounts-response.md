@@ -11,9 +11,9 @@ Response object returned by ListBankAccounts.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `bank_accounts` | [`List of Bank Account`](../../doc/models/bank-account.md) | Optional | List of BankAccounts associated with this account. |
-| `cursor` | `string` | Optional | When a response is truncated, it includes a cursor that you can<br>use in a subsequent request to fetch next set of bank accounts.<br>If empty, this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `bank_accounts` | [`List Bank Account`](../../doc/models/bank-account.md) | Optional | List of BankAccounts associated with this account. |
+| `cursor` | `str` | Optional | When a response is truncated, it includes a cursor that you can<br>use in a subsequent request to fetch next set of bank accounts.<br>If empty, this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 
 ## Example (as JSON)
 

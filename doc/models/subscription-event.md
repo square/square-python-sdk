@@ -11,12 +11,12 @@ Describes changes to a subscription and the subscription status.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Required | The ID of the subscription event. |
+| `id` | `str` | Required | The ID of the subscription event. |
 | `subscription_event_type` | [`str (Subscription Event Subscription Event Type)`](../../doc/models/subscription-event-subscription-event-type.md) | Required | Supported types of an event occurred to a subscription. |
-| `effective_date` | `string` | Required | The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) when the subscription event occurred. |
+| `effective_date` | `str` | Required | The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) when the subscription event occurred. |
 | `info` | [`Subscription Event Info`](../../doc/models/subscription-event-info.md) | Optional | Provides information about the subscription event. |
-| `phases` | [`List of Phase`](../../doc/models/phase.md) | Optional | A list of Phases, to pass phase-specific information used in the swap. |
-| `plan_variation_id` | `string` | Required | The ID of the subscription plan variation associated with the subscription. |
+| `phases` | [`List Phase`](../../doc/models/phase.md) | Optional | A list of Phases, to pass phase-specific information used in the swap. |
+| `plan_variation_id` | `str` | Required | The ID of the subscription plan variation associated with the subscription. |
 
 ## Example (as JSON)
 

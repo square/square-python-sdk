@@ -14,7 +14,7 @@ One of `errors` or `refund` is present in a given response (never both).
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `refund` | [`Refund`](../../doc/models/refund.md) | Optional | Represents a refund processed for a Square transaction. |
 
 ## Example (as JSON)

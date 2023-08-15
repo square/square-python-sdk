@@ -14,9 +14,9 @@ Currently, a loyalty account can only be mapped to a buyer by phone number. For 
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The Square-assigned ID of the mapping.<br>**Constraints**: *Maximum Length*: `36` |
-| `created_at` | `string` | Optional | The timestamp when the mapping was created, in RFC 3339 format. |
-| `phone_number` | `string` | Optional | The phone number of the buyer, in E.164 format. For example, "+14155551111". |
+| `id` | `str` | Optional | The Square-assigned ID of the mapping.<br>**Constraints**: *Maximum Length*: `36` |
+| `created_at` | `str` | Optional | The timestamp when the mapping was created, in RFC 3339 format. |
+| `phone_number` | `str` | Optional | The phone number of the buyer, in E.164 format. For example, "+14155551111". |
 
 ## Example (as JSON)
 

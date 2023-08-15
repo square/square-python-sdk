@@ -13,7 +13,7 @@ see [Invoice recipient tax IDs](https://developer.squareup.com/docs/invoices-api
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `eu_vat` | `string` | Optional | The EU VAT identification number for the invoice recipient. For example, `IE3426675K`. |
+| `eu_vat` | `str` | Optional | The EU VAT identification number for the invoice recipient. For example, `IE3426675K`. |
 
 ## Example (as JSON)
 

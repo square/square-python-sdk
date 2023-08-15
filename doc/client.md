@@ -5,8 +5,8 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `string` | Square Connect API versions<br>*Default*: `'2023-07-20'` |
-| `custom_url` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
+| `square_version` | `str` | Square Connect API versions<br>*Default*: `'2023-08-16'` |
+| `custom_url` | `str` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
 | `override_http_client_configuration` | `bool` | The value which determines to override properties of the passed Http Client from the sdk user |
@@ -18,14 +18,14 @@ The following parameters are configurable for the API Client:
 | `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
 | `additional_headers` | `dict` | Additional headers to add to each API request |
 | `user_agent_detail` | `string` | User agent detail, to be appended with user-agent header. |
-| `access_token` | `string` | The OAuth 2.0 Access Token to use for API requests. |
+| `access_token` | `str` | The OAuth 2.0 Access Token to use for API requests. |
 
 The API client can be initialized as follows:
 
 ```python
 from square.client import Client
 client = Client(
-    square_version='2023-07-20',
+    square_version='2023-08-16',
     access_token='AccessToken'
 )
 ```
@@ -48,7 +48,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 ```python
 from square.client import Client
 client = Client(
-    square_version='2023-07-20',
+    square_version='2023-08-16',
     access_token='AccessToken'
 )
 

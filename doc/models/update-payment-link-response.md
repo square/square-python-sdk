@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred when updating the payment link. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred when updating the payment link. |
 | `payment_link` | [`Payment Link`](../../doc/models/payment-link.md) | Optional | - |
 
 ## Example (as JSON)

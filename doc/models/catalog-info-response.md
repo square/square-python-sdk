@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `limits` | [`Catalog Info Response Limits`](../../doc/models/catalog-info-response-limits.md) | Optional | - |
 | `standard_unit_description_group` | [`Standard Unit Description Group`](../../doc/models/standard-unit-description-group.md) | Optional | Group of standard measurement units. |
 

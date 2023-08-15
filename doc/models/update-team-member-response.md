@@ -12,7 +12,7 @@ Represents a response from an update request containing the updated `TeamMember`
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `team_member` | [`Team Member`](../../doc/models/team-member.md) | Optional | A record representing an individual team member for a business. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
 
 ## Example (as JSON)
 

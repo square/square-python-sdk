@@ -34,23 +34,22 @@ class PayoutsApi(BaseApi):
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
 
         Args:
-            location_id (string, optional): The ID of the location for which
-                to list the payouts. By default, payouts are returned for the
+            location_id (str, optional): The ID of the location for which to
+                list the payouts. By default, payouts are returned for the
                 default (main) location associated with the seller.
             status (PayoutStatus, optional): If provided, only payouts with
                 the given status are returned.
-            begin_time (string, optional): The timestamp for the beginning of
-                the payout creation time, in RFC 3339 format. Inclusive.
-                Default: The current time minus one year.
-            end_time (string, optional): The timestamp for the end of the
-                payout creation time, in RFC 3339 format. Default: The current
-                time.
+            begin_time (str, optional): The timestamp for the beginning of the
+                payout creation time, in RFC 3339 format. Inclusive. Default:
+                The current time minus one year.
+            end_time (str, optional): The timestamp for the end of the payout
+                creation time, in RFC 3339 format. Default: The current time.
             sort_order (SortOrder, optional): The order in which payouts are
                 listed.
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for the original query. For
-                more information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for the original query. For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination). If request parameters change
                 between requests, subsequent results may contain duplicates or
@@ -118,8 +117,8 @@ class PayoutsApi(BaseApi):
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
 
         Args:
-            payout_id (string): The ID of the payout to retrieve the
-                information for.
+            payout_id (str): The ID of the payout to retrieve the information
+                for.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -163,14 +162,14 @@ class PayoutsApi(BaseApi):
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
 
         Args:
-            payout_id (string): The ID of the payout to retrieve the
-                information for.
+            payout_id (str): The ID of the payout to retrieve the information
+                for.
             sort_order (SortOrder, optional): The order in which payout
                 entries are listed.
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for the original query. For
-                more information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for the original query. For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination). If request parameters change
                 between requests, subsequent results may contain duplicates or

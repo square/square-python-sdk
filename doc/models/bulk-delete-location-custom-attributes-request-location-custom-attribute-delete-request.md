@@ -13,7 +13,7 @@ and optional key of the associated custom attribute definition.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Optional | The key of the associated custom attribute definition.<br>Represented as a qualified key if the requesting app is not the definition owner.<br>**Constraints**: *Pattern*: `^([a-zA-Z0-9_-]+:)?[a-zA-Z0-9_-]{1,60}$` |
+| `key` | `str` | Optional | The key of the associated custom attribute definition.<br>Represented as a qualified key if the requesting app is not the definition owner.<br>**Constraints**: *Pattern*: `^([a-zA-Z0-9_-]+:)?[a-zA-Z0-9_-]{1,60}$` |
 
 ## Example (as JSON)
 

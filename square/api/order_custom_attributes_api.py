@@ -40,10 +40,10 @@ class OrderCustomAttributesApi(BaseApi):
             visibility_filter (VisibilityFilter, optional): Requests that all
                 of the custom attributes be returned, or only those that are
                 read-only or read-write.
-            cursor (string, optional): The cursor returned in the paged
-                response from the previous call to this endpoint.  Provide
-                this cursor to retrieve the next page of results for your
-                original request.  For more information, see
+            cursor (str, optional): The cursor returned in the paged response
+                from the previous call to this endpoint.  Provide this cursor
+                to retrieve the next page of results for your original
+                request.  For more information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
             limit (int, optional): The maximum number of results to return in
@@ -149,8 +149,7 @@ class OrderCustomAttributesApi(BaseApi):
         Only the definition owner can delete a custom attribute definition.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                delete.
+            key (str): The key of the custom attribute definition to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -200,7 +199,7 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            key (string): The key of the custom attribute definition to
+            key (str): The key of the custom attribute definition to
                 retrieve.
             version (int, optional): To enable [optimistic
                 concurrency](https://developer.squareup.com/docs/build-basics/c
@@ -254,8 +253,7 @@ class OrderCustomAttributesApi(BaseApi):
         data, including those set to `VISIBILITY_HIDDEN`.
 
         Args:
-            key (string): The key of the custom attribute definition to
-                update.
+            key (str): The key of the custom attribute definition to update.
             body (UpdateOrderCustomAttributeDefinitionRequest): An object
                 containing the fields to POST for the request.  See the
                 corresponding object definition for field details.
@@ -447,14 +445,14 @@ class OrderCustomAttributesApi(BaseApi):
         and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order](entity:Order).
+            order_id (str): The ID of the target [order](entity:Order).
             visibility_filter (VisibilityFilter, optional): Requests that all
                 of the custom attributes be returned, or only those that are
                 read-only or read-write.
-            cursor (string, optional): The cursor returned in the paged
-                response from the previous call to this endpoint.  Provide
-                this cursor to retrieve the next page of results for your
-                original request.  For more information, see
+            cursor (str, optional): The cursor returned in the paged response
+                from the previous call to this endpoint.  Provide this cursor
+                to retrieve the next page of results for your original
+                request.  For more information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
             limit (int, optional): The maximum number of results to return in
@@ -530,8 +528,8 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order](entity:Order).
-            custom_attribute_key (string): The key of the custom attribute to
+            order_id (str): The ID of the target [order](entity:Order).
+            custom_attribute_key (str): The key of the custom attribute to
                 delete.  This key must match the key of an existing custom
                 attribute definition.
 
@@ -590,8 +588,8 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order](entity:Order).
-            custom_attribute_key (string): The key of the custom attribute to
+            order_id (str): The ID of the target [order](entity:Order).
+            custom_attribute_key (str): The key of the custom attribute to
                 retrieve.  This key must match the key of an existing custom
                 attribute definition.
             version (int, optional): To enable [optimistic
@@ -671,8 +669,8 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            order_id (string): The ID of the target [order](entity:Order).
-            custom_attribute_key (string): The key of the custom attribute to
+            order_id (str): The ID of the target [order](entity:Order).
+            custom_attribute_key (str): The key of the custom attribute to
                 create or update.  This key must match the key  of an existing
                 custom attribute definition.
             body (UpsertOrderCustomAttributeRequest): An object containing the

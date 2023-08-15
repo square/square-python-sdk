@@ -31,19 +31,19 @@ class CashDrawersApi(BaseApi):
         in a date range.
 
         Args:
-            location_id (string): The ID of the location to query for a list
-                of cash drawer shifts.
+            location_id (str): The ID of the location to query for a list of
+                cash drawer shifts.
             sort_order (SortOrder, optional): The order in which cash drawer
                 shifts are listed in the response, based on their opened_at
                 field. Default value: ASC
-            begin_time (string, optional): The inclusive start time of the
-                query on opened_at, in ISO 8601 format.
-            end_time (string, optional): The exclusive end date of the query
+            begin_time (str, optional): The inclusive start time of the query
                 on opened_at, in ISO 8601 format.
+            end_time (str, optional): The exclusive end date of the query on
+                opened_at, in ISO 8601 format.
             limit (int, optional): Number of cash drawer shift events in a
                 page of results (200 by default, 1000 max).
-            cursor (string, optional): Opaque cursor for fetching the next
-                page of results.
+            cursor (str, optional): Opaque cursor for fetching the next page
+                of results.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -100,9 +100,9 @@ class CashDrawersApi(BaseApi):
         for a list of cash drawer shift events.
 
         Args:
-            location_id (string): The ID of the location to retrieve cash
-                drawer shifts from.
-            shift_id (string): The shift ID.
+            location_id (str): The ID of the location to retrieve cash drawer
+                shifts from.
+            shift_id (str): The shift ID.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -148,13 +148,13 @@ class CashDrawersApi(BaseApi):
         Provides a paginated list of events for a single cash drawer shift.
 
         Args:
-            location_id (string): The ID of the location to list cash drawer
+            location_id (str): The ID of the location to list cash drawer
                 shifts for.
-            shift_id (string): The shift ID.
+            shift_id (str): The shift ID.
             limit (int, optional): Number of resources to be returned in a
                 page of results (200 by default, 1000 max).
-            cursor (string, optional): Opaque cursor for fetching the next
-                page of results.
+            cursor (str, optional): Opaque cursor for fetching the next page
+                of results.
 
         Returns:
             ApiResponse: An object with the response value as well as other

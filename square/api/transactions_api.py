@@ -37,14 +37,14 @@ class TransactionsApi(BaseApi):
         ): 50
 
         Args:
-            location_id (string): The ID of the location to list transactions
+            location_id (str): The ID of the location to list transactions
                 for.
-            begin_time (string, optional): The beginning of the requested
+            begin_time (str, optional): The beginning of the requested
                 reporting period, in RFC 3339 format.  See [Date
                 ranges](https://developer.squareup.com/docs/build-basics/workin
                 g-with-dates) for details on date inclusivity/exclusivity. 
                 Default value: The current time minus one year.
-            end_time (string, optional): The end of the requested reporting
+            end_time (str, optional): The end of the requested reporting
                 period, in RFC 3339 format.  See [Date
                 ranges](https://developer.squareup.com/docs/build-basics/workin
                 g-with-dates) for details on date inclusivity/exclusivity. 
@@ -52,9 +52,9 @@ class TransactionsApi(BaseApi):
             sort_order (SortOrder, optional): The order in which results are
                 listed in the response (`ASC` for oldest first, `DESC` for
                 newest first).  Default value: `DESC`
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  See [Paginating
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this to retrieve the next set
+                of results for your original query.  See [Paginating
                 results](https://developer.squareup.com/docs/working-with-apis/
                 pagination) for more information.
 
@@ -110,9 +110,9 @@ class TransactionsApi(BaseApi):
         Retrieves details for a single transaction.
 
         Args:
-            location_id (string): The ID of the transaction's associated
+            location_id (str): The ID of the transaction's associated
                 location.
-            transaction_id (string): The ID of the transaction to retrieve.
+            transaction_id (str): The ID of the transaction to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -164,8 +164,8 @@ class TransactionsApi(BaseApi):
         for more information.
 
         Args:
-            location_id (string): TODO: type description here.
-            transaction_id (string): TODO: type description here.
+            location_id (str): TODO: type description here.
+            transaction_id (str): TODO: type description here.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -217,8 +217,8 @@ class TransactionsApi(BaseApi):
         for more information.
 
         Args:
-            location_id (string): TODO: type description here.
-            transaction_id (string): TODO: type description here.
+            location_id (str): TODO: type description here.
+            transaction_id (str): TODO: type description here.
 
         Returns:
             ApiResponse: An object with the response value as well as other

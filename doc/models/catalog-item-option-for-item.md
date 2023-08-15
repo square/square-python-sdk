@@ -12,7 +12,7 @@ For example, a t-shirt item may offer a color option or a size option.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `item_option_id` | `string` | Optional | The unique id of the item option, used to form the dimensions of the item option matrix in a specified order. |
+| `item_option_id` | `str` | Optional | The unique id of the item option, used to form the dimensions of the item option matrix in a specified order. |
 
 ## Example (as JSON)
 

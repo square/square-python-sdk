@@ -12,7 +12,7 @@ if the request resulted in errors.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `gift_card` | [`Gift Card`](../../doc/models/gift-card.md) | Optional | Represents a Square gift card. |
 
 ## Example (as JSON)

@@ -15,7 +15,7 @@ present.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
 | `subscription_test_result` | [`Subscription Test Result`](../../doc/models/subscription-test-result.md) | Optional | Represents the details of a webhook subscription, including notification URL,<br>event types, and signature key. |
 
 ## Example (as JSON)

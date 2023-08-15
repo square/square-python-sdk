@@ -12,8 +12,8 @@ request. An individual request contains a booking ID, the custom attribute to de
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Required | The ID of the target [booking](entity:Booking).<br>**Constraints**: *Minimum Length*: `1` |
-| `key` | `string` | Required | The key of the custom attribute to delete. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key.<br>**Constraints**: *Minimum Length*: `1` |
+| `booking_id` | `str` | Required | The ID of the target [booking](entity:Booking).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
+| `key` | `str` | Required | The key of the custom attribute to delete. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key.<br>**Constraints**: *Minimum Length*: `1` |
 
 ## Example (as JSON)
 

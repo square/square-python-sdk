@@ -12,7 +12,7 @@ Represents a response from a retrieve request containing the specified `WageSett
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `wage_setting` | [`Wage Setting`](../../doc/models/wage-setting.md) | Optional | An object representing a team member's wage information. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
 
 ## Example (as JSON)
 

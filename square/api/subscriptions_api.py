@@ -137,8 +137,8 @@ class SubscriptionsApi(BaseApi):
         Retrieves a specific subscription.
 
         Args:
-            subscription_id (string): The ID of the subscription to retrieve.
-            include (string, optional): A query parameter to specify related
+            subscription_id (str): The ID of the subscription to retrieve.
+            include (str, optional): A query parameter to specify related
                 information to be included in the response.   The supported
                 query parameter values are:   - `actions`: to include
                 scheduled actions on the targeted subscription.
@@ -187,7 +187,7 @@ class SubscriptionsApi(BaseApi):
         To clear a field, set its value to `null`.
 
         Args:
-            subscription_id (string): The ID of the subscription to update.
+            subscription_id (str): The ID of the subscription to update.
             body (UpdateSubscriptionRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.
@@ -237,9 +237,9 @@ class SubscriptionsApi(BaseApi):
         Deletes a scheduled action for a subscription.
 
         Args:
-            subscription_id (string): The ID of the subscription the targeted
+            subscription_id (str): The ID of the subscription the targeted
                 action is to act upon.
-            action_id (string): The ID of the targeted action to be deleted.
+            action_id (str): The ID of the targeted action to be deleted.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -286,7 +286,7 @@ class SubscriptionsApi(BaseApi):
         the subscription status changes from ACTIVE to CANCELED.
 
         Args:
-            subscription_id (string): The ID of the subscription to cancel.
+            subscription_id (str): The ID of the subscription to cancel.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -330,9 +330,9 @@ class SubscriptionsApi(BaseApi):
         events) for a specific subscription.
 
         Args:
-            subscription_id (string): The ID of the subscription to retrieve
-                the events for.
-            cursor (string, optional): When the total number of resulting
+            subscription_id (str): The ID of the subscription to retrieve the
+                events for.
+            cursor (str, optional): When the total number of resulting
                 subscription events exceeds the limit of a paged response, 
                 specify the cursor returned from a preceding response here to
                 fetch the next set of results. If the cursor is unset, the
@@ -388,7 +388,7 @@ class SubscriptionsApi(BaseApi):
         Schedules a `PAUSE` action to pause an active subscription.
 
         Args:
-            subscription_id (string): The ID of the subscription to pause.
+            subscription_id (str): The ID of the subscription to pause.
             body (PauseSubscriptionRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.
@@ -439,7 +439,7 @@ class SubscriptionsApi(BaseApi):
         subscription.
 
         Args:
-            subscription_id (string): The ID of the subscription to resume.
+            subscription_id (str): The ID of the subscription to resume.
             body (ResumeSubscriptionRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.
@@ -493,7 +493,7 @@ class SubscriptionsApi(BaseApi):
         plan-variations).
 
         Args:
-            subscription_id (string): The ID of the subscription to swap the
+            subscription_id (str): The ID of the subscription to swap the
                 subscription plan for.
             body (SwapPlanRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for

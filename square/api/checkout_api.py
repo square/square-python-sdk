@@ -37,7 +37,7 @@ class CheckoutApi(BaseApi):
         endpoint in place of this previously released endpoint.
 
         Args:
-            location_id (string): The ID of the business location to associate
+            location_id (str): The ID of the business location to associate
                 the checkout with.
             body (CreateCheckoutRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
@@ -88,11 +88,11 @@ class CheckoutApi(BaseApi):
         Lists all payment links.
 
         Args:
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for the original query. If a
-                cursor is not provided, the endpoint returns the first page of
-                the results. For more  information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for the original query. If a cursor is not
+                provided, the endpoint returns the first page of the results.
+                For more  information, see
                 [Pagination](https://developer.squareup.com/docs/basics/api101/
                 pagination).
             limit (int, optional): A limit on the number of results to return
@@ -187,7 +187,7 @@ class CheckoutApi(BaseApi):
         Deletes a payment link.
 
         Args:
-            id (string): The ID of the payment link to delete.
+            id (str): The ID of the payment link to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -227,7 +227,7 @@ class CheckoutApi(BaseApi):
         Retrieves a payment link.
 
         Args:
-            id (string): The ID of link to retrieve.
+            id (str): The ID of link to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -272,7 +272,7 @@ class CheckoutApi(BaseApi):
         `URL`, or `timestamp` field.
 
         Args:
-            id (string): The ID of the payment link to update.
+            id (str): The ID of the payment link to update.
             body (UpdatePaymentLinkRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.

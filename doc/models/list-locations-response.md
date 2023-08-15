@@ -14,8 +14,8 @@ Either `errors` or `locations` is present in a given response (never both).
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `locations` | [`List of Location`](../../doc/models/location.md) | Optional | The business locations. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `locations` | [`List Location`](../../doc/models/location.md) | Optional | The business locations. |
 
 ## Example (as JSON)
 

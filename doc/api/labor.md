@@ -43,13 +43,13 @@ def list_break_types(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Optional | Filter the returned `BreakType` results to only those that are associated with the<br>specified location. |
+| `location_id` | `str` | Query, Optional | Filter the returned `BreakType` results to only those that are associated with the<br>specified location. |
 | `limit` | `int` | Query, Optional | The maximum number of `BreakType` results to return per page. The number can range between 1<br>and 200. The default is 200. |
-| `cursor` | `string` | Query, Optional | A pointer to the next page of `BreakType` results to fetch. |
+| `cursor` | `str` | Query, Optional | A pointer to the next page of `BreakType` results to fetch. |
 
 ## Response Type
 
-[`List Break Types Response`](../../doc/models/list-break-types-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Break Types Response`](../../doc/models/list-break-types-response.md).
 
 ## Example Usage
 
@@ -94,7 +94,7 @@ def create_break_type(self,
 
 ## Response Type
 
-[`Create Break Type Response`](../../doc/models/create-break-type-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Break Type Response`](../../doc/models/create-break-type-response.md).
 
 ## Example Usage
 
@@ -134,11 +134,11 @@ def delete_break_type(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `BreakType` being deleted. |
+| `id` | `str` | Template, Required | The UUID for the `BreakType` being deleted. |
 
 ## Response Type
 
-[`Delete Break Type Response`](../../doc/models/delete-break-type-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Break Type Response`](../../doc/models/delete-break-type-response.md).
 
 ## Example Usage
 
@@ -168,11 +168,11 @@ def get_break_type(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `BreakType` being retrieved. |
+| `id` | `str` | Template, Required | The UUID for the `BreakType` being retrieved. |
 
 ## Response Type
 
-[`Get Break Type Response`](../../doc/models/get-break-type-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Break Type Response`](../../doc/models/get-break-type-response.md).
 
 ## Example Usage
 
@@ -203,12 +203,12 @@ def update_break_type(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `BreakType` being updated. |
+| `id` | `str` | Template, Required | The UUID for the `BreakType` being updated. |
 | `body` | [`Update Break Type Request`](../../doc/models/update-break-type-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Break Type Response`](../../doc/models/update-break-type-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Break Type Response`](../../doc/models/update-break-type-response.md).
 
 ## Example Usage
 
@@ -255,13 +255,13 @@ def list_employee_wages(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `employee_id` | `string` | Query, Optional | Filter the returned wages to only those that are associated with the specified employee. |
+| `employee_id` | `str` | Query, Optional | Filter the returned wages to only those that are associated with the specified employee. |
 | `limit` | `int` | Query, Optional | The maximum number of `EmployeeWage` results to return per page. The number can range between<br>1 and 200. The default is 200. |
-| `cursor` | `string` | Query, Optional | A pointer to the next page of `EmployeeWage` results to fetch. |
+| `cursor` | `str` | Query, Optional | A pointer to the next page of `EmployeeWage` results to fetch. |
 
 ## Response Type
 
-[`List Employee Wages Response`](../../doc/models/list-employee-wages-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Employee Wages Response`](../../doc/models/list-employee-wages-response.md).
 
 ## Example Usage
 
@@ -291,11 +291,11 @@ def get_employee_wage(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `EmployeeWage` being retrieved. |
+| `id` | `str` | Template, Required | The UUID for the `EmployeeWage` being retrieved. |
 
 ## Response Type
 
-[`Get Employee Wage Response`](../../doc/models/get-employee-wage-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Employee Wage Response`](../../doc/models/get-employee-wage-response.md).
 
 ## Example Usage
 
@@ -347,7 +347,7 @@ def create_shift(self,
 
 ## Response Type
 
-[`Create Shift Response`](../../doc/models/create-shift-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Shift Response`](../../doc/models/create-shift-response.md).
 
 ## Example Usage
 
@@ -421,7 +421,7 @@ def search_shifts(self,
 
 ## Response Type
 
-[`Search Shifts Response`](../../doc/models/search-shifts-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Shifts Response`](../../doc/models/search-shifts-response.md).
 
 ## Example Usage
 
@@ -465,11 +465,11 @@ def delete_shift(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `Shift` being deleted. |
+| `id` | `str` | Template, Required | The UUID for the `Shift` being deleted. |
 
 ## Response Type
 
-[`Delete Shift Response`](../../doc/models/delete-shift-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Shift Response`](../../doc/models/delete-shift-response.md).
 
 ## Example Usage
 
@@ -499,11 +499,11 @@ def get_shift(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `Shift` being retrieved. |
+| `id` | `str` | Template, Required | The UUID for the `Shift` being retrieved. |
 
 ## Response Type
 
-[`Get Shift Response`](../../doc/models/get-shift-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Shift Response`](../../doc/models/get-shift-response.md).
 
 ## Example Usage
 
@@ -540,12 +540,12 @@ def update_shift(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the object being updated. |
+| `id` | `str` | Template, Required | The ID of the object being updated. |
 | `body` | [`Update Shift Request`](../../doc/models/update-shift-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Shift Response`](../../doc/models/update-shift-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Shift Response`](../../doc/models/update-shift-response.md).
 
 ## Example Usage
 
@@ -608,13 +608,13 @@ def list_team_member_wages(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_member_id` | `string` | Query, Optional | Filter the returned wages to only those that are associated with the<br>specified team member. |
+| `team_member_id` | `str` | Query, Optional | Filter the returned wages to only those that are associated with the<br>specified team member. |
 | `limit` | `int` | Query, Optional | The maximum number of `TeamMemberWage` results to return per page. The number can range between<br>1 and 200. The default is 200. |
-| `cursor` | `string` | Query, Optional | A pointer to the next page of `EmployeeWage` results to fetch. |
+| `cursor` | `str` | Query, Optional | A pointer to the next page of `EmployeeWage` results to fetch. |
 
 ## Response Type
 
-[`List Team Member Wages Response`](../../doc/models/list-team-member-wages-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Team Member Wages Response`](../../doc/models/list-team-member-wages-response.md).
 
 ## Example Usage
 
@@ -642,11 +642,11 @@ def get_team_member_wage(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `TeamMemberWage` being retrieved. |
+| `id` | `str` | Template, Required | The UUID for the `TeamMemberWage` being retrieved. |
 
 ## Response Type
 
-[`Get Team Member Wage Response`](../../doc/models/get-team-member-wage-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Team Member Wage Response`](../../doc/models/get-team-member-wage-response.md).
 
 ## Example Usage
 
@@ -678,11 +678,11 @@ def list_workweek_configs(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `limit` | `int` | Query, Optional | The maximum number of `WorkweekConfigs` results to return per page. |
-| `cursor` | `string` | Query, Optional | A pointer to the next page of `WorkweekConfig` results to fetch. |
+| `cursor` | `str` | Query, Optional | A pointer to the next page of `WorkweekConfig` results to fetch. |
 
 ## Response Type
 
-[`List Workweek Configs Response`](../../doc/models/list-workweek-configs-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Workweek Configs Response`](../../doc/models/list-workweek-configs-response.md).
 
 ## Example Usage
 
@@ -711,12 +711,12 @@ def update_workweek_config(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The UUID for the `WorkweekConfig` object being updated. |
+| `id` | `str` | Template, Required | The UUID for the `WorkweekConfig` object being updated. |
 | `body` | [`Update Workweek Config Request`](../../doc/models/update-workweek-config-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Workweek Config Response`](../../doc/models/update-workweek-config-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Workweek Config Response`](../../doc/models/update-workweek-config-response.md).
 
 ## Example Usage
 

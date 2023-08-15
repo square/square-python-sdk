@@ -36,7 +36,7 @@ def register_domain(self,
 
 ## Response Type
 
-[`Register Domain Response`](../../doc/models/register-domain-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Register Domain Response`](../../doc/models/register-domain-response.md).
 
 ## Example Usage
 

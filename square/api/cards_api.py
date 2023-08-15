@@ -30,18 +30,18 @@ class CardsApi(BaseApi):
         A max of 25 cards will be returned.
 
         Args:
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  See
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this to retrieve the next set
+                of results for your original query.  See
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination) for more information.
-            customer_id (string, optional): Limit results to cards associated
+            customer_id (str, optional): Limit results to cards associated
                 with the customer supplied. By default, all cards owned by the
                 merchant are returned.
             include_disabled (bool, optional): Includes disabled cards. By
                 default, all enabled cards owned by the merchant are
                 returned.
-            reference_id (string, optional): Limit results to cards associated
+            reference_id (str, optional): Limit results to cards associated
                 with the reference_id supplied.
             sort_order (SortOrder, optional): Sorts the returned list by when
                 the card was created with the specified order. This field
@@ -140,7 +140,7 @@ class CardsApi(BaseApi):
         Retrieves details for a specific Card.
 
         Args:
-            card_id (string): Unique ID for the desired Card.
+            card_id (str): Unique ID for the desired Card.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -181,7 +181,7 @@ class CardsApi(BaseApi):
         Disabling an already disabled card is allowed but has no effect.
 
         Args:
-            card_id (string): Unique ID for the desired Card.
+            card_id (str): Unique ID for the desired Card.
 
         Returns:
             ApiResponse: An object with the response value as well as other

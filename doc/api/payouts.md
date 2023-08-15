@@ -36,17 +36,17 @@ def list_payouts(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Optional | The ID of the location for which to list the payouts.<br>By default, payouts are returned for the default (main) location associated with the seller. |
+| `location_id` | `str` | Query, Optional | The ID of the location for which to list the payouts.<br>By default, payouts are returned for the default (main) location associated with the seller. |
 | `status` | [`str (Payout Status)`](../../doc/models/payout-status.md) | Query, Optional | If provided, only payouts with the given status are returned. |
-| `begin_time` | `string` | Query, Optional | The timestamp for the beginning of the payout creation time, in RFC 3339 format.<br>Inclusive. Default: The current time minus one year. |
-| `end_time` | `string` | Query, Optional | The timestamp for the end of the payout creation time, in RFC 3339 format.<br>Default: The current time. |
+| `begin_time` | `str` | Query, Optional | The timestamp for the beginning of the payout creation time, in RFC 3339 format.<br>Inclusive. Default: The current time minus one year. |
+| `end_time` | `str` | Query, Optional | The timestamp for the end of the payout creation time, in RFC 3339 format.<br>Default: The current time. |
 | `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payouts are listed. |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination).<br>If request parameters change between requests, subsequent results may contain duplicates or missing records. |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination).<br>If request parameters change between requests, subsequent results may contain duplicates or missing records. |
 | `limit` | `int` | Query, Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br>The default value of 100 is also the maximum allowed value. If the provided value is<br>greater than 100, it is ignored and the default value is used instead.<br>Default: `100` |
 
 ## Response Type
 
-[`List Payouts Response`](../../doc/models/list-payouts-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Payouts Response`](../../doc/models/list-payouts-response.md).
 
 ## Example Usage
 
@@ -75,11 +75,11 @@ def get_payout(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payout_id` | `string` | Template, Required | The ID of the payout to retrieve the information for. |
+| `payout_id` | `str` | Template, Required | The ID of the payout to retrieve the information for. |
 
 ## Response Type
 
-[`Get Payout Response`](../../doc/models/get-payout-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Payout Response`](../../doc/models/get-payout-response.md).
 
 ## Example Usage
 
@@ -113,14 +113,14 @@ def list_payout_entries(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payout_id` | `string` | Template, Required | The ID of the payout to retrieve the information for. |
+| `payout_id` | `str` | Template, Required | The ID of the payout to retrieve the information for. |
 | `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payout entries are listed. |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination).<br>If request parameters change between requests, subsequent results may contain duplicates or missing records. |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination).<br>If request parameters change between requests, subsequent results may contain duplicates or missing records. |
 | `limit` | `int` | Query, Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br>The default value of 100 is also the maximum allowed value. If the provided value is<br>greater than 100, it is ignored and the default value is used instead.<br>Default: `100` |
 
 ## Response Type
 
-[`List Payout Entries Response`](../../doc/models/list-payout-entries-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Payout Entries Response`](../../doc/models/list-payout-entries-response.md).
 
 ## Example Usage
 

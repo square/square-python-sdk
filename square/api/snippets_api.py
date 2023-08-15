@@ -32,7 +32,7 @@ class SnippetsApi(BaseApi):
         am-for-square-online-apis).
 
         Args:
-            site_id (string): The ID of the site that contains the snippet.
+            site_id (str): The ID of the site that contains the snippet.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -81,7 +81,7 @@ class SnippetsApi(BaseApi):
         am-for-square-online-apis).
 
         Args:
-            site_id (string): The ID of the site that contains the snippet.
+            site_id (str): The ID of the site that contains the snippet.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -133,8 +133,8 @@ class SnippetsApi(BaseApi):
         am-for-square-online-apis).
 
         Args:
-            site_id (string): The ID of the site where you want to add or
-                update the snippet.
+            site_id (str): The ID of the site where you want to add or update
+                the snippet.
             body (UpsertSnippetRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.

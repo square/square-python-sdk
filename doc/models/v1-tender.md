@@ -32,19 +32,19 @@ associated payment.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The tender's unique ID. |
+| `id` | `str` | Optional | The tender's unique ID. |
 | `type` | [`str (V1 Tender Type)`](../../doc/models/v1-tender-type.md) | Optional | - |
-| `name` | `string` | Optional | A human-readable description of the tender. |
-| `employee_id` | `string` | Optional | The ID of the employee that processed the tender. |
-| `receipt_url` | `string` | Optional | The URL of the receipt for the tender. |
+| `name` | `str` | Optional | A human-readable description of the tender. |
+| `employee_id` | `str` | Optional | The ID of the employee that processed the tender. |
+| `receipt_url` | `str` | Optional | The URL of the receipt for the tender. |
 | `card_brand` | [`str (V1 Tender Card Brand)`](../../doc/models/v1-tender-card-brand.md) | Optional | The brand of a credit card. |
-| `pan_suffix` | `string` | Optional | The last four digits of the provided credit card's account number. |
+| `pan_suffix` | `str` | Optional | The last four digits of the provided credit card's account number. |
 | `entry_method` | [`str (V1 Tender Entry Method)`](../../doc/models/v1-tender-entry-method.md) | Optional | - |
-| `payment_note` | `string` | Optional | Notes entered by the merchant about the tender at the time of payment, if any. Typically only present for tender with the type: OTHER. |
+| `payment_note` | `str` | Optional | Notes entered by the merchant about the tender at the time of payment, if any. Typically only present for tender with the type: OTHER. |
 | `total_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
 | `tendered_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
-| `tendered_at` | `string` | Optional | The time when the tender was created, in ISO 8601 format. |
-| `settled_at` | `string` | Optional | The time when the tender was settled, in ISO 8601 format. |
+| `tendered_at` | `str` | Optional | The time when the tender was created, in ISO 8601 format. |
+| `settled_at` | `str` | Optional | The time when the tender was settled, in ISO 8601 format. |
 | `change_back_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
 | `refunded_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
 | `is_exchange` | `bool` | Optional | Indicates whether or not the tender is associated with an exchange. If is_exchange is true, the tender represents the value of goods returned in an exchange not the actual money paid. The exchange value reduces the tender amounts needed to pay for items purchased in the exchange. |

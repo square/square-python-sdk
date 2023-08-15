@@ -11,9 +11,9 @@ V1PaymentDiscount
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Optional | The discount's name. |
+| `name` | `str` | Optional | The discount's name. |
 | `applied_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
-| `discount_id` | `string` | Optional | The ID of the applied discount, if available. Discounts applied in older versions of Square Register might not have an ID. |
+| `discount_id` | `str` | Optional | The ID of the applied discount, if available. Discounts applied in older versions of Square Register might not have an ID. |
 
 ## Example (as JSON)
 

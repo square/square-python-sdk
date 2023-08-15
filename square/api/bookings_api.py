@@ -21,6 +21,7 @@ class BookingsApi(BaseApi):
     def list_bookings(self,
                       limit=None,
                       cursor=None,
+                      customer_id=None,
                       team_member_id=None,
                       location_id=None,
                       start_at_min=None,
@@ -36,19 +37,22 @@ class BookingsApi(BaseApi):
         Args:
             limit (int, optional): The maximum number of results per page to
                 return in a paged response.
-            cursor (string, optional): The pagination cursor from the
-                preceding response to return the next page of the results. Do
-                not set this when retrieving the first page of the results.
-            team_member_id (string, optional): The team member for whom to
+            cursor (str, optional): The pagination cursor from the preceding
+                response to return the next page of the results. Do not set
+                this when retrieving the first page of the results.
+            customer_id (str, optional): The [customer](entity:Customer) for
+                whom to retrieve bookings. If this is not set, bookings for
+                all customers are retrieved.
+            team_member_id (str, optional): The team member for whom to
                 retrieve bookings. If this is not set, bookings of all members
                 are retrieved.
-            location_id (string, optional): The location for which to retrieve
+            location_id (str, optional): The location for which to retrieve
                 bookings. If this is not set, all locations' bookings are
                 retrieved.
-            start_at_min (string, optional): The RFC 3339 timestamp specifying
+            start_at_min (str, optional): The RFC 3339 timestamp specifying
                 the earliest of the start time. If this is not set, the
                 current time is used.
-            start_at_max (string, optional): The RFC 3339 timestamp specifying
+            start_at_max (str, optional): The RFC 3339 timestamp specifying
                 the latest of the start time. If this is not set, the time of
                 31 days after `start_at_min` is used.
 
@@ -74,6 +78,9 @@ class BookingsApi(BaseApi):
             .query_param(Parameter()
                          .key('cursor')
                          .value(cursor))
+            .query_param(Parameter()
+                         .key('customer_id')
+                         .value(customer_id))
             .query_param(Parameter()
                          .key('team_member_id')
                          .value(team_member_id))
@@ -203,6 +210,54 @@ class BookingsApi(BaseApi):
             .convertor(ApiResponse.create)
         ).execute()
 
+    def bulk_retrieve_bookings(self,
+                               body):
+        """Does a POST request to /v2/bookings/bulk-retrieve.
+
+        Bulk-Retrieves a list of bookings by booking IDs.
+        To call this endpoint with buyer-level permissions, set
+        `APPOINTMENTS_READ` for the OAuth scope.
+        To call this endpoint with seller-level permissions, set
+        `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
+
+        Args:
+            body (BulkRetrieveBookingsRequest): An object containing the
+                fields to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/bookings/bulk-retrieve')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
     def retrieve_business_booking_profile(self):
         """Does a GET request to /v2/bookings/business-booking-profile.
 
@@ -250,10 +305,10 @@ class BookingsApi(BaseApi):
                 (`false`).
             limit (int, optional): The maximum number of results to return in
                 a paged response.
-            cursor (string, optional): The pagination cursor from the
-                preceding response to return the next page of the results. Do
-                not set this when retrieving the first page of the results.
-            location_id (string, optional): Indicates whether to include only
+            cursor (str, optional): The pagination cursor from the preceding
+                response to return the next page of the results. Do not set
+                this when retrieving the first page of the results.
+            location_id (str, optional): Indicates whether to include only
                 team members enabled at the given location in the returned
                 result.
 
@@ -303,7 +358,7 @@ class BookingsApi(BaseApi):
         Retrieves a team member's booking profile.
 
         Args:
-            team_member_id (string): The ID of the team member to retrieve.
+            team_member_id (str): The ID of the team member to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -347,8 +402,8 @@ class BookingsApi(BaseApi):
         `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
         Args:
-            booking_id (string): The ID of the [Booking](entity:Booking)
-                object representing the to-be-retrieved booking.
+            booking_id (str): The ID of the [Booking](entity:Booking) object
+                representing the to-be-retrieved booking.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -397,8 +452,8 @@ class BookingsApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            booking_id (string): The ID of the [Booking](entity:Booking)
-                object representing the to-be-updated booking.
+            booking_id (str): The ID of the [Booking](entity:Booking) object
+                representing the to-be-updated booking.
             body (UpdateBookingRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -456,8 +511,8 @@ class BookingsApi(BaseApi):
         or *Appointments Premium*.
 
         Args:
-            booking_id (string): The ID of the [Booking](entity:Booking)
-                object representing the to-be-cancelled booking.
+            booking_id (str): The ID of the [Booking](entity:Booking) object
+                representing the to-be-cancelled booking.
             body (CancelBookingRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.

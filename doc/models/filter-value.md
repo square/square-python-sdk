@@ -15,9 +15,9 @@ Refer to the documentation of the field.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `all` | `List of string` | Optional | A list of terms that must be present on the field of the resource. |
-| `any` | `List of string` | Optional | A list of terms where at least one of them must be present on the<br>field of the resource. |
-| `none` | `List of string` | Optional | A list of terms that must not be present on the field the resource |
+| `all` | `List[str]` | Optional | A list of terms that must be present on the field of the resource. |
+| `any` | `List[str]` | Optional | A list of terms where at least one of them must be present on the<br>field of the resource. |
+| `none` | `List[str]` | Optional | A list of terms that must not be present on the field the resource |
 
 ## Example (as JSON)
 

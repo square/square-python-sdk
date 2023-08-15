@@ -13,12 +13,12 @@ includes a `redeem_activity_details` field that contains information about the r
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The Square-assigned ID of the gift card activity. |
+| `id` | `str` | Optional | The Square-assigned ID of the gift card activity. |
 | `type` | [`str (Gift Card Activity Type)`](../../doc/models/gift-card-activity-type.md) | Required | Indicates the type of [gift card activity](../../doc/models/gift-card-activity.md). |
-| `location_id` | `string` | Required | The ID of the [business location](entity:Location) where the activity occurred. |
-| `created_at` | `string` | Optional | The timestamp when the gift card activity was created, in RFC 3339 format. |
-| `gift_card_id` | `string` | Optional | The gift card ID. When creating a gift card activity, `gift_card_id` is not required if<br>`gift_card_gan` is specified. |
-| `gift_card_gan` | `string` | Optional | The gift card account number (GAN). When creating a gift card activity, `gift_card_gan`<br>is not required if `gift_card_id` is specified. |
+| `location_id` | `str` | Required | The ID of the [business location](entity:Location) where the activity occurred. |
+| `created_at` | `str` | Optional | The timestamp when the gift card activity was created, in RFC 3339 format. |
+| `gift_card_id` | `str` | Optional | The gift card ID. When creating a gift card activity, `gift_card_id` is not required if<br>`gift_card_gan` is specified. |
+| `gift_card_gan` | `str` | Optional | The gift card account number (GAN). When creating a gift card activity, `gift_card_gan`<br>is not required if `gift_card_id` is specified. |
 | `gift_card_balance_money` | [`Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
 | `load_activity_details` | [`Gift Card Activity Load`](../../doc/models/gift-card-activity-load.md) | Optional | Represents details about a `LOAD` [gift card activity type](../../doc/models/gift-card-activity-type.md). |
 | `activate_activity_details` | [`Gift Card Activity Activate`](../../doc/models/gift-card-activity-activate.md) | Optional | Represents details about an `ACTIVATE` [gift card activity type](../../doc/models/gift-card-activity-type.md). |

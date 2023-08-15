@@ -11,8 +11,8 @@ Provides metadata when the event `type` is `CREATE_REWARD`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_program_id` | `string` | Required | The ID of the [loyalty program](entity:LoyaltyProgram).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
-| `reward_id` | `string` | Optional | The Square-assigned ID of the created [loyalty reward](entity:LoyaltyReward).<br>This field is returned only if the event source is `LOYALTY_API`.<br>**Constraints**: *Maximum Length*: `36` |
+| `loyalty_program_id` | `str` | Required | The ID of the [loyalty program](entity:LoyaltyProgram).<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
+| `reward_id` | `str` | Optional | The Square-assigned ID of the created [loyalty reward](entity:LoyaltyReward).<br>This field is returned only if the event source is `LOYALTY_API`.<br>**Constraints**: *Maximum Length*: `36` |
 | `points` | `int` | Required | The loyalty points used to create the reward. |
 
 ## Example (as JSON)

@@ -12,7 +12,7 @@ Defines the response returned by
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `payment` | [`Payment`](../../doc/models/payment.md) | Optional | Represents a payment processed by the Square API. |
 
 ## Example (as JSON)

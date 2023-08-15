@@ -12,8 +12,8 @@ which contains a map of responses that each corresponds to an individual delete 
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `values` | [`Dict`](../../doc/models/booking-custom-attribute-delete-response.md) | Optional | A map of responses that correspond to individual delete requests. Each response has the<br>same ID as the corresponding request and contains `booking_id` and  `errors` field. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `values` | [`Dict Str Booking Custom Attribute Delete Response`](../../doc/models/booking-custom-attribute-delete-response.md) | Optional | A map of responses that correspond to individual delete requests. Each response has the<br>same ID as the corresponding request and contains `booking_id` and  `errors` field. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
 ## Example (as JSON)
 

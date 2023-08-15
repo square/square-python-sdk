@@ -15,8 +15,8 @@ present.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `signature_key` | `string` | Optional | The new Square-generated signature key used to validate the origin of the webhook event. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `signature_key` | `str` | Optional | The new Square-generated signature key used to validate the origin of the webhook event. |
 
 ## Example (as JSON)
 

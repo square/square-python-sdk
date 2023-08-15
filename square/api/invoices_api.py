@@ -29,12 +29,12 @@ class InvoicesApi(BaseApi):
                 use in a subsequent request to retrieve the next set of invoices.
 
         Args:
-            location_id (string): The ID of the location for which to list
+            location_id (str): The ID of the location for which to list
                 invoices.
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint.  Provide this cursor to
-                retrieve the next set of results for your original query.  For
-                more information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint.  Provide this cursor to retrieve the
+                next set of results for your original query.  For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
             limit (int, optional): The maximum number of invoices to return
@@ -190,7 +190,7 @@ class InvoicesApi(BaseApi):
         scheduled for processing).
 
         Args:
-            invoice_id (string): The ID of the invoice to delete.
+            invoice_id (str): The ID of the invoice to delete.
             version (int, optional): The version of the
                 [invoice](entity:Invoice) to delete. If you do not know the
                 version, you can call
@@ -238,7 +238,7 @@ class InvoicesApi(BaseApi):
         Retrieves an invoice by invoice ID.
 
         Args:
-            invoice_id (string): The ID of the invoice to retrieve.
+            invoice_id (str): The ID of the invoice to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -286,7 +286,7 @@ class InvoicesApi(BaseApi):
         field. Published invoices have additional restrictions.
 
         Args:
-            invoice_id (string): The ID of the invoice to update.
+            invoice_id (str): The ID of the invoice to update.
             body (UpdateInvoiceRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -339,7 +339,7 @@ class InvoicesApi(BaseApi):
         state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
 
         Args:
-            invoice_id (string): The ID of the [invoice](entity:Invoice) to
+            invoice_id (str): The ID of the [invoice](entity:Invoice) to
                 cancel.
             body (CancelInvoiceRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
@@ -402,7 +402,7 @@ class InvoicesApi(BaseApi):
         invoice amount.
 
         Args:
-            invoice_id (string): The ID of the invoice to publish.
+            invoice_id (str): The ID of the invoice to publish.
             body (PublishInvoiceRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.

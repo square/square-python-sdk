@@ -267,8 +267,8 @@ class CatalogApi(BaseApi):
         JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
 
         Args:
-            image_id (string): The ID of the `CatalogImage` object to update
-                the encapsulated image file.
+            image_id (str): The ID of the `CatalogImage` object to update the
+                encapsulated image file.
             request (UpdateCatalogImageRequest, optional): TODO: type
                 description here.
             image_file (typing.BinaryIO, optional): TODO: type description
@@ -366,12 +366,12 @@ class CatalogApi(BaseApi):
         and set the `include_deleted_objects` attribute value to `true`.
 
         Args:
-            cursor (string, optional): The pagination cursor returned in the
+            cursor (str, optional): The pagination cursor returned in the
                 previous response. Leave unset for an initial request. The
                 page size is currently set to be 100. See
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination) for more information.
-            types (string, optional): An optional case-insensitive,
+            types (str, optional): An optional case-insensitive,
                 comma-separated list of object types to retrieve.  The valid
                 values are defined in the
                 [CatalogObjectType](entity:CatalogObjectType) enum, for
@@ -499,11 +499,10 @@ class CatalogApi(BaseApi):
         delete requests are rejected with the `429` error code.
 
         Args:
-            object_id (string): The ID of the catalog object to be deleted.
-                When an object is deleted, other objects in the graph that
-                depend on that object will be deleted as well (for example,
-                deleting a catalog item will delete its catalog item
-                variations).
+            object_id (str): The ID of the catalog object to be deleted. When
+                an object is deleted, other objects in the graph that depend
+                on that object will be deleted as well (for example, deleting
+                a catalog item will delete its catalog item variations).
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -553,8 +552,8 @@ class CatalogApi(BaseApi):
         any [CatalogTax]($m/CatalogTax) objects that apply to it.
 
         Args:
-            object_id (string): The object ID of any type of catalog objects
-                to be retrieved.
+            object_id (str): The object ID of any type of catalog objects to
+                be retrieved.
             include_related_objects (bool, optional): If `true`, the response
                 will include additional objects that are related to the
                 requested objects. Related objects are defined as any objects

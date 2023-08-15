@@ -37,7 +37,7 @@ def create_mobile_authorization_code(self,
 
 ## Response Type
 
-[`Create Mobile Authorization Code Response`](../../doc/models/create-mobile-authorization-code-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Mobile Authorization Code Response`](../../doc/models/create-mobile-authorization-code-response.md).
 
 ## Example Usage
 

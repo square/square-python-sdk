@@ -33,11 +33,11 @@ def list_webhook_event_types(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `api_version` | `string` | Query, Optional | The API version for which to list event types. Setting this field overrides the default version used by the application. |
+| `api_version` | `str` | Query, Optional | The API version for which to list event types. Setting this field overrides the default version used by the application. |
 
 ## Response Type
 
-[`List Webhook Event Types Response`](../../doc/models/list-webhook-event-types-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Webhook Event Types Response`](../../doc/models/list-webhook-event-types-response.md).
 
 ## Example Usage
 
@@ -68,14 +68,14 @@ def list_webhook_subscriptions(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `include_disabled` | `bool` | Query, Optional | Includes disabled [Subscription](entity:WebhookSubscription)s.<br>By default, all enabled [Subscription](entity:WebhookSubscription)s are returned.<br>**Default**: `False` |
 | `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | Sorts the returned list by when the [Subscription](entity:WebhookSubscription) was created with the specified order.<br>This field defaults to ASC. |
 | `limit` | `int` | Query, Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br>The default value of 100 is also the maximum allowed value.<br><br>Default: 100 |
 
 ## Response Type
 
-[`List Webhook Subscriptions Response`](../../doc/models/list-webhook-subscriptions-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Webhook Subscriptions Response`](../../doc/models/list-webhook-subscriptions-response.md).
 
 ## Example Usage
 
@@ -111,7 +111,7 @@ def create_webhook_subscription(self,
 
 ## Response Type
 
-[`Create Webhook Subscription Response`](../../doc/models/create-webhook-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Webhook Subscription Response`](../../doc/models/create-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -152,11 +152,11 @@ def delete_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to delete. |
+| `subscription_id` | `str` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to delete. |
 
 ## Response Type
 
-[`Delete Webhook Subscription Response`](../../doc/models/delete-webhook-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Webhook Subscription Response`](../../doc/models/delete-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -186,11 +186,11 @@ def retrieve_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to retrieve. |
+| `subscription_id` | `str` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Webhook Subscription Response`](../../doc/models/retrieve-webhook-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Webhook Subscription Response`](../../doc/models/retrieve-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -221,12 +221,12 @@ def update_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to update. |
+| `subscription_id` | `str` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to update. |
 | `body` | [`Update Webhook Subscription Request`](../../doc/models/update-webhook-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Webhook Subscription Response`](../../doc/models/update-webhook-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Webhook Subscription Response`](../../doc/models/update-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -267,12 +267,12 @@ def update_webhook_subscription_signature_key(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to update. |
+| `subscription_id` | `str` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to update. |
 | `body` | [`Update Webhook Subscription Signature Key Request`](../../doc/models/update-webhook-subscription-signature-key-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Webhook Subscription Signature Key Response`](../../doc/models/update-webhook-subscription-signature-key-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Webhook Subscription Signature Key Response`](../../doc/models/update-webhook-subscription-signature-key-response.md).
 
 ## Example Usage
 
@@ -310,12 +310,12 @@ def test_webhook_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to test. |
+| `subscription_id` | `str` | Template, Required | [REQUIRED] The ID of the [Subscription](entity:WebhookSubscription) to test. |
 | `body` | [`Test Webhook Subscription Request`](../../doc/models/test-webhook-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Test Webhook Subscription Response`](../../doc/models/test-webhook-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Test Webhook Subscription Response`](../../doc/models/test-webhook-subscription-response.md).
 
 ## Example Usage
 

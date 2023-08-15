@@ -14,8 +14,8 @@ For example, "Color:Red, Size:Small" or "Color:Blue, Size:Medium".
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `item_option_id` | `string` | Optional | The unique id of an item option. |
-| `item_option_value_id` | `string` | Optional | The unique id of the selected value for the item option. |
+| `item_option_id` | `str` | Optional | The unique id of an item option. |
+| `item_option_value_id` | `str` | Optional | The unique id of the selected value for the item option. |
 
 ## Example (as JSON)
 

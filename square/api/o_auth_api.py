@@ -48,13 +48,13 @@ class OAuthApi(BaseApi):
         Dashboard](https://developer.squareup.com/apps).
 
         Args:
-            client_id (string): Your application ID, which is available on the
+            client_id (str): Your application ID, which is available on the
                 **OAuth** page in the [Developer
                 Dashboard](https://developer.squareup.com/apps).
             body (RenewTokenRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
-            authorization (string): Client APPLICATION_SECRET
+            authorization (str): Client APPLICATION_SECRET
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -122,7 +122,7 @@ class OAuthApi(BaseApi):
             body (RevokeTokenRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
-            authorization (string): Client APPLICATION_SECRET
+            authorization (str): Client APPLICATION_SECRET
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -246,7 +246,7 @@ class OAuthApi(BaseApi):
         endpoint returns an `UNAUTHORIZED` error.
 
         Args:
-            authorization (string): Client APPLICATION_SECRET
+            authorization (str): Client APPLICATION_SECRET
 
         Returns:
             ApiResponse: An object with the response value as well as other

@@ -47,7 +47,7 @@ def create_loyalty_account(self,
 
 ## Response Type
 
-[`Create Loyalty Account Response`](../../doc/models/create-loyalty-account-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Loyalty Account Response`](../../doc/models/create-loyalty-account-response.md).
 
 ## Example Usage
 
@@ -93,7 +93,7 @@ def search_loyalty_accounts(self,
 
 ## Response Type
 
-[`Search Loyalty Accounts Response`](../../doc/models/search-loyalty-accounts-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Loyalty Accounts Response`](../../doc/models/search-loyalty-accounts-response.md).
 
 ## Example Usage
 
@@ -132,11 +132,11 @@ def retrieve_loyalty_account(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the [loyalty account](entity:LoyaltyAccount) to retrieve. |
+| `account_id` | `str` | Template, Required | The ID of the [loyalty account](entity:LoyaltyAccount) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Loyalty Account Response`](../../doc/models/retrieve-loyalty-account-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Loyalty Account Response`](../../doc/models/retrieve-loyalty-account-response.md).
 
 ## Example Usage
 
@@ -180,12 +180,12 @@ def accumulate_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the target [loyalty account](entity:LoyaltyAccount). |
+| `account_id` | `str` | Template, Required | The ID of the target [loyalty account](entity:LoyaltyAccount). |
 | `body` | [`Accumulate Loyalty Points Request`](../../doc/models/accumulate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Accumulate Loyalty Points Response`](../../doc/models/accumulate-loyalty-points-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Accumulate Loyalty Points Response`](../../doc/models/accumulate-loyalty-points-response.md).
 
 ## Example Usage
 
@@ -231,12 +231,12 @@ def adjust_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_id` | `string` | Template, Required | The ID of the target [loyalty account](entity:LoyaltyAccount). |
+| `account_id` | `str` | Template, Required | The ID of the target [loyalty account](entity:LoyaltyAccount). |
 | `body` | [`Adjust Loyalty Points Request`](../../doc/models/adjust-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Adjust Loyalty Points Response`](../../doc/models/adjust-loyalty-points-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Adjust Loyalty Points Response`](../../doc/models/adjust-loyalty-points-response.md).
 
 ## Example Usage
 
@@ -288,7 +288,7 @@ def search_loyalty_events(self,
 
 ## Response Type
 
-[`Search Loyalty Events Response`](../../doc/models/search-loyalty-events-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Loyalty Events Response`](../../doc/models/search-loyalty-events-response.md).
 
 ## Example Usage
 
@@ -329,7 +329,7 @@ def list_loyalty_programs(self)
 
 ## Response Type
 
-[`List Loyalty Programs Response`](../../doc/models/list-loyalty-programs-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Loyalty Programs Response`](../../doc/models/list-loyalty-programs-response.md).
 
 ## Example Usage
 
@@ -359,11 +359,11 @@ def retrieve_loyalty_program(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The ID of the loyalty program or the keyword `main`. Either value can be used to retrieve the single loyalty program that belongs to the seller. |
+| `program_id` | `str` | Template, Required | The ID of the loyalty program or the keyword `main`. Either value can be used to retrieve the single loyalty program that belongs to the seller. |
 
 ## Response Type
 
-[`Retrieve Loyalty Program Response`](../../doc/models/retrieve-loyalty-program-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Loyalty Program Response`](../../doc/models/retrieve-loyalty-program-response.md).
 
 ## Example Usage
 
@@ -408,12 +408,12 @@ def calculate_loyalty_points(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The ID of the [loyalty program](entity:LoyaltyProgram), which defines the rules for accruing points. |
+| `program_id` | `str` | Template, Required | The ID of the [loyalty program](entity:LoyaltyProgram), which defines the rules for accruing points. |
 | `body` | [`Calculate Loyalty Points Request`](../../doc/models/calculate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Calculate Loyalty Points Response`](../../doc/models/calculate-loyalty-points-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Calculate Loyalty Points Response`](../../doc/models/calculate-loyalty-points-response.md).
 
 ## Example Usage
 
@@ -455,14 +455,14 @@ def list_loyalty_promotions(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,<br>call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword. |
+| `program_id` | `str` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,<br>call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword. |
 | `status` | [`str (Loyalty Promotion Status)`](../../doc/models/loyalty-promotion-status.md) | Query, Optional | The status to filter the results by. If a status is provided, only loyalty promotions<br>with the specified status are returned. Otherwise, all loyalty promotions associated with<br>the loyalty program are returned. |
-| `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response.<br>The minimum value is 1 and the maximum value is 30. The default value is 30.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Response Type
 
-[`List Loyalty Promotions Response`](../../doc/models/list-loyalty-promotions-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Loyalty Promotions Response`](../../doc/models/list-loyalty-promotions-response.md).
 
 ## Example Usage
 
@@ -498,12 +498,12 @@ def create_loyalty_promotion(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `program_id` | `string` | Template, Required | The ID of the [loyalty program](entity:LoyaltyProgram) to associate with the promotion.<br>To get the program ID, call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram)<br>using the `main` keyword. |
+| `program_id` | `str` | Template, Required | The ID of the [loyalty program](entity:LoyaltyProgram) to associate with the promotion.<br>To get the program ID, call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram)<br>using the `main` keyword. |
 | `body` | [`Create Loyalty Promotion Request`](../../doc/models/create-loyalty-promotion-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Create Loyalty Promotion Response`](../../doc/models/create-loyalty-promotion-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Loyalty Promotion Response`](../../doc/models/create-loyalty-promotion-response.md).
 
 ## Example Usage
 
@@ -516,7 +516,7 @@ body = {
         'incentive': {
             'type': 'POINTS_MULTIPLIER',
             'points_multiplier_data': {
-                'points_multiplier': 3
+                'multiplier': '3.0'
             }
         },
         'available_time': {
@@ -566,12 +566,12 @@ def retrieve_loyalty_promotion(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `promotion_id` | `string` | Template, Required | The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve. |
-| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,<br>call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword. |
+| `promotion_id` | `str` | Template, Required | The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve. |
+| `program_id` | `str` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,<br>call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword. |
 
 ## Response Type
 
-[`Retrieve Loyalty Promotion Response`](../../doc/models/retrieve-loyalty-promotion-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Loyalty Promotion Response`](../../doc/models/retrieve-loyalty-promotion-response.md).
 
 ## Example Usage
 
@@ -612,12 +612,12 @@ def cancel_loyalty_promotion(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `promotion_id` | `string` | Template, Required | The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a<br>promotion that has an `ACTIVE` or `SCHEDULED` status. |
-| `program_id` | `string` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). |
+| `promotion_id` | `str` | Template, Required | The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a<br>promotion that has an `ACTIVE` or `SCHEDULED` status. |
+| `program_id` | `str` | Template, Required | The ID of the base [loyalty program](entity:LoyaltyProgram). |
 
 ## Response Type
 
-[`Cancel Loyalty Promotion Response`](../../doc/models/cancel-loyalty-promotion-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Cancel Loyalty Promotion Response`](../../doc/models/cancel-loyalty-promotion-response.md).
 
 ## Example Usage
 
@@ -663,7 +663,7 @@ def create_loyalty_reward(self,
 
 ## Response Type
 
-[`Create Loyalty Reward Response`](../../doc/models/create-loyalty-reward-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Loyalty Reward Response`](../../doc/models/create-loyalty-reward-response.md).
 
 ## Example Usage
 
@@ -710,7 +710,7 @@ def search_loyalty_rewards(self,
 
 ## Response Type
 
-[`Search Loyalty Rewards Response`](../../doc/models/search-loyalty-rewards-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Loyalty Rewards Response`](../../doc/models/search-loyalty-rewards-response.md).
 
 ## Example Usage
 
@@ -753,11 +753,11 @@ def delete_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to delete. |
+| `reward_id` | `str` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to delete. |
 
 ## Response Type
 
-[`Delete Loyalty Reward Response`](../../doc/models/delete-loyalty-reward-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Loyalty Reward Response`](../../doc/models/delete-loyalty-reward-response.md).
 
 ## Example Usage
 
@@ -787,11 +787,11 @@ def retrieve_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to retrieve. |
+| `reward_id` | `str` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Loyalty Reward Response`](../../doc/models/retrieve-loyalty-reward-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Loyalty Reward Response`](../../doc/models/retrieve-loyalty-reward-response.md).
 
 ## Example Usage
 
@@ -832,12 +832,12 @@ def redeem_loyalty_reward(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reward_id` | `string` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to redeem. |
+| `reward_id` | `str` | Template, Required | The ID of the [loyalty reward](entity:LoyaltyReward) to redeem. |
 | `body` | [`Redeem Loyalty Reward Request`](../../doc/models/redeem-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Redeem Loyalty Reward Response`](../../doc/models/redeem-loyalty-reward-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Redeem Loyalty Reward Response`](../../doc/models/redeem-loyalty-reward-response.md).
 
 ## Example Usage
 

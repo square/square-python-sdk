@@ -11,9 +11,9 @@ ACH-specific details about `BANK_ACCOUNT` type payments with the `transfer_type`
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `routing_number` | `string` | Optional | The routing number for the bank account.<br>**Constraints**: *Maximum Length*: `50` |
-| `account_number_suffix` | `string` | Optional | The last few digits of the bank account number.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `4` |
-| `account_type` | `string` | Optional | The type of the bank account performing the transfer. The account type can be `CHECKING`,<br>`SAVINGS`, or `UNKNOWN`.<br>**Constraints**: *Maximum Length*: `50` |
+| `routing_number` | `str` | Optional | The routing number for the bank account.<br>**Constraints**: *Maximum Length*: `50` |
+| `account_number_suffix` | `str` | Optional | The last few digits of the bank account number.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `4` |
+| `account_type` | `str` | Optional | The type of the bank account performing the transfer. The account type can be `CHECKING`,<br>`SAVINGS`, or `UNKNOWN`.<br>**Constraints**: *Maximum Length*: `50` |
 
 ## Example (as JSON)
 

@@ -14,7 +14,7 @@ the request resulted in errors.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `team_member_wage` | [`Team Member Wage`](../../doc/models/team-member-wage.md) | Optional | The hourly wage rate that a team member earns on a `Shift` for doing the job<br>specified by the `title` property of this object. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
 ## Example (as JSON)
 

@@ -118,8 +118,8 @@ class LocationsApi(BaseApi):
         ain-location).
 
         Args:
-            location_id (string): The ID of the location to retrieve. Specify
-                the string "main" to return the main location.
+            location_id (str): The ID of the location to retrieve. Specify the
+                string "main" to return the main location.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -161,7 +161,7 @@ class LocationsApi(BaseApi):
         [location](https://developer.squareup.com/docs/locations-api).
 
         Args:
-            location_id (string): The ID of the location to update.
+            location_id (str): The ID of the location to update.
             body (UpdateLocationRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.

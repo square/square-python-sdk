@@ -40,7 +40,7 @@ def list_merchants(self,
 
 ## Response Type
 
-[`List Merchants Response`](../../doc/models/list-merchants-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Merchants Response`](../../doc/models/list-merchants-response.md).
 
 ## Example Usage
 
@@ -68,11 +68,11 @@ def retrieve_merchant(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `merchant_id` | `string` | Template, Required | The ID of the merchant to retrieve. If the string "me" is supplied as the ID,<br>then retrieve the merchant that is currently accessible to this call. |
+| `merchant_id` | `str` | Template, Required | The ID of the merchant to retrieve. If the string "me" is supplied as the ID,<br>then retrieve the merchant that is currently accessible to this call. |
 
 ## Response Type
 
-[`Retrieve Merchant Response`](../../doc/models/retrieve-merchant-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Merchant Response`](../../doc/models/retrieve-merchant-response.md).
 
 ## Example Usage
 

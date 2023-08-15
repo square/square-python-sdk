@@ -37,13 +37,13 @@ def list_invoices(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Required | The ID of the location for which to list invoices. |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `location_id` | `str` | Query, Required | The ID of the location for which to list invoices. |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Query, Optional | The maximum number of invoices to return (200 is the maximum `limit`).<br>If not provided, the server uses a default limit of 100 invoices. |
 
 ## Response Type
 
-[`List Invoices Response`](../../doc/models/list-invoices-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Invoices Response`](../../doc/models/list-invoices-response.md).
 
 ## Example Usage
 
@@ -81,7 +81,7 @@ def create_invoice(self,
 
 ## Response Type
 
-[`Create Invoice Response`](../../doc/models/create-invoice-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Invoice Response`](../../doc/models/create-invoice-response.md).
 
 ## Example Usage
 
@@ -170,7 +170,7 @@ def search_invoices(self,
 
 ## Response Type
 
-[`Search Invoices Response`](../../doc/models/search-invoices-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Invoices Response`](../../doc/models/search-invoices-response.md).
 
 ## Example Usage
 
@@ -218,12 +218,12 @@ def delete_invoice(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoice_id` | `string` | Template, Required | The ID of the invoice to delete. |
+| `invoice_id` | `str` | Template, Required | The ID of the invoice to delete. |
 | `version` | `int` | Query, Optional | The version of the [invoice](entity:Invoice) to delete.<br>If you do not know the version, you can call [GetInvoice](api-endpoint:Invoices-GetInvoice) or<br>[ListInvoices](api-endpoint:Invoices-ListInvoices). |
 
 ## Response Type
 
-[`Delete Invoice Response`](../../doc/models/delete-invoice-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Invoice Response`](../../doc/models/delete-invoice-response.md).
 
 ## Example Usage
 
@@ -253,11 +253,11 @@ def get_invoice(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoice_id` | `string` | Template, Required | The ID of the invoice to retrieve. |
+| `invoice_id` | `str` | Template, Required | The ID of the invoice to retrieve. |
 
 ## Response Type
 
-[`Get Invoice Response`](../../doc/models/get-invoice-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Invoice Response`](../../doc/models/get-invoice-response.md).
 
 ## Example Usage
 
@@ -291,12 +291,12 @@ def update_invoice(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoice_id` | `string` | Template, Required | The ID of the invoice to update. |
+| `invoice_id` | `str` | Template, Required | The ID of the invoice to update. |
 | `body` | [`Update Invoice Request`](../../doc/models/update-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Invoice Response`](../../doc/models/update-invoice-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Invoice Response`](../../doc/models/update-invoice-response.md).
 
 ## Example Usage
 
@@ -349,12 +349,12 @@ def cancel_invoice(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoice_id` | `string` | Template, Required | The ID of the [invoice](entity:Invoice) to cancel. |
+| `invoice_id` | `str` | Template, Required | The ID of the [invoice](entity:Invoice) to cancel. |
 | `body` | [`Cancel Invoice Request`](../../doc/models/cancel-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Cancel Invoice Response`](../../doc/models/cancel-invoice-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Cancel Invoice Response`](../../doc/models/cancel-invoice-response.md).
 
 ## Example Usage
 
@@ -402,12 +402,12 @@ def publish_invoice(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoice_id` | `string` | Template, Required | The ID of the invoice to publish. |
+| `invoice_id` | `str` | Template, Required | The ID of the invoice to publish. |
 | `body` | [`Publish Invoice Request`](../../doc/models/publish-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Publish Invoice Response`](../../doc/models/publish-invoice-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Publish Invoice Response`](../../doc/models/publish-invoice-response.md).
 
 ## Example Usage
 
