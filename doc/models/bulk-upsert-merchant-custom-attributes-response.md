@@ -12,8 +12,8 @@ which contains a map of responses that each corresponds to an individual upsert 
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `values` | [`Dict`](../../doc/models/bulk-upsert-merchant-custom-attributes-response-merchant-custom-attribute-upsert-response.md) | Optional | A map of responses that correspond to individual upsert requests. Each response has the<br>same ID as the corresponding request and contains either a `merchant_id` and `custom_attribute` or an `errors` field. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `values` | [`Dict Str Bulk Upsert Merchant Custom Attributes Response Merchant Custom Attribute Upsert Response`](../../doc/models/bulk-upsert-merchant-custom-attributes-response-merchant-custom-attribute-upsert-response.md) | Optional | A map of responses that correspond to individual upsert requests. Each response has the<br>same ID as the corresponding request and contains either a `merchant_id` and `custom_attribute` or an `errors` field. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
 ## Example (as JSON)
 

@@ -12,7 +12,7 @@ endpoint.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Errors encountered during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors encountered during the request. |
 | `subscription` | [`Subscription`](../../doc/models/subscription.md) | Optional | Represents a subscription purchased by a customer.<br><br>For more information, see<br>[Manage Subscriptions](https://developer.squareup.com/docs/subscriptions-api/manage-subscriptions). |
 
 ## Example (as JSON)

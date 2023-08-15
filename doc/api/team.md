@@ -43,7 +43,7 @@ def create_team_member(self,
 
 ## Response Type
 
-[`Create Team Member Response`](../../doc/models/create-team-member-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Team Member Response`](../../doc/models/create-team-member-response.md).
 
 ## Example Usage
 
@@ -99,14 +99,14 @@ def bulk_create_team_members(self,
 
 ## Response Type
 
-[`Bulk Create Team Members Response`](../../doc/models/bulk-create-team-members-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Create Team Members Response`](../../doc/models/bulk-create-team-members-response.md).
 
 ## Example Usage
 
 ```python
 body = {
     'team_members': {
-        "idempotency-key-1": {
+        'idempotency-key-1': {
             'team_member': {
                 'reference_id': 'reference_id_1',
                 'given_name': 'Joe',
@@ -122,7 +122,7 @@ body = {
                 }
             }
         },
-        "idempotency-key-2": {
+        'idempotency-key-2': {
             'team_member': {
                 'reference_id': 'reference_id_2',
                 'given_name': 'Jane',
@@ -168,14 +168,14 @@ def bulk_update_team_members(self,
 
 ## Response Type
 
-[`Bulk Update Team Members Response`](../../doc/models/bulk-update-team-members-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Update Team Members Response`](../../doc/models/bulk-update-team-members-response.md).
 
 ## Example Usage
 
 ```python
 body = {
     'team_members': {
-        "AFMwA08kR-MIF-3Vs0OE": {
+        'AFMwA08kR-MIF-3Vs0OE': {
             'team_member': {
                 'reference_id': 'reference_id_2',
                 'is_owner': False,
@@ -189,7 +189,7 @@ body = {
                 }
             }
         },
-        "fpgteZNMaf0qOK-a4t6P": {
+        'fpgteZNMaf0qOK-a4t6P': {
             'team_member': {
                 'reference_id': 'reference_id_1',
                 'is_owner': False,
@@ -241,7 +241,7 @@ def search_team_members(self,
 
 ## Response Type
 
-[`Search Team Members Response`](../../doc/models/search-team-members-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Team Members Response`](../../doc/models/search-team-members-response.md).
 
 ## Example Usage
 
@@ -282,11 +282,11 @@ def retrieve_team_member(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_member_id` | `string` | Template, Required | The ID of the team member to retrieve. |
+| `team_member_id` | `str` | Template, Required | The ID of the team member to retrieve. |
 
 ## Response Type
 
-[`Retrieve Team Member Response`](../../doc/models/retrieve-team-member-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Team Member Response`](../../doc/models/retrieve-team-member-response.md).
 
 ## Example Usage
 
@@ -318,12 +318,12 @@ def update_team_member(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_member_id` | `string` | Template, Required | The ID of the team member to update. |
+| `team_member_id` | `str` | Template, Required | The ID of the team member to update. |
 | `body` | [`Update Team Member Request`](../../doc/models/update-team-member-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Team Member Response`](../../doc/models/update-team-member-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Team Member Response`](../../doc/models/update-team-member-response.md).
 
 ## Example Usage
 
@@ -376,11 +376,11 @@ def retrieve_wage_setting(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_member_id` | `string` | Template, Required | The ID of the team member for which to retrieve the wage setting. |
+| `team_member_id` | `str` | Template, Required | The ID of the team member for which to retrieve the wage setting. |
 
 ## Response Type
 
-[`Retrieve Wage Setting Response`](../../doc/models/retrieve-wage-setting-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Wage Setting Response`](../../doc/models/retrieve-wage-setting-response.md).
 
 ## Example Usage
 
@@ -415,12 +415,12 @@ def update_wage_setting(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_member_id` | `string` | Template, Required | The ID of the team member for which to update the `WageSetting` object. |
+| `team_member_id` | `str` | Template, Required | The ID of the team member for which to update the `WageSetting` object. |
 | `body` | [`Update Wage Setting Request`](../../doc/models/update-wage-setting-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Wage Setting Response`](../../doc/models/update-wage-setting-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Wage Setting Response`](../../doc/models/update-wage-setting-response.md).
 
 ## Example Usage
 

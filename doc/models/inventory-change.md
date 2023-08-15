@@ -18,7 +18,7 @@ that is part of the history of inventory changes for a particular
 | `adjustment` | [`Inventory Adjustment`](../../doc/models/inventory-adjustment.md) | Optional | Represents a change in state or quantity of product inventory at a<br>particular time and location. |
 | `transfer` | [`Inventory Transfer`](../../doc/models/inventory-transfer.md) | Optional | Represents the transfer of a quantity of product inventory at a<br>particular time from one location to another. |
 | `measurement_unit` | [`Catalog Measurement Unit`](../../doc/models/catalog-measurement-unit.md) | Optional | Represents the unit used to measure a `CatalogItemVariation` and<br>specifies the precision for decimal quantities. |
-| `measurement_unit_id` | `string` | Optional | The ID of the [CatalogMeasurementUnit](entity:CatalogMeasurementUnit) object representing the catalog measurement unit associated with the inventory change. |
+| `measurement_unit_id` | `str` | Optional | The ID of the [CatalogMeasurementUnit](entity:CatalogMeasurementUnit) object representing the catalog measurement unit associated with the inventory change. |
 
 ## Example (as JSON)
 

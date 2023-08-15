@@ -12,7 +12,7 @@ For more information, see [Customer tax IDs](https://developer.squareup.com/docs
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `eu_vat` | `string` | Optional | The EU VAT identification number for the customer. For example, `IE3426675K`. The ID can contain alphanumeric characters only.<br>**Constraints**: *Maximum Length*: `20` |
+| `eu_vat` | `str` | Optional | The EU VAT identification number for the customer. For example, `IE3426675K`. The ID can contain alphanumeric characters only.<br>**Constraints**: *Maximum Length*: `20` |
 
 ## Example (as JSON)
 

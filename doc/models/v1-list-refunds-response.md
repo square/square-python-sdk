@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `items` | [`List of V1 Refund`](../../doc/models/v1-refund.md) | Optional | - |
+| `items` | [`List V1 Refund`](../../doc/models/v1-refund.md) | Optional | - |
 
 ## Example (as JSON)
 

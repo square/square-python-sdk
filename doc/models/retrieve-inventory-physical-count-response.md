@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 | `count` | [`Inventory Physical Count`](../../doc/models/inventory-physical-count.md) | Optional | Represents the quantity of an item variation that is physically present<br>at a specific location, verified by a seller or a seller's employee. For example,<br>a physical count might come from an employee counting the item variations on<br>hand or from syncing with an external system. |
 
 ## Example (as JSON)

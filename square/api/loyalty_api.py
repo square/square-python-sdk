@@ -120,7 +120,7 @@ class LoyaltyApi(BaseApi):
         Retrieves a loyalty account.
 
         Args:
-            account_id (string): The ID of the [loyalty
+            account_id (str): The ID of the [loyalty
                 account](entity:LoyaltyAccount) to retrieve.
 
         Returns:
@@ -187,7 +187,7 @@ class LoyaltyApi(BaseApi):
         ons#calculate-promotion-points).
 
         Args:
-            account_id (string): The ID of the target [loyalty
+            account_id (str): The ID of the target [loyalty
                 account](entity:LoyaltyAccount).
             body (AccumulateLoyaltyPointsRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
@@ -242,7 +242,7 @@ class LoyaltyApi(BaseApi):
         to add points when a buyer pays for the purchase.
 
         Args:
-            account_id (string): The ID of the target [loyalty
+            account_id (str): The ID of the target [loyalty
                 account](entity:LoyaltyAccount).
             body (AdjustLoyaltyPointsRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
@@ -390,7 +390,7 @@ class LoyaltyApi(BaseApi):
         Overview](https://developer.squareup.com/docs/loyalty/overview).
 
         Args:
-            program_id (string): The ID of the loyalty program or the keyword
+            program_id (str): The ID of the loyalty program or the keyword
                 `main`. Either value can be used to retrieve the single
                 loyalty program that belongs to the seller.
 
@@ -456,7 +456,7 @@ class LoyaltyApi(BaseApi):
         ons#calculate-promotion-points).
 
         Args:
-            program_id (string): The ID of the [loyalty
+            program_id (str): The ID of the [loyalty
                 program](entity:LoyaltyProgram), which defines the rules for
                 accruing points.
             body (CalculateLoyaltyPointsRequest): An object containing the
@@ -513,7 +513,7 @@ class LoyaltyApi(BaseApi):
         (newest to oldest).
 
         Args:
-            program_id (string): The ID of the base [loyalty
+            program_id (str): The ID of the base [loyalty
                 program](entity:LoyaltyProgram). To get the program ID, call
                 [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyPr
                 ogram) using the `main` keyword.
@@ -522,9 +522,9 @@ class LoyaltyApi(BaseApi):
                 promotions with the specified status are returned. Otherwise,
                 all loyalty promotions associated with the loyalty program are
                 returned.
-            cursor (string, optional): The cursor returned in the paged
-                response from the previous call to this endpoint. Provide this
-                cursor to retrieve the next page of results for your original
+            cursor (str, optional): The cursor returned in the paged response
+                from the previous call to this endpoint. Provide this cursor
+                to retrieve the next page of results for your original
                 request. For more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
@@ -591,7 +591,7 @@ class LoyaltyApi(BaseApi):
         `ACTIVE` or `SCHEDULED` status.
 
         Args:
-            program_id (string): The ID of the [loyalty
+            program_id (str): The ID of the [loyalty
                 program](entity:LoyaltyProgram) to associate with the
                 promotion. To get the program ID, call
                 [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyPr
@@ -645,9 +645,9 @@ class LoyaltyApi(BaseApi):
         Retrieves a loyalty promotion.
 
         Args:
-            promotion_id (string): The ID of the [loyalty
+            promotion_id (str): The ID of the [loyalty
                 promotion](entity:LoyaltyPromotion) to retrieve.
-            program_id (string): The ID of the base [loyalty
+            program_id (str): The ID of the base [loyalty
                 program](entity:LoyaltyProgram). To get the program ID, call
                 [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyPr
                 ogram) using the `main` keyword.
@@ -702,10 +702,10 @@ class LoyaltyApi(BaseApi):
         This endpoint sets the loyalty promotion to the `CANCELED` state
 
         Args:
-            promotion_id (string): The ID of the [loyalty
+            promotion_id (str): The ID of the [loyalty
                 promotion](entity:LoyaltyPromotion) to cancel. You can cancel
                 a promotion that has an `ACTIVE` or `SCHEDULED` status.
-            program_id (string): The ID of the base [loyalty
+            program_id (str): The ID of the base [loyalty
                 program](entity:LoyaltyProgram).
 
         Returns:
@@ -859,7 +859,7 @@ class LoyaltyApi(BaseApi):
         (REDEEMED).
 
         Args:
-            reward_id (string): The ID of the [loyalty
+            reward_id (str): The ID of the [loyalty
                 reward](entity:LoyaltyReward) to delete.
 
         Returns:
@@ -900,7 +900,7 @@ class LoyaltyApi(BaseApi):
         Retrieves a loyalty reward.
 
         Args:
-            reward_id (string): The ID of the [loyalty
+            reward_id (str): The ID of the [loyalty
                 reward](entity:LoyaltyReward) to retrieve.
 
         Returns:
@@ -949,7 +949,7 @@ class LoyaltyApi(BaseApi):
         to the account.
 
         Args:
-            reward_id (string): The ID of the [loyalty
+            reward_id (str): The ID of the [loyalty
                 reward](entity:LoyaltyReward) to redeem.
             body (RedeemLoyaltyRewardRequest): An object containing the fields
                 to POST for the request.  See the corresponding object

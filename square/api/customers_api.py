@@ -36,10 +36,10 @@ class CustomersApi(BaseApi):
         network incidents and outages.
 
         Args:
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for your original query.  For
-                more information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for your original query.  For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
             limit (int, optional): The maximum number of results to return in
@@ -225,7 +225,7 @@ class CustomersApi(BaseApi):
         profiles, you must use the ID of the newly created profile.
 
         Args:
-            customer_id (string): The ID of the customer to delete.
+            customer_id (str): The ID of the customer to delete.
             version (long|int, optional): The current version of the customer
                 profile.  As a best practice, you should include this
                 parameter to enable [optimistic
@@ -276,7 +276,7 @@ class CustomersApi(BaseApi):
         Returns details for a single customer.
 
         Args:
-            customer_id (string): The ID of the customer to retrieve.
+            customer_id (str): The ID of the customer to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -331,7 +331,7 @@ class CustomersApi(BaseApi):
         use the [Cards API]($e/Cards) or [Gift Cards API]($e/GiftCards).
 
         Args:
-            customer_id (string): The ID of the customer to update.
+            customer_id (str): The ID of the customer to update.
             body (UpdateCustomerRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -387,8 +387,8 @@ class CustomersApi(BaseApi):
         with the provided nonce during the _first_ call.
 
         Args:
-            customer_id (string): The Square ID of the customer profile the
-                card is linked to.
+            customer_id (str): The Square ID of the customer profile the card
+                is linked to.
             body (CreateCustomerCardRequest): An object containing the fields
                 to POST for the request.  See the corresponding object
                 definition for field details.
@@ -439,9 +439,9 @@ class CustomersApi(BaseApi):
         Removes a card on file from a customer.
 
         Args:
-            customer_id (string): The ID of the customer that the card on file
+            customer_id (str): The ID of the customer that the card on file
                 belongs to.
-            card_id (string): The ID of the card on file to delete.
+            card_id (str): The ID of the card on file to delete.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -488,9 +488,9 @@ class CustomersApi(BaseApi):
         and the customer group is identified by the `group_id` value.
 
         Args:
-            customer_id (string): The ID of the customer to remove from the
+            customer_id (str): The ID of the customer to remove from the
                 group.
-            group_id (string): The ID of the customer group to remove the
+            group_id (str): The ID of the customer group to remove the
                 customer from.
 
         Returns:
@@ -538,9 +538,9 @@ class CustomersApi(BaseApi):
         and the customer group is identified by the `group_id` value.
 
         Args:
-            customer_id (string): The ID of the customer to add to a group.
-            group_id (string): The ID of the customer group to add the
-                customer to.
+            customer_id (str): The ID of the customer to add to a group.
+            group_id (str): The ID of the customer group to add the customer
+                to.
 
         Returns:
             ApiResponse: An object with the response value as well as other

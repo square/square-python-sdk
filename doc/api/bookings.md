@@ -13,6 +13,7 @@ bookings_api = client.bookings
 * [List Bookings](../../doc/api/bookings.md#list-bookings)
 * [Create Booking](../../doc/api/bookings.md#create-booking)
 * [Search Availability](../../doc/api/bookings.md#search-availability)
+* [Bulk Retrieve Bookings](../../doc/api/bookings.md#bulk-retrieve-bookings)
 * [Retrieve Business Booking Profile](../../doc/api/bookings.md#retrieve-business-booking-profile)
 * [List Team Member Booking Profiles](../../doc/api/bookings.md#list-team-member-booking-profiles)
 * [Retrieve Team Member Booking Profile](../../doc/api/bookings.md#retrieve-team-member-booking-profile)
@@ -32,6 +33,7 @@ To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ`
 def list_bookings(self,
                  limit=None,
                  cursor=None,
+                 customer_id=None,
                  team_member_id=None,
                  location_id=None,
                  start_at_min=None,
@@ -43,15 +45,16 @@ def list_bookings(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `limit` | `int` | Query, Optional | The maximum number of results per page to return in a paged response. |
-| `cursor` | `string` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
-| `team_member_id` | `string` | Query, Optional | The team member for whom to retrieve bookings. If this is not set, bookings of all members are retrieved. |
-| `location_id` | `string` | Query, Optional | The location for which to retrieve bookings. If this is not set, all locations' bookings are retrieved. |
-| `start_at_min` | `string` | Query, Optional | The RFC 3339 timestamp specifying the earliest of the start time. If this is not set, the current time is used. |
-| `start_at_max` | `string` | Query, Optional | The RFC 3339 timestamp specifying the latest of the start time. If this is not set, the time of 31 days after `start_at_min` is used. |
+| `cursor` | `str` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
+| `customer_id` | `str` | Query, Optional | The [customer](entity:Customer) for whom to retrieve bookings. If this is not set, bookings for all customers are retrieved. |
+| `team_member_id` | `str` | Query, Optional | The team member for whom to retrieve bookings. If this is not set, bookings of all members are retrieved. |
+| `location_id` | `str` | Query, Optional | The location for which to retrieve bookings. If this is not set, all locations' bookings are retrieved. |
+| `start_at_min` | `str` | Query, Optional | The RFC 3339 timestamp specifying the earliest of the start time. If this is not set, the current time is used. |
+| `start_at_max` | `str` | Query, Optional | The RFC 3339 timestamp specifying the latest of the start time. If this is not set, the time of 31 days after `start_at_min` is used. |
 
 ## Response Type
 
-[`List Bookings Response`](../../doc/models/list-bookings-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Bookings Response`](../../doc/models/list-bookings-response.md).
 
 ## Example Usage
 
@@ -97,7 +100,7 @@ def create_booking(self,
 
 ## Response Type
 
-[`Create Booking Response`](../../doc/models/create-booking-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Booking Response`](../../doc/models/create-booking-response.md).
 
 ## Example Usage
 
@@ -136,7 +139,7 @@ def search_availability(self,
 
 ## Response Type
 
-[`Search Availability Response`](../../doc/models/search-availability-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Availability Response`](../../doc/models/search-availability-response.md).
 
 ## Example Usage
 
@@ -159,6 +162,49 @@ elif result.is_error():
 ```
 
 
+# Bulk Retrieve Bookings
+
+Bulk-Retrieves a list of bookings by booking IDs.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
+
+```python
+def bulk_retrieve_bookings(self,
+                          body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Bulk Retrieve Bookings Request`](../../doc/models/bulk-retrieve-bookings-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Retrieve Bookings Response`](../../doc/models/bulk-retrieve-bookings-response.md).
+
+## Example Usage
+
+```python
+body = {
+    'booking_ids': [
+        'booking_ids8',
+        'booking_ids9',
+        'booking_ids0'
+    ]
+}
+
+result = bookings_api.bulk_retrieve_bookings(body)
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
 # Retrieve Business Booking Profile
 
 Retrieves a seller's booking profile.
@@ -169,7 +215,7 @@ def retrieve_business_booking_profile(self)
 
 ## Response Type
 
-[`Retrieve Business Booking Profile Response`](../../doc/models/retrieve-business-booking-profile-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Business Booking Profile Response`](../../doc/models/retrieve-business-booking-profile-response.md).
 
 ## Example Usage
 
@@ -202,12 +248,12 @@ def list_team_member_booking_profiles(self,
 |  --- | --- | --- | --- |
 | `bookable_only` | `bool` | Query, Optional | Indicates whether to include only bookable team members in the returned result (`true`) or not (`false`).<br>**Default**: `False` |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a paged response. |
-| `cursor` | `string` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
-| `location_id` | `string` | Query, Optional | Indicates whether to include only team members enabled at the given location in the returned result. |
+| `cursor` | `str` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
+| `location_id` | `str` | Query, Optional | Indicates whether to include only team members enabled at the given location in the returned result. |
 
 ## Response Type
 
-[`List Team Member Booking Profiles Response`](../../doc/models/list-team-member-booking-profiles-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Team Member Booking Profiles Response`](../../doc/models/list-team-member-booking-profiles-response.md).
 
 ## Example Usage
 
@@ -239,11 +285,11 @@ def retrieve_team_member_booking_profile(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_member_id` | `string` | Template, Required | The ID of the team member to retrieve. |
+| `team_member_id` | `str` | Template, Required | The ID of the team member to retrieve. |
 
 ## Response Type
 
-[`Retrieve Team Member Booking Profile Response`](../../doc/models/retrieve-team-member-booking-profile-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Team Member Booking Profile Response`](../../doc/models/retrieve-team-member-booking-profile-response.md).
 
 ## Example Usage
 
@@ -276,11 +322,11 @@ def retrieve_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-retrieved booking. |
+| `booking_id` | `str` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-retrieved booking. |
 
 ## Response Type
 
-[`Retrieve Booking Response`](../../doc/models/retrieve-booking-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Booking Response`](../../doc/models/retrieve-booking-response.md).
 
 ## Example Usage
 
@@ -317,12 +363,12 @@ def update_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-updated booking. |
+| `booking_id` | `str` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-updated booking. |
 | `body` | [`Update Booking Request`](../../doc/models/update-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Booking Response`](../../doc/models/update-booking-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Booking Response`](../../doc/models/update-booking-response.md).
 
 ## Example Usage
 
@@ -366,12 +412,12 @@ def cancel_booking(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `booking_id` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-cancelled booking. |
+| `booking_id` | `str` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-cancelled booking. |
 | `body` | [`Cancel Booking Request`](../../doc/models/cancel-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Cancel Booking Response`](../../doc/models/cancel-booking-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Cancel Booking Response`](../../doc/models/cancel-booking-response.md).
 
 ## Example Usage
 

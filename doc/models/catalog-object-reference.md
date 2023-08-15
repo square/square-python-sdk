@@ -13,7 +13,7 @@ at a specific version.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `object_id` | `string` | Optional | The ID of the referenced object. |
+| `object_id` | `str` | Optional | The ID of the referenced object. |
 | `catalog_version` | `long\|int` | Optional | The version of the object. |
 
 ## Example (as JSON)

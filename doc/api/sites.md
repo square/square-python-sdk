@@ -21,7 +21,7 @@ def list_sites(self)
 
 ## Response Type
 
-[`List Sites Response`](../../doc/models/list-sites-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Sites Response`](../../doc/models/list-sites-response.md).
 
 ## Example Usage
 

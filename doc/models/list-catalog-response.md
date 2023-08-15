@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset, this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
-| `objects` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | The CatalogObjects returned. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `cursor` | `str` | Optional | The pagination cursor to be used in a subsequent request. If unset, this is the final response.<br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
+| `objects` | [`List Catalog Object`](../../doc/models/catalog-object.md) | Optional | The CatalogObjects returned. |
 
 ## Example (as JSON)
 

@@ -13,7 +13,7 @@ A request to search for loyalty accounts.
 |  --- | --- | --- | --- |
 | `query` | [`Search Loyalty Accounts Request Loyalty Account Query`](../../doc/models/search-loyalty-accounts-request-loyalty-account-query.md) | Optional | The search criteria for the loyalty accounts. |
 | `limit` | `int` | Optional | The maximum number of results to include in the response. The default value is 30.<br>**Constraints**: `>= 1`, `<= 200` |
-| `cursor` | `string` | Optional | A pagination cursor returned by a previous call to<br>this endpoint. Provide this to retrieve the next set of<br>results for the original query.<br><br>For more information,<br>see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Optional | A pagination cursor returned by a previous call to<br>this endpoint. Provide this to retrieve the next set of<br>results for the original query.<br><br>For more information,<br>see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Example (as JSON)
 

@@ -26,10 +26,10 @@ class CustomerSegmentsApi(BaseApi):
         Retrieves the list of customer segments of a business.
 
         Args:
-            cursor (string, optional): A pagination cursor returned by
-                previous calls to `ListCustomerSegments`. This cursor is used
-                to retrieve the next set of query results.  For more
-                information, see
+            cursor (str, optional): A pagination cursor returned by previous
+                calls to `ListCustomerSegments`. This cursor is used to
+                retrieve the next set of query results.  For more information,
+                see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
             limit (int, optional): The maximum number of results to return in
@@ -82,8 +82,7 @@ class CustomerSegmentsApi(BaseApi):
         `segment_id` value.
 
         Args:
-            segment_id (string): The Square-issued ID of the customer
-                segment.
+            segment_id (str): The Square-issued ID of the customer segment.
 
         Returns:
             ApiResponse: An object with the response value as well as other

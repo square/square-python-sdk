@@ -12,9 +12,9 @@ the [SearchSubscriptions](../../doc/api/subscriptions.md#search-subscriptions) e
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_ids` | `List of string` | Optional | A filter to select subscriptions based on the subscribing customer IDs. |
-| `location_ids` | `List of string` | Optional | A filter to select subscriptions based on the location. |
-| `source_names` | `List of string` | Optional | A filter to select subscriptions based on the source application. |
+| `customer_ids` | `List[str]` | Optional | A filter to select subscriptions based on the subscribing customer IDs. |
+| `location_ids` | `List[str]` | Optional | A filter to select subscriptions based on the location. |
+| `source_names` | `List[str]` | Optional | A filter to select subscriptions based on the source application. |
 
 ## Example (as JSON)
 

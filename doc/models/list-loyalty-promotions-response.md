@@ -13,9 +13,9 @@ If additional results are available, the `cursor` field is also present along wi
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `loyalty_promotions` | [`List of Loyalty Promotion`](../../doc/models/loyalty-promotion.md) | Optional | The retrieved loyalty promotions. |
-| `cursor` | `string` | Optional | The cursor to use in your next call to this endpoint to retrieve the next page of results<br>for your original request. This field is present only if the request succeeded and additional<br>results are available. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `loyalty_promotions` | [`List Loyalty Promotion`](../../doc/models/loyalty-promotion.md) | Optional | The retrieved loyalty promotions. |
+| `cursor` | `str` | Optional | The cursor to use in your next call to this endpoint to retrieve the next page of results<br>for your original request. This field is present only if the request succeeded and additional<br>results are available. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Example (as JSON)
 
@@ -34,6 +34,7 @@ If additional results are available, the `cursor` field is also present along wi
       "id": "loypromo_f0f9b849-725e-378d-b810-511237e07b67",
       "incentive": {
         "points_multiplier_data": {
+          "multiplier": "3.000",
           "points_multiplier": 3
         },
         "type": "POINTS_MULTIPLIER",
@@ -71,6 +72,7 @@ If additional results are available, the `cursor` field is also present along wi
       "id": "loypromo_e696f057-2286-35ff-8108-132241328106",
       "incentive": {
         "points_multiplier_data": {
+          "multiplier": "2.000",
           "points_multiplier": 2
         },
         "type": "POINTS_MULTIPLIER",

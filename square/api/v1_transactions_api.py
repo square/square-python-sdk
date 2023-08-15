@@ -30,15 +30,14 @@ class V1TransactionsApi(BaseApi):
         Provides summary information for a merchant's online store orders.
 
         Args:
-            location_id (string): The ID of the location to list online store
+            location_id (str): The ID of the location to list online store
                 orders for.
             order (SortOrder, optional): The order in which payments are
                 listed in the response.
             limit (int, optional): The maximum number of payments to return in
                 a single response. This value cannot exceed 200.
-            batch_token (string, optional): A pagination cursor to retrieve
-                the next set of results for your original query to the
-                endpoint.
+            batch_token (str, optional): A pagination cursor to retrieve the
+                next set of results for your original query to the endpoint.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -90,8 +89,8 @@ class V1TransactionsApi(BaseApi):
         including the order's history.
 
         Args:
-            location_id (string): The ID of the order's associated location.
-            order_id (string): The order's Square-issued ID. You obtain this
+            location_id (str): The ID of the order's associated location.
+            order_id (str): The order's Square-issued ID. You obtain this
                 value from Order objects returned by the List Orders endpoint
 
         Returns:
@@ -140,8 +139,8 @@ class V1TransactionsApi(BaseApi):
         on an order corresponds to one of three actions:
 
         Args:
-            location_id (string): The ID of the order's associated location.
-            order_id (string): The order's Square-issued ID. You obtain this
+            location_id (str): The ID of the order's associated location.
+            order_id (str): The order's Square-issued ID. You obtain this
                 value from Order objects returned by the List Orders endpoint
             body (V1UpdateOrderRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
@@ -213,24 +212,23 @@ class V1TransactionsApi(BaseApi):
         were seen in a previous request.
 
         Args:
-            location_id (string): The ID of the location to list payments for.
-                If you specify me, this endpoint returns payments aggregated
-                from all of the business's locations.
+            location_id (str): The ID of the location to list payments for. If
+                you specify me, this endpoint returns payments aggregated from
+                all of the business's locations.
             order (SortOrder, optional): The order in which payments are
                 listed in the response.
-            begin_time (string, optional): The beginning of the requested
+            begin_time (str, optional): The beginning of the requested
                 reporting period, in ISO 8601 format. If this value is before
                 January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns
                 an error. Default value: The current time minus one year.
-            end_time (string, optional): The end of the requested reporting
+            end_time (str, optional): The end of the requested reporting
                 period, in ISO 8601 format. If this value is more than one
                 year greater than begin_time, this endpoint returns an error.
                 Default value: The current time.
             limit (int, optional): The maximum number of payments to return in
                 a single response. This value cannot exceed 200.
-            batch_token (string, optional): A pagination cursor to retrieve
-                the next set of results for your original query to the
-                endpoint.
+            batch_token (str, optional): A pagination cursor to retrieve the
+                next set of results for your original query to the endpoint.
             include_partial (bool, optional): Indicates whether or not to
                 include partial payments in the response. Partial payments
                 will have the tenders collected so far, but the itemizations
@@ -294,13 +292,11 @@ class V1TransactionsApi(BaseApi):
         Provides comprehensive information for a single payment.
 
         Args:
-            location_id (string): The ID of the payment's associated
-                location.
-            payment_id (string): The Square-issued payment ID. payment_id
-                comes from Payment objects returned by the List Payments
-                endpoint, Settlement objects returned by the List Settlements
-                endpoint, or Refund objects returned by the List Refunds
-                endpoint.
+            location_id (str): The ID of the payment's associated location.
+            payment_id (str): The Square-issued payment ID. payment_id comes
+                from Payment objects returned by the List Payments endpoint,
+                Settlement objects returned by the List Settlements endpoint,
+                or Refund objects returned by the List Refunds endpoint.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -352,14 +348,14 @@ class V1TransactionsApi(BaseApi):
         exceed one year in length.
 
         Args:
-            location_id (string): The ID of the location to list refunds for.
+            location_id (str): The ID of the location to list refunds for.
             order (SortOrder, optional): The order in which payments are
                 listed in the response.
-            begin_time (string, optional): The beginning of the requested
+            begin_time (str, optional): The beginning of the requested
                 reporting period, in ISO 8601 format. If this value is before
                 January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns
                 an error. Default value: The current time minus one year.
-            end_time (string, optional): The end of the requested reporting
+            end_time (str, optional): The end of the requested reporting
                 period, in ISO 8601 format. If this value is more than one
                 year greater than begin_time, this endpoint returns an error.
                 Default value: The current time.
@@ -369,9 +365,8 @@ class V1TransactionsApi(BaseApi):
                 are made simultaneously to multiple tenders in a payment or
                 when refunds are generated in an exchange to account for the
                 value of returned goods.
-            batch_token (string, optional): A pagination cursor to retrieve
-                the next set of results for your original query to the
-                endpoint.
+            batch_token (str, optional): A pagination cursor to retrieve the
+                next set of results for your original query to the endpoint.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -440,7 +435,7 @@ class V1TransactionsApi(BaseApi):
         refund them.
 
         Args:
-            location_id (string): The ID of the original payment's associated
+            location_id (str): The ID of the original payment's associated
                 location.
             body (V1CreateRefundRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
@@ -502,16 +497,16 @@ class V1TransactionsApi(BaseApi):
         information.
 
         Args:
-            location_id (string): The ID of the location to list settlements
-                for. If you specify me, this endpoint returns settlements
+            location_id (str): The ID of the location to list settlements for.
+                If you specify me, this endpoint returns settlements
                 aggregated from all of the business's locations.
             order (SortOrder, optional): The order in which settlements are
                 listed in the response.
-            begin_time (string, optional): The beginning of the requested
+            begin_time (str, optional): The beginning of the requested
                 reporting period, in ISO 8601 format. If this value is before
                 January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns
                 an error. Default value: The current time minus one year.
-            end_time (string, optional): The end of the requested reporting
+            end_time (str, optional): The end of the requested reporting
                 period, in ISO 8601 format. If this value is more than one
                 year greater than begin_time, this endpoint returns an error.
                 Default value: The current time.
@@ -520,9 +515,8 @@ class V1TransactionsApi(BaseApi):
             status (V1ListSettlementsRequestStatus, optional): Provide this
                 parameter to retrieve only settlements with a particular
                 status (SENT or FAILED).
-            batch_token (string, optional): A pagination cursor to retrieve
-                the next set of results for your original query to the
-                endpoint.
+            batch_token (str, optional): A pagination cursor to retrieve the
+                next set of results for your original query to the endpoint.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -600,10 +594,10 @@ class V1TransactionsApi(BaseApi):
         take longer.
 
         Args:
-            location_id (string): The ID of the settlements's associated
+            location_id (str): The ID of the settlements's associated
                 location.
-            settlement_id (string): The settlement's Square-issued ID. You
-                obtain this value from Settlement objects returned by the List
+            settlement_id (str): The settlement's Square-issued ID. You obtain
+                this value from Settlement objects returned by the List
                 Settlements endpoint.
 
         Returns:

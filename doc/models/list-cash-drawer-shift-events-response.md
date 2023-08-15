@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Optional | Opaque cursor for fetching the next page. Cursor is not present in<br>the last page of results. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `cash_drawer_shift_events` | [`List of Cash Drawer Shift Event`](../../doc/models/cash-drawer-shift-event.md) | Optional | All of the events (payments, refunds, etc.) for a cash drawer during<br>the shift. |
+| `cursor` | `str` | Optional | Opaque cursor for fetching the next page. Cursor is not present in<br>the last page of results. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `cash_drawer_shift_events` | [`List Cash Drawer Shift Event`](../../doc/models/cash-drawer-shift-event.md) | Optional | All of the events (payments, refunds, etc.) for a cash drawer during<br>the shift. |
 
 ## Example (as JSON)
 

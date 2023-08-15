@@ -78,7 +78,7 @@ class MerchantsApi(BaseApi):
         Retrieves the `Merchant` object for the given `merchant_id`.
 
         Args:
-            merchant_id (string): The ID of the merchant to retrieve. If the
+            merchant_id (str): The ID of the merchant to retrieve. If the
                 string "me" is supplied as the ID, then retrieve the merchant
                 that is currently accessible to this call.
 

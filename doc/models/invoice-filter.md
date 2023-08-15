@@ -11,8 +11,8 @@ Describes query filters to apply.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_ids` | `List of string` | Required | Limits the search to the specified locations. A location is required.<br>In the current implementation, only one location can be specified. |
-| `customer_ids` | `List of string` | Optional | Limits the search to the specified customers, within the specified locations.<br>Specifying a customer is optional. In the current implementation,<br>a maximum of one customer can be specified. |
+| `location_ids` | `List[str]` | Required | Limits the search to the specified locations. A location is required.<br>In the current implementation, only one location can be specified. |
+| `customer_ids` | `List[str]` | Optional | Limits the search to the specified customers, within the specified locations.<br>Specifying a customer is optional. In the current implementation,<br>a maximum of one customer can be specified. |
 
 ## Example (as JSON)
 

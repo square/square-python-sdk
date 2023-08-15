@@ -12,10 +12,10 @@ Defines input parameters in a request to the
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Optional | When the total number of resulting subscriptions exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Optional | When the total number of resulting subscriptions exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Optional | The upper limit on the number of subscriptions to return<br>in a paged response.<br>**Constraints**: `>= 1` |
 | `query` | [`Search Subscriptions Query`](../../doc/models/search-subscriptions-query.md) | Optional | Represents a query, consisting of specified query expressions, used to search for subscriptions. |
-| `include` | `List of string` | Optional | An option to include related information in the response.<br><br>The supported values are:<br><br>- `actions`: to include scheduled actions on the targeted subscriptions. |
+| `include` | `List[str]` | Optional | An option to include related information in the response.<br><br>The supported values are:<br><br>- `actions`: to include scheduled actions on the targeted subscriptions. |
 
 ## Example (as JSON)
 

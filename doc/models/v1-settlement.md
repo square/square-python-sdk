@@ -11,12 +11,12 @@ V1Settlement
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The settlement's unique identifier. |
+| `id` | `str` | Optional | The settlement's unique identifier. |
 | `status` | [`str (V1 Settlement Status)`](../../doc/models/v1-settlement-status.md) | Optional | - |
 | `total_money` | [`V1 Money`](../../doc/models/v1-money.md) | Optional | - |
-| `initiated_at` | `string` | Optional | The time when the settlement was submitted for deposit or withdrawal, in ISO 8601 format. |
-| `bank_account_id` | `string` | Optional | The Square-issued unique identifier for the bank account associated with the settlement. |
-| `entries` | [`List of V1 Settlement Entry`](../../doc/models/v1-settlement-entry.md) | Optional | The entries included in this settlement. |
+| `initiated_at` | `str` | Optional | The time when the settlement was submitted for deposit or withdrawal, in ISO 8601 format. |
+| `bank_account_id` | `str` | Optional | The Square-issued unique identifier for the bank account associated with the settlement. |
+| `entries` | [`List V1 Settlement Entry`](../../doc/models/v1-settlement-entry.md) | Optional | The entries included in this settlement. |
 
 ## Example (as JSON)
 

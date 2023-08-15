@@ -11,7 +11,7 @@ Lists all webhook event types that can be subscribed to.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `api_version` | `string` | Optional | The API version for which to list event types. Setting this field overrides the default version used by the application. |
+| `api_version` | `str` | Optional | The API version for which to list event types. Setting this field overrides the default version used by the application. |
 
 ## Example (as JSON)
 

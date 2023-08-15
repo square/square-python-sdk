@@ -43,11 +43,11 @@ def list_merchant_custom_attribute_definitions(self,
 |  --- | --- | --- | --- |
 | `visibility_filter` | [`str (Visibility Filter)`](../../doc/models/visibility-filter.md) | Query, Optional | Filters the `CustomAttributeDefinition` results by their `visibility` values. |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Response Type
 
-[`List Merchant Custom Attribute Definitions Response`](../../doc/models/list-merchant-custom-attribute-definitions-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Merchant Custom Attribute Definitions Response`](../../doc/models/list-merchant-custom-attribute-definitions-response.md).
 
 ## Example Usage
 
@@ -85,7 +85,7 @@ def create_merchant_custom_attribute_definition(self,
 
 ## Response Type
 
-[`Create Merchant Custom Attribute Definition Response`](../../doc/models/create-merchant-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Merchant Custom Attribute Definition Response`](../../doc/models/create-merchant-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -125,11 +125,11 @@ def delete_merchant_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to delete. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to delete. |
 
 ## Response Type
 
-[`Delete Merchant Custom Attribute Definition Response`](../../doc/models/delete-merchant-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Merchant Custom Attribute Definition Response`](../../doc/models/delete-merchant-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -162,12 +162,12 @@ def retrieve_merchant_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to retrieve. If the requesting application<br>is not the definition owner, you must use the qualified key. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to retrieve. If the requesting application<br>is not the definition owner, you must use the qualified key. |
 | `version` | `int` | Query, Optional | The current version of the custom attribute definition, which is used for strongly consistent<br>reads to guarantee that you receive the most up-to-date data. When included in the request,<br>Square returns the specified version or a higher version if one exists. If the specified version<br>is higher than the current version, Square returns a `BAD_REQUEST` error. |
 
 ## Response Type
 
-[`Retrieve Merchant Custom Attribute Definition Response`](../../doc/models/retrieve-merchant-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Merchant Custom Attribute Definition Response`](../../doc/models/retrieve-merchant-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -201,12 +201,12 @@ def update_merchant_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to update. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to update. |
 | `body` | [`Update Merchant Custom Attribute Definition Request`](../../doc/models/update-merchant-custom-attribute-definition-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Merchant Custom Attribute Definition Response`](../../doc/models/update-merchant-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Merchant Custom Attribute Definition Response`](../../doc/models/update-merchant-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -252,15 +252,15 @@ def bulk_delete_merchant_custom_attributes(self,
 
 ## Response Type
 
-[`Bulk Delete Merchant Custom Attributes Response`](../../doc/models/bulk-delete-merchant-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Delete Merchant Custom Attributes Response`](../../doc/models/bulk-delete-merchant-custom-attributes-response.md).
 
 ## Example Usage
 
 ```python
 body = {
     'values': {
-        "id1": {},
-        "id2": {}
+        'id1': {},
+        'id2': {}
     }
 }
 
@@ -300,18 +300,18 @@ def bulk_upsert_merchant_custom_attributes(self,
 
 ## Response Type
 
-[`Bulk Upsert Merchant Custom Attributes Response`](../../doc/models/bulk-upsert-merchant-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Upsert Merchant Custom Attributes Response`](../../doc/models/bulk-upsert-merchant-custom-attributes-response.md).
 
 ## Example Usage
 
 ```python
 body = {
     'values': {
-        "key0": {
+        'key0': {
             'merchant_id': 'merchant_id4',
             'custom_attribute': {}
         },
-        "key1": {
+        'key1': {
             'merchant_id': 'merchant_id5',
             'custom_attribute': {}
         }
@@ -350,15 +350,15 @@ def list_merchant_custom_attributes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `merchant_id` | `string` | Template, Required | The ID of the target [merchant](entity:Merchant). |
+| `merchant_id` | `str` | Template, Required | The ID of the target [merchant](entity:Merchant). |
 | `visibility_filter` | [`str (Visibility Filter)`](../../doc/models/visibility-filter.md) | Query, Optional | Filters the `CustomAttributeDefinition` results by their `visibility` values. |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request. For more<br>information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request. For more<br>information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `with_definitions` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 
 ## Response Type
 
-[`List Merchant Custom Attributes Response`](../../doc/models/list-merchant-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Merchant Custom Attributes Response`](../../doc/models/list-merchant-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -396,12 +396,12 @@ def delete_merchant_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `merchant_id` | `string` | Template, Required | The ID of the target [merchant](entity:Merchant). |
-| `key` | `string` | Template, Required | The key of the custom attribute to delete. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
+| `merchant_id` | `str` | Template, Required | The ID of the target [merchant](entity:Merchant). |
+| `key` | `str` | Template, Required | The key of the custom attribute to delete. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
 
 ## Response Type
 
-[`Delete Merchant Custom Attribute Response`](../../doc/models/delete-merchant-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Merchant Custom Attribute Response`](../../doc/models/delete-merchant-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -443,14 +443,14 @@ def retrieve_merchant_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `merchant_id` | `string` | Template, Required | The ID of the target [merchant](entity:Merchant). |
-| `key` | `string` | Template, Required | The key of the custom attribute to retrieve. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
+| `merchant_id` | `str` | Template, Required | The ID of the target [merchant](entity:Merchant). |
+| `key` | `str` | Template, Required | The key of the custom attribute to retrieve. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
 | `with_definition` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of<br>the custom attribute. Set this parameter to `true` to get the name and description of the custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 | `version` | `int` | Query, Optional | The current version of the custom attribute, which is used for strongly consistent reads to<br>guarantee that you receive the most up-to-date data. When included in the request, Square<br>returns the specified version or a higher version if one exists. If the specified version is<br>higher than the current version, Square returns a `BAD_REQUEST` error. |
 
 ## Response Type
 
-[`Retrieve Merchant Custom Attribute Response`](../../doc/models/retrieve-merchant-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Merchant Custom Attribute Response`](../../doc/models/retrieve-merchant-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -495,13 +495,13 @@ def upsert_merchant_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `merchant_id` | `string` | Template, Required | The ID of the target [merchant](entity:Merchant). |
-| `key` | `string` | Template, Required | The key of the custom attribute to create or update. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key. |
+| `merchant_id` | `str` | Template, Required | The ID of the target [merchant](entity:Merchant). |
+| `key` | `str` | Template, Required | The key of the custom attribute to create or update. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key. |
 | `body` | [`Upsert Merchant Custom Attribute Request`](../../doc/models/upsert-merchant-custom-attribute-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Upsert Merchant Custom Attribute Response`](../../doc/models/upsert-merchant-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Upsert Merchant Custom Attribute Response`](../../doc/models/upsert-merchant-custom-attribute-response.md).
 
 ## Example Usage
 

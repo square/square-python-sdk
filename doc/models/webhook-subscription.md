@@ -12,15 +12,15 @@ event types, and signature key.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | A Square-generated unique ID for the subscription.<br>**Constraints**: *Maximum Length*: `64` |
-| `name` | `string` | Optional | The name of this subscription.<br>**Constraints**: *Maximum Length*: `64` |
+| `id` | `str` | Optional | A Square-generated unique ID for the subscription.<br>**Constraints**: *Maximum Length*: `64` |
+| `name` | `str` | Optional | The name of this subscription.<br>**Constraints**: *Maximum Length*: `64` |
 | `enabled` | `bool` | Optional | Indicates whether the subscription is enabled (`true`) or not (`false`). |
-| `event_types` | `List of string` | Optional | The event types associated with this subscription. |
-| `notification_url` | `string` | Optional | The URL to which webhooks are sent. |
-| `api_version` | `string` | Optional | The API version of the subscription.<br>This field is optional for `CreateWebhookSubscription`.<br>The value defaults to the API version used by the application. |
-| `signature_key` | `string` | Optional | The Square-generated signature key used to validate the origin of the webhook event. |
-| `created_at` | `string` | Optional | The timestamp of when the subscription was created, in RFC 3339 format. For example, "2016-09-04T23:59:33.123Z". |
-| `updated_at` | `string` | Optional | The timestamp of when the subscription was last updated, in RFC 3339 format.<br>For example, "2016-09-04T23:59:33.123Z". |
+| `event_types` | `List[str]` | Optional | The event types associated with this subscription. |
+| `notification_url` | `str` | Optional | The URL to which webhooks are sent. |
+| `api_version` | `str` | Optional | The API version of the subscription.<br>This field is optional for `CreateWebhookSubscription`.<br>The value defaults to the API version used by the application. |
+| `signature_key` | `str` | Optional | The Square-generated signature key used to validate the origin of the webhook event. |
+| `created_at` | `str` | Optional | The timestamp of when the subscription was created, in RFC 3339 format. For example, "2016-09-04T23:59:33.123Z". |
+| `updated_at` | `str` | Optional | The timestamp of when the subscription was last updated, in RFC 3339 format.<br>For example, "2016-09-04T23:59:33.123Z". |
 
 ## Example (as JSON)
 

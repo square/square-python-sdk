@@ -15,7 +15,7 @@ present, or it might be present with a status of `FAILED`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
 | `refund` | [`Payment Refund`](../../doc/models/payment-refund.md) | Optional | Represents a refund of a payment made using Square. Contains information about<br>the original payment and the amount of money refunded. |
 
 ## Example (as JSON)

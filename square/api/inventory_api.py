@@ -30,7 +30,7 @@ class InventoryApi(BaseApi):
         is updated to conform to the standard convention.
 
         Args:
-            adjustment_id (string): ID of the
+            adjustment_id (str): ID of the
                 [InventoryAdjustment](entity:InventoryAdjustment) to
                 retrieve.
 
@@ -73,7 +73,7 @@ class InventoryApi(BaseApi):
         with the provided `adjustment_id`.
 
         Args:
-            adjustment_id (string): ID of the
+            adjustment_id (str): ID of the
                 [InventoryAdjustment](entity:InventoryAdjustment) to
                 retrieve.
 
@@ -415,7 +415,7 @@ class InventoryApi(BaseApi):
         is updated to conform to the standard convention.
 
         Args:
-            physical_count_id (string): ID of the
+            physical_count_id (str): ID of the
                 [InventoryPhysicalCount](entity:InventoryPhysicalCount) to
                 retrieve.
 
@@ -458,7 +458,7 @@ class InventoryApi(BaseApi):
         object with the provided `physical_count_id`.
 
         Args:
-            physical_count_id (string): ID of the
+            physical_count_id (str): ID of the
                 [InventoryPhysicalCount](entity:InventoryPhysicalCount) to
                 retrieve.
 
@@ -501,7 +501,7 @@ class InventoryApi(BaseApi):
         with the provided `transfer_id`.
 
         Args:
-            transfer_id (string): ID of the
+            transfer_id (str): ID of the
                 [InventoryTransfer](entity:InventoryTransfer) to retrieve.
 
         Returns:
@@ -547,14 +547,14 @@ class InventoryApi(BaseApi):
         For more sophisticated queries, use a batch endpoint.
 
         Args:
-            catalog_object_id (string): ID of the
+            catalog_object_id (str): ID of the
                 [CatalogObject](entity:CatalogObject) to retrieve.
-            location_ids (string, optional): The [Location](entity:Location)
-                IDs to look up as a comma-separated list. An empty list
-                queries all locations.
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for the original query.  See the
+            location_ids (str, optional): The [Location](entity:Location) IDs
+                to look up as a comma-separated list. An empty list queries
+                all locations.
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this to retrieve the next set
+                of results for the original query.  See the
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination) guide for more information.
 
@@ -619,14 +619,14 @@ class InventoryApi(BaseApi):
         sophisticated queries, use a batch endpoint.
 
         Args:
-            catalog_object_id (string): ID of the
+            catalog_object_id (str): ID of the
                 [CatalogObject](entity:CatalogObject) to retrieve.
-            location_ids (string, optional): The [Location](entity:Location)
-                IDs to look up as a comma-separated list. An empty list
-                queries all locations.
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for the original query.  See the
+            location_ids (str, optional): The [Location](entity:Location) IDs
+                to look up as a comma-separated list. An empty list queries
+                all locations.
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this to retrieve the next set
+                of results for the original query.  See the
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination) guide for more information.
 

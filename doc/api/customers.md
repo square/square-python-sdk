@@ -43,7 +43,7 @@ def list_customers(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>If the specified limit is less than 1 or greater than 100, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH` error. The default value is 100.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `sort_field` | [`str (Customer Sort Field)`](../../doc/models/customer-sort-field.md) | Query, Optional | Indicates how customers should be sorted.<br><br>The default value is `DEFAULT`. |
 | `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | Indicates whether customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>The default value is `ASC`. |
@@ -51,7 +51,7 @@ def list_customers(self,
 
 ## Response Type
 
-[`List Customers Response`](../../doc/models/list-customers-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Customers Response`](../../doc/models/list-customers-response.md).
 
 ## Example Usage
 
@@ -96,7 +96,7 @@ def create_customer(self,
 
 ## Response Type
 
-[`Create Customer Response`](../../doc/models/create-customer-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Customer Response`](../../doc/models/create-customer-response.md).
 
 ## Example Usage
 
@@ -153,7 +153,7 @@ def search_customers(self,
 
 ## Response Type
 
-[`Search Customers Response`](../../doc/models/search-customers-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Customers Response`](../../doc/models/search-customers-response.md).
 
 ## Example Usage
 
@@ -217,12 +217,12 @@ def delete_customer(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the customer to delete. |
+| `customer_id` | `str` | Template, Required | The ID of the customer to delete. |
 | `version` | `long\|int` | Query, Optional | The current version of the customer profile.<br><br>As a best practice, you should include this parameter to enable [optimistic concurrency](https://developer.squareup.com/docs/build-basics/common-api-patterns/optimistic-concurrency) control.  For more information, see [Delete a customer profile](https://developer.squareup.com/docs/customers-api/use-the-api/keep-records#delete-customer-profile). |
 
 ## Response Type
 
-[`Delete Customer Response`](../../doc/models/delete-customer-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Customer Response`](../../doc/models/delete-customer-response.md).
 
 ## Example Usage
 
@@ -252,11 +252,11 @@ def retrieve_customer(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the customer to retrieve. |
+| `customer_id` | `str` | Template, Required | The ID of the customer to retrieve. |
 
 ## Response Type
 
-[`Retrieve Customer Response`](../../doc/models/retrieve-customer-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Customer Response`](../../doc/models/retrieve-customer-response.md).
 
 ## Example Usage
 
@@ -296,12 +296,12 @@ def update_customer(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the customer to update. |
+| `customer_id` | `str` | Template, Required | The ID of the customer to update. |
 | `body` | [`Update Customer Request`](../../doc/models/update-customer-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Customer Response`](../../doc/models/update-customer-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Customer Response`](../../doc/models/update-customer-response.md).
 
 ## Example Usage
 
@@ -348,12 +348,12 @@ def create_customer_card(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The Square ID of the customer profile the card is linked to. |
+| `customer_id` | `str` | Template, Required | The Square ID of the customer profile the card is linked to. |
 | `body` | [`Create Customer Card Request`](../../doc/models/create-customer-card-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Create Customer Card Response`](../../doc/models/create-customer-card-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Customer Card Response`](../../doc/models/create-customer-card-response.md).
 
 ## Example Usage
 
@@ -402,12 +402,12 @@ def delete_customer_card(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the customer that the card on file belongs to. |
-| `card_id` | `string` | Template, Required | The ID of the card on file to delete. |
+| `customer_id` | `str` | Template, Required | The ID of the customer that the card on file belongs to. |
+| `card_id` | `str` | Template, Required | The ID of the card on file to delete. |
 
 ## Response Type
 
-[`Delete Customer Card Response`](../../doc/models/delete-customer-card-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Customer Card Response`](../../doc/models/delete-customer-card-response.md).
 
 ## Example Usage
 
@@ -446,12 +446,12 @@ def remove_group_from_customer(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the customer to remove from the group. |
-| `group_id` | `string` | Template, Required | The ID of the customer group to remove the customer from. |
+| `customer_id` | `str` | Template, Required | The ID of the customer to remove from the group. |
+| `group_id` | `str` | Template, Required | The ID of the customer group to remove the customer from. |
 
 ## Response Type
 
-[`Remove Group From Customer Response`](../../doc/models/remove-group-from-customer-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Remove Group From Customer Response`](../../doc/models/remove-group-from-customer-response.md).
 
 ## Example Usage
 
@@ -490,12 +490,12 @@ def add_group_to_customer(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the customer to add to a group. |
-| `group_id` | `string` | Template, Required | The ID of the customer group to add the customer to. |
+| `customer_id` | `str` | Template, Required | The ID of the customer to add to a group. |
+| `group_id` | `str` | Template, Required | The ID of the customer group to add the customer to. |
 
 ## Response Type
 
-[`Add Group to Customer Response`](../../doc/models/add-group-to-customer-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Add Group to Customer Response`](../../doc/models/add-group-to-customer-response.md).
 
 ## Example Usage
 

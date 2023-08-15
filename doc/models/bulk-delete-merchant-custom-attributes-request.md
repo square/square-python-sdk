@@ -11,7 +11,7 @@ Represents a [BulkDeleteMerchantCustomAttributes](../../doc/api/merchant-custom-
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `values` | [`Dict`](../../doc/models/bulk-delete-merchant-custom-attributes-request-merchant-custom-attribute-delete-request.md) | Required | The data used to update the `CustomAttribute` objects.<br>The keys must be unique and are used to map to the corresponding response. |
+| `values` | [`Dict Str Bulk Delete Merchant Custom Attributes Request Merchant Custom Attribute Delete Request`](../../doc/models/bulk-delete-merchant-custom-attributes-request-merchant-custom-attribute-delete-request.md) | Required | The data used to update the `CustomAttribute` objects.<br>The keys must be unique and are used to map to the corresponding response. |
 
 ## Example (as JSON)
 

@@ -12,7 +12,7 @@ a request to the [RegisterDomain](../../doc/api/apple-pay.md#register-domain) en
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `domain_name` | `string` | Required | A domain name as described in RFC-1034 that will be registered with ApplePay.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255` |
+| `domain_name` | `str` | Required | A domain name as described in RFC-1034 that will be registered with ApplePay.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255` |
 
 ## Example (as JSON)
 

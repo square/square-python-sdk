@@ -31,14 +31,14 @@ def list_device_codes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. |
-| `location_id` | `string` | Query, Optional | If specified, only returns DeviceCodes of the specified location.<br>Returns DeviceCodes of all locations if empty. |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. |
+| `location_id` | `str` | Query, Optional | If specified, only returns DeviceCodes of the specified location.<br>Returns DeviceCodes of all locations if empty. |
 | `product_type` | [`str (Product Type)`](../../doc/models/product-type.md) | Query, Optional | If specified, only returns DeviceCodes targeting the specified product type.<br>Returns DeviceCodes of all product types if empty. |
 | `status` | [`str (Device Code Status)`](../../doc/models/device-code-status.md) | Query, Optional | If specified, returns DeviceCodes with the specified statuses.<br>Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty. |
 
 ## Response Type
 
-[`List Device Codes Response`](../../doc/models/list-device-codes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Device Codes Response`](../../doc/models/list-device-codes-response.md).
 
 ## Example Usage
 
@@ -71,7 +71,7 @@ def create_device_code(self,
 
 ## Response Type
 
-[`Create Device Code Response`](../../doc/models/create-device-code-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Device Code Response`](../../doc/models/create-device-code-response.md).
 
 ## Example Usage
 
@@ -108,11 +108,11 @@ def get_device_code(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The unique identifier for the device code. |
+| `id` | `str` | Template, Required | The unique identifier for the device code. |
 
 ## Response Type
 
-[`Get Device Code Response`](../../doc/models/get-device-code-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Device Code Response`](../../doc/models/get-device-code-response.md).
 
 ## Example Usage
 

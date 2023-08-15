@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `counts` | [`List of Inventory Count`](../../doc/models/inventory-count.md) | Optional | The current calculated inventory counts for the requested object and<br>locations. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `counts` | [`List Inventory Count`](../../doc/models/inventory-count.md) | Optional | The current calculated inventory counts for the requested object and<br>locations. |
+| `cursor` | `str` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Example (as JSON)
 

@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `order` | [`Order`](../../doc/models/order.md) | Optional | Contains all information related to a single order to process with Square,<br>including line items that specify the products to purchase. `Order` objects also<br>include information about any associated tenders, refunds, and returns.<br><br>All Connect V2 Transactions have all been converted to Orders including all associated<br>itemization data. |
-| `idempotency_key` | `string` | Optional | A value you specify that uniquely identifies this<br>order among orders you have created.<br><br>If you are unsure whether a particular order was created successfully,<br>you can try it again with the same idempotency key without<br>worrying about creating duplicate orders.<br><br>For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br>**Constraints**: *Maximum Length*: `192` |
+| `idempotency_key` | `str` | Optional | A value you specify that uniquely identifies this<br>order among orders you have created.<br><br>If you are unsure whether a particular order was created successfully,<br>you can try it again with the same idempotency key without<br>worrying about creating duplicate orders.<br><br>For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br>**Constraints**: *Maximum Length*: `192` |
 
 ## Example (as JSON)
 

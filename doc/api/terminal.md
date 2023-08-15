@@ -42,7 +42,7 @@ def create_terminal_action(self,
 
 ## Response Type
 
-[`Create Terminal Action Response`](../../doc/models/create-terminal-action-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Terminal Action Response`](../../doc/models/create-terminal-action-response.md).
 
 ## Example Usage
 
@@ -87,7 +87,7 @@ def search_terminal_actions(self,
 
 ## Response Type
 
-[`Search Terminal Actions Response`](../../doc/models/search-terminal-actions-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Terminal Actions Response`](../../doc/models/search-terminal-actions-response.md).
 
 ## Example Usage
 
@@ -129,11 +129,11 @@ def get_terminal_action(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction`. |
+| `action_id` | `str` | Template, Required | Unique ID for the desired `TerminalAction`. |
 
 ## Response Type
 
-[`Get Terminal Action Response`](../../doc/models/get-terminal-action-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Terminal Action Response`](../../doc/models/get-terminal-action-response.md).
 
 ## Example Usage
 
@@ -163,11 +163,11 @@ def cancel_terminal_action(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action_id` | `string` | Template, Required | Unique ID for the desired `TerminalAction`. |
+| `action_id` | `str` | Template, Required | Unique ID for the desired `TerminalAction`. |
 
 ## Response Type
 
-[`Cancel Terminal Action Response`](../../doc/models/cancel-terminal-action-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Cancel Terminal Action Response`](../../doc/models/cancel-terminal-action-response.md).
 
 ## Example Usage
 
@@ -199,11 +199,11 @@ def dismiss_terminal_action(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action_id` | `string` | Template, Required | Unique ID for the `TerminalAction` associated with the waiting dialog to be dismissed. |
+| `action_id` | `str` | Template, Required | Unique ID for the `TerminalAction` associated with the waiting dialog to be dismissed. |
 
 ## Response Type
 
-[`Dismiss Terminal Action Response`](../../doc/models/dismiss-terminal-action-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Dismiss Terminal Action Response`](../../doc/models/dismiss-terminal-action-response.md).
 
 ## Example Usage
 
@@ -238,7 +238,7 @@ def create_terminal_checkout(self,
 
 ## Response Type
 
-[`Create Terminal Checkout Response`](../../doc/models/create-terminal-checkout-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Terminal Checkout Response`](../../doc/models/create-terminal-checkout-response.md).
 
 ## Example Usage
 
@@ -285,7 +285,7 @@ def search_terminal_checkouts(self,
 
 ## Response Type
 
-[`Search Terminal Checkouts Response`](../../doc/models/search-terminal-checkouts-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Terminal Checkouts Response`](../../doc/models/search-terminal-checkouts-response.md).
 
 ## Example Usage
 
@@ -322,11 +322,11 @@ def get_terminal_checkout(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `checkout_id` | `string` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
+| `checkout_id` | `str` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
 
 ## Response Type
 
-[`Get Terminal Checkout Response`](../../doc/models/get-terminal-checkout-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Terminal Checkout Response`](../../doc/models/get-terminal-checkout-response.md).
 
 ## Example Usage
 
@@ -356,11 +356,11 @@ def cancel_terminal_checkout(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `checkout_id` | `string` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
+| `checkout_id` | `str` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
 
 ## Response Type
 
-[`Cancel Terminal Checkout Response`](../../doc/models/cancel-terminal-checkout-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Cancel Terminal Checkout Response`](../../doc/models/cancel-terminal-checkout-response.md).
 
 ## Example Usage
 
@@ -394,7 +394,7 @@ def create_terminal_refund(self,
 
 ## Response Type
 
-[`Create Terminal Refund Response`](../../doc/models/create-terminal-refund-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Terminal Refund Response`](../../doc/models/create-terminal-refund-response.md).
 
 ## Example Usage
 
@@ -439,7 +439,7 @@ def search_terminal_refunds(self,
 
 ## Response Type
 
-[`Search Terminal Refunds Response`](../../doc/models/search-terminal-refunds-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Terminal Refunds Response`](../../doc/models/search-terminal-refunds-response.md).
 
 ## Example Usage
 
@@ -476,11 +476,11 @@ def get_terminal_refund(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `terminal_refund_id` | `string` | Template, Required | The unique ID for the desired `TerminalRefund`. |
+| `terminal_refund_id` | `str` | Template, Required | The unique ID for the desired `TerminalRefund`. |
 
 ## Response Type
 
-[`Get Terminal Refund Response`](../../doc/models/get-terminal-refund-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Terminal Refund Response`](../../doc/models/get-terminal-refund-response.md).
 
 ## Example Usage
 
@@ -510,11 +510,11 @@ def cancel_terminal_refund(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `terminal_refund_id` | `string` | Template, Required | The unique ID for the desired `TerminalRefund`. |
+| `terminal_refund_id` | `str` | Template, Required | The unique ID for the desired `TerminalRefund`. |
 
 ## Response Type
 
-[`Cancel Terminal Refund Response`](../../doc/models/cancel-terminal-refund-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Cancel Terminal Refund Response`](../../doc/models/cancel-terminal-refund-response.md).
 
 ## Example Usage
 

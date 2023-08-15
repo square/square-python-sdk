@@ -28,14 +28,14 @@ class LaborApi(BaseApi):
         Returns a paginated list of `BreakType` instances for a business.
 
         Args:
-            location_id (string, optional): Filter the returned `BreakType`
+            location_id (str, optional): Filter the returned `BreakType`
                 results to only those that are associated with the specified
                 location.
             limit (int, optional): The maximum number of `BreakType` results
                 to return per page. The number can range between 1 and 200.
                 The default is 200.
-            cursor (string, optional): A pointer to the next page of
-                `BreakType` results to fetch.
+            cursor (str, optional): A pointer to the next page of `BreakType`
+                results to fetch.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -137,7 +137,7 @@ class LaborApi(BaseApi):
         A `BreakType` can be deleted even if it is referenced from a `Shift`.
 
         Args:
-            id (string): The UUID for the `BreakType` being deleted.
+            id (str): The UUID for the `BreakType` being deleted.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -177,7 +177,7 @@ class LaborApi(BaseApi):
         Returns a single `BreakType` specified by `id`.
 
         Args:
-            id (string): The UUID for the `BreakType` being retrieved.
+            id (str): The UUID for the `BreakType` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -218,7 +218,7 @@ class LaborApi(BaseApi):
         Updates an existing `BreakType`.
 
         Args:
-            id (string): The UUID for the `BreakType` being updated.
+            id (str): The UUID for the `BreakType` being updated.
             body (UpdateBreakTypeRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -270,12 +270,12 @@ class LaborApi(BaseApi):
         Returns a paginated list of `EmployeeWage` instances for a business.
 
         Args:
-            employee_id (string, optional): Filter the returned wages to only
+            employee_id (str, optional): Filter the returned wages to only
                 those that are associated with the specified employee.
             limit (int, optional): The maximum number of `EmployeeWage`
                 results to return per page. The number can range between 1 and
                 200. The default is 200.
-            cursor (string, optional): A pointer to the next page of
+            cursor (str, optional): A pointer to the next page of
                 `EmployeeWage` results to fetch.
 
         Returns:
@@ -322,7 +322,7 @@ class LaborApi(BaseApi):
         Returns a single `EmployeeWage` specified by `id`.
 
         Args:
-            id (string): The UUID for the `EmployeeWage` being retrieved.
+            id (str): The UUID for the `EmployeeWage` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -479,7 +479,7 @@ class LaborApi(BaseApi):
         Deletes a `Shift`.
 
         Args:
-            id (string): The UUID for the `Shift` being deleted.
+            id (str): The UUID for the `Shift` being deleted.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -519,7 +519,7 @@ class LaborApi(BaseApi):
         Returns a single `Shift` specified by `id`.
 
         Args:
-            id (string): The UUID for the `Shift` being retrieved.
+            id (str): The UUID for the `Shift` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -566,7 +566,7 @@ class LaborApi(BaseApi):
         set on each `Break`.
 
         Args:
-            id (string): The ID of the object being updated.
+            id (str): The ID of the object being updated.
             body (UpdateShiftRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
@@ -618,13 +618,12 @@ class LaborApi(BaseApi):
         business.
 
         Args:
-            team_member_id (string, optional): Filter the returned wages to
-                only those that are associated with the specified team
-                member.
+            team_member_id (str, optional): Filter the returned wages to only
+                those that are associated with the specified team member.
             limit (int, optional): The maximum number of `TeamMemberWage`
                 results to return per page. The number can range between 1 and
                 200. The default is 200.
-            cursor (string, optional): A pointer to the next page of
+            cursor (str, optional): A pointer to the next page of
                 `EmployeeWage` results to fetch.
 
         Returns:
@@ -670,7 +669,7 @@ class LaborApi(BaseApi):
         Returns a single `TeamMemberWage` specified by `id `.
 
         Args:
-            id (string): The UUID for the `TeamMemberWage` being retrieved.
+            id (str): The UUID for the `TeamMemberWage` being retrieved.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -713,7 +712,7 @@ class LaborApi(BaseApi):
         Args:
             limit (int, optional): The maximum number of `WorkweekConfigs`
                 results to return per page.
-            cursor (string, optional): A pointer to the next page of
+            cursor (str, optional): A pointer to the next page of
                 `WorkweekConfig` results to fetch.
 
         Returns:
@@ -757,8 +756,7 @@ class LaborApi(BaseApi):
         Updates a `WorkweekConfig`.
 
         Args:
-            id (string): The UUID for the `WorkweekConfig` object being
-                updated.
+            id (str): The UUID for the `WorkweekConfig` object being updated.
             body (UpdateWorkweekConfigRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.

@@ -11,7 +11,7 @@ Response object returned by `GetBankAccount`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
 | `bank_account` | [`Bank Account`](../../doc/models/bank-account.md) | Optional | Represents a bank account. For more information about<br>linking a bank account to a Square account, see<br>[Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api). |
 
 ## Example (as JSON)

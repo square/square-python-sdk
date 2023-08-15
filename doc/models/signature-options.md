@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `title` | `string` | Required | The title text to display in the signature capture flow on the Terminal.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `250` |
-| `body` | `string` | Required | The body text to display in the signature capture flow on the Terminal.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `10000` |
-| `signature` | [`List of Signature Image`](../../doc/models/signature-image.md) | Optional | An image representation of the collected signature. |
+| `title` | `str` | Required | The title text to display in the signature capture flow on the Terminal.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `250` |
+| `body` | `str` | Required | The body text to display in the signature capture flow on the Terminal.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `10000` |
+| `signature` | [`List Signature Image`](../../doc/models/signature-image.md) | Optional | An image representation of the collected signature. |
 
 ## Example (as JSON)
 

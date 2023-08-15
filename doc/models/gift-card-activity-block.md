@@ -11,7 +11,7 @@ Represents details about a `BLOCK` [gift card activity type](../../doc/models/gi
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reason` | `string` | Required, Constant | Indicates the reason for blocking a [gift card](../../doc/models/gift-card.md).<br>**Default**: `'CHARGEBACK_BLOCK'` |
+| `reason` | `str` | Required, Constant | Indicates the reason for blocking a [gift card](../../doc/models/gift-card.md).<br>**Default**: `'CHARGEBACK_BLOCK'` |
 
 ## Example (as JSON)
 

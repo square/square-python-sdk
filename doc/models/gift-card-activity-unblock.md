@@ -11,7 +11,7 @@ Represents details about an `UNBLOCK` [gift card activity type](../../doc/models
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reason` | `string` | Required, Constant | Indicates the reason for unblocking a [gift card](../../doc/models/gift-card.md).<br>**Default**: `'CHARGEBACK_UNBLOCK'` |
+| `reason` | `str` | Required, Constant | Indicates the reason for unblocking a [gift card](../../doc/models/gift-card.md).<br>**Default**: `'CHARGEBACK_UNBLOCK'` |
 
 ## Example (as JSON)
 

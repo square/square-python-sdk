@@ -25,7 +25,7 @@ class WebhookSubscriptionsApi(BaseApi):
         Lists all webhook event types that can be subscribed to.
 
         Args:
-            api_version (string, optional): The API version for which to list
+            api_version (str, optional): The API version for which to list
                 event types. Setting this field overrides the default version
                 used by the application.
 
@@ -69,10 +69,9 @@ class WebhookSubscriptionsApi(BaseApi):
         Lists all webhook subscriptions owned by your application.
 
         Args:
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this to retrieve the
-                next set of results for your original query.  For more
-                information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this to retrieve the next set
+                of results for your original query.  For more information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
             include_disabled (bool, optional): Includes disabled
@@ -177,7 +176,7 @@ class WebhookSubscriptionsApi(BaseApi):
         Deletes a webhook subscription.
 
         Args:
-            subscription_id (string): [REQUIRED] The ID of the
+            subscription_id (str): [REQUIRED] The ID of the
                 [Subscription](entity:WebhookSubscription) to delete.
 
         Returns:
@@ -218,7 +217,7 @@ class WebhookSubscriptionsApi(BaseApi):
         Retrieves a webhook subscription identified by its ID.
 
         Args:
-            subscription_id (string): [REQUIRED] The ID of the
+            subscription_id (str): [REQUIRED] The ID of the
                 [Subscription](entity:WebhookSubscription) to retrieve.
 
         Returns:
@@ -260,7 +259,7 @@ class WebhookSubscriptionsApi(BaseApi):
         Updates a webhook subscription.
 
         Args:
-            subscription_id (string): [REQUIRED] The ID of the
+            subscription_id (str): [REQUIRED] The ID of the
                 [Subscription](entity:WebhookSubscription) to update.
             body (UpdateWebhookSubscriptionRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
@@ -312,7 +311,7 @@ class WebhookSubscriptionsApi(BaseApi):
         with a new one.
 
         Args:
-            subscription_id (string): [REQUIRED] The ID of the
+            subscription_id (str): [REQUIRED] The ID of the
                 [Subscription](entity:WebhookSubscription) to update.
             body (UpdateWebhookSubscriptionSignatureKeyRequest): An object
                 containing the fields to POST for the request.  See the
@@ -364,7 +363,7 @@ class WebhookSubscriptionsApi(BaseApi):
         notification URL.
 
         Args:
-            subscription_id (string): [REQUIRED] The ID of the
+            subscription_id (str): [REQUIRED] The ID of the
                 [Subscription](entity:WebhookSubscription) to test.
             body (TestWebhookSubscriptionRequest): An object containing the
                 fields to POST for the request.  See the corresponding object

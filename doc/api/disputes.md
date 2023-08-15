@@ -36,13 +36,13 @@ def list_disputes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `states` | [`str (Dispute State)`](../../doc/models/dispute-state.md) | Query, Optional | The dispute states used to filter the result. If not specified, the endpoint returns all disputes. |
-| `location_id` | `string` | Query, Optional | The ID of the location for which to return a list of disputes.<br>If not specified, the endpoint returns disputes associated with all locations. |
+| `location_id` | `str` | Query, Optional | The ID of the location for which to return a list of disputes.<br>If not specified, the endpoint returns disputes associated with all locations. |
 
 ## Response Type
 
-[`List Disputes Response`](../../doc/models/list-disputes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Disputes Response`](../../doc/models/list-disputes-response.md).
 
 ## Example Usage
 
@@ -70,11 +70,11 @@ def retrieve_dispute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute you want more details about. |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute you want more details about. |
 
 ## Response Type
 
-[`Retrieve Dispute Response`](../../doc/models/retrieve-dispute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Dispute Response`](../../doc/models/retrieve-dispute-response.md).
 
 ## Example Usage
 
@@ -108,11 +108,11 @@ def accept_dispute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute you want to accept. |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute you want to accept. |
 
 ## Response Type
 
-[`Accept Dispute Response`](../../doc/models/accept-dispute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Accept Dispute Response`](../../doc/models/accept-dispute-response.md).
 
 ## Example Usage
 
@@ -143,12 +143,12 @@ def list_dispute_evidence(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute. |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute. |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Response Type
 
-[`List Dispute Evidence Response`](../../doc/models/list-dispute-evidence-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Dispute Evidence Response`](../../doc/models/list-dispute-evidence-response.md).
 
 ## Example Usage
 
@@ -181,13 +181,13 @@ def create_dispute_evidence_file(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute for which you want to upload evidence. |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute for which you want to upload evidence. |
 | `request` | [`Create Dispute Evidence File Request`](../../doc/models/create-dispute-evidence-file-request.md) | Form (JSON-Encoded), Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
 | `image_file` | `typing.BinaryIO` | Form, Optional | - |
 
 ## Response Type
 
-[`Create Dispute Evidence File Response`](../../doc/models/create-dispute-evidence-file-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Dispute Evidence File Response`](../../doc/models/create-dispute-evidence-file-response.md).
 
 ## Example Usage
 
@@ -218,12 +218,12 @@ def create_dispute_evidence_text(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute for which you want to upload evidence. |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute for which you want to upload evidence. |
 | `body` | [`Create Dispute Evidence Text Request`](../../doc/models/create-dispute-evidence-text-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Create Dispute Evidence Text Response`](../../doc/models/create-dispute-evidence-text-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Dispute Evidence Text Response`](../../doc/models/create-dispute-evidence-text-response.md).
 
 ## Example Usage
 
@@ -264,12 +264,12 @@ def delete_dispute_evidence(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute from which you want to remove evidence. |
-| `evidence_id` | `string` | Template, Required | The ID of the evidence you want to remove. |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute from which you want to remove evidence. |
+| `evidence_id` | `str` | Template, Required | The ID of the evidence you want to remove. |
 
 ## Response Type
 
-[`Delete Dispute Evidence Response`](../../doc/models/delete-dispute-evidence-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Dispute Evidence Response`](../../doc/models/delete-dispute-evidence-response.md).
 
 ## Example Usage
 
@@ -307,12 +307,12 @@ def retrieve_dispute_evidence(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute from which you want to retrieve evidence metadata. |
-| `evidence_id` | `string` | Template, Required | The ID of the evidence to retrieve. |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute from which you want to retrieve evidence metadata. |
+| `evidence_id` | `str` | Template, Required | The ID of the evidence to retrieve. |
 
 ## Response Type
 
-[`Retrieve Dispute Evidence Response`](../../doc/models/retrieve-dispute-evidence-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Dispute Evidence Response`](../../doc/models/retrieve-dispute-evidence-response.md).
 
 ## Example Usage
 
@@ -353,11 +353,11 @@ def submit_evidence(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_id` | `string` | Template, Required | The ID of the dispute for which you want to submit evidence. |
+| `dispute_id` | `str` | Template, Required | The ID of the dispute for which you want to submit evidence. |
 
 ## Response Type
 
-[`Submit Evidence Response`](../../doc/models/submit-evidence-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Submit Evidence Response`](../../doc/models/submit-evidence-response.md).
 
 ## Example Usage
 

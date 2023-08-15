@@ -13,15 +13,15 @@ For more information, see [Loyalty Program Overview](https://developer.squareup.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier.<br>**Constraints**: *Maximum Length*: `36` |
+| `id` | `str` | Optional | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier.<br>**Constraints**: *Maximum Length*: `36` |
 | `status` | [`str (Loyalty Program Status)`](../../doc/models/loyalty-program-status.md) | Optional | Indicates whether the program is currently active. |
-| `reward_tiers` | [`List of Loyalty Program Reward Tier`](../../doc/models/loyalty-program-reward-tier.md) | Optional | The list of rewards for buyers, sorted by ascending points. |
+| `reward_tiers` | [`List Loyalty Program Reward Tier`](../../doc/models/loyalty-program-reward-tier.md) | Optional | The list of rewards for buyers, sorted by ascending points. |
 | `expiration_policy` | [`Loyalty Program Expiration Policy`](../../doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. |
 | `terminology` | [`Loyalty Program Terminology`](../../doc/models/loyalty-program-terminology.md) | Optional | Represents the naming used for loyalty points. |
-| `location_ids` | `List of string` | Optional | The [locations](entity:Location) at which the program is active. |
-| `created_at` | `string` | Optional | The timestamp when the program was created, in RFC 3339 format. |
-| `updated_at` | `string` | Optional | The timestamp when the reward was last updated, in RFC 3339 format. |
-| `accrual_rules` | [`List of Loyalty Program Accrual Rule`](../../doc/models/loyalty-program-accrual-rule.md) | Optional | Defines how buyers can earn loyalty points from the base loyalty program.<br>To check for associated [loyalty promotions](entity:LoyaltyPromotion) that enable<br>buyers to earn extra points, call [ListLoyaltyPromotions](api-endpoint:Loyalty-ListLoyaltyPromotions). |
+| `location_ids` | `List[str]` | Optional | The [locations](entity:Location) at which the program is active. |
+| `created_at` | `str` | Optional | The timestamp when the program was created, in RFC 3339 format. |
+| `updated_at` | `str` | Optional | The timestamp when the reward was last updated, in RFC 3339 format. |
+| `accrual_rules` | [`List Loyalty Program Accrual Rule`](../../doc/models/loyalty-program-accrual-rule.md) | Optional | Defines how buyers can earn loyalty points from the base loyalty program.<br>To check for associated [loyalty promotions](entity:LoyaltyPromotion) that enable<br>buyers to earn extra points, call [ListLoyaltyPromotions](api-endpoint:Loyalty-ListLoyaltyPromotions). |
 
 ## Example (as JSON)
 

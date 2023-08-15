@@ -278,7 +278,7 @@ class OrdersApi(BaseApi):
         Retrieves an [Order]($m/Order) by ID.
 
         Args:
-            order_id (string): The ID of the order to retrieve.
+            order_id (str): The ID of the order to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -338,7 +338,7 @@ class OrdersApi(BaseApi):
         Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders).
         
         Args:
-            order_id (string): The ID of the order to update.
+            order_id (str): The ID of the order to update.
             body (UpdateOrderRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.
@@ -406,7 +406,7 @@ class OrdersApi(BaseApi):
         payment.
 
         Args:
-            order_id (string): The ID of the order being paid.
+            order_id (str): The ID of the order being paid.
             body (PayOrderRequest): An object containing the fields to POST
                 for the request.  See the corresponding object definition for
                 field details.

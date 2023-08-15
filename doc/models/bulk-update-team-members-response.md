@@ -11,8 +11,8 @@ Represents a response from a bulk update request containing the updated `TeamMem
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_members` | [`Dict`](../../doc/models/update-team-member-response.md) | Optional | The successfully updated `TeamMember` objects. Each key is the `team_member_id` that maps to the `UpdateTeamMemberRequest`. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
+| `team_members` | [`Dict Str Update Team Member Response`](../../doc/models/update-team-member-response.md) | Optional | The successfully updated `TeamMember` objects. Each key is the `team_member_id` that maps to the `UpdateTeamMemberRequest`. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
 
 ## Example (as JSON)
 

@@ -12,8 +12,8 @@ which contains a map of responses that each corresponds to an individual delete 
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `values` | [`Dict`](../../doc/models/bulk-delete-location-custom-attributes-response-location-custom-attribute-delete-response.md) | Required | A map of responses that correspond to individual delete requests. Each response has the<br>same key as the corresponding request. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `values` | [`Dict Str Bulk Delete Location Custom Attributes Response Location Custom Attribute Delete Response`](../../doc/models/bulk-delete-location-custom-attributes-response-location-custom-attribute-delete-response.md) | Required | A map of responses that correspond to individual delete requests. Each response has the<br>same key as the corresponding request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
 ## Example (as JSON)
 

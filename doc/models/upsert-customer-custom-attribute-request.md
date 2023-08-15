@@ -12,7 +12,7 @@ Represents an [UpsertCustomerCustomAttribute](../../doc/api/customer-custom-attr
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `custom_attribute` | [`Custom Attribute`](../../doc/models/custom-attribute.md) | Required | A custom attribute value. Each custom attribute value has a corresponding<br>`CustomAttributeDefinition` object. |
-| `idempotency_key` | `string` | Optional | A unique identifier for this request, used to ensure idempotency. For more information,<br>see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br>**Constraints**: *Maximum Length*: `45` |
+| `idempotency_key` | `str` | Optional | A unique identifier for this request, used to ensure idempotency. For more information,<br>see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br>**Constraints**: *Maximum Length*: `45` |
 
 ## Example (as JSON)
 

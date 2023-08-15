@@ -11,8 +11,8 @@ Represents a phone number.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `calling_code` | `string` | Required | The phone number's international calling code. For US phone numbers, this value is +1. |
-| `number` | `string` | Required | The phone number. |
+| `calling_code` | `str` | Required | The phone number's international calling code. For US phone numbers, this value is +1. |
+| `number` | `str` | Required | The phone number. |
 
 ## Example (as JSON)
 

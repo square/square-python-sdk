@@ -37,15 +37,15 @@ def list_gift_cards(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | `string` | Query, Optional | If a [type](entity:GiftCardType) is provided, the endpoint returns gift cards of the specified type.<br>Otherwise, the endpoint returns gift cards of all types. |
-| `state` | `string` | Query, Optional | If a [state](entity:GiftCardStatus) is provided, the endpoint returns the gift cards in the specified state.<br>Otherwise, the endpoint returns the gift cards of all states. |
-| `limit` | `int` | Query, Optional | If a limit is provided, the endpoint returns only the specified number of results per page.<br>The maximum value is 50. The default value is 30.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>If a cursor is not provided, the endpoint returns the first page of the results.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `customer_id` | `string` | Query, Optional | If a customer ID is provided, the endpoint returns only the gift cards linked to the specified customer. |
+| `mtype` | `str` | Query, Optional | If a [type](entity:GiftCardType) is provided, the endpoint returns gift cards of the specified type.<br>Otherwise, the endpoint returns gift cards of all types. |
+| `state` | `str` | Query, Optional | If a [state](entity:GiftCardStatus) is provided, the endpoint returns the gift cards in the specified state.<br>Otherwise, the endpoint returns the gift cards of all states. |
+| `limit` | `int` | Query, Optional | If a limit is provided, the endpoint returns only the specified number of results per page.<br>The maximum value is 200. The default value is 30.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>If a cursor is not provided, the endpoint returns the first page of the results.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `customer_id` | `str` | Query, Optional | If a customer ID is provided, the endpoint returns only the gift cards linked to the specified customer. |
 
 ## Response Type
 
-[`List Gift Cards Response`](../../doc/models/list-gift-cards-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Gift Cards Response`](../../doc/models/list-gift-cards-response.md).
 
 ## Example Usage
 
@@ -79,7 +79,7 @@ def create_gift_card(self,
 
 ## Response Type
 
-[`Create Gift Card Response`](../../doc/models/create-gift-card-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Gift Card Response`](../../doc/models/create-gift-card-response.md).
 
 ## Example Usage
 
@@ -119,7 +119,7 @@ def retrieve_gift_card_from_gan(self,
 
 ## Response Type
 
-[`Retrieve Gift Card From GAN Response`](../../doc/models/retrieve-gift-card-from-gan-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Gift Card From GAN Response`](../../doc/models/retrieve-gift-card-from-gan-response.md).
 
 ## Example Usage
 
@@ -155,7 +155,7 @@ def retrieve_gift_card_from_nonce(self,
 
 ## Response Type
 
-[`Retrieve Gift Card From Nonce Response`](../../doc/models/retrieve-gift-card-from-nonce-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Gift Card From Nonce Response`](../../doc/models/retrieve-gift-card-from-nonce-response.md).
 
 ## Example Usage
 
@@ -188,12 +188,12 @@ def link_customer_to_gift_card(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `gift_card_id` | `string` | Template, Required | The ID of the gift card to be linked. |
+| `gift_card_id` | `str` | Template, Required | The ID of the gift card to be linked. |
 | `body` | [`Link Customer to Gift Card Request`](../../doc/models/link-customer-to-gift-card-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Link Customer to Gift Card Response`](../../doc/models/link-customer-to-gift-card-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Link Customer to Gift Card Response`](../../doc/models/link-customer-to-gift-card-response.md).
 
 ## Example Usage
 
@@ -231,12 +231,12 @@ def unlink_customer_from_gift_card(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `gift_card_id` | `string` | Template, Required | The ID of the gift card to be unlinked. |
+| `gift_card_id` | `str` | Template, Required | The ID of the gift card to be unlinked. |
 | `body` | [`Unlink Customer From Gift Card Request`](../../doc/models/unlink-customer-from-gift-card-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Unlink Customer From Gift Card Response`](../../doc/models/unlink-customer-from-gift-card-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Unlink Customer From Gift Card Response`](../../doc/models/unlink-customer-from-gift-card-response.md).
 
 ## Example Usage
 
@@ -273,11 +273,11 @@ def retrieve_gift_card(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the gift card to retrieve. |
+| `id` | `str` | Template, Required | The ID of the gift card to retrieve. |
 
 ## Response Type
 
-[`Retrieve Gift Card Response`](../../doc/models/retrieve-gift-card-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Gift Card Response`](../../doc/models/retrieve-gift-card-response.md).
 
 ## Example Usage
 

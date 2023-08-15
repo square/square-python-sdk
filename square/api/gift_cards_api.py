@@ -31,28 +31,28 @@ class GiftCardsApi(BaseApi):
         ascending order.
 
         Args:
-            mtype (string, optional): If a [type](entity:GiftCardType) is
+            mtype (str, optional): If a [type](entity:GiftCardType) is
                 provided, the endpoint returns gift cards of the specified
                 type. Otherwise, the endpoint returns gift cards of all
                 types.
-            state (string, optional): If a [state](entity:GiftCardStatus) is
+            state (str, optional): If a [state](entity:GiftCardStatus) is
                 provided, the endpoint returns the gift cards in the specified
                 state. Otherwise, the endpoint returns the gift cards of all
                 states.
             limit (int, optional): If a limit is provided, the endpoint
                 returns only the specified number of results per page. The
-                maximum value is 50. The default value is 30. For more
+                maximum value is 200. The default value is 30. For more
                 information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for the original query. If a
-                cursor is not provided, the endpoint returns the first page of
-                the results.  For more information, see
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for the original query. If a cursor is not
+                provided, the endpoint returns the first page of the results. 
+                For more information, see
                 [Pagination](https://developer.squareup.com/docs/working-with-a
                 pis/pagination).
-            customer_id (string, optional): If a customer ID is provided, the
+            customer_id (str, optional): If a customer ID is provided, the
                 endpoint returns only the gift cards linked to the specified
                 customer.
 
@@ -245,7 +245,7 @@ class GiftCardsApi(BaseApi):
         card on file.
 
         Args:
-            gift_card_id (string): The ID of the gift card to be linked.
+            gift_card_id (str): The ID of the gift card to be linked.
             body (LinkCustomerToGiftCardRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.
@@ -296,7 +296,7 @@ class GiftCardsApi(BaseApi):
         removing a card on file.
 
         Args:
-            gift_card_id (string): The ID of the gift card to be unlinked.
+            gift_card_id (str): The ID of the gift card to be unlinked.
             body (UnlinkCustomerFromGiftCardRequest): An object containing the
                 fields to POST for the request.  See the corresponding object
                 definition for field details.
@@ -345,7 +345,7 @@ class GiftCardsApi(BaseApi):
         Retrieves a gift card using the gift card ID.
 
         Args:
-            id (string): The ID of the gift card to retrieve.
+            id (str): The ID of the gift card to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other

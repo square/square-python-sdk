@@ -233,7 +233,7 @@ class TeamApi(BaseApi):
         a-team-member).
 
         Args:
-            team_member_id (string): The ID of the team member to retrieve.
+            team_member_id (str): The ID of the team member to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -278,7 +278,7 @@ class TeamApi(BaseApi):
         team-member).
 
         Args:
-            team_member_id (string): The ID of the team member to update.
+            team_member_id (str): The ID of the team member to update.
             body (UpdateTeamMemberRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -331,7 +331,7 @@ class TeamApi(BaseApi):
         agesetting).
 
         Args:
-            team_member_id (string): The ID of the team member for which to
+            team_member_id (str): The ID of the team member for which to
                 retrieve the wage setting.
 
         Returns:
@@ -380,7 +380,7 @@ class TeamApi(BaseApi):
         -update-a-wage-setting).
 
         Args:
-            team_member_id (string): The ID of the team member for which to
+            team_member_id (str): The ID of the team member for which to
                 update the `WageSetting` object.
             body (UpdateWageSettingRequest): An object containing the fields
                 to POST for the request.  See the corresponding object

@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
-| `checkouts` | [`List of Terminal Checkout`](../../doc/models/terminal-checkout.md) | Optional | The requested search result of `TerminalCheckout` objects. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| `checkouts` | [`List Terminal Checkout`](../../doc/models/terminal-checkout.md) | Optional | The requested search result of `TerminalCheckout` objects. |
+| `cursor` | `str` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
 
 ## Example (as JSON)
 

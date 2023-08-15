@@ -27,7 +27,7 @@ def list_locations(self)
 
 ## Response Type
 
-[`List Locations Response`](../../doc/models/list-locations-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Locations Response`](../../doc/models/list-locations-response.md).
 
 ## Example Usage
 
@@ -65,7 +65,7 @@ def create_location(self,
 
 ## Response Type
 
-[`Create Location Response`](../../doc/models/create-location-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Location Response`](../../doc/models/create-location-response.md).
 
 ## Example Usage
 
@@ -107,11 +107,11 @@ def retrieve_location(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to retrieve. Specify the string<br>"main" to return the main location. |
+| `location_id` | `str` | Template, Required | The ID of the location to retrieve. Specify the string<br>"main" to return the main location. |
 
 ## Response Type
 
-[`Retrieve Location Response`](../../doc/models/retrieve-location-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Location Response`](../../doc/models/retrieve-location-response.md).
 
 ## Example Usage
 
@@ -142,12 +142,12 @@ def update_location(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Template, Required | The ID of the location to update. |
+| `location_id` | `str` | Template, Required | The ID of the location to update. |
 | `body` | [`Update Location Request`](../../doc/models/update-location-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Location Response`](../../doc/models/update-location-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Location Response`](../../doc/models/update-location-response.md).
 
 ## Example Usage
 

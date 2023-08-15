@@ -12,7 +12,7 @@ Represents a set of points for a loyalty account that are scheduled to expire on
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `points` | `int` | Required | The number of points scheduled to expire at the `expires_at` timestamp. |
-| `expires_at` | `string` | Required | The timestamp of when the points are scheduled to expire, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` |
+| `expires_at` | `str` | Required | The timestamp of when the points are scheduled to expire, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` |
 
 ## Example (as JSON)
 

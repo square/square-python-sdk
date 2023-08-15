@@ -12,9 +12,9 @@ Defines output parameters in a response of the
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Errors encountered during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors encountered during the request. |
 | `subscription` | [`Subscription`](../../doc/models/subscription.md) | Optional | Represents a subscription purchased by a customer.<br><br>For more information, see<br>[Manage Subscriptions](https://developer.squareup.com/docs/subscriptions-api/manage-subscriptions). |
-| `actions` | [`List of Subscription Action`](../../doc/models/subscription-action.md) | Optional | A list of a `SWAP_PLAN` action created by the request. |
+| `actions` | [`List Subscription Action`](../../doc/models/subscription-action.md) | Optional | A list of a `SWAP_PLAN` action created by the request. |
 
 ## Example (as JSON)
 

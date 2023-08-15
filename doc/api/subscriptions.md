@@ -46,7 +46,7 @@ def create_subscription(self,
 
 ## Response Type
 
-[`Create Subscription Response`](../../doc/models/create-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Subscription Response`](../../doc/models/create-subscription-response.md).
 
 ## Example Usage
 
@@ -110,7 +110,7 @@ def search_subscriptions(self,
 
 ## Response Type
 
-[`Search Subscriptions Response`](../../doc/models/search-subscriptions-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Subscriptions Response`](../../doc/models/search-subscriptions-response.md).
 
 ## Example Usage
 
@@ -155,12 +155,12 @@ def retrieve_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription to retrieve. |
-| `include` | `string` | Query, Optional | A query parameter to specify related information to be included in the response.<br><br>The supported query parameter values are:<br><br>- `actions`: to include scheduled actions on the targeted subscription. |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription to retrieve. |
+| `include` | `str` | Query, Optional | A query parameter to specify related information to be included in the response.<br><br>The supported query parameter values are:<br><br>- `actions`: to include scheduled actions on the targeted subscription. |
 
 ## Response Type
 
-[`Retrieve Subscription Response`](../../doc/models/retrieve-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Subscription Response`](../../doc/models/retrieve-subscription-response.md).
 
 ## Example Usage
 
@@ -192,12 +192,12 @@ def update_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription to update. |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription to update. |
 | `body` | [`Update Subscription Request`](../../doc/models/update-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Subscription Response`](../../doc/models/update-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Subscription Response`](../../doc/models/update-subscription-response.md).
 
 ## Example Usage
 
@@ -235,12 +235,12 @@ def delete_subscription_action(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription the targeted action is to act upon. |
-| `action_id` | `string` | Template, Required | The ID of the targeted action to be deleted. |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription the targeted action is to act upon. |
+| `action_id` | `str` | Template, Required | The ID of the targeted action to be deleted. |
 
 ## Response Type
 
-[`Delete Subscription Action Response`](../../doc/models/delete-subscription-action-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Subscription Action Response`](../../doc/models/delete-subscription-action-response.md).
 
 ## Example Usage
 
@@ -277,11 +277,11 @@ def cancel_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription to cancel. |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription to cancel. |
 
 ## Response Type
 
-[`Cancel Subscription Response`](../../doc/models/cancel-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Cancel Subscription Response`](../../doc/models/cancel-subscription-response.md).
 
 ## Example Usage
 
@@ -313,13 +313,13 @@ def list_subscription_events(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription to retrieve the events for. |
-| `cursor` | `string` | Query, Optional | When the total number of resulting subscription events exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription to retrieve the events for. |
+| `cursor` | `str` | Query, Optional | When the total number of resulting subscription events exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Query, Optional | The upper limit on the number of subscription events to return<br>in a paged response. |
 
 ## Response Type
 
-[`List Subscription Events Response`](../../doc/models/list-subscription-events-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Subscription Events Response`](../../doc/models/list-subscription-events-response.md).
 
 ## Example Usage
 
@@ -350,12 +350,12 @@ def pause_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription to pause. |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription to pause. |
 | `body` | [`Pause Subscription Request`](../../doc/models/pause-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Pause Subscription Response`](../../doc/models/pause-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Pause Subscription Response`](../../doc/models/pause-subscription-response.md).
 
 ## Example Usage
 
@@ -391,12 +391,12 @@ def resume_subscription(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription to resume. |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription to resume. |
 | `body` | [`Resume Subscription Request`](../../doc/models/resume-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Resume Subscription Response`](../../doc/models/resume-subscription-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Resume Subscription Response`](../../doc/models/resume-subscription-response.md).
 
 ## Example Usage
 
@@ -433,12 +433,12 @@ def swap_plan(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscription_id` | `string` | Template, Required | The ID of the subscription to swap the subscription plan for. |
+| `subscription_id` | `str` | Template, Required | The ID of the subscription to swap the subscription plan for. |
 | `body` | [`Swap Plan Request`](../../doc/models/swap-plan-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Swap Plan Response`](../../doc/models/swap-plan-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Swap Plan Response`](../../doc/models/swap-plan-response.md).
 
 ## Example Usage
 

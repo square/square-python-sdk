@@ -11,7 +11,7 @@ Defines the response returned by [CancelPayment](../../doc/api/payments.md#cance
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
 | `payment` | [`Payment`](../../doc/models/payment.md) | Optional | Represents a payment processed by the Square API. |
 
 ## Example (as JSON)

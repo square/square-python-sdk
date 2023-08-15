@@ -11,8 +11,8 @@ Represents a response from a bulk create request containing the created `TeamMem
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_members` | [`Dict`](../../doc/models/create-team-member-response.md) | Optional | The successfully created `TeamMember` objects. Each key is the `idempotency_key` that maps to the `CreateTeamMemberRequest`. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
+| `team_members` | [`Dict Str Create Team Member Response`](../../doc/models/create-team-member-response.md) | Optional | The successfully created `TeamMember` objects. Each key is the `idempotency_key` that maps to the `CreateTeamMemberRequest`. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | The errors that occurred during the request. |
 
 ## Example (as JSON)
 

@@ -11,9 +11,9 @@ The response to retrieve payout records entries.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payouts` | [`List of Payout`](../../doc/models/payout.md) | Optional | The requested list of payouts. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If empty, this is the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| `payouts` | [`List Payout`](../../doc/models/payout.md) | Optional | The requested list of payouts. |
+| `cursor` | `str` | Optional | The pagination cursor to be used in a subsequent request. If empty, this is the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
 
 ## Example (as JSON)
 

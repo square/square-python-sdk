@@ -11,9 +11,9 @@ A request for a filtered set of `BreakType` objects.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Optional | Filter the returned `BreakType` results to only those that are associated with the<br>specified location. |
+| `location_id` | `str` | Optional | Filter the returned `BreakType` results to only those that are associated with the<br>specified location. |
 | `limit` | `int` | Optional | The maximum number of `BreakType` results to return per page. The number can range between 1<br>and 200. The default is 200.<br>**Constraints**: `>= 1`, `<= 200` |
-| `cursor` | `string` | Optional | A pointer to the next page of `BreakType` results to fetch. |
+| `cursor` | `str` | Optional | A pointer to the next page of `BreakType` results to fetch. |
 
 ## Example (as JSON)
 

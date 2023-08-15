@@ -31,12 +31,12 @@ def list_customer_groups(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>If the limit is less than 1 or greater than 50, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH` error. The default value is 50.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Response Type
 
-[`List Customer Groups Response`](../../doc/models/list-customer-groups-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Customer Groups Response`](../../doc/models/list-customer-groups-response.md).
 
 ## Example Usage
 
@@ -70,7 +70,7 @@ def create_customer_group(self,
 
 ## Response Type
 
-[`Create Customer Group Response`](../../doc/models/create-customer-group-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Customer Group Response`](../../doc/models/create-customer-group-response.md).
 
 ## Example Usage
 
@@ -104,11 +104,11 @@ def delete_customer_group(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `group_id` | `string` | Template, Required | The ID of the customer group to delete. |
+| `group_id` | `str` | Template, Required | The ID of the customer group to delete. |
 
 ## Response Type
 
-[`Delete Customer Group Response`](../../doc/models/delete-customer-group-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Customer Group Response`](../../doc/models/delete-customer-group-response.md).
 
 ## Example Usage
 
@@ -138,11 +138,11 @@ def retrieve_customer_group(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `group_id` | `string` | Template, Required | The ID of the customer group to retrieve. |
+| `group_id` | `str` | Template, Required | The ID of the customer group to retrieve. |
 
 ## Response Type
 
-[`Retrieve Customer Group Response`](../../doc/models/retrieve-customer-group-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Customer Group Response`](../../doc/models/retrieve-customer-group-response.md).
 
 ## Example Usage
 
@@ -173,12 +173,12 @@ def update_customer_group(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `group_id` | `string` | Template, Required | The ID of the customer group to update. |
+| `group_id` | `str` | Template, Required | The ID of the customer group to update. |
 | `body` | [`Update Customer Group Request`](../../doc/models/update-customer-group-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Customer Group Response`](../../doc/models/update-customer-group-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Customer Group Response`](../../doc/models/update-customer-group-response.md).
 
 ## Example Usage
 

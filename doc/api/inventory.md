@@ -41,11 +41,11 @@ def deprecated_retrieve_inventory_adjustment(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustment_id` | `string` | Template, Required | ID of the [InventoryAdjustment](entity:InventoryAdjustment) to retrieve. |
+| `adjustment_id` | `str` | Template, Required | ID of the [InventoryAdjustment](entity:InventoryAdjustment) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Inventory Adjustment Response`](../../doc/models/retrieve-inventory-adjustment-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Inventory Adjustment Response`](../../doc/models/retrieve-inventory-adjustment-response.md).
 
 ## Example Usage
 
@@ -76,11 +76,11 @@ def retrieve_inventory_adjustment(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustment_id` | `string` | Template, Required | ID of the [InventoryAdjustment](entity:InventoryAdjustment) to retrieve. |
+| `adjustment_id` | `str` | Template, Required | ID of the [InventoryAdjustment](entity:InventoryAdjustment) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Inventory Adjustment Response`](../../doc/models/retrieve-inventory-adjustment-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Inventory Adjustment Response`](../../doc/models/retrieve-inventory-adjustment-response.md).
 
 ## Example Usage
 
@@ -117,7 +117,7 @@ def deprecated_batch_change_inventory(self,
 
 ## Response Type
 
-[`Batch Change Inventory Response`](../../doc/models/batch-change-inventory-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Change Inventory Response`](../../doc/models/batch-change-inventory-response.md).
 
 ## Example Usage
 
@@ -171,7 +171,7 @@ def deprecated_batch_retrieve_inventory_changes(self,
 
 ## Response Type
 
-[`Batch Retrieve Inventory Changes Response`](../../doc/models/batch-retrieve-inventory-changes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Retrieve Inventory Changes Response`](../../doc/models/batch-retrieve-inventory-changes-response.md).
 
 ## Example Usage
 
@@ -223,7 +223,7 @@ def deprecated_batch_retrieve_inventory_counts(self,
 
 ## Response Type
 
-[`Batch Retrieve Inventory Counts Response`](../../doc/models/batch-retrieve-inventory-counts-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Retrieve Inventory Counts Response`](../../doc/models/batch-retrieve-inventory-counts-response.md).
 
 ## Example Usage
 
@@ -269,7 +269,7 @@ def batch_change_inventory(self,
 
 ## Response Type
 
-[`Batch Change Inventory Response`](../../doc/models/batch-change-inventory-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Change Inventory Response`](../../doc/models/batch-change-inventory-response.md).
 
 ## Example Usage
 
@@ -327,7 +327,7 @@ def batch_retrieve_inventory_changes(self,
 
 ## Response Type
 
-[`Batch Retrieve Inventory Changes Response`](../../doc/models/batch-retrieve-inventory-changes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Retrieve Inventory Changes Response`](../../doc/models/batch-retrieve-inventory-changes-response.md).
 
 ## Example Usage
 
@@ -386,7 +386,7 @@ def batch_retrieve_inventory_counts(self,
 
 ## Response Type
 
-[`Batch Retrieve Inventory Counts Response`](../../doc/models/batch-retrieve-inventory-counts-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Retrieve Inventory Counts Response`](../../doc/models/batch-retrieve-inventory-counts-response.md).
 
 ## Example Usage
 
@@ -427,11 +427,11 @@ def deprecated_retrieve_inventory_physical_count(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physical_count_id` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve. |
+| `physical_count_id` | `str` | Template, Required | ID of the<br>[InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Inventory Physical Count Response`](../../doc/models/retrieve-inventory-physical-count-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Inventory Physical Count Response`](../../doc/models/retrieve-inventory-physical-count-response.md).
 
 ## Example Usage
 
@@ -462,11 +462,11 @@ def retrieve_inventory_physical_count(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physical_count_id` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve. |
+| `physical_count_id` | `str` | Template, Required | ID of the<br>[InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Inventory Physical Count Response`](../../doc/models/retrieve-inventory-physical-count-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Inventory Physical Count Response`](../../doc/models/retrieve-inventory-physical-count-response.md).
 
 ## Example Usage
 
@@ -497,11 +497,11 @@ def retrieve_inventory_transfer(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transfer_id` | `string` | Template, Required | ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve. |
+| `transfer_id` | `str` | Template, Required | ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve. |
 
 ## Response Type
 
-[`Retrieve Inventory Transfer Response`](../../doc/models/retrieve-inventory-transfer-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Inventory Transfer Response`](../../doc/models/retrieve-inventory-transfer-response.md).
 
 ## Example Usage
 
@@ -536,13 +536,13 @@ def retrieve_inventory_count(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalog_object_id` | `string` | Template, Required | ID of the [CatalogObject](entity:CatalogObject) to retrieve. |
-| `location_ids` | `string` | Query, Optional | The [Location](entity:Location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
+| `catalog_object_id` | `str` | Template, Required | ID of the [CatalogObject](entity:CatalogObject) to retrieve. |
+| `location_ids` | `str` | Query, Optional | The [Location](entity:Location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type
 
-[`Retrieve Inventory Count Response`](../../doc/models/retrieve-inventory-count-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Inventory Count Response`](../../doc/models/retrieve-inventory-count-response.md).
 
 ## Example Usage
 
@@ -588,13 +588,13 @@ def retrieve_inventory_changes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalog_object_id` | `string` | Template, Required | ID of the [CatalogObject](entity:CatalogObject) to retrieve. |
-| `location_ids` | `string` | Query, Optional | The [Location](entity:Location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
+| `catalog_object_id` | `str` | Template, Required | ID of the [CatalogObject](entity:CatalogObject) to retrieve. |
+| `location_ids` | `str` | Query, Optional | The [Location](entity:Location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type
 
-[`Retrieve Inventory Changes Response`](../../doc/models/retrieve-inventory-changes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Inventory Changes Response`](../../doc/models/retrieve-inventory-changes-response.md).
 
 ## Example Usage
 

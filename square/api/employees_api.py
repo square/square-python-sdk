@@ -30,12 +30,12 @@ class EmployeesApi(BaseApi):
         ListEmployees
 
         Args:
-            location_id (string, optional): TODO: type description here.
+            location_id (str, optional): TODO: type description here.
             status (EmployeeStatus, optional): Specifies the EmployeeStatus to
                 filter the employee by.
             limit (int, optional): The number of employees to be returned on
                 each page.
-            cursor (string, optional): The token required to retrieve the
+            cursor (str, optional): The token required to retrieve the
                 specified page of results.
 
         Returns:
@@ -85,7 +85,7 @@ class EmployeesApi(BaseApi):
         RetrieveEmployee
 
         Args:
-            id (string): UUID for the employee that was requested.
+            id (str): UUID for the employee that was requested.
 
         Returns:
             ApiResponse: An object with the response value as well as other

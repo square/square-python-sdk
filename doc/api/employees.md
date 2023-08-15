@@ -32,14 +32,14 @@ def list_employees(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Query, Optional | - |
+| `location_id` | `str` | Query, Optional | - |
 | `status` | [`str (Employee Status)`](../../doc/models/employee-status.md) | Query, Optional | Specifies the EmployeeStatus to filter the employee by. |
 | `limit` | `int` | Query, Optional | The number of employees to be returned on each page. |
-| `cursor` | `string` | Query, Optional | The token required to retrieve the specified page of results. |
+| `cursor` | `str` | Query, Optional | The token required to retrieve the specified page of results. |
 
 ## Response Type
 
-[`List Employees Response`](../../doc/models/list-employees-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Employees Response`](../../doc/models/list-employees-response.md).
 
 ## Example Usage
 
@@ -69,11 +69,11 @@ def retrieve_employee(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | UUID for the employee that was requested. |
+| `id` | `str` | Template, Required | UUID for the employee that was requested. |
 
 ## Response Type
 
-[`Retrieve Employee Response`](../../doc/models/retrieve-employee-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Employee Response`](../../doc/models/retrieve-employee-response.md).
 
 ## Example Usage
 

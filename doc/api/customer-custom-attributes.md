@@ -42,11 +42,11 @@ def list_customer_custom_attribute_definitions(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Response Type
 
-[`List Customer Custom Attribute Definitions Response`](../../doc/models/list-customer-custom-attribute-definitions-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Customer Custom Attribute Definitions Response`](../../doc/models/list-customer-custom-attribute-definitions-response.md).
 
 ## Example Usage
 
@@ -88,7 +88,7 @@ def create_customer_custom_attribute_definition(self,
 
 ## Response Type
 
-[`Create Customer Custom Attribute Definition Response`](../../doc/models/create-customer-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Customer Custom Attribute Definition Response`](../../doc/models/create-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -130,11 +130,11 @@ def delete_customer_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to delete. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to delete. |
 
 ## Response Type
 
-[`Delete Customer Custom Attribute Definition Response`](../../doc/models/delete-customer-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Customer Custom Attribute Definition Response`](../../doc/models/delete-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -169,12 +169,12 @@ def retrieve_customer_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to retrieve. If the requesting application<br>is not the definition owner, you must use the qualified key. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to retrieve. If the requesting application<br>is not the definition owner, you must use the qualified key. |
 | `version` | `int` | Query, Optional | The current version of the custom attribute definition, which is used for strongly consistent<br>reads to guarantee that you receive the most up-to-date data. When included in the request,<br>Square returns the specified version or a higher version if one exists. If the specified version<br>is higher than the current version, Square returns a `BAD_REQUEST` error. |
 
 ## Response Type
 
-[`Retrieve Customer Custom Attribute Definition Response`](../../doc/models/retrieve-customer-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Customer Custom Attribute Definition Response`](../../doc/models/retrieve-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -211,12 +211,12 @@ def update_customer_custom_attribute_definition(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `key` | `string` | Template, Required | The key of the custom attribute definition to update. |
+| `key` | `str` | Template, Required | The key of the custom attribute definition to update. |
 | `body` | [`Update Customer Custom Attribute Definition Request`](../../doc/models/update-customer-custom-attribute-definition-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Update Customer Custom Attribute Definition Response`](../../doc/models/update-customer-custom-attribute-definition-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Customer Custom Attribute Definition Response`](../../doc/models/update-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -273,18 +273,18 @@ def bulk_upsert_customer_custom_attributes(self,
 
 ## Response Type
 
-[`Bulk Upsert Customer Custom Attributes Response`](../../doc/models/bulk-upsert-customer-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Upsert Customer Custom Attributes Response`](../../doc/models/bulk-upsert-customer-custom-attributes-response.md).
 
 ## Example Usage
 
 ```python
 body = {
     'values': {
-        "key0": {
+        'key0': {
             'customer_id': 'customer_id2',
             'custom_attribute': {}
         },
-        "key1": {
+        'key1': {
             'customer_id': 'customer_id3',
             'custom_attribute': {}
         }
@@ -324,14 +324,14 @@ def list_customer_custom_attributes(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
+| `customer_id` | `str` | Template, Required | The ID of the target [customer profile](entity:Customer). |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `cursor` | `string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request. For more<br>information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request. For more<br>information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `with_definitions` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 
 ## Response Type
 
-[`List Customer Custom Attributes Response`](../../doc/models/list-customer-custom-attributes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Customer Custom Attributes Response`](../../doc/models/list-customer-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -371,12 +371,12 @@ def delete_customer_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
-| `key` | `string` | Template, Required | The key of the custom attribute to delete. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
+| `customer_id` | `str` | Template, Required | The ID of the target [customer profile](entity:Customer). |
+| `key` | `str` | Template, Required | The key of the custom attribute to delete. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
 
 ## Response Type
 
-[`Delete Customer Custom Attribute Response`](../../doc/models/delete-customer-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Customer Custom Attribute Response`](../../doc/models/delete-customer-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -421,14 +421,14 @@ def retrieve_customer_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
-| `key` | `string` | Template, Required | The key of the custom attribute to retrieve. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
+| `customer_id` | `str` | Template, Required | The ID of the target [customer profile](entity:Customer). |
+| `key` | `str` | Template, Required | The key of the custom attribute to retrieve. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
 | `with_definition` | `bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of<br>the custom attribute. Set this parameter to `true` to get the name and description of the custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `False` |
 | `version` | `int` | Query, Optional | The current version of the custom attribute, which is used for strongly consistent reads to<br>guarantee that you receive the most up-to-date data. When included in the request, Square<br>returns the specified version or a higher version if one exists. If the specified version is<br>higher than the current version, Square returns a `BAD_REQUEST` error. |
 
 ## Response Type
 
-[`Retrieve Customer Custom Attribute Response`](../../doc/models/retrieve-customer-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Customer Custom Attribute Response`](../../doc/models/retrieve-customer-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -476,13 +476,13 @@ def upsert_customer_custom_attribute(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
-| `key` | `string` | Template, Required | The key of the custom attribute to create or update. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key. |
+| `customer_id` | `str` | Template, Required | The ID of the target [customer profile](entity:Customer). |
+| `key` | `str` | Template, Required | The key of the custom attribute to create or update. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key. |
 | `body` | [`Upsert Customer Custom Attribute Request`](../../doc/models/upsert-customer-custom-attribute-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`Upsert Customer Custom Attribute Response`](../../doc/models/upsert-customer-custom-attribute-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Upsert Customer Custom Attribute Response`](../../doc/models/upsert-customer-custom-attribute-response.md).
 
 ## Example Usage
 

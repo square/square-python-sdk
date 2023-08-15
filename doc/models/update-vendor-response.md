@@ -11,7 +11,7 @@ Represents an output from a call to [UpdateVendor](../../doc/api/vendors.md#upda
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Errors occurred when the request fails. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors occurred when the request fails. |
 | `vendor` | [`Vendor`](../../doc/models/vendor.md) | Optional | Represents a supplier to a seller. |
 
 ## Example (as JSON)

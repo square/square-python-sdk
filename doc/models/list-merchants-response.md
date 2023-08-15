@@ -11,8 +11,8 @@ The response object returned by the [ListMerchant](../../doc/api/merchants.md#li
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `merchant` | [`List of Merchant`](../../doc/models/merchant.md) | Optional | The requested `Merchant` entities. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `merchant` | [`List Merchant`](../../doc/models/merchant.md) | Optional | The requested `Merchant` entities. |
 | `cursor` | `int` | Optional | If the  response is truncated, the cursor to use in next  request to fetch next set of objects. |
 
 ## Example (as JSON)

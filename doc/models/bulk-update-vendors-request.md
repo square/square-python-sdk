@@ -11,7 +11,7 @@ Represents an input to a call to [BulkUpdateVendors](../../doc/api/vendors.md#bu
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `vendors` | [`Dict`](../../doc/models/update-vendor-request.md) | Required | A set of [UpdateVendorRequest](entity:UpdateVendorRequest) objects encapsulating to-be-updated [Vendor](entity:Vendor)<br>objects. The set is represented by  a collection of `Vendor`-ID/`UpdateVendorRequest`-object pairs. |
+| `vendors` | [`Dict Str Update Vendor Request`](../../doc/models/update-vendor-request.md) | Required | A set of [UpdateVendorRequest](entity:UpdateVendorRequest) objects encapsulating to-be-updated [Vendor](entity:Vendor)<br>objects. The set is represented by  a collection of `Vendor`-ID/`UpdateVendorRequest`-object pairs. |
 
 ## Example (as JSON)
 

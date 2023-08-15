@@ -11,11 +11,11 @@ Represents an action as a pending change to a subscription.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Optional | The ID of an action scoped to a subscription. |
+| `id` | `str` | Optional | The ID of an action scoped to a subscription. |
 | `type` | [`str (Subscription Action Type)`](../../doc/models/subscription-action-type.md) | Optional | Supported types of an action as a pending change to a subscription. |
-| `effective_date` | `string` | Optional | The `YYYY-MM-DD`-formatted date when the action occurs on the subscription. |
-| `phases` | [`List of Phase`](../../doc/models/phase.md) | Optional | A list of Phases, to pass phase-specific information used in the swap. |
-| `new_plan_variation_id` | `string` | Optional | The target subscription plan variation that a subscription switches to, for a `SWAP_PLAN` action. |
+| `effective_date` | `str` | Optional | The `YYYY-MM-DD`-formatted date when the action occurs on the subscription. |
+| `phases` | [`List Phase`](../../doc/models/phase.md) | Optional | A list of Phases, to pass phase-specific information used in the swap. |
+| `new_plan_variation_id` | `str` | Optional | The target subscription plan variation that a subscription switches to, for a `SWAP_PLAN` action. |
 
 ## Example (as JSON)
 

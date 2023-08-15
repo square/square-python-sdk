@@ -12,8 +12,8 @@ request.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `location_id` | `string` | Optional | The ID of the location associated with the custom attribute. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Errors that occurred while processing the individual LocationCustomAttributeDeleteRequest request |
+| `location_id` | `str` | Optional | The ID of the location associated with the custom attribute. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors that occurred while processing the individual LocationCustomAttributeDeleteRequest request |
 
 ## Example (as JSON)
 

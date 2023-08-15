@@ -15,9 +15,9 @@ present.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `subscriptions` | [`List of Webhook Subscription`](../../doc/models/webhook-subscription.md) | Optional | The requested list of [Subscription](entity:WebhookSubscription)s. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. |
+| `subscriptions` | [`List Webhook Subscription`](../../doc/models/webhook-subscription.md) | Optional | The requested list of [Subscription](entity:WebhookSubscription)s. |
+| `cursor` | `str` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Example (as JSON)
 

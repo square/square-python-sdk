@@ -12,9 +12,9 @@ a set of `EmployeeWage` objects.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `employee_wages` | [`List of Employee Wage`](../../doc/models/employee-wage.md) | Optional | A page of `EmployeeWage` results. |
-| `cursor` | `string` | Optional | The value supplied in the subsequent request to fetch the next page<br>of `EmployeeWage` results. |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `employee_wages` | [`List Employee Wage`](../../doc/models/employee-wage.md) | Optional | A page of `EmployeeWage` results. |
+| `cursor` | `str` | Optional | The value supplied in the subsequent request to fetch the next page<br>of `EmployeeWage` results. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
 
 ## Example (as JSON)
 

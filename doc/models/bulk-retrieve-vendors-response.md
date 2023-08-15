@@ -11,8 +11,8 @@ Represents an output from a call to [BulkRetrieveVendors](../../doc/api/vendors.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `responses` | [`Dict`](../../doc/models/retrieve-vendor-response.md) | Optional | The set of [RetrieveVendorResponse](entity:RetrieveVendorResponse) objects encapsulating successfully retrieved [Vendor](entity:Vendor)<br>objects or error responses for failed attempts. The set is represented by<br>a collection of `Vendor`-ID/`Vendor`-object or `Vendor`-ID/error-object pairs. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `responses` | [`Dict Str Retrieve Vendor Response`](../../doc/models/retrieve-vendor-response.md) | Optional | The set of [RetrieveVendorResponse](entity:RetrieveVendorResponse) objects encapsulating successfully retrieved [Vendor](entity:Vendor)<br>objects or error responses for failed attempts. The set is represented by<br>a collection of `Vendor`-ID/`Vendor`-object or `Vendor`-ID/error-object pairs. |
 
 ## Example (as JSON)
 

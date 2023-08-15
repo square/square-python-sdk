@@ -11,7 +11,7 @@ A request to link a customer to a gift card.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Required | The ID of the customer to link to the gift card.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `191` |
+| `customer_id` | `str` | Required | The ID of the customer to link to the gift card.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `191` |
 
 ## Example (as JSON)
 

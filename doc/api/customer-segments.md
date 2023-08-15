@@ -28,12 +28,12 @@ def list_customer_segments(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | A pagination cursor returned by previous calls to `ListCustomerSegments`.<br>This cursor is used to retrieve the next set of query results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by previous calls to `ListCustomerSegments`.<br>This cursor is used to retrieve the next set of query results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>If the specified limit is less than 1 or greater than 50, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH` error. The default value is 50.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Response Type
 
-[`List Customer Segments Response`](../../doc/models/list-customer-segments-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Customer Segments Response`](../../doc/models/list-customer-segments-response.md).
 
 ## Example Usage
 
@@ -61,11 +61,11 @@ def retrieve_customer_segment(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `segment_id` | `string` | Template, Required | The Square-issued ID of the customer segment. |
+| `segment_id` | `str` | Template, Required | The Square-issued ID of the customer segment. |
 
 ## Response Type
 
-[`Retrieve Customer Segment Response`](../../doc/models/retrieve-customer-segment-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Customer Segment Response`](../../doc/models/retrieve-customer-segment-response.md).
 
 ## Example Usage
 

@@ -11,9 +11,9 @@ A response that includes the loyalty rewards satisfying the search criteria.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `rewards` | [`List of Loyalty Reward`](../../doc/models/loyalty-reward.md) | Optional | The loyalty rewards that satisfy the search criteria.<br>These are returned in descending order by `updated_at`. |
-| `cursor` | `string` | Optional | The pagination cursor to be used in a subsequent<br>request. If empty, this is the final response. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `rewards` | [`List Loyalty Reward`](../../doc/models/loyalty-reward.md) | Optional | The loyalty rewards that satisfy the search criteria.<br>These are returned in descending order by `updated_at`. |
+| `cursor` | `str` | Optional | The pagination cursor to be used in a subsequent<br>request. If empty, this is the final response. |
 
 ## Example (as JSON)
 

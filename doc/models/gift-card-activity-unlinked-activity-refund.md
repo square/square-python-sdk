@@ -12,8 +12,8 @@ Represents details about an `UNLINKED_ACTIVITY_REFUND` [gift card activity type]
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `amount_money` | [`Money`](../../doc/models/money.md) | Required | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
-| `reference_id` | `string` | Optional | A client-specified ID that associates the gift card activity with an entity in another system. |
-| `payment_id` | `string` | Optional | The ID of the refunded payment. This field is not used starting in Square version 2022-06-16. |
+| `reference_id` | `str` | Optional | A client-specified ID that associates the gift card activity with an entity in another system. |
+| `payment_id` | `str` | Optional | The ID of the refunded payment. This field is not used starting in Square version 2022-06-16. |
 
 ## Example (as JSON)
 

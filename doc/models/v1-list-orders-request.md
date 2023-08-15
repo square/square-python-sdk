@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. |
 | `limit` | `int` | Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
-| `batch_token` | `string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
+| `batch_token` | `str` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ## Example (as JSON)
 

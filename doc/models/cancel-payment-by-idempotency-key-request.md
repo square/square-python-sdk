@@ -12,7 +12,7 @@ Describes a request to cancel a payment using
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `idempotency_key` | `string` | Required | The `idempotency_key` identifying the payment to be canceled.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `45` |
+| `idempotency_key` | `str` | Required | The `idempotency_key` identifying the payment to be canceled.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `45` |
 
 ## Example (as JSON)
 

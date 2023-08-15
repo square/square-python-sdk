@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `input_text` | `string` | Optional | The buyer's input text. |
+| `input_text` | `str` | Optional | The buyer's input text. |
 
 ## Example (as JSON)
 

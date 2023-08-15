@@ -11,9 +11,9 @@ Describes a `ListInvoice` response.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoices` | [`List of Invoice`](../../doc/models/invoice.md) | Optional | The invoices retrieved. |
-| `cursor` | `string` | Optional | When a response is truncated, it includes a cursor that you can use in a<br>subsequent request to retrieve the next set of invoices. If empty, this is the final<br>response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| `invoices` | [`List Invoice`](../../doc/models/invoice.md) | Optional | The invoices retrieved. |
+| `cursor` | `str` | Optional | When a response is truncated, it includes a cursor that you can use in a<br>subsequent request to retrieve the next set of invoices. If empty, this is the final<br>response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. |
 
 ## Example (as JSON)
 

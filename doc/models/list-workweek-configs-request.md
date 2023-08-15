@@ -12,7 +12,7 @@ A request for a set of `WorkweekConfig` objects.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `limit` | `int` | Optional | The maximum number of `WorkweekConfigs` results to return per page. |
-| `cursor` | `string` | Optional | A pointer to the next page of `WorkweekConfig` results to fetch. |
+| `cursor` | `str` | Optional | A pointer to the next page of `WorkweekConfig` results to fetch. |
 
 ## Example (as JSON)
 

@@ -16,11 +16,11 @@ the modifier list are allowed.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Optional | The name for the `CatalogModifierList` instance. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points.<br>**Constraints**: *Maximum Length*: `255` |
+| `name` | `str` | Optional | The name for the `CatalogModifierList` instance. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points.<br>**Constraints**: *Maximum Length*: `255` |
 | `ordinal` | `int` | Optional | Determines where this modifier list appears in a list of `CatalogModifierList` values. |
 | `selection_type` | [`str (Catalog Modifier List Selection Type)`](../../doc/models/catalog-modifier-list-selection-type.md) | Optional | Indicates whether a CatalogModifierList supports multiple selections. |
-| `modifiers` | [`List of Catalog Object`](../../doc/models/catalog-object.md) | Optional | The options included in the `CatalogModifierList`.<br>You must include at least one `CatalogModifier`.<br>Each CatalogObject must have type `MODIFIER` and contain<br>`CatalogModifier` data. |
-| `image_ids` | `List of string` | Optional | The IDs of images associated with this `CatalogModifierList` instance.<br>Currently these images are not displayed by Square, but are free to be displayed in 3rd party applications. |
+| `modifiers` | [`List Catalog Object`](../../doc/models/catalog-object.md) | Optional | The options included in the `CatalogModifierList`.<br>You must include at least one `CatalogModifier`.<br>Each CatalogObject must have type `MODIFIER` and contain<br>`CatalogModifier` data. |
+| `image_ids` | `List[str]` | Optional | The IDs of images associated with this `CatalogModifierList` instance.<br>Currently these images are not displayed by Square, but are free to be displayed in 3rd party applications. |
 
 ## Example (as JSON)
 

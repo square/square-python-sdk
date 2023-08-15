@@ -13,9 +13,9 @@ and an optional idempotency key.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_id` | `string` | Required | The ID of the target [customer profile](entity:Customer).<br>**Constraints**: *Minimum Length*: `1` |
+| `customer_id` | `str` | Required | The ID of the target [customer profile](entity:Customer).<br>**Constraints**: *Minimum Length*: `1` |
 | `custom_attribute` | [`Custom Attribute`](../../doc/models/custom-attribute.md) | Required | A custom attribute value. Each custom attribute value has a corresponding<br>`CustomAttributeDefinition` object. |
-| `idempotency_key` | `string` | Optional | A unique identifier for this individual upsert request, used to ensure idempotency.<br>For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br>**Constraints**: *Maximum Length*: `45` |
+| `idempotency_key` | `str` | Optional | A unique identifier for this individual upsert request, used to ensure idempotency.<br>For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).<br>**Constraints**: *Maximum Length*: `45` |
 
 ## Example (as JSON)
 

@@ -28,7 +28,7 @@ class BankAccountsApi(BaseApi):
         Square account.
 
         Args:
-            cursor (string, optional): The pagination cursor returned by a
+            cursor (str, optional): The pagination cursor returned by a
                 previous call to this endpoint. Use it in the next
                 `ListBankAccounts` request to retrieve the next set  of
                 results.  See the
@@ -38,7 +38,7 @@ class BankAccountsApi(BaseApi):
                 to return in the response.  Currently, 1000 is the largest
                 supported limit. You can specify a limit  of up to 1000 bank
                 accounts. This is also the default limit.
-            location_id (string, optional): Location ID. You can specify this
+            location_id (str, optional): Location ID. You can specify this
                 optional filter  to retrieve only the linked bank accounts
                 belonging to a specific location.
 
@@ -86,7 +86,7 @@ class BankAccountsApi(BaseApi):
         bank account ID.
 
         Args:
-            v1_bank_account_id (string): Connect V1 ID of the desired
+            v1_bank_account_id (str): Connect V1 ID of the desired
                 `BankAccount`. For more information, see  [Retrieve a bank
                 account by using an ID issued by V1 Bank Accounts
                 API](https://developer.squareup.com/docs/bank-accounts-api#retr
@@ -132,7 +132,7 @@ class BankAccountsApi(BaseApi):
         linked to a Square account.
 
         Args:
-            bank_account_id (string): Square-issued ID of the desired
+            bank_account_id (str): Square-issued ID of the desired
                 `BankAccount`.
 
         Returns:

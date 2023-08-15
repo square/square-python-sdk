@@ -11,8 +11,8 @@ Represents an output from a call to [BulkUpdateVendors](../../doc/api/vendors.md
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Errors encountered when the request fails. |
-| `responses` | [`Dict`](../../doc/models/update-vendor-response.md) | Optional | A set of [UpdateVendorResponse](entity:UpdateVendorResponse) objects encapsulating successfully created [Vendor](entity:Vendor)<br>objects or error responses for failed attempts. The set is represented by a collection of `Vendor`-ID/`UpdateVendorResponse`-object or<br>`Vendor`-ID/error-object pairs. |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors encountered when the request fails. |
+| `responses` | [`Dict Str Update Vendor Response`](../../doc/models/update-vendor-response.md) | Optional | A set of [UpdateVendorResponse](entity:UpdateVendorResponse) objects encapsulating successfully created [Vendor](entity:Vendor)<br>objects or error responses for failed attempts. The set is represented by a collection of `Vendor`-ID/`UpdateVendorResponse`-object or<br>`Vendor`-ID/error-object pairs. |
 
 ## Example (as JSON)
 

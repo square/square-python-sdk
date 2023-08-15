@@ -12,9 +12,9 @@ For more information, see [Subscription Plans and Variations](https://developer.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `string` | Required | The name of the plan variation. |
-| `phases` | [`List of Subscription Phase`](../../doc/models/subscription-phase.md) | Required | A list containing each [SubscriptionPhase](entity:SubscriptionPhase) for this plan variation. |
-| `subscription_plan_id` | `string` | Optional | The id of the subscription plan, if there is one. |
+| `name` | `str` | Required | The name of the plan variation. |
+| `phases` | [`List Subscription Phase`](../../doc/models/subscription-phase.md) | Required | A list containing each [SubscriptionPhase](entity:SubscriptionPhase) for this plan variation. |
+| `subscription_plan_id` | `str` | Optional | The id of the subscription plan, if there is one. |
 
 ## Example (as JSON)
 

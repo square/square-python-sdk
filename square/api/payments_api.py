@@ -37,31 +37,30 @@ class PaymentsApi(BaseApi):
         The maximum results per page is 100.
 
         Args:
-            begin_time (string, optional): Indicates the start of the time
-                range to retrieve payments for, in RFC 3339 format.   The
-                range is determined using the `created_at` field for each
-                Payment. Inclusive. Default: The current time minus one year.
-            end_time (string, optional): Indicates the end of the time range
-                to retrieve payments for, in RFC 3339 format.  The  range is
+            begin_time (str, optional): Indicates the start of the time range
+                to retrieve payments for, in RFC 3339 format.   The range is
+                determined using the `created_at` field for each Payment.
+                Inclusive. Default: The current time minus one year.
+            end_time (str, optional): Indicates the end of the time range to
+                retrieve payments for, in RFC 3339 format.  The  range is
                 determined using the `created_at` field for each Payment. 
                 Default: The current time.
-            sort_order (string, optional): The order in which results are
-                listed by `Payment.created_at`: - `ASC` - Oldest to newest. -
-                `DESC` - Newest to oldest (default).
-            cursor (string, optional): A pagination cursor returned by a
-                previous call to this endpoint. Provide this cursor to
-                retrieve the next set of results for the original query.  For
-                more information, see
+            sort_order (str, optional): The order in which results are listed
+                by `Payment.created_at`: - `ASC` - Oldest to newest. - `DESC`
+                - Newest to oldest (default).
+            cursor (str, optional): A pagination cursor returned by a previous
+                call to this endpoint. Provide this cursor to retrieve the
+                next set of results for the original query.  For more
+                information, see
                 [Pagination](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/pagination).
-            location_id (string, optional): Limit results to the location
+            location_id (str, optional): Limit results to the location
                 supplied. By default, results are returned for the default
                 (main) location associated with the seller.
             total (long|int, optional): The exact amount in the `total_money`
                 for a payment.
-            last_4 (string, optional): The last four digits of a payment
-                card.
-            card_brand (string, optional): The brand of the payment card (for
+            last_4 (str, optional): The last four digits of a payment card.
+            card_brand (str, optional): The brand of the payment card (for
                 example, VISA).
             limit (int, optional): The maximum number of results to be
                 returned in a single page. It is possible to receive fewer
@@ -241,7 +240,7 @@ class PaymentsApi(BaseApi):
         Retrieves details for a specific payment.
 
         Args:
-            payment_id (string): A unique ID for the desired payment.
+            payment_id (str): A unique ID for the desired payment.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -284,7 +283,7 @@ class PaymentsApi(BaseApi):
         endpoint.
 
         Args:
-            payment_id (string): The ID of the payment to update.
+            payment_id (str): The ID of the payment to update.
             body (UpdatePaymentRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition
                 for field details.
@@ -335,7 +334,7 @@ class PaymentsApi(BaseApi):
         the APPROVED `status`.
 
         Args:
-            payment_id (string): The ID of the payment to cancel.
+            payment_id (str): The ID of the payment to cancel.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -380,7 +379,7 @@ class PaymentsApi(BaseApi):
         `status`.
 
         Args:
-            payment_id (string): The unique ID identifying the payment to be
+            payment_id (str): The unique ID identifying the payment to be
                 completed.
             body (CompletePaymentRequest): An object containing the fields to
                 POST for the request.  See the corresponding object definition

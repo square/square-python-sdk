@@ -11,9 +11,9 @@ A request for a set of `TeamMemberWage` objects.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `team_member_id` | `string` | Optional | Filter the returned wages to only those that are associated with the<br>specified team member. |
+| `team_member_id` | `str` | Optional | Filter the returned wages to only those that are associated with the<br>specified team member. |
 | `limit` | `int` | Optional | The maximum number of `TeamMemberWage` results to return per page. The number can range between<br>1 and 200. The default is 200.<br>**Constraints**: `>= 1`, `<= 200` |
-| `cursor` | `string` | Optional | A pointer to the next page of `EmployeeWage` results to fetch. |
+| `cursor` | `str` | Optional | A pointer to the next page of `EmployeeWage` results to fetch. |
 
 ## Example (as JSON)
 

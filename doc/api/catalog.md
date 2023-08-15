@@ -56,7 +56,7 @@ def batch_delete_catalog_objects(self,
 
 ## Response Type
 
-[`Batch Delete Catalog Objects Response`](../../doc/models/batch-delete-catalog-objects-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Delete Catalog Objects Response`](../../doc/models/batch-delete-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -100,7 +100,7 @@ def batch_retrieve_catalog_objects(self,
 
 ## Response Type
 
-[`Batch Retrieve Catalog Objects Response`](../../doc/models/batch-retrieve-catalog-objects-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Retrieve Catalog Objects Response`](../../doc/models/batch-retrieve-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -152,7 +152,7 @@ def batch_upsert_catalog_objects(self,
 
 ## Response Type
 
-[`Batch Upsert Catalog Objects Response`](../../doc/models/batch-upsert-catalog-objects-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Batch Upsert Catalog Objects Response`](../../doc/models/batch-upsert-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -294,7 +294,7 @@ def create_catalog_image(self,
 
 ## Response Type
 
-[`Create Catalog Image Response`](../../doc/models/create-catalog-image-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Create Catalog Image Response`](../../doc/models/create-catalog-image-response.md).
 
 ## Example Usage
 
@@ -341,13 +341,13 @@ def update_catalog_image(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `image_id` | `string` | Template, Required | The ID of the `CatalogImage` object to update the encapsulated image file. |
+| `image_id` | `str` | Template, Required | The ID of the `CatalogImage` object to update the encapsulated image file. |
 | `request` | [`Update Catalog Image Request`](../../doc/models/update-catalog-image-request.md) | Form (JSON-Encoded), Optional | - |
 | `image_file` | `typing.BinaryIO` | Form, Optional | - |
 
 ## Response Type
 
-[`Update Catalog Image Response`](../../doc/models/update-catalog-image-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Catalog Image Response`](../../doc/models/update-catalog-image-response.md).
 
 ## Example Usage
 
@@ -382,7 +382,7 @@ def catalog_info(self)
 
 ## Response Type
 
-[`Catalog Info Response`](../../doc/models/catalog-info-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Catalog Info Response`](../../doc/models/catalog-info-response.md).
 
 ## Example Usage
 
@@ -419,13 +419,13 @@ def list_catalog(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
-| `types` | `string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](entity:CatalogObjectType) enum, for example,<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.<br><br>If this is unspecified, the operation returns objects of all the top level types at the version<br>of the Square API used to make the request. Object types that are nested onto other object types<br>are not included in the defaults.<br><br>At the current API version the default object types are:<br>ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST,<br>PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,<br>SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS. |
+| `cursor` | `str` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
+| `types` | `str` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](entity:CatalogObjectType) enum, for example,<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.<br><br>If this is unspecified, the operation returns objects of all the top level types at the version<br>of the Square API used to make the request. Object types that are nested onto other object types<br>are not included in the defaults.<br><br>At the current API version the default object types are:<br>ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST,<br>PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,<br>SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS. |
 | `catalog_version` | `long\|int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical versions of objects. The specified version value is matched against<br>the [CatalogObject](../../doc/models/catalog-object.md)s' `version` attribute.  If not included, results will be from the<br>current version of the catalog. |
 
 ## Response Type
 
-[`List Catalog Response`](../../doc/models/list-catalog-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Catalog Response`](../../doc/models/list-catalog-response.md).
 
 ## Example Usage
 
@@ -461,7 +461,7 @@ def upsert_catalog_object(self,
 
 ## Response Type
 
-[`Upsert Catalog Object Response`](../../doc/models/upsert-catalog-object-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Upsert Catalog Object Response`](../../doc/models/upsert-catalog-object-response.md).
 
 ## Example Usage
 
@@ -535,11 +535,11 @@ def delete_catalog_object(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `object_id` | `string` | Template, Required | The ID of the catalog object to be deleted. When an object is deleted, other<br>objects in the graph that depend on that object will be deleted as well (for example, deleting a<br>catalog item will delete its catalog item variations). |
+| `object_id` | `str` | Template, Required | The ID of the catalog object to be deleted. When an object is deleted, other<br>objects in the graph that depend on that object will be deleted as well (for example, deleting a<br>catalog item will delete its catalog item variations). |
 
 ## Response Type
 
-[`Delete Catalog Object Response`](../../doc/models/delete-catalog-object-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Delete Catalog Object Response`](../../doc/models/delete-catalog-object-response.md).
 
 ## Example Usage
 
@@ -577,13 +577,13 @@ def retrieve_catalog_object(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `object_id` | `string` | Template, Required | The object ID of any type of catalog objects to be retrieved. |
+| `object_id` | `str` | Template, Required | The object ID of any type of catalog objects to be retrieved. |
 | `include_related_objects` | `bool` | Query, Optional | If `true`, the response will include additional objects that are related to the<br>requested objects. Related objects are defined as any objects referenced by ID by the results in the `objects` field<br>of the response. These objects are put in the `related_objects` field. Setting this to `true` is<br>helpful when the objects are needed for immediate display to a user.<br>This process only goes one level deep. Objects referenced by the related objects will not be included. For example,<br><br>if the `objects` field of the response contains a CatalogItem, its associated<br>CatalogCategory objects, CatalogTax objects, CatalogImage objects and<br>CatalogModifierLists will be returned in the `related_objects` field of the<br>response. If the `objects` field of the response contains a CatalogItemVariation,<br>its parent CatalogItem will be returned in the `related_objects` field of<br>the response.<br><br>Default value: `false`<br>**Default**: `False` |
 | `catalog_version` | `long\|int` | Query, Optional | Requests objects as of a specific version of the catalog. This allows you to retrieve historical<br>versions of objects. The value to retrieve a specific version of an object can be found<br>in the version field of [CatalogObject](../../doc/models/catalog-object.md)s. If not included, results will<br>be from the current version of the catalog. |
 
 ## Response Type
 
-[`Retrieve Catalog Object Response`](../../doc/models/retrieve-catalog-object-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Catalog Object Response`](../../doc/models/retrieve-catalog-object-response.md).
 
 ## Example Usage
 
@@ -631,7 +631,7 @@ def search_catalog_objects(self,
 
 ## Response Type
 
-[`Search Catalog Objects Response`](../../doc/models/search-catalog-objects-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Catalog Objects Response`](../../doc/models/search-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -685,7 +685,7 @@ def search_catalog_items(self,
 
 ## Response Type
 
-[`Search Catalog Items Response`](../../doc/models/search-catalog-items-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Search Catalog Items Response`](../../doc/models/search-catalog-items-response.md).
 
 ## Example Usage
 
@@ -758,7 +758,7 @@ def update_item_modifier_lists(self,
 
 ## Response Type
 
-[`Update Item Modifier Lists Response`](../../doc/models/update-item-modifier-lists-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Item Modifier Lists Response`](../../doc/models/update-item-modifier-lists-response.md).
 
 ## Example Usage
 
@@ -806,7 +806,7 @@ def update_item_taxes(self,
 
 ## Response Type
 
-[`Update Item Taxes Response`](../../doc/models/update-item-taxes-response.md)
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Item Taxes Response`](../../doc/models/update-item-taxes-response.md).
 
 ## Example Usage
 

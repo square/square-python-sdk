@@ -14,9 +14,9 @@ Either `errors` or `customers` is present in a given response (never both).
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `errors` | [`List of Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `customers` | [`List of Customer`](../../doc/models/customer.md) | Optional | The customer profiles that match the search query. If any search condition is not met, the result is an empty object (`{}`).<br>Only customer profiles with public information (`given_name`, `family_name`, `company_name`, `email_address`, or `phone_number`)<br>are included in the response. |
-| `cursor` | `string` | Optional | A pagination cursor that can be used during subsequent calls<br>to `SearchCustomers` to retrieve the next set of results associated<br>with the original query. Pagination cursors are only present when<br>a request succeeds and additional results are available.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+| `errors` | [`List Error`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| `customers` | [`List Customer`](../../doc/models/customer.md) | Optional | The customer profiles that match the search query. If any search condition is not met, the result is an empty object (`{}`).<br>Only customer profiles with public information (`given_name`, `family_name`, `company_name`, `email_address`, or `phone_number`)<br>are included in the response. |
+| `cursor` | `str` | Optional | A pagination cursor that can be used during subsequent calls<br>to `SearchCustomers` to retrieve the next set of results associated<br>with the original query. Pagination cursors are only present when<br>a request succeeds and additional results are available.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `count` | `long\|int` | Optional | The total count of customers associated with the Square account that match the search query. Only customer profiles with<br>public information (`given_name`, `family_name`, `company_name`, `email_address`, or `phone_number`) are counted. This field is<br>present only if `count` is set to `true` in the request. |
 
 ## Example (as JSON)

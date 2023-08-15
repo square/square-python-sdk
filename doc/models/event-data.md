@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | `string` | Optional | Name of the affected object’s type. |
-| `id` | `string` | Optional | ID of the affected object. |
+| `type` | `str` | Optional | Name of the affected object’s type. |
+| `id` | `str` | Optional | ID of the affected object. |
 | `deleted` | `bool` | Optional | Is true if the affected object was deleted. Otherwise absent. |
 | `object` | `dict` | Optional | An object containing fields and values relevant to the event. Is absent if affected object was deleted. |
 
