@@ -16,7 +16,7 @@ class SitesApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(SitesApi, self).__init__(config)
+        super().__init__(config)
 
     def list_sites(self):
         """Does a GET request to /v2/sites.

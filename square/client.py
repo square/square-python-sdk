@@ -228,36 +228,50 @@ class Client(object):
     def webhook_subscriptions(self):
         return WebhookSubscriptionsApi(self.global_configuration)
 
-    def __init__(self, http_client_instance=None,
-                 override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
-                 retry_methods=['GET', 'PUT'], environment='production',
-                 custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2023-08-16', additional_headers={},
-                 user_agent_detail='', config=None):
+    def __init__(
+            self,
+            http_client_instance=None,
+            override_http_client_configuration=False,
+            http_call_back=None,
+            timeout=60,
+            max_retries=0,
+            backoff_factor=2,
+            retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
+            retry_methods=['GET', 'PUT'],
+            environment='production',
+            custom_url='https://connect.squareup.com',
+            access_token='',
+            square_version='2023-08-16',
+            additional_headers={},
+            user_agent_detail='',
+            config=None
+    ):
+
         if config is None:
             self.config = Configuration(
-                                         http_client_instance=http_client_instance,
-                                         override_http_client_configuration=override_http_client_configuration,
-                                         http_call_back=http_call_back,
-                                         timeout=timeout,
-                                         max_retries=max_retries,
-                                         backoff_factor=backoff_factor,
-                                         retry_statuses=retry_statuses,
-                                         retry_methods=retry_methods,
-                                         environment=environment,
-                                         custom_url=custom_url,
-                                         access_token=access_token,
-                                         square_version=square_version,
-                                         additional_headers=additional_headers,
-                                         user_agent_detail=user_agent_detail)
+                 http_client_instance=http_client_instance,
+                 override_http_client_configuration=override_http_client_configuration,
+                 http_call_back=http_call_back,
+                 timeout=timeout,
+                 max_retries=max_retries,
+                 backoff_factor=backoff_factor,
+                 retry_statuses=retry_statuses,
+                 retry_methods=retry_methods,
+                 environment=environment,
+                 custom_url=custom_url,
+                 access_token=access_token,
+                 square_version=square_version,
+                 additional_headers=additional_headers,
+                 user_agent_detail=user_agent_detail
+            )
         else:
             self.config = config
 
         additional_user_agent_parameters = { 
                 'api-version': {'value': self.config.square_version, 'encode': False},
-                'detail': {'value': self.config.user_agent_detail, 'encode': True}} 
+                'detail': {'value': self.config.user_agent_detail, 'encode': True}
+        }
+
         self.global_configuration = GlobalConfiguration(self.config)\
             .base_uri_executor(self.config.get_base_uri)\
             .user_agent(BaseApi.user_agent(), 
@@ -271,6 +285,6 @@ class Client(object):
 
     def initialize_auth_managers(self, global_config):
         http_client_config = global_config.get_http_client_configuration()
-        self.auth_managers = { key: None for key in ['global']}
+        self.auth_managers = {key: None for key in ['global']}
         self.auth_managers['global'] = OAuth2(http_client_config.access_token)
         return self.auth_managers

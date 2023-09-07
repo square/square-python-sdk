@@ -17,7 +17,7 @@ class CheckoutApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(CheckoutApi, self).__init__(config)
+        super().__init__(config)
 
     @deprecated()
     def create_checkout(self,

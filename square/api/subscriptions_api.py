@@ -16,7 +16,7 @@ class SubscriptionsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(SubscriptionsApi, self).__init__(config)
+        super().__init__(config)
 
     def create_subscription(self,
                             body):

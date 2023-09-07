@@ -17,7 +17,7 @@ class CatalogApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(CatalogApi, self).__init__(config)
+        super().__init__(config)
 
     def batch_delete_catalog_objects(self,
                                      body):

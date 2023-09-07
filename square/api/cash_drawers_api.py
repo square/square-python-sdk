@@ -16,7 +16,7 @@ class CashDrawersApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(CashDrawersApi, self).__init__(config)
+        super().__init__(config)
 
     def list_cash_drawer_shifts(self,
                                 location_id,

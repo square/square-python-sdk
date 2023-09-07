@@ -16,7 +16,7 @@ class LocationsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(LocationsApi, self).__init__(config)
+        super().__init__(config)
 
     def list_locations(self):
         """Does a GET request to /v2/locations.

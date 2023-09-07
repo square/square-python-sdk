@@ -17,7 +17,7 @@ class InventoryApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(InventoryApi, self).__init__(config)
+        super().__init__(config)
 
     @deprecated()
     def deprecated_retrieve_inventory_adjustment(self,

@@ -16,7 +16,7 @@ class OrderCustomAttributesApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(OrderCustomAttributesApi, self).__init__(config)
+        super().__init__(config)
 
     def list_order_custom_attribute_definitions(self,
                                                 visibility_filter=None,

@@ -17,7 +17,7 @@ class LoyaltyApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(LoyaltyApi, self).__init__(config)
+        super().__init__(config)
 
     def create_loyalty_account(self,
                                body):

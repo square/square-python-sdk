@@ -22,7 +22,8 @@ class APIException(Exception):
             response (HttpResponse): The HttpResponse of the API call.
 
         """
-        super(APIException, self).__init__(reason)
+
+        super().__init__(reason)
         self.reason = reason
         self.response = response
         self.response_code = response.status_code

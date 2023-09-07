@@ -16,7 +16,7 @@ class CustomerSegmentsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(CustomerSegmentsApi, self).__init__(config)
+        super().__init__(config)
 
     def list_customer_segments(self,
                                cursor=None,

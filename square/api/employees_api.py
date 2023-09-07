@@ -17,7 +17,7 @@ class EmployeesApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(EmployeesApi, self).__init__(config)
+        super().__init__(config)
 
     @deprecated()
     def list_employees(self,

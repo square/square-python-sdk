@@ -87,6 +87,7 @@ class Configuration(HttpClientConfiguration):
         square_version = square_version or self.square_version
         additional_headers = additional_headers or self.additional_headers
         user_agent_detail = user_agent_detail or self.user_agent_detail
+
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,

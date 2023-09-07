@@ -16,7 +16,7 @@ class TerminalApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(TerminalApi, self).__init__(config)
+        super().__init__(config)
 
     def create_terminal_action(self,
                                body):

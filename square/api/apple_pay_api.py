@@ -16,7 +16,7 @@ class ApplePayApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(ApplePayApi, self).__init__(config)
+        super().__init__(config)
 
     def register_domain(self,
                         body):

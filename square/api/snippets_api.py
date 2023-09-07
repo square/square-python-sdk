@@ -16,7 +16,7 @@ class SnippetsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(SnippetsApi, self).__init__(config)
+        super().__init__(config)
 
     def delete_snippet(self,
                        site_id):

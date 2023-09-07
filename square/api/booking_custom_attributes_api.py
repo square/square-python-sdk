@@ -16,7 +16,7 @@ class BookingCustomAttributesApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(BookingCustomAttributesApi, self).__init__(config)
+        super().__init__(config)
 
     def list_booking_custom_attribute_definitions(self,
                                                   limit=None,

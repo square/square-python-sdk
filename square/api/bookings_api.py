@@ -16,7 +16,7 @@ class BookingsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(BookingsApi, self).__init__(config)
+        super().__init__(config)
 
     def list_bookings(self,
                       limit=None,

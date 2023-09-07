@@ -17,7 +17,7 @@ class V1TransactionsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(V1TransactionsApi, self).__init__(config)
+        super().__init__(config)
 
     @deprecated()
     def v1_list_orders(self,

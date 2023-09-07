@@ -16,7 +16,7 @@ class CustomerGroupsApi(BaseApi):
 
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
-        super(CustomerGroupsApi, self).__init__(config)
+        super().__init__(config)
 
     def list_customer_groups(self,
                              cursor=None,

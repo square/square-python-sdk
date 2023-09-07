@@ -33,7 +33,8 @@ class ApiResponse(ApiResponse):
         """
 
         super().__init__(http_response, body, errors)
-        if type(body) is dict:
+
+        if isinstance(body, dict):
             self.cursor = body.get('cursor')
 
     def __repr__(self):
