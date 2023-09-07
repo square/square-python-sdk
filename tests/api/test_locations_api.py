@@ -9,20 +9,17 @@ from square.api_helper import APIHelper
 
 
 class LocationsApiTests(ApiTestBase):
-
     @classmethod
     def setUpClass(cls):
         super(LocationsApiTests, cls).setUpClass()
         cls.controller = cls.client.locations
         cls.response_catcher = cls.controller.http_call_back
 
-    # Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
-    #including those with an inactive status.
+    # Provides details about all the seller's [locations](https://developer.squareup.com/docs/locations-api),
+    # including those with an inactive status.
     def test_list_locations(self):
-
         # Perform the API call through the SDK function
         result = self.controller.list_locations()
 
         # Test response code
-        assert self.response_catcher.response.status_code == 200
-
+        self.assertEqual(self.response_catcher.response.status_code, 200)

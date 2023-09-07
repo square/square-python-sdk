@@ -3,8 +3,8 @@
 from tests.test_helper import TestHelper
 from tests.api.api_test_base import ApiTestBase
 
-class LaborApiTests(ApiTestBase):
 
+class LaborApiTests(ApiTestBase):
     @classmethod
     def setUpClass(cls):
         super(LaborApiTests, cls).setUpClass()
@@ -22,14 +22,12 @@ class LaborApiTests(ApiTestBase):
         result = self.controller.list_break_types(location_id, limit, cursor)
 
         # Test response code
-        self.assertEquals(self.response_catcher.response.status_code, 200)
+        self.assertEqual(self.response_catcher.response.status_code, 200)
 
         # Test headers
-        expected_headers = {}
-        expected_headers['content-type'] = 'application/json'
+        expected_headers = {'content-type': 'application/json'}
 
         self.assertTrue(TestHelper.match_headers(expected_headers, self.response_catcher.response.headers))
-
 
     # Returns a paginated list of `EmployeeWage` instances for a business.
     def test_list_employee_wages(self):
@@ -42,14 +40,12 @@ class LaborApiTests(ApiTestBase):
         result = self.controller.list_employee_wages(employee_id, limit, cursor)
 
         # Test response code
-        self.assertEquals(self.response_catcher.response.status_code, 200)
+        self.assertEqual(self.response_catcher.response.status_code, 200)
 
         # Test headers
-        expected_headers = {}
-        expected_headers['content-type'] = 'application/json'
+        expected_headers = {'content-type': 'application/json'}
 
         self.assertTrue(TestHelper.match_headers(expected_headers, self.response_catcher.response.headers))
-
 
     # Returns a list of `WorkweekConfig` instances for a business.
     def test_list_workweek_configs(self):
@@ -61,10 +57,9 @@ class LaborApiTests(ApiTestBase):
         result = self.controller.list_workweek_configs(limit, cursor)
 
         # Test response code
-        self.assertEquals(self.response_catcher.response.status_code, 200)
+        self.assertEqual(self.response_catcher.response.status_code, 200)
 
         # Test headers
-        expected_headers = {}
-        expected_headers['content-type'] = 'application/json'
+        expected_headers = {'content-type': 'application/json'}
 
         self.assertTrue(TestHelper.match_headers(expected_headers, self.response_catcher.response.headers))

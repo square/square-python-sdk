@@ -2,8 +2,8 @@
 
 from tests.api.api_test_base import ApiTestBase
 
-class V2EndpointsTests(ApiTestBase):
 
+class V2EndpointsTests(ApiTestBase):
     @classmethod
     def setUpClass(cls):
         super(V2EndpointsTests, cls).setUpClass()
@@ -28,48 +28,48 @@ class V2EndpointsTests(ApiTestBase):
             }
         }
 
-        # create
+        # Create a customer
         response = self.controller.create_customer(customer)
         data = response.body['customer']
-        self.assertEquals(data['phone_number'], phone_number)
-        self.assertEquals(data['address']['postal_code'], postal_code)
-        self.assertEquals(response.status_code, 200)
-        self.assertEquals(response.is_success(), True)
-        self.assertEquals(response.is_error(), False)
+        self.assertEqual(data['phone_number'], phone_number)
+        self.assertEqual(data['address']['postal_code'], postal_code)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.is_success(), True)
+        self.assertEqual(response.is_error(), False)
         customer_id = data['id']
 
-        # retrieve
+        # Retrieve a customer
         response = self.controller.retrieve_customer(customer_id)
         data = response.body['customer'] 
-        self.assertEquals(data['phone_number'], phone_number)
-        self.assertEquals(data['address']['postal_code'], postal_code)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(data['phone_number'], phone_number)
+        self.assertEqual(data['address']['postal_code'], postal_code)
+        self.assertEqual(response.status_code, 200)
 
-        # list
+        # Get list of customers
         response = self.controller.list_customers()
         data = response.body['customers'] 
-        self.assertEquals(type(data), list)
+        self.assertEqual(type(data), list)
         self.assertTrue(len(data) > 0)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
-        # update
+        # Update a customer record
         customer['phone_number'] = phone_number2
         customer['address']['postal_code'] = postal_code2
 
         response = self.controller.update_customer(customer_id=customer_id, body=customer)
         data = response.body['customer'] 
-        self.assertEquals(data['phone_number'], phone_number2)
-        self.assertEquals(data['address']['postal_code'], postal_code2)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(data['phone_number'], phone_number2)
+        self.assertEqual(data['address']['postal_code'], postal_code2)
+        self.assertEqual(response.status_code, 200)
 
-        # retrieve
+        # Retrieve a customer
         response = self.controller.retrieve_customer(customer_id)
         data = response.body['customer'] 
-        self.assertEquals(data['phone_number'], phone_number2)
-        self.assertEquals(data['address']['postal_code'], postal_code2)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(data['phone_number'], phone_number2)
+        self.assertEqual(data['address']['postal_code'], postal_code2)
+        self.assertEqual(response.status_code, 200)
 
-        # delete
+        # Delete the customer record
         response = self.controller.delete_customer(customer_id)
-        self.assertEquals(response.body, {})
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.body, {})
+        self.assertEqual(response.status_code, 200)
