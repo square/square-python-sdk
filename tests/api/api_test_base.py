@@ -23,6 +23,6 @@ class ApiTestBase(unittest.TestCase):
 
     @staticmethod
     def create_configuration():
-        return Configuration(access_token='EAAAELmfps0Ur42BfvH2nnYd3lardg6u9pukTGjs0zAclMXSCKdwVHWZem7TCWIW',
+        return Configuration(access_token=os.environ['SQUARE_SANDBOX_TOKEN'],
                              environment='sandbox',
                              http_call_back=HttpResponseCatcher())
