@@ -37,9 +37,9 @@ response = square.API.ENDPOINT(body=BODY)
 
 ```python
 if response.is_success():
-    print({response.body})
+    print(response.body)
 elif response.is_error():
-    print({response.errors})
+    print(response.errors)
 ```
 
 ### An example code migration
