@@ -32,9 +32,6 @@ class CheckoutApi(BaseApi):
         For more information, see [Checkout API
         highlights](https://developer.squareup.com/docs/checkout-api#checkout-a
         pi-highlights).
-        We recommend that you use the
-        new [CreatePaymentLink](api-endpoint:Checkout-CreatePaymentLink) 
-        endpoint in place of this previously released endpoint.
 
         Args:
             location_id (str): The ID of the business location to associate

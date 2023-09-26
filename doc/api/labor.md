@@ -354,9 +354,9 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 ```python
 body = {
     'shift': {
-        'start_at': '2019-01-25T08:11:00+00:00',
+        'start_at': '2019-01-25T03:11:00-05:00',
         'location_id': 'PAA1RJZZKXBFG',
-        'end_at': '2019-01-25T18:11:00+00:00',
+        'end_at': '2019-01-25T13:11:00-05:00',
         'wage': {
             'title': 'Barista',
             'hourly_rate': {
@@ -366,12 +366,12 @@ body = {
         },
         'breaks': [
             {
-                'start_at': '2019-01-25T11:11:00+00:00',
+                'start_at': '2019-01-25T06:11:00-05:00',
                 'break_type_id': 'REGS1EQR1TPZ5',
                 'name': 'Tea Break',
                 'expected_duration': 'PT5M',
                 'is_paid': True,
-                'end_at': '2019-01-25T11:16:00+00:00'
+                'end_at': '2019-01-25T06:16:00-05:00'
             }
         ],
         'team_member_id': 'ormj0jJJZ5OZIzxrZYJI'
@@ -554,9 +554,9 @@ id = 'id0'
 
 body = {
     'shift': {
-        'start_at': '2019-01-25T08:11:00+00:00',
+        'start_at': '2019-01-25T03:11:00-05:00',
         'location_id': 'PAA1RJZZKXBFG',
-        'end_at': '2019-01-25T18:11:00+00:00',
+        'end_at': '2019-01-25T13:11:00-05:00',
         'wage': {
             'title': 'Bartender',
             'hourly_rate': {
@@ -566,13 +566,13 @@ body = {
         },
         'breaks': [
             {
-                'start_at': '2019-01-25T11:11:00+00:00',
+                'start_at': '2019-01-25T06:11:00-05:00',
                 'break_type_id': 'REGS1EQR1TPZ5',
                 'name': 'Tea Break',
                 'expected_duration': 'PT5M',
                 'is_paid': True,
                 'id': 'X7GAQYVVRRG6P',
-                'end_at': '2019-01-25T11:16:00+00:00'
+                'end_at': '2019-01-25T06:16:00-05:00'
             }
         ],
         'version': 1,

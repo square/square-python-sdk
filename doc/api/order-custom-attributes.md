@@ -333,11 +333,11 @@ body = {
     'values': {
         'key0': {
             'custom_attribute': {},
-            'order_id': 'order_id2'
+            'order_id': 'order_id4'
         },
         'key1': {
             'custom_attribute': {},
-            'order_id': 'order_id1'
+            'order_id': 'order_id4'
         }
     }
 }
@@ -395,7 +395,7 @@ with_definitions = False
 
 result = order_custom_attributes_api.list_order_custom_attributes(
     order_id,
-    with_definitions
+    with_definitions=with_definitions
 )
 print(result)
 
@@ -495,7 +495,7 @@ with_definition = False
 result = order_custom_attributes_api.retrieve_order_custom_attribute(
     order_id,
     custom_attribute_key,
-    with_definition
+    with_definition=with_definition
 )
 print(result)
 

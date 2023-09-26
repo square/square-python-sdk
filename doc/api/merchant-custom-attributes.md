@@ -259,8 +259,12 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 ```python
 body = {
     'values': {
-        'id1': {},
-        'id2': {}
+        'id1': {
+            'key': 'alternative_seller_name'
+        },
+        'id2': {
+            'key': 'has_seen_tutorial'
+        }
     }
 }
 
@@ -308,11 +312,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = {
     'values': {
         'key0': {
-            'merchant_id': 'merchant_id4',
+            'merchant_id': 'merchant_id0',
             'custom_attribute': {}
         },
         'key1': {
-            'merchant_id': 'merchant_id5',
+            'merchant_id': 'merchant_id0',
             'custom_attribute': {}
         }
     }
@@ -369,7 +373,7 @@ with_definitions = False
 
 result = merchant_custom_attributes_api.list_merchant_custom_attributes(
     merchant_id,
-    with_definitions
+    with_definitions=with_definitions
 )
 print(result)
 
@@ -464,7 +468,7 @@ with_definition = False
 result = merchant_custom_attributes_api.retrieve_merchant_custom_attribute(
     merchant_id,
     key,
-    with_definition
+    with_definition=with_definition
 )
 print(result)
 

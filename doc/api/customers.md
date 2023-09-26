@@ -59,7 +59,7 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 count = False
 
 result = customers_api.list_customers(
-    count
+    count=count
 )
 print(result)
 
@@ -169,8 +169,8 @@ body = {
                 'rule': 'INCLUDE'
             },
             'created_at': {
-                'start_at': '2018-01-01T00:00:00+00:00',
-                'end_at': '2018-02-01T00:00:00+00:00'
+                'start_at': '2018-01-01T00:00:00-00:00',
+                'end_at': '2018-02-01T00:00:00-00:00'
             },
             'email_address': {
                 'fuzzy': 'example.com'

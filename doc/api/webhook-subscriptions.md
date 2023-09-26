@@ -83,7 +83,7 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 include_disabled = False
 
 result = webhook_subscriptions_api.list_webhook_subscriptions(
-    include_disabled
+    include_disabled=include_disabled
 )
 print(result)
 

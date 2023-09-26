@@ -96,7 +96,7 @@ body = {
     'query': {
         'filter': {
             'created_at': {
-                'start_at': '2022-04-01T00:00:00Z'
+                'start_at': '2022-04-01T00:00:00.000Z'
             }
         },
         'sort': {

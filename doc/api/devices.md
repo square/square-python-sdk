@@ -10,9 +10,50 @@ devices_api = client.devices
 
 ## Methods
 
+* [List Devices](../../doc/api/devices.md#list-devices)
 * [List Device Codes](../../doc/api/devices.md#list-device-codes)
 * [Create Device Code](../../doc/api/devices.md#create-device-code)
 * [Get Device Code](../../doc/api/devices.md#get-device-code)
+* [Get Device](../../doc/api/devices.md#get-device)
+
+
+# List Devices
+
+List devices associated with the merchant. Currently, only Terminal API
+devices are supported.
+
+```python
+def list_devices(self,
+                cursor=None,
+                sort_order=None,
+                limit=None,
+                location_id=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
+| `sort_order` | [`str (Sort Order)`](../../doc/models/sort-order.md) | Query, Optional | The order in which results are listed.<br><br>- `ASC` - Oldest to newest.<br>- `DESC` - Newest to oldest (default). |
+| `limit` | `int` | Query, Optional | The number of results to return in a single page. |
+| `location_id` | `str` | Query, Optional | If present, only returns devices at the target location. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Devices Response`](../../doc/models/list-devices-response.md).
+
+## Example Usage
+
+```python
+result = devices_api.list_devices()
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
 
 
 # List Device Codes
@@ -120,6 +161,40 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = devices_api.get_device_code(id)
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Get Device
+
+Retrieves Device with the associated `device_id`.
+
+```python
+def get_device(self,
+              device_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `device_id` | `str` | Template, Required | The unique ID for the desired `Device`. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Get Device Response`](../../doc/models/get-device-response.md).
+
+## Example Usage
+
+```python
+device_id = 'device_id6'
+
+result = devices_api.get_device(device_id)
 print(result)
 
 if result.is_success():

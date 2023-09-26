@@ -259,9 +259,15 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 ```python
 body = {
     'values': {
-        'id1': {},
-        'id2': {},
-        'id3': {}
+        'id1': {
+            'key': 'bestseller'
+        },
+        'id2': {
+            'key': 'bestseller'
+        },
+        'id3': {
+            'key': 'phone-number'
+        }
     }
 }
 
@@ -309,11 +315,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = {
     'values': {
         'key0': {
-            'location_id': 'location_id8',
+            'location_id': 'location_id4',
             'custom_attribute': {}
         },
         'key1': {
-            'location_id': 'location_id9',
+            'location_id': 'location_id4',
             'custom_attribute': {}
         }
     }
@@ -370,7 +376,7 @@ with_definitions = False
 
 result = location_custom_attributes_api.list_location_custom_attributes(
     location_id,
-    with_definitions
+    with_definitions=with_definitions
 )
 print(result)
 
@@ -465,7 +471,7 @@ with_definition = False
 result = location_custom_attributes_api.retrieve_location_custom_attribute(
     location_id,
     key,
-    with_definition
+    with_definition=with_definition
 )
 print(result)
 
