@@ -50,7 +50,7 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 include_disabled = False
 
 result = cards_api.list_cards(
-    include_disabled
+    include_disabled=include_disabled
 )
 print(result)
 

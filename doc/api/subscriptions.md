@@ -205,7 +205,10 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 subscription_id = 'subscription_id0'
 
 body = {
-    'subscription': {}
+    'subscription': {
+        'canceled_date': 'canceled_date6',
+        'card_id': '{NEW CARD ID}'
+    }
 }
 
 result = subscriptions_api.update_subscription(

@@ -16,6 +16,7 @@ bookings_api = client.bookings
 * [Bulk Retrieve Bookings](../../doc/api/bookings.md#bulk-retrieve-bookings)
 * [Retrieve Business Booking Profile](../../doc/api/bookings.md#retrieve-business-booking-profile)
 * [List Team Member Booking Profiles](../../doc/api/bookings.md#list-team-member-booking-profiles)
+* [Bulk Retrieve Team Member Booking Profiles](../../doc/api/bookings.md#bulk-retrieve-team-member-booking-profiles)
 * [Retrieve Team Member Booking Profile](../../doc/api/bookings.md#retrieve-team-member-booking-profile)
 * [Retrieve Booking](../../doc/api/bookings.md#retrieve-booking)
 * [Update Booking](../../doc/api/bookings.md#update-booking)
@@ -261,8 +262,48 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 bookable_only = False
 
 result = bookings_api.list_team_member_booking_profiles(
-    bookable_only
+    bookable_only=bookable_only
 )
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Bulk Retrieve Team Member Booking Profiles
+
+Retrieves one or more team members' booking profiles.
+
+```python
+def bulk_retrieve_team_member_booking_profiles(self,
+                                              body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Bulk Retrieve Team Member Booking Profiles Request`](../../doc/models/bulk-retrieve-team-member-booking-profiles-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Bulk Retrieve Team Member Booking Profiles Response`](../../doc/models/bulk-retrieve-team-member-booking-profiles-response.md).
+
+## Example Usage
+
+```python
+body = {
+    'team_member_ids': [
+        'team_member_ids3',
+        'team_member_ids4',
+        'team_member_ids5'
+    ]
+}
+
+result = bookings_api.bulk_retrieve_team_member_booking_profiles(body)
 print(result)
 
 if result.is_success():

@@ -312,7 +312,7 @@ request = {
 }
 
 result = catalog_api.create_catalog_image(
-    request
+    request=request
 )
 print(result)
 
@@ -360,7 +360,7 @@ request = {
 
 result = catalog_api.update_catalog_image(
     image_id,
-    request
+    request=request
 )
 print(result)
 
@@ -594,7 +594,7 @@ include_related_objects = False
 
 result = catalog_api.retrieve_catalog_object(
     object_id,
-    include_related_objects
+    include_related_objects=include_related_objects
 )
 print(result)
 

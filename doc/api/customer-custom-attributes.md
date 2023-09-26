@@ -281,11 +281,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = {
     'values': {
         'key0': {
-            'customer_id': 'customer_id2',
+            'customer_id': 'customer_id8',
             'custom_attribute': {}
         },
         'key1': {
-            'customer_id': 'customer_id3',
+            'customer_id': 'customer_id8',
             'custom_attribute': {}
         }
     }
@@ -342,7 +342,7 @@ with_definitions = False
 
 result = customer_custom_attributes_api.list_customer_custom_attributes(
     customer_id,
-    with_definitions
+    with_definitions=with_definitions
 )
 print(result)
 
@@ -442,7 +442,7 @@ with_definition = False
 result = customer_custom_attributes_api.retrieve_customer_custom_attribute(
     customer_id,
     key,
-    with_definition
+    with_definition=with_definition
 )
 print(result)
 

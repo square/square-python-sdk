@@ -208,7 +208,7 @@ include_partial = False
 
 result = v1_transactions_api.v1_list_payments(
     location_id,
-    include_partial
+    include_partial=include_partial
 )
 print(result)
 
