@@ -18,8 +18,6 @@ employees_api = client.employees
 
 **This endpoint is deprecated.**
 
-ListEmployees
-
 ```python
 def list_employees(self,
                   location_id=None,
@@ -57,8 +55,6 @@ elif result.is_error():
 # Retrieve Employee
 
 **This endpoint is deprecated.**
-
-RetrieveEmployee
 
 ```python
 def retrieve_employee(self,

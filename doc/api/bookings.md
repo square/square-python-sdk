@@ -15,6 +15,8 @@ bookings_api = client.bookings
 * [Search Availability](../../doc/api/bookings.md#search-availability)
 * [Bulk Retrieve Bookings](../../doc/api/bookings.md#bulk-retrieve-bookings)
 * [Retrieve Business Booking Profile](../../doc/api/bookings.md#retrieve-business-booking-profile)
+* [List Location Booking Profiles](../../doc/api/bookings.md#list-location-booking-profiles)
+* [Retrieve Location Booking Profile](../../doc/api/bookings.md#retrieve-location-booking-profile)
 * [List Team Member Booking Profiles](../../doc/api/bookings.md#list-team-member-booking-profiles)
 * [Bulk Retrieve Team Member Booking Profiles](../../doc/api/bookings.md#bulk-retrieve-team-member-booking-profiles)
 * [Retrieve Team Member Booking Profile](../../doc/api/bookings.md#retrieve-team-member-booking-profile)
@@ -222,6 +224,74 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = bookings_api.retrieve_business_booking_profile()
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# List Location Booking Profiles
+
+Lists location booking profiles of a seller.
+
+```python
+def list_location_booking_profiles(self,
+                                  limit=None,
+                                  cursor=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `limit` | `int` | Query, Optional | The maximum number of results to return in a paged response. |
+| `cursor` | `str` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`List Location Booking Profiles Response`](../../doc/models/list-location-booking-profiles-response.md).
+
+## Example Usage
+
+```python
+result = bookings_api.list_location_booking_profiles()
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Retrieve Location Booking Profile
+
+Retrieves a seller's location booking profile.
+
+```python
+def retrieve_location_booking_profile(self,
+                                     location_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `location_id` | `str` | Template, Required | The ID of the location to retrieve the booking profile. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Location Booking Profile Response`](../../doc/models/retrieve-location-booking-profile-response.md).
+
+## Example Usage
+
+```python
+location_id = 'location_id4'
+
+result = bookings_api.retrieve_location_booking_profile(location_id)
 print(result)
 
 if result.is_success():

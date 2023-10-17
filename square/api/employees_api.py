@@ -27,7 +27,7 @@ class EmployeesApi(BaseApi):
                        cursor=None):
         """Does a GET request to /v2/employees.
 
-        ListEmployees
+        TODO: type endpoint description here.
 
         Args:
             location_id (str, optional): TODO: type description here.
@@ -82,7 +82,7 @@ class EmployeesApi(BaseApi):
                           id):
         """Does a GET request to /v2/employees/{id}.
 
-        RetrieveEmployee
+        TODO: type endpoint description here.
 
         Args:
             id (str): UUID for the employee that was requested.
