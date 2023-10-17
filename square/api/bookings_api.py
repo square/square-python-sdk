@@ -290,6 +290,94 @@ class BookingsApi(BaseApi):
             .convertor(ApiResponse.create)
         ).execute()
 
+    def list_location_booking_profiles(self,
+                                       limit=None,
+                                       cursor=None):
+        """Does a GET request to /v2/bookings/location-booking-profiles.
+
+        Lists location booking profiles of a seller.
+
+        Args:
+            limit (int, optional): The maximum number of results to return in
+                a paged response.
+            cursor (str, optional): The pagination cursor from the preceding
+                response to return the next page of the results. Do not set
+                this when retrieving the first page of the results.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/bookings/location-booking-profiles')
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                         .key('limit')
+                         .value(limit))
+            .query_param(Parameter()
+                         .key('cursor')
+                         .value(cursor))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def retrieve_location_booking_profile(self,
+                                          location_id):
+        """Does a GET request to /v2/bookings/location-booking-profiles/{location_id}.
+
+        Retrieves a seller's location booking profile.
+
+        Args:
+            location_id (str): The ID of the location to retrieve the booking
+                profile.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/bookings/location-booking-profiles/{location_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('location_id')
+                            .value(location_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
     def list_team_member_booking_profiles(self,
                                           bookable_only=False,
                                           limit=None,

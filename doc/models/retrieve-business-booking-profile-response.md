@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `business_booking_profile` | [`Business Booking Profile`](../../doc/models/business-booking-profile.md) | Optional | - |
+| `business_booking_profile` | [`Business Booking Profile`](../../doc/models/business-booking-profile.md) | Optional | A seller's business booking profile, including booking policy, appointment settings, etc. |
 | `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors that occurred during the request. |
 
 ## Example (as JSON)

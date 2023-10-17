@@ -73,6 +73,54 @@ class SubscriptionsApi(BaseApi):
             .convertor(ApiResponse.create)
         ).execute()
 
+    def bulk_swap_plan(self,
+                       body):
+        """Does a POST request to /v2/subscriptions/bulk-swap-plan.
+
+        Schedules a plan variation change for all active subscriptions under a
+        given plan
+        variation. For more information, see [Swap Subscription Plan
+        Variations](https://developer.squareup.com/docs/subscriptions-api/swap-
+        plan-variations).
+
+        Args:
+            body (BulkSwapPlanRequest): An object containing the fields to
+                POST for the request.  See the corresponding object definition
+                for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/subscriptions/bulk-swap-plan')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
     def search_subscriptions(self,
                              body):
         """Does a POST request to /v2/subscriptions/search.
@@ -268,6 +316,60 @@ class SubscriptionsApi(BaseApi):
             .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def change_billing_anchor_date(self,
+                                   subscription_id,
+                                   body):
+        """Does a POST request to /v2/subscriptions/{subscription_id}/billing-anchor.
+
+        Changes the [billing anchor
+        date](https://developer.squareup.com/docs/subscriptions-api/subscriptio
+        n-billing#billing-dates)
+        for a subscription.
+
+        Args:
+            subscription_id (str): The ID of the subscription to update the
+                billing anchor date.
+            body (ChangeBillingAnchorDateRequest): An object containing the
+                fields to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/subscriptions/{subscription_id}/billing-anchor')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('subscription_id')
+                            .value(subscription_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
             .auth(Single('global'))
         ).response(
             ResponseHandler()
