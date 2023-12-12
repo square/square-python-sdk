@@ -19,10 +19,12 @@ terminal_api = client.terminal
 * [Search Terminal Checkouts](../../doc/api/terminal.md#search-terminal-checkouts)
 * [Get Terminal Checkout](../../doc/api/terminal.md#get-terminal-checkout)
 * [Cancel Terminal Checkout](../../doc/api/terminal.md#cancel-terminal-checkout)
+* [Dismiss Terminal Checkout](../../doc/api/terminal.md#dismiss-terminal-checkout)
 * [Create Terminal Refund](../../doc/api/terminal.md#create-terminal-refund)
 * [Search Terminal Refunds](../../doc/api/terminal.md#search-terminal-refunds)
 * [Get Terminal Refund](../../doc/api/terminal.md#get-terminal-refund)
 * [Cancel Terminal Refund](../../doc/api/terminal.md#cancel-terminal-refund)
+* [Dismiss Terminal Refund](../../doc/api/terminal.md#dismiss-terminal-refund)
 
 
 # Create Terminal Action
@@ -199,7 +201,7 @@ def dismiss_terminal_action(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action_id` | `str` | Template, Required | Unique ID for the `TerminalAction` associated with the waiting dialog to be dismissed. |
+| `action_id` | `str` | Template, Required | Unique ID for the `TerminalAction` associated with the action to be dismissed. |
 
 ## Response Type
 
@@ -377,6 +379,40 @@ elif result.is_error():
 ```
 
 
+# Dismiss Terminal Checkout
+
+Dismisses a Terminal checkout request if the status and type of the request permits it.
+
+```python
+def dismiss_terminal_checkout(self,
+                             checkout_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `checkout_id` | `str` | Template, Required | Unique ID for the `TerminalCheckout` associated with the checkout to be dismissed. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Dismiss Terminal Checkout Response`](../../doc/models/dismiss-terminal-checkout-response.md).
+
+## Example Usage
+
+```python
+checkout_id = 'checkout_id8'
+
+result = terminal_api.dismiss_terminal_checkout(checkout_id)
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
 # Create Terminal Refund
 
 Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds for Terminal payments should use the Refunds API. For more information, see [Refunds API](../../doc/api/refunds.md).
@@ -522,6 +558,40 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 terminal_refund_id = 'terminal_refund_id0'
 
 result = terminal_api.cancel_terminal_refund(terminal_refund_id)
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Dismiss Terminal Refund
+
+Dismisses a Terminal refund request if the status and type of the request permits it.
+
+```python
+def dismiss_terminal_refund(self,
+                           terminal_refund_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `terminal_refund_id` | `str` | Template, Required | Unique ID for the `TerminalRefund` associated with the refund to be dismissed. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Dismiss Terminal Refund Response`](../../doc/models/dismiss-terminal-refund-response.md).
+
+## Example Usage
+
+```python
+terminal_refund_id = 'terminal_refund_id0'
+
+result = terminal_api.dismiss_terminal_refund(terminal_refund_id)
 print(result)
 
 if result.is_success():

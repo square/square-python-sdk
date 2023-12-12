@@ -77,6 +77,178 @@ class CheckoutApi(BaseApi):
             .convertor(ApiResponse.create)
         ).execute()
 
+    def retrieve_location_settings(self,
+                                   location_id):
+        """Does a GET request to /v2/online-checkout/location-settings/{location_id}.
+
+        Retrieves the location-level settings for a Square-hosted checkout
+        page.
+
+        Args:
+            location_id (str): The ID of the location for which to retrieve
+                settings.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/online-checkout/location-settings/{location_id}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('location_id')
+                            .value(location_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def update_location_settings(self,
+                                 location_id,
+                                 body):
+        """Does a PUT request to /v2/online-checkout/location-settings/{location_id}.
+
+        Updates the location-level settings for a Square-hosted checkout
+        page.
+
+        Args:
+            location_id (str): The ID of the location for which to retrieve
+                settings.
+            body (UpdateLocationSettingsRequest): An object containing the
+                fields to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/online-checkout/location-settings/{location_id}')
+            .http_method(HttpMethodEnum.PUT)
+            .template_param(Parameter()
+                            .key('location_id')
+                            .value(location_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def retrieve_merchant_settings(self):
+        """Does a GET request to /v2/online-checkout/merchant-settings.
+
+        Retrieves the merchant-level settings for a Square-hosted checkout
+        page.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/online-checkout/merchant-settings')
+            .http_method(HttpMethodEnum.GET)
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def update_merchant_settings(self,
+                                 body):
+        """Does a PUT request to /v2/online-checkout/merchant-settings.
+
+        Updates the merchant-level settings for a Square-hosted checkout
+        page.
+
+        Args:
+            body (UpdateMerchantSettingsRequest): An object containing the
+                fields to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/online-checkout/merchant-settings')
+            .http_method(HttpMethodEnum.PUT)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
     def list_payment_links(self,
                            cursor=None,
                            limit=None):

@@ -538,7 +538,8 @@ class CatalogApi(BaseApi):
     def retrieve_catalog_object(self,
                                 object_id,
                                 include_related_objects=False,
-                                catalog_version=None):
+                                catalog_version=None,
+                                include_category_path_to_root=False):
         """Does a GET request to /v2/catalog/object/{object_id}.
 
         Returns a single [CatalogItem]($m/CatalogItem) as a
@@ -576,6 +577,14 @@ class CatalogApi(BaseApi):
                 specific version of an object can be found in the version
                 field of [CatalogObject]($m/CatalogObject)s. If not included,
                 results will be from the current version of the catalog.
+            include_category_path_to_root (bool, optional): Specifies whether
+                or not to include the `path_to_root` list for each returned
+                category instance. The `path_to_root` list consists of
+                `CategoryPathToRootNode` objects and specifies the path that
+                starts with the immediate parent category of the returned
+                category and ends with its root category. If the returned
+                category is a top-level category, the `path_to_root` list is
+                empty and is not returned in the response payload.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -603,6 +612,9 @@ class CatalogApi(BaseApi):
             .query_param(Parameter()
                          .key('catalog_version')
                          .value(catalog_version))
+            .query_param(Parameter()
+                         .key('include_category_path_to_root')
+                         .value(include_category_path_to_root))
             .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))

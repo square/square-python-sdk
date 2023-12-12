@@ -11,6 +11,10 @@ checkout_api = client.checkout
 ## Methods
 
 * [Create Checkout](../../doc/api/checkout.md#create-checkout)
+* [Retrieve Location Settings](../../doc/api/checkout.md#retrieve-location-settings)
+* [Update Location Settings](../../doc/api/checkout.md#update-location-settings)
+* [Retrieve Merchant Settings](../../doc/api/checkout.md#retrieve-merchant-settings)
+* [Update Merchant Settings](../../doc/api/checkout.md#update-merchant-settings)
 * [List Payment Links](../../doc/api/checkout.md#list-payment-links)
 * [Create Payment Link](../../doc/api/checkout.md#create-payment-link)
 * [Delete Payment Link](../../doc/api/checkout.md#delete-payment-link)
@@ -146,6 +150,144 @@ result = checkout_api.create_checkout(
     location_id,
     body
 )
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Retrieve Location Settings
+
+Retrieves the location-level settings for a Square-hosted checkout page.
+
+```python
+def retrieve_location_settings(self,
+                              location_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `location_id` | `str` | Template, Required | The ID of the location for which to retrieve settings. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Location Settings Response`](../../doc/models/retrieve-location-settings-response.md).
+
+## Example Usage
+
+```python
+location_id = 'location_id4'
+
+result = checkout_api.retrieve_location_settings(location_id)
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Update Location Settings
+
+Updates the location-level settings for a Square-hosted checkout page.
+
+```python
+def update_location_settings(self,
+                            location_id,
+                            body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `location_id` | `str` | Template, Required | The ID of the location for which to retrieve settings. |
+| `body` | [`Update Location Settings Request`](../../doc/models/update-location-settings-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Location Settings Response`](../../doc/models/update-location-settings-response.md).
+
+## Example Usage
+
+```python
+location_id = 'location_id4'
+
+body = {
+    'location_settings': {}
+}
+
+result = checkout_api.update_location_settings(
+    location_id,
+    body
+)
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Retrieve Merchant Settings
+
+Retrieves the merchant-level settings for a Square-hosted checkout page.
+
+```python
+def retrieve_merchant_settings(self)
+```
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Retrieve Merchant Settings Response`](../../doc/models/retrieve-merchant-settings-response.md).
+
+## Example Usage
+
+```python
+result = checkout_api.retrieve_merchant_settings()
+print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Update Merchant Settings
+
+Updates the merchant-level settings for a Square-hosted checkout page.
+
+```python
+def update_merchant_settings(self,
+                            body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`Update Merchant Settings Request`](../../doc/models/update-merchant-settings-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `ApiResponse` instance. The `body` property of this instance returns the response data which is of type [`Update Merchant Settings Response`](../../doc/models/update-merchant-settings-response.md).
+
+## Example Usage
+
+```python
+body = {
+    'merchant_settings': {}
+}
+
+result = checkout_api.update_merchant_settings(body)
 print(result)
 
 if result.is_success():
