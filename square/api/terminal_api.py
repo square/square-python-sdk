@@ -203,7 +203,7 @@ class TerminalApi(BaseApi):
 
         Args:
             action_id (str): Unique ID for the `TerminalAction` associated
-                with the waiting dialog to be dismissed.
+                with the action to be dismissed.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -413,6 +413,48 @@ class TerminalApi(BaseApi):
             .convertor(ApiResponse.create)
         ).execute()
 
+    def dismiss_terminal_checkout(self,
+                                  checkout_id):
+        """Does a POST request to /v2/terminals/checkouts/{checkout_id}/dismiss.
+
+        Dismisses a Terminal checkout request if the status and type of the
+        request permits it.
+
+        Args:
+            checkout_id (str): Unique ID for the `TerminalCheckout` associated
+                with the checkout to be dismissed.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/terminals/checkouts/{checkout_id}/dismiss')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('checkout_id')
+                            .value(checkout_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
     def create_terminal_refund(self,
                                body):
         """Does a POST request to /v2/terminals/refunds.
@@ -575,6 +617,48 @@ class TerminalApi(BaseApi):
         return super().new_api_call_builder.request(
             RequestBuilder().server('default')
             .path('/v2/terminals/refunds/{terminal_refund_id}/cancel')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('terminal_refund_id')
+                            .value(terminal_refund_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def dismiss_terminal_refund(self,
+                                terminal_refund_id):
+        """Does a POST request to /v2/terminals/refunds/{terminal_refund_id}/dismiss.
+
+        Dismisses a Terminal refund request if the status and type of the
+        request permits it.
+
+        Args:
+            terminal_refund_id (str): Unique ID for the `TerminalRefund`
+                associated with the refund to be dismissed.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/terminals/refunds/{terminal_refund_id}/dismiss')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                             .key('terminal_refund_id')
