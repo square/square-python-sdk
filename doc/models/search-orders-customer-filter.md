@@ -13,7 +13,7 @@ associated with the order. It does not filter based on the
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customer_ids` | `List[str]` | Optional | A list of customer IDs to filter by.<br><br>Max: 10 customer IDs. |
+| `customer_ids` | `List[str]` | Optional | A list of customer IDs to filter by.<br><br>Max: 10 customer ids. |
 
 ## Example (as JSON)
 

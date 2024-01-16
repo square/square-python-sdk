@@ -106,5 +106,5 @@ That's it! What was once a multi-block process can be handled in 2 lines of code
 
 ### Ask the Community
 
-Please join us in our [Square developer community](https://squ.re/slack) if you
+Please join us in our [Square developer community](https://discord.com/invite/squaredev) if you
 have any questions!

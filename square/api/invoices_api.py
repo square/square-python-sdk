@@ -2,6 +2,7 @@
 
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
+from square.utilities.file_wrapper import FileWrapper
 from square.api.base_api import BaseApi
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
@@ -320,6 +321,120 @@ class InvoicesApi(BaseApi):
                           .key('accept')
                           .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def create_invoice_attachment(self,
+                                  invoice_id,
+                                  request=None,
+                                  image_file=None):
+        """Does a POST request to /v2/invoices/{invoice_id}/attachments.
+
+        Uploads a file and attaches it to an invoice. This endpoint accepts
+        HTTP multipart/form-data file uploads
+        with a JSON `request` part and a `file` part. The `file` part must be
+        a `readable stream` that contains a file
+        in a supported format: GIF, JPEG, PNG, TIFF, BMP, or PDF.
+        Invoices can have up to 10 attachments with a total file size of 25
+        MB. Attachments can be added only to invoices
+        in the `DRAFT`, `SCHEDULED`, `UNPAID`, or `PARTIALLY_PAID` state.
+
+        Args:
+            invoice_id (str): The ID of the [invoice](entity:Invoice) to
+                attach the file to.
+            request (CreateInvoiceAttachmentRequest, optional): Represents a
+                [CreateInvoiceAttachment]($e/Invoices/CreateInvoiceAttachment)
+                request.
+            image_file (typing.BinaryIO, optional): TODO: type description
+                here.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/invoices/{invoice_id}/attachments')
+            .http_method(HttpMethodEnum.POST)
+            .template_param(Parameter()
+                            .key('invoice_id')
+                            .value(invoice_id)
+                            .should_encode(True))
+            .multipart_param(Parameter()
+                             .key('request')
+                             .value(APIHelper.json_serialize(request))
+                             .default_content_type('application/json; charset=utf-8'))
+            .multipart_param(Parameter()
+                             .key('image_file')
+                             .value(image_file)
+                             .default_content_type('image/jpeg'))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def delete_invoice_attachment(self,
+                                  invoice_id,
+                                  attachment_id):
+        """Does a DELETE request to /v2/invoices/{invoice_id}/attachments/{attachment_id}.
+
+        Removes an attachment from an invoice and permanently deletes the
+        file. Attachments can be removed only
+        from invoices in the `DRAFT`, `SCHEDULED`, `UNPAID`, or
+        `PARTIALLY_PAID` state.
+
+        Args:
+            invoice_id (str): The ID of the [invoice](entity:Invoice) to
+                delete the attachment from.
+            attachment_id (str): The ID of the
+                [attachment](entity:InvoiceAttachment) to delete.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/invoices/{invoice_id}/attachments/{attachment_id}')
+            .http_method(HttpMethodEnum.DELETE)
+            .template_param(Parameter()
+                            .key('invoice_id')
+                            .value(invoice_id)
+                            .should_encode(True))
+            .template_param(Parameter()
+                            .key('attachment_id')
+                            .value(attachment_id)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
             .auth(Single('global'))
         ).response(
             ResponseHandler()
