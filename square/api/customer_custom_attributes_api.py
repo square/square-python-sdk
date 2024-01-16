@@ -324,11 +324,11 @@ class CustomerCustomAttributesApi(BaseApi):
         [CreateCustomerCustomAttributeDefinition]($e/CustomerCustomAttributes/C
         reateCustomerCustomAttributeDefinition) endpoint.
         This `BulkUpsertCustomerCustomAttributes` endpoint accepts a map of 1
-        to 25 individual upsert 
+        to 25 individual upsert
         requests and returns a map of individual upsert responses. Each upsert
-        request has a unique ID 
+        request has a unique ID
         and provides a customer ID and custom attribute. Each upsert response
-        is returned with the ID 
+        is returned with the ID
         of the corresponding request.
         To create or update a custom attribute owned by another application,
         the `visibility` setting

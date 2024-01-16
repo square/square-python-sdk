@@ -193,7 +193,7 @@ def v1_list_payments(self,
 | `end_time` | `str` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
 | `batch_token` | `str` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
-| `include_partial` | `bool` | Query, Optional | Indicates whether or not to include partial payments in the response. Partial payments will have the tenders collected so far, but the itemizations will be empty until the payment is completed.<br>**Default**: `False` |
+| `include_partial` | `bool` | Query, Optional | Indicates whether or not to include partial payments in the response. Partial payments will have the tenders collected so far, but the itemizations will be empty until the payment is completed. |
 
 ## Response Type
 

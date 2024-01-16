@@ -214,13 +214,13 @@ class CustomersApi(BaseApi):
         """Does a DELETE request to /v2/customers/{customer_id}.
 
         Deletes a customer profile from a business. This operation also
-        unlinks any associated cards on file. 
+        unlinks any associated cards on file.
         As a best practice, include the `version` field in the request to
         enable [optimistic
         concurrency](https://developer.squareup.com/docs/build-basics/common-ap
         i-patterns/optimistic-concurrency) control.
         If included, the value must be set to the current version of the
-        customer profile. 
+        customer profile.
         To delete a customer profile that was created by merging existing
         profiles, you must use the ID of the newly created profile.
 
@@ -317,7 +317,7 @@ class CustomersApi(BaseApi):
         Updates a customer profile. This endpoint supports sparse updates, so
         only new or changed fields are required in the request.
         To add or update a field, specify the new value. To remove a field,
-        specify `null` and include the `X-Clear-Null` header set to `true`
+        specify `null`
         (recommended) or specify an empty string (string fields only).
         As a best practice, include the `version` field in the request to
         enable [optimistic
