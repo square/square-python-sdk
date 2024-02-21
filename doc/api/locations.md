@@ -19,7 +19,7 @@ locations_api = client.locations
 # List Locations
 
 Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
-including those with an inactive status.
+including those with an inactive status. Locations are listed alphabetically by `name`.
 
 ```python
 def list_locations(self)

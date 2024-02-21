@@ -9,8 +9,6 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from square.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from apimatic_core.authentication.multiple.and_auth_group import And
-from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class CheckoutApi(BaseApi):
@@ -262,8 +260,8 @@ class CheckoutApi(BaseApi):
                 next set of results for the original query. If a cursor is not
                 provided, the endpoint returns the first page of the results.
                 For more  information, see
-                [Pagination](https://developer.squareup.com/docs/basics/api101/
-                pagination).
+                [Pagination](https://developer.squareup.com/docs/build-basics/c
+                ommon-api-patterns/pagination).
             limit (int, optional): A limit on the number of results to return
                 per page. The limit is advisory and the implementation might
                 return more or less results. If the supplied limit is

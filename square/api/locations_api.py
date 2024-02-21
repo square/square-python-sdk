@@ -8,8 +8,6 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from square.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from apimatic_core.authentication.multiple.and_auth_group import And
-from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class LocationsApi(BaseApi):
@@ -23,7 +21,8 @@ class LocationsApi(BaseApi):
 
         Provides details about all of the seller's
         [locations](https://developer.squareup.com/docs/locations-api),
-        including those with an inactive status.
+        including those with an inactive status. Locations are listed
+        alphabetically by `name`.
 
         Returns:
             ApiResponse: An object with the response value as well as other

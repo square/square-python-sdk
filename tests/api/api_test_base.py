@@ -12,6 +12,9 @@ class ApiTestBase(unittest.TestCase):
     """All test classes inherit from this base class. It abstracts out
     common functionality and configuration variables set up."""
 
+    client = None
+    config = None
+
     @classmethod
     def setUpClass(cls):
         """Class method called once before running tests in a test class."""
@@ -19,7 +22,6 @@ class ApiTestBase(unittest.TestCase):
         cls.assert_precision = 0.01
         cls.config = ApiTestBase.create_configuration()
         cls.client = Client(config=cls.config)
-        cls.auth_managers = cls.client.auth_managers
 
     @staticmethod
     def create_configuration():

@@ -17,13 +17,12 @@ class BaseApi(object):
         http_call_back (HttpCallBack): An object which holds call back
             methods to be called before and after the execution of an HttpRequest.
         new_api_call_builder (APICall): Returns the API Call builder instance.
-        auth_managers (dict): A dictionary which holds the instances of authentication managers.
 
     """
 
     @staticmethod
     def user_agent():
-        return 'Square-Python-SDK/34.0.1.20240118 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        return 'Square-Python-SDK/35.0.0.20240222 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
 
     @staticmethod
     def user_agent_parameters():
@@ -34,8 +33,7 @@ class BaseApi(object):
         }
 
     def __init__(self, config):
-        self._global_config = config
-        self._config = self._global_config.get_http_client_configuration()
+        self._config = config.get_http_client_configuration()
         self._http_call_back = self.config.http_callback
         self.api_call = ApiCall(config)
 
@@ -50,7 +48,3 @@ class BaseApi(object):
     @property
     def new_api_call_builder(self):
         return self.api_call.new_builder
-
-    @property
-    def auth_managers(self):
-        return self._global_config.get_auth_managers()

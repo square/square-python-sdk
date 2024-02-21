@@ -52,14 +52,13 @@ from square.api.webhook_subscriptions_api import WebhookSubscriptionsApi
 
 
 class Client(object):
-
     @staticmethod
     def sdk_version():
-        return '34.0.1.20240118'
+        return '35.0.0.20240222'
 
     @staticmethod
     def square_version():
-        return '2024-01-18'
+        return '2024-02-22'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -231,29 +230,23 @@ class Client(object):
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=[408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
-                 retry_methods=['GET', 'PUT'], environment='production',
-                 custom_url='https://connect.squareup.com', access_token='',
-                 square_version='2024-01-18', additional_headers={},
-                 user_agent_detail='', config=None):
-        if config is None:
-            self.config = Configuration(
-                                         http_client_instance=http_client_instance,
-                                         override_http_client_configuration=override_http_client_configuration,
-                                         http_call_back=http_call_back,
-                                         timeout=timeout,
-                                         max_retries=max_retries,
-                                         backoff_factor=backoff_factor,
-                                         retry_statuses=retry_statuses,
-                                         retry_methods=retry_methods,
-                                         environment=environment,
-                                         custom_url=custom_url,
-                                         access_token=access_token,
-                                         square_version=square_version,
-                                         additional_headers=additional_headers,
-                                         user_agent_detail=user_agent_detail)
-        else:
-            self.config = config
+                 retry_statuses=None, retry_methods=None,
+                 environment='production',
+                 custom_url='https://connect.squareup.com', access_token=None,
+                 bearer_auth_credentials=None, square_version='2024-02-22',
+                 additional_headers={}, user_agent_detail='', config=None):
+        self.config = config or Configuration(
+            http_client_instance=http_client_instance,
+            override_http_client_configuration=override_http_client_configuration,
+            http_call_back=http_call_back, timeout=timeout,
+            max_retries=max_retries, backoff_factor=backoff_factor,
+            retry_statuses=retry_statuses, retry_methods=retry_methods,
+            environment=environment, custom_url=custom_url,
+            access_token=access_token,
+            bearer_auth_credentials=bearer_auth_credentials,
+            square_version=square_version,
+            additional_headers=additional_headers,
+            user_agent_detail=user_agent_detail)
 
         additional_user_agent_parameters = { 
                 'api-version': {'value': self.config.square_version, 'encode': False},
@@ -265,12 +258,8 @@ class Client(object):
             .additional_headers(self.config.additional_headers)\
             .global_header('Square-Version', self.config.square_version)
 
-        self.initialize_auth_managers(self.global_configuration)
-
+        self.auth_managers = {key: None for key in ['global']}
+        self.auth_managers['global'] = OAuth2(
+            self.config.bearer_auth_credentials)
         self.global_configuration = self.global_configuration.auth_managers(self.auth_managers)
 
-    def initialize_auth_managers(self, global_config):
-        http_client_config = global_config.get_http_client_configuration()
-        self.auth_managers = { key: None for key in ['global']}
-        self.auth_managers['global'] = OAuth2(http_client_config.access_token)
-        return self.auth_managers
