@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `str` | Square Connect API versions<br>*Default*: `'2024-01-18'` |
+| `square_version` | `str` | Square Connect API versions<br>*Default*: `'2024-02-22'` |
 | `custom_url` | `str` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
@@ -18,15 +18,16 @@ The following parameters are configurable for the API Client:
 | `retry_methods` | `Array of string` | The http methods on which retry is to be done. <br> **Default: ['GET', 'PUT']** |
 | `additional_headers` | `dict` | Additional headers to add to each API request |
 | `user_agent_detail` | `string` | User agent detail, to be appended with user-agent header. |
-| `access_token` | `str` | The OAuth 2.0 Access Token to use for API requests. |
+| `bearer_auth_credentials` | [`BearerAuthCredentials`](auth/oauth-2-bearer-token.md) | The credential object for OAuth 2 Bearer token |
 
 The API client can be initialized as follows:
 
 ```python
-from square.client import Client
 client = Client(
-    square_version='2024-01-18',
-    access_token='AccessToken'
+    square_version='2024-02-22',
+    bearer_auth_credentials=BearerAuthCredentials(
+        access_token='AccessToken'
+    )
 )
 ```
 
@@ -46,10 +47,14 @@ API calls return an `ApiResponse` object that includes the following fields:
 ## Make Calls with the API Client
 
 ```python
+from square.http.auth.o_auth_2 import BearerAuthCredentials
 from square.client import Client
+
 client = Client(
-    square_version='2024-01-18',
-    access_token='AccessToken'
+    square_version='2024-02-22',
+    bearer_auth_credentials=BearerAuthCredentials(
+        access_token='AccessToken'
+    )
 )
 
 locations_api = client.locations

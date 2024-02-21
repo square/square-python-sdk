@@ -9,8 +9,6 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from square.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from apimatic_core.authentication.multiple.and_auth_group import And
-from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class InvoicesApi(BaseApi):
@@ -512,9 +510,13 @@ class InvoicesApi(BaseApi):
         The invoice `status` also changes from `DRAFT` to a status 
         based on the invoice configuration. For example, the status changes to
         `UNPAID` if 
-        Square emails the invoice or `PARTIALLY_PAID` if Square charge a card
+        Square emails the invoice or `PARTIALLY_PAID` if Square charges a card
         on file for a portion of the 
         invoice amount.
+        In addition to the required `ORDERS_WRITE` and `INVOICES_WRITE`
+        permissions, `CUSTOMERS_READ`
+        and `PAYMENTS_WRITE` are required when publishing invoices configured
+        for card-on-file payments.
 
         Args:
             invoice_id (str): The ID of the invoice to publish.

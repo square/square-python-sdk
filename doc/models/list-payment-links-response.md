@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `errors` | [`List Error`](../../doc/models/error.md) | Optional | Errors that occurred during the request. |
 | `payment_links` | [`List Payment Link`](../../doc/models/payment-link.md) | Optional | The list of payment links. |
-| `cursor` | `str` | Optional | When a response is truncated, it includes a cursor that you can use in a subsequent request<br>to retrieve the next set of gift cards. If a cursor is not present, this is the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
+| `cursor` | `str` | Optional | When a response is truncated, it includes a cursor that you can use in a subsequent request<br>to retrieve the next set of gift cards. If a cursor is not present, this is the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 
 ## Example (as JSON)
 

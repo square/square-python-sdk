@@ -9,8 +9,6 @@ from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from square.http.http_method_enum import HttpMethodEnum
 from apimatic_core.authentication.multiple.single_auth import Single
-from apimatic_core.authentication.multiple.and_auth_group import And
-from apimatic_core.authentication.multiple.or_auth_group import Or
 
 
 class CustomersApi(BaseApi):
@@ -153,6 +151,199 @@ class CustomersApi(BaseApi):
             .convertor(ApiResponse.create)
         ).execute()
 
+    def bulk_create_customers(self,
+                              body):
+        """Does a POST request to /v2/customers/bulk-create.
+
+        Creates multiple [customer profiles]($m/Customer) for a business.
+        This endpoint takes a map of individual create requests and returns a
+        map of responses.
+        You must provide at least one of the following values in each create
+        request:
+        - `given_name`
+        - `family_name`
+        - `company_name`
+        - `email_address`
+        - `phone_number`
+
+        Args:
+            body (BulkCreateCustomersRequest): An object containing the fields
+                to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/bulk-create')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def bulk_delete_customers(self,
+                              body):
+        """Does a POST request to /v2/customers/bulk-delete.
+
+        Deletes multiple customer profiles.
+        The endpoint takes a list of customer IDs and returns a map of
+        responses.
+
+        Args:
+            body (BulkDeleteCustomersRequest): An object containing the fields
+                to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/bulk-delete')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def bulk_retrieve_customers(self,
+                                body):
+        """Does a POST request to /v2/customers/bulk-retrieve.
+
+        Retrieves multiple customer profiles.
+        This endpoint takes a list of customer IDs and returns a map of
+        responses.
+
+        Args:
+            body (BulkRetrieveCustomersRequest): An object containing the
+                fields to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/bulk-retrieve')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
+    def bulk_update_customers(self,
+                              body):
+        """Does a POST request to /v2/customers/bulk-update.
+
+        Updates multiple customer profiles.
+        This endpoint takes a map of individual update requests and returns a
+        map of responses.
+        You cannot use this endpoint to change cards on file. To make changes,
+        use the [Cards API]($e/Cards) or [Gift Cards API]($e/GiftCards).
+
+        Args:
+            body (BulkUpdateCustomersRequest): An object containing the fields
+                to POST for the request.  See the corresponding object
+                definition for field details.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers. Success
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server('default')
+            .path('/v2/customers/bulk-update')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Single('global'))
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+            .convertor(ApiResponse.create)
+        ).execute()
+
     def search_customers(self,
                          body):
         """Does a POST request to /v2/customers/search.
@@ -215,12 +406,6 @@ class CustomersApi(BaseApi):
 
         Deletes a customer profile from a business. This operation also
         unlinks any associated cards on file.
-        As a best practice, include the `version` field in the request to
-        enable [optimistic
-        concurrency](https://developer.squareup.com/docs/build-basics/common-ap
-        i-patterns/optimistic-concurrency) control.
-        If included, the value must be set to the current version of the
-        customer profile.
         To delete a customer profile that was created by merging existing
         profiles, you must use the ID of the newly created profile.
 
@@ -317,14 +502,7 @@ class CustomersApi(BaseApi):
         Updates a customer profile. This endpoint supports sparse updates, so
         only new or changed fields are required in the request.
         To add or update a field, specify the new value. To remove a field,
-        specify `null`
-        (recommended) or specify an empty string (string fields only).
-        As a best practice, include the `version` field in the request to
-        enable [optimistic
-        concurrency](https://developer.squareup.com/docs/build-basics/common-ap
-        i-patterns/optimistic-concurrency) control.
-        If included, the value must be set to the current version of the
-        customer profile.
+        specify `null`.
         To update a customer profile that was created by merging existing
         profiles, you must use the ID of the newly created profile.
         You cannot use this endpoint to change cards on file. To make changes,
