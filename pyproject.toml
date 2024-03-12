@@ -8,7 +8,7 @@ version = "35.0.0.20240222"
 readme = "README.md"
 requires-python = ">=3.7"
 authors = [{name = "Square Developer Platform", email = "developers@squareup.com"}]
-dependencies = ["apimatic-core~=0.2.0", "apimatic-core-interfaces~=0.1.0", "apimatic-requests-client-adapter~=0.1.0", "python-dateutil~=2.8.1", "deprecation~=2.1"]
+dependencies = ["apimatic-core~=0.2.0", "apimatic-core-interfaces~=0.1.0", "apimatic-requests-client-adapter~=0.1.0", "deprecation~=2.1"]
 [project.optional-dependencies]
 testutils = ["pytest>=7.2.2"]
 [tool.setuptools.packages.find]

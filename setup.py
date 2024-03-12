@@ -24,7 +24,6 @@ setup(
         'apimatic-core~=0.1.0',
         'apimatic-core-interfaces~=0.1.0',
         'apimatic-requests-client-adapter~=0.1.0',
-        'python-dateutil~=2.8.1',
         'deprecation~=2.1'
     ],
     tests_require=[
