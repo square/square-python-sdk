@@ -80,7 +80,7 @@ The required input must include the following:
 
 - `Booking.location_id`
 - `Booking.start_at`
-- `Booking.team_member_id`
+- `Booking.AppointmentSegment.team_member_id`
 - `Booking.AppointmentSegment.service_variation_id`
 - `Booking.AppointmentSegment.service_variation_version`
 
