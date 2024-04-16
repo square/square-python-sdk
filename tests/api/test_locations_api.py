@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import json
-import dateutil.parser
 
 from tests.api.api_test_base import ApiTestBase
 from apimatic_core.utilities.comparison_helper import ComparisonHelper

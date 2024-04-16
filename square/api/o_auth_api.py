@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from deprecation import deprecated
 from square.api_helper import APIHelper
 from square.http.api_response import ApiResponse
 from square.api.base_api import BaseApi
@@ -15,85 +14,6 @@ class OAuthApi(BaseApi):
     """A Controller to access Endpoints in the square API."""
     def __init__(self, config):
         super(OAuthApi, self).__init__(config)
-
-    @deprecated()
-    def renew_token(self,
-                    client_id,
-                    body,
-                    authorization):
-        """Does a POST request to /oauth2/clients/{client_id}/access-token/renew.
-
-        `RenewToken` is deprecated. For information about refreshing OAuth
-        access tokens, see
-        [Migrate from Renew to Refresh OAuth
-        Tokens](https://developer.squareup.com/docs/oauth-api/migrate-to-refres
-        h-tokens).
-        Renews an OAuth access token before it expires.
-        OAuth access tokens besides your application's personal access token
-        expire after 30 days.
-        You can also renew expired tokens within 15 days of their expiration.
-        You cannot renew an access token that has been expired for more than
-        15 days.
-        Instead, the associated user must recomplete the OAuth flow from the
-        beginning.
-        __Important:__ The `Authorization` header for this endpoint must have
-        the
-        following format:
-        ```
-        Authorization: Client APPLICATION_SECRET
-        ```
-        Replace `APPLICATION_SECRET` with the application secret on the
-        **Credentials**
-        page in the [Developer
-        Dashboard](https://developer.squareup.com/apps).
-
-        Args:
-            client_id (str): Your application ID, which is available on the
-                **OAuth** page in the [Developer
-                Dashboard](https://developer.squareup.com/apps).
-            body (RenewTokenRequest): An object containing the fields to POST
-                for the request.  See the corresponding object definition for
-                field details.
-            authorization (str): Client APPLICATION_SECRET
-
-        Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers. Success
-
-        Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
-
-        """
-
-        return super().new_api_call_builder.request(
-            RequestBuilder().server('default')
-            .path('/oauth2/clients/{client_id}/access-token/renew')
-            .http_method(HttpMethodEnum.POST)
-            .template_param(Parameter()
-                            .key('client_id')
-                            .value(client_id)
-                            .should_encode(True))
-            .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
-            .body_param(Parameter()
-                        .value(body))
-            .header_param(Parameter()
-                          .key('Authorization')
-                          .value(authorization))
-            .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .body_serializer(APIHelper.json_serialize)
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True)
-            .convertor(ApiResponse.create)
-        ).execute()
 
     def revoke_token(self,
                      body,
