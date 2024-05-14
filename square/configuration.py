@@ -45,7 +45,7 @@ class Configuration(HttpClientConfiguration):
                  retry_statuses=None, retry_methods=None,
                  environment='production',
                  custom_url='https://connect.squareup.com', access_token=None,
-                 bearer_auth_credentials=None, square_version='2024-04-17',
+                 bearer_auth_credentials=None, square_version='2024-05-15',
                  additional_headers={}, user_agent_detail=''):
         if retry_methods is None:
             retry_methods = ['GET', 'PUT']
@@ -53,8 +53,10 @@ class Configuration(HttpClientConfiguration):
         if retry_statuses is None:
             retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]
 
-        super().__init__(http_client_instance, override_http_client_configuration, http_call_back, timeout, max_retries,
-                         backoff_factor, retry_statuses, retry_methods)
+        super().__init__(http_client_instance,
+                         override_http_client_configuration, http_call_back,
+                         timeout, max_retries, backoff_factor, retry_statuses,
+                         retry_methods)
 
         # Current API environment
         self._environment = environment
