@@ -23,6 +23,7 @@ from square.api.customer_segments_api import CustomerSegmentsApi
 from square.api.devices_api import DevicesApi
 from square.api.disputes_api import DisputesApi
 from square.api.employees_api import EmployeesApi
+from square.api.events_api import EventsApi
 from square.api.gift_cards_api import GiftCardsApi
 from square.api.gift_card_activities_api import GiftCardActivitiesApi
 from square.api.inventory_api import InventoryApi
@@ -54,11 +55,11 @@ from square.api.webhook_subscriptions_api import WebhookSubscriptionsApi
 class Client(object):
     @staticmethod
     def sdk_version():
-        return '37.0.0.20240515'
+        return '37.1.0.20240604'
 
     @staticmethod
     def square_version():
-        return '2024-05-15'
+        return '2024-06-04'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -130,6 +131,10 @@ class Client(object):
     @LazyProperty
     def employees(self):
         return EmployeesApi(self.global_configuration)
+
+    @LazyProperty
+    def events(self):
+        return EventsApi(self.global_configuration)
 
     @LazyProperty
     def gift_cards(self):
@@ -233,7 +238,7 @@ class Client(object):
                  retry_statuses=None, retry_methods=None,
                  environment='production',
                  custom_url='https://connect.squareup.com', access_token=None,
-                 bearer_auth_credentials=None, square_version='2024-05-15',
+                 bearer_auth_credentials=None, square_version='2024-06-04',
                  additional_headers={}, user_agent_detail='', config=None):
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
