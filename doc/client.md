@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `square_version` | `str` | Square Connect API versions<br>*Default*: `'2024-05-15'` |
+| `square_version` | `str` | Square Connect API versions<br>*Default*: `'2024-06-04'` |
 | `custom_url` | `str` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `http_client_instance` | `HttpClient` | The Http Client passed from the sdk user for making requests |
@@ -24,7 +24,7 @@ The API client can be initialized as follows:
 
 ```python
 client = Client(
-    square_version='2024-05-15',
+    square_version='2024-06-04',
     bearer_auth_credentials=BearerAuthCredentials(
         access_token='AccessToken'
     )
@@ -51,7 +51,7 @@ from square.http.auth.o_auth_2 import BearerAuthCredentials
 from square.client import Client
 
 client = Client(
-    square_version='2024-05-15',
+    square_version='2024-06-04',
     bearer_auth_credentials=BearerAuthCredentials(
         access_token='AccessToken'
     )
@@ -92,6 +92,7 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | devices | Gets DevicesApi |
 | disputes | Gets DisputesApi |
 | employees | Gets EmployeesApi |
+| events | Gets EventsApi |
 | gift_cards | Gets GiftCardsApi |
 | gift_card_activities | Gets GiftCardActivitiesApi |
 | inventory | Gets InventoryApi |

@@ -17,6 +17,7 @@ __all__ = [
     'devices_api',
     'disputes_api',
     'employees_api',
+    'events_api',
     'gift_cards_api',
     'gift_card_activities_api',
     'inventory_api',
