@@ -14,11 +14,11 @@ class OAuth2(HeaderAuth):
         return "BearerAuth: AccessToken is undefined."
 
     def __init__(self, bearer_auth_credentials):
-        auth_params = {}
         self._access_token = bearer_auth_credentials.access_token \
             if bearer_auth_credentials is not None else None
+        auth_params = {}
         if self._access_token:
-            auth_params["Authorization"] = "Bearer {}".format(self._access_token)
+            auth_params = {"Authorization": "Bearer {}".format(self._access_token)}
         super().__init__(auth_params=auth_params)
 
 
