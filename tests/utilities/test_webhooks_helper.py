@@ -16,6 +16,19 @@ class TestWebhooksHelper(TestCase):
                                                     self.NOTIFICATION_URL)
         self.assertTrue(is_valid)
 
+    def test_signature_validation_escaped_pass(self):
+
+        escpaedRequestBody = '{"data":{"type":"webhooks","id":">id<"}}'
+        newSignatureHeader = "Cxt7+aTi4rKgcA0bC4g9EHdVtLSDWdqccmL5MvihU4U="
+        signatureKey = "signature-key"
+        url = "https://webhook.site/webhooks"
+        
+        is_valid = is_valid_webhook_event_signature(escpaedRequestBody,
+                                                    newSignatureHeader,
+                                                    signatureKey,
+                                                    url)
+        self.assertTrue(is_valid)
+
     def test_signature_validation_url_mismatch(self):
         is_valid = is_valid_webhook_event_signature(self.REQUEST_BODY,
                                                     self.SIGNATURE_HEADER,
