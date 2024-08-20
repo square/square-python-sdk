@@ -25,7 +25,10 @@ class PaymentsApi(BaseApi):
                       total=None,
                       last_4=None,
                       card_brand=None,
-                      limit=None):
+                      limit=None,
+                      is_offline_payment=False,
+                      offline_begin_time=None,
+                      offline_end_time=None):
         """Does a GET request to /v2/payments.
 
         Retrieves a list of payments taken by the account making the request.
@@ -66,6 +69,22 @@ class PaymentsApi(BaseApi):
                 value of 100 is also the maximum allowed value. If the
                 provided value is  greater than 100, it is ignored and the
                 default value is used instead.  Default: `100`
+            is_offline_payment (bool, optional): Whether the payment was taken
+                offline or not.
+            offline_begin_time (str, optional): Indicates the start of the
+                time range for which to retrieve offline payments, in RFC 3339
+                format for timestamps. The range is determined using the
+                `offline_payment_details.client_created_at` field for each
+                Payment. If set, payments without a value set in
+                `offline_payment_details.client_created_at` will not be
+                returned.  Default: The current time.
+            offline_end_time (str, optional): Indicates the end of the time
+                range for which to retrieve offline payments, in RFC 3339
+                format for timestamps. The range is determined using the
+                `offline_payment_details.client_created_at` field for each
+                Payment. If set, payments without a value set in
+                `offline_payment_details.client_created_at` will not be
+                returned.  Default: The current time.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -110,6 +129,15 @@ class PaymentsApi(BaseApi):
             .query_param(Parameter()
                          .key('limit')
                          .value(limit))
+            .query_param(Parameter()
+                         .key('is_offline_payment')
+                         .value(is_offline_payment))
+            .query_param(Parameter()
+                         .key('offline_begin_time')
+                         .value(offline_begin_time))
+            .query_param(Parameter()
+                         .key('offline_end_time')
+                         .value(offline_end_time))
             .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))

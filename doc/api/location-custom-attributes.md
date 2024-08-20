@@ -53,7 +53,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = location_custom_attributes_api.list_location_custom_attribute_definitions()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -100,7 +99,6 @@ body = {
 }
 
 result = location_custom_attributes_api.create_location_custom_attribute_definition(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -137,7 +135,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = location_custom_attributes_api.delete_location_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -175,7 +172,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = location_custom_attributes_api.retrieve_location_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -224,7 +220,6 @@ result = location_custom_attributes_api.update_location_custom_attribute_definit
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -272,7 +267,6 @@ body = {
 }
 
 result = location_custom_attributes_api.bulk_delete_location_custom_attributes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -326,7 +320,6 @@ body = {
 }
 
 result = location_custom_attributes_api.bulk_upsert_location_custom_attributes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -378,7 +371,6 @@ result = location_custom_attributes_api.list_location_custom_attributes(
     location_id,
     with_definitions=with_definitions
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -421,7 +413,6 @@ result = location_custom_attributes_api.delete_location_custom_attribute(
     location_id,
     key
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -473,7 +464,6 @@ result = location_custom_attributes_api.retrieve_location_custom_attribute(
     key,
     with_definition=with_definition
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -526,7 +516,6 @@ result = location_custom_attributes_api.upsert_location_custom_attribute(
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

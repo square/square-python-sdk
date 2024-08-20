@@ -38,7 +38,10 @@ def list_payments(self,
                  total=None,
                  last_4=None,
                  card_brand=None,
-                 limit=None)
+                 limit=None,
+                 is_offline_payment=False,
+                 offline_begin_time=None,
+                 offline_end_time=None)
 ```
 
 ## Parameters
@@ -54,6 +57,9 @@ def list_payments(self,
 | `last_4` | `str` | Query, Optional | The last four digits of a payment card. |
 | `card_brand` | `str` | Query, Optional | The brand of the payment card (for example, VISA). |
 | `limit` | `int` | Query, Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br><br>The default value of 100 is also the maximum allowed value. If the provided value is<br>greater than 100, it is ignored and the default value is used instead.<br><br>Default: `100` |
+| `is_offline_payment` | `bool` | Query, Optional | Whether the payment was taken offline or not. |
+| `offline_begin_time` | `str` | Query, Optional | Indicates the start of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. |
+| `offline_end_time` | `str` | Query, Optional | Indicates the end of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. |
 
 ## Response Type
 
@@ -62,8 +68,11 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 ## Example Usage
 
 ```python
-result = payments_api.list_payments()
-print(result)
+is_offline_payment = False
+
+result = payments_api.list_payments(
+    is_offline_payment=is_offline_payment
+)
 
 if result.is_success():
     print(result.body)
@@ -120,7 +129,6 @@ body = {
 }
 
 result = payments_api.create_payment(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -166,7 +174,6 @@ body = {
 }
 
 result = payments_api.cancel_payment_by_idempotency_key(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -200,7 +207,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 payment_id = 'payment_id0'
 
 result = payments_api.get_payment(payment_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -255,7 +261,6 @@ result = payments_api.update_payment(
     payment_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -290,7 +295,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 payment_id = 'payment_id0'
 
 result = payments_api.cancel_payment(payment_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -334,7 +338,6 @@ result = payments_api.complete_payment(
     payment_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

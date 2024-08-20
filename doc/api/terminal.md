@@ -63,7 +63,6 @@ body = {
 }
 
 result = terminal_api.create_terminal_action(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -109,7 +108,6 @@ body = {
 }
 
 result = terminal_api.search_terminal_actions(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -143,7 +141,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 action_id = 'action_id6'
 
 result = terminal_api.get_terminal_action(action_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -177,7 +174,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 action_id = 'action_id6'
 
 result = terminal_api.cancel_terminal_action(action_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -213,7 +209,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 action_id = 'action_id6'
 
 result = terminal_api.dismiss_terminal_action(action_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -261,7 +256,6 @@ body = {
 }
 
 result = terminal_api.create_terminal_checkout(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -302,7 +296,6 @@ body = {
 }
 
 result = terminal_api.search_terminal_checkouts(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -336,7 +329,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 checkout_id = 'checkout_id8'
 
 result = terminal_api.get_terminal_checkout(checkout_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -370,7 +362,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 checkout_id = 'checkout_id8'
 
 result = terminal_api.cancel_terminal_checkout(checkout_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -404,7 +395,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 checkout_id = 'checkout_id8'
 
 result = terminal_api.dismiss_terminal_checkout(checkout_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -449,7 +439,6 @@ body = {
 }
 
 result = terminal_api.create_terminal_refund(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -490,7 +479,6 @@ body = {
 }
 
 result = terminal_api.search_terminal_refunds(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -524,7 +512,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 terminal_refund_id = 'terminal_refund_id0'
 
 result = terminal_api.get_terminal_refund(terminal_refund_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -558,7 +545,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 terminal_refund_id = 'terminal_refund_id0'
 
 result = terminal_api.cancel_terminal_refund(terminal_refund_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -592,7 +578,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 terminal_refund_id = 'terminal_refund_id0'
 
 result = terminal_api.dismiss_terminal_refund(terminal_refund_id)
-print(result)
 
 if result.is_success():
     print(result.body)

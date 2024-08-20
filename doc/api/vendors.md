@@ -49,7 +49,6 @@ body = {
 }
 
 result = vendors_api.bulk_create_vendors(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -87,7 +86,6 @@ body = {
 }
 
 result = vendors_api.bulk_retrieve_vendors(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -130,7 +128,6 @@ body = {
 }
 
 result = vendors_api.bulk_update_vendors(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -166,7 +163,6 @@ body = {
 }
 
 result = vendors_api.create_vendor(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -200,7 +196,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = {}
 
 result = vendors_api.search_vendors(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -234,7 +229,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 vendor_id = 'vendor_id8'
 
 result = vendors_api.retrieve_vendor(vendor_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -283,7 +277,6 @@ result = vendors_api.update_vendor(
     body,
     vendor_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)

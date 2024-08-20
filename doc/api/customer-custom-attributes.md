@@ -52,7 +52,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = customer_custom_attributes_api.list_customer_custom_attribute_definitions()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -103,7 +102,6 @@ body = {
 }
 
 result = customer_custom_attributes_api.create_customer_custom_attribute_definition(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -142,7 +140,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = customer_custom_attributes_api.delete_customer_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -182,7 +179,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = customer_custom_attributes_api.retrieve_customer_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -234,7 +230,6 @@ result = customer_custom_attributes_api.update_customer_custom_attribute_definit
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -292,7 +287,6 @@ body = {
 }
 
 result = customer_custom_attributes_api.bulk_upsert_customer_custom_attributes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -344,7 +338,6 @@ result = customer_custom_attributes_api.list_customer_custom_attributes(
     customer_id,
     with_definitions=with_definitions
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -389,7 +382,6 @@ result = customer_custom_attributes_api.delete_customer_custom_attribute(
     customer_id,
     key
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -444,7 +436,6 @@ result = customer_custom_attributes_api.retrieve_customer_custom_attribute(
     key,
     with_definition=with_definition
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -500,7 +491,6 @@ result = customer_custom_attributes_api.upsert_customer_custom_attribute(
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

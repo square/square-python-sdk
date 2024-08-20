@@ -63,7 +63,6 @@ body = {
 }
 
 result = loyalty_api.create_loyalty_account(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -110,7 +109,6 @@ body = {
 }
 
 result = loyalty_api.search_loyalty_accounts(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -144,7 +142,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 account_id = 'account_id2'
 
 result = loyalty_api.retrieve_loyalty_account(account_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -204,7 +201,6 @@ result = loyalty_api.accumulate_loyalty_points(
     account_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -255,7 +251,6 @@ result = loyalty_api.adjust_loyalty_points(
     account_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -305,7 +300,6 @@ body = {
 }
 
 result = loyalty_api.search_loyalty_events(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -335,7 +329,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = loyalty_api.list_loyalty_programs()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -371,7 +364,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 program_id = 'program_id0'
 
 result = loyalty_api.retrieve_loyalty_program(program_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -429,7 +421,6 @@ result = loyalty_api.calculate_loyalty_points(
     program_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -470,7 +461,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 program_id = 'program_id0'
 
 result = loyalty_api.list_loyalty_promotions(program_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -543,7 +533,6 @@ result = loyalty_api.create_loyalty_promotion(
     program_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -584,7 +573,6 @@ result = loyalty_api.retrieve_loyalty_promotion(
     promotion_id,
     program_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -630,7 +618,6 @@ result = loyalty_api.cancel_loyalty_promotion(
     promotion_id,
     program_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -678,7 +665,6 @@ body = {
 }
 
 result = loyalty_api.create_loyalty_reward(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -723,7 +709,6 @@ body = {
 }
 
 result = loyalty_api.search_loyalty_rewards(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -765,7 +750,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 reward_id = 'reward_id4'
 
 result = loyalty_api.delete_loyalty_reward(reward_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -799,7 +783,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 reward_id = 'reward_id4'
 
 result = loyalty_api.retrieve_loyalty_reward(reward_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -853,7 +836,6 @@ result = loyalty_api.redeem_loyalty_reward(
     reward_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

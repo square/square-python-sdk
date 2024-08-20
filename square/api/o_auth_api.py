@@ -7,6 +7,7 @@ from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 from square.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
 
 
 class OAuthApi(BaseApi):
@@ -139,8 +140,7 @@ class OAuthApi(BaseApi):
             .convertor(ApiResponse.create)
         ).execute()
 
-    def retrieve_token_status(self,
-                              authorization):
+    def retrieve_token_status(self):
         """Does a POST request to /oauth2/token/status.
 
         Returns information about an [OAuth access
@@ -161,9 +161,6 @@ class OAuthApi(BaseApi):
         If the access token is expired or not a valid access token, the
         endpoint returns an `UNAUTHORIZED` error.
 
-        Args:
-            authorization (str): Client APPLICATION_SECRET
-
         Returns:
             ApiResponse: An object with the response value as well as other
                 useful information such as status codes and headers. Success
@@ -181,11 +178,9 @@ class OAuthApi(BaseApi):
             .path('/oauth2/token/status')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('Authorization')
-                          .value(authorization))
-            .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))
+            .auth(Single('global'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)

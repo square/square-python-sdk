@@ -27,7 +27,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = sites_api.list_sites()
-print(result)
 
 if result.is_success():
     print(result.body)

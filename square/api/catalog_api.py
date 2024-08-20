@@ -36,9 +36,9 @@ class CatalogApi(BaseApi):
         IDs can be deleted. The response will only include IDs that were
         actually deleted.
         To ensure consistency, only one delete request is processed at a time
-        per seller account.  
+        per seller account.
         While one (batch or non-batch) delete request is being processed,
-        other (batched and non-batched) 
+        other (batched and non-batched)
         delete requests are rejected with the `429` error code.
 
         Args:
@@ -152,9 +152,9 @@ class CatalogApi(BaseApi):
         no more
         than 10,000.
         To ensure consistency, only one update request is processed at a time
-        per seller account.  
+        per seller account.
         While one (batch or non-batch) update request is being processed,
-        other (batched and non-batched) 
+        other (batched and non-batched)
         update requests are rejected with the `429` error code.
 
         Args:
@@ -259,7 +259,7 @@ class CatalogApi(BaseApi):
         """Does a PUT request to /v2/catalog/images/{image_id}.
 
         Uploads a new image file to replace the existing one in the specified
-        [CatalogImage]($m/CatalogImage) object. 
+        [CatalogImage]($m/CatalogImage) object.
         This `UpdateCatalogImage` endpoint accepts HTTP multipart/form-data
         requests with a JSON part and an image file part in
         JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
@@ -352,9 +352,9 @@ class CatalogApi(BaseApi):
         """Does a GET request to /v2/catalog/list.
 
         Returns a list of all [CatalogObject]($m/CatalogObject)s of the
-        specified types in the catalog. 
+        specified types in the catalog.
         The `types` parameter is specified as a comma-separated list of the
-        [CatalogObjectType]($m/CatalogObjectType) values, 
+        [CatalogObjectType]($m/CatalogObjectType) values,
         for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`,
         `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
         __Important:__ ListCatalog does not return deleted catalog items. To
@@ -434,9 +434,9 @@ class CatalogApi(BaseApi):
         Creates a new or updates the specified
         [CatalogObject]($m/CatalogObject).
         To ensure consistency, only one update request is processed at a time
-        per seller account.  
+        per seller account.
         While one (batch or non-batch) update request is being processed,
-        other (batched and non-batched) 
+        other (batched and non-batched)
         update requests are rejected with the `429` error code.
 
         Args:
@@ -491,9 +491,9 @@ class CatalogApi(BaseApi):
         will also delete all of its
         [CatalogItemVariation]($m/CatalogItemVariation) children.
         To ensure consistency, only one delete request is processed at a time
-        per seller account.  
+        per seller account.
         While one (batch or non-batch) delete request is being processed,
-        other (batched and non-batched) 
+        other (batched and non-batched)
         delete requests are rejected with the `429` error code.
 
         Args:

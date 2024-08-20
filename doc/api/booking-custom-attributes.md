@@ -51,7 +51,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = booking_custom_attributes_api.list_booking_custom_attribute_definitions()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -93,7 +92,6 @@ body = {
 }
 
 result = booking_custom_attributes_api.create_booking_custom_attribute_definition(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -133,7 +131,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = booking_custom_attributes_api.delete_booking_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -172,7 +169,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = booking_custom_attributes_api.retrieve_booking_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -221,7 +217,6 @@ result = booking_custom_attributes_api.update_booking_custom_attribute_definitio
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -272,7 +267,6 @@ body = {
 }
 
 result = booking_custom_attributes_api.bulk_delete_booking_custom_attributes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -323,7 +317,6 @@ body = {
 }
 
 result = booking_custom_attributes_api.bulk_upsert_booking_custom_attributes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -371,7 +364,6 @@ result = booking_custom_attributes_api.list_booking_custom_attributes(
     booking_id,
     with_definitions=with_definitions
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -418,7 +410,6 @@ result = booking_custom_attributes_api.delete_booking_custom_attribute(
     booking_id,
     key
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -469,7 +460,6 @@ result = booking_custom_attributes_api.retrieve_booking_custom_attribute(
     key,
     with_definition=with_definition
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -523,7 +513,6 @@ result = booking_custom_attributes_api.upsert_booking_custom_attribute(
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

@@ -68,7 +68,6 @@ body = {
 }
 
 result = team_api.create_team_member(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -138,7 +137,6 @@ body = {
 }
 
 result = team_api.bulk_create_team_members(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -211,7 +209,6 @@ body = {
 }
 
 result = team_api.bulk_update_team_members(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -259,7 +256,6 @@ body = {
 }
 
 result = team_api.search_team_members(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -294,7 +290,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 team_member_id = 'team_member_id0'
 
 result = team_api.retrieve_team_member(team_member_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -352,7 +347,6 @@ result = team_api.update_team_member(
     team_member_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -388,7 +382,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 team_member_id = 'team_member_id0'
 
 result = team_api.retrieve_wage_setting(team_member_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -456,7 +449,6 @@ result = team_api.update_wage_setting(
     team_member_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

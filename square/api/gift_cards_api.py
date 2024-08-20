@@ -101,11 +101,14 @@ class GiftCardsApi(BaseApi):
         """Does a POST request to /v2/gift-cards.
 
         Creates a digital gift card or registers a physical (plastic) gift
-        card. After the gift card 
-        is created, you must call
+        card. The resulting gift card
+        has a `PENDING` state. To activate a gift card so that it can be
+        redeemed for purchases, call
         [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity)
-                to activate the card with an initial balance before it can be used for
-        payment.
+        and create an `ACTIVATE`
+        activity with the initial balance. Alternatively, you can use
+        [RefundPayment]($e/Refunds/RefundPayment)
+        to refund a payment to the new gift card.
 
         Args:
             body (CreateGiftCardRequest): An object containing the fields to

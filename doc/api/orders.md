@@ -111,7 +111,6 @@ body = {
 }
 
 result = orders_api.create_order(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -153,7 +152,6 @@ body = {
 }
 
 result = orders_api.batch_retrieve_orders(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -216,7 +214,6 @@ body = {
 }
 
 result = orders_api.calculate_order(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -255,7 +252,6 @@ body = {
 }
 
 result = orders_api.clone_order(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -331,7 +327,6 @@ body = {
 }
 
 result = orders_api.search_orders(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -365,7 +360,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 order_id = 'order_id6'
 
 result = orders_api.retrieve_order(order_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -420,7 +414,6 @@ result = orders_api.update_order(
     order_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -480,7 +473,6 @@ result = orders_api.pay_order(
     order_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

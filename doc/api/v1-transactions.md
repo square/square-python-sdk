@@ -48,7 +48,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 location_id = 'location_id4'
 
 result = v1_transactions_api.v1_list_orders(location_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -91,7 +90,6 @@ result = v1_transactions_api.v1_retrieve_order(
     location_id,
     order_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -141,7 +139,6 @@ result = v1_transactions_api.v1_update_order(
     order_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

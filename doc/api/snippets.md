@@ -44,7 +44,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 site_id = 'site_id6'
 
 result = snippets_api.delete_snippet(site_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -82,7 +81,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 site_id = 'site_id6'
 
 result = snippets_api.retrieve_snippet(site_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -132,7 +130,6 @@ result = snippets_api.upsert_snippet(
     site_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

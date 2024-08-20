@@ -43,7 +43,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = employees_api.list_employees()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -77,7 +76,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = employees_api.retrieve_employee(id)
-print(result)
 
 if result.is_success():
     print(result.body)

@@ -53,7 +53,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = merchant_custom_attributes_api.list_merchant_custom_attribute_definitions()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -100,7 +99,6 @@ body = {
 }
 
 result = merchant_custom_attributes_api.create_merchant_custom_attribute_definition(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -137,7 +135,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = merchant_custom_attributes_api.delete_merchant_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -175,7 +172,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 key = 'key0'
 
 result = merchant_custom_attributes_api.retrieve_merchant_custom_attribute_definition(key)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -224,7 +220,6 @@ result = merchant_custom_attributes_api.update_merchant_custom_attribute_definit
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -269,7 +264,6 @@ body = {
 }
 
 result = merchant_custom_attributes_api.bulk_delete_merchant_custom_attributes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -323,7 +317,6 @@ body = {
 }
 
 result = merchant_custom_attributes_api.bulk_upsert_merchant_custom_attributes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -375,7 +368,6 @@ result = merchant_custom_attributes_api.list_merchant_custom_attributes(
     merchant_id,
     with_definitions=with_definitions
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -418,7 +410,6 @@ result = merchant_custom_attributes_api.delete_merchant_custom_attribute(
     merchant_id,
     key
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -470,7 +461,6 @@ result = merchant_custom_attributes_api.retrieve_merchant_custom_attribute(
     key,
     with_definition=with_definition
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -523,7 +513,6 @@ result = merchant_custom_attributes_api.upsert_merchant_custom_attribute(
     key,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

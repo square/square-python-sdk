@@ -46,7 +46,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = merchants_api.list_merchants()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -80,7 +79,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 merchant_id = 'merchant_id0'
 
 result = merchants_api.retrieve_merchant(merchant_id)
-print(result)
 
 if result.is_success():
     print(result.body)

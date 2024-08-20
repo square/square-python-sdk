@@ -47,7 +47,6 @@ body = {
 }
 
 result = mobile_authorization_api.create_mobile_authorization_code(body)
-print(result)
 
 if result.is_success():
     print(result.body)
