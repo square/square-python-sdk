@@ -63,7 +63,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = bookings_api.list_bookings()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -113,7 +112,6 @@ body = {
 }
 
 result = bookings_api.create_booking(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -156,7 +154,6 @@ body = {
 }
 
 result = bookings_api.search_availability(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -199,7 +196,6 @@ body = {
 }
 
 result = bookings_api.bulk_retrieve_bookings(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -224,7 +220,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = bookings_api.retrieve_business_booking_profile()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -258,7 +253,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = bookings_api.list_location_booking_profiles()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -292,7 +286,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 location_id = 'location_id4'
 
 result = bookings_api.retrieve_location_booking_profile(location_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -334,7 +327,6 @@ bookable_only = False
 result = bookings_api.list_team_member_booking_profiles(
     bookable_only=bookable_only
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -374,7 +366,6 @@ body = {
 }
 
 result = bookings_api.bulk_retrieve_team_member_booking_profiles(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -408,7 +399,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 team_member_id = 'team_member_id0'
 
 result = bookings_api.retrieve_team_member_booking_profile(team_member_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -445,7 +435,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 booking_id = 'booking_id4'
 
 result = bookings_api.retrieve_booking(booking_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -494,7 +483,6 @@ result = bookings_api.update_booking(
     booking_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -541,7 +529,6 @@ result = bookings_api.cancel_booking(
     booking_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

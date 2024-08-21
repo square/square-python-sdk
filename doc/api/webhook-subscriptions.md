@@ -43,7 +43,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = webhook_subscriptions_api.list_webhook_event_types()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -85,7 +84,6 @@ include_disabled = False
 result = webhook_subscriptions_api.list_webhook_subscriptions(
     include_disabled=include_disabled
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -130,7 +128,6 @@ body = {
 }
 
 result = webhook_subscriptions_api.create_webhook_subscription(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -164,7 +161,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 subscription_id = 'subscription_id0'
 
 result = webhook_subscriptions_api.delete_webhook_subscription(subscription_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -198,7 +194,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 subscription_id = 'subscription_id0'
 
 result = webhook_subscriptions_api.retrieve_webhook_subscription(subscription_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -244,7 +239,6 @@ result = webhook_subscriptions_api.update_webhook_subscription(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -287,7 +281,6 @@ result = webhook_subscriptions_api.update_webhook_subscription_signature_key(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -330,7 +323,6 @@ result = webhook_subscriptions_api.test_webhook_subscription(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

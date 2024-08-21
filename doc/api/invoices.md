@@ -53,7 +53,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 location_id = 'location_id4'
 
 result = invoices_api.list_invoices(location_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -140,7 +139,6 @@ body = {
 }
 
 result = invoices_api.create_invoice(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -195,7 +193,6 @@ body = {
 }
 
 result = invoices_api.search_invoices(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -233,7 +230,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 invoice_id = 'invoice_id0'
 
 result = invoices_api.delete_invoice(invoice_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -267,7 +263,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 invoice_id = 'invoice_id0'
 
 result = invoices_api.get_invoice(invoice_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -327,7 +322,6 @@ result = invoices_api.update_invoice(
     invoice_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -378,7 +372,6 @@ result = invoices_api.create_invoice_attachment(
     invoice_id,
     request=request
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -420,7 +413,6 @@ result = invoices_api.delete_invoice_attachment(
     invoice_id,
     attachment_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -466,7 +458,6 @@ result = invoices_api.cancel_invoice(
     invoice_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -523,7 +514,6 @@ result = invoices_api.publish_invoice(
     invoice_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

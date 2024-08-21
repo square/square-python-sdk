@@ -150,7 +150,6 @@ result = checkout_api.create_checkout(
     location_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -184,7 +183,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 location_id = 'location_id4'
 
 result = checkout_api.retrieve_location_settings(location_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -227,7 +225,6 @@ result = checkout_api.update_location_settings(
     location_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -252,7 +249,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = checkout_api.retrieve_merchant_settings()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -288,7 +284,6 @@ body = {
 }
 
 result = checkout_api.update_merchant_settings(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -322,7 +317,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = checkout_api.list_payment_links()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -366,7 +360,6 @@ body = {
 }
 
 result = checkout_api.create_payment_link(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -400,7 +393,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = checkout_api.delete_payment_link(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -434,7 +426,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = checkout_api.retrieve_payment_link(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -484,7 +475,6 @@ result = checkout_api.update_payment_link(
     id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

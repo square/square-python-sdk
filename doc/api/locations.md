@@ -33,7 +33,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = locations_api.list_locations()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -84,7 +83,6 @@ body = {
 }
 
 result = locations_api.create_location(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -119,7 +117,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 location_id = 'location_id4'
 
 result = locations_api.retrieve_location(location_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -183,7 +180,6 @@ result = locations_api.update_location(
     location_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

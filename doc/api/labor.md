@@ -55,7 +55,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = labor_api.list_break_types()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -110,7 +109,6 @@ body = {
 }
 
 result = labor_api.create_break_type(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -146,7 +144,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = labor_api.delete_break_type(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -180,7 +177,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = labor_api.get_break_type(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -229,7 +225,6 @@ result = labor_api.update_break_type(
     id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -267,7 +262,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = labor_api.list_employee_wages()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -303,7 +297,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = labor_api.get_employee_wage(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -385,7 +378,6 @@ body = {
 }
 
 result = labor_api.create_shift(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -448,7 +440,6 @@ body = {
 }
 
 result = labor_api.search_shifts(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -482,7 +473,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = labor_api.delete_shift(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -516,7 +506,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = labor_api.get_shift(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -594,7 +583,6 @@ result = labor_api.update_shift(
     id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -630,7 +618,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = labor_api.list_team_member_wages()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -664,7 +651,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = labor_api.get_team_member_wage(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -698,7 +684,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = labor_api.list_workweek_configs()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -745,7 +730,6 @@ result = labor_api.update_workweek_config(
     id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

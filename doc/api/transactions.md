@@ -56,7 +56,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 location_id = 'location_id4'
 
 result = transactions_api.list_transactions(location_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -99,7 +98,6 @@ result = transactions_api.retrieve_transaction(
     location_id,
     transaction_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -146,7 +144,6 @@ result = transactions_api.capture_transaction(
     location_id,
     transaction_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -193,7 +190,6 @@ result = transactions_api.void_transaction(
     location_id,
     transaction_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)

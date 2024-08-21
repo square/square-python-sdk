@@ -54,7 +54,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = gift_card_activities_api.list_gift_card_activities()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -66,8 +65,7 @@ elif result.is_error():
 # Create Gift Card Activity
 
 Creates a gift card activity to manage the balance or state of a [gift card](../../doc/models/gift-card.md).
-For example, you create an `ACTIVATE` activity to activate a gift card with an initial balance
-before the gift card can be used.
+For example, create an `ACTIVATE` activity to activate a gift card with an initial balance before first use.
 
 ```python
 def create_gift_card_activity(self,
@@ -101,7 +99,6 @@ body = {
 }
 
 result = gift_card_activities_api.create_gift_card_activity(body)
-print(result)
 
 if result.is_success():
     print(result.body)

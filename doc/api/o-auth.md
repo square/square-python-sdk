@@ -65,7 +65,6 @@ result = o_auth_api.revoke_token(
     body,
     authorization
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -122,7 +121,6 @@ body = {
 }
 
 result = o_auth_api.obtain_token(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -148,18 +146,9 @@ where `ACCESS_TOKEN` is a
 
 If the access token is expired or not a valid access token, the endpoint returns an `UNAUTHORIZED` error.
 
-:information_source: **Note** This endpoint does not require authentication.
-
 ```python
-def retrieve_token_status(self,
-                         authorization)
+def retrieve_token_status(self)
 ```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `authorization` | `str` | Header, Required | Client APPLICATION_SECRET |
 
 ## Response Type
 
@@ -168,10 +157,7 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 ## Example Usage
 
 ```python
-authorization = 'Client CLIENT_SECRET'
-
-result = o_auth_api.retrieve_token_status(authorization)
-print(result)
+result = o_auth_api.retrieve_token_status()
 
 if result.is_success():
     print(result.body)

@@ -47,7 +47,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = devices_api.list_devices()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -85,7 +84,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = devices_api.list_device_codes()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -127,7 +125,6 @@ body = {
 }
 
 result = devices_api.create_device_code(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -161,7 +158,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = devices_api.get_device_code(id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -195,7 +191,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 device_id = 'device_id6'
 
 result = devices_api.get_device(device_id)
-print(result)
 
 if result.is_success():
     print(result.body)

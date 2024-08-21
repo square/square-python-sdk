@@ -39,7 +39,7 @@ children.
 IDs can be deleted. The response will only include IDs that were
 actually deleted.
 
-To ensure consistency, only one delete request is processed at a time per seller account.  
+To ensure consistency, only one delete request is processed at a time per seller account.
 While one (batch or non-batch) delete request is being processed, other (batched and non-batched)
 delete requests are rejected with the `429` error code.
 
@@ -69,7 +69,6 @@ body = {
 }
 
 result = catalog_api.batch_delete_catalog_objects(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -114,7 +113,6 @@ body = {
 }
 
 result = catalog_api.batch_retrieve_catalog_objects(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -135,7 +133,7 @@ batches will be processed in order as long as the total object count for the
 request (items, variations, modifier lists, discounts, and taxes) is no more
 than 10,000.
 
-To ensure consistency, only one update request is processed at a time per seller account.  
+To ensure consistency, only one update request is processed at a time per seller account.
 While one (batch or non-batch) update request is being processed, other (batched and non-batched)
 update requests are rejected with the `429` error code.
 
@@ -269,7 +267,6 @@ body = {
 }
 
 result = catalog_api.batch_upsert_catalog_objects(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -322,7 +319,6 @@ request = {
 result = catalog_api.create_catalog_image(
     request=request
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -370,7 +366,6 @@ result = catalog_api.update_catalog_image(
     image_id,
     request=request
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -396,7 +391,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = catalog_api.catalog_info()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -439,7 +433,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = catalog_api.list_catalog()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -452,7 +445,7 @@ elif result.is_error():
 
 Creates a new or updates the specified [CatalogObject](../../doc/models/catalog-object.md).
 
-To ensure consistency, only one update request is processed at a time per seller account.  
+To ensure consistency, only one update request is processed at a time per seller account.
 While one (batch or non-batch) update request is being processed, other (batched and non-batched)
 update requests are rejected with the `429` error code.
 
@@ -512,7 +505,6 @@ body = {
 }
 
 result = catalog_api.upsert_catalog_object(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -530,7 +522,7 @@ are also deleted. For example, deleting a [CatalogItem](../../doc/models/catalog
 will also delete all of its
 [CatalogItemVariation](../../doc/models/catalog-item-variation.md) children.
 
-To ensure consistency, only one delete request is processed at a time per seller account.  
+To ensure consistency, only one delete request is processed at a time per seller account.
 While one (batch or non-batch) delete request is being processed, other (batched and non-batched)
 delete requests are rejected with the `429` error code.
 
@@ -555,7 +547,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 object_id = 'object_id8'
 
 result = catalog_api.delete_catalog_object(object_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -609,7 +600,6 @@ result = catalog_api.retrieve_catalog_object(
     include_related_objects=include_related_objects,
     include_category_path_to_root=include_category_path_to_root
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -663,7 +653,6 @@ body = {
 }
 
 result = catalog_api.search_catalog_objects(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -743,7 +732,6 @@ body = {
 }
 
 result = catalog_api.search_catalog_items(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -791,7 +779,6 @@ body = {
 }
 
 result = catalog_api.update_item_modifier_lists(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -838,7 +825,6 @@ body = {
 }
 
 result = catalog_api.update_item_taxes(body)
-print(result)
 
 if result.is_success():
     print(result.body)

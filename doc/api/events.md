@@ -41,7 +41,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = {}
 
 result = events_api.search_events(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -68,7 +67,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = events_api.disable_events()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -93,7 +91,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = events_api.enable_events()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -125,7 +122,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = events_api.list_event_types()
-print(result)
 
 if result.is_success():
     print(result.body)

@@ -39,7 +39,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = customer_segments_api.list_customer_segments()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -73,7 +72,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 segment_id = 'segment_id4'
 
 result = customer_segments_api.retrieve_customer_segment(segment_id)
-print(result)
 
 if result.is_success():
     print(result.body)

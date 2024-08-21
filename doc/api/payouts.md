@@ -52,7 +52,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = payouts_api.list_payouts()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -87,7 +86,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 payout_id = 'payout_id6'
 
 result = payouts_api.get_payout(payout_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -128,7 +126,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 payout_id = 'payout_id6'
 
 result = payouts_api.list_payout_entries(payout_id)
-print(result)
 
 if result.is_success():
     print(result.body)

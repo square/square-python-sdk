@@ -53,7 +53,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 adjustment_id = 'adjustment_id0'
 
 result = inventory_api.deprecated_retrieve_inventory_adjustment(adjustment_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -88,7 +87,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 adjustment_id = 'adjustment_id0'
 
 result = inventory_api.retrieve_inventory_adjustment(adjustment_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -142,7 +140,6 @@ body = {
 }
 
 result = inventory_api.deprecated_batch_change_inventory(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -194,7 +191,6 @@ body = {
 }
 
 result = inventory_api.deprecated_batch_retrieve_inventory_changes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -239,7 +235,6 @@ body = {
 }
 
 result = inventory_api.deprecated_batch_retrieve_inventory_counts(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -294,7 +289,6 @@ body = {
 }
 
 result = inventory_api.batch_change_inventory(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -350,7 +344,6 @@ body = {
 }
 
 result = inventory_api.batch_retrieve_inventory_changes(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -402,7 +395,6 @@ body = {
 }
 
 result = inventory_api.batch_retrieve_inventory_counts(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -439,7 +431,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 physical_count_id = 'physical_count_id2'
 
 result = inventory_api.deprecated_retrieve_inventory_physical_count(physical_count_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -474,7 +465,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 physical_count_id = 'physical_count_id2'
 
 result = inventory_api.retrieve_inventory_physical_count(physical_count_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -509,7 +499,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 transfer_id = 'transfer_id6'
 
 result = inventory_api.retrieve_inventory_transfer(transfer_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -550,7 +539,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 catalog_object_id = 'catalog_object_id6'
 
 result = inventory_api.retrieve_inventory_count(catalog_object_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -602,7 +590,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 catalog_object_id = 'catalog_object_id6'
 
 result = inventory_api.retrieve_inventory_changes(catalog_object_id)
-print(result)
 
 if result.is_success():
     print(result.body)

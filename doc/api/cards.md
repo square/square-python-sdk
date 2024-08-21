@@ -52,7 +52,6 @@ include_disabled = False
 result = cards_api.list_cards(
     include_disabled=include_disabled
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -102,7 +101,6 @@ body = {
 }
 
 result = cards_api.create_card(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -136,7 +134,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 card_id = 'card_id4'
 
 result = cards_api.retrieve_card(card_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -171,7 +168,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 card_id = 'card_id4'
 
 result = cards_api.disable_card(card_id)
-print(result)
 
 if result.is_success():
     print(result.body)

@@ -51,7 +51,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = gift_cards_api.list_gift_cards()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -62,9 +61,11 @@ elif result.is_error():
 
 # Create Gift Card
 
-Creates a digital gift card or registers a physical (plastic) gift card. After the gift card
-is created, you must call [CreateGiftCardActivity](../../doc/api/gift-card-activities.md#create-gift-card-activity)
-to activate the card with an initial balance before it can be used for payment.
+Creates a digital gift card or registers a physical (plastic) gift card. The resulting gift card
+has a `PENDING` state. To activate a gift card so that it can be redeemed for purchases, call
+[CreateGiftCardActivity](../../doc/api/gift-card-activities.md#create-gift-card-activity) and create an `ACTIVATE`
+activity with the initial balance. Alternatively, you can use [RefundPayment](../../doc/api/refunds.md#refund-payment)
+to refund a payment to the new gift card.
 
 ```python
 def create_gift_card(self,
@@ -93,7 +94,6 @@ body = {
 }
 
 result = gift_cards_api.create_gift_card(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -129,7 +129,6 @@ body = {
 }
 
 result = gift_cards_api.retrieve_gift_card_from_gan(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -165,7 +164,6 @@ body = {
 }
 
 result = gift_cards_api.retrieve_gift_card_from_nonce(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -208,7 +206,6 @@ result = gift_cards_api.link_customer_to_gift_card(
     gift_card_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -251,7 +248,6 @@ result = gift_cards_api.unlink_customer_from_gift_card(
     gift_card_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -285,7 +281,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 id = 'id0'
 
 result = gift_cards_api.retrieve_gift_card(id)
-print(result)
 
 if result.is_success():
     print(result.body)

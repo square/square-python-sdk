@@ -42,7 +42,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = customer_groups_api.list_customer_groups()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -82,7 +81,6 @@ body = {
 }
 
 result = customer_groups_api.create_customer_group(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -116,7 +114,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 group_id = 'group_id0'
 
 result = customer_groups_api.delete_customer_group(group_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -150,7 +147,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 group_id = 'group_id0'
 
 result = customer_groups_api.retrieve_customer_group(group_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -195,7 +191,6 @@ result = customer_groups_api.update_customer_group(
     group_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

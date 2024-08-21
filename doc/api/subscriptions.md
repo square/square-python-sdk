@@ -73,7 +73,6 @@ body = {
 }
 
 result = subscriptions_api.create_subscription(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -112,7 +111,6 @@ body = {
 }
 
 result = subscriptions_api.bulk_swap_plan(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -173,7 +171,6 @@ body = {
 }
 
 result = subscriptions_api.search_subscriptions(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -209,7 +206,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 subscription_id = 'subscription_id0'
 
 result = subscriptions_api.retrieve_subscription(subscription_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -256,7 +252,6 @@ result = subscriptions_api.update_subscription(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -297,7 +292,6 @@ result = subscriptions_api.delete_subscription_action(
     subscription_id,
     action_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -341,7 +335,6 @@ result = subscriptions_api.change_billing_anchor_date(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -377,7 +370,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 subscription_id = 'subscription_id0'
 
 result = subscriptions_api.cancel_subscription(subscription_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -415,7 +407,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 subscription_id = 'subscription_id0'
 
 result = subscriptions_api.list_subscription_events(subscription_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -456,7 +447,6 @@ result = subscriptions_api.pause_subscription(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -497,7 +487,6 @@ result = subscriptions_api.resume_subscription(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -547,7 +536,6 @@ result = subscriptions_api.swap_plan(
     subscription_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)

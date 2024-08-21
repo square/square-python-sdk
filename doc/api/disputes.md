@@ -48,7 +48,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = disputes_api.list_disputes()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -82,7 +81,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 dispute_id = 'dispute_id2'
 
 result = disputes_api.retrieve_dispute(dispute_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -120,7 +118,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 dispute_id = 'dispute_id2'
 
 result = disputes_api.accept_dispute(dispute_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -156,7 +153,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 dispute_id = 'dispute_id2'
 
 result = disputes_api.list_dispute_evidence(dispute_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -195,7 +191,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 dispute_id = 'dispute_id2'
 
 result = disputes_api.create_dispute_evidence_file(dispute_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -240,7 +235,6 @@ result = disputes_api.create_dispute_evidence_text(
     dispute_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -282,7 +276,6 @@ result = disputes_api.delete_dispute_evidence(
     dispute_id,
     evidence_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -325,7 +318,6 @@ result = disputes_api.retrieve_dispute_evidence(
     dispute_id,
     evidence_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -365,7 +357,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 dispute_id = 'dispute_id2'
 
 result = disputes_api.submit_evidence(dispute_id)
-print(result)
 
 if result.is_success():
     print(result.body)

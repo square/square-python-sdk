@@ -65,7 +65,6 @@ count = False
 result = customers_api.list_customers(
     count=count
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -123,7 +122,6 @@ body = {
 }
 
 result = customers_api.create_customer(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -202,7 +200,6 @@ body = {
 }
 
 result = customers_api.bulk_create_customers(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -244,7 +241,6 @@ body = {
 }
 
 result = customers_api.bulk_delete_customers(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -286,7 +282,6 @@ body = {
 }
 
 result = customers_api.bulk_retrieve_customers(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -338,7 +333,6 @@ body = {
 }
 
 result = customers_api.bulk_update_customers(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -408,7 +402,6 @@ body = {
 }
 
 result = customers_api.search_customers(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -446,7 +439,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 customer_id = 'customer_id8'
 
 result = customers_api.delete_customer(customer_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -480,7 +472,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 customer_id = 'customer_id8'
 
 result = customers_api.retrieve_customer(customer_id)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -531,7 +522,6 @@ result = customers_api.update_customer(
     customer_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -589,7 +579,6 @@ result = customers_api.create_customer_card(
     customer_id,
     body
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -632,7 +621,6 @@ result = customers_api.delete_customer_card(
     customer_id,
     card_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -676,7 +664,6 @@ result = customers_api.remove_group_from_customer(
     customer_id,
     group_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -720,7 +707,6 @@ result = customers_api.add_group_to_customer(
     customer_id,
     group_id
 )
-print(result)
 
 if result.is_success():
     print(result.body)

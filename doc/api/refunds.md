@@ -57,7 +57,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 
 ```python
 result = refunds_api.list_payment_refunds()
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -106,7 +105,6 @@ body = {
 }
 
 result = refunds_api.refund_payment(body)
-print(result)
 
 if result.is_success():
     print(result.body)
@@ -140,7 +138,6 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 refund_id = 'refund_id4'
 
 result = refunds_api.get_payment_refund(refund_id)
-print(result)
 
 if result.is_success():
     print(result.body)
