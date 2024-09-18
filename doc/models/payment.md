@@ -41,6 +41,7 @@ Represents a payment processed by the Square API.
 | `team_member_id` | `str` | Optional | An optional ID of the [TeamMember](entity:TeamMember) associated with taking the payment.<br>**Constraints**: *Maximum Length*: `192` |
 | `refund_ids` | `List[str]` | Optional | A list of `refund_id`s identifying refunds for the payment. |
 | `risk_evaluation` | [`Risk Evaluation`](../../doc/models/risk-evaluation.md) | Optional | Represents fraud risk information for the associated payment.<br><br>When you take a payment through Square's Payments API (using the `CreatePayment`<br>endpoint), Square evaluates it and assigns a risk level to the payment. Sellers<br>can use this information to determine the course of action (for example,<br>provide the goods/services or refund the payment). |
+| `terminal_checkout_id` | `str` | Optional | An optional ID for a Terminal checkout that is associated with the payment. |
 | `buyer_email_address` | `str` | Optional | The buyer's email address.<br>**Constraints**: *Maximum Length*: `255` |
 | `billing_address` | [`Address`](../../doc/models/address.md) | Optional | Represents a postal address in a country.<br>For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses). |
 | `shipping_address` | [`Address`](../../doc/models/address.md) | Optional | Represents a postal address in a country.<br>For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses). |
