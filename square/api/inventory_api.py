@@ -29,8 +29,7 @@ class InventoryApi(BaseApi):
 
         Args:
             adjustment_id (str): ID of the
-                [InventoryAdjustment](entity:InventoryAdjustment) to
-                retrieve.
+                [InventoryAdjustment](entity:InventoryAdjustment) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -72,8 +71,7 @@ class InventoryApi(BaseApi):
 
         Args:
             adjustment_id (str): ID of the
-                [InventoryAdjustment](entity:InventoryAdjustment) to
-                retrieve.
+                [InventoryAdjustment](entity:InventoryAdjustment) to retrieve.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -305,8 +303,7 @@ class InventoryApi(BaseApi):
         provided filter criteria.
         Results are paginated and sorted in ascending order according their
         `occurred_at` timestamp (oldest first).
-        BatchRetrieveInventoryChanges is a catch-all query endpoint for
-        queries
+        BatchRetrieveInventoryChanges is a catch-all query endpoint for queries
         that cannot be handled by other, simpler endpoints.
 
         Args:
@@ -354,8 +351,7 @@ class InventoryApi(BaseApi):
         Returns current counts for the provided
         [CatalogObject]($m/CatalogObject)s at the requested
         [Location]($m/Location)s.
-        Results are paginated and sorted in descending order according to
-        their
+        Results are paginated and sorted in descending order according to their
         `calculated_at` timestamp (newest first).
         When `updated_after` is specified, only counts that have changed since
         that
@@ -608,8 +604,7 @@ class InventoryApi(BaseApi):
         entoryChanges)
         and having the `catalog_object_ids` list contain a single element of
         the `CatalogObject` ID.
-        Results are paginated and sorted in descending order according to
-        their
+        Results are paginated and sorted in descending order according to their
         `occurred_at` timestamp (newest first).
         There are no limits on how far back the caller can page. This endpoint
         can be

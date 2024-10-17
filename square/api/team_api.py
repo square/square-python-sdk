@@ -22,8 +22,7 @@ class TeamApi(BaseApi):
 
         Creates a single `TeamMember` object. The `TeamMember` object is
         returned on successful creates.
-        You must provide the following values in your request to this
-        endpoint:
+        You must provide the following values in your request to this endpoint:
         - `given_name`
         - `family_name`
         Learn about [Troubleshooting the Team

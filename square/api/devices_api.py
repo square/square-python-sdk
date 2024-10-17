@@ -23,8 +23,7 @@ class DevicesApi(BaseApi):
                      location_id=None):
         """Does a GET request to /v2/devices.
 
-        List devices associated with the merchant. Currently, only Terminal
-        API
+        List devices associated with the merchant. Currently, only Terminal API
         devices are supported.
 
         Args:

@@ -153,8 +153,8 @@ class PaymentsApi(BaseApi):
                        body):
         """Does a POST request to /v2/payments.
 
-        Creates a payment using the provided source. You can use this endpoint
-                to charge a card (credit/debit card or    
+        Creates a payment using the provided source. You can use this endpoint 
+        to charge a card (credit/debit card or    
         Square gift card) or record a payment that the seller received outside
         of Square 
         (cash payment from a buyer or a payment that an external entity 
@@ -305,8 +305,7 @@ class PaymentsApi(BaseApi):
         """Does a PUT request to /v2/payments/{payment_id}.
 
         Updates a payment with the APPROVED status.
-        You can update the `amount_money` and `tip_money` using this
-        endpoint.
+        You can update the `amount_money` and `tip_money` using this endpoint.
 
         Args:
             payment_id (str): The ID of the payment to update.

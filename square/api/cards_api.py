@@ -37,8 +37,7 @@ class CardsApi(BaseApi):
                 with the customer supplied. By default, all cards owned by the
                 merchant are returned.
             include_disabled (bool, optional): Includes disabled cards. By
-                default, all enabled cards owned by the merchant are
-                returned.
+                default, all enabled cards owned by the merchant are returned.
             reference_id (str, optional): Limit results to cards associated
                 with the reference_id supplied.
             sort_order (SortOrder, optional): Sorts the returned list by when

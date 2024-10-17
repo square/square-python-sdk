@@ -122,8 +122,7 @@ class CheckoutApi(BaseApi):
                                  body):
         """Does a PUT request to /v2/online-checkout/location-settings/{location_id}.
 
-        Updates the location-level settings for a Square-hosted checkout
-        page.
+        Updates the location-level settings for a Square-hosted checkout page.
 
         Args:
             location_id (str): The ID of the location for which to retrieve
@@ -206,8 +205,7 @@ class CheckoutApi(BaseApi):
                                  body):
         """Does a PUT request to /v2/online-checkout/merchant-settings.
 
-        Updates the merchant-level settings for a Square-hosted checkout
-        page.
+        Updates the merchant-level settings for a Square-hosted checkout page.
 
         Args:
             body (UpdateMerchantSettingsRequest): An object containing the
@@ -306,8 +304,7 @@ class CheckoutApi(BaseApi):
         """Does a POST request to /v2/online-checkout/payment-links.
 
         Creates a Square-hosted checkout page. Applications can share the
-        resulting payment link with their buyer to pay for goods and
-        services.
+        resulting payment link with their buyer to pay for goods and services.
 
         Args:
             body (CreatePaymentLinkRequest): An object containing the fields

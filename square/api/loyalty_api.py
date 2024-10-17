@@ -178,8 +178,7 @@ class LoyaltyApi(BaseApi):
         loyalty promotion. For spend-based and visit-based programs, you can
         call [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints)
         to compute the points earned from the base loyalty program. For
-        information about computing points earned from a loyalty promotion,
-        see
+        information about computing points earned from a loyalty promotion, see
         [Calculating promotion
         points](https://developer.squareup.com/docs/loyalty-api/loyalty-promoti
         ons#calculate-promotion-points).
@@ -745,8 +744,7 @@ class LoyaltyApi(BaseApi):
                               body):
         """Does a POST request to /v2/loyalty/rewards.
 
-        Creates a loyalty reward. In the process, the endpoint does
-        following:
+        Creates a loyalty reward. In the process, the endpoint does following:
         - Uses the `reward_tier_id` in the request to determine the number of
         points
         to lock for this reward.

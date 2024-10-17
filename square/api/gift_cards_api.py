@@ -31,8 +31,7 @@ class GiftCardsApi(BaseApi):
         Args:
             mtype (str, optional): If a [type](entity:GiftCardType) is
                 provided, the endpoint returns gift cards of the specified
-                type. Otherwise, the endpoint returns gift cards of all
-                types.
+                type. Otherwise, the endpoint returns gift cards of all types.
             state (str, optional): If a [state](entity:GiftCardStatus) is
                 provided, the endpoint returns the gift cards in the specified
                 state. Otherwise, the endpoint returns the gift cards of all

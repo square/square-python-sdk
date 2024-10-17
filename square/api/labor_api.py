@@ -612,8 +612,7 @@ class LaborApi(BaseApi):
                                cursor=None):
         """Does a GET request to /v2/labor/team-member-wages.
 
-        Returns a paginated list of `TeamMemberWage` instances for a
-        business.
+        Returns a paginated list of `TeamMemberWage` instances for a business.
 
         Args:
             team_member_id (str, optional): Filter the returned wages to only

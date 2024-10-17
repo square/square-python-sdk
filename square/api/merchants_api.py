@@ -24,8 +24,7 @@ class MerchantsApi(BaseApi):
         token.
         The access token used to connect your application to a Square seller
         is associated
-        with a single merchant. That means that `ListMerchants` returns a
-        list
+        with a single merchant. That means that `ListMerchants` returns a list
         with a single `Merchant` object. You can specify your personal access
         token
         to get your own merchant information or specify an OAuth token to get

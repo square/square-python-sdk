@@ -142,8 +142,7 @@ class OrderCustomAttributesApi(BaseApi):
         """Does a DELETE request to /v2/orders/custom-attribute-definitions/{key}.
 
         Deletes an order-related [custom attribute
-        definition]($m/CustomAttributeDefinition) from a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) from a Square seller account.
         Only the definition owner can delete a custom attribute definition.
 
         Args:
@@ -186,8 +185,7 @@ class OrderCustomAttributesApi(BaseApi):
         """Does a GET request to /v2/orders/custom-attribute-definitions/{key}.
 
         Retrieves an order-related [custom attribute
-        definition]($m/CustomAttributeDefinition) from a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) from a Square seller account.
         To retrieve a custom attribute definition created by another
         application, the `visibility`
         setting must be `VISIBILITY_READ_ONLY` or
@@ -197,8 +195,7 @@ class OrderCustomAttributesApi(BaseApi):
         `VISIBILITY_READ_WRITE_VALUES`.
 
         Args:
-            key (str): The key of the custom attribute definition to
-                retrieve.
+            key (str): The key of the custom attribute definition to retrieve.
             version (int, optional): To enable [optimistic
                 concurrency](https://developer.squareup.com/docs/build-basics/c
                 ommon-api-patterns/optimistic-concurrency) control, include
