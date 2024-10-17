@@ -26,7 +26,7 @@ class OrdersApi(BaseApi):
         To pay for a created order, see
         [Pay for
         Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders).
-                You can modify open orders using the
+        You can modify open orders using the
         [UpdateOrder]($e/Orders/UpdateOrder) endpoint.
 
         Args:
@@ -209,8 +209,7 @@ class OrdersApi(BaseApi):
                       body):
         """Does a POST request to /v2/orders/search.
 
-        Search all orders for one or more locations. Orders include all
-        sales,
+        Search all orders for one or more locations. Orders include all sales,
         returns, and exchanges regardless of how or when they entered the
         Square
         ecosystem (such as Point of Sale, Invoices, and Connect APIs).
@@ -220,8 +219,7 @@ class OrdersApi(BaseApi):
         how to sort or filter the results. Your `SearchOrdersQuery` can:
           Set filter criteria.
           Set the sort order.
-          Determine whether to return results as complete `Order` objects or
-          as
+          Determine whether to return results as complete `Order` objects or as
         [OrderEntry]($m/OrderEntry) objects.
         Note that details for orders processed with Square Point of Sale while
         in
@@ -318,8 +316,7 @@ class OrdersApi(BaseApi):
         fields. Orders with a `COMPLETED` or `CANCELED` state cannot be
         updated.
         An `UpdateOrder` request requires the following:
-        - The `order_id` in the endpoint path, identifying the order to
-        update.
+        - The `order_id` in the endpoint path, identifying the order to update.
         - The latest `version` of the order to update.
         - The [sparse
         order](https://developer.squareup.com/docs/orders-api/manage-orders/upd
@@ -334,7 +331,7 @@ class OrdersApi(BaseApi):
         To pay for an order, see
         [Pay for
         Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders).
-        
+
         Args:
             order_id (str): The ID of the order to update.
             body (UpdateOrderRequest): An object containing the fields to POST

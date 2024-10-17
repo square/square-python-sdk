@@ -28,8 +28,7 @@ class CatalogApi(BaseApi):
         the
         targeted object are also deleted. For example, deleting a CatalogItem
         will
-        also delete all of its
-        [CatalogItemVariation]($m/CatalogItemVariation)
+        also delete all of its [CatalogItemVariation]($m/CatalogItemVariation)
         children.
         `BatchDeleteCatalogObjects` succeeds even if only a portion of the
         targeted
@@ -87,8 +86,7 @@ class CatalogApi(BaseApi):
         Each [CatalogItem]($m/CatalogItem) returned in the set includes all of
         its
         child information including: all of its
-        [CatalogItemVariation]($m/CatalogItemVariation) objects, references
-        to
+        [CatalogItemVariation]($m/CatalogItemVariation) objects, references to
         its [CatalogModifierList]($m/CatalogModifierList) objects, and the ids
         of
         any [CatalogTax]($m/CatalogTax) objects that apply to it.
@@ -204,8 +202,7 @@ class CatalogApi(BaseApi):
         [CatalogImage]($m/CatalogImage) object that can be linked to an
         existing
         [CatalogObject]($m/CatalogObject) instance. The resulting
-        `CatalogImage` is unattached to any `CatalogObject` if the
-        `object_id`
+        `CatalogImage` is unattached to any `CatalogObject` if the `object_id`
         is not specified.
         This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data
         requests with a JSON part and an image file part in
@@ -314,8 +311,7 @@ class CatalogApi(BaseApi):
     def catalog_info(self):
         """Does a GET request to /v2/catalog/info.
 
-        Retrieves information about the Square Catalog API, such as batch
-        size
+        Retrieves information about the Square Catalog API, such as batch size
         limits that can be used by the `BatchUpsertCatalogObjects` endpoint.
 
         Returns:
@@ -486,8 +482,7 @@ class CatalogApi(BaseApi):
         response.
         Deletion is a cascading event such that all children of the targeted
         object
-        are also deleted. For example, deleting a
-        [CatalogItem]($m/CatalogItem)
+        are also deleted. For example, deleting a [CatalogItem]($m/CatalogItem)
         will also delete all of its
         [CatalogItemVariation]($m/CatalogItemVariation) children.
         To ensure consistency, only one delete request is processed at a time
@@ -544,8 +539,7 @@ class CatalogApi(BaseApi):
         [CatalogObject]($m/CatalogObject) based on the provided ID. The
         returned
         object includes all of the relevant [CatalogItem]($m/CatalogItem)
-        information including:
-        [CatalogItemVariation]($m/CatalogItemVariation)
+        information including: [CatalogItemVariation]($m/CatalogItemVariation)
         children, references to its
         [CatalogModifierList]($m/CatalogModifierList) objects, and the ids of
         any [CatalogTax]($m/CatalogTax) objects that apply to it.
@@ -751,8 +745,7 @@ class CatalogApi(BaseApi):
         """Does a POST request to /v2/catalog/update-item-modifier-lists.
 
         Updates the [CatalogModifierList]($m/CatalogModifierList) objects
-        that apply to the targeted [CatalogItem]($m/CatalogItem) without
-        having
+        that apply to the targeted [CatalogItem]($m/CatalogItem) without having
         to perform an upsert on the entire item.
 
         Args:

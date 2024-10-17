@@ -92,8 +92,7 @@ class OAuthApi(BaseApi):
         using 
         an old version of the Square APIs (prior to March 13, 2019),
         `grant_type` 
-        can be `migration_token` and you must provide a valid migration
-        token.
+        can be `migration_token` and you must provide a valid migration token.
         You can use the `scopes` parameter to limit the set of permissions
         granted 
         to the access token and refresh token. You can use the `short_lived`

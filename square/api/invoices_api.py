@@ -25,7 +25,7 @@ class InvoicesApi(BaseApi):
 
         Returns a list of invoices for a given location. The response 
         is paginated. If truncated, the response includes a `cursor` that you 
-                use in a subsequent request to retrieve the next set of invoices.
+        use in a subsequent request to retrieve the next set of invoices.
 
         Args:
             location_id (str): The ID of the location for which to list

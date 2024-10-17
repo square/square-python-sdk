@@ -86,8 +86,7 @@ class CustomerCustomAttributesApi(BaseApi):
         """Does a POST request to /v2/customers/custom-attribute-definitions.
 
         Creates a customer-related [custom attribute
-        definition]($m/CustomAttributeDefinition) for a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) for a Square seller account.
         Use this endpoint to define a custom attribute that can be associated
         with customer profiles.
         A custom attribute definition specifies the `key`, `visibility`,
@@ -146,8 +145,7 @@ class CustomerCustomAttributesApi(BaseApi):
         """Does a DELETE request to /v2/customers/custom-attribute-definitions/{key}.
 
         Deletes a customer-related [custom attribute
-        definition]($m/CustomAttributeDefinition) from a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) from a Square seller account.
         Deleting a custom attribute definition also deletes the corresponding
         custom attribute from
         all customer profiles in the seller's Customer Directory.
@@ -193,8 +191,7 @@ class CustomerCustomAttributesApi(BaseApi):
         """Does a GET request to /v2/customers/custom-attribute-definitions/{key}.
 
         Retrieves a customer-related [custom attribute
-        definition]($m/CustomAttributeDefinition) from a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) from a Square seller account.
         To retrieve a custom attribute definition created by another
         application, the `visibility`
         setting must be `VISIBILITY_READ_ONLY` or
@@ -255,8 +252,7 @@ class CustomerCustomAttributesApi(BaseApi):
         """Does a PUT request to /v2/customers/custom-attribute-definitions/{key}.
 
         Updates a customer-related [custom attribute
-        definition]($m/CustomAttributeDefinition) for a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) for a Square seller account.
         Use this endpoint to update the following fields: `name`,
         `description`, `visibility`, or the
         `schema` for a `Selection` data type.

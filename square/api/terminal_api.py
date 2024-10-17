@@ -20,8 +20,7 @@ class TerminalApi(BaseApi):
                                body):
         """Does a POST request to /v2/terminals/actions.
 
-        Creates a Terminal action request and sends it to the specified
-        device.
+        Creates a Terminal action request and sends it to the specified device.
 
         Args:
             body (CreateTerminalActionRequest): An object containing the

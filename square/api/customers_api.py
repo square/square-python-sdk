@@ -350,8 +350,7 @@ class CustomersApi(BaseApi):
 
         Searches the customer profiles associated with a Square account using
         one or more supported query filters.
-        Calling `SearchCustomers` without any explicit query filter returns
-        all
+        Calling `SearchCustomers` without any explicit query filter returns all
         customer profiles ordered alphabetically based on `given_name` and
         `family_name`.
         Under normal operating conditions, newly created or updated customer
@@ -558,8 +557,7 @@ class CustomersApi(BaseApi):
         """Does a POST request to /v2/customers/{customer_id}/cards.
 
         Adds a card on file to an existing customer.
-        As with charges, calls to `CreateCustomerCard` are idempotent.
-        Multiple
+        As with charges, calls to `CreateCustomerCard` are idempotent. Multiple
         calls with the same card nonce return the same card record that was
         created
         with the provided nonce during the _first_ call.
@@ -666,8 +664,7 @@ class CustomersApi(BaseApi):
         and the customer group is identified by the `group_id` value.
 
         Args:
-            customer_id (str): The ID of the customer to remove from the
-                group.
+            customer_id (str): The ID of the customer to remove from the group.
             group_id (str): The ID of the customer group to remove the
                 customer from.
 

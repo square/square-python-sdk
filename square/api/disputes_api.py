@@ -377,8 +377,7 @@ class DisputesApi(BaseApi):
         Returns the metadata for the evidence specified in the request URL
         path.
         You must maintain a copy of any evidence uploaded if you want to
-        reference it later. Evidence cannot be downloaded after you upload
-        it.
+        reference it later. Evidence cannot be downloaded after you upload it.
 
         Args:
             dispute_id (str): The ID of the dispute from which you want to
@@ -427,8 +426,7 @@ class DisputesApi(BaseApi):
         Submits evidence to the cardholder's bank.
         The evidence submitted by this endpoint includes evidence uploaded
         using the
-        [CreateDisputeEvidenceFile]($e/Disputes/CreateDisputeEvidenceFile)
-        and
+        [CreateDisputeEvidenceFile]($e/Disputes/CreateDisputeEvidenceFile) and
         [CreateDisputeEvidenceText]($e/Disputes/CreateDisputeEvidenceText)
         endpoints and
         evidence automatically provided by Square, when available. Evidence

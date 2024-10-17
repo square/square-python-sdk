@@ -35,8 +35,7 @@ class TransactionsApi(BaseApi):
         ): 50
 
         Args:
-            location_id (str): The ID of the location to list transactions
-                for.
+            location_id (str): The ID of the location to list transactions for.
             begin_time (str, optional): The beginning of the requested
                 reporting period, in RFC 3339 format.  See [Date
                 ranges](https://developer.squareup.com/docs/build-basics/workin
@@ -108,8 +107,7 @@ class TransactionsApi(BaseApi):
         Retrieves details for a single transaction.
 
         Args:
-            location_id (str): The ID of the transaction's associated
-                location.
+            location_id (str): The ID of the transaction's associated location.
             transaction_id (str): The ID of the transaction to retrieve.
 
         Returns:

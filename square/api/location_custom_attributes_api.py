@@ -91,8 +91,7 @@ class LocationCustomAttributesApi(BaseApi):
         """Does a POST request to /v2/locations/custom-attribute-definitions.
 
         Creates a location-related [custom attribute
-        definition]($m/CustomAttributeDefinition) for a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) for a Square seller account.
         Use this endpoint to define a custom attribute that can be associated
         with locations.
         A custom attribute definition specifies the `key`, `visibility`,
@@ -147,8 +146,7 @@ class LocationCustomAttributesApi(BaseApi):
         """Does a DELETE request to /v2/locations/custom-attribute-definitions/{key}.
 
         Deletes a location-related [custom attribute
-        definition]($m/CustomAttributeDefinition) from a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) from a Square seller account.
         Deleting a custom attribute definition also deletes the corresponding
         custom attribute from
         all locations.
@@ -194,8 +192,7 @@ class LocationCustomAttributesApi(BaseApi):
         """Does a GET request to /v2/locations/custom-attribute-definitions/{key}.
 
         Retrieves a location-related [custom attribute
-        definition]($m/CustomAttributeDefinition) from a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) from a Square seller account.
         To retrieve a custom attribute definition created by another
         application, the `visibility`
         setting must be `VISIBILITY_READ_ONLY` or
@@ -253,8 +250,7 @@ class LocationCustomAttributesApi(BaseApi):
         """Does a PUT request to /v2/locations/custom-attribute-definitions/{key}.
 
         Updates a location-related [custom attribute
-        definition]($m/CustomAttributeDefinition) for a Square seller
-        account.
+        definition]($m/CustomAttributeDefinition) for a Square seller account.
         Use this endpoint to update the following fields: `name`,
         `description`, `visibility`, or the
         `schema` for a `Selection` data type.
