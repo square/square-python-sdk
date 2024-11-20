@@ -269,12 +269,10 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 body = {
     'values': {
         'cover-count': {
-            'order_id': '7BbXGEIWNldxAzrtGf9GPVZTwZ4F',
-            'key': 'cover-count'
+            'order_id': '7BbXGEIWNldxAzrtGf9GPVZTwZ4F'
         },
         'table-number': {
-            'order_id': '7BbXGEIWNldxAzrtGf9GPVZTwZ4F',
-            'key': 'table-number'
+            'order_id': '7BbXGEIWNldxAzrtGf9GPVZTwZ4F'
         }
     }
 }

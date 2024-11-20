@@ -254,12 +254,8 @@ This method returns a `ApiResponse` instance. The `body` property of this instan
 ```python
 body = {
     'values': {
-        'id1': {
-            'key': 'alternative_seller_name'
-        },
-        'id2': {
-            'key': 'has_seen_tutorial'
-        }
+        'id1': {},
+        'id2': {}
     }
 }
 
