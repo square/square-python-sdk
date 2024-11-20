@@ -22,7 +22,7 @@ class BaseApi(object):
 
     @staticmethod
     def user_agent():
-        return 'Square-Python-SDK/38.2.0.20241017 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+        return 'Square-Python-SDK/39.0.0.20241120 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
 
     @staticmethod
     def user_agent_parameters():

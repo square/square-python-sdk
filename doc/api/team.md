@@ -176,7 +176,6 @@ body = {
         'AFMwA08kR-MIF-3Vs0OE': {
             'team_member': {
                 'reference_id': 'reference_id_2',
-                'is_owner': False,
                 'status': 'ACTIVE',
                 'given_name': 'Jane',
                 'family_name': 'Smith',
@@ -190,7 +189,6 @@ body = {
         'fpgteZNMaf0qOK-a4t6P': {
             'team_member': {
                 'reference_id': 'reference_id_1',
-                'is_owner': False,
                 'status': 'ACTIVE',
                 'given_name': 'Joe',
                 'family_name': 'Doe',
