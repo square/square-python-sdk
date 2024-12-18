@@ -28,7 +28,10 @@ class PaymentsApi(BaseApi):
                       limit=None,
                       is_offline_payment=False,
                       offline_begin_time=None,
-                      offline_end_time=None):
+                      offline_end_time=None,
+                      updated_at_begin_time=None,
+                      updated_at_end_time=None,
+                      sort_field=None):
         """Does a GET request to /v2/payments.
 
         Retrieves a list of payments taken by the account making the request.
@@ -47,8 +50,8 @@ class PaymentsApi(BaseApi):
                 determined using the `created_at` field for each Payment. 
                 Default: The current time.
             sort_order (str, optional): The order in which results are listed
-                by `Payment.created_at`: - `ASC` - Oldest to newest. - `DESC`
-                - Newest to oldest (default).
+                by `ListPaymentsRequest.sort_field`: - `ASC` - Oldest to
+                newest. - `DESC` - Newest to oldest (default).
             cursor (str, optional): A pagination cursor returned by a previous
                 call to this endpoint. Provide this cursor to retrieve the
                 next set of results for the original query.  For more
@@ -85,6 +88,15 @@ class PaymentsApi(BaseApi):
                 Payment. If set, payments without a value set in
                 `offline_payment_details.client_created_at` will not be
                 returned.  Default: The current time.
+            updated_at_begin_time (str, optional): Indicates the start of the
+                time range to retrieve payments for, in RFC 3339 format.  The
+                range is determined using the `updated_at` field for each
+                Payment.
+            updated_at_end_time (str, optional): Indicates the end of the time
+                range to retrieve payments for, in RFC 3339 format.  The range
+                is determined using the `updated_at` field for each Payment.
+            sort_field (PaymentSortField, optional): The field used to sort
+                results by. The default is `CREATED_AT`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -138,6 +150,15 @@ class PaymentsApi(BaseApi):
             .query_param(Parameter()
                          .key('offline_end_time')
                          .value(offline_end_time))
+            .query_param(Parameter()
+                         .key('updated_at_begin_time')
+                         .value(updated_at_begin_time))
+            .query_param(Parameter()
+                         .key('updated_at_end_time')
+                         .value(updated_at_end_time))
+            .query_param(Parameter()
+                         .key('sort_field')
+                         .value(sort_field))
             .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))

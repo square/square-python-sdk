@@ -41,7 +41,10 @@ def list_payments(self,
                  limit=None,
                  is_offline_payment=False,
                  offline_begin_time=None,
-                 offline_end_time=None)
+                 offline_end_time=None,
+                 updated_at_begin_time=None,
+                 updated_at_end_time=None,
+                 sort_field=None)
 ```
 
 ## Parameters
@@ -50,7 +53,7 @@ def list_payments(self,
 |  --- | --- | --- | --- |
 | `begin_time` | `str` | Query, Optional | Indicates the start of the time range to retrieve payments for, in RFC 3339 format.  <br>The range is determined using the `created_at` field for each Payment.<br>Inclusive. Default: The current time minus one year. |
 | `end_time` | `str` | Query, Optional | Indicates the end of the time range to retrieve payments for, in RFC 3339 format.  The<br>range is determined using the `created_at` field for each Payment.<br><br>Default: The current time. |
-| `sort_order` | `str` | Query, Optional | The order in which results are listed by `Payment.created_at`:<br><br>- `ASC` - Oldest to newest.<br>- `DESC` - Newest to oldest (default). |
+| `sort_order` | `str` | Query, Optional | The order in which results are listed by `ListPaymentsRequest.sort_field`:<br><br>- `ASC` - Oldest to newest.<br>- `DESC` - Newest to oldest (default). |
 | `cursor` | `str` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `location_id` | `str` | Query, Optional | Limit results to the location supplied. By default, results are returned<br>for the default (main) location associated with the seller. |
 | `total` | `long\|int` | Query, Optional | The exact amount in the `total_money` for a payment. |
@@ -60,6 +63,9 @@ def list_payments(self,
 | `is_offline_payment` | `bool` | Query, Optional | Whether the payment was taken offline or not.<br>**Default**: `False` |
 | `offline_begin_time` | `str` | Query, Optional | Indicates the start of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. |
 | `offline_end_time` | `str` | Query, Optional | Indicates the end of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. |
+| `updated_at_begin_time` | `str` | Query, Optional | Indicates the start of the time range to retrieve payments for, in RFC 3339 format.  The<br>range is determined using the `updated_at` field for each Payment. |
+| `updated_at_end_time` | `str` | Query, Optional | Indicates the end of the time range to retrieve payments for, in RFC 3339 format.  The<br>range is determined using the `updated_at` field for each Payment. |
+| `sort_field` | [`str (Payment Sort Field)`](../../doc/models/payment-sort-field.md) | Query, Optional | The field used to sort results by. The default is `CREATED_AT`. |
 
 ## Response Type
 
