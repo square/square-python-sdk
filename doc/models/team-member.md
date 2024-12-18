@@ -17,11 +17,12 @@ A record representing an individual team member for a business.
 | `status` | [`str (Team Member Status)`](../../doc/models/team-member-status.md) | Optional | Enumerates the possible statuses the team member can have within a business. |
 | `given_name` | `str` | Optional | The given name (that is, the first name) associated with the team member. |
 | `family_name` | `str` | Optional | The family name (that is, the last name) associated with the team member. |
-| `email_address` | `str` | Optional | The email address associated with the team member. |
+| `email_address` | `str` | Optional | The email address associated with the team member. After accepting the invitation<br>from Square, only the team member can change this value. |
 | `phone_number` | `str` | Optional | The team member's phone number, in E.164 format. For example:<br>+14155552671 - the country code is 1 for US<br>+551155256325 - the country code is 55 for BR |
-| `created_at` | `str` | Optional | The timestamp, in RFC 3339 format, describing when the team member was created.<br>For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z". |
-| `updated_at` | `str` | Optional | The timestamp, in RFC 3339 format, describing when the team member was last updated.<br>For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z". |
+| `created_at` | `str` | Optional | The timestamp when the team member was created, in RFC 3339 format. |
+| `updated_at` | `str` | Optional | The timestamp when the team member was last updated, in RFC 3339 format. |
 | `assigned_locations` | [`Team Member Assigned Locations`](../../doc/models/team-member-assigned-locations.md) | Optional | An object that represents a team member's assignment to locations. |
+| `wage_setting` | [`Wage Setting`](../../doc/models/wage-setting.md) | Optional | Represents information about the overtime exemption status, job assignments, and compensation<br>for a [team member](../../doc/models/team-member.md). |
 
 ## Example (as JSON)
 
