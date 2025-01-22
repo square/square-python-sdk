@@ -59,7 +59,7 @@ class Client(object):
 
     @staticmethod
     def square_version():
-        return '2024-12-18'
+        return '2025-01-23'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -238,7 +238,7 @@ class Client(object):
                  retry_statuses=None, retry_methods=None,
                  environment='production',
                  custom_url='https://connect.squareup.com', access_token=None,
-                 bearer_auth_credentials=None, square_version='2024-12-18',
+                 bearer_auth_credentials=None, square_version='2025-01-23',
                  additional_headers={}, user_agent_detail='', config=None):
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
