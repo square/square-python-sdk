@@ -55,7 +55,7 @@ from square.api.webhook_subscriptions_api import WebhookSubscriptionsApi
 class Client(object):
     @staticmethod
     def sdk_version():
-        return '39.1.0.20241218'
+        return '40.0.0.220250123'
 
     @staticmethod
     def square_version():
