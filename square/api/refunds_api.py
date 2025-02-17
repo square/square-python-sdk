@@ -20,15 +20,15 @@ class RefundsApi(BaseApi):
     def list_payment_refunds(self,
                              begin_time=None,
                              end_time=None,
-                             updated_at_begin_time=None,
-                             updated_at_end_time=None,
-                             sort_field=None,
                              sort_order=None,
                              cursor=None,
                              location_id=None,
                              status=None,
                              source_type=None,
-                             limit=None):
+                             limit=None,
+                             updated_at_begin_time=None,
+                             updated_at_end_time=None,
+                             sort_field=None):
         """Does a GET request to /v2/refunds.
 
         Retrieves a list of refunds for the account making the request.
@@ -79,7 +79,7 @@ class RefundsApi(BaseApi):
                 to retrieve each `PaymentRefund` for, in RFC 3339 format. 
                 The range is determined using the `updated_at` field for each
                 `PaymentRefund`. Default: if omitted, the time range starts at
-                `beginTime`.
+                `begin_time`.
             updated_at_end_time (str, optional): Indicates the end of the time range to
                 retrieve each `PaymentRefund` for, in RFC 3339 format. The
                 range is determined using the `updated_at` field for each

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from tests.api.api_test_base import ApiTestBase
 from tests.test_helper import TestHelper
+from tests.api.api_test_base import ApiTestBase
 
 
 class RefundsApiTests(ApiTestBase):
