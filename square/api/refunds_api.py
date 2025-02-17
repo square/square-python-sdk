@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from square.api_helper import APIHelper
-from square.http.api_response import ApiResponse
-from square.api.base_api import BaseApi
+from apimatic_core.authentication.multiple.single_auth import Single
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
+
+from square.api.base_api import BaseApi
+from square.api_helper import APIHelper
+from square.http.api_response import ApiResponse
 from square.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
 
 
 class RefundsApi(BaseApi):
@@ -45,18 +46,6 @@ class RefundsApi(BaseApi):
                 retrieve each `PaymentRefund` for, in RFC 3339  format.  The
                 range is determined using the `created_at` field for each
                 `PaymentRefund`.  Default: The current time.
-            updated_at_begin_time (str, optional): Indicates the start of the time range
-                to retrieve each `PaymentRefund` for, in RFC 3339 format. 
-                The range is determined using the `updated_at` field for each
-                `PaymentRefund`. Default: if omitted, the time range starts at
-                `beginTime`.
-            updated_at_end_time (str, optional): Indicates the end of the time range to
-                retrieve each `PaymentRefund` for, in RFC 3339 format. The
-                range is determined using the `updated_at` field for each
-                `PaymentRefund`. Default: The current time.
-            sort_field (str, optional): The field used to sort results by. The default
-                is `CREATED_AT`. Current values include `CREATED_AT` and
-                `UPDATED_AT`.
             sort_order (str, optional): The order in which results are listed
                 by `PaymentRefund.created_at`: - `ASC` - Oldest to newest. -
                 `DESC` - Newest to oldest (default).
@@ -86,6 +75,18 @@ class RefundsApi(BaseApi):
                 results than the specified limit on a given page.  If the
                 supplied value is greater than 100, no more than 100 results
                 are returned.  Default: 100
+            updated_at_begin_time (str, optional): Indicates the start of the time range
+                to retrieve each `PaymentRefund` for, in RFC 3339 format. 
+                The range is determined using the `updated_at` field for each
+                `PaymentRefund`. Default: if omitted, the time range starts at
+                `beginTime`.
+            updated_at_end_time (str, optional): Indicates the end of the time range to
+                retrieve each `PaymentRefund` for, in RFC 3339 format. The
+                range is determined using the `updated_at` field for each
+                `PaymentRefund`. Default: The current time.
+            sort_field (str, optional): The field used to sort results by. The default
+                is `CREATED_AT`. Current values include `CREATED_AT` and
+                `UPDATED_AT`.
 
         Returns:
             ApiResponse: An object with the response value as well as other
@@ -110,15 +111,6 @@ class RefundsApi(BaseApi):
                          .key('end_time')
                          .value(end_time))
             .query_param(Parameter()
-                         .key('updated_at_begin_time')
-                         .value(updated_at_begin_time))
-            .query_param(Parameter()
-                         .key('updated_at_end_time')
-                         .value(updated_at_end_time))
-            .query_param(Parameter()
-                         .key('sort_field')
-                         .value(sort_field))
-            .query_param(Parameter()
                          .key('sort_order')
                          .value(sort_order))
             .query_param(Parameter()
@@ -136,6 +128,15 @@ class RefundsApi(BaseApi):
             .query_param(Parameter()
                          .key('limit')
                          .value(limit))
+            .query_param(Parameter()
+                         .key('updated_at_begin_time')
+                         .value(updated_at_begin_time))
+            .query_param(Parameter()
+                         .key('updated_at_end_time')
+                         .value(updated_at_end_time))
+            .query_param(Parameter()
+                         .key('sort_field')
+                         .value(sort_field))
             .header_param(Parameter()
                           .key('accept')
                           .value('application/json'))
