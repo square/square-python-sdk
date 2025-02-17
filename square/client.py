@@ -55,11 +55,11 @@ from square.api.webhook_subscriptions_api import WebhookSubscriptionsApi
 class Client(object):
     @staticmethod
     def sdk_version():
-        return '40.0.0.220250123'
+        return '40.1.0.220250220'
 
     @staticmethod
     def square_version():
-        return '2025-01-23'
+        return '2025-02-20'
 
     def user_agent_detail(self):
         return self.config.user_agent_detail
@@ -238,7 +238,7 @@ class Client(object):
                  retry_statuses=None, retry_methods=None,
                  environment='production',
                  custom_url='https://connect.squareup.com', access_token=None,
-                 bearer_auth_credentials=None, square_version='2025-01-23',
+                 bearer_auth_credentials=None, square_version='2025-02-20',
                  additional_headers={}, user_agent_detail='', config=None):
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
