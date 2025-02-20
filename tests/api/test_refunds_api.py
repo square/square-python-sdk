@@ -3,6 +3,7 @@
 from tests.test_helper import TestHelper
 from tests.api.api_test_base import ApiTestBase
 
+
 class RefundsApiTests(ApiTestBase):
 
     @classmethod
@@ -23,9 +24,12 @@ class RefundsApiTests(ApiTestBase):
         location_id = None
         status = None
         source_type = None
+        updated_at_begin_time = None
+        updated_at_end_time = None
+        sort_field = None
 
         # Perform the API call through the SDK function
-        result = self.controller.list_payment_refunds(begin_time, end_time, sort_order, cursor, location_id, status, source_type)
+        result = self.controller.list_payment_refunds(begin_time, end_time, sort_order, cursor, location_id, status, source_type, updated_at_begin_time, updated_at_end_time, sort_field)
 
         # Test response code
         self.assertEquals(self.response_catcher.response.status_code, 200)
