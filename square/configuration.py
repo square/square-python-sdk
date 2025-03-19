@@ -45,7 +45,7 @@ class Configuration(HttpClientConfiguration):
                  retry_statuses=None, retry_methods=None,
                  environment='production',
                  custom_url='https://connect.squareup.com', access_token=None,
-                 bearer_auth_credentials=None, square_version='2025-02-20',
+                 bearer_auth_credentials=None, square_version='2025-03-19',
                  additional_headers={}, user_agent_detail=''):
         if retry_methods is None:
             retry_methods = ['GET', 'PUT']
