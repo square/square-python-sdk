@@ -1,20 +1,9 @@
-![Square logo]
+# Square Python Library
 
-# Square Python SDK
+[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fsquare%2Fsquare-python-sdk)
+[![pypi](https://img.shields.io/pypi/v/squareup)](https://pypi.python.org/pypi/squareup)
 
-[![Build](https://github.com/square/square-python-sdk/actions/workflows/python-package.yml/badge.svg)](https://github.com/square/square-python-sdk/actions/workflows/python-package.yml)
-[![PyPi version](https://badge.fury.io/py/squareup.svg?new)](https://badge.fury.io/py/squareup)
-[![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-
-Use this library to integrate Square payments into your app and grow your business with Square APIs including Catalog, Customers, Employees, Inventory, Labor, Locations, and Orders.
-
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Quickstart](#quickstart)
-* [Usage](#usage)
-* [Tests](#tests)
-* [SDK Reference](#sdk-reference)
-* [Deprecated APIs](#deprecated-apis)
+The Square Python library provides convenient access to the Square API from Python.
 
 ## Requirements
 
@@ -24,14 +13,71 @@ Use of the Python SDK requires:
 
 ## Installation
 
-For more information, see [Set Up Your Square SDK for a Python Project](https://developer.squareup.com/docs/sdks/python/setup-project).
+```sh
+pip install squareup
+```
+
+## Reference
+
+A full reference for this library is available [here](./reference.md).
 
 ## Quickstart
 
 For more information, see [Square Python SDK Quickstart](https://developer.squareup.com/docs/sdks/python/quick-start).
 
 ## Usage
-For more information, see [Using the Square Python SDK](https://developer.squareup.com/docs/sdks/python/using-python-sdk).
+
+Instantiate and use the client with the following:
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.payments.create(
+    source_id="ccof:GaJGNaZa8x4OgDJn4GB",
+    idempotency_key="7b0f3ec5-086a-4871-8f13-3c81b3875218",
+    amount_money={"amount": 1000, "currency": "USD"},
+    app_fee_money={"amount": 10, "currency": "USD"},
+    autocomplete=True,
+    customer_id="W92WH6P11H4Z77CTET0RNTGFW8",
+    location_id="L88917AVBK2S5",
+    reference_id="123456",
+    note="Brief description",
+)
+```
+
+## Async Client
+
+The SDK also exports an `async` client so that you can make non-blocking calls to our API.
+
+```python
+import asyncio
+
+from square import AsyncSquare
+
+client = AsyncSquare(
+    token="YOUR_TOKEN",
+)
+
+
+async def main() -> None:
+    await client.payments.create(
+        source_id="ccof:GaJGNaZa8x4OgDJn4GB",
+        idempotency_key="7b0f3ec5-086a-4871-8f13-3c81b3875218",
+        amount_money={"amount": 1000, "currency": "USD"},
+        app_fee_money={"amount": 10, "currency": "USD"},
+        autocomplete=True,
+        customer_id="W92WH6P11H4Z77CTET0RNTGFW8",
+        location_id="L88917AVBK2S5",
+        reference_id="123456",
+        note="Brief description",
+    )
+
+
+asyncio.run(main())
+```
 
 ## Tests
 
@@ -135,60 +181,105 @@ pytest
 
 ### Webhook Subscriptions
 * [Webhook Subscriptions]
-## Deprecated APIs
+## Exception Handling
 
-The following Square APIs are [deprecated](https://developer.squareup.com/docs/build-basics/api-lifecycle):
+When the API returns a non-success status code (4xx or 5xx response), a subclass of the following error
+will be thrown.
 
-* [Employees] - replaced by the [Team] API. For more information, see [Migrate from the Employees API](https://developer.squareup.com/docs/team/migrate-from-v2-employees).
+```python
+from square.core.api_error import ApiError
 
-* [Transactions] - replaced by the [Orders] and [Payments] APIs.  For more information, see [Migrate from the Transactions API](https://developer.squareup.com/docs/payments-api/migrate-from-transactions-api).
- 
-[//]: # "Link anchor definitions"
-[Square Logo]: https://docs.connect.squareup.com/images/github/github-square-logo.svg
-[Developer Dashboard]: https://developer.squareup.com/apps
-[Square API]: https://squareup.com/developers
-[sign up for a developer account]: https://squareup.com/signup?v=developers
-[Client]: doc/client.md
-[Devices]: doc/api/devices.md
-[Disputes]: doc/api/disputes.md
-[Terminal]: doc/api/terminal.md
-[Cash Drawers]: doc/api/cash-drawers.md
-[Vendors]: doc/api/vendors.md
-[Customer Groups]: doc/api/customer-groups.md
-[Customer Custom Attributes]: doc/api/customer-custom-attributes.md
-[Customer Segments]: doc/api/customer-segments.md
-[Bank Accounts]: doc/api/bank-accounts.md
-[Payments]: doc/api/payments.md
-[Checkout]: doc/api/checkout.md
-[Catalog]: doc/api/catalog.md
-[Customers]: doc/api/customers.md
-[Inventory]: doc/api/inventory.md
-[Labor]: doc/api/labor.md
-[Loyalty]: doc/api/loyalty.md
-[Bookings]: doc/api/bookings.md
-[Booking Custom Attributes]: doc/api/booking-custom-attributes.md
-[Locations]: doc/api/locations.md
-[Location Custom Attributes]: doc/api/location-custom-attributes.md
-[Merchants]: doc/api/merchants.md
-[Merchant Custom Attributes]: doc/api/merchant-custom-attributes.md
-[Orders]: doc/api/orders.md
-[Order Custom Attributes]: doc/api/order-custom-attributes.md
-[Invoices]: doc/api/invoices.md
-[Apple Pay]: doc/api/apple-pay.md
-[Refunds]: doc/api/refunds.md
-[Subscriptions]: doc/api/subscriptions.md
-[Mobile Authorization]: doc/api/mobile-authorization.md
-[OAuth]: doc/api/o-auth.md
-[Team]: doc/api/team.md
-[Python SDK]: https://github.com/square/square-python-sdk
-[Locations overview]: https://developer.squareup.com/docs/locations-api/what-it-does
-[OAuth overview]: https://developer.squareup.com/docs/oauth-api/what-it-does
-[Sites]: doc/api/sites.md
-[Snippets]: doc/api/snippets.md
-[Cards]: doc/api/cards.md
-[Payouts]: doc/api/payouts.md
-[Gift Cards]: doc/api/gift-cards.md
-[Gift Card Activities]: doc/api/gift-card-activities.md
-[Employees]: doc/api/employees.md
-[Transactions]: doc/api/transactions.md
-[Webhook Subscriptions]: doc/api/webhook-subscriptions.md
+try:
+    client.payments.create(...)
+except ApiError as e:
+    print(e.status_code)
+    print(e.body)
+```
+
+## Pagination
+
+Paginated requests will return a `SyncPager` or `AsyncPager`, which can be used as generators for the underlying object.
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+response = client.bank_accounts.list()
+for item in response:
+    yield item
+# alternatively, you can paginate page-by-page
+for page in response.iter_pages():
+    yield page
+```
+
+## Advanced
+
+### Retries
+
+The SDK is instrumented with automatic retries with exponential backoff. A request will be retried as long
+as the request is deemed retryable and the number of retry attempts has not grown larger than the configured
+retry limit (default: 2).
+
+A request is deemed retryable when any of the following HTTP status codes is returned:
+
+- [408](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408) (Timeout)
+- [429](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) (Too Many Requests)
+- [5XX](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500) (Internal Server Errors)
+
+Use the `max_retries` request option to configure this behavior.
+
+```python
+client.payments.create(..., request_options={
+    "max_retries": 1
+})
+```
+
+### Timeouts
+
+The SDK defaults to a 60 second timeout. You can configure this with a timeout option at the client or request level.
+
+```python
+
+from square import Square
+
+client = Square(
+    ...,
+    timeout=20.0,
+)
+
+
+# Override timeout for a specific method
+client.payments.create(..., request_options={
+    "timeout_in_seconds": 1
+})
+```
+
+### Custom Client
+
+You can override the `httpx` client to customize it for your use-case. Some common use-cases include support for proxies
+and transports.
+
+```python
+import httpx
+from square import Square
+
+client = Square(
+    ...,
+    httpx_client=httpx.Client(
+        proxies="http://my.test.proxy.example.com",
+        transport=httpx.HTTPTransport(local_address="0.0.0.0"),
+    ),
+)
+```
+
+## Contributing
+
+While we value open-source contributions to this SDK, this library is generated programmatically.
+Additions made directly to this library would have to be moved over to our generation code,
+otherwise they would be overwritten upon the next generated release. Feel free to open a PR as
+a proof of concept, but know that we will not be able to merge it as-is. We suggest opening
+an issue first to discuss with us!
+
+On the other hand, contributions to the README are always very welcome!
