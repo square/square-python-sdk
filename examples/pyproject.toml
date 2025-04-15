@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "squareup-example"
+version = "0.1.0"
+description = "Example project demonstrating usage of square and square_legacy"
+authors = []
+readme = "README.md"
+packages = [
+    { include = "example", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+squareup = {path = "../", develop = true}  # Use local square package
+squareup-legacy = {path = "../legacy/", develop = true}  # Use local square_legacy package
+
+[tool.poetry.scripts]
+run-example = "example.main:main"
