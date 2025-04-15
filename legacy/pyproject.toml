@@ -1,0 +1,31 @@
+[project]
+name = "squareup_legacy"
+
+[tool.poetry]
+name = "squareup_legacy"
+version = "41.0.0.20250319"
+description = "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management."
+readme = "../README.md"
+authors = []
+keywords = []
+packages = [
+    { include = "square_legacy", from = "src"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+apimatic-core = "~=0.2.0, >= 0.2.17"
+apimatic-core-interfaces = "~=0.1.0, >= 0.1.5"
+apimatic-requests-client-adapter = "~=0.1.0, >= 0.1.6"
+deprecation = "~=2.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "1.0.1"
+pytest = "^7.4.0"
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
