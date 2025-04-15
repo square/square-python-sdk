@@ -1,4 +1,4 @@
-apimatic-core~=0.2.0, >= 0.2.17
-apimatic-core-interfaces~=0.1.0, >= 0.1.5
-apimatic-requests-client-adapter~=0.1.0, >= 0.1.6
-deprecation~=2.1
+httpx>=0.21.2
+pydantic>= 1.9.2
+pydantic-core==^2.18.2
+typing_extensions>= 4.0.0

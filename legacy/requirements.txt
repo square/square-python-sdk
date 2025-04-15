@@ -1,0 +1,4 @@
+apimatic-core~=0.2.0, >= 0.2.17
+apimatic-core-interfaces~=0.1.0, >= 0.1.5
+apimatic-requests-client-adapter~=0.1.0, >= 0.1.6
+deprecation~=2.1
