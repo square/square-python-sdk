@@ -1,29 +1,15 @@
 # Square Python Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fsquare%2Fsquare-python-sdk)
-[![pypi](https://img.shields.io/pypi/v/squareup)](https://pypi.python.org/pypi/squareup)
+[![pypi](https://img.shields.io/pypi/v/squareup)](https://pypi.org/project/squareup)
 
 The Square Python library provides convenient access to the Square API from Python.
-
-## Requirements
-
-Use of the Python SDK requires:
-
-* Python 3 version 3.7 or higher
 
 ## Installation
 
 ```sh
 pip install squareup
 ```
-
-## Reference
-
-A full reference for this library is available [here](./reference.md).
-
-## Quickstart
-
-For more information, see [Square Python SDK Quickstart](https://developer.squareup.com/docs/sdks/python/quick-start).
 
 ## Usage
 
@@ -33,18 +19,25 @@ Instantiate and use the client with the following:
 from square import Square
 
 client = Square(
-    token="YOUR_TOKEN",
+    # This is the default and can be omitted.
+    token=os.environ.get("SQUARE_TOKEN"),
 )
 client.payments.create(
     source_id="ccof:GaJGNaZa8x4OgDJn4GB",
     idempotency_key="7b0f3ec5-086a-4871-8f13-3c81b3875218",
-    amount_money={"amount": 1000, "currency": "USD"},
-    app_fee_money={"amount": 10, "currency": "USD"},
+    amount_money={
+        "amount": 1000,
+        "currency": "USD"
+    },
+    app_fee_money={
+        "amount": 10,
+        "currency": "USD"
+    },
     autocomplete=True,
     customer_id="W92WH6P11H4Z77CTET0RNTGFW8",
     location_id="L88917AVBK2S5",
     reference_id="123456",
-    note="Brief description",
+    note="Brief description"
 )
 ```
 
@@ -57,134 +50,94 @@ import asyncio
 
 from square import AsyncSquare
 
-client = AsyncSquare(
-    token="YOUR_TOKEN",
-)
-
-
 async def main() -> None:
+    client = AsyncSquare(
+        # This is the default and can be omitted.
+        token=os.environ.get("SQUARE_TOKEN"),
+    )
     await client.payments.create(
         source_id="ccof:GaJGNaZa8x4OgDJn4GB",
         idempotency_key="7b0f3ec5-086a-4871-8f13-3c81b3875218",
-        amount_money={"amount": 1000, "currency": "USD"},
-        app_fee_money={"amount": 10, "currency": "USD"},
+        amount_money={
+            "amount": 1000,
+            "currency": "USD"
+        },
+        app_fee_money={
+            "amount": 10,
+            "currency": "USD"
+        },
         autocomplete=True,
         customer_id="W92WH6P11H4Z77CTET0RNTGFW8",
         location_id="L88917AVBK2S5",
         reference_id="123456",
-        note="Brief description",
+        note="Brief description"
     )
 
 
 asyncio.run(main())
 ```
 
-## Tests
+## Legacy SDK
 
-First, clone the repo locally and `cd` into the directory.
+While the new SDK has a lot of improvements, we at Square understand that it takes time
+to upgrade when there are breaking changes. To make the migration easier, the old SDK
+is published as `squareup_legacy` so that the two SDKs can be used side-by-side in the
+same project.
 
-```sh
-git clone https://github.com/square/square-python-sdk.git
-cd square-python-sdk
+Check out the [example](./example/README.md) for a full demonstration, but the gist is
+shown below:
+
+```python
+from square import Square
+from square_legacy.client import Client as LegacySquare
+
+
+def main():
+    client = Square(token=os.environ.get("SQUARE_TOKEN"))
+    legacy_client = LegacySquare(access_token=os.environ.get("SQUARE_TOKEN"))
+
+    ...
 ```
 
-Next, install dependencies.
+We recommend migrating to the new SDK using the following steps:
 
-```sh
-python3 -m pip install .
+1. Upgrade the PyPi package to ^42.0.0
+2. Run `pip install squareup_legacy`
+3. Search and replace all requires and imports from `square` to `square_legacy`
+4. Gradually move over to use the new SDK by importing it from the `square` module
+
+## Versioning
+
+By default, the SDK is pinned to the latest version. If you would like
+to override this version you can specify it like so:
+
+```python
+client = Square(
+    version="2025-03-19"
+)
 ```
 
-Before running the tests, find a sandbox token in your [Developer Dashboard] and set a `SQUARE_SANDBOX_TOKEN` environment variable.
+## Automatic Pagination
 
-```sh
-export SQUARE_SANDBOX_TOKEN="YOUR SANDBOX TOKEN HERE"
+Paginated requests will return a `SyncPager` or `AsyncPager`, which can be used
+as generators for the underlying object.
+
+```python
+from square import Square
+
+client = Square()
+response = client.payments.list()
+for item in response:
+    yield item
+# Alternatively, you can paginate page-by-page.
+for page in response.iter_pages():
+    yield page
 ```
 
-Ensure you have `pytest` installed:
-
-```
-python3 -m pip install pytest
-```
-
-And lastly, run the tests.
-
-```sh
-pytest
-```
-
-## SDK Reference
-
-### Payments
-* [Payments]
-* [Refunds]
-* [Disputes]
-* [Checkout]
-* [Apple Pay]
-* [Cards]
-* [Payouts]
-
-### Terminal
-* [Terminal]
-
-### Orders
-* [Orders]
-* [Order Custom Attributes]
-
-### Subscriptions
-* [Subscriptions]
-
-### Invoices
-* [Invoices]
-
-### Items
-* [Catalog]
-* [Inventory]
-
-### Customers
-* [Customers]
-* [Customer Groups]
-* [Customer Segments]
-
-### Loyalty
-* [Loyalty]
-
-### Gift Cards
-* [Gift Cards]
-* [Gift Card Activities]
-
-### Bookings
-* [Bookings]
-* [Booking Custom Attributes]
-
-### Business
-* [Merchants]
-* [Merchant Custom Attributes]
-* [Locations]
-* [Location Custom Attributes]
-* [Devices]
-* [Cash Drawers]
-
-### Team
-* [Team]
-* [Labor]
-
-### Financials
-* [Bank Accounts]
-
-### Online
-* [Sites]
-* [Snippets]
-
-### Authorization
-* [Mobile Authorization]
-* [OAuth]
-
-### Webhook Subscriptions
-* [Webhook Subscriptions]
 ## Exception Handling
 
-When the API returns a non-success status code (4xx or 5xx response), a subclass of the following error
-will be thrown.
+When the API returns a non-success status code (4xx or 5xx response), a subclass of
+the following error will be thrown.
 
 ```python
 from square.core.api_error import ApiError
@@ -196,22 +149,21 @@ except ApiError as e:
     print(e.body)
 ```
 
-## Pagination
+## Webhook Signature Verification
 
-Paginated requests will return a `SyncPager` or `AsyncPager`, which can be used as generators for the underlying object.
+The SDK provides utility methods that allow you to verify webhook signatures and ensure
+that all webhook events originate from Square. The `verify_signature` method will verify
+the signature.
 
 ```python
-from square import Square
+from square.utils.webhooks_helper import verify_signature
 
-client = Square(
-    token="YOUR_TOKEN",
+is_valid = verify_signature(
+    request_body=request_body,
+    signature_header=request.headers['x-square-hmacsha256-signature'],
+    signature_key="YOUR_SIGNATURE_KEY",
+    notification_url="https://example.com/webhook", # The URL where event notifications are sent.
 )
-response = client.bank_accounts.list()
-for item in response:
-    yield item
-# alternatively, you can paginate page-by-page
-for page in response.iter_pages():
-    yield page
 ```
 
 ## Advanced
@@ -219,10 +171,10 @@ for page in response.iter_pages():
 ### Retries
 
 The SDK is instrumented with automatic retries with exponential backoff. A request will be retried as long
-as the request is deemed retryable and the number of retry attempts has not grown larger than the configured
+as the request is deemed retriable and the number of retry attempts has not grown larger than the configured
 retry limit (default: 2).
 
-A request is deemed retryable when any of the following HTTP status codes is returned:
+A request is deemed retriable when any of the following HTTP status codes is returned:
 
 - [408](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408) (Timeout)
 - [429](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) (Too Many Requests)
@@ -231,9 +183,14 @@ A request is deemed retryable when any of the following HTTP status codes is ret
 Use the `max_retries` request option to configure this behavior.
 
 ```python
-client.payments.create(..., request_options={
-    "max_retries": 1
-})
+from square.core.request_options import RequestOptions
+
+client.payments.create(
+    ...,
+    request_options=RequestOptions(
+        max_retries=1
+    )
+)
 ```
 
 ### Timeouts
@@ -249,17 +206,19 @@ client = Square(
     timeout=20.0,
 )
 
-
 # Override timeout for a specific method
-client.payments.create(..., request_options={
-    "timeout_in_seconds": 1
-})
+client.payments.create(
+    ...,
+    request_options=RequestOptions(
+        timeout_in_seconds=20
+    )
+)
 ```
 
 ### Custom Client
 
-You can override the `httpx` client to customize it for your use-case. Some common use-cases include support for proxies
-and transports.
+You can override the `httpx` client to customize it for your use-case. Some common use-cases
+include support for proxies and transports.
 
 ```python
 import httpx
