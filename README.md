@@ -11,6 +11,12 @@ The Square Python library provides convenient access to the Square API from Pyth
 pip install squareup
 ```
 
+## Requirements
+
+Use of the Square Python SDK requires:
+
+* Python 3.8+
+
 ## Usage
 
 Instantiate and use the client with the following:
