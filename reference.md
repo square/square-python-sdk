@@ -2653,17 +2653,17 @@ client.catalog.batch_upsert(
         {
             "objects": [
                 {
-                    "type": "ITEM",
+                    "type": "IMAGE",
                     "id": "#Tea",
                     "present_at_all_locations": True,
                 },
                 {
-                    "type": "ITEM",
+                    "type": "IMAGE",
                     "id": "#Coffee",
                     "present_at_all_locations": True,
                 },
                 {
-                    "type": "CATEGORY",
+                    "type": "ITEM",
                     "id": "#Beverages",
                     "present_at_all_locations": True,
                 },
@@ -8571,7 +8571,7 @@ client.invoices.create_invoice_attachment(
 <dl>
 <dd>
 
-**request:** `typing.Optional[typing.Optional[typing.Any]]` 
+**request:** `typing.Optional[CreateInvoiceAttachmentRequestDataParams]` 
     
 </dd>
 </dl>
@@ -17988,7 +17988,7 @@ client = Square(
 )
 client.catalog.object.upsert(
     idempotency_key="af3d1afc-7212-4300-b463-0bfc5314a5ae",
-    object={"type": "ITEM", "id": "#Cocoa"},
+    object={"type": "IMAGE", "id": "#Cocoa"},
 )
 
 ```

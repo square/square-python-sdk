@@ -4,7 +4,6 @@ from __future__ import annotations
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
 import pydantic
-from .catalog_object_type import CatalogObjectType
 from .catalog_custom_attribute_value import CatalogCustomAttributeValue
 import typing_extensions
 from .catalog_v1id import CatalogV1Id
@@ -30,16 +29,10 @@ class CatalogObjectCategory(UncheckedBaseModel):
     The order of the object within the context of the category.
     """
 
+    type: typing.Literal["CATEGORY"] = "CATEGORY"
     category_data: typing.Optional["CatalogCategory"] = pydantic.Field(default=None)
     """
     Structured data for a `CatalogCategory`, set for CatalogObjects of type `CATEGORY`.
-    """
-
-    type: CatalogObjectType = pydantic.Field()
-    """
-    The type of this object. Each object type has expected
-    properties expressed in a structured format within its corresponding `*_data` field below.
-    See [CatalogObjectType](#type-catalogobjecttype) for possible values
     """
 
     updated_at: typing.Optional[str] = pydantic.Field(default=None)
