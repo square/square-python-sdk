@@ -5155,25 +5155,16 @@ types:
       - CatalogObjectDiscount
       - CatalogObjectModifierList
       - CatalogObjectModifier
-      - CatalogObjectDiningOption
-      - CatalogObjectTaxExemption
-      - CatalogObjectServiceCharge
       - CatalogObjectPricingRule
       - CatalogObjectProductSet
       - CatalogObjectTimePeriod
       - CatalogObjectMeasurementUnit
-      - CatalogObjectSubscriptionPlan
+      - CatalogObjectSubscriptionPlanVariation
       - CatalogObjectItemOption
       - CatalogObjectItemOptionValue
       - CatalogObjectCustomAttributeDefinition
       - CatalogObjectQuickAmountsSettings
-      - CatalogObjectComponent
-      - CatalogObjectComposition
-      - CatalogObjectResource
-      - CatalogObjectCheckoutLink
-      - CatalogObjectAddress
-      - CatalogObjectSubscriptionProduct
-      - CatalogObjectSubscriptionPlanVariation
+      - CatalogObjectSubscriptionPlan
       - CatalogObjectAvailabilityPeriod
     source:
       openapi: openapi/openapi.json
@@ -5201,20 +5192,12 @@ types:
       ordinal:
         type: optional<nullable<long>>
         docs: The order of the object within the context of the category.
+      type: literal<"CATEGORY">
       category_data:
         type: optional<CatalogCategory>
         docs: >-
           Structured data for a `CatalogCategory`, set for CatalogObjects of
           type `CATEGORY`.
-      type:
-        type: CatalogObjectType
-        docs: >-
-          The type of this object. Each object type has expected
-
-          properties expressed in a structured format within its corresponding
-          `*_data` field below.
-
-          See [CatalogObjectType](#type-catalogobjecttype) for possible values
       updated_at:
         type: optional<string>
         docs: >-
@@ -7379,6 +7362,28 @@ types:
       gift_card:
         type: optional<GiftCard>
         docs: The new gift card.
+    source:
+      openapi: openapi/openapi.json
+  CreateInvoiceAttachmentRequestData:
+    docs: >-
+      Represents a
+      [CreateInvoiceAttachment](api-endpoint:Invoices-CreateInvoiceAttachment)
+      request.
+    properties:
+      idempotency_key:
+        type: optional<string>
+        docs: >-
+          A unique string that identifies the `CreateInvoiceAttachment` request.
+
+          For more information, see
+          [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).
+        validation:
+          maxLength: 128
+      description:
+        type: optional<string>
+        docs: The description of the attachment to display on the invoice.
+        validation:
+          maxLength: 128
     source:
       openapi: openapi/openapi.json
   CreateInvoiceAttachmentResponse:
@@ -26846,112 +26851,973 @@ types:
       openapi: openapi/openapi.json
   CatalogObjectItem:
     properties:
+      type: literal<"ITEM">
       item_data:
         type: optional<CatalogItem>
         docs: >-
           Structured data for a `CatalogItem`, set for CatalogObjects of type
           `ITEM`.
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectImage:
+    properties:
+      type: literal<"IMAGE">
+      image_data:
+        type: optional<CatalogImage>
+        docs: >-
+          Structured data for a `CatalogImage`, set for CatalogObjects of type
+          `IMAGE`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectItemVariation:
     properties:
+      type: literal<"ITEM_VARIATION">
       item_variation_data:
         type: optional<CatalogItemVariation>
         docs: >-
           Structured data for a `CatalogItemVariation`, set for CatalogObjects
           of type `ITEM_VARIATION`.
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectTax:
     properties:
+      type: literal<"TAX">
       tax_data:
         type: optional<CatalogTax>
         docs: >-
           Structured data for a `CatalogTax`, set for CatalogObjects of type
           `TAX`.
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectDiscount:
     properties:
+      type: literal<"DISCOUNT">
       discount_data:
         type: optional<CatalogDiscount>
         docs: >-
           Structured data for a `CatalogDiscount`, set for CatalogObjects of
           type `DISCOUNT`.
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectModifierList:
     properties:
+      type: literal<"MODIFIER_LIST">
       modifier_list_data:
         type: optional<CatalogModifierList>
         docs: >-
           Structured data for a `CatalogModifierList`, set for CatalogObjects of
           type `MODIFIER_LIST`.
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectModifier:
     properties:
+      type: literal<"MODIFIER">
       modifier_data:
         type: optional<CatalogModifier>
         docs: >-
           Structured data for a `CatalogModifier`, set for CatalogObjects of
           type `MODIFIER`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectDiningOption:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectTaxExemption:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectServiceCharge:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectTimePeriod:
-    properties:
-      time_period_data:
-        type: optional<CatalogTimePeriod>
+      id:
+        type: string
         docs: >-
-          Structured data for a `CatalogTimePeriod`, set for CatalogObjects of
-          type `TIME_PERIOD`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectProductSet:
-    properties:
-      product_set_data:
-        type: optional<CatalogProductSet>
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
         docs: >-
-          Structured data for a `CatalogProductSet`, set for CatalogObjects of
-          type `PRODUCT_SET`.
-    extends:
-      - CatalogObjectBase
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectPricingRule:
     properties:
+      type: literal<"PRICING_RULE">
       pricing_rule_data:
         type: optional<CatalogPricingRule>
         docs: >-
@@ -26960,142 +27826,1513 @@ types:
 
           A `CatalogPricingRule` object often works with a `CatalogProductSet`
           object or a `CatalogTimePeriod` object.
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
-  CatalogObjectImage:
+  CatalogObjectProductSet:
     properties:
-      image_data:
-        type: optional<CatalogImage>
+      type: literal<"PRODUCT_SET">
+      product_set_data:
+        type: optional<CatalogProductSet>
         docs: >-
-          Structured data for a `CatalogImage`, set for CatalogObjects of type
-          `IMAGE`.
-    extends:
-      - CatalogObjectBase
+          Structured data for a `CatalogProductSet`, set for CatalogObjects of
+          type `PRODUCT_SET`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectTimePeriod:
+    properties:
+      type: literal<"TIME_PERIOD">
+      time_period_data:
+        type: optional<CatalogTimePeriod>
+        docs: >-
+          Structured data for a `CatalogTimePeriod`, set for CatalogObjects of
+          type `TIME_PERIOD`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectMeasurementUnit:
     properties:
+      type: literal<"MEASUREMENT_UNIT">
       measurement_unit_data:
         type: optional<CatalogMeasurementUnit>
         docs: >-
           Structured data for a `CatalogMeasurementUnit`, set for CatalogObjects
           of type `MEASUREMENT_UNIT`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectSubscriptionPlan:
-    properties:
-      subscription_plan_data:
-        type: optional<CatalogSubscriptionPlan>
+      id:
+        type: string
         docs: >-
-          Structured data for a `CatalogSubscriptionPlan`, set for
-          CatalogObjects of type `SUBSCRIPTION_PLAN`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectItemOption:
-    properties:
-      item_option_data:
-        type: optional<CatalogItemOption>
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
         docs: >-
-          Structured data for a `CatalogItemOption`, set for CatalogObjects of
-          type `ITEM_OPTION`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectItemOptionValue:
-    properties:
-      item_option_value_data:
-        type: optional<CatalogItemOptionValue>
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
         docs: >-
-          Structured data for a `CatalogItemOptionValue`, set for CatalogObjects
-          of type `ITEM_OPTION_VAL`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectCustomAttributeDefinition:
-    properties:
-      custom_attribute_definition_data:
-        type: optional<CatalogCustomAttributeDefinition>
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
         docs: >-
-          Structured data for a `CatalogCustomAttributeDefinition`, set for
-          CatalogObjects of type `CUSTOM_ATTRIBUTE_DEFINITION`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectQuickAmountsSettings:
-    properties:
-      quick_amounts_settings_data:
-        type: optional<CatalogQuickAmountsSettings>
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
         docs: >-
-          Structured data for a `CatalogQuickAmountsSettings`, set for
-          CatalogObjects of type `QUICK_AMOUNTS_SETTINGS`.
-    extends:
-      - CatalogObjectBase
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectSubscriptionPlanVariation:
     properties:
+      type: literal<"SUBSCRIPTION_PLAN_VARIATION">
       subscription_plan_variation_data:
         type: optional<CatalogSubscriptionPlanVariation>
         docs: >-
           Structured data for a `CatalogSubscriptionPlanVariation`, set for
           CatalogObjects of type `SUBSCRIPTION_PLAN_VARIATION`.
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectItemOption:
+    properties:
+      type: literal<"ITEM_OPTION">
+      item_option_data:
+        type: optional<CatalogItemOption>
+        docs: >-
+          Structured data for a `CatalogItemOption`, set for CatalogObjects of
+          type `ITEM_OPTION`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectItemOptionValue:
+    properties:
+      type: literal<"ITEM_OPTION_VAL">
+      item_option_value_data:
+        type: optional<CatalogItemOptionValue>
+        docs: >-
+          Structured data for a `CatalogItemOptionValue`, set for CatalogObjects
+          of type `ITEM_OPTION_VAL`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectCustomAttributeDefinition:
+    properties:
+      type: literal<"CUSTOM_ATTRIBUTE_DEFINITION">
+      custom_attribute_definition_data:
+        type: optional<CatalogCustomAttributeDefinition>
+        docs: >-
+          Structured data for a `CatalogCustomAttributeDefinition`, set for
+          CatalogObjects of type `CUSTOM_ATTRIBUTE_DEFINITION`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectQuickAmountsSettings:
+    properties:
+      type: literal<"QUICK_AMOUNTS_SETTINGS">
+      quick_amounts_settings_data:
+        type: optional<CatalogQuickAmountsSettings>
+        docs: >-
+          Structured data for a `CatalogQuickAmountsSettings`, set for
+          CatalogObjects of type `QUICK_AMOUNTS_SETTINGS`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectSubscriptionPlan:
+    properties:
+      type: literal<"SUBSCRIPTION_PLAN">
+      subscription_plan_data:
+        type: optional<CatalogSubscriptionPlan>
+        docs: >-
+          Structured data for a `CatalogSubscriptionPlan`, set for
+          CatalogObjects of type `SUBSCRIPTION_PLAN`.
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json
   CatalogObjectAvailabilityPeriod:
     properties:
+      type: literal<"AVAILABILITY_PERIOD">
       availability_period_data:
         type: optional<CatalogAvailabilityPeriod>
         docs: >-
           Structured data for a `CatalogAvailabilityPeriod`, set for
           CatalogObjects of type `AVAILABILITY_PERIOD`.
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectComponent:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectComposition:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectResource:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectCheckoutLink:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectAddress:
-    properties: {}
-    extends:
-      - CatalogObjectBase
-    source:
-      openapi: openapi/openapi.json
-  CatalogObjectSubscriptionProduct:
-    properties: {}
-    extends:
-      - CatalogObjectBase
+      id:
+        type: string
+        docs: >-
+          An identifier to reference this object in the catalog. When a new
+          `CatalogObject`
+
+          is inserted, the client should set the id to a temporary identifier
+          starting with
+
+          a "`#`" character. Other objects being inserted or updated within the
+          same request
+
+          may use this identifier to refer to the new object.
+
+
+          When the server receives the new object, it will supply a unique
+          identifier that
+
+          replaces the temporary identifier for all future references.
+        validation:
+          minLength: 1
+      updated_at:
+        type: optional<string>
+        docs: >-
+          Last modification
+          [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+          in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
+
+          would indicate the UTC time (denoted by `Z`) of August 15, 2016 at
+          23:59:33 and 123 milliseconds.
+      version:
+        type: optional<long>
+        docs: >-
+          The version of the object. When updating an object, the version
+          supplied
+
+          must match the version in the database, otherwise the write will be
+          rejected as conflicting.
+      is_deleted:
+        type: optional<boolean>
+        docs: >-
+          If `true`, the object has been deleted from the database. Must be
+          `false` for new objects
+
+          being inserted. When deleted, the `updated_at` field will equal the
+          deletion time.
+      custom_attribute_values:
+        type: optional<map<string, CatalogCustomAttributeValue>>
+        docs: >-
+          A map (key-value pairs) of application-defined custom attribute
+          values. The value of a key-value pair
+
+          is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue)
+          object. The key is the `key` attribute
+
+          value defined in the associated
+          [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition)
+
+          object defined by the application making the request.
+
+
+          If the `CatalogCustomAttributeDefinition` object is
+
+          defined by another application, the
+          `CatalogCustomAttributeDefinition`'s key attribute value is prefixed
+          by
+
+          the defining application ID. For example, if the
+          `CatalogCustomAttributeDefinition` has a `key` attribute of
+
+          `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the
+          key in the map is `"abcd1234:cocoa_brand"`
+
+          if the application making the request is different from the
+          application defining the custom attribute definition.
+
+          Otherwise, the key used in the map is simply `"cocoa_brand"`.
+
+
+          Application-defined custom attributes are set at a global
+          (location-independent) level.
+
+          Custom attribute values are intended to store additional information
+          about a catalog object
+
+          or associations with an entity in another system. Do not use custom
+          attributes
+
+          to store any sensitive information (personally identifiable
+          information, card details, etc.).
+      catalog_v1_ids:
+        type: optional<list<CatalogV1Id>>
+        docs: >-
+          The Connect v1 IDs for this object at each location where it is
+          present, where they
+
+          differ from the object's Connect V2 ID. The field will only be present
+          for objects that
+
+          have been created or modified by legacy APIs.
+      present_at_all_locations:
+        type: optional<boolean>
+        docs: >-
+          If `true`, this object is present at all locations (including future
+          locations), except where specified in
+
+          the `absent_at_location_ids` field. If `false`, this object is not
+          present at any locations (including future locations),
+
+          except where specified in the `present_at_location_ids` field. If not
+          specified, defaults to `true`.
+      present_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is present, even if
+          `present_at_all_locations` is `false`.
+
+          This can include locations that are deactivated.
+      absent_at_location_ids:
+        type: optional<list<string>>
+        docs: >-
+          A list of locations where the object is not present, even if
+          `present_at_all_locations` is `true`.
+
+          This can include locations that are deactivated.
+      image_id:
+        type: optional<string>
+        docs: Identifies the `CatalogImage` attached to this `CatalogObject`.
     source:
       openapi: openapi/openapi.json

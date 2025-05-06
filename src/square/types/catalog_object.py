@@ -8,31 +8,22 @@ from .catalog_object_item_variation import CatalogObjectItemVariation
 from .catalog_object_tax import CatalogObjectTax
 from .catalog_object_discount import CatalogObjectDiscount
 from .catalog_object_modifier import CatalogObjectModifier
-from .catalog_object_dining_option import CatalogObjectDiningOption
-from .catalog_object_tax_exemption import CatalogObjectTaxExemption
-from .catalog_object_service_charge import CatalogObjectServiceCharge
 from .catalog_object_pricing_rule import CatalogObjectPricingRule
 from .catalog_object_product_set import CatalogObjectProductSet
 from .catalog_object_time_period import CatalogObjectTimePeriod
 from .catalog_object_measurement_unit import CatalogObjectMeasurementUnit
+from .catalog_object_subscription_plan_variation import CatalogObjectSubscriptionPlanVariation
 from .catalog_object_item_option_value import CatalogObjectItemOptionValue
 from .catalog_object_custom_attribute_definition import CatalogObjectCustomAttributeDefinition
 from .catalog_object_quick_amounts_settings import CatalogObjectQuickAmountsSettings
-from .catalog_object_component import CatalogObjectComponent
-from .catalog_object_composition import CatalogObjectComposition
-from .catalog_object_resource import CatalogObjectResource
-from .catalog_object_checkout_link import CatalogObjectCheckoutLink
-from .catalog_object_address import CatalogObjectAddress
-from .catalog_object_subscription_product import CatalogObjectSubscriptionProduct
-from .catalog_object_subscription_plan_variation import CatalogObjectSubscriptionPlanVariation
 from .catalog_object_availability_period import CatalogObjectAvailabilityPeriod
 import typing
 
 if typing.TYPE_CHECKING:
     from .catalog_object_item import CatalogObjectItem
     from .catalog_object_modifier_list import CatalogObjectModifierList
-    from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlan
     from .catalog_object_item_option import CatalogObjectItemOption
+    from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlan
 CatalogObject = typing.Union[
     "CatalogObjectItem",
     CatalogObjectImage,
@@ -42,24 +33,15 @@ CatalogObject = typing.Union[
     CatalogObjectDiscount,
     "CatalogObjectModifierList",
     CatalogObjectModifier,
-    CatalogObjectDiningOption,
-    CatalogObjectTaxExemption,
-    CatalogObjectServiceCharge,
     CatalogObjectPricingRule,
     CatalogObjectProductSet,
     CatalogObjectTimePeriod,
     CatalogObjectMeasurementUnit,
-    "CatalogObjectSubscriptionPlan",
+    CatalogObjectSubscriptionPlanVariation,
     "CatalogObjectItemOption",
     CatalogObjectItemOptionValue,
     CatalogObjectCustomAttributeDefinition,
     CatalogObjectQuickAmountsSettings,
-    CatalogObjectComponent,
-    CatalogObjectComposition,
-    CatalogObjectResource,
-    CatalogObjectCheckoutLink,
-    CatalogObjectAddress,
-    CatalogObjectSubscriptionProduct,
-    CatalogObjectSubscriptionPlanVariation,
+    "CatalogObjectSubscriptionPlan",
     CatalogObjectAvailabilityPeriod,
 ]

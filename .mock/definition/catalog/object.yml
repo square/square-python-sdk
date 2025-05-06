@@ -72,7 +72,7 @@ service:
         - request:
             idempotency_key: af3d1afc-7212-4300-b463-0bfc5314a5ae
             object:
-              type: ITEM
+              type: IMAGE
               id: '#Cocoa'
           response:
             body:
@@ -259,8 +259,39 @@ service:
                 absent_at_location_ids:
                   - absent_at_location_ids
                 image_id: image_id
+                item_data:
+                  name: Tea
+                  description: Hot Leaf Juice
+                  abbreviation: abbreviation
+                  label_color: label_color
+                  is_taxable: true
+                  category_id: category_id
+                  tax_ids:
+                    - HURXQOOAIC4IZSI2BEXQRYFY
+                  modifier_list_info:
+                    - modifier_list_id: modifier_list_id
+                  product_type: REGULAR
+                  skip_modifier_screen: true
+                  item_options:
+                    - {}
+                  ecom_uri: ecom_uri
+                  ecom_image_uris:
+                    - ecom_image_uris
+                  image_ids:
+                    - image_ids
+                  sort_name: sort_name
+                  categories:
+                    - type: CATEGORY
+                      id: BJNQCF2FJ6S6UIDT65ABHLRX
+                      ordinal: 0
+                  description_html: description_html
+                  description_plaintext: description_plaintext
+                  channels:
+                    - channels
+                  is_archived: true
+                  is_alcoholic: true
               related_objects:
-                - type: CATEGORY
+                - type: ITEM
                   id: BJNQCF2FJ6S6UIDT65ABHLRX
                   updated_at: '2016-11-16T22:25:24.878Z'
                   version: 1479335124878

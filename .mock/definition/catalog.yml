@@ -215,6 +215,15 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
+                  item_data:
+                    name: Tea
+                    description: Hot Leaf Juice
+                    tax_ids:
+                      - HURXQOOAIC4IZSI2BEXQRYFY
+                    categories:
+                      - type: CATEGORY
+                        id: BJNQCF2FJ6S6UIDT65ABHLRX
+                        ordinal: 0
                 - type: ITEM
                   id: AA27W3M2GGTF3H6AVPNB77CK
                   updated_at: '2016-11-16T22:25:24.878Z'
@@ -236,11 +245,11 @@ service:
                     tax_ids:
                       - HURXQOOAIC4IZSI2BEXQRYFY
                     categories:
-                      - type: ITEM
+                      - type: CATEGORY
                         id: BJNQCF2FJ6S6UIDT65ABHLRX
                         ordinal: 0
               related_objects:
-                - type: CATEGORY
+                - type: ITEM
                   id: BJNQCF2FJ6S6UIDT65ABHLRX
                   updated_at: '2016-11-16T22:25:24.878Z'
                   version: 1479335124878
@@ -408,13 +417,13 @@ service:
             idempotency_key: 789ff020-f723-43a9-b4b5-43b5dc1fa3dc
             batches:
               - objects:
-                  - type: ITEM
+                  - type: IMAGE
                     id: '#Tea'
                     present_at_all_locations: true
-                  - type: ITEM
+                  - type: IMAGE
                     id: '#Coffee'
                     present_at_all_locations: true
-                  - type: CATEGORY
+                  - type: ITEM
                     id: '#Beverages'
                     present_at_all_locations: true
                   - type: TAX
@@ -458,7 +467,7 @@ service:
                       - HP5VNYPKZKTNCKZ2Z5NPUH6A
                     product_type: REGULAR
                     categories:
-                      - type: ITEM
+                      - type: CATEGORY
                         id: XCS4SCGN4WQYE2VU4U3TKXEH
                         ordinal: -2251731094208512
                     description_html: <p><strong>Hot</strong> Leaf Juice</p>
@@ -487,7 +496,7 @@ service:
                       - HP5VNYPKZKTNCKZ2Z5NPUH6A
                     product_type: REGULAR
                     categories:
-                      - type: ITEM
+                      - type: CATEGORY
                         id: XCS4SCGN4WQYE2VU4U3TKXEH
                         ordinal: -2251662374731776
                     description_html: <p>Hot <em>Bean Juice</em></p>
@@ -508,6 +517,12 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
+                  ordinal: 1000000
+                  category_data:
+                    name: Beverages
+                    category_type: REGULAR_CATEGORY
+                    is_top_level: true
+                    online_visibility: true
                 - type: TAX
                   id: HP5VNYPKZKTNCKZ2Z5NPUH6A
                   updated_at: '2023-11-30T19:24:35.4Z'
@@ -687,7 +702,7 @@ service:
                   field: field
               cursor: cursor
               objects:
-                - type: CATEGORY
+                - type: ITEM
                   id: 5ZYQZZ2IECPVJ2IJ5KQPRDC3
                   updated_at: '2017-02-21T14:50:26.495Z'
                   version: 1487688626495
@@ -934,7 +949,7 @@ service:
                       - ZXITPM6RWHZ7GZ7EIP3YKECM
                     product_type: REGULAR
                     categories:
-                      - type: ITEM
+                      - type: CATEGORY
                         id: E7CLE5RZZ744BHWVQQEAHI2C
                         ordinal: 0
                 - type: ITEM
@@ -959,7 +974,7 @@ service:
                       - ZXITPM6RWHZ7GZ7EIP3YKECM
                     product_type: REGULAR
                     categories:
-                      - type: ITEM
+                      - type: CATEGORY
                         id: E7CLE5RZZ744BHWVQQEAHI2C
                         ordinal: 0
               related_objects:

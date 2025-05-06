@@ -81,7 +81,7 @@ class ObjectClient:
         )
         client.catalog.object.upsert(
             idempotency_key="af3d1afc-7212-4300-b463-0bfc5314a5ae",
-            object={"type": "ITEM", "id": "#Cocoa"},
+            object={"type": "IMAGE", "id": "#Cocoa"},
         )
         """
         response = self._raw_client.upsert(
@@ -284,7 +284,7 @@ class AsyncObjectClient:
         async def main() -> None:
             await client.catalog.object.upsert(
                 idempotency_key="af3d1afc-7212-4300-b463-0bfc5314a5ae",
-                object={"type": "ITEM", "id": "#Cocoa"},
+                object={"type": "IMAGE", "id": "#Cocoa"},
             )
 
 

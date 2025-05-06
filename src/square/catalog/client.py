@@ -267,17 +267,17 @@ class CatalogClient:
                 {
                     "objects": [
                         {
-                            "type": "ITEM",
+                            "type": "IMAGE",
                             "id": "#Tea",
                             "present_at_all_locations": True,
                         },
                         {
-                            "type": "ITEM",
+                            "type": "IMAGE",
                             "id": "#Coffee",
                             "present_at_all_locations": True,
                         },
                         {
-                            "type": "CATEGORY",
+                            "type": "ITEM",
                             "id": "#Beverages",
                             "present_at_all_locations": True,
                         },
@@ -1034,17 +1034,17 @@ class AsyncCatalogClient:
                     {
                         "objects": [
                             {
-                                "type": "ITEM",
+                                "type": "IMAGE",
                                 "id": "#Tea",
                                 "present_at_all_locations": True,
                             },
                             {
-                                "type": "ITEM",
+                                "type": "IMAGE",
                                 "id": "#Coffee",
                                 "present_at_all_locations": True,
                             },
                             {
-                                "type": "CATEGORY",
+                                "type": "ITEM",
                                 "id": "#Beverages",
                                 "present_at_all_locations": True,
                             },

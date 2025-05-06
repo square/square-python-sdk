@@ -4,7 +4,6 @@ from __future__ import annotations
 import typing_extensions
 import typing_extensions
 import typing
-from ..types.catalog_object_type import CatalogObjectType
 from .catalog_custom_attribute_value import CatalogCustomAttributeValueParams
 from .catalog_v1id import CatalogV1IdParams
 from ..core.serialization import FieldMetadata
@@ -31,16 +30,10 @@ class CatalogObjectCategoryParams(typing_extensions.TypedDict):
     The order of the object within the context of the category.
     """
 
+    type: typing.Literal["CATEGORY"]
     category_data: typing_extensions.NotRequired["CatalogCategoryParams"]
     """
     Structured data for a `CatalogCategory`, set for CatalogObjects of type `CATEGORY`.
-    """
-
-    type: CatalogObjectType
-    """
-    The type of this object. Each object type has expected
-    properties expressed in a structured format within its corresponding `*_data` field below.
-    See [CatalogObjectType](#type-catalogobjecttype) for possible values
     """
 
     updated_at: typing_extensions.NotRequired[str]

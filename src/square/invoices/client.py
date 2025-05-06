@@ -17,6 +17,7 @@ from ..types.search_invoices_response import SearchInvoicesResponse
 from ..types.get_invoice_response import GetInvoiceResponse
 from ..types.update_invoice_response import UpdateInvoiceResponse
 from ..types.delete_invoice_response import DeleteInvoiceResponse
+from ..requests.create_invoice_attachment_request_data import CreateInvoiceAttachmentRequestDataParams
 from .. import core
 from ..types.create_invoice_attachment_response import CreateInvoiceAttachmentResponse
 from ..types.delete_invoice_attachment_response import DeleteInvoiceAttachmentResponse
@@ -442,7 +443,7 @@ class InvoicesClient:
         self,
         invoice_id: str,
         *,
-        request: typing.Optional[typing.Optional[typing.Any]] = OMIT,
+        request: typing.Optional[CreateInvoiceAttachmentRequestDataParams] = OMIT,
         image_file: typing.Optional[core.File] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateInvoiceAttachmentResponse:
@@ -461,7 +462,7 @@ class InvoicesClient:
         invoice_id : str
             The ID of the [invoice](entity:Invoice) to attach the file to.
 
-        request : typing.Optional[typing.Optional[typing.Any]]
+        request : typing.Optional[CreateInvoiceAttachmentRequestDataParams]
 
         image_file : typing.Optional[core.File]
             See core.File for more documentation
@@ -1103,7 +1104,7 @@ class AsyncInvoicesClient:
         self,
         invoice_id: str,
         *,
-        request: typing.Optional[typing.Optional[typing.Any]] = OMIT,
+        request: typing.Optional[CreateInvoiceAttachmentRequestDataParams] = OMIT,
         image_file: typing.Optional[core.File] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateInvoiceAttachmentResponse:
@@ -1122,7 +1123,7 @@ class AsyncInvoicesClient:
         invoice_id : str
             The ID of the [invoice](entity:Invoice) to attach the file to.
 
-        request : typing.Optional[typing.Optional[typing.Any]]
+        request : typing.Optional[CreateInvoiceAttachmentRequestDataParams]
 
         image_file : typing.Optional[core.File]
             See core.File for more documentation
