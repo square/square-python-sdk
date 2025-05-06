@@ -140,6 +140,27 @@ for page in response.iter_pages():
     yield page
 ```
 
+## File Uploads
+
+Files are uploaded with the [File](./src/square/core/file.py) type, which is constructed as a tuple in
+a variety of formats. You can customize the filename and `Content-Type` of the individual `multipart/form-data`
+part like so:
+
+```python
+invoice_pdf = client.invoices.create_invoice_attachment(
+    invoice_id="inv:0-ChA4-3sU9GPd-uOC3HgvFjMWEL4N",
+    image_file=(
+         os.path.basename(pdf_filepath), # The filename to include in the `multipart/form-data` part.
+         open(pdf_filepath, "rb"),       # The file stream, read as binary data.
+         "application/pdf"               # The Content-Type for this particular file.
+    ),
+    request={
+        "idempotency_key": str(uuid.uuid4()),
+        "description": f"Invoice-{pdf_filepath}",
+    }
+)
+```
+
 ## Exception Handling
 
 When the API returns a non-success status code (4xx or 5xx response), a subclass of
