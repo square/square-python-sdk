@@ -7,6 +7,7 @@ from square.types.catalog_item_variation import CatalogItemVariation
 from square.types.catalog_modifier import CatalogModifier
 from square.types.catalog_modifier_list import CatalogModifierList
 from square.types.catalog_object_batch import CatalogObjectBatch
+from square.types.catalog_object_image import CatalogObjectImage
 from square.types.catalog_object_item import CatalogObjectItem
 from square.types.catalog_object_modifier import CatalogObjectModifier
 from square.types.catalog_object_modifier_list import CatalogObjectModifierList
@@ -58,7 +59,7 @@ def test_upload_catalog_image():
     )
     image = create_catalog_image_resp.image
     assert image is not None
-    assert isinstance(image, CatalogObjectItem)
+    assert isinstance(image, CatalogObjectImage)
 
     # Cleanup
     client.catalog.batch_delete(
