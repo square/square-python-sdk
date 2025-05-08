@@ -67,6 +67,6 @@ jobs:
       - name: Publish to pypi
         run: |
           poetry config repositories.remote https://upload.pypi.org/legacy/
-          poetry --no-interaction -v publish --build --repository remote -u __token__ -p "$PYPI_API_TOKEN"
+          poetry --no-interaction -v publish --build --repository remote -u __token__ -p "PYPI_SQUAREUP_ACCESS_TOKEN"
         env:
-          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+          PYPI_API_TOKEN: ${{ secrets.PYPI_SQUAREUP_ACCESS_TOKEN }}
