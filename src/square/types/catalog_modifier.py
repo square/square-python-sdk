@@ -10,7 +10,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 class CatalogModifier(UncheckedBaseModel):
     """
-    A modifier applicable to items at the time of sale. An example of a modifier is a Cheese add-on to a Burger item.
+    A modifier that can be applied to items at the time of sale. For example, a cheese modifier for a burger, or a flavor modifier for a serving of ice cream.
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)
@@ -21,6 +21,12 @@ class CatalogModifier(UncheckedBaseModel):
     price_money: typing.Optional[Money] = pydantic.Field(default=None)
     """
     The modifier price.
+    """
+
+    on_by_default: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    When `true`, this modifier is selected by default when displaying the modifier list.
+    This setting can be overridden at the item level using `CatalogModifierListInfo.modifier_overrides`.
     """
 
     ordinal: typing.Optional[int] = pydantic.Field(default=None)
@@ -42,6 +48,11 @@ class CatalogModifier(UncheckedBaseModel):
     """
     The ID of the image associated with this `CatalogModifier` instance.
     Currently this image is not displayed by Square, but is free to be displayed in 3rd party applications.
+    """
+
+    hidden_online: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    When `true`, this modifier is hidden from online ordering channels. This setting can be overridden at the item level using `CatalogModifierListInfo.modifier_overrides`.
     """
 
     if IS_PYDANTIC_V2:

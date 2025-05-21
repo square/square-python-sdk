@@ -9,7 +9,7 @@ from .modifier_location_overrides import ModifierLocationOverridesParams
 
 class CatalogModifierParams(typing_extensions.TypedDict):
     """
-    A modifier applicable to items at the time of sale. An example of a modifier is a Cheese add-on to a Burger item.
+    A modifier that can be applied to items at the time of sale. For example, a cheese modifier for a burger, or a flavor modifier for a serving of ice cream.
     """
 
     name: typing_extensions.NotRequired[typing.Optional[str]]
@@ -20,6 +20,12 @@ class CatalogModifierParams(typing_extensions.TypedDict):
     price_money: typing_extensions.NotRequired[MoneyParams]
     """
     The modifier price.
+    """
+
+    on_by_default: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    When `true`, this modifier is selected by default when displaying the modifier list.
+    This setting can be overridden at the item level using `CatalogModifierListInfo.modifier_overrides`.
     """
 
     ordinal: typing_extensions.NotRequired[typing.Optional[int]]
@@ -41,4 +47,9 @@ class CatalogModifierParams(typing_extensions.TypedDict):
     """
     The ID of the image associated with this `CatalogModifier` instance.
     Currently this image is not displayed by Square, but is free to be displayed in 3rd party applications.
+    """
+
+    hidden_online: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    When `true`, this modifier is hidden from online ordering channels. This setting can be overridden at the item level using `CatalogModifierListInfo.modifier_overrides`.
     """

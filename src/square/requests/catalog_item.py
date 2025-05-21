@@ -112,12 +112,12 @@ class CatalogItemParams(typing_extensions.TypedDict):
 
     ecom_uri: typing_extensions.NotRequired[typing.Optional[str]]
     """
-    Deprecated; see go/ecomUriUseCases. A URI pointing to a published e-commerce product page for the Item.
+    Deprecated. A URI pointing to a published e-commerce product page for the Item.
     """
 
     ecom_image_uris: typing_extensions.NotRequired[typing.Optional[typing.Sequence[str]]]
     """
-    Deprecated; see go/ecomUriUseCases. A comma-separated list of encoded URIs pointing to a set of published e-commerce images for the Item.
+    Deprecated. A comma-separated list of encoded URIs pointing to a set of published e-commerce images for the Item.
     """
 
     image_ids: typing_extensions.NotRequired[typing.Optional[typing.Sequence[str]]]

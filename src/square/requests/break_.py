@@ -7,7 +7,7 @@ import typing
 
 class BreakParams(typing_extensions.TypedDict):
     """
-    A record of an employee's break during a shift.
+    A record of a team member's break on a [timecard](entity:Timecard).
     """
 
     id: typing_extensions.NotRequired[str]
@@ -17,19 +17,19 @@ class BreakParams(typing_extensions.TypedDict):
 
     start_at: str
     """
-    RFC 3339; follows the same timezone information as `Shift`. Precision up to
+    RFC 3339; follows the same timezone information as the [timecard](entity:Timecard). Precision up to
     the minute is respected; seconds are truncated.
     """
 
     end_at: typing_extensions.NotRequired[typing.Optional[str]]
     """
-    RFC 3339; follows the same timezone information as `Shift`. Precision up to
+    RFC 3339; follows the same timezone information as the [timecard](entity:Timecard). Precision up to
     the minute is respected; seconds are truncated.
     """
 
     break_type_id: str
     """
-    The `BreakType` that this `Break` was templated on.
+    The [BreakType](entity:BreakType) that this break was templated on.
     """
 
     name: str
@@ -41,6 +41,8 @@ class BreakParams(typing_extensions.TypedDict):
     """
     Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
     the break.
+    
+    Example for break expected duration of 15 minutes: PT15M
     """
 
     is_paid: bool

@@ -6,8 +6,8 @@ import typing_extensions
 
 class BreakTypeParams(typing_extensions.TypedDict):
     """
-    A defined break template that sets an expectation for possible `Break`
-    instances on a `Shift`.
+    A template for a type of [break](entity:Break) that can be added to a
+    [timecard](entity:Timecard), including the expected duration and paid status.
     """
 
     id: typing_extensions.NotRequired[str]
@@ -23,7 +23,7 @@ class BreakTypeParams(typing_extensions.TypedDict):
     break_name: str
     """
     A human-readable name for this type of break. The name is displayed to
-    employees in Square products.
+    team members in Square products.
     """
 
     expected_duration: str
@@ -31,7 +31,7 @@ class BreakTypeParams(typing_extensions.TypedDict):
     Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
     this break. Precision less than minutes is truncated.
     
-    Example for break expected duration of 15 minutes: T15M
+    Example for break expected duration of 15 minutes: PT15M
     """
 
     is_paid: bool

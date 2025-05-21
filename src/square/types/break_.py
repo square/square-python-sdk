@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 class Break(UncheckedBaseModel):
     """
-    A record of an employee's break during a shift.
+    A record of a team member's break on a [timecard](entity:Timecard).
     """
 
     id: typing.Optional[str] = pydantic.Field(default=None)
@@ -18,19 +18,19 @@ class Break(UncheckedBaseModel):
 
     start_at: str = pydantic.Field()
     """
-    RFC 3339; follows the same timezone information as `Shift`. Precision up to
+    RFC 3339; follows the same timezone information as the [timecard](entity:Timecard). Precision up to
     the minute is respected; seconds are truncated.
     """
 
     end_at: typing.Optional[str] = pydantic.Field(default=None)
     """
-    RFC 3339; follows the same timezone information as `Shift`. Precision up to
+    RFC 3339; follows the same timezone information as the [timecard](entity:Timecard). Precision up to
     the minute is respected; seconds are truncated.
     """
 
     break_type_id: str = pydantic.Field()
     """
-    The `BreakType` that this `Break` was templated on.
+    The [BreakType](entity:BreakType) that this break was templated on.
     """
 
     name: str = pydantic.Field()
@@ -42,6 +42,8 @@ class Break(UncheckedBaseModel):
     """
     Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
     the break.
+    
+    Example for break expected duration of 15 minutes: PT15M
     """
 
     is_paid: bool = pydantic.Field()

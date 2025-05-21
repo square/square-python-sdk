@@ -9,8 +9,8 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 class CatalogItemModifierListInfo(UncheckedBaseModel):
     """
-    References a text-based modifier or a list of non text-based modifiers applied to a `CatalogItem` instance
-    and specifies supported behaviors of the application.
+    Controls how a modifier list is applied to a specific item. This object allows for item-specific customization of modifier list behavior
+    and provides the ability to override global modifier list settings.
     """
 
     modifier_list_id: str = pydantic.Field()
@@ -20,35 +20,31 @@ class CatalogItemModifierListInfo(UncheckedBaseModel):
 
     modifier_overrides: typing.Optional[typing.List[CatalogModifierOverride]] = pydantic.Field(default=None)
     """
-    A set of `CatalogModifierOverride` objects that override whether a given `CatalogModifier` is enabled by default.
+    A set of `CatalogModifierOverride` objects that override default modifier settings for this item.
     """
 
     min_selected_modifiers: typing.Optional[int] = pydantic.Field(default=None)
     """
-    If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this `CatalogModifierList`.
-    The default value is `-1`.
+    The minimum number of modifiers that must be selected from this modifier list.
+    Values:
     
-    When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.min_selected_modifiers=-1` 
-    and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of modifiers of
-    the `CatalogModifierList` can be selected from the `CatalogModifierList`. 
-    
-    When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.min_selected_modifiers=-1`
-    and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be present in 
-    and can be selected from the `CatalogModifierList`
+    - 0: No selection is required.
+    - -1: Default value, the attribute was not set by the client. When `max_selected_modifiers` is
+    also -1, use the minimum and maximum selection values set on the `CatalogItemModifierList`.
+    - &gt;0: The required minimum modifier selections. This can be larger than the total `CatalogModifiers` when `allow_quantities` is enabled.
+    - &lt; -1: Invalid. Treated as no selection required.
     """
 
     max_selected_modifiers: typing.Optional[int] = pydantic.Field(default=None)
     """
-    If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this `CatalogModifierList`.
-    The default value is `-1`.
+    The maximum number of modifiers that can be selected.
+    Values:
     
-    When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.min_selected_modifiers=-1` 
-    and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of modifiers of
-    the `CatalogModifierList` can be selected from the `CatalogModifierList`. 
-    
-    When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.min_selected_modifiers=-1`
-    and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be present in 
-    and can be selected from the `CatalogModifierList`
+    - 0: No maximum limit.
+    - -1: Default value, the attribute was not set by the client. When `min_selected_modifiers` is
+    also -1, use the minimum and maximum selection values set on the `CatalogItemModifierList`.
+    - &gt;0: The maximum total modifier selections. This can be larger than the total `CatalogModifiers` when `allow_quantities` is enabled.
+    - &lt; -1: Invalid. Treated as no maximum limit.
     """
 
     enabled: typing.Optional[bool] = pydantic.Field(default=None)
@@ -61,6 +57,10 @@ class CatalogItemModifierListInfo(UncheckedBaseModel):
     The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list applied 
     to a `CatalogItem` instance.
     """
+
+    allow_quantities: typing.Optional[typing.Optional[typing.Any]] = None
+    is_conversational: typing.Optional[typing.Optional[typing.Any]] = None
+    hidden_from_customer_override: typing.Optional[typing.Optional[typing.Any]] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
