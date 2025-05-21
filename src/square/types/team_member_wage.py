@@ -9,8 +9,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 class TeamMemberWage(UncheckedBaseModel):
     """
-    The hourly wage rate that a team member earns on a `Shift` for doing the job
-    specified by the `title` property of this object.
+    Job and wage information for a [team member](entity:TeamMember).
+    This convenience object provides details needed to specify the `wage`
+    field for a [timecard](entity:Timecard).
     """
 
     id: typing.Optional[str] = pydantic.Field(default=None)
@@ -36,8 +37,7 @@ class TeamMemberWage(UncheckedBaseModel):
 
     job_id: typing.Optional[str] = pydantic.Field(default=None)
     """
-    An identifier for the job that this wage relates to. This cannot be
-    used to retrieve the job.
+    An identifier for the [job](entity:Job) that this wage relates to.
     """
 
     tip_eligible: typing.Optional[bool] = pydantic.Field(default=None)

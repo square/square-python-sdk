@@ -14,18 +14,11 @@ if typing.TYPE_CHECKING:
 
 class CatalogModifierListParams(typing_extensions.TypedDict):
     """
-    For a text-based modifier, this encapsulates the modifier's text when its `modifier_type` is `TEXT`.
-    For example, to sell T-shirts with custom prints, a text-based modifier can be used to capture the buyer-supplied
-    text string to be selected for the T-shirt at the time of sale.
-
-    For non text-based modifiers, this encapsulates a non-empty list of modifiers applicable to items
-    at the time of sale. Each element of the modifier list is a `CatalogObject` instance of the `MODIFIER` type.
-    For example, a "Condiments" modifier list applicable to a "Hot Dog" item
-    may contain "Ketchup", "Mustard", and "Relish" modifiers.
-
-    A non text-based modifier can be applied to the modified item once or multiple times, if the `selection_type` field
-    is set to `SINGLE` or `MULTIPLE`, respectively. On the other hand, a text-based modifier can be applied to the item
-    only once and the `selection_type` field is always set to `SINGLE`.
+    A container for a list of modifiers, or a text-based modifier.
+    For text-based modifiers, this represents text configuration for an item. (For example, custom text to print on a t-shirt).
+    For non text-based modifiers, this represents a list of modifiers that can be applied to items at the time of sale.
+    (For example, a list of condiments for a hot dog, or a list of ice cream flavors).
+    Each element of the modifier list is a `CatalogObject` instance of the `MODIFIER` type.
     """
 
     name: typing_extensions.NotRequired[typing.Optional[str]]
@@ -41,10 +34,8 @@ class CatalogModifierListParams(typing_extensions.TypedDict):
 
     selection_type: typing_extensions.NotRequired[CatalogModifierListSelectionType]
     """
-    Indicates whether a single (`SINGLE`) or multiple (`MULTIPLE`) modifiers from the list
-    can be applied to a single `CatalogItem`.
-    
-    For text-based modifiers, the `selection_type` attribute is always `SINGLE`. The other value is ignored.
+    __Deprecated__: Indicates whether a single (`SINGLE`) modifier or multiple (`MULTIPLE`) modifiers can be selected. Use
+    `min_selected_modifiers` and `max_selected_modifiers` instead.
     See [CatalogModifierListSelectionType](#type-catalogmodifierlistselectiontype) for possible values
     """
 
@@ -66,6 +57,16 @@ class CatalogModifierListParams(typing_extensions.TypedDict):
     """
     The IDs of images associated with this `CatalogModifierList` instance.
     Currently these images are not displayed on Square products, but may be displayed in 3rd-party applications.
+    """
+
+    allow_quantities: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    When `true`, allows multiple quantities of the same modifier to be selected.
+    """
+
+    is_conversational: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    True if modifiers belonging to this list can be used conversationally.
     """
 
     modifier_type: typing_extensions.NotRequired[CatalogModifierListModifierType]
@@ -99,4 +100,34 @@ class CatalogModifierListParams(typing_extensions.TypedDict):
     
     For non text-based modifiers, this `internal_name` attribute can be 
     used to include SKUs, internal codes, or supplemental descriptions for internal use.
+    """
+
+    min_selected_modifiers: typing_extensions.NotRequired[typing.Optional[int]]
+    """
+    The minimum number of modifiers that must be selected from this list. The value can be overridden with `CatalogItemModifierListInfo`.
+    
+    Values:
+    
+    - 0: No selection is required.
+    - -1: Default value, the attribute was not set by the client. Treated as no selection required.
+    - &gt;0: The required minimum modifier selections. This can be larger than the total `CatalogModifiers` when `allow_quantities` is enabled.
+    - &lt; -1: Invalid. Treated as no selection required.
+    """
+
+    max_selected_modifiers: typing_extensions.NotRequired[typing.Optional[int]]
+    """
+    The maximum number of modifiers that must be selected from this list. The value can be overridden with `CatalogItemModifierListInfo`.
+    
+    Values:
+    
+    - 0: No maximum limit.
+    - -1: Default value, the attribute was not set by the client. Treated as no maximum limit.
+    - &gt;0: The maximum total modifier selections. This can be larger than the total `CatalogModifiers` when `allow_quantities` is enabled.
+    - &lt; -1: Invalid. Treated as no maximum limit.
+    """
+
+    hidden_from_customer: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    If `true`, modifiers from this list are hidden from customer receipts. The default value is `false`.
+    This setting can be overridden with `CatalogItemModifierListInfo.hidden_from_customer_override`.
     """

@@ -21,6 +21,7 @@ from .events.client import EventsClient
 from .gift_cards.client import GiftCardsClient
 from .inventory.client import InventoryClient
 from .invoices.client import InvoicesClient
+from .labor.client import LaborClient
 from .locations.client import LocationsClient
 from .loyalty.client import LoyaltyClient
 from .merchants.client import MerchantsClient
@@ -37,7 +38,6 @@ from .team.client import TeamClient
 from .terminal.client import TerminalClient
 from .vendors.client import VendorsClient
 from .cash_drawers.client import CashDrawersClient
-from .labor.client import LaborClient
 from .webhooks.client import WebhooksClient
 from .core.client_wrapper import AsyncClientWrapper
 from .mobile.client import AsyncMobileClient
@@ -56,6 +56,7 @@ from .events.client import AsyncEventsClient
 from .gift_cards.client import AsyncGiftCardsClient
 from .inventory.client import AsyncInventoryClient
 from .invoices.client import AsyncInvoicesClient
+from .labor.client import AsyncLaborClient
 from .locations.client import AsyncLocationsClient
 from .loyalty.client import AsyncLoyaltyClient
 from .merchants.client import AsyncMerchantsClient
@@ -72,7 +73,6 @@ from .team.client import AsyncTeamClient
 from .terminal.client import AsyncTerminalClient
 from .vendors.client import AsyncVendorsClient
 from .cash_drawers.client import AsyncCashDrawersClient
-from .labor.client import AsyncLaborClient
 from .webhooks.client import AsyncWebhooksClient
 
 
@@ -155,6 +155,7 @@ class Square:
         self.gift_cards = GiftCardsClient(client_wrapper=self._client_wrapper)
         self.inventory = InventoryClient(client_wrapper=self._client_wrapper)
         self.invoices = InvoicesClient(client_wrapper=self._client_wrapper)
+        self.labor = LaborClient(client_wrapper=self._client_wrapper)
         self.locations = LocationsClient(client_wrapper=self._client_wrapper)
         self.loyalty = LoyaltyClient(client_wrapper=self._client_wrapper)
         self.merchants = MerchantsClient(client_wrapper=self._client_wrapper)
@@ -171,7 +172,6 @@ class Square:
         self.terminal = TerminalClient(client_wrapper=self._client_wrapper)
         self.vendors = VendorsClient(client_wrapper=self._client_wrapper)
         self.cash_drawers = CashDrawersClient(client_wrapper=self._client_wrapper)
-        self.labor = LaborClient(client_wrapper=self._client_wrapper)
         self.webhooks = WebhooksClient(client_wrapper=self._client_wrapper)
 
 
@@ -254,6 +254,7 @@ class AsyncSquare:
         self.gift_cards = AsyncGiftCardsClient(client_wrapper=self._client_wrapper)
         self.inventory = AsyncInventoryClient(client_wrapper=self._client_wrapper)
         self.invoices = AsyncInvoicesClient(client_wrapper=self._client_wrapper)
+        self.labor = AsyncLaborClient(client_wrapper=self._client_wrapper)
         self.locations = AsyncLocationsClient(client_wrapper=self._client_wrapper)
         self.loyalty = AsyncLoyaltyClient(client_wrapper=self._client_wrapper)
         self.merchants = AsyncMerchantsClient(client_wrapper=self._client_wrapper)
@@ -270,7 +271,6 @@ class AsyncSquare:
         self.terminal = AsyncTerminalClient(client_wrapper=self._client_wrapper)
         self.vendors = AsyncVendorsClient(client_wrapper=self._client_wrapper)
         self.cash_drawers = AsyncCashDrawersClient(client_wrapper=self._client_wrapper)
-        self.labor = AsyncLaborClient(client_wrapper=self._client_wrapper)
         self.webhooks = AsyncWebhooksClient(client_wrapper=self._client_wrapper)
 
 

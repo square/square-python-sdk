@@ -8877,6 +8877,1076 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
+## Labor
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">create_scheduled_shift</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a scheduled shift by providing draft shift details such as job ID,
+team member assignment, and start and end times.
+
+The following `draft_shift_details` fields are required:
+- `location_id`
+- `job_id`
+- `start_at`
+- `end_at`
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.create_scheduled_shift(
+    idempotency_key="HIDSNG5KS478L",
+    scheduled_shift={
+        "draft_shift_details": {
+            "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
+            "location_id": "PAA1RJZZKXBFG",
+            "job_id": "FzbJAtt9qEWncK1BWgVCxQ6M",
+            "start_at": "2019-01-25T03:11:00-05:00",
+            "end_at": "2019-01-25T13:11:00-05:00",
+            "notes": "Dont forget to prep the vegetables",
+            "is_deleted": False,
+        }
+    },
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**scheduled_shift:** `ScheduledShiftParams` 
+
+The scheduled shift with `draft_shift_details`.
+If needed, call [ListLocations](api-endpoint:Locations-ListLocations) to get location IDs,
+[ListJobs](api-endpoint:Team-ListJobs) to get job IDs, and [SearchTeamMembers](api-endpoint:Team-SearchTeamMembers)
+to get team member IDs and current job assignments.
+
+The `start_at` and `end_at` timestamps must be provided in the time zone + offset of the
+shift location specified in `location_id`. Example for Pacific Standard Time: 2024-10-31T12:30:00-08:00
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `typing.Optional[str]` 
+
+A unique identifier for the `CreateScheduledShift` request, used to ensure the
+[idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency)
+of the operation.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">bulk_publish_scheduled_shifts</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Publishes 1 - 100 scheduled shifts. This endpoint takes a map of individual publish
+requests and returns a map of responses. When a scheduled shift is published, Square keeps
+the `draft_shift_details` field as is and copies it to the `published_shift_details` field.
+
+The minimum `start_at` and maximum `end_at` timestamps of all shifts in a
+`BulkPublishScheduledShifts` request must fall within a two-week period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.bulk_publish_scheduled_shifts(
+    scheduled_shifts={"key": {}},
+    scheduled_shift_notification_audience="AFFECTED",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**scheduled_shifts:** `typing.Dict[str, BulkPublishScheduledShiftsDataParams]` 
+
+A map of 1 to 100 key-value pairs that represent individual publish requests.
+
+- Each key is the ID of a scheduled shift you want to publish.
+- Each value is a `BulkPublishScheduledShiftsData` object that contains the
+`version` field or is an empty object.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**scheduled_shift_notification_audience:** `typing.Optional[ScheduledShiftNotificationAudience]` 
+
+Indicates whether Square should send email notifications to team members and
+which team members should receive the notifications. This setting applies to all shifts
+specified in the bulk operation. The default value is `AFFECTED`.
+See [ScheduledShiftNotificationAudience](#type-scheduledshiftnotificationaudience) for possible values
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">search_scheduled_shifts</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of scheduled shifts, with optional filter and sort settings.
+By default, results are sorted by `start_at` in ascending order.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.search_scheduled_shifts(
+    query={
+        "filter": {"assignment_status": "ASSIGNED"},
+        "sort": {"field": "CREATED_AT", "order": "ASC"},
+    },
+    limit=2,
+    cursor="xoxp-1234-5678-90123",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**query:** `typing.Optional[ScheduledShiftQueryParams]` — Query conditions used to filter and sort the results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The maximum number of results to return in a single response page. The default value is 50.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cursor:** `typing.Optional[str]` 
+
+The pagination cursor returned by the previous call to this endpoint. Provide
+this cursor to retrieve the next page of results for your original request. For more
+information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">retrieve_scheduled_shift</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieves a scheduled shift by ID.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.retrieve_scheduled_shift(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The ID of the scheduled shift to retrieve.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">update_scheduled_shift</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates the draft shift details for a scheduled shift. This endpoint supports
+sparse updates, so only new, changed, or removed fields are required in the request.
+You must publish the shift to make updates public.
+
+You can make the following updates to `draft_shift_details`:
+- Change the `location_id`, `job_id`, `start_at`, and `end_at` fields.
+- Add, change, or clear the `team_member_id` and `notes` fields. To clear these fields,
+set the value to null.
+- Change the `is_deleted` field. To delete a scheduled shift, set `is_deleted` to true
+and then publish the shift.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.update_scheduled_shift(
+    id="id",
+    scheduled_shift={
+        "draft_shift_details": {
+            "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
+            "location_id": "PAA1RJZZKXBFG",
+            "job_id": "FzbJAtt9qEWncK1BWgVCxQ6M",
+            "start_at": "2019-03-25T03:11:00-05:00",
+            "end_at": "2019-03-25T13:18:00-05:00",
+            "notes": "Dont forget to prep the vegetables",
+            "is_deleted": False,
+        },
+        "version": 1,
+    },
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The ID of the scheduled shift to update.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**scheduled_shift:** `ScheduledShiftParams` 
+
+The scheduled shift with any updates in the `draft_shift_details` field.
+If needed, call [ListLocations](api-endpoint:Locations-ListLocations) to get location IDs,
+[ListJobs](api-endpoint:Team-ListJobs) to get job IDs, and [SearchTeamMembers](api-endpoint:Team-SearchTeamMembers)
+to get team member IDs and current job assignments. Updates made to `published_shift_details`
+are ignored.
+
+If provided, the `start_at` and `end_at` timestamps must be in the time zone + offset of the
+shift location specified in `location_id`. Example for Pacific Standard Time: 2024-10-31T12:30:00-08:00
+
+To enable [optimistic concurrency](https://developer.squareup.com/docs/build-basics/common-api-patterns/optimistic-concurrency)
+control for the request, provide the current version of the shift in the `version` field.
+If the provided version doesn't match the server version, the request fails. If `version` is
+omitted, Square executes a blind write, potentially overwriting data from another publish request.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">publish_scheduled_shift</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Publishes a scheduled shift. When a scheduled shift is published, Square keeps the
+`draft_shift_details` field as is and copies it to the `published_shift_details` field.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.publish_scheduled_shift(
+    id="id",
+    idempotency_key="HIDSNG5KS478L",
+    version=2,
+    scheduled_shift_notification_audience="ALL",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The ID of the scheduled shift to publish.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` 
+
+A unique identifier for the `PublishScheduledShift` request, used to ensure the
+[idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency)
+of the operation.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[int]` 
+
+The current version of the scheduled shift, used to enable [optimistic concurrency](https://developer.squareup.com/docs/build-basics/common-api-patterns/optimistic-concurrency)
+control. If the provided version doesn't match the server version, the request fails.
+If omitted, Square executes a blind write, potentially overwriting data from another publish request.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**scheduled_shift_notification_audience:** `typing.Optional[ScheduledShiftNotificationAudience]` 
+
+Indicates whether Square should send an email notification to team members and
+which team members should receive the notification. The default value is `AFFECTED`.
+See [ScheduledShiftNotificationAudience](#type-scheduledshiftnotificationaudience) for possible values
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">create_timecard</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a new `Timecard`.
+
+A `Timecard` represents a complete workday for a single team member.
+You must provide the following values in your request to this
+endpoint:
+
+- `location_id`
+- `team_member_id`
+- `start_at`
+
+An attempt to create a new `Timecard` can result in a `BAD_REQUEST` error when:
+- The `status` of the new `Timecard` is `OPEN` and the team member has another
+timecard with an `OPEN` status.
+- The `start_at` date is in the future.
+- The `start_at` or `end_at` date overlaps another timecard for the same team member.
+- The `Break` instances are set in the request and a break `start_at`
+is before the `Timecard.start_at`, a break `end_at` is after
+the `Timecard.end_at`, or both.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.create_timecard(
+    idempotency_key="HIDSNG5KS478L",
+    timecard={
+        "location_id": "PAA1RJZZKXBFG",
+        "start_at": "2019-01-25T03:11:00-05:00",
+        "end_at": "2019-01-25T13:11:00-05:00",
+        "wage": {
+            "title": "Barista",
+            "hourly_rate": {"amount": 1100, "currency": "USD"},
+            "tip_eligible": True,
+        },
+        "breaks": [
+            {
+                "start_at": "2019-01-25T06:11:00-05:00",
+                "end_at": "2019-01-25T06:16:00-05:00",
+                "break_type_id": "REGS1EQR1TPZ5",
+                "name": "Tea Break",
+                "expected_duration": "PT5M",
+                "is_paid": True,
+            }
+        ],
+        "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
+        "declared_cash_tip_money": {"amount": 500, "currency": "USD"},
+    },
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**timecard:** `TimecardParams` — The `Timecard` to be created.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `typing.Optional[str]` — A unique string value to ensure the idempotency of the operation.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">search_timecards</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of `Timecard` records for a business.
+The list to be returned can be filtered by:
+- Location IDs
+- Team member IDs
+- Timecard status (`OPEN` or `CLOSED`)
+- Timecard start
+- Timecard end
+- Workday details
+
+The list can be sorted by:
+- `START_AT`
+- `END_AT`
+- `CREATED_AT`
+- `UPDATED_AT`
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.search_timecards(
+    query={
+        "filter": {
+            "workday": {
+                "date_range": {
+                    "start_date": "2019-01-20",
+                    "end_date": "2019-02-03",
+                },
+                "match_timecards_by": "START_AT",
+                "default_timezone": "America/Los_Angeles",
+            }
+        }
+    },
+    limit=100,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**query:** `typing.Optional[TimecardQueryParams]` — Query filters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The number of resources in a page (200 by default).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cursor:** `typing.Optional[str]` — An opaque cursor for fetching the next page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">retrieve_timecard</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a single `Timecard` specified by `id`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.retrieve_timecard(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The UUID for the `Timecard` being retrieved.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">update_timecard</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing `Timecard`.
+
+When adding a `Break` to a `Timecard`, any earlier `Break` instances in the `Timecard` have
+the `end_at` property set to a valid RFC-3339 datetime string.
+
+When closing a `Timecard`, all `Break` instances in the `Timecard` must be complete with `end_at`
+set on each `Break`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.update_timecard(
+    id="id",
+    timecard={
+        "location_id": "PAA1RJZZKXBFG",
+        "start_at": "2019-01-25T03:11:00-05:00",
+        "end_at": "2019-01-25T13:11:00-05:00",
+        "wage": {
+            "title": "Bartender",
+            "hourly_rate": {"amount": 1500, "currency": "USD"},
+            "tip_eligible": True,
+        },
+        "breaks": [
+            {
+                "id": "X7GAQYVVRRG6P",
+                "start_at": "2019-01-25T06:11:00-05:00",
+                "end_at": "2019-01-25T06:16:00-05:00",
+                "break_type_id": "REGS1EQR1TPZ5",
+                "name": "Tea Break",
+                "expected_duration": "PT5M",
+                "is_paid": True,
+            }
+        ],
+        "status": "CLOSED",
+        "version": 1,
+        "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
+        "declared_cash_tip_money": {"amount": 500, "currency": "USD"},
+    },
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The ID of the object being updated.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**timecard:** `TimecardParams` — The updated `Timecard` object.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">delete_timecard</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes a `Timecard`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.labor.delete_timecard(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The UUID for the `Timecard` being deleted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Locations
 <details><summary><code>client.locations.<a href="src/square/locations/client.py">list</a>()</code></summary>
 <dl>

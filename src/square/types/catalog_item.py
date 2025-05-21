@@ -109,12 +109,12 @@ class CatalogItem(UncheckedBaseModel):
 
     ecom_uri: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Deprecated; see go/ecomUriUseCases. A URI pointing to a published e-commerce product page for the Item.
+    Deprecated. A URI pointing to a published e-commerce product page for the Item.
     """
 
     ecom_image_uris: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
-    Deprecated; see go/ecomUriUseCases. A comma-separated list of encoded URIs pointing to a set of published e-commerce images for the Item.
+    Deprecated. A comma-separated list of encoded URIs pointing to a set of published e-commerce images for the Item.
     """
 
     image_ids: typing.Optional[typing.List[str]] = pydantic.Field(default=None)

@@ -22,15 +22,15 @@ class BaseClientWrapper:
 
     def get_headers(self) -> typing.Dict[str, str]:
         headers: typing.Dict[str, str] = {
-            "User-Agent": "squareup/42.1.0.20250416",
+            "User-Agent": "squareup/42.1.0.20250521",
             "X-Fern-Language": "Python",
             "X-Fern-SDK-Name": "squareup",
-            "X-Fern-SDK-Version": "42.1.0.20250416",
+            "X-Fern-SDK-Version": "42.1.0.20250521",
         }
         token = self._get_token()
         if token is not None:
             headers["Authorization"] = f"Bearer {token}"
-        headers["Square-Version"] = self._version if self._version is not None else "2025-04-16"
+        headers["Square-Version"] = self._version if self._version is not None else "2025-05-21"
         return headers
 
     def _get_token(self) -> typing.Optional[str]:

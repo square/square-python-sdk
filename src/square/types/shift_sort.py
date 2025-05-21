@@ -11,6 +11,8 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 class ShiftSort(UncheckedBaseModel):
     """
     Sets the sort order of search results.
+
+    Deprecated at Square API version 2025-05-21. See the [migration notes](https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes).
     """
 
     field: typing.Optional[ShiftSortField] = pydantic.Field(default=None)

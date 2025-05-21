@@ -17,5 +17,8 @@ class CatalogModifierOverrideParams(typing_extensions.TypedDict):
 
     on_by_default: typing_extensions.NotRequired[typing.Optional[bool]]
     """
-    If `true`, this `CatalogModifier` should be selected by default for this `CatalogItem`.
+    __Deprecated__: Use `on_by_default_override` instead.
     """
+
+    hidden_online_override: typing_extensions.NotRequired[typing.Optional[typing.Any]]
+    on_by_default_override: typing_extensions.NotRequired[typing.Optional[typing.Any]]

@@ -9,6 +9,8 @@ from ..types.sort_order import SortOrder
 class ShiftSortParams(typing_extensions.TypedDict):
     """
     Sets the sort order of search results.
+
+    Deprecated at Square API version 2025-05-21. See the [migration notes](https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes).
     """
 
     field: typing_extensions.NotRequired[ShiftSortField]

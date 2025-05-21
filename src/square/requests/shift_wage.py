@@ -9,6 +9,8 @@ from .money import MoneyParams
 class ShiftWageParams(typing_extensions.TypedDict):
     """
     The hourly wage rate used to compensate an employee for this shift.
+
+    Deprecated at Square API version 2025-05-21. See the [migration notes](https://developer.squareup.com/docs/labor-api/what-it-does#migration-notes).
     """
 
     title: typing_extensions.NotRequired[typing.Optional[str]]
@@ -25,7 +27,7 @@ class ShiftWageParams(typing_extensions.TypedDict):
     job_id: typing_extensions.NotRequired[str]
     """
     The id of the job performed during this shift. Square
-    labor-reporting UIs might group shifts together by id. This cannot be used to retrieve the job.
+    labor-reporting UIs might group shifts together by id.
     """
 
     tip_eligible: typing_extensions.NotRequired[typing.Optional[bool]]
