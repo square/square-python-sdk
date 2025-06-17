@@ -29,7 +29,7 @@ class Refund(UncheckedBaseModel):
     The ID of the transaction that the refunded tender is part of.
     """
 
-    tender_id: str = pydantic.Field()
+    tender_id: typing.Optional[str] = pydantic.Field(default=None)
     """
     The ID of the refunded tender.
     """

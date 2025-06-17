@@ -3,7 +3,6 @@
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
 import pydantic
-from .loyalty_program_reward_definition import LoyaltyProgramRewardDefinition
 from .catalog_object_reference import CatalogObjectReference
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -26,12 +25,6 @@ class LoyaltyProgramRewardTier(UncheckedBaseModel):
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     The name of the reward tier.
-    """
-
-    definition: typing.Optional[LoyaltyProgramRewardDefinition] = pydantic.Field(default=None)
-    """
-    Provides details about the reward tier definition.
-    DEPRECATED at version 2020-12-16. Replaced by the `pricing_rule_reference` field.
     """
 
     created_at: typing.Optional[str] = pydantic.Field(default=None)
