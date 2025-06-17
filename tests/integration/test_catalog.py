@@ -1,6 +1,8 @@
 import time
 import uuid
+from functools import wraps
 
+from square.core.api_error import ApiError
 from square.core.request_options import RequestOptions
 from square.types.catalog_item import CatalogItem
 from square.types.catalog_item_variation import CatalogItemVariation
@@ -20,55 +22,99 @@ MAX_RETRIES = 5
 MAX_TIMEOUT = 120
 
 
+def retry_on_rate_limit(max_retries=5, base_delay=2):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            for attempt in range(max_retries):
+                try:
+                    return func(*args, **kwargs)
+                except ApiError as e:
+                    if e.status_code == 429 and attempt < max_retries - 1:
+                        delay = base_delay * (2 ** attempt)  # exponential backoff
+                        print(f"Rate limited. Retrying in {delay} seconds...")
+                        time.sleep(delay)
+                        continue
+                    raise
+            return None
+        return wrapper
+    return decorator
+
+
+@retry_on_rate_limit()
 def test_upload_catalog_image():
     # Wait to kick off the first test to avoid being rate limited.
     time.sleep(3)
 
     client = helpers.test_client()
 
-    # Setup: Create a catalog object to associate the image with
-    catalog_object = helpers.create_test_catalog_item(
-        helpers.CreateCatalogItemOptions()
-    )
-    create_catalog_resp = client.catalog.batch_upsert(
-        idempotency_key=str(uuid.uuid4()),
-        batches=[CatalogObjectBatch(objects=[catalog_object])],
-    )
+    try:
+        # Setup: Create a catalog object to associate the image with
+        catalog_object = helpers.create_test_catalog_item(
+            helpers.CreateCatalogItemOptions()
+        )
+        create_catalog_resp = client.catalog.batch_upsert(
+            idempotency_key=str(uuid.uuid4()),
+            batches=[CatalogObjectBatch(objects=[catalog_object])],
+            request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
+        )
 
-    objects = create_catalog_resp.objects
-    assert objects is not None
-    assert 1 == len(objects)
-    created_catalog_object = objects[0]
-    assert isinstance(created_catalog_object, CatalogObjectItem)
-    assert created_catalog_object.id is not None
+        time.sleep(2)  # Add delay after creation
 
-    # Create a new catalog image
-    image_name = "Test Image " + str(uuid.uuid4())
-    create_catalog_image_resp = client.catalog.images.create(
-        image_file=helpers.get_test_file(),
-        request={
-            "idempotency_key": str(uuid.uuid4()),
-            "image": {
-                "type": "IMAGE",
-                "id": helpers.new_test_square_id(),
-                "image_data": {"name": image_name},
+        objects = create_catalog_resp.objects
+        assert objects is not None
+        assert 1 == len(objects)
+        created_catalog_object = objects[0]
+        assert isinstance(created_catalog_object, CatalogObjectItem)
+        assert created_catalog_object.id is not None
+
+        # Create a new catalog image
+        image_name = "Test Image " + str(uuid.uuid4())
+        create_catalog_image_resp = client.catalog.images.create(
+            image_file=helpers.get_test_file(),
+            request={
+                "idempotency_key": str(uuid.uuid4()),
+                "image": {
+                    "type": "IMAGE",
+                    "id": helpers.new_test_square_id(),
+                    "image_data": {"name": image_name},
+                },
+                "object_id": created_catalog_object.id,
             },
-            "object_id": created_catalog_object.id,
-        },
-        request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
-    )
-    image = create_catalog_image_resp.image
-    assert image is not None
-    assert isinstance(image, CatalogObjectImage)
+            request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
+        )
 
-    # Cleanup
-    client.catalog.batch_delete(
-        object_ids=[created_catalog_object.id, image.id],
-        request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
-    )
+        time.sleep(2)  # Add delay after image creation
+
+        image = create_catalog_image_resp.image
+        assert image is not None
+        assert isinstance(image, CatalogObjectImage)
+
+        # Add retry logic for cleanup
+        for attempt in range(MAX_RETRIES):
+            try:
+                time.sleep(2)  # Add delay before cleanup attempt
+                # Cleanup
+                client.catalog.batch_delete(
+                    object_ids=[created_catalog_object.id, image.id],
+                    request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
+                )
+                break
+            except ApiError as e:
+                if e.status_code == 429 and attempt < MAX_RETRIES - 1:
+                    delay = 2 * (2 ** attempt)
+                    print(f"Cleanup rate limited. Retrying in {delay} seconds...")
+                    time.sleep(delay)
+                    continue
+                raise
+    except Exception as e:
+        print(f"Error in test_upload_catalog_image: {str(e)}")
+        raise
 
 
+@retry_on_rate_limit()
 def test_upsert_catalog_object():
+    time.sleep(2)  # Add initial delay
     client = helpers.test_client()
 
     coffee_variation_opts = helpers.CreateCatalogItemVariationOptions()
@@ -106,7 +152,9 @@ def test_upsert_catalog_object():
     assert "Colombian Fair Trade" == item_variation_data.name
 
 
+@retry_on_rate_limit()
 def test_catalog_info():
+    time.sleep(2)  # Add initial delay
     client = helpers.test_client()
     response = client.catalog.search(
         limit=1, request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT)
@@ -116,7 +164,9 @@ def test_catalog_info():
     assert len(response.objects) > 0
 
 
+@retry_on_rate_limit()
 def test_search_catalog_items():
+    time.sleep(2)  # Add initial delay
     client = helpers.test_client()
     response = client.catalog.search_items(
         limit=1, request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT)
@@ -124,6 +174,7 @@ def test_search_catalog_items():
     assert response is not None
 
 
+@retry_on_rate_limit()
 def test_batch_upsert_catalog_objects():
     # Wait to kick off this test to avoid being rate limited.
     time.sleep(3)
@@ -187,7 +238,10 @@ def test_batch_upsert_catalog_objects():
                 ]
             }
         ],
+        request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
     )
+
+    time.sleep(2)  # Add delay after batch upsert
 
     objects = response.objects
     assert objects is not None
@@ -220,6 +274,8 @@ def test_batch_upsert_catalog_objects():
     assert len(catalog_modifier_list_ids) > 0
     catalog_modifier_list_id = catalog_modifier_list_ids[0]
 
+    time.sleep(2)  # Add delay before batch get
+
     response = client.catalog.batch_get(
         object_ids=[catalog_modifier_id, catalog_modifier_list_id, catalog_tax_id],
         request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
@@ -235,14 +291,20 @@ def test_batch_upsert_catalog_objects():
         catalog_tax_id,
     }
 
+    time.sleep(2)  # Add delay before catalog item creation
+
     catalog_item = helpers.create_test_catalog_item(helpers.CreateCatalogItemOptions())
     catalog_response = client.catalog.object.upsert(
-        idempotency_key=str(uuid.uuid4()), object=catalog_item
+        idempotency_key=str(uuid.uuid4()),
+        object=catalog_item,
+        request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
     )
     catalog_object = catalog_response.catalog_object
     assert catalog_object is not None
     assert isinstance(catalog_object, CatalogObjectItem)
     catalog_object_id = catalog_object.id
+
+    time.sleep(2)  # Add delay before update taxes
 
     response = client.catalog.update_item_taxes(
         item_ids=[catalog_object_id],
@@ -252,6 +314,8 @@ def test_batch_upsert_catalog_objects():
 
     assert response.updated_at is not None
     assert response.errors is None
+
+    time.sleep(2)  # Add delay before update modifier lists
 
     response = client.catalog.update_item_modifier_lists(
         item_ids=[catalog_object_id],
@@ -263,18 +327,27 @@ def test_batch_upsert_catalog_objects():
     assert response.errors is None
 
 
+@retry_on_rate_limit()
 def test_delete_catalog_object():
+    time.sleep(2)  # Add initial delay
     client = helpers.test_client()
 
     catalog_item = helpers.create_test_catalog_item(helpers.CreateCatalogItemOptions())
     catalog_response = client.catalog.object.upsert(
-        idempotency_key=str(uuid.uuid4()), object=catalog_item
+        idempotency_key=str(uuid.uuid4()),
+        object=catalog_item,
+        request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
     )
     catalog_object = catalog_response.catalog_object
     assert catalog_object is not None
     assert isinstance(catalog_object, CatalogObjectItem)
     catalog_object_id = catalog_object.id
 
-    response = client.catalog.object.delete(object_id=catalog_object_id)
+    time.sleep(2)  # Add delay before delete
+
+    response = client.catalog.object.delete(
+        object_id=catalog_object_id,
+        request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
+    )
 
     assert response is not None

@@ -1,6 +1,9 @@
 import uuid
+import time
 from datetime import datetime, timedelta
+from typing import Optional
 
+from square.core.api_error import ApiError
 from square.requests.catalog_item import CatalogItemParams
 from square.requests.catalog_item_variation import CatalogItemVariationParams
 from square.requests.catalog_object_item_variation import (
@@ -14,6 +17,27 @@ from square.types.inventory_physical_count import InventoryPhysicalCount
 from . import helpers
 
 
+def retry_on_rate_limit(func):
+    """Decorator to retry functions on rate limit errors"""
+    def wrapper(*args, **kwargs):
+        max_retries = 5
+        base_delay = 2  # seconds
+        
+        for attempt in range(max_retries):
+            try:
+                return func(*args, **kwargs)
+            except ApiError as e:
+                if e.status_code == 429 and attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)  # exponential backoff
+                    print(f"Rate limited. Retrying in {delay} seconds...")
+                    time.sleep(delay)
+                    continue
+                raise
+        return None
+    return wrapper
+
+
+@retry_on_rate_limit
 def create_catalog_item_variation() -> str:
     client = helpers.test_client()
 
@@ -67,7 +91,8 @@ def create_catalog_item_variation() -> str:
     return item_variation_ids[0]
 
 
-def create_initial_adjustment(item_variation_id: str):
+@retry_on_rate_limit
+def create_initial_adjustment(item_variation_id: str) -> Optional[str]:
     """
     Create an initial inventory adjustment and return the physical count ID
     """
@@ -90,6 +115,9 @@ def create_initial_adjustment(item_variation_id: str):
             }
         ],
     )
+
+    # Add delay after the first operation
+    time.sleep(2)
 
     changes = response.changes
     assert changes is not None
@@ -115,6 +143,9 @@ def create_initial_adjustment(item_variation_id: str):
         ],
     )
 
+    # Add delay after the second operation
+    time.sleep(2)
+
     physical_changes_response = client.inventory.batch_get_changes(
         types=["PHYSICAL_COUNT"],
         catalog_object_ids=[item_variation_id],
@@ -133,7 +164,9 @@ def create_initial_adjustment(item_variation_id: str):
 def test_batch_change_inventory():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
+    time.sleep(2)  # Add delay after catalog operation
     create_initial_adjustment(item_variation_id)
+    time.sleep(2)  # Add delay after adjustment
 
     response = client.inventory.batch_create_changes(
         idempotency_key=str(uuid.uuid4()),
@@ -163,7 +196,9 @@ def test_batch_change_inventory():
 def test_batch_retrieve_inventory_changes():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
+    time.sleep(2)  # Add delay after catalog operation
     create_initial_adjustment(item_variation_id)
+    time.sleep(2)  # Add delay after adjustment
 
     response = client.inventory.batch_get_changes(
         catalog_object_ids=[item_variation_id]
@@ -175,7 +210,9 @@ def test_batch_retrieve_inventory_changes():
 def test_batch_retrieve_inventory_counts():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
+    time.sleep(2)  # Add delay after catalog operation
     create_initial_adjustment(item_variation_id)
+    time.sleep(2)  # Add delay after adjustment
 
     response = client.inventory.batch_get_counts(catalog_object_ids=[item_variation_id])
     assert response.items is not None
@@ -185,7 +222,9 @@ def test_batch_retrieve_inventory_counts():
 def test_retrieve_inventory_changes():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
+    time.sleep(2)  # Add delay after catalog operation
     create_initial_adjustment(item_variation_id)
+    time.sleep(2)  # Add delay after adjustment
 
     response = client.inventory.get(catalog_object_id=item_variation_id)
     assert response.items is not None
@@ -195,7 +234,9 @@ def test_retrieve_inventory_changes():
 def test_retrieve_inventory_counts():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
+    time.sleep(2)  # Add delay after catalog operation
     physical_count_id = create_initial_adjustment(item_variation_id)
+    time.sleep(2)  # Add delay after adjustment
 
     response = client.inventory.get_physical_count(physical_count_id=physical_count_id)
     assert response.count is not None
@@ -204,7 +245,9 @@ def test_retrieve_inventory_counts():
 def test_retrieve_inventory_adjustments():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
+    time.sleep(2)  # Add delay after catalog operation
     create_initial_adjustment(item_variation_id)
+    time.sleep(2)  # Add delay after adjustment
 
     response = client.inventory.batch_create_changes(
         idempotency_key=str(uuid.uuid4()),
@@ -230,6 +273,9 @@ def test_retrieve_inventory_adjustments():
     assert isinstance(changes[0].adjustment, InventoryAdjustment)
     assert changes[0].adjustment.id is not None
     adjustment_id = changes[0].adjustment.id
+    
+    time.sleep(2)  # Add delay before retrieve
+    
     retrieve_response = client.inventory.get_adjustment(adjustment_id=adjustment_id)
     retrieve_adjustment = retrieve_response.adjustment
     assert retrieve_adjustment is not None
