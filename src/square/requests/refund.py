@@ -28,7 +28,7 @@ class RefundParams(typing_extensions.TypedDict):
     The ID of the transaction that the refunded tender is part of.
     """
 
-    tender_id: str
+    tender_id: typing_extensions.NotRequired[typing.Optional[str]]
     """
     The ID of the refunded tender.
     """

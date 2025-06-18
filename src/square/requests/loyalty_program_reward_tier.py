@@ -2,7 +2,6 @@
 
 import typing_extensions
 import typing_extensions
-from .loyalty_program_reward_definition import LoyaltyProgramRewardDefinitionParams
 from .catalog_object_reference import CatalogObjectReferenceParams
 
 
@@ -24,12 +23,6 @@ class LoyaltyProgramRewardTierParams(typing_extensions.TypedDict):
     name: typing_extensions.NotRequired[str]
     """
     The name of the reward tier.
-    """
-
-    definition: typing_extensions.NotRequired[LoyaltyProgramRewardDefinitionParams]
-    """
-    Provides details about the reward tier definition.
-    DEPRECATED at version 2020-12-16. Replaced by the `pricing_rule_reference` field.
     """
 
     created_at: typing_extensions.NotRequired[str]
