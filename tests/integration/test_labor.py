@@ -37,15 +37,23 @@ def retry_with_backoff(max_retries=5, base_delay=2):
 
 
 @retry_with_backoff()
-def create_team_member() -> str:
+def get_first_team_member() -> str:
     client = helpers.test_client()
 
-    team_response = client.team_members.create(
-        idempotency_key=str(uuid.uuid4()),
-        team_member={"given_name": "Sherlock", "family_name": "Holmes"},
+    # Search for active team members at the default location
+    team_response = client.team_members.search(
+        query={
+            "filter": {
+                "location_ids": [helpers.get_default_location_id(client)],
+                "status": "ACTIVE"
+            }
+        },
         request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
     )
-    team_member = team_response.team_member
+    if not team_response.team_members or len(team_response.team_members) == 0:
+        raise Exception(f"No team members available at location {helpers.get_default_location_id(client)}")
+    
+    team_member = team_response.team_members[0]
     assert team_member is not None
     assert isinstance(team_member, TeamMember)
     assert team_member.id is not None
@@ -138,7 +146,7 @@ def test_get_break_type():
     time.sleep(3)
 
     client = helpers.test_client()
-    team_member_id = create_team_member()
+    team_member_id = get_first_team_member()
     time.sleep(2)  # Add delay between operations
     break_type_id = create_break_type()
     time.sleep(2)  # Add delay between operations
@@ -166,7 +174,7 @@ def test_get_break_type():
 @retry_with_backoff()
 def test_update_break_type():
     client = helpers.test_client()
-    team_member_id = create_team_member()
+    team_member_id = get_first_team_member()
     time.sleep(2)  # Add delay between operations
     break_type_id = create_break_type()
     time.sleep(2)  # Add delay between operations
@@ -195,7 +203,7 @@ def test_update_break_type():
 @retry_with_backoff()
 def test_search_shifts():
     client = helpers.test_client()
-    team_member_id = create_team_member()
+    team_member_id = get_first_team_member()
     time.sleep(2)  # Add delay between operations
     break_type_id = create_break_type()
     time.sleep(2)  # Add delay between operations
@@ -216,7 +224,7 @@ def test_search_shifts():
 @retry_with_backoff()
 def test_get_shift():
     client = helpers.test_client()
-    team_member_id = create_team_member()
+    team_member_id = get_first_team_member()
     time.sleep(2)  # Add delay between operations
     break_type_id = create_break_type()
     time.sleep(2)  # Add delay between operations
@@ -238,7 +246,7 @@ def test_get_shift():
 @retry_with_backoff()
 def test_update_shift():
     client = helpers.test_client()
-    team_member_id = create_team_member()
+    team_member_id = get_first_team_member()
     time.sleep(2)  # Add delay between operations
     break_type_id = create_break_type()
     time.sleep(2)  # Add delay between operations
@@ -278,23 +286,37 @@ def test_update_shift():
 def test_delete_shift():
     client = helpers.test_client()
 
-    team_member_response = client.team_members.create(
-        idempotency_key=str(uuid.uuid4()),
-        team_member={"given_name": "Sherlock", "family_name": "Holmes"},
+    # Search for existing shifts for this team member
+    team_member_id = get_first_team_member()
+    
+    # Search for existing shifts
+    existing_shifts = client.labor.shifts.search(
+        query={
+            "filter": {
+                "team_member_ids": [team_member_id]
+            }
+        },
+        limit=100,
         request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
     )
 
-    assert team_member_response.team_member is not None
-    assert isinstance(team_member_response.team_member, TeamMember)
-    assert team_member_response.team_member.id is not None
+    # Delete any existing shifts
+    if existing_shifts.shifts:
+        for shift in existing_shifts.shifts:
+            if shift.id:
+                delete_shift(shift.id)
 
-    time.sleep(2)  # Add delay between operations
+    # Start the shift 10 seconds from now and end it 20 seconds from now
+    start_time = datetime.now() + timedelta(seconds=10)
+    end_time = start_time + timedelta(seconds=10)
 
+    # Create shift
     shift_response = client.labor.shifts.create(
         shift={
             "location_id": helpers.get_default_location_id(client),
-            "start_at": helpers.format_date_string(datetime.now()),
-            "team_member_id": team_member_response.team_member.id,
+            "start_at": helpers.format_date_string(start_time),
+            "end_at": helpers.format_date_string(end_time),
+            "team_member_id": team_member_id,
         },
         idempotency_key=str(uuid.uuid4()),
         request_options=RequestOptions(timeout_in_seconds=MAX_TIMEOUT),
@@ -305,7 +327,7 @@ def test_delete_shift():
     assert shift_response.shift.id is not None
     shift_id = shift_response.shift.id
 
-    time.sleep(2)  # Add delay before delete
+    time.sleep(1)  # Add small delay to ensure the shift is fully created
 
     response = client.labor.shifts.delete(
         id=shift_id,
