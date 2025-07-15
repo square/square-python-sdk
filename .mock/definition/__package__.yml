@@ -11192,7 +11192,7 @@ types:
           maxLength: 255
         access: read-only
       name:
-        type: string
+        type: optional<string>
         docs: The name of the segment.
         access: read-only
       created_at:
@@ -20678,7 +20678,7 @@ types:
       Events](https://developer.squareup.com/docs/loyalty-api/loyalty-events).
     properties:
       id:
-        type: string
+        type: optional<string>
         docs: The Square-assigned ID of the loyalty event.
         validation:
           minLength: 1
@@ -20689,7 +20689,7 @@ types:
           The type of the loyalty event.
           See [LoyaltyEventType](#type-loyaltyeventtype) for possible values
       created_at:
-        type: string
+        type: optional<string>
         docs: The timestamp when the event was created, in RFC 3339 format.
         validation:
           minLength: 1
@@ -20710,7 +20710,7 @@ types:
         type: optional<LoyaltyEventAdjustPoints>
         docs: Provides metadata when the event `type` is `ADJUST_POINTS`.
       loyalty_account_id:
-        type: string
+        type: optional<string>
         docs: >-
           The ID of the [loyalty account](entity:LoyaltyAccount) associated with
           the event.
@@ -20785,11 +20785,11 @@ types:
           maxLength: 255
         access: read-only
       points:
-        type: integer
+        type: optional<integer>
         docs: The number of points earned by the event.
         access: read-only
       order_id:
-        type: string
+        type: optional<string>
         docs: >-
           The ID of the [order](entity:Order) for which the buyer earned the
           promotion points.
@@ -20826,7 +20826,7 @@ types:
     docs: Provides metadata when the event `type` is `CREATE_REWARD`.
     properties:
       loyalty_program_id:
-        type: string
+        type: optional<string>
         docs: The ID of the [loyalty program](entity:LoyaltyProgram).
         validation:
           minLength: 1
@@ -20843,7 +20843,7 @@ types:
           maxLength: 36
         access: read-only
       points:
-        type: integer
+        type: optional<integer>
         docs: The loyalty points used to create the reward.
         access: read-only
     source:
@@ -20910,7 +20910,7 @@ types:
     docs: Provides metadata when the event `type` is `DELETE_REWARD`.
     properties:
       loyalty_program_id:
-        type: string
+        type: optional<string>
         docs: The ID of the [loyalty program](entity:LoyaltyProgram).
         validation:
           minLength: 1
@@ -20925,7 +20925,7 @@ types:
           maxLength: 36
         access: read-only
       points:
-        type: integer
+        type: optional<integer>
         docs: The number of points returned to the loyalty account.
         access: read-only
     source:
@@ -20934,7 +20934,7 @@ types:
     docs: Provides metadata when the event `type` is `EXPIRE_POINTS`.
     properties:
       loyalty_program_id:
-        type: string
+        type: optional<string>
         docs: >-
           The Square-assigned ID of the [loyalty
           program](entity:LoyaltyProgram).
@@ -21009,7 +21009,7 @@ types:
     docs: Provides metadata when the event `type` is `OTHER`.
     properties:
       loyalty_program_id:
-        type: string
+        type: optional<string>
         docs: >-
           The Square-assigned ID of the [loyalty
           program](entity:LoyaltyProgram).
@@ -21034,7 +21034,7 @@ types:
     docs: Provides metadata when the event `type` is `REDEEM_REWARD`.
     properties:
       loyalty_program_id:
-        type: string
+        type: optional<string>
         docs: The ID of the [loyalty program](entity:LoyaltyProgram).
         validation:
           minLength: 1

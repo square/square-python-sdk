@@ -19,7 +19,7 @@ class CustomerSegment(UncheckedBaseModel):
     A unique Square-generated ID for the segment.
     """
 
-    name: str = pydantic.Field()
+    name: typing.Optional[str] = pydantic.Field(default=None)
     """
     The name of the segment.
     """

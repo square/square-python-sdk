@@ -19,12 +19,12 @@ class LoyaltyEventAccumulatePromotionPointsParams(typing_extensions.TypedDict):
     The Square-assigned ID of the [loyalty promotion](entity:LoyaltyPromotion).
     """
 
-    points: int
+    points: typing_extensions.NotRequired[int]
     """
     The number of points earned by the event.
     """
 
-    order_id: str
+    order_id: typing_extensions.NotRequired[str]
     """
     The ID of the [order](entity:Order) for which the buyer earned the promotion points.
     Only applications that use the Orders API to process orders can trigger this event.
