@@ -30,7 +30,7 @@ class BaseClientWrapper:
         token = self._get_token()
         if token is not None:
             headers["Authorization"] = f"Bearer {token}"
-        headers["Square-Version"] = self._version if self._version is not None else "2025-06-18"
+        headers["Square-Version"] = self._version if self._version is not None else "2025-07-16"
         return headers
 
     def _get_token(self) -> typing.Optional[str]:

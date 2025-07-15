@@ -9,7 +9,7 @@ class LoyaltyEventRedeemRewardParams(typing_extensions.TypedDict):
     Provides metadata when the event `type` is `REDEEM_REWARD`.
     """
 
-    loyalty_program_id: str
+    loyalty_program_id: typing_extensions.NotRequired[str]
     """
     The ID of the [loyalty program](entity:LoyaltyProgram).
     """
