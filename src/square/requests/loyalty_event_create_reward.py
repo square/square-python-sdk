@@ -9,7 +9,7 @@ class LoyaltyEventCreateRewardParams(typing_extensions.TypedDict):
     Provides metadata when the event `type` is `CREATE_REWARD`.
     """
 
-    loyalty_program_id: str
+    loyalty_program_id: typing_extensions.NotRequired[str]
     """
     The ID of the [loyalty program](entity:LoyaltyProgram).
     """
@@ -20,7 +20,7 @@ class LoyaltyEventCreateRewardParams(typing_extensions.TypedDict):
     This field is returned only if the event source is `LOYALTY_API`.
     """
 
-    points: int
+    points: typing_extensions.NotRequired[int]
     """
     The loyalty points used to create the reward.
     """

@@ -21,12 +21,12 @@ class LoyaltyEventAccumulatePromotionPoints(UncheckedBaseModel):
     The Square-assigned ID of the [loyalty promotion](entity:LoyaltyPromotion).
     """
 
-    points: int = pydantic.Field()
+    points: typing.Optional[int] = pydantic.Field(default=None)
     """
     The number of points earned by the event.
     """
 
-    order_id: str = pydantic.Field()
+    order_id: typing.Optional[str] = pydantic.Field(default=None)
     """
     The ID of the [order](entity:Order) for which the buyer earned the promotion points.
     Only applications that use the Orders API to process orders can trigger this event.

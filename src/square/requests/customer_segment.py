@@ -17,7 +17,7 @@ class CustomerSegmentParams(typing_extensions.TypedDict):
     A unique Square-generated ID for the segment.
     """
 
-    name: str
+    name: typing_extensions.NotRequired[str]
     """
     The name of the segment.
     """
