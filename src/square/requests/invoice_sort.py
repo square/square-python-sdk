@@ -2,7 +2,6 @@
 
 import typing_extensions
 from ..types.invoice_sort_field import InvoiceSortField
-import typing_extensions
 from ..types.sort_order import SortOrder
 
 
