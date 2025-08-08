@@ -2,7 +2,6 @@
 
 import typing_extensions
 from ..types.search_orders_sort_field import SearchOrdersSortField
-import typing_extensions
 from ..types.sort_order import SortOrder
 
 
