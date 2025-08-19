@@ -165,7 +165,7 @@ class RawCustomersClient:
         Parameters
         ----------
         idempotency_key : typing.Optional[str]
-            The idempotency key for the request.	For more information, see
+            The idempotency key for the request.    For more information, see
             [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).
 
         given_name : typing.Optional[str]
@@ -943,7 +943,7 @@ class AsyncRawCustomersClient:
         Parameters
         ----------
         idempotency_key : typing.Optional[str]
-            The idempotency key for the request.	For more information, see
+            The idempotency key for the request.    For more information, see
             [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).
 
         given_name : typing.Optional[str]
