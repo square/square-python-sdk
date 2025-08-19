@@ -19935,7 +19935,7 @@ client.customers.custom_attribute_definitions.create(
     custom_attribute_definition={
         "key": "favoritemovie",
         "schema": {
-            "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
+            "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
         },
         "name": "Favorite Movie",
         "description": "The favorite movie of the customer.",
@@ -24072,7 +24072,7 @@ client.locations.custom_attribute_definitions.create(
     custom_attribute_definition={
         "key": "bestseller",
         "schema": {
-            "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
+            "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
         },
         "name": "Bestseller",
         "description": "Bestselling item at location",
@@ -27136,7 +27136,7 @@ client.merchants.custom_attribute_definitions.create(
     custom_attribute_definition={
         "key": "alternative_seller_name",
         "schema": {
-            "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
+            "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
         },
         "name": "Alternative Merchant Name",
         "description": "This is the other name this merchant goes by.",
@@ -28226,7 +28226,7 @@ client.orders.custom_attribute_definitions.create(
     custom_attribute_definition={
         "key": "cover-count",
         "schema": {
-            "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number"
+            "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number"
         },
         "name": "Cover count",
         "description": "The number of people seated at a table",

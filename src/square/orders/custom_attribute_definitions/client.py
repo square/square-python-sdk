@@ -138,7 +138,7 @@ class CustomAttributeDefinitionsClient:
             custom_attribute_definition={
                 "key": "cover-count",
                 "schema": {
-                    "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number"
+                    "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number"
                 },
                 "name": "Cover count",
                 "description": "The number of people seated at a table",
@@ -427,7 +427,7 @@ class AsyncCustomAttributeDefinitionsClient:
                 custom_attribute_definition={
                     "key": "cover-count",
                     "schema": {
-                        "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number"
+                        "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number"
                     },
                     "name": "Cover count",
                     "description": "The number of people seated at a table",

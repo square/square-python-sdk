@@ -144,7 +144,7 @@ class CustomAttributeDefinitionsClient:
             custom_attribute_definition={
                 "key": "alternative_seller_name",
                 "schema": {
-                    "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
+                    "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
                 },
                 "name": "Alternative Merchant Name",
                 "description": "This is the other name this merchant goes by.",
@@ -439,7 +439,7 @@ class AsyncCustomAttributeDefinitionsClient:
                 custom_attribute_definition={
                     "key": "alternative_seller_name",
                     "schema": {
-                        "ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
+                        "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"
                     },
                     "name": "Alternative Merchant Name",
                     "description": "This is the other name this merchant goes by.",
