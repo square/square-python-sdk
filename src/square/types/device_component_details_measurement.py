@@ -12,7 +12,10 @@ class DeviceComponentDetailsMeasurement(UncheckedBaseModel):
     A value qualified by unit of measure.
     """
 
-    value: typing.Optional[int] = None
+    value: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Value of measure.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

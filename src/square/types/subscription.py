@@ -145,6 +145,11 @@ class Subscription(UncheckedBaseModel):
     array of phases for this subscription
     """
 
+    completed_date: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The `YYYY-MM-DD`-formatted date when the subscription enters a terminal state.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

@@ -9,7 +9,7 @@ from .device_attributes_device_type import DeviceAttributesDeviceType
 
 
 class DeviceAttributes(UncheckedBaseModel):
-    type: DeviceAttributesDeviceType = pydantic.Field(default="TERMINAL")
+    type: DeviceAttributesDeviceType = pydantic.Field()
     """
     The device type.
     See [DeviceType](#type-devicetype) for possible values

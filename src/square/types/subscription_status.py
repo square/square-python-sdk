@@ -2,4 +2,6 @@
 
 import typing
 
-SubscriptionStatus = typing.Union[typing.Literal["PENDING", "ACTIVE", "CANCELED", "DEACTIVATED", "PAUSED"], typing.Any]
+SubscriptionStatus = typing.Union[
+    typing.Literal["PENDING", "ACTIVE", "CANCELED", "DEACTIVATED", "PAUSED", "COMPLETED"], typing.Any
+]

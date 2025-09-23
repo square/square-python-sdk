@@ -98,7 +98,7 @@ class RawSubscriptionsClient:
             at the canceled date and the subscriber is sent a prorated invoice at the beginning of the canceled cycle.
 
             When the subscription plan of the newly created subscription has a fixed number of cycles and the `canceled_date`
-            occurs before the subscription plan expires, the specified `canceled_date` sets the date when the subscription
+            occurs before the subscription plan completes, the specified `canceled_date` sets the date when the subscription
             stops through the end of the last cycle.
 
         tax_percentage : typing.Optional[str]
@@ -934,7 +934,7 @@ class AsyncRawSubscriptionsClient:
             at the canceled date and the subscriber is sent a prorated invoice at the beginning of the canceled cycle.
 
             When the subscription plan of the newly created subscription has a fixed number of cycles and the `canceled_date`
-            occurs before the subscription plan expires, the specified `canceled_date` sets the date when the subscription
+            occurs before the subscription plan completes, the specified `canceled_date` sets the date when the subscription
             stops through the end of the last cycle.
 
         tax_percentage : typing.Optional[str]

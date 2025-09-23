@@ -32,3 +32,8 @@ class DeviceComponentDetailsWiFiDetailsParams(typing_extensions.TypedDict):
     """
     A representation of signal strength of the WIFI network connection.
     """
+
+    mac_address: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    The mac address of the device in this network.
+    """

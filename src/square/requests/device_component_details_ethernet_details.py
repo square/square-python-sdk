@@ -15,3 +15,8 @@ class DeviceComponentDetailsEthernetDetailsParams(typing_extensions.TypedDict):
     """
     The string representation of the device’s IPv4 address.
     """
+
+    mac_address: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    The mac address of the device in this network.
+    """

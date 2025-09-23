@@ -7,6 +7,6 @@ from ..types.device_status_category import DeviceStatusCategory
 class DeviceStatusParams(typing_extensions.TypedDict):
     category: typing_extensions.NotRequired[DeviceStatusCategory]
     """
-    
+    Category of the device status.
     See [Category](#type-category) for possible values
     """
