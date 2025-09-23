@@ -11,7 +11,7 @@ from .device_status_category import DeviceStatusCategory
 class DeviceStatus(UncheckedBaseModel):
     category: typing.Optional[DeviceStatusCategory] = pydantic.Field(default=None)
     """
-    
+    Category of the device status.
     See [Category](#type-category) for possible values
     """
 

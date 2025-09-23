@@ -52,7 +52,9 @@ class Payment(UncheckedBaseModel):
 
     tip_money: typing.Optional[Money] = pydantic.Field(default=None)
     """
-    The amount designated as a tip. 
+    The amount designated as a tip for the seller's staff.  
+    
+    Tips for external vendors such as a 3rd party delivery courier must be recorded using Order.service_charges.
     
     This amount is specified in the smallest denomination of the applicable currency (for example,
     US dollar amounts are specified in cents). For more information, see

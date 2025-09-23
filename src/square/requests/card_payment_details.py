@@ -14,7 +14,7 @@ class CardPaymentDetailsParams(typing_extensions.TypedDict):
     Reflects the current status of a card payment. Contains only non-confidential information.
     """
 
-    status: typing_extensions.NotRequired[typing.Optional[str]]
+    status: typing_extensions.NotRequired[str]
     """
     The card payment's current state. The state can be AUTHORIZED, CAPTURED, VOIDED, or
     FAILED.
@@ -25,58 +25,58 @@ class CardPaymentDetailsParams(typing_extensions.TypedDict):
     The credit card's non-confidential details.
     """
 
-    entry_method: typing_extensions.NotRequired[typing.Optional[str]]
+    entry_method: typing_extensions.NotRequired[str]
     """
     The method used to enter the card's details for the payment. The method can be
     `KEYED`, `SWIPED`, `EMV`, `ON_FILE`, or `CONTACTLESS`.
     """
 
-    cvv_status: typing_extensions.NotRequired[typing.Optional[str]]
+    cvv_status: typing_extensions.NotRequired[str]
     """
     The status code returned from the Card Verification Value (CVV) check. The code can be
     `CVV_ACCEPTED`, `CVV_REJECTED`, or `CVV_NOT_CHECKED`.
     """
 
-    avs_status: typing_extensions.NotRequired[typing.Optional[str]]
+    avs_status: typing_extensions.NotRequired[str]
     """
     The status code returned from the Address Verification System (AVS) check. The code can be
     `AVS_ACCEPTED`, `AVS_REJECTED`, or `AVS_NOT_CHECKED`.
     """
 
-    auth_result_code: typing_extensions.NotRequired[typing.Optional[str]]
+    auth_result_code: typing_extensions.NotRequired[str]
     """
     The status code returned by the card issuer that describes the payment's
     authorization status.
     """
 
-    application_identifier: typing_extensions.NotRequired[typing.Optional[str]]
+    application_identifier: typing_extensions.NotRequired[str]
     """
     For EMV payments, the application ID identifies the EMV application used for the payment.
     """
 
-    application_name: typing_extensions.NotRequired[typing.Optional[str]]
+    application_name: typing_extensions.NotRequired[str]
     """
     For EMV payments, the human-readable name of the EMV application used for the payment.
     """
 
-    application_cryptogram: typing_extensions.NotRequired[typing.Optional[str]]
+    application_cryptogram: typing_extensions.NotRequired[str]
     """
     For EMV payments, the cryptogram generated for the payment.
     """
 
-    verification_method: typing_extensions.NotRequired[typing.Optional[str]]
+    verification_method: typing_extensions.NotRequired[str]
     """
     For EMV payments, the method used to verify the cardholder's identity. The method can be
     `PIN`, `SIGNATURE`, `PIN_AND_SIGNATURE`, `ON_DEVICE`, or `NONE`.
     """
 
-    verification_results: typing_extensions.NotRequired[typing.Optional[str]]
+    verification_results: typing_extensions.NotRequired[str]
     """
     For EMV payments, the results of the cardholder verification. The result can be
     `SUCCESS`, `FAILURE`, or `UNKNOWN`.
     """
 
-    statement_description: typing_extensions.NotRequired[typing.Optional[str]]
+    statement_description: typing_extensions.NotRequired[str]
     """
     The statement description sent to the card networks.
     
@@ -96,13 +96,13 @@ class CardPaymentDetailsParams(typing_extensions.TypedDict):
     The timeline for card payments.
     """
 
-    refund_requires_card_presence: typing_extensions.NotRequired[typing.Optional[bool]]
+    refund_requires_card_presence: typing_extensions.NotRequired[bool]
     """
     Whether the card must be physically present for the payment to
     be refunded.  If set to `true`, the card must be present.
     """
 
-    errors: typing_extensions.NotRequired[typing.Optional[typing.Sequence[ErrorParams]]]
+    errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
     """
     Information about errors encountered during the request.
     """

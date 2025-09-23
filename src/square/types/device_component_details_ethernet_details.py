@@ -18,6 +18,11 @@ class DeviceComponentDetailsEthernetDetails(UncheckedBaseModel):
     The string representation of the device’s IPv4 address.
     """
 
+    mac_address: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The mac address of the device in this network.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

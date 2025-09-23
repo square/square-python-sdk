@@ -142,3 +142,8 @@ class SubscriptionParams(typing_extensions.TypedDict):
     """
     array of phases for this subscription
     """
+
+    completed_date: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    The `YYYY-MM-DD`-formatted date when the subscription enters a terminal state.
+    """

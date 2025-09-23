@@ -11,3 +11,6 @@ class DeviceComponentDetailsMeasurementParams(typing_extensions.TypedDict):
     """
 
     value: typing_extensions.NotRequired[typing.Optional[int]]
+    """
+    Value of measure.
+    """
