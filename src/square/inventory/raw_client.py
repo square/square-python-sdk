@@ -197,7 +197,7 @@ class RawInventoryClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[BatchGetInventoryChangesResponse]:
+    ) -> SyncPager[InventoryChange]:
         """
         Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges) after the endpoint URL
         is updated to conform to the standard convention.
@@ -245,7 +245,7 @@ class RawInventoryClient:
 
         Returns
         -------
-        HttpResponse[BatchGetInventoryChangesResponse]
+        SyncPager[InventoryChange]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -269,14 +269,30 @@ class RawInventoryClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     BatchGetInventoryChangesResponse,
                     construct_type(
                         type_=BatchGetInventoryChangesResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.changes
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.deprecated_batch_get_changes(
+                    catalog_object_ids=catalog_object_ids,
+                    location_ids=location_ids,
+                    types=types,
+                    states=states,
+                    updated_after=updated_after,
+                    updated_before=updated_before,
+                    cursor=_parsed_next,
+                    limit=limit,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -292,7 +308,7 @@ class RawInventoryClient:
         states: typing.Optional[typing.Sequence[InventoryState]] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[BatchGetInventoryCountsResponse]:
+    ) -> SyncPager[InventoryCount]:
         """
         Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInventoryCounts) after the endpoint URL
         is updated to conform to the standard convention.
@@ -331,7 +347,7 @@ class RawInventoryClient:
 
         Returns
         -------
-        HttpResponse[BatchGetInventoryCountsResponse]
+        SyncPager[InventoryCount]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -353,14 +369,28 @@ class RawInventoryClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     BatchGetInventoryCountsResponse,
                     construct_type(
                         type_=BatchGetInventoryCountsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.counts
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.deprecated_batch_get_counts(
+                    catalog_object_ids=catalog_object_ids,
+                    location_ids=location_ids,
+                    updated_after=updated_after,
+                    cursor=_parsed_next,
+                    states=states,
+                    limit=limit,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1111,7 +1141,7 @@ class AsyncRawInventoryClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[BatchGetInventoryChangesResponse]:
+    ) -> AsyncPager[InventoryChange]:
         """
         Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges) after the endpoint URL
         is updated to conform to the standard convention.
@@ -1159,7 +1189,7 @@ class AsyncRawInventoryClient:
 
         Returns
         -------
-        AsyncHttpResponse[BatchGetInventoryChangesResponse]
+        AsyncPager[InventoryChange]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1183,14 +1213,33 @@ class AsyncRawInventoryClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     BatchGetInventoryChangesResponse,
                     construct_type(
                         type_=BatchGetInventoryChangesResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.changes
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.deprecated_batch_get_changes(
+                        catalog_object_ids=catalog_object_ids,
+                        location_ids=location_ids,
+                        types=types,
+                        states=states,
+                        updated_after=updated_after,
+                        updated_before=updated_before,
+                        cursor=_parsed_next,
+                        limit=limit,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1206,7 +1255,7 @@ class AsyncRawInventoryClient:
         states: typing.Optional[typing.Sequence[InventoryState]] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[BatchGetInventoryCountsResponse]:
+    ) -> AsyncPager[InventoryCount]:
         """
         Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInventoryCounts) after the endpoint URL
         is updated to conform to the standard convention.
@@ -1245,7 +1294,7 @@ class AsyncRawInventoryClient:
 
         Returns
         -------
-        AsyncHttpResponse[BatchGetInventoryCountsResponse]
+        AsyncPager[InventoryCount]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1267,14 +1316,31 @@ class AsyncRawInventoryClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     BatchGetInventoryCountsResponse,
                     construct_type(
                         type_=BatchGetInventoryCountsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.counts
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.deprecated_batch_get_counts(
+                        catalog_object_ids=catalog_object_ids,
+                        location_ids=location_ids,
+                        updated_after=updated_after,
+                        cursor=_parsed_next,
+                        states=states,
+                        limit=limit,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

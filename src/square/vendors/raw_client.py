@@ -7,6 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
+from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
@@ -21,6 +22,7 @@ from ..types.create_vendor_response import CreateVendorResponse
 from ..types.get_vendor_response import GetVendorResponse
 from ..types.search_vendors_response import SearchVendorsResponse
 from ..types.update_vendor_response import UpdateVendorResponse
+from ..types.vendor import Vendor
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -246,7 +248,7 @@ class RawVendorsClient:
         sort: typing.Optional[SearchVendorsRequestSortParams] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchVendorsResponse]:
+    ) -> SyncPager[Vendor]:
         """
         Searches for vendors using a filter against supported [Vendor](entity:Vendor) properties and a supported sorter.
 
@@ -269,7 +271,7 @@ class RawVendorsClient:
 
         Returns
         -------
-        HttpResponse[SearchVendorsResponse]
+        SyncPager[Vendor]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -292,14 +294,25 @@ class RawVendorsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchVendorsResponse,
                     construct_type(
                         type_=SearchVendorsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.vendors
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    filter=filter,
+                    sort=sort,
+                    cursor=_parsed_next,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -630,7 +643,7 @@ class AsyncRawVendorsClient:
         sort: typing.Optional[SearchVendorsRequestSortParams] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchVendorsResponse]:
+    ) -> AsyncPager[Vendor]:
         """
         Searches for vendors using a filter against supported [Vendor](entity:Vendor) properties and a supported sorter.
 
@@ -653,7 +666,7 @@ class AsyncRawVendorsClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchVendorsResponse]
+        AsyncPager[Vendor]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -676,14 +689,28 @@ class AsyncRawVendorsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchVendorsResponse,
                     construct_type(
                         type_=SearchVendorsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.vendors
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        filter=filter,
+                        sort=sort,
+                        cursor=_parsed_next,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

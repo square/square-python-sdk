@@ -84,7 +84,13 @@ class CardsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.cards.list()
+        response = client.cards.list(
+            cursor="cursor",
+            customer_id="customer_id",
+            include_disabled=True,
+            reference_id="reference_id",
+            sort_order="DESC",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -313,7 +319,13 @@ class AsyncCardsClient:
 
 
         async def main() -> None:
-            response = await client.cards.list()
+            response = await client.cards.list(
+                cursor="cursor",
+                customer_id="customer_id",
+                include_disabled=True,
+                reference_id="reference_id",
+                sort_order="DESC",
+            )
             async for item in response:
                 yield item
 

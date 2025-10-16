@@ -3,6 +3,7 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..requests.search_vendors_request_filter import SearchVendorsRequestFilterParams
 from ..requests.search_vendors_request_sort import SearchVendorsRequestSortParams
@@ -13,8 +14,8 @@ from ..types.batch_get_vendors_response import BatchGetVendorsResponse
 from ..types.batch_update_vendors_response import BatchUpdateVendorsResponse
 from ..types.create_vendor_response import CreateVendorResponse
 from ..types.get_vendor_response import GetVendorResponse
-from ..types.search_vendors_response import SearchVendorsResponse
 from ..types.update_vendor_response import UpdateVendorResponse
+from ..types.vendor import Vendor
 from .raw_client import AsyncRawVendorsClient, RawVendorsClient
 
 # this is used as the default value for optional parameters
@@ -241,7 +242,7 @@ class VendorsClient:
         sort: typing.Optional[SearchVendorsRequestSortParams] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchVendorsResponse:
+    ) -> SyncPager[Vendor]:
         """
         Searches for vendors using a filter against supported [Vendor](entity:Vendor) properties and a supported sorter.
 
@@ -264,7 +265,7 @@ class VendorsClient:
 
         Returns
         -------
-        SearchVendorsResponse
+        SyncPager[Vendor]
             Success
 
         Examples
@@ -274,10 +275,14 @@ class VendorsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.vendors.search()
+        response = client.vendors.search()
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(filter=filter, sort=sort, cursor=cursor, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(filter=filter, sort=sort, cursor=cursor, request_options=request_options)
 
     def get(self, vendor_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetVendorResponse:
         """
@@ -621,7 +626,7 @@ class AsyncVendorsClient:
         sort: typing.Optional[SearchVendorsRequestSortParams] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchVendorsResponse:
+    ) -> AsyncPager[Vendor]:
         """
         Searches for vendors using a filter against supported [Vendor](entity:Vendor) properties and a supported sorter.
 
@@ -644,7 +649,7 @@ class AsyncVendorsClient:
 
         Returns
         -------
-        SearchVendorsResponse
+        AsyncPager[Vendor]
             Success
 
         Examples
@@ -659,15 +664,18 @@ class AsyncVendorsClient:
 
 
         async def main() -> None:
-            await client.vendors.search()
+            response = await client.vendors.search()
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            filter=filter, sort=sort, cursor=cursor, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(filter=filter, sort=sort, cursor=cursor, request_options=request_options)
 
     async def get(
         self, vendor_id: str, *, request_options: typing.Optional[RequestOptions] = None

@@ -3,13 +3,14 @@
 import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...requests.terminal_checkout import TerminalCheckoutParams
 from ...requests.terminal_checkout_query import TerminalCheckoutQueryParams
 from ...types.cancel_terminal_checkout_response import CancelTerminalCheckoutResponse
 from ...types.create_terminal_checkout_response import CreateTerminalCheckoutResponse
 from ...types.get_terminal_checkout_response import GetTerminalCheckoutResponse
-from ...types.search_terminal_checkouts_response import SearchTerminalCheckoutsResponse
+from ...types.terminal_checkout import TerminalCheckout
 from .raw_client import AsyncRawCheckoutsClient, RawCheckoutsClient
 
 # this is used as the default value for optional parameters
@@ -90,7 +91,7 @@ class CheckoutsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchTerminalCheckoutsResponse:
+    ) -> SyncPager[TerminalCheckout]:
         """
         Returns a filtered list of Terminal checkout requests created by the application making the request. Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned. Terminal checkout requests are available for 30 days.
 
@@ -113,7 +114,7 @@ class CheckoutsClient:
 
         Returns
         -------
-        SearchTerminalCheckoutsResponse
+        SyncPager[TerminalCheckout]
             Success
 
         Examples
@@ -123,13 +124,17 @@ class CheckoutsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.terminal.checkouts.search(
+        response = client.terminal.checkouts.search(
             query={"filter": {"status": "COMPLETED"}},
             limit=2,
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
 
     def get(
         self, checkout_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -282,7 +287,7 @@ class AsyncCheckoutsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchTerminalCheckoutsResponse:
+    ) -> AsyncPager[TerminalCheckout]:
         """
         Returns a filtered list of Terminal checkout requests created by the application making the request. Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned. Terminal checkout requests are available for 30 days.
 
@@ -305,7 +310,7 @@ class AsyncCheckoutsClient:
 
         Returns
         -------
-        SearchTerminalCheckoutsResponse
+        AsyncPager[TerminalCheckout]
             Success
 
         Examples
@@ -320,18 +325,21 @@ class AsyncCheckoutsClient:
 
 
         async def main() -> None:
-            await client.terminal.checkouts.search(
+            response = await client.terminal.checkouts.search(
                 query={"filter": {"status": "COMPLETED"}},
                 limit=2,
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            query=query, cursor=cursor, limit=limit, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
 
     async def get(
         self, checkout_id: str, *, request_options: typing.Optional[RequestOptions] = None

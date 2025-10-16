@@ -160,7 +160,23 @@ class PaymentsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.payments.list()
+        response = client.payments.list(
+            begin_time="begin_time",
+            end_time="end_time",
+            sort_order="sort_order",
+            cursor="cursor",
+            location_id="location_id",
+            total=1000000,
+            last4="last_4",
+            card_brand="card_brand",
+            limit=1,
+            is_offline_payment=True,
+            offline_begin_time="offline_begin_time",
+            offline_end_time="offline_end_time",
+            updated_at_begin_time="updated_at_begin_time",
+            updated_at_end_time="updated_at_end_time",
+            sort_field="CREATED_AT",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -808,7 +824,23 @@ class AsyncPaymentsClient:
 
 
         async def main() -> None:
-            response = await client.payments.list()
+            response = await client.payments.list(
+                begin_time="begin_time",
+                end_time="end_time",
+                sort_order="sort_order",
+                cursor="cursor",
+                location_id="location_id",
+                total=1000000,
+                last4="last_4",
+                card_brand="card_brand",
+                limit=1,
+                is_offline_payment=True,
+                offline_begin_time="offline_begin_time",
+                offline_end_time="offline_end_time",
+                updated_at_begin_time="updated_at_begin_time",
+                updated_at_end_time="updated_at_end_time",
+                sort_field="CREATED_AT",
+            )
             async for item in response:
                 yield item
 

@@ -73,7 +73,10 @@ class GroupsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.customers.groups.list()
+        response = client.customers.groups.list(
+            cursor="cursor",
+            limit=1,
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -369,7 +372,10 @@ class AsyncGroupsClient:
 
 
         async def main() -> None:
-            response = await client.customers.groups.list()
+            response = await client.customers.groups.list(
+                cursor="cursor",
+                limit=1,
+            )
             async for item in response:
                 yield item
 

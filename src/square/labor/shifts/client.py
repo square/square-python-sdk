@@ -3,13 +3,14 @@
 import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...requests.shift import ShiftParams
 from ...requests.shift_query import ShiftQueryParams
 from ...types.create_shift_response import CreateShiftResponse
 from ...types.delete_shift_response import DeleteShiftResponse
 from ...types.get_shift_response import GetShiftResponse
-from ...types.search_shifts_response import SearchShiftsResponse
+from ...types.shift import Shift
 from ...types.update_shift_response import UpdateShiftResponse
 from .raw_client import AsyncRawShiftsClient, RawShiftsClient
 
@@ -120,7 +121,7 @@ class ShiftsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchShiftsResponse:
+    ) -> SyncPager[Shift]:
         """
         Returns a paginated list of `Shift` records for a business.
         The list to be returned can be filtered by:
@@ -153,7 +154,7 @@ class ShiftsClient:
 
         Returns
         -------
-        SearchShiftsResponse
+        SyncPager[Shift]
             Success
 
         Examples
@@ -163,7 +164,7 @@ class ShiftsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.labor.shifts.search(
+        response = client.labor.shifts.search(
             query={
                 "filter": {
                     "workday": {
@@ -178,9 +179,13 @@ class ShiftsClient:
             },
             limit=100,
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetShiftResponse:
         """
@@ -422,7 +427,7 @@ class AsyncShiftsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchShiftsResponse:
+    ) -> AsyncPager[Shift]:
         """
         Returns a paginated list of `Shift` records for a business.
         The list to be returned can be filtered by:
@@ -455,7 +460,7 @@ class AsyncShiftsClient:
 
         Returns
         -------
-        SearchShiftsResponse
+        AsyncPager[Shift]
             Success
 
         Examples
@@ -470,7 +475,7 @@ class AsyncShiftsClient:
 
 
         async def main() -> None:
-            await client.labor.shifts.search(
+            response = await client.labor.shifts.search(
                 query={
                     "filter": {
                         "workday": {
@@ -485,14 +490,17 @@ class AsyncShiftsClient:
                 },
                 limit=100,
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            query=query, limit=limit, cursor=cursor, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetShiftResponse:
         """

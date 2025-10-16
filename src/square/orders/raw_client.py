@@ -7,6 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
+from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
@@ -18,6 +19,7 @@ from ..types.calculate_order_response import CalculateOrderResponse
 from ..types.clone_order_response import CloneOrderResponse
 from ..types.create_order_response import CreateOrderResponse
 from ..types.get_order_response import GetOrderResponse
+from ..types.order import Order
 from ..types.pay_order_response import PayOrderResponse
 from ..types.search_orders_response import SearchOrdersResponse
 from ..types.update_order_response import UpdateOrderResponse
@@ -300,7 +302,7 @@ class RawOrdersClient:
         limit: typing.Optional[int] = OMIT,
         return_entries: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchOrdersResponse]:
+    ) -> SyncPager[Order]:
         """
         Search all orders for one or more locations. Orders include all sales,
         returns, and exchanges regardless of how or when they entered the Square
@@ -355,7 +357,7 @@ class RawOrdersClient:
 
         Returns
         -------
-        HttpResponse[SearchOrdersResponse]
+        SyncPager[Order]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -378,14 +380,27 @@ class RawOrdersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchOrdersResponse,
                     construct_type(
                         type_=SearchOrdersResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.orders
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    location_ids=location_ids,
+                    cursor=_parsed_next,
+                    query=query,
+                    limit=limit,
+                    return_entries=return_entries,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -876,7 +891,7 @@ class AsyncRawOrdersClient:
         limit: typing.Optional[int] = OMIT,
         return_entries: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchOrdersResponse]:
+    ) -> AsyncPager[Order]:
         """
         Search all orders for one or more locations. Orders include all sales,
         returns, and exchanges regardless of how or when they entered the Square
@@ -931,7 +946,7 @@ class AsyncRawOrdersClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchOrdersResponse]
+        AsyncPager[Order]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -954,14 +969,30 @@ class AsyncRawOrdersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchOrdersResponse,
                     construct_type(
                         type_=SearchOrdersResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.orders
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        location_ids=location_ids,
+                        cursor=_parsed_next,
+                        query=query,
+                        limit=limit,
+                        return_entries=return_entries,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

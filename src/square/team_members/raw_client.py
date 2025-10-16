@@ -7,6 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
+from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
@@ -19,6 +20,7 @@ from ..types.batch_update_team_members_response import BatchUpdateTeamMembersRes
 from ..types.create_team_member_response import CreateTeamMemberResponse
 from ..types.get_team_member_response import GetTeamMemberResponse
 from ..types.search_team_members_response import SearchTeamMembersResponse
+from ..types.team_member import TeamMember
 from ..types.update_team_member_response import UpdateTeamMemberResponse
 
 # this is used as the default value for optional parameters
@@ -222,7 +224,7 @@ class RawTeamMembersClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchTeamMembersResponse]:
+    ) -> SyncPager[TeamMember]:
         """
         Returns a paginated list of `TeamMember` objects for a business.
         The list can be filtered by location IDs, `ACTIVE` or `INACTIVE` status, or whether
@@ -245,7 +247,7 @@ class RawTeamMembersClient:
 
         Returns
         -------
-        HttpResponse[SearchTeamMembersResponse]
+        SyncPager[TeamMember]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -266,14 +268,25 @@ class RawTeamMembersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchTeamMembersResponse,
                     construct_type(
                         type_=SearchTeamMembersResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.team_members
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    query=query,
+                    limit=limit,
+                    cursor=_parsed_next,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -575,7 +588,7 @@ class AsyncRawTeamMembersClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchTeamMembersResponse]:
+    ) -> AsyncPager[TeamMember]:
         """
         Returns a paginated list of `TeamMember` objects for a business.
         The list can be filtered by location IDs, `ACTIVE` or `INACTIVE` status, or whether
@@ -598,7 +611,7 @@ class AsyncRawTeamMembersClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchTeamMembersResponse]
+        AsyncPager[TeamMember]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -619,14 +632,28 @@ class AsyncRawTeamMembersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchTeamMembersResponse,
                     construct_type(
                         type_=SearchTeamMembersResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.team_members
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        query=query,
+                        limit=limit,
+                        cursor=_parsed_next,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

@@ -72,6 +72,9 @@ class V1TransactionsClient:
         )
         client.v1transactions.v1list_orders(
             location_id="location_id",
+            order="DESC",
+            limit=1,
+            batch_token="batch_token",
         )
         """
         _response = self._raw_client.v1list_orders(
@@ -253,6 +256,9 @@ class AsyncV1TransactionsClient:
         async def main() -> None:
             await client.v1transactions.v1list_orders(
                 location_id="location_id",
+                order="DESC",
+                limit=1,
+                batch_token="batch_token",
             )
 
 

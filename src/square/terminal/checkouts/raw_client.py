@@ -7,6 +7,7 @@ from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
+from ...core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ...core.request_options import RequestOptions
 from ...core.serialization import convert_and_respect_annotation_metadata
 from ...core.unchecked_base_model import construct_type
@@ -16,6 +17,7 @@ from ...types.cancel_terminal_checkout_response import CancelTerminalCheckoutRes
 from ...types.create_terminal_checkout_response import CreateTerminalCheckoutResponse
 from ...types.get_terminal_checkout_response import GetTerminalCheckoutResponse
 from ...types.search_terminal_checkouts_response import SearchTerminalCheckoutsResponse
+from ...types.terminal_checkout import TerminalCheckout
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -92,7 +94,7 @@ class RawCheckoutsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchTerminalCheckoutsResponse]:
+    ) -> SyncPager[TerminalCheckout]:
         """
         Returns a filtered list of Terminal checkout requests created by the application making the request. Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned. Terminal checkout requests are available for 30 days.
 
@@ -115,7 +117,7 @@ class RawCheckoutsClient:
 
         Returns
         -------
-        HttpResponse[SearchTerminalCheckoutsResponse]
+        SyncPager[TerminalCheckout]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -136,14 +138,25 @@ class RawCheckoutsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchTerminalCheckoutsResponse,
                     construct_type(
                         type_=SearchTerminalCheckoutsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.checkouts
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    query=query,
+                    cursor=_parsed_next,
+                    limit=limit,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -299,7 +312,7 @@ class AsyncRawCheckoutsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchTerminalCheckoutsResponse]:
+    ) -> AsyncPager[TerminalCheckout]:
         """
         Returns a filtered list of Terminal checkout requests created by the application making the request. Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned. Terminal checkout requests are available for 30 days.
 
@@ -322,7 +335,7 @@ class AsyncRawCheckoutsClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchTerminalCheckoutsResponse]
+        AsyncPager[TerminalCheckout]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -343,14 +356,28 @@ class AsyncRawCheckoutsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchTerminalCheckoutsResponse,
                     construct_type(
                         type_=SearchTerminalCheckoutsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.checkouts
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        query=query,
+                        cursor=_parsed_next,
+                        limit=limit,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

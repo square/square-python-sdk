@@ -3,6 +3,7 @@
 import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...requests.loyalty_account import LoyaltyAccountParams
 from ...requests.loyalty_event_accumulate_points import LoyaltyEventAccumulatePointsParams
@@ -14,7 +15,7 @@ from ...types.accumulate_loyalty_points_response import AccumulateLoyaltyPointsR
 from ...types.adjust_loyalty_points_response import AdjustLoyaltyPointsResponse
 from ...types.create_loyalty_account_response import CreateLoyaltyAccountResponse
 from ...types.get_loyalty_account_response import GetLoyaltyAccountResponse
-from ...types.search_loyalty_accounts_response import SearchLoyaltyAccountsResponse
+from ...types.loyalty_account import LoyaltyAccount
 from .raw_client import AsyncRawAccountsClient, RawAccountsClient
 
 # this is used as the default value for optional parameters
@@ -90,7 +91,7 @@ class AccountsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchLoyaltyAccountsResponse:
+    ) -> SyncPager[LoyaltyAccount]:
         """
         Searches for loyalty accounts in a loyalty program.
 
@@ -119,7 +120,7 @@ class AccountsClient:
 
         Returns
         -------
-        SearchLoyaltyAccountsResponse
+        SyncPager[LoyaltyAccount]
             Success
 
         Examples
@@ -129,13 +130,17 @@ class AccountsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.loyalty.accounts.search(
+        response = client.loyalty.accounts.search(
             query={"mappings": [{"phone_number": "+14155551234"}]},
             limit=10,
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     def get(
         self, account_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -385,7 +390,7 @@ class AsyncAccountsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchLoyaltyAccountsResponse:
+    ) -> AsyncPager[LoyaltyAccount]:
         """
         Searches for loyalty accounts in a loyalty program.
 
@@ -414,7 +419,7 @@ class AsyncAccountsClient:
 
         Returns
         -------
-        SearchLoyaltyAccountsResponse
+        AsyncPager[LoyaltyAccount]
             Success
 
         Examples
@@ -429,18 +434,21 @@ class AsyncAccountsClient:
 
 
         async def main() -> None:
-            await client.loyalty.accounts.search(
+            response = await client.loyalty.accounts.search(
                 query={"mappings": [{"phone_number": "+14155551234"}]},
                 limit=10,
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            query=query, limit=limit, cursor=cursor, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     async def get(
         self, account_id: str, *, request_options: typing.Optional[RequestOptions] = None

@@ -7,8 +7,6 @@ from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..requests.inventory_change import InventoryChangeParams
 from ..types.batch_change_inventory_response import BatchChangeInventoryResponse
-from ..types.batch_get_inventory_changes_response import BatchGetInventoryChangesResponse
-from ..types.batch_get_inventory_counts_response import BatchGetInventoryCountsResponse
 from ..types.get_inventory_adjustment_response import GetInventoryAdjustmentResponse
 from ..types.get_inventory_physical_count_response import GetInventoryPhysicalCountResponse
 from ..types.get_inventory_transfer_response import GetInventoryTransferResponse
@@ -190,7 +188,7 @@ class InventoryClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BatchGetInventoryChangesResponse:
+    ) -> SyncPager[InventoryChange]:
         """
         Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges) after the endpoint URL
         is updated to conform to the standard convention.
@@ -238,7 +236,7 @@ class InventoryClient:
 
         Returns
         -------
-        BatchGetInventoryChangesResponse
+        SyncPager[InventoryChange]
             Success
 
         Examples
@@ -248,7 +246,7 @@ class InventoryClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.inventory.deprecated_batch_get_changes(
+        response = client.inventory.deprecated_batch_get_changes(
             catalog_object_ids=["W62UWFY35CWMYGVWK6TWJDNI"],
             location_ids=["C6W5YS5QM06F5"],
             types=["PHYSICAL_COUNT"],
@@ -256,8 +254,13 @@ class InventoryClient:
             updated_after="2016-11-01T00:00:00.000Z",
             updated_before="2016-12-01T00:00:00.000Z",
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.deprecated_batch_get_changes(
+        return self._raw_client.deprecated_batch_get_changes(
             catalog_object_ids=catalog_object_ids,
             location_ids=location_ids,
             types=types,
@@ -268,7 +271,6 @@ class InventoryClient:
             limit=limit,
             request_options=request_options,
         )
-        return _response.data
 
     def deprecated_batch_get_counts(
         self,
@@ -280,7 +282,7 @@ class InventoryClient:
         states: typing.Optional[typing.Sequence[InventoryState]] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BatchGetInventoryCountsResponse:
+    ) -> SyncPager[InventoryCount]:
         """
         Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInventoryCounts) after the endpoint URL
         is updated to conform to the standard convention.
@@ -319,7 +321,7 @@ class InventoryClient:
 
         Returns
         -------
-        BatchGetInventoryCountsResponse
+        SyncPager[InventoryCount]
             Success
 
         Examples
@@ -329,13 +331,18 @@ class InventoryClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.inventory.deprecated_batch_get_counts(
+        response = client.inventory.deprecated_batch_get_counts(
             catalog_object_ids=["W62UWFY35CWMYGVWK6TWJDNI"],
             location_ids=["59TNP9SA8VGDA"],
             updated_after="2016-11-16T00:00:00.000Z",
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.deprecated_batch_get_counts(
+        return self._raw_client.deprecated_batch_get_counts(
             catalog_object_ids=catalog_object_ids,
             location_ids=location_ids,
             updated_after=updated_after,
@@ -344,7 +351,6 @@ class InventoryClient:
             limit=limit,
             request_options=request_options,
         )
-        return _response.data
 
     def batch_create_changes(
         self,
@@ -763,6 +769,8 @@ class InventoryClient:
         )
         response = client.inventory.get(
             catalog_object_id="catalog_object_id",
+            location_ids="location_ids",
+            cursor="cursor",
         )
         for item in response:
             yield item
@@ -829,6 +837,8 @@ class InventoryClient:
         )
         response = client.inventory.changes(
             catalog_object_id="catalog_object_id",
+            location_ids="location_ids",
+            cursor="cursor",
         )
         for item in response:
             yield item
@@ -1033,7 +1043,7 @@ class AsyncInventoryClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BatchGetInventoryChangesResponse:
+    ) -> AsyncPager[InventoryChange]:
         """
         Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges) after the endpoint URL
         is updated to conform to the standard convention.
@@ -1081,7 +1091,7 @@ class AsyncInventoryClient:
 
         Returns
         -------
-        BatchGetInventoryChangesResponse
+        AsyncPager[InventoryChange]
             Success
 
         Examples
@@ -1096,7 +1106,7 @@ class AsyncInventoryClient:
 
 
         async def main() -> None:
-            await client.inventory.deprecated_batch_get_changes(
+            response = await client.inventory.deprecated_batch_get_changes(
                 catalog_object_ids=["W62UWFY35CWMYGVWK6TWJDNI"],
                 location_ids=["C6W5YS5QM06F5"],
                 types=["PHYSICAL_COUNT"],
@@ -1104,11 +1114,17 @@ class AsyncInventoryClient:
                 updated_after="2016-11-01T00:00:00.000Z",
                 updated_before="2016-12-01T00:00:00.000Z",
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.deprecated_batch_get_changes(
+        return await self._raw_client.deprecated_batch_get_changes(
             catalog_object_ids=catalog_object_ids,
             location_ids=location_ids,
             types=types,
@@ -1119,7 +1135,6 @@ class AsyncInventoryClient:
             limit=limit,
             request_options=request_options,
         )
-        return _response.data
 
     async def deprecated_batch_get_counts(
         self,
@@ -1131,7 +1146,7 @@ class AsyncInventoryClient:
         states: typing.Optional[typing.Sequence[InventoryState]] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BatchGetInventoryCountsResponse:
+    ) -> AsyncPager[InventoryCount]:
         """
         Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInventoryCounts) after the endpoint URL
         is updated to conform to the standard convention.
@@ -1170,7 +1185,7 @@ class AsyncInventoryClient:
 
         Returns
         -------
-        BatchGetInventoryCountsResponse
+        AsyncPager[InventoryCount]
             Success
 
         Examples
@@ -1185,16 +1200,22 @@ class AsyncInventoryClient:
 
 
         async def main() -> None:
-            await client.inventory.deprecated_batch_get_counts(
+            response = await client.inventory.deprecated_batch_get_counts(
                 catalog_object_ids=["W62UWFY35CWMYGVWK6TWJDNI"],
                 location_ids=["59TNP9SA8VGDA"],
                 updated_after="2016-11-16T00:00:00.000Z",
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.deprecated_batch_get_counts(
+        return await self._raw_client.deprecated_batch_get_counts(
             catalog_object_ids=catalog_object_ids,
             location_ids=location_ids,
             updated_after=updated_after,
@@ -1203,7 +1224,6 @@ class AsyncInventoryClient:
             limit=limit,
             request_options=request_options,
         )
-        return _response.data
 
     async def batch_create_changes(
         self,
@@ -1679,6 +1699,8 @@ class AsyncInventoryClient:
         async def main() -> None:
             response = await client.inventory.get(
                 catalog_object_id="catalog_object_id",
+                location_ids="location_ids",
+                cursor="cursor",
             )
             async for item in response:
                 yield item
@@ -1754,6 +1776,8 @@ class AsyncInventoryClient:
         async def main() -> None:
             response = await client.inventory.changes(
                 catalog_object_id="catalog_object_id",
+                location_ids="location_ids",
+                cursor="cursor",
             )
             async for item in response:
                 yield item

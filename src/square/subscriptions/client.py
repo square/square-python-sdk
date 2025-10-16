@@ -20,7 +20,7 @@ from ..types.delete_subscription_action_response import DeleteSubscriptionAction
 from ..types.get_subscription_response import GetSubscriptionResponse
 from ..types.pause_subscription_response import PauseSubscriptionResponse
 from ..types.resume_subscription_response import ResumeSubscriptionResponse
-from ..types.search_subscriptions_response import SearchSubscriptionsResponse
+from ..types.subscription import Subscription
 from ..types.subscription_event import SubscriptionEvent
 from ..types.swap_plan_response import SwapPlanResponse
 from ..types.update_subscription_response import UpdateSubscriptionResponse
@@ -247,7 +247,7 @@ class SubscriptionsClient:
         query: typing.Optional[SearchSubscriptionsQueryParams] = OMIT,
         include: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchSubscriptionsResponse:
+    ) -> SyncPager[Subscription]:
         """
         Searches for subscriptions.
 
@@ -294,7 +294,7 @@ class SubscriptionsClient:
 
         Returns
         -------
-        SearchSubscriptionsResponse
+        SyncPager[Subscription]
             Success
 
         Examples
@@ -304,7 +304,7 @@ class SubscriptionsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.subscriptions.search(
+        response = client.subscriptions.search(
             query={
                 "filter": {
                     "customer_ids": ["CHFGVKYY8RSV93M5KCYTG4PN0G"],
@@ -313,11 +313,15 @@ class SubscriptionsClient:
                 }
             },
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(
+        return self._raw_client.search(
             cursor=cursor, limit=limit, query=query, include=include, request_options=request_options
         )
-        return _response.data
 
     def get(
         self,
@@ -358,6 +362,7 @@ class SubscriptionsClient:
         )
         client.subscriptions.get(
             subscription_id="subscription_id",
+            include="include",
         )
         """
         _response = self._raw_client.get(subscription_id, include=include, request_options=request_options)
@@ -578,6 +583,8 @@ class SubscriptionsClient:
         )
         response = client.subscriptions.list_events(
             subscription_id="subscription_id",
+            cursor="cursor",
+            limit=1,
         )
         for item in response:
             yield item
@@ -1001,7 +1008,7 @@ class AsyncSubscriptionsClient:
         query: typing.Optional[SearchSubscriptionsQueryParams] = OMIT,
         include: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchSubscriptionsResponse:
+    ) -> AsyncPager[Subscription]:
         """
         Searches for subscriptions.
 
@@ -1048,7 +1055,7 @@ class AsyncSubscriptionsClient:
 
         Returns
         -------
-        SearchSubscriptionsResponse
+        AsyncPager[Subscription]
             Success
 
         Examples
@@ -1063,7 +1070,7 @@ class AsyncSubscriptionsClient:
 
 
         async def main() -> None:
-            await client.subscriptions.search(
+            response = await client.subscriptions.search(
                 query={
                     "filter": {
                         "customer_ids": ["CHFGVKYY8RSV93M5KCYTG4PN0G"],
@@ -1072,14 +1079,19 @@ class AsyncSubscriptionsClient:
                     }
                 },
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
+        return await self._raw_client.search(
             cursor=cursor, limit=limit, query=query, include=include, request_options=request_options
         )
-        return _response.data
 
     async def get(
         self,
@@ -1125,6 +1137,7 @@ class AsyncSubscriptionsClient:
         async def main() -> None:
             await client.subscriptions.get(
                 subscription_id="subscription_id",
+                include="include",
             )
 
 
@@ -1387,6 +1400,8 @@ class AsyncSubscriptionsClient:
         async def main() -> None:
             response = await client.subscriptions.list_events(
                 subscription_id="subscription_id",
+                cursor="cursor",
+                limit=1,
             )
             async for item in response:
                 yield item

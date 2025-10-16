@@ -3,13 +3,14 @@
 import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...requests.terminal_refund import TerminalRefundParams
 from ...requests.terminal_refund_query import TerminalRefundQueryParams
 from ...types.cancel_terminal_refund_response import CancelTerminalRefundResponse
 from ...types.create_terminal_refund_response import CreateTerminalRefundResponse
 from ...types.get_terminal_refund_response import GetTerminalRefundResponse
-from ...types.search_terminal_refunds_response import SearchTerminalRefundsResponse
+from ...types.terminal_refund import TerminalRefund
 from .raw_client import AsyncRawRefundsClient, RawRefundsClient
 
 # this is used as the default value for optional parameters
@@ -89,7 +90,7 @@ class RefundsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchTerminalRefundsResponse:
+    ) -> SyncPager[TerminalRefund]:
         """
         Retrieves a filtered list of Interac Terminal refund requests created by the seller making the request. Terminal refund requests are available for 30 days.
 
@@ -112,7 +113,7 @@ class RefundsClient:
 
         Returns
         -------
-        SearchTerminalRefundsResponse
+        SyncPager[TerminalRefund]
             Success
 
         Examples
@@ -122,13 +123,17 @@ class RefundsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.terminal.refunds.search(
+        response = client.terminal.refunds.search(
             query={"filter": {"status": "COMPLETED"}},
             limit=1,
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
 
     def get(
         self, terminal_refund_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -278,7 +283,7 @@ class AsyncRefundsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchTerminalRefundsResponse:
+    ) -> AsyncPager[TerminalRefund]:
         """
         Retrieves a filtered list of Interac Terminal refund requests created by the seller making the request. Terminal refund requests are available for 30 days.
 
@@ -301,7 +306,7 @@ class AsyncRefundsClient:
 
         Returns
         -------
-        SearchTerminalRefundsResponse
+        AsyncPager[TerminalRefund]
             Success
 
         Examples
@@ -316,18 +321,21 @@ class AsyncRefundsClient:
 
 
         async def main() -> None:
-            await client.terminal.refunds.search(
+            response = await client.terminal.refunds.search(
                 query={"filter": {"status": "COMPLETED"}},
                 limit=1,
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            query=query, cursor=cursor, limit=limit, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
 
     async def get(
         self, terminal_refund_id: str, *, request_options: typing.Optional[RequestOptions] = None

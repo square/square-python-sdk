@@ -7,6 +7,7 @@ from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
+from ...core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ...core.request_options import RequestOptions
 from ...core.serialization import convert_and_respect_annotation_metadata
 from ...core.unchecked_base_model import construct_type
@@ -16,6 +17,7 @@ from ...types.create_shift_response import CreateShiftResponse
 from ...types.delete_shift_response import DeleteShiftResponse
 from ...types.get_shift_response import GetShiftResponse
 from ...types.search_shifts_response import SearchShiftsResponse
+from ...types.shift import Shift
 from ...types.update_shift_response import UpdateShiftResponse
 
 # this is used as the default value for optional parameters
@@ -106,7 +108,7 @@ class RawShiftsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchShiftsResponse]:
+    ) -> SyncPager[Shift]:
         """
         Returns a paginated list of `Shift` records for a business.
         The list to be returned can be filtered by:
@@ -139,7 +141,7 @@ class RawShiftsClient:
 
         Returns
         -------
-        HttpResponse[SearchShiftsResponse]
+        SyncPager[Shift]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -160,14 +162,25 @@ class RawShiftsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchShiftsResponse,
                     construct_type(
                         type_=SearchShiftsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.shifts
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    query=query,
+                    limit=limit,
+                    cursor=_parsed_next,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -393,7 +406,7 @@ class AsyncRawShiftsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchShiftsResponse]:
+    ) -> AsyncPager[Shift]:
         """
         Returns a paginated list of `Shift` records for a business.
         The list to be returned can be filtered by:
@@ -426,7 +439,7 @@ class AsyncRawShiftsClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchShiftsResponse]
+        AsyncPager[Shift]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -447,14 +460,28 @@ class AsyncRawShiftsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchShiftsResponse,
                     construct_type(
                         type_=SearchShiftsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.shifts
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        query=query,
+                        limit=limit,
+                        cursor=_parsed_next,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

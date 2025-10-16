@@ -85,7 +85,12 @@ class SubscriptionsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.webhooks.subscriptions.list()
+        response = client.webhooks.subscriptions.list(
+            cursor="cursor",
+            include_disabled=True,
+            sort_order="DESC",
+            limit=1,
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -414,7 +419,12 @@ class AsyncSubscriptionsClient:
 
 
         async def main() -> None:
-            response = await client.webhooks.subscriptions.list()
+            response = await client.webhooks.subscriptions.list(
+                cursor="cursor",
+                include_disabled=True,
+                sort_order="DESC",
+                limit=1,
+            )
             async for item in response:
                 yield item
 

@@ -58,7 +58,9 @@ class TeamClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.team.list_jobs()
+        client.team.list_jobs(
+            cursor="cursor",
+        )
         """
         _response = self._raw_client.list_jobs(cursor=cursor, request_options=request_options)
         return _response.data
@@ -227,7 +229,9 @@ class AsyncTeamClient:
 
 
         async def main() -> None:
-            await client.team.list_jobs()
+            await client.team.list_jobs(
+                cursor="cursor",
+            )
 
 
         asyncio.run(main())

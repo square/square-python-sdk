@@ -3,13 +3,14 @@
 import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...requests.terminal_action import TerminalActionParams
 from ...requests.terminal_action_query import TerminalActionQueryParams
 from ...types.cancel_terminal_action_response import CancelTerminalActionResponse
 from ...types.create_terminal_action_response import CreateTerminalActionResponse
 from ...types.get_terminal_action_response import GetTerminalActionResponse
-from ...types.search_terminal_actions_response import SearchTerminalActionsResponse
+from ...types.terminal_action import TerminalAction
 from .raw_client import AsyncRawActionsClient, RawActionsClient
 
 # this is used as the default value for optional parameters
@@ -93,7 +94,7 @@ class ActionsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchTerminalActionsResponse:
+    ) -> SyncPager[TerminalAction]:
         """
         Retrieves a filtered list of Terminal action requests created by the account making the request. Terminal action requests are available for 30 days.
 
@@ -117,7 +118,7 @@ class ActionsClient:
 
         Returns
         -------
-        SearchTerminalActionsResponse
+        SyncPager[TerminalAction]
             Success
 
         Examples
@@ -127,16 +128,20 @@ class ActionsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.terminal.actions.search(
+        response = client.terminal.actions.search(
             query={
                 "filter": {"created_at": {"start_at": "2022-04-01T00:00:00.000Z"}},
                 "sort": {"sort_order": "DESC"},
             },
             limit=2,
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
 
     def get(
         self, action_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -290,7 +295,7 @@ class AsyncActionsClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchTerminalActionsResponse:
+    ) -> AsyncPager[TerminalAction]:
         """
         Retrieves a filtered list of Terminal action requests created by the account making the request. Terminal action requests are available for 30 days.
 
@@ -314,7 +319,7 @@ class AsyncActionsClient:
 
         Returns
         -------
-        SearchTerminalActionsResponse
+        AsyncPager[TerminalAction]
             Success
 
         Examples
@@ -329,21 +334,24 @@ class AsyncActionsClient:
 
 
         async def main() -> None:
-            await client.terminal.actions.search(
+            response = await client.terminal.actions.search(
                 query={
                     "filter": {"created_at": {"start_at": "2022-04-01T00:00:00.000Z"}},
                     "sort": {"sort_order": "DESC"},
                 },
                 limit=2,
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            query=query, cursor=cursor, limit=limit, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(query=query, cursor=cursor, limit=limit, request_options=request_options)
 
     async def get(
         self, action_id: str, *, request_options: typing.Optional[RequestOptions] = None

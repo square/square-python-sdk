@@ -57,7 +57,10 @@ class LocationProfilesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.bookings.location_profiles.list()
+        response = client.bookings.location_profiles.list(
+            limit=1,
+            cursor="cursor",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -120,7 +123,10 @@ class AsyncLocationProfilesClient:
 
 
         async def main() -> None:
-            response = await client.bookings.location_profiles.list()
+            response = await client.bookings.location_profiles.list(
+                limit=1,
+                cursor="cursor",
+            )
             async for item in response:
                 yield item
 

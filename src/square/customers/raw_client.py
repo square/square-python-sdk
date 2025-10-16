@@ -502,7 +502,7 @@ class RawCustomersClient:
         query: typing.Optional[CustomerQueryParams] = OMIT,
         count: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchCustomersResponse]:
+    ) -> SyncPager[Customer]:
         """
         Searches the customer profiles associated with a Square account using one or more supported query filters.
 
@@ -542,7 +542,7 @@ class RawCustomersClient:
 
         Returns
         -------
-        HttpResponse[SearchCustomersResponse]
+        SyncPager[Customer]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -564,14 +564,26 @@ class RawCustomersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchCustomersResponse,
                     construct_type(
                         type_=SearchCustomersResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.customers
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    cursor=_parsed_next,
+                    limit=limit,
+                    query=query,
+                    count=count,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1280,7 +1292,7 @@ class AsyncRawCustomersClient:
         query: typing.Optional[CustomerQueryParams] = OMIT,
         count: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchCustomersResponse]:
+    ) -> AsyncPager[Customer]:
         """
         Searches the customer profiles associated with a Square account using one or more supported query filters.
 
@@ -1320,7 +1332,7 @@ class AsyncRawCustomersClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchCustomersResponse]
+        AsyncPager[Customer]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1342,14 +1354,29 @@ class AsyncRawCustomersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchCustomersResponse,
                     construct_type(
                         type_=SearchCustomersResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.customers
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        cursor=_parsed_next,
+                        limit=limit,
+                        query=query,
+                        count=count,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

@@ -81,6 +81,11 @@ class ShiftsClient:
         )
         response = client.cash_drawers.shifts.list(
             location_id="location_id",
+            sort_order="DESC",
+            begin_time="begin_time",
+            end_time="end_time",
+            limit=1,
+            cursor="cursor",
         )
         for item in response:
             yield item
@@ -181,6 +186,8 @@ class ShiftsClient:
         response = client.cash_drawers.shifts.list_events(
             shift_id="shift_id",
             location_id="location_id",
+            limit=1,
+            cursor="cursor",
         )
         for item in response:
             yield item
@@ -267,6 +274,11 @@ class AsyncShiftsClient:
         async def main() -> None:
             response = await client.cash_drawers.shifts.list(
                 location_id="location_id",
+                sort_order="DESC",
+                begin_time="begin_time",
+                end_time="end_time",
+                limit=1,
+                cursor="cursor",
             )
             async for item in response:
                 yield item
@@ -384,6 +396,8 @@ class AsyncShiftsClient:
             response = await client.cash_drawers.shifts.list_events(
                 shift_id="shift_id",
                 location_id="location_id",
+                limit=1,
+                cursor="cursor",
             )
             async for item in response:
                 yield item

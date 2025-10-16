@@ -5,11 +5,12 @@ from json.decoder import JSONDecodeError
 
 from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.http_response import AsyncHttpResponse, HttpResponse
+from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
 from ..requests.loyalty_event_query import LoyaltyEventQueryParams
+from ..types.loyalty_event import LoyaltyEvent
 from ..types.search_loyalty_events_response import SearchLoyaltyEventsResponse
 
 # this is used as the default value for optional parameters
@@ -27,7 +28,7 @@ class RawLoyaltyClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchLoyaltyEventsResponse]:
+    ) -> SyncPager[LoyaltyEvent]:
         """
         Searches for loyalty events.
 
@@ -61,7 +62,7 @@ class RawLoyaltyClient:
 
         Returns
         -------
-        HttpResponse[SearchLoyaltyEventsResponse]
+        SyncPager[LoyaltyEvent]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -82,14 +83,25 @@ class RawLoyaltyClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchLoyaltyEventsResponse,
                     construct_type(
                         type_=SearchLoyaltyEventsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.events
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search_events(
+                    query=query,
+                    limit=limit,
+                    cursor=_parsed_next,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -107,7 +119,7 @@ class AsyncRawLoyaltyClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchLoyaltyEventsResponse]:
+    ) -> AsyncPager[LoyaltyEvent]:
         """
         Searches for loyalty events.
 
@@ -141,7 +153,7 @@ class AsyncRawLoyaltyClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchLoyaltyEventsResponse]
+        AsyncPager[LoyaltyEvent]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -162,14 +174,28 @@ class AsyncRawLoyaltyClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchLoyaltyEventsResponse,
                     construct_type(
                         type_=SearchLoyaltyEventsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.events
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search_events(
+                        query=query,
+                        limit=limit,
+                        cursor=_parsed_next,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

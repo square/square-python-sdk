@@ -225,6 +225,10 @@ class CustomAttributesClient:
         )
         response = client.orders.custom_attributes.list(
             order_id="order_id",
+            visibility_filter="ALL",
+            cursor="cursor",
+            limit=1,
+            with_definitions=True,
         )
         for item in response:
             yield item
@@ -296,6 +300,8 @@ class CustomAttributesClient:
         client.orders.custom_attributes.get(
             order_id="order_id",
             custom_attribute_key="custom_attribute_key",
+            version=1,
+            with_definition=True,
         )
         """
         _response = self._raw_client.get(
@@ -643,6 +649,10 @@ class AsyncCustomAttributesClient:
         async def main() -> None:
             response = await client.orders.custom_attributes.list(
                 order_id="order_id",
+                visibility_filter="ALL",
+                cursor="cursor",
+                limit=1,
+                with_definitions=True,
             )
             async for item in response:
                 yield item
@@ -723,6 +733,8 @@ class AsyncCustomAttributesClient:
             await client.orders.custom_attributes.get(
                 order_id="order_id",
                 custom_attribute_key="custom_attribute_key",
+                version=1,
+                with_definition=True,
             )
 
 

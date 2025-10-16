@@ -199,6 +199,10 @@ class CustomAttributesClient:
         )
         response = client.merchants.custom_attributes.list(
             merchant_id="merchant_id",
+            visibility_filter="ALL",
+            limit=1,
+            cursor="cursor",
+            with_definitions=True,
         )
         for item in response:
             yield item
@@ -270,6 +274,8 @@ class CustomAttributesClient:
         client.merchants.custom_attributes.get(
             merchant_id="merchant_id",
             key="key",
+            with_definition=True,
+            version=1,
         )
         """
         _response = self._raw_client.get(
@@ -583,6 +589,10 @@ class AsyncCustomAttributesClient:
         async def main() -> None:
             response = await client.merchants.custom_attributes.list(
                 merchant_id="merchant_id",
+                visibility_filter="ALL",
+                limit=1,
+                cursor="cursor",
+                with_definitions=True,
             )
             async for item in response:
                 yield item
@@ -663,6 +673,8 @@ class AsyncCustomAttributesClient:
             await client.merchants.custom_attributes.get(
                 merchant_id="merchant_id",
                 key="key",
+                with_definition=True,
+                version=1,
             )
 
 

@@ -425,7 +425,7 @@ class RawCatalogClient:
         limit: typing.Optional[int] = OMIT,
         include_category_path_to_root: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchCatalogObjectsResponse]:
+    ) -> SyncPager[CatalogObject]:
         """
         Searches for [CatalogObject](entity:CatalogObject) of any type by matching supported search attribute values,
         excluding custom attribute values on items or item variations, against one or more of the specified query filters.
@@ -500,7 +500,7 @@ class RawCatalogClient:
 
         Returns
         -------
-        HttpResponse[SearchCatalogObjectsResponse]
+        SyncPager[CatalogObject]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -526,14 +526,30 @@ class RawCatalogClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchCatalogObjectsResponse,
                     construct_type(
                         type_=SearchCatalogObjectsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.objects
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    cursor=_parsed_next,
+                    object_types=object_types,
+                    include_deleted_objects=include_deleted_objects,
+                    include_related_objects=include_related_objects,
+                    begin_time=begin_time,
+                    query=query,
+                    limit=limit,
+                    include_category_path_to_root=include_category_path_to_root,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -553,7 +569,7 @@ class RawCatalogClient:
         custom_attribute_filters: typing.Optional[typing.Sequence[CustomAttributeFilterParams]] = OMIT,
         archived_state: typing.Optional[ArchivedState] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchCatalogItemsResponse]:
+    ) -> SyncPager[CatalogObject]:
         """
         Searches for catalog items or item variations by matching supported search attribute values, including
         custom attribute values, against one or more of the specified query filters.
@@ -609,7 +625,7 @@ class RawCatalogClient:
 
         Returns
         -------
-        HttpResponse[SearchCatalogItemsResponse]
+        SyncPager[CatalogObject]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -639,14 +655,32 @@ class RawCatalogClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchCatalogItemsResponse,
                     construct_type(
                         type_=SearchCatalogItemsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.items
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search_items(
+                    text_filter=text_filter,
+                    category_ids=category_ids,
+                    stock_levels=stock_levels,
+                    enabled_location_ids=enabled_location_ids,
+                    cursor=_parsed_next,
+                    limit=limit,
+                    sort_order=sort_order,
+                    product_types=product_types,
+                    custom_attribute_filters=custom_attribute_filters,
+                    archived_state=archived_state,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1177,7 +1211,7 @@ class AsyncRawCatalogClient:
         limit: typing.Optional[int] = OMIT,
         include_category_path_to_root: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchCatalogObjectsResponse]:
+    ) -> AsyncPager[CatalogObject]:
         """
         Searches for [CatalogObject](entity:CatalogObject) of any type by matching supported search attribute values,
         excluding custom attribute values on items or item variations, against one or more of the specified query filters.
@@ -1252,7 +1286,7 @@ class AsyncRawCatalogClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchCatalogObjectsResponse]
+        AsyncPager[CatalogObject]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1278,14 +1312,33 @@ class AsyncRawCatalogClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchCatalogObjectsResponse,
                     construct_type(
                         type_=SearchCatalogObjectsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.objects
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        cursor=_parsed_next,
+                        object_types=object_types,
+                        include_deleted_objects=include_deleted_objects,
+                        include_related_objects=include_related_objects,
+                        begin_time=begin_time,
+                        query=query,
+                        limit=limit,
+                        include_category_path_to_root=include_category_path_to_root,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1305,7 +1358,7 @@ class AsyncRawCatalogClient:
         custom_attribute_filters: typing.Optional[typing.Sequence[CustomAttributeFilterParams]] = OMIT,
         archived_state: typing.Optional[ArchivedState] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchCatalogItemsResponse]:
+    ) -> AsyncPager[CatalogObject]:
         """
         Searches for catalog items or item variations by matching supported search attribute values, including
         custom attribute values, against one or more of the specified query filters.
@@ -1361,7 +1414,7 @@ class AsyncRawCatalogClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchCatalogItemsResponse]
+        AsyncPager[CatalogObject]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1391,14 +1444,35 @@ class AsyncRawCatalogClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchCatalogItemsResponse,
                     construct_type(
                         type_=SearchCatalogItemsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.items
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search_items(
+                        text_filter=text_filter,
+                        category_ids=category_ids,
+                        stock_levels=stock_levels,
+                        enabled_location_ids=enabled_location_ids,
+                        cursor=_parsed_next,
+                        limit=limit,
+                        sort_order=sort_order,
+                        product_types=product_types,
+                        custom_attribute_filters=custom_attribute_filters,
+                        archived_state=archived_state,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

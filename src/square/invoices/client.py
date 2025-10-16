@@ -17,7 +17,6 @@ from ..types.delete_invoice_response import DeleteInvoiceResponse
 from ..types.get_invoice_response import GetInvoiceResponse
 from ..types.invoice import Invoice
 from ..types.publish_invoice_response import PublishInvoiceResponse
-from ..types.search_invoices_response import SearchInvoicesResponse
 from ..types.update_invoice_response import UpdateInvoiceResponse
 from .raw_client import AsyncRawInvoicesClient, RawInvoicesClient
 
@@ -85,6 +84,8 @@ class InvoicesClient:
         )
         response = client.invoices.list(
             location_id="location_id",
+            cursor="cursor",
+            limit=1,
         )
         for item in response:
             yield item
@@ -198,7 +199,7 @@ class InvoicesClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchInvoicesResponse:
+    ) -> SyncPager[Invoice]:
         """
         Searches for invoices from a location specified in
         the filter. You can optionally specify customers in the filter for whom to
@@ -228,7 +229,7 @@ class InvoicesClient:
 
         Returns
         -------
-        SearchInvoicesResponse
+        SyncPager[Invoice]
             Success
 
         Examples
@@ -238,7 +239,7 @@ class InvoicesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.invoices.search(
+        response = client.invoices.search(
             query={
                 "filter": {
                     "location_ids": ["ES0RJRZYEC39A"],
@@ -248,9 +249,13 @@ class InvoicesClient:
             },
             limit=100,
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     def get(self, invoice_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetInvoiceResponse:
         """
@@ -398,6 +403,7 @@ class InvoicesClient:
         )
         client.invoices.delete(
             invoice_id="invoice_id",
+            version=1,
         )
         """
         _response = self._raw_client.delete(invoice_id, version=version, request_options=request_options)
@@ -669,6 +675,8 @@ class AsyncInvoicesClient:
         async def main() -> None:
             response = await client.invoices.list(
                 location_id="location_id",
+                cursor="cursor",
+                limit=1,
             )
             async for item in response:
                 yield item
@@ -794,7 +802,7 @@ class AsyncInvoicesClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchInvoicesResponse:
+    ) -> AsyncPager[Invoice]:
         """
         Searches for invoices from a location specified in
         the filter. You can optionally specify customers in the filter for whom to
@@ -824,7 +832,7 @@ class AsyncInvoicesClient:
 
         Returns
         -------
-        SearchInvoicesResponse
+        AsyncPager[Invoice]
             Success
 
         Examples
@@ -839,7 +847,7 @@ class AsyncInvoicesClient:
 
 
         async def main() -> None:
-            await client.invoices.search(
+            response = await client.invoices.search(
                 query={
                     "filter": {
                         "location_ids": ["ES0RJRZYEC39A"],
@@ -849,14 +857,17 @@ class AsyncInvoicesClient:
                 },
                 limit=100,
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            query=query, limit=limit, cursor=cursor, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     async def get(
         self, invoice_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -1027,6 +1038,7 @@ class AsyncInvoicesClient:
         async def main() -> None:
             await client.invoices.delete(
                 invoice_id="invoice_id",
+                version=1,
             )
 
 

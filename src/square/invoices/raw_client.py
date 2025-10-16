@@ -179,7 +179,7 @@ class RawInvoicesClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchInvoicesResponse]:
+    ) -> SyncPager[Invoice]:
         """
         Searches for invoices from a location specified in
         the filter. You can optionally specify customers in the filter for whom to
@@ -209,7 +209,7 @@ class RawInvoicesClient:
 
         Returns
         -------
-        HttpResponse[SearchInvoicesResponse]
+        SyncPager[Invoice]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -230,14 +230,25 @@ class RawInvoicesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchInvoicesResponse,
                     construct_type(
                         type_=SearchInvoicesResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.invoices
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    query=query,
+                    limit=limit,
+                    cursor=_parsed_next,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -807,7 +818,7 @@ class AsyncRawInvoicesClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchInvoicesResponse]:
+    ) -> AsyncPager[Invoice]:
         """
         Searches for invoices from a location specified in
         the filter. You can optionally specify customers in the filter for whom to
@@ -837,7 +848,7 @@ class AsyncRawInvoicesClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchInvoicesResponse]
+        AsyncPager[Invoice]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -858,14 +869,28 @@ class AsyncRawInvoicesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchInvoicesResponse,
                     construct_type(
                         type_=SearchInvoicesResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.invoices
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        query=query,
+                        limit=limit,
+                        cursor=_parsed_next,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

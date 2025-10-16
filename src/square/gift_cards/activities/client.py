@@ -102,7 +102,16 @@ class ActivitiesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.gift_cards.activities.list()
+        response = client.gift_cards.activities.list(
+            gift_card_id="gift_card_id",
+            type="type",
+            location_id="location_id",
+            begin_time="begin_time",
+            end_time="end_time",
+            limit=1,
+            cursor="cursor",
+            sort_order="sort_order",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -268,7 +277,16 @@ class AsyncActivitiesClient:
 
 
         async def main() -> None:
-            response = await client.gift_cards.activities.list()
+            response = await client.gift_cards.activities.list(
+                gift_card_id="gift_card_id",
+                type="type",
+                location_id="location_id",
+                begin_time="begin_time",
+                end_time="end_time",
+                limit=1,
+                cursor="cursor",
+                sort_order="sort_order",
+            )
             async for item in response:
                 yield item
 

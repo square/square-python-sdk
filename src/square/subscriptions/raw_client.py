@@ -28,6 +28,7 @@ from ..types.list_subscription_events_response import ListSubscriptionEventsResp
 from ..types.pause_subscription_response import PauseSubscriptionResponse
 from ..types.resume_subscription_response import ResumeSubscriptionResponse
 from ..types.search_subscriptions_response import SearchSubscriptionsResponse
+from ..types.subscription import Subscription
 from ..types.subscription_event import SubscriptionEvent
 from ..types.swap_plan_response import SwapPlanResponse
 from ..types.update_subscription_response import UpdateSubscriptionResponse
@@ -256,7 +257,7 @@ class RawSubscriptionsClient:
         query: typing.Optional[SearchSubscriptionsQueryParams] = OMIT,
         include: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SearchSubscriptionsResponse]:
+    ) -> SyncPager[Subscription]:
         """
         Searches for subscriptions.
 
@@ -303,7 +304,7 @@ class RawSubscriptionsClient:
 
         Returns
         -------
-        HttpResponse[SearchSubscriptionsResponse]
+        SyncPager[Subscription]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -325,14 +326,26 @@ class RawSubscriptionsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchSubscriptionsResponse,
                     construct_type(
                         type_=SearchSubscriptionsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                _items = _parsed_response.subscriptions
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+                _get_next = lambda: self.search(
+                    cursor=_parsed_next,
+                    limit=limit,
+                    query=query,
+                    include=include,
+                    request_options=request_options,
+                )
+                return SyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1092,7 +1105,7 @@ class AsyncRawSubscriptionsClient:
         query: typing.Optional[SearchSubscriptionsQueryParams] = OMIT,
         include: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SearchSubscriptionsResponse]:
+    ) -> AsyncPager[Subscription]:
         """
         Searches for subscriptions.
 
@@ -1139,7 +1152,7 @@ class AsyncRawSubscriptionsClient:
 
         Returns
         -------
-        AsyncHttpResponse[SearchSubscriptionsResponse]
+        AsyncPager[Subscription]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1161,14 +1174,29 @@ class AsyncRawSubscriptionsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
+                _parsed_response = typing.cast(
                     SearchSubscriptionsResponse,
                     construct_type(
                         type_=SearchSubscriptionsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return AsyncHttpResponse(response=_response, data=_data)
+                _items = _parsed_response.subscriptions
+                _parsed_next = _parsed_response.cursor
+                _has_next = _parsed_next is not None and _parsed_next != ""
+
+                async def _get_next():
+                    return await self.search(
+                        cursor=_parsed_next,
+                        limit=limit,
+                        query=query,
+                        include=include,
+                        request_options=request_options,
+                    )
+
+                return AsyncPager(
+                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

@@ -3,6 +3,7 @@
 import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...requests.loyalty_reward import LoyaltyRewardParams
 from ...requests.search_loyalty_rewards_request_loyalty_reward_query import (
@@ -11,8 +12,8 @@ from ...requests.search_loyalty_rewards_request_loyalty_reward_query import (
 from ...types.create_loyalty_reward_response import CreateLoyaltyRewardResponse
 from ...types.delete_loyalty_reward_response import DeleteLoyaltyRewardResponse
 from ...types.get_loyalty_reward_response import GetLoyaltyRewardResponse
+from ...types.loyalty_reward import LoyaltyReward
 from ...types.redeem_loyalty_reward_response import RedeemLoyaltyRewardResponse
-from ...types.search_loyalty_rewards_response import SearchLoyaltyRewardsResponse
 from .raw_client import AsyncRawRewardsClient, RawRewardsClient
 
 # this is used as the default value for optional parameters
@@ -96,7 +97,7 @@ class RewardsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchLoyaltyRewardsResponse:
+    ) -> SyncPager[LoyaltyReward]:
         """
         Searches for loyalty rewards. This endpoint accepts a request with no query filters and returns results for all loyalty accounts.
         If you include a `query` object, `loyalty_account_id` is required and `status` is  optional.
@@ -127,7 +128,7 @@ class RewardsClient:
 
         Returns
         -------
-        SearchLoyaltyRewardsResponse
+        SyncPager[LoyaltyReward]
             Success
 
         Examples
@@ -137,13 +138,17 @@ class RewardsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.loyalty.rewards.search(
+        response = client.loyalty.rewards.search(
             query={"loyalty_account_id": "5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd"},
             limit=10,
         )
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
-        _response = self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
-        return _response.data
+        return self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     def get(
         self, reward_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -364,7 +369,7 @@ class AsyncRewardsClient:
         limit: typing.Optional[int] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SearchLoyaltyRewardsResponse:
+    ) -> AsyncPager[LoyaltyReward]:
         """
         Searches for loyalty rewards. This endpoint accepts a request with no query filters and returns results for all loyalty accounts.
         If you include a `query` object, `loyalty_account_id` is required and `status` is  optional.
@@ -395,7 +400,7 @@ class AsyncRewardsClient:
 
         Returns
         -------
-        SearchLoyaltyRewardsResponse
+        AsyncPager[LoyaltyReward]
             Success
 
         Examples
@@ -410,18 +415,21 @@ class AsyncRewardsClient:
 
 
         async def main() -> None:
-            await client.loyalty.rewards.search(
+            response = await client.loyalty.rewards.search(
                 query={"loyalty_account_id": "5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd"},
                 limit=10,
             )
+            async for item in response:
+                yield item
+
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.search(
-            query=query, limit=limit, cursor=cursor, request_options=request_options
-        )
-        return _response.data
+        return await self._raw_client.search(query=query, limit=limit, cursor=cursor, request_options=request_options)
 
     async def get(
         self, reward_id: str, *, request_options: typing.Optional[RequestOptions] = None

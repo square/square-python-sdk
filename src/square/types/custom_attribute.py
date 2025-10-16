@@ -30,7 +30,14 @@ class CustomAttribute(UncheckedBaseModel):
     underscores (_), and hyphens (-).
     """
 
-    value: typing.Optional[typing.Optional[typing.Any]] = None
+    value: typing.Optional[typing.Optional[typing.Any]] = pydantic.Field(default=None)
+    """
+    The value assigned to the custom attribute. It is validated against the custom
+    attribute definition's schema on write operations. For more information about custom
+    attribute values,
+    see [Custom Attributes Overview](https://developer.squareup.com/docs/devtools/customattributes/overview).
+    """
+
     version: typing.Optional[int] = pydantic.Field(default=None)
     """
     Read only. The current version of the custom attribute. This field is incremented when the custom attribute is changed.

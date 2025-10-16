@@ -79,7 +79,11 @@ class CodesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.devices.codes.list()
+        response = client.devices.codes.list(
+            cursor="cursor",
+            location_id="location_id",
+            status="UNKNOWN",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -244,7 +248,11 @@ class AsyncCodesClient:
 
 
         async def main() -> None:
-            response = await client.devices.codes.list()
+            response = await client.devices.codes.list(
+                cursor="cursor",
+                location_id="location_id",
+                status="UNKNOWN",
+            )
             async for item in response:
                 yield item
 
