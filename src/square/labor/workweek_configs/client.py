@@ -62,7 +62,10 @@ class WorkweekConfigsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.labor.workweek_configs.list()
+        response = client.labor.workweek_configs.list(
+            limit=1,
+            cursor="cursor",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -166,7 +169,10 @@ class AsyncWorkweekConfigsClient:
 
 
         async def main() -> None:
-            response = await client.labor.workweek_configs.list()
+            response = await client.labor.workweek_configs.list(
+                limit=1,
+                cursor="cursor",
+            )
             async for item in response:
                 yield item
 

@@ -49,7 +49,9 @@ class EventTypesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.webhooks.event_types.list()
+        client.webhooks.event_types.list(
+            api_version="api_version",
+        )
         """
         _response = self._raw_client.list(api_version=api_version, request_options=request_options)
         return _response.data
@@ -101,7 +103,9 @@ class AsyncEventTypesClient:
 
 
         async def main() -> None:
-            await client.webhooks.event_types.list()
+            await client.webhooks.event_types.list(
+                api_version="api_version",
+            )
 
 
         asyncio.run(main())

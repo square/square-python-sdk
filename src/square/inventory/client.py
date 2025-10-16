@@ -763,6 +763,8 @@ class InventoryClient:
         )
         response = client.inventory.get(
             catalog_object_id="catalog_object_id",
+            location_ids="location_ids",
+            cursor="cursor",
         )
         for item in response:
             yield item
@@ -829,6 +831,8 @@ class InventoryClient:
         )
         response = client.inventory.changes(
             catalog_object_id="catalog_object_id",
+            location_ids="location_ids",
+            cursor="cursor",
         )
         for item in response:
             yield item
@@ -1679,6 +1683,8 @@ class AsyncInventoryClient:
         async def main() -> None:
             response = await client.inventory.get(
                 catalog_object_id="catalog_object_id",
+                location_ids="location_ids",
+                cursor="cursor",
             )
             async for item in response:
                 yield item
@@ -1754,6 +1760,8 @@ class AsyncInventoryClient:
         async def main() -> None:
             response = await client.inventory.changes(
                 catalog_object_id="catalog_object_id",
+                location_ids="location_ids",
+                cursor="cursor",
             )
             async for item in response:
                 yield item

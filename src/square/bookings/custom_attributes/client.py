@@ -175,6 +175,9 @@ class CustomAttributesClient:
         )
         response = client.bookings.custom_attributes.list(
             booking_id="booking_id",
+            limit=1,
+            cursor="cursor",
+            with_definitions=True,
         )
         for item in response:
             yield item
@@ -240,6 +243,8 @@ class CustomAttributesClient:
         client.bookings.custom_attributes.get(
             booking_id="booking_id",
             key="key",
+            with_definition=True,
+            version=1,
         )
         """
         _response = self._raw_client.get(
@@ -541,6 +546,9 @@ class AsyncCustomAttributesClient:
         async def main() -> None:
             response = await client.bookings.custom_attributes.list(
                 booking_id="booking_id",
+                limit=1,
+                cursor="cursor",
+                with_definitions=True,
             )
             async for item in response:
                 yield item
@@ -615,6 +623,8 @@ class AsyncCustomAttributesClient:
             await client.bookings.custom_attributes.get(
                 booking_id="booking_id",
                 key="key",
+                with_definition=True,
+                version=1,
             )
 
 

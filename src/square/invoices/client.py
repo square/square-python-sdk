@@ -85,6 +85,8 @@ class InvoicesClient:
         )
         response = client.invoices.list(
             location_id="location_id",
+            cursor="cursor",
+            limit=1,
         )
         for item in response:
             yield item
@@ -398,6 +400,7 @@ class InvoicesClient:
         )
         client.invoices.delete(
             invoice_id="invoice_id",
+            version=1,
         )
         """
         _response = self._raw_client.delete(invoice_id, version=version, request_options=request_options)
@@ -669,6 +672,8 @@ class AsyncInvoicesClient:
         async def main() -> None:
             response = await client.invoices.list(
                 location_id="location_id",
+                cursor="cursor",
+                limit=1,
             )
             async for item in response:
                 yield item
@@ -1027,6 +1032,7 @@ class AsyncInvoicesClient:
         async def main() -> None:
             await client.invoices.delete(
                 invoice_id="invoice_id",
+                version=1,
             )
 
 

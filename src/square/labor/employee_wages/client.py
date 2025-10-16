@@ -63,7 +63,11 @@ class EmployeeWagesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.labor.employee_wages.list()
+        response = client.labor.employee_wages.list(
+            employee_id="employee_id",
+            limit=1,
+            cursor="cursor",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -164,7 +168,11 @@ class AsyncEmployeeWagesClient:
 
 
         async def main() -> None:
-            response = await client.labor.employee_wages.list()
+            response = await client.labor.employee_wages.list(
+                employee_id="employee_id",
+                limit=1,
+                cursor="cursor",
+            )
             async for item in response:
                 yield item
 

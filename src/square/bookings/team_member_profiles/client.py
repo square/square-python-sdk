@@ -66,7 +66,12 @@ class TeamMemberProfilesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.bookings.team_member_profiles.list()
+        response = client.bookings.team_member_profiles.list(
+            bookable_only=True,
+            limit=1,
+            cursor="cursor",
+            location_id="location_id",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -176,7 +181,12 @@ class AsyncTeamMemberProfilesClient:
 
 
         async def main() -> None:
-            response = await client.bookings.team_member_profiles.list()
+            response = await client.bookings.team_member_profiles.list(
+                bookable_only=True,
+                limit=1,
+                cursor="cursor",
+                location_id="location_id",
+            )
             async for item in response:
                 yield item
 

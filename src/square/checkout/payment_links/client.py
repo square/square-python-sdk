@@ -76,7 +76,10 @@ class PaymentLinksClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.checkout.payment_links.list()
+        response = client.checkout.payment_links.list(
+            cursor="cursor",
+            limit=1,
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -337,7 +340,10 @@ class AsyncPaymentLinksClient:
 
 
         async def main() -> None:
-            response = await client.checkout.payment_links.list()
+            response = await client.checkout.payment_links.list(
+                cursor="cursor",
+                limit=1,
+            )
             async for item in response:
                 yield item
 

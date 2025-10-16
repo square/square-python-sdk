@@ -84,7 +84,10 @@ class CustomAttributeDefinitionsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.customers.custom_attribute_definitions.list()
+        response = client.customers.custom_attribute_definitions.list(
+            limit=1,
+            cursor="cursor",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -200,6 +203,7 @@ class CustomAttributeDefinitionsClient:
         )
         client.customers.custom_attribute_definitions.get(
             key="key",
+            version=1,
         )
         """
         _response = self._raw_client.get(key, version=version, request_options=request_options)
@@ -458,7 +462,10 @@ class AsyncCustomAttributeDefinitionsClient:
 
 
         async def main() -> None:
-            response = await client.customers.custom_attribute_definitions.list()
+            response = await client.customers.custom_attribute_definitions.list(
+                limit=1,
+                cursor="cursor",
+            )
             async for item in response:
                 yield item
 
@@ -591,6 +598,7 @@ class AsyncCustomAttributeDefinitionsClient:
         async def main() -> None:
             await client.customers.custom_attribute_definitions.get(
                 key="key",
+                version=1,
             )
 
 

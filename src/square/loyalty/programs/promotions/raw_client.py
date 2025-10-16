@@ -175,19 +175,19 @@ class RawPromotionsClient:
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     def get(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[GetLoyaltyPromotionResponse]:
         """
         Retrieves a loyalty promotion.
 
         Parameters
         ----------
-        promotion_id : str
-            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
-
         program_id : str
             The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,
             call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword.
+
+        promotion_id : str
+            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -218,7 +218,7 @@ class RawPromotionsClient:
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     def cancel(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[CancelLoyaltyPromotionResponse]:
         """
         Cancels a loyalty promotion. Use this endpoint to cancel an `ACTIVE` promotion earlier than the
@@ -230,12 +230,12 @@ class RawPromotionsClient:
 
         Parameters
         ----------
+        program_id : str
+            The ID of the base [loyalty program](entity:LoyaltyProgram).
+
         promotion_id : str
             The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a
             promotion that has an `ACTIVE` or `SCHEDULED` status.
-
-        program_id : str
-            The ID of the base [loyalty program](entity:LoyaltyProgram).
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -421,19 +421,19 @@ class AsyncRawPromotionsClient:
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     async def get(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[GetLoyaltyPromotionResponse]:
         """
         Retrieves a loyalty promotion.
 
         Parameters
         ----------
-        promotion_id : str
-            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
-
         program_id : str
             The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,
             call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword.
+
+        promotion_id : str
+            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -464,7 +464,7 @@ class AsyncRawPromotionsClient:
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     async def cancel(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[CancelLoyaltyPromotionResponse]:
         """
         Cancels a loyalty promotion. Use this endpoint to cancel an `ACTIVE` promotion earlier than the
@@ -476,12 +476,12 @@ class AsyncRawPromotionsClient:
 
         Parameters
         ----------
+        program_id : str
+            The ID of the base [loyalty program](entity:LoyaltyProgram).
+
         promotion_id : str
             The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a
             promotion that has an `ACTIVE` or `SCHEDULED` status.
-
-        program_id : str
-            The ID of the base [loyalty program](entity:LoyaltyProgram).
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.

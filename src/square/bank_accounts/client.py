@@ -70,7 +70,11 @@ class BankAccountsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.bank_accounts.list()
+        response = client.bank_accounts.list(
+            cursor="cursor",
+            limit=1,
+            location_id="location_id",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -214,7 +218,11 @@ class AsyncBankAccountsClient:
 
 
         async def main() -> None:
-            response = await client.bank_accounts.list()
+            response = await client.bank_accounts.list(
+                cursor="cursor",
+                limit=1,
+                location_id="location_id",
+            )
             async for item in response:
                 yield item
 

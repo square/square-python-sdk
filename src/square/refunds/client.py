@@ -139,7 +139,19 @@ class RefundsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.refunds.list()
+        response = client.refunds.list(
+            begin_time="begin_time",
+            end_time="end_time",
+            sort_order="sort_order",
+            cursor="cursor",
+            location_id="location_id",
+            status="status",
+            source_type="source_type",
+            limit=1,
+            updated_at_begin_time="updated_at_begin_time",
+            updated_at_end_time="updated_at_end_time",
+            sort_field="CREATED_AT",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -471,7 +483,19 @@ class AsyncRefundsClient:
 
 
         async def main() -> None:
-            response = await client.refunds.list()
+            response = await client.refunds.list(
+                begin_time="begin_time",
+                end_time="end_time",
+                sort_order="sort_order",
+                cursor="cursor",
+                location_id="location_id",
+                status="status",
+                source_type="source_type",
+                limit=1,
+                updated_at_begin_time="updated_at_begin_time",
+                updated_at_end_time="updated_at_end_time",
+                sort_field="CREATED_AT",
+            )
             async for item in response:
                 yield item
 

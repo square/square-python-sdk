@@ -160,7 +160,9 @@ class EventsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.events.list_event_types()
+        client.events.list_event_types(
+            api_version="api_version",
+        )
         """
         _response = self._raw_client.list_event_types(api_version=api_version, request_options=request_options)
         return _response.data
@@ -340,7 +342,9 @@ class AsyncEventsClient:
 
 
         async def main() -> None:
-            await client.events.list_event_types()
+            await client.events.list_event_types(
+                api_version="api_version",
+            )
 
 
         asyncio.run(main())

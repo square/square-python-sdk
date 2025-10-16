@@ -358,6 +358,7 @@ class SubscriptionsClient:
         )
         client.subscriptions.get(
             subscription_id="subscription_id",
+            include="include",
         )
         """
         _response = self._raw_client.get(subscription_id, include=include, request_options=request_options)
@@ -578,6 +579,8 @@ class SubscriptionsClient:
         )
         response = client.subscriptions.list_events(
             subscription_id="subscription_id",
+            cursor="cursor",
+            limit=1,
         )
         for item in response:
             yield item
@@ -1125,6 +1128,7 @@ class AsyncSubscriptionsClient:
         async def main() -> None:
             await client.subscriptions.get(
                 subscription_id="subscription_id",
+                include="include",
             )
 
 
@@ -1387,6 +1391,8 @@ class AsyncSubscriptionsClient:
         async def main() -> None:
             response = await client.subscriptions.list_events(
                 subscription_id="subscription_id",
+                cursor="cursor",
+                limit=1,
             )
             async for item in response:
                 yield item

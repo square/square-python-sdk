@@ -2,44 +2,113 @@
 
 # isort: skip_file
 
-from . import (
-    apple_pay,
-    bank_accounts,
-    bookings,
-    cards,
-    cash_drawers,
-    catalog,
-    checkout,
-    customers,
-    devices,
-    disputes,
-    employees,
-    events,
-    gift_cards,
-    inventory,
-    invoices,
-    labor,
-    locations,
-    loyalty,
-    merchants,
-    mobile,
-    o_auth,
-    orders,
-    payments,
-    payouts,
-    refunds,
-    sites,
-    snippets,
-    subscriptions,
-    team,
-    team_members,
-    terminal,
-    v1transactions,
-    vendors,
-    webhooks,
-)
-from .client import AsyncSquare, Square
-from .version import __version__
+import typing
+from importlib import import_module
+
+if typing.TYPE_CHECKING:
+    from . import (
+        apple_pay,
+        bank_accounts,
+        bookings,
+        cards,
+        cash_drawers,
+        catalog,
+        channels,
+        checkout,
+        customers,
+        devices,
+        disputes,
+        employees,
+        events,
+        gift_cards,
+        inventory,
+        invoices,
+        labor,
+        locations,
+        loyalty,
+        merchants,
+        mobile,
+        o_auth,
+        orders,
+        payments,
+        payouts,
+        refunds,
+        sites,
+        snippets,
+        subscriptions,
+        team,
+        team_members,
+        terminal,
+        transfer_orders,
+        v1transactions,
+        vendors,
+        webhooks,
+    )
+    from .client import AsyncSquare, Square
+    from .version import __version__
+_dynamic_imports: typing.Dict[str, str] = {
+    "AsyncSquare": ".client",
+    "Square": ".client",
+    "__version__": ".version",
+    "apple_pay": ".apple_pay",
+    "bank_accounts": ".bank_accounts",
+    "bookings": ".bookings",
+    "cards": ".cards",
+    "cash_drawers": ".cash_drawers",
+    "catalog": ".catalog",
+    "channels": ".channels",
+    "checkout": ".checkout",
+    "customers": ".customers",
+    "devices": ".devices",
+    "disputes": ".disputes",
+    "employees": ".employees",
+    "events": ".events",
+    "gift_cards": ".gift_cards",
+    "inventory": ".inventory",
+    "invoices": ".invoices",
+    "labor": ".labor",
+    "locations": ".locations",
+    "loyalty": ".loyalty",
+    "merchants": ".merchants",
+    "mobile": ".mobile",
+    "o_auth": ".o_auth",
+    "orders": ".orders",
+    "payments": ".payments",
+    "payouts": ".payouts",
+    "refunds": ".refunds",
+    "sites": ".sites",
+    "snippets": ".snippets",
+    "subscriptions": ".subscriptions",
+    "team": ".team",
+    "team_members": ".team_members",
+    "terminal": ".terminal",
+    "transfer_orders": ".transfer_orders",
+    "v1transactions": ".v1transactions",
+    "vendors": ".vendors",
+    "webhooks": ".webhooks",
+}
+
+
+def __getattr__(attr_name: str) -> typing.Any:
+    module_name = _dynamic_imports.get(attr_name)
+    if module_name is None:
+        raise AttributeError(f"No {attr_name} found in _dynamic_imports for module name -> {__name__}")
+    try:
+        module = import_module(module_name, __package__)
+        if module_name == f".{attr_name}":
+            return module
+        else:
+            return getattr(module, attr_name)
+    except ImportError as e:
+        raise ImportError(f"Failed to import {attr_name} from {module_name}: {e}") from e
+    except AttributeError as e:
+        raise AttributeError(f"Failed to get {attr_name} from {module_name}: {e}") from e
+
+
+def __dir__():
+    lazy_attrs = list(_dynamic_imports.keys())
+    return sorted(lazy_attrs)
+
 
 __all__ = [
     "AsyncSquare",
@@ -51,6 +120,7 @@ __all__ = [
     "cards",
     "cash_drawers",
     "catalog",
+    "channels",
     "checkout",
     "customers",
     "devices",
@@ -76,6 +146,7 @@ __all__ = [
     "team",
     "team_members",
     "terminal",
+    "transfer_orders",
     "v1transactions",
     "vendors",
     "webhooks",

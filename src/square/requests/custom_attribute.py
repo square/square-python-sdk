@@ -28,7 +28,14 @@ class CustomAttributeParams(typing_extensions.TypedDict):
     underscores (_), and hyphens (-).
     """
 
-    value: typing_extensions.NotRequired[typing.Optional[typing.Any]]
+    value: typing_extensions.NotRequired[typing.Optional[typing.Optional[typing.Any]]]
+    """
+    The value assigned to the custom attribute. It is validated against the custom
+    attribute definition's schema on write operations. For more information about custom
+    attribute values,
+    see [Custom Attributes Overview](https://developer.squareup.com/docs/devtools/customattributes/overview).
+    """
+
     version: typing_extensions.NotRequired[int]
     """
     Read only. The current version of the custom attribute. This field is incremented when the custom attribute is changed.
