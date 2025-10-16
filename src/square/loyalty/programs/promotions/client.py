@@ -83,6 +83,9 @@ class PromotionsClient:
         )
         response = client.loyalty.programs.promotions.list(
             program_id="program_id",
+            status="ACTIVE",
+            cursor="cursor",
+            limit=1,
         )
         for item in response:
             yield item
@@ -168,19 +171,19 @@ class PromotionsClient:
         return _response.data
 
     def get(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetLoyaltyPromotionResponse:
         """
         Retrieves a loyalty promotion.
 
         Parameters
         ----------
-        promotion_id : str
-            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
-
         program_id : str
             The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,
             call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword.
+
+        promotion_id : str
+            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -198,15 +201,15 @@ class PromotionsClient:
             token="YOUR_TOKEN",
         )
         client.loyalty.programs.promotions.get(
-            promotion_id="promotion_id",
             program_id="program_id",
+            promotion_id="promotion_id",
         )
         """
-        _response = self._raw_client.get(promotion_id, program_id, request_options=request_options)
+        _response = self._raw_client.get(program_id, promotion_id, request_options=request_options)
         return _response.data
 
     def cancel(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> CancelLoyaltyPromotionResponse:
         """
         Cancels a loyalty promotion. Use this endpoint to cancel an `ACTIVE` promotion earlier than the
@@ -218,12 +221,12 @@ class PromotionsClient:
 
         Parameters
         ----------
+        program_id : str
+            The ID of the base [loyalty program](entity:LoyaltyProgram).
+
         promotion_id : str
             The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a
             promotion that has an `ACTIVE` or `SCHEDULED` status.
-
-        program_id : str
-            The ID of the base [loyalty program](entity:LoyaltyProgram).
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -241,11 +244,11 @@ class PromotionsClient:
             token="YOUR_TOKEN",
         )
         client.loyalty.programs.promotions.cancel(
-            promotion_id="promotion_id",
             program_id="program_id",
+            promotion_id="promotion_id",
         )
         """
-        _response = self._raw_client.cancel(promotion_id, program_id, request_options=request_options)
+        _response = self._raw_client.cancel(program_id, promotion_id, request_options=request_options)
         return _response.data
 
 
@@ -320,6 +323,9 @@ class AsyncPromotionsClient:
         async def main() -> None:
             response = await client.loyalty.programs.promotions.list(
                 program_id="program_id",
+                status="ACTIVE",
+                cursor="cursor",
+                limit=1,
             )
             async for item in response:
                 yield item
@@ -417,19 +423,19 @@ class AsyncPromotionsClient:
         return _response.data
 
     async def get(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetLoyaltyPromotionResponse:
         """
         Retrieves a loyalty promotion.
 
         Parameters
         ----------
-        promotion_id : str
-            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
-
         program_id : str
             The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,
             call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword.
+
+        promotion_id : str
+            The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -452,18 +458,18 @@ class AsyncPromotionsClient:
 
         async def main() -> None:
             await client.loyalty.programs.promotions.get(
-                promotion_id="promotion_id",
                 program_id="program_id",
+                promotion_id="promotion_id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(promotion_id, program_id, request_options=request_options)
+        _response = await self._raw_client.get(program_id, promotion_id, request_options=request_options)
         return _response.data
 
     async def cancel(
-        self, promotion_id: str, program_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, program_id: str, promotion_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> CancelLoyaltyPromotionResponse:
         """
         Cancels a loyalty promotion. Use this endpoint to cancel an `ACTIVE` promotion earlier than the
@@ -475,12 +481,12 @@ class AsyncPromotionsClient:
 
         Parameters
         ----------
+        program_id : str
+            The ID of the base [loyalty program](entity:LoyaltyProgram).
+
         promotion_id : str
             The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a
             promotion that has an `ACTIVE` or `SCHEDULED` status.
-
-        program_id : str
-            The ID of the base [loyalty program](entity:LoyaltyProgram).
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -503,12 +509,12 @@ class AsyncPromotionsClient:
 
         async def main() -> None:
             await client.loyalty.programs.promotions.cancel(
-                promotion_id="promotion_id",
                 program_id="program_id",
+                promotion_id="promotion_id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.cancel(promotion_id, program_id, request_options=request_options)
+        _response = await self._raw_client.cancel(program_id, promotion_id, request_options=request_options)
         return _response.data

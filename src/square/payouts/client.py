@@ -93,7 +93,15 @@ class PayoutsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.payouts.list()
+        response = client.payouts.list(
+            location_id="location_id",
+            status="SENT",
+            begin_time="begin_time",
+            end_time="end_time",
+            sort_order="DESC",
+            cursor="cursor",
+            limit=1,
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -194,6 +202,9 @@ class PayoutsClient:
         )
         response = client.payouts.list_entries(
             payout_id="payout_id",
+            sort_order="DESC",
+            cursor="cursor",
+            limit=1,
         )
         for item in response:
             yield item
@@ -291,7 +302,15 @@ class AsyncPayoutsClient:
 
 
         async def main() -> None:
-            response = await client.payouts.list()
+            response = await client.payouts.list(
+                location_id="location_id",
+                status="SENT",
+                begin_time="begin_time",
+                end_time="end_time",
+                sort_order="DESC",
+                cursor="cursor",
+                limit=1,
+            )
             async for item in response:
                 yield item
 
@@ -411,6 +430,9 @@ class AsyncPayoutsClient:
         async def main() -> None:
             response = await client.payouts.list_entries(
                 payout_id="payout_id",
+                sort_order="DESC",
+                cursor="cursor",
+                limit=1,
             )
             async for item in response:
                 yield item

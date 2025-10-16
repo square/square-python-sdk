@@ -93,6 +93,10 @@ class TransactionsClient:
         )
         client.locations.transactions.list(
             location_id="location_id",
+            begin_time="begin_time",
+            end_time="end_time",
+            sort_order="DESC",
+            cursor="cursor",
         )
         """
         _response = self._raw_client.list(
@@ -313,6 +317,10 @@ class AsyncTransactionsClient:
         async def main() -> None:
             await client.locations.transactions.list(
                 location_id="location_id",
+                begin_time="begin_time",
+                end_time="end_time",
+                sort_order="DESC",
+                cursor="cursor",
             )
 
 

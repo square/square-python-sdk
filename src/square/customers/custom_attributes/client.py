@@ -87,6 +87,9 @@ class CustomAttributesClient:
         )
         response = client.customers.custom_attributes.list(
             customer_id="customer_id",
+            limit=1,
+            cursor="cursor",
+            with_definitions=True,
         )
         for item in response:
             yield item
@@ -156,6 +159,8 @@ class CustomAttributesClient:
         client.customers.custom_attributes.get(
             customer_id="customer_id",
             key="key",
+            with_definition=True,
+            version=1,
         )
         """
         _response = self._raw_client.get(
@@ -357,6 +362,9 @@ class AsyncCustomAttributesClient:
         async def main() -> None:
             response = await client.customers.custom_attributes.list(
                 customer_id="customer_id",
+                limit=1,
+                cursor="cursor",
+                with_definitions=True,
             )
             async for item in response:
                 yield item
@@ -435,6 +443,8 @@ class AsyncCustomAttributesClient:
             await client.customers.custom_attributes.get(
                 customer_id="customer_id",
                 key="key",
+                with_definition=True,
+                version=1,
             )
 
 

@@ -63,6 +63,7 @@ class EvidenceClient:
         )
         response = client.disputes.evidence.list(
             dispute_id="dispute_id",
+            cursor="cursor",
         )
         for item in response:
             yield item
@@ -207,6 +208,7 @@ class AsyncEvidenceClient:
         async def main() -> None:
             response = await client.disputes.evidence.list(
                 dispute_id="dispute_id",
+                cursor="cursor",
             )
             async for item in response:
                 yield item

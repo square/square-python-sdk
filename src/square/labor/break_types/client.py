@@ -71,7 +71,11 @@ class BreakTypesClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.labor.break_types.list()
+        response = client.labor.break_types.list(
+            location_id="location_id",
+            limit=1,
+            cursor="cursor",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -310,7 +314,11 @@ class AsyncBreakTypesClient:
 
 
         async def main() -> None:
-            response = await client.labor.break_types.list()
+            response = await client.labor.break_types.list(
+                location_id="location_id",
+                limit=1,
+                cursor="cursor",
+            )
             async for item in response:
                 yield item
 

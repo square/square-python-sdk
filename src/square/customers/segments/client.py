@@ -64,7 +64,10 @@ class SegmentsClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        response = client.customers.segments.list()
+        response = client.customers.segments.list(
+            cursor="cursor",
+            limit=1,
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -166,7 +169,10 @@ class AsyncSegmentsClient:
 
 
         async def main() -> None:
-            response = await client.customers.segments.list()
+            response = await client.customers.segments.list(
+                cursor="cursor",
+                limit=1,
+            )
             async for item in response:
                 yield item
 

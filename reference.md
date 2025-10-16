@@ -583,6 +583,9 @@ client = Square(
 )
 client.v1transactions.v1list_orders(
     location_id="location_id",
+    order="DESC",
+    limit=1,
+    batch_token="batch_token",
 )
 
 ```
@@ -965,7 +968,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.bank_accounts.list()
+response = client.bank_accounts.list(
+    cursor="cursor",
+    limit=1,
+    location_id="location_id",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -1215,7 +1222,15 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.bookings.list()
+response = client.bookings.list(
+    limit=1,
+    cursor="cursor",
+    customer_id="customer_id",
+    team_member_id="team_member_id",
+    location_id="location_id",
+    start_at_min="start_at_min",
+    start_at_max="start_at_max",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -2033,7 +2048,13 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.cards.list()
+response = client.cards.list(
+    cursor="cursor",
+    customer_id="customer_id",
+    include_disabled=True,
+    reference_id="reference_id",
+    sort_order="DESC",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -2859,7 +2880,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.catalog.list()
+response = client.catalog.list(
+    cursor="cursor",
+    types="types",
+    catalog_version=1000000,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -3501,6 +3526,261 @@ At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
 </dl>
 </details>
 
+## Channels
+<details><summary><code>client.channels.<a href="src/square/channels/client.py">list</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+response = client.channels.list(
+    reference_type="UNKNOWN_TYPE",
+    reference_id="reference_id",
+    status="ACTIVE",
+    cursor="cursor",
+    limit=1,
+)
+for item in response:
+    yield item
+# alternatively, you can paginate page-by-page
+for page in response.iter_pages():
+    yield page
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**reference_type:** `typing.Optional[ReferenceType]` — Type of reference associated to channel
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reference_id:** `typing.Optional[str]` — id of reference associated to channel
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[ChannelStatus]` — Status of channel
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cursor:** `typing.Optional[str]` — Cursor to fetch the next result
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` 
+
+Maximum number of results to return.
+When not provided the returned results will be cap at 100 channels.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channels.<a href="src/square/channels/client.py">bulk_retrieve</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.channels.bulk_retrieve(
+    channel_ids=["CH_9C03D0B59", "CH_6X139B5MN", "NOT_EXISTING"],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**channel_ids:** `typing.Sequence[str]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channels.<a href="src/square/channels/client.py">get</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.channels.get(
+    channel_id="channel_id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**channel_id:** `str` — A channel id
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Customers
 <details><summary><code>client.customers.<a href="src/square/customers/client.py">list</a>(...)</code></summary>
 <dl>
@@ -3538,7 +3818,13 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.customers.list()
+response = client.customers.list(
+    cursor="cursor",
+    limit=1,
+    sort_field="DEFAULT",
+    sort_order="DESC",
+    count=True,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -4677,6 +4963,7 @@ client = Square(
 )
 client.customers.delete(
     customer_id="customer_id",
+    version=1000000,
 )
 
 ```
@@ -4759,7 +5046,12 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.devices.list()
+response = client.devices.list(
+    cursor="cursor",
+    sort_order="DESC",
+    limit=1,
+    location_id="location_id",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -4935,7 +5227,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.disputes.list()
+response = client.disputes.list(
+    cursor="cursor",
+    states="INQUIRY_EVIDENCE_REQUIRED",
+    location_id="location_id",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -5441,7 +5737,12 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.employees.list()
+response = client.employees.list(
+    location_id="location_id",
+    status="ACTIVE",
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -5825,7 +6126,9 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-client.events.list_event_types()
+client.events.list_event_types(
+    api_version="api_version",
+)
 
 ```
 </dd>
@@ -5895,7 +6198,13 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.gift_cards.list()
+response = client.gift_cards.list(
+    type="type",
+    state="state",
+    limit=1,
+    cursor="cursor",
+    customer_id="customer_id",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -7712,6 +8021,8 @@ client = Square(
 )
 response = client.inventory.get(
     catalog_object_id="catalog_object_id",
+    location_ids="location_ids",
+    cursor="cursor",
 )
 for item in response:
     yield item
@@ -7823,6 +8134,8 @@ client = Square(
 )
 response = client.inventory.changes(
     catalog_object_id="catalog_object_id",
+    location_ids="location_ids",
+    cursor="cursor",
 )
 for item in response:
     yield item
@@ -7925,6 +8238,8 @@ client = Square(
 )
 response = client.invoices.list(
     location_id="location_id",
+    cursor="cursor",
+    limit=1,
 )
 for item in response:
     yield item
@@ -8458,6 +8773,7 @@ client = Square(
 )
 client.invoices.delete(
     invoice_id="invoice_id",
+    version=1,
 )
 
 ```
@@ -10707,7 +11023,9 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.merchants.list()
+response = client.merchants.list(
+    cursor=1,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -12052,7 +12370,23 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.payments.list()
+response = client.payments.list(
+    begin_time="begin_time",
+    end_time="end_time",
+    sort_order="sort_order",
+    cursor="cursor",
+    location_id="location_id",
+    total=1000000,
+    last4="last_4",
+    card_brand="card_brand",
+    limit=1,
+    is_offline_payment=True,
+    offline_begin_time="offline_begin_time",
+    offline_end_time="offline_end_time",
+    updated_at_begin_time="updated_at_begin_time",
+    updated_at_end_time="updated_at_end_time",
+    sort_field="CREATED_AT",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -13101,7 +13435,15 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.payouts.list()
+response = client.payouts.list(
+    location_id="location_id",
+    status="SENT",
+    begin_time="begin_time",
+    end_time="end_time",
+    sort_order="DESC",
+    cursor="cursor",
+    limit=1,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -13316,6 +13658,9 @@ client = Square(
 )
 response = client.payouts.list_entries(
     payout_id="payout_id",
+    sort_order="DESC",
+    cursor="cursor",
+    limit=1,
 )
 for item in response:
     yield item
@@ -13430,7 +13775,19 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.refunds.list()
+response = client.refunds.list(
+    begin_time="begin_time",
+    end_time="end_time",
+    sort_order="sort_order",
+    cursor="cursor",
+    location_id="location_id",
+    status="status",
+    source_type="source_type",
+    limit=1,
+    updated_at_begin_time="updated_at_begin_time",
+    updated_at_end_time="updated_at_end_time",
+    sort_field="CREATED_AT",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -14693,6 +15050,7 @@ client = Square(
 )
 client.subscriptions.get(
     subscription_id="subscription_id",
+    include="include",
 )
 
 ```
@@ -15106,6 +15464,8 @@ client = Square(
 )
 response = client.subscriptions.list_events(
     subscription_id="subscription_id",
+    cursor="cursor",
+    limit=1,
 )
 for item in response:
     yield item
@@ -16131,7 +16491,9 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-client.team.list_jobs()
+client.team.list_jobs(
+    cursor="cursor",
+)
 
 ```
 </dd>
@@ -16603,6 +16965,828 @@ client.terminal.dismiss_terminal_refund(
 <dd>
 
 **terminal_refund_id:** `str` — Unique ID for the `TerminalRefund` associated with the refund to be dismissed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## TransferOrders
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">create</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a new transfer order in [DRAFT](entity:TransferOrderStatus) status. A transfer order represents the intent 
+to move [CatalogItemVariation](entity:CatalogItemVariation)s from one [Location](entity:Location) to another. 
+The source and destination locations must be different and must belong to your Square account.
+
+In [DRAFT](entity:TransferOrderStatus) status, you can:
+- Add or remove items
+- Modify quantities
+- Update shipping information
+- Delete the entire order via [DeleteTransferOrder](api-endpoint:TransferOrders-DeleteTransferOrder)
+
+The request requires source_location_id and destination_location_id.
+Inventory levels are not affected until the order is started via 
+[StartTransferOrder](api-endpoint:TransferOrders-StartTransferOrder).
+
+Common integration points:
+- Sync with warehouse management systems
+- Automate regular stock transfers
+- Initialize transfers from inventory optimization systems
+
+Creates a [transfer_order.created](webhook:transfer_order.created) webhook event.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.transfer_orders.create(
+    idempotency_key="65cc0586-3e82-384s-b524-3885cffd52",
+    transfer_order={
+        "source_location_id": "EXAMPLE_SOURCE_LOCATION_ID_123",
+        "destination_location_id": "EXAMPLE_DEST_LOCATION_ID_456",
+        "expected_at": "2025-11-09T05:00:00Z",
+        "notes": "Example transfer order for inventory redistribution between locations",
+        "tracking_number": "TRACK123456789",
+        "created_by_team_member_id": "EXAMPLE_TEAM_MEMBER_ID_789",
+        "line_items": [
+            {
+                "item_variation_id": "EXAMPLE_ITEM_VARIATION_ID_001",
+                "quantity_ordered": "5",
+            },
+            {
+                "item_variation_id": "EXAMPLE_ITEM_VARIATION_ID_002",
+                "quantity_ordered": "3",
+            },
+        ],
+    },
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` 
+
+A unique string that identifies this CreateTransferOrder request. Keys can be
+any valid string but must be unique for every CreateTransferOrder request.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transfer_order:** `CreateTransferOrderDataParams` — The transfer order to create
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">search</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Searches for transfer orders using filters. Returns a paginated list of matching
+[TransferOrder](entity:TransferOrder)s sorted by creation date.
+
+Common search scenarios:
+- Find orders for a source [Location](entity:Location)
+- Find orders for a destination [Location](entity:Location)
+- Find orders in a particular [TransferOrderStatus](entity:TransferOrderStatus)
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+response = client.transfer_orders.search(
+    query={
+        "filter": {
+            "source_location_ids": ["EXAMPLE_SOURCE_LOCATION_ID_123"],
+            "destination_location_ids": ["EXAMPLE_DEST_LOCATION_ID_456"],
+            "statuses": ["STARTED", "PARTIALLY_RECEIVED"],
+        },
+        "sort": {"field": "UPDATED_AT", "order": "DESC"},
+    },
+    cursor="eyJsYXN0X3VwZGF0ZWRfYXQiOjE3NTMxMTg2NjQ4NzN9",
+    limit=10,
+)
+for item in response:
+    yield item
+# alternatively, you can paginate page-by-page
+for page in response.iter_pages():
+    yield page
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**query:** `typing.Optional[TransferOrderQueryParams]` — The search query
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cursor:** `typing.Optional[str]` — Pagination cursor from a previous search response
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — Maximum number of results to return (1-100)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">get</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieves a specific [TransferOrder](entity:TransferOrder) by ID. Returns the complete
+order details including:
+
+- Basic information (status, dates, notes)
+- Line items with ordered and received quantities
+- Source and destination [Location](entity:Location)s
+- Tracking information (if available)
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.transfer_orders.get(
+    transfer_order_id="transfer_order_id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**transfer_order_id:** `str` — The ID of the transfer order to retrieve
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">update</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing transfer order. This endpoint supports sparse updates,
+allowing you to modify specific fields without affecting others.
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.transfer_orders.update(
+    transfer_order_id="transfer_order_id",
+    idempotency_key="f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    transfer_order={
+        "source_location_id": "EXAMPLE_SOURCE_LOCATION_ID_789",
+        "destination_location_id": "EXAMPLE_DEST_LOCATION_ID_101",
+        "expected_at": "2025-11-10T08:00:00Z",
+        "notes": "Updated: Priority transfer due to low stock at destination",
+        "tracking_number": "TRACK987654321",
+        "line_items": [
+            {"uid": "1", "quantity_ordered": "7"},
+            {
+                "item_variation_id": "EXAMPLE_NEW_ITEM_VARIATION_ID_003",
+                "quantity_ordered": "2",
+            },
+            {"uid": "2", "remove": True},
+        ],
+    },
+    version=1753109537351,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**transfer_order_id:** `str` — The ID of the transfer order to update
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` — A unique string that identifies this UpdateTransferOrder request. Keys must contain only alphanumeric characters, dashes and underscores
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transfer_order:** `UpdateTransferOrderDataParams` — The transfer order updates to apply
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[int]` — Version for optimistic concurrency
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">delete</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes a transfer order in [DRAFT](entity:TransferOrderStatus) status.
+Only draft orders can be deleted. Once an order is started via 
+[StartTransferOrder](api-endpoint:TransferOrders-StartTransferOrder), it can no longer be deleted.
+
+Creates a [transfer_order.deleted](webhook:transfer_order.deleted) webhook event.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.transfer_orders.delete(
+    transfer_order_id="transfer_order_id",
+    version=1000000,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**transfer_order_id:** `str` — The ID of the transfer order to delete
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[int]` — Version for optimistic concurrency
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">cancel</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Cancels a transfer order in [STARTED](entity:TransferOrderStatus) or 
+[PARTIALLY_RECEIVED](entity:TransferOrderStatus) status. Any unreceived quantities will no
+longer be receivable and will be immediately returned to the source [Location](entity:Location)'s inventory.
+
+Common reasons for cancellation:
+- Items no longer needed at destination
+- Source location needs the inventory
+- Order created in error
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.transfer_orders.cancel(
+    transfer_order_id="transfer_order_id",
+    idempotency_key="65cc0586-3e82-4d08-b524-3885cffd52",
+    version=1753117449752,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**transfer_order_id:** `str` — The ID of the transfer order to cancel. Must be in STARTED or PARTIALLY_RECEIVED status.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` 
+
+A unique string that identifies this UpdateTransferOrder request. Keys can be
+any valid string but must be unique for every UpdateTransferOrder request.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[int]` — Version for optimistic concurrency
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">receive</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Records receipt of [CatalogItemVariation](entity:CatalogItemVariation)s for a transfer order.
+This endpoint supports partial receiving - you can receive items in multiple batches.
+
+For each line item, you can specify:
+- Quantity received in good condition (added to destination inventory with [InventoryState](entity:InventoryState) of IN_STOCK)
+- Quantity damaged during transit/handling (added to destination inventory with [InventoryState](entity:InventoryState) of WASTE)
+- Quantity canceled (returned to source location's inventory)
+
+The order must be in [STARTED](entity:TransferOrderStatus) or [PARTIALLY_RECEIVED](entity:TransferOrderStatus) status.
+Received quantities are added to the destination [Location](entity:Location)'s inventory according to their condition.
+Canceled quantities are immediately returned to the source [Location](entity:Location)'s inventory.
+
+When all items are either received, damaged, or canceled, the order moves to
+[COMPLETED](entity:TransferOrderStatus) status.
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.transfer_orders.receive(
+    transfer_order_id="transfer_order_id",
+    idempotency_key="EXAMPLE_IDEMPOTENCY_KEY_101",
+    receipt={
+        "line_items": [
+            {
+                "transfer_order_line_uid": "transfer_order_line_uid",
+                "quantity_received": "3",
+                "quantity_damaged": "1",
+                "quantity_canceled": "1",
+            },
+            {
+                "transfer_order_line_uid": "transfer_order_line_uid",
+                "quantity_received": "2",
+                "quantity_canceled": "1",
+            },
+        ]
+    },
+    version=1753118664873,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**transfer_order_id:** `str` — The ID of the transfer order to receive items for
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` — A unique key to make this request idempotent
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**receipt:** `TransferOrderGoodsReceiptParams` — The receipt details
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[int]` — Version for optimistic concurrency
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">start</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Changes a [DRAFT](entity:TransferOrderStatus) transfer order to [STARTED](entity:TransferOrderStatus) status.
+This decrements inventory at the source [Location](entity:Location) and marks it as in-transit.
+
+The order must be in [DRAFT](entity:TransferOrderStatus) status and have all required fields populated.
+Once started, the order can no longer be deleted, but it can be canceled via 
+[CancelTransferOrder](api-endpoint:TransferOrders-CancelTransferOrder).
+
+Creates a [transfer_order.updated](webhook:transfer_order.updated) webhook event.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.transfer_orders.start(
+    transfer_order_id="transfer_order_id",
+    idempotency_key="EXAMPLE_IDEMPOTENCY_KEY_789",
+    version=1753109537351,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**transfer_order_id:** `str` — The ID of the transfer order to start. Must be in DRAFT status.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` 
+
+A unique string that identifies this UpdateTransferOrder request. Keys can be
+any valid string but must be unique for every UpdateTransferOrder request.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[int]` — Version for optimistic concurrency
     
 </dd>
 </dl>
@@ -17261,7 +18445,10 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.bookings.custom_attribute_definitions.list()
+response = client.bookings.custom_attribute_definitions.list(
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -17458,6 +18645,7 @@ client = Square(
 )
 client.bookings.custom_attribute_definitions.get(
     key="key",
+    version=1,
 )
 
 ```
@@ -17893,6 +19081,9 @@ client = Square(
 )
 response = client.bookings.custom_attributes.list(
     booking_id="booking_id",
+    limit=1,
+    cursor="cursor",
+    with_definitions=True,
 )
 for item in response:
     yield item
@@ -18008,6 +19199,8 @@ client = Square(
 client.bookings.custom_attributes.get(
     booking_id="booking_id",
     key="key",
+    with_definition=True,
+    version=1,
 )
 
 ```
@@ -18321,7 +19514,10 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.bookings.location_profiles.list()
+response = client.bookings.location_profiles.list(
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -18403,7 +19599,12 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.bookings.team_member_profiles.list()
+response = client.bookings.team_member_profiles.list(
+    bookable_only=True,
+    limit=1,
+    cursor="cursor",
+    location_id="location_id",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -18574,6 +19775,11 @@ client = Square(
 )
 response = client.cash_drawers.shifts.list(
     location_id="location_id",
+    sort_order="DESC",
+    begin_time="begin_time",
+    end_time="end_time",
+    limit=1,
+    cursor="cursor",
 )
 for item in response:
     yield item
@@ -18776,6 +19982,8 @@ client = Square(
 response = client.cash_drawers.shifts.list_events(
     shift_id="shift_id",
     location_id="location_id",
+    limit=1,
+    cursor="cursor",
 )
 for item in response:
     yield item
@@ -19159,6 +20367,9 @@ client = Square(
 )
 client.catalog.object.get(
     object_id="object_id",
+    include_related_objects=True,
+    catalog_version=1000000,
+    include_category_path_to_root=True,
 )
 
 ```
@@ -19360,7 +20571,10 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.checkout.payment_links.list()
+response = client.checkout.payment_links.list(
+    cursor="cursor",
+    limit=1,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -19832,7 +21046,10 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.customers.custom_attribute_definitions.list()
+response = client.customers.custom_attribute_definitions.list(
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -20033,6 +21250,7 @@ client = Square(
 )
 client.customers.custom_attribute_definitions.get(
     key="key",
+    version=1,
 )
 
 ```
@@ -20425,7 +21643,10 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.customers.groups.list()
+response = client.customers.groups.list(
+    cursor="cursor",
+    limit=1,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -20980,7 +22201,10 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.customers.segments.list()
+response = client.customers.segments.list(
+    cursor="cursor",
+    limit=1,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -21366,6 +22590,9 @@ client = Square(
 )
 response = client.customers.custom_attributes.list(
     customer_id="customer_id",
+    limit=1,
+    cursor="cursor",
+    with_definitions=True,
 )
 for item in response:
     yield item
@@ -21485,6 +22712,8 @@ client = Square(
 client.customers.custom_attributes.get(
     customer_id="customer_id",
     key="key",
+    with_definition=True,
+    version=1,
 )
 
 ```
@@ -21798,7 +23027,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.devices.codes.list()
+response = client.devices.codes.list(
+    cursor="cursor",
+    location_id="location_id",
+    status="UNKNOWN",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -22071,6 +23304,7 @@ client = Square(
 )
 response = client.disputes.evidence.list(
     dispute_id="dispute_id",
+    cursor="cursor",
 )
 for item in response:
     yield item
@@ -22321,7 +23555,16 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.gift_cards.activities.list()
+response = client.gift_cards.activities.list(
+    gift_card_id="gift_card_id",
+    type="type",
+    location_id="location_id",
+    begin_time="begin_time",
+    end_time="end_time",
+    limit=1,
+    cursor="cursor",
+    sort_order="sort_order",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -22571,7 +23814,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.labor.break_types.list()
+response = client.labor.break_types.list(
+    location_id="location_id",
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -22991,7 +24238,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.labor.employee_wages.list()
+response = client.labor.employee_wages.list(
+    employee_id="employee_id",
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -23631,7 +24882,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.labor.team_member_wages.list()
+response = client.labor.team_member_wages.list(
+    team_member_id="team_member_id",
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -23797,7 +25052,10 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.labor.workweek_configs.list()
+response = client.labor.workweek_configs.list(
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -23965,7 +25223,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.locations.custom_attribute_definitions.list()
+response = client.locations.custom_attribute_definitions.list(
+    visibility_filter="ALL",
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -24167,6 +25429,7 @@ client = Square(
 )
 client.locations.custom_attribute_definitions.get(
     key="key",
+    version=1,
 )
 
 ```
@@ -24630,6 +25893,10 @@ client = Square(
 )
 response = client.locations.custom_attributes.list(
     location_id="location_id",
+    visibility_filter="ALL",
+    limit=1,
+    cursor="cursor",
+    with_definitions=True,
 )
 for item in response:
     yield item
@@ -24754,6 +26021,8 @@ client = Square(
 client.locations.custom_attributes.get(
     location_id="location_id",
     key="key",
+    with_definition=True,
+    version=1,
 )
 
 ```
@@ -25067,6 +26336,10 @@ client = Square(
 )
 client.locations.transactions.list(
     location_id="location_id",
+    begin_time="begin_time",
+    end_time="end_time",
+    sort_order="DESC",
+    cursor="cursor",
 )
 
 ```
@@ -26630,6 +27903,9 @@ client = Square(
 )
 response = client.loyalty.programs.promotions.list(
     program_id="program_id",
+    status="ACTIVE",
+    cursor="cursor",
+    limit=1,
 )
 for item in response:
     yield item
@@ -26857,8 +28133,8 @@ client = Square(
     token="YOUR_TOKEN",
 )
 client.loyalty.programs.promotions.get(
-    promotion_id="promotion_id",
     program_id="program_id",
+    promotion_id="promotion_id",
 )
 
 ```
@@ -26875,7 +28151,10 @@ client.loyalty.programs.promotions.get(
 <dl>
 <dd>
 
-**promotion_id:** `str` — The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
+**program_id:** `str` 
+
+The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,
+call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword.
     
 </dd>
 </dl>
@@ -26883,10 +28162,7 @@ client.loyalty.programs.promotions.get(
 <dl>
 <dd>
 
-**program_id:** `str` 
-
-The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,
-call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword.
+**promotion_id:** `str` — The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
     
 </dd>
 </dl>
@@ -26944,8 +28220,8 @@ client = Square(
     token="YOUR_TOKEN",
 )
 client.loyalty.programs.promotions.cancel(
-    promotion_id="promotion_id",
     program_id="program_id",
+    promotion_id="promotion_id",
 )
 
 ```
@@ -26962,10 +28238,7 @@ client.loyalty.programs.promotions.cancel(
 <dl>
 <dd>
 
-**promotion_id:** `str` 
-
-The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a
-promotion that has an `ACTIVE` or `SCHEDULED` status.
+**program_id:** `str` — The ID of the base [loyalty program](entity:LoyaltyProgram).
     
 </dd>
 </dl>
@@ -26973,7 +28246,10 @@ promotion that has an `ACTIVE` or `SCHEDULED` status.
 <dl>
 <dd>
 
-**program_id:** `str` — The ID of the base [loyalty program](entity:LoyaltyProgram).
+**promotion_id:** `str` 
+
+The ID of the [loyalty promotion](entity:LoyaltyPromotion) to cancel. You can cancel a
+promotion that has an `ACTIVE` or `SCHEDULED` status.
     
 </dd>
 </dl>
@@ -27029,7 +28305,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.merchants.custom_attribute_definitions.list()
+response = client.merchants.custom_attribute_definitions.list(
+    visibility_filter="ALL",
+    limit=1,
+    cursor="cursor",
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -27231,6 +28511,7 @@ client = Square(
 )
 client.merchants.custom_attribute_definitions.get(
     key="key",
+    version=1,
 )
 
 ```
@@ -27685,6 +28966,10 @@ client = Square(
 )
 response = client.merchants.custom_attributes.list(
     merchant_id="merchant_id",
+    visibility_filter="ALL",
+    limit=1,
+    cursor="cursor",
+    with_definitions=True,
 )
 for item in response:
     yield item
@@ -27809,6 +29094,8 @@ client = Square(
 client.merchants.custom_attributes.get(
     merchant_id="merchant_id",
     key="key",
+    with_definition=True,
+    version=1,
 )
 
 ```
@@ -28120,7 +29407,11 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.orders.custom_attribute_definitions.list()
+response = client.orders.custom_attribute_definitions.list(
+    visibility_filter="ALL",
+    cursor="cursor",
+    limit=1,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -28325,6 +29616,7 @@ client = Square(
 )
 client.orders.custom_attribute_definitions.get(
     key="key",
+    version=1,
 )
 
 ```
@@ -28785,6 +30077,10 @@ client = Square(
 )
 response = client.orders.custom_attributes.list(
     order_id="order_id",
+    visibility_filter="ALL",
+    cursor="cursor",
+    limit=1,
+    with_definitions=True,
 )
 for item in response:
     yield item
@@ -28913,6 +30209,8 @@ client = Square(
 client.orders.custom_attributes.get(
     order_id="order_id",
     custom_attribute_key="custom_attribute_key",
+    version=1,
+    with_definition=True,
 )
 
 ```
@@ -30384,7 +31682,9 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-client.webhooks.event_types.list()
+client.webhooks.event_types.list(
+    api_version="api_version",
+)
 
 ```
 </dd>
@@ -30453,7 +31753,12 @@ from square import Square
 client = Square(
     token="YOUR_TOKEN",
 )
-response = client.webhooks.subscriptions.list()
+response = client.webhooks.subscriptions.list(
+    cursor="cursor",
+    include_disabled=True,
+    sort_order="DESC",
+    limit=1,
+)
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
