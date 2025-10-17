@@ -142,8 +142,8 @@ class Invoice(UncheckedBaseModel):
     When an invoice is created, this field is set to the `timezone` specified for the seller
     location. The value cannot be changed.
     
-    For example, a payment `due_date` of 2021-03-09 with a `timezone` of America/Los\_Angeles
-    becomes overdue at midnight on March 9 in America/Los\_Angeles (which equals a UTC timestamp
+    For example, a payment `due_date` of 2021-03-09 with a `timezone` of America/Los\\_Angeles
+    becomes overdue at midnight on March 9 in America/Los\\_Angeles (which equals a UTC timestamp
     of 2021-03-10T08:00:00Z).
     """
 

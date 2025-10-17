@@ -3,7 +3,7 @@ name = "squareup"
 
 [tool.poetry]
 name = "squareup"
-version = "43.2.0.20251016"
+version = "43.2.1.20251016"
 description = ""
 readme = "README.md"
 authors = []
