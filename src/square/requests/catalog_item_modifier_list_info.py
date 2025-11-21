@@ -57,6 +57,6 @@ class CatalogItemModifierListInfoParams(typing_extensions.TypedDict):
     to a `CatalogItem` instance.
     """
 
-    allow_quantities: typing_extensions.NotRequired[typing.Optional[typing.Any]]
-    is_conversational: typing_extensions.NotRequired[typing.Optional[typing.Any]]
-    hidden_from_customer_override: typing_extensions.NotRequired[typing.Optional[typing.Any]]
+    allow_quantities: typing_extensions.NotRequired[typing.Any]
+    is_conversational: typing_extensions.NotRequired[typing.Any]
+    hidden_from_customer_override: typing_extensions.NotRequired[typing.Any]

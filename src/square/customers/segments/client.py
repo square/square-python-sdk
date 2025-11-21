@@ -7,6 +7,7 @@ from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...types.customer_segment import CustomerSegment
 from ...types.get_customer_segment_response import GetCustomerSegmentResponse
+from ...types.list_customer_segments_response import ListCustomerSegmentsResponse
 from .raw_client import AsyncRawSegmentsClient, RawSegmentsClient
 
 
@@ -31,7 +32,7 @@ class SegmentsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomerSegment]:
+    ) -> SyncPager[CustomerSegment, ListCustomerSegmentsResponse]:
         """
         Retrieves the list of customer segments of a business.
 
@@ -54,7 +55,7 @@ class SegmentsClient:
 
         Returns
         -------
-        SyncPager[CustomerSegment]
+        SyncPager[CustomerSegment, ListCustomerSegmentsResponse]
             Success
 
         Examples
@@ -131,7 +132,7 @@ class AsyncSegmentsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomerSegment]:
+    ) -> AsyncPager[CustomerSegment, ListCustomerSegmentsResponse]:
         """
         Retrieves the list of customer segments of a business.
 
@@ -154,7 +155,7 @@ class AsyncSegmentsClient:
 
         Returns
         -------
-        AsyncPager[CustomerSegment]
+        AsyncPager[CustomerSegment, ListCustomerSegmentsResponse]
             Success
 
         Examples

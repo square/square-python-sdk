@@ -6,6 +6,8 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..types.get_payout_response import GetPayoutResponse
+from ..types.list_payout_entries_response import ListPayoutEntriesResponse
+from ..types.list_payouts_response import ListPayoutsResponse
 from ..types.payout import Payout
 from ..types.payout_entry import PayoutEntry
 from ..types.payout_status import PayoutStatus
@@ -39,7 +41,7 @@ class PayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Payout]:
+    ) -> SyncPager[Payout, ListPayoutsResponse]:
         """
         Retrieves a list of all payouts for the default location.
         You can filter payouts by location ID, status, time range, and order them in ascending or descending order.
@@ -83,7 +85,7 @@ class PayoutsClient:
 
         Returns
         -------
-        SyncPager[Payout]
+        SyncPager[Payout, ListPayoutsResponse]
             Success
 
         Examples
@@ -159,7 +161,7 @@ class PayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[PayoutEntry]:
+    ) -> SyncPager[PayoutEntry, ListPayoutEntriesResponse]:
         """
         Retrieves a list of all payout entries for a specific payout.
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
@@ -190,7 +192,7 @@ class PayoutsClient:
 
         Returns
         -------
-        SyncPager[PayoutEntry]
+        SyncPager[PayoutEntry, ListPayoutEntriesResponse]
             Success
 
         Examples
@@ -243,7 +245,7 @@ class AsyncPayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Payout]:
+    ) -> AsyncPager[Payout, ListPayoutsResponse]:
         """
         Retrieves a list of all payouts for the default location.
         You can filter payouts by location ID, status, time range, and order them in ascending or descending order.
@@ -287,7 +289,7 @@ class AsyncPayoutsClient:
 
         Returns
         -------
-        AsyncPager[Payout]
+        AsyncPager[Payout, ListPayoutsResponse]
             Success
 
         Examples
@@ -382,7 +384,7 @@ class AsyncPayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[PayoutEntry]:
+    ) -> AsyncPager[PayoutEntry, ListPayoutEntriesResponse]:
         """
         Retrieves a list of all payout entries for a specific payout.
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
@@ -413,7 +415,7 @@ class AsyncPayoutsClient:
 
         Returns
         -------
-        AsyncPager[PayoutEntry]
+        AsyncPager[PayoutEntry, ListPayoutEntriesResponse]
             Success
 
         Examples

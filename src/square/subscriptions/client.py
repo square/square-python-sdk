@@ -18,6 +18,7 @@ from ..types.change_timing import ChangeTiming
 from ..types.create_subscription_response import CreateSubscriptionResponse
 from ..types.delete_subscription_action_response import DeleteSubscriptionActionResponse
 from ..types.get_subscription_response import GetSubscriptionResponse
+from ..types.list_subscription_events_response import ListSubscriptionEventsResponse
 from ..types.pause_subscription_response import PauseSubscriptionResponse
 from ..types.resume_subscription_response import ResumeSubscriptionResponse
 from ..types.search_subscriptions_response import SearchSubscriptionsResponse
@@ -542,7 +543,7 @@ class SubscriptionsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[SubscriptionEvent]:
+    ) -> SyncPager[SubscriptionEvent, ListSubscriptionEventsResponse]:
         """
         Lists all [events](https://developer.squareup.com/docs/subscriptions-api/actions-events) for a specific subscription.
 
@@ -567,7 +568,7 @@ class SubscriptionsClient:
 
         Returns
         -------
-        SyncPager[SubscriptionEvent]
+        SyncPager[SubscriptionEvent, ListSubscriptionEventsResponse]
             Success
 
         Examples
@@ -1349,7 +1350,7 @@ class AsyncSubscriptionsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[SubscriptionEvent]:
+    ) -> AsyncPager[SubscriptionEvent, ListSubscriptionEventsResponse]:
         """
         Lists all [events](https://developer.squareup.com/docs/subscriptions-api/actions-events) for a specific subscription.
 
@@ -1374,7 +1375,7 @@ class AsyncSubscriptionsClient:
 
         Returns
         -------
-        AsyncPager[SubscriptionEvent]
+        AsyncPager[SubscriptionEvent, ListSubscriptionEventsResponse]
             Success
 
         Examples

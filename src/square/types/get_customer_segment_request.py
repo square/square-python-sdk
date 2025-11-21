@@ -2,4 +2,4 @@
 
 import typing
 
-GetCustomerSegmentRequest = typing.Optional[typing.Any]
+GetCustomerSegmentRequest = typing.Any

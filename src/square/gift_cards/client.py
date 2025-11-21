@@ -14,6 +14,7 @@ from ..types.get_gift_card_from_nonce_response import GetGiftCardFromNonceRespon
 from ..types.get_gift_card_response import GetGiftCardResponse
 from ..types.gift_card import GiftCard
 from ..types.link_customer_to_gift_card_response import LinkCustomerToGiftCardResponse
+from ..types.list_gift_cards_response import ListGiftCardsResponse
 from ..types.unlink_customer_from_gift_card_response import UnlinkCustomerFromGiftCardResponse
 from .raw_client import AsyncRawGiftCardsClient, RawGiftCardsClient
 
@@ -49,7 +50,7 @@ class GiftCardsClient:
         cursor: typing.Optional[str] = None,
         customer_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[GiftCard]:
+    ) -> SyncPager[GiftCard, ListGiftCardsResponse]:
         """
         Lists all gift cards. You can specify optional filters to retrieve
         a subset of the gift cards. Results are sorted by `created_at` in ascending order.
@@ -83,7 +84,7 @@ class GiftCardsClient:
 
         Returns
         -------
-        SyncPager[GiftCard]
+        SyncPager[GiftCard, ListGiftCardsResponse]
             Success
 
         Examples
@@ -395,7 +396,7 @@ class AsyncGiftCardsClient:
         cursor: typing.Optional[str] = None,
         customer_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[GiftCard]:
+    ) -> AsyncPager[GiftCard, ListGiftCardsResponse]:
         """
         Lists all gift cards. You can specify optional filters to retrieve
         a subset of the gift cards. Results are sorted by `created_at` in ascending order.
@@ -429,7 +430,7 @@ class AsyncGiftCardsClient:
 
         Returns
         -------
-        AsyncPager[GiftCard]
+        AsyncPager[GiftCard, ListGiftCardsResponse]
             Success
 
         Examples

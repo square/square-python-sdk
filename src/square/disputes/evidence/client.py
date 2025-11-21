@@ -8,6 +8,7 @@ from ...core.request_options import RequestOptions
 from ...types.delete_dispute_evidence_response import DeleteDisputeEvidenceResponse
 from ...types.dispute_evidence import DisputeEvidence
 from ...types.get_dispute_evidence_response import GetDisputeEvidenceResponse
+from ...types.list_dispute_evidence_response import ListDisputeEvidenceResponse
 from .raw_client import AsyncRawEvidenceClient, RawEvidenceClient
 
 
@@ -32,7 +33,7 @@ class EvidenceClient:
         *,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[DisputeEvidence]:
+    ) -> SyncPager[DisputeEvidence, ListDisputeEvidenceResponse]:
         """
         Returns a list of evidence associated with a dispute.
 
@@ -51,7 +52,7 @@ class EvidenceClient:
 
         Returns
         -------
-        SyncPager[DisputeEvidence]
+        SyncPager[DisputeEvidence, ListDisputeEvidenceResponse]
             Success
 
         Examples
@@ -172,7 +173,7 @@ class AsyncEvidenceClient:
         *,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[DisputeEvidence]:
+    ) -> AsyncPager[DisputeEvidence, ListDisputeEvidenceResponse]:
         """
         Returns a list of evidence associated with a dispute.
 
@@ -191,7 +192,7 @@ class AsyncEvidenceClient:
 
         Returns
         -------
-        AsyncPager[DisputeEvidence]
+        AsyncPager[DisputeEvidence, ListDisputeEvidenceResponse]
             Success
 
         Examples

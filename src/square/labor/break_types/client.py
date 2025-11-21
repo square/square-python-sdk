@@ -10,6 +10,7 @@ from ...types.break_type import BreakType
 from ...types.create_break_type_response import CreateBreakTypeResponse
 from ...types.delete_break_type_response import DeleteBreakTypeResponse
 from ...types.get_break_type_response import GetBreakTypeResponse
+from ...types.list_break_types_response import ListBreakTypesResponse
 from ...types.update_break_type_response import UpdateBreakTypeResponse
 from .raw_client import AsyncRawBreakTypesClient, RawBreakTypesClient
 
@@ -39,7 +40,7 @@ class BreakTypesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[BreakType]:
+    ) -> SyncPager[BreakType, ListBreakTypesResponse]:
         """
         Returns a paginated list of `BreakType` instances for a business.
 
@@ -61,7 +62,7 @@ class BreakTypesClient:
 
         Returns
         -------
-        SyncPager[BreakType]
+        SyncPager[BreakType, ListBreakTypesResponse]
             Success
 
         Examples
@@ -277,7 +278,7 @@ class AsyncBreakTypesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[BreakType]:
+    ) -> AsyncPager[BreakType, ListBreakTypesResponse]:
         """
         Returns a paginated list of `BreakType` instances for a business.
 
@@ -299,7 +300,7 @@ class AsyncBreakTypesClient:
 
         Returns
         -------
-        AsyncPager[BreakType]
+        AsyncPager[BreakType, ListBreakTypesResponse]
             Success
 
         Examples

@@ -10,6 +10,7 @@ from ..requests.destination_details_external_refund_details import DestinationDe
 from ..requests.money import MoneyParams
 from ..types.get_payment_refund_response import GetPaymentRefundResponse
 from ..types.list_payment_refunds_request_sort_field import ListPaymentRefundsRequestSortField
+from ..types.list_payment_refunds_response import ListPaymentRefundsResponse
 from ..types.payment_refund import PaymentRefund
 from ..types.refund_payment_response import RefundPaymentResponse
 from .raw_client import AsyncRawRefundsClient, RawRefundsClient
@@ -48,7 +49,7 @@ class RefundsClient:
         updated_at_end_time: typing.Optional[str] = None,
         sort_field: typing.Optional[ListPaymentRefundsRequestSortField] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[PaymentRefund]:
+    ) -> SyncPager[PaymentRefund, ListPaymentRefundsResponse]:
         """
         Retrieves a list of refunds for the account making the request.
 
@@ -129,7 +130,7 @@ class RefundsClient:
 
         Returns
         -------
-        SyncPager[PaymentRefund]
+        SyncPager[PaymentRefund, ListPaymentRefundsResponse]
             Success
 
         Examples
@@ -387,7 +388,7 @@ class AsyncRefundsClient:
         updated_at_end_time: typing.Optional[str] = None,
         sort_field: typing.Optional[ListPaymentRefundsRequestSortField] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[PaymentRefund]:
+    ) -> AsyncPager[PaymentRefund, ListPaymentRefundsResponse]:
         """
         Retrieves a list of refunds for the account making the request.
 
@@ -468,7 +469,7 @@ class AsyncRefundsClient:
 
         Returns
         -------
-        AsyncPager[PaymentRefund]
+        AsyncPager[PaymentRefund, ListPaymentRefundsResponse]
             Success
 
         Examples

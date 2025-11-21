@@ -1,0 +1,17 @@
+{
+  "cliVersion": "2.2.5",
+  "generatorName": "fernapi/fern-python-sdk",
+  "generatorVersion": "4.38.4",
+  "generatorConfig": {
+    "client": {
+      "class_name": "Square",
+      "filename": "client.py"
+    },
+    "pydantic_config": {
+      "skip_validation": true
+    },
+    "use_typeddict_requests": true,
+    "use_typeddict_requests_for_file_upload": true,
+    "exclude_types_from_init_exports": true
+  }
+}

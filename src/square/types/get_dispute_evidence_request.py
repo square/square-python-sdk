@@ -2,4 +2,4 @@
 
 import typing
 
-GetDisputeEvidenceRequest = typing.Optional[typing.Any]
+GetDisputeEvidenceRequest = typing.Any

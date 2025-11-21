@@ -16,6 +16,7 @@ from ...types.bulk_delete_order_custom_attributes_response import BulkDeleteOrde
 from ...types.bulk_upsert_order_custom_attributes_response import BulkUpsertOrderCustomAttributesResponse
 from ...types.custom_attribute import CustomAttribute
 from ...types.delete_order_custom_attribute_response import DeleteOrderCustomAttributeResponse
+from ...types.list_order_custom_attributes_response import ListOrderCustomAttributesResponse
 from ...types.retrieve_order_custom_attribute_response import RetrieveOrderCustomAttributeResponse
 from ...types.upsert_order_custom_attribute_response import UpsertOrderCustomAttributeResponse
 from ...types.visibility_filter import VisibilityFilter
@@ -173,7 +174,7 @@ class CustomAttributesClient:
         limit: typing.Optional[int] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttribute]:
+    ) -> SyncPager[CustomAttribute, ListOrderCustomAttributesResponse]:
         """
         Lists the [custom attributes](entity:CustomAttribute) associated with an order.
 
@@ -213,7 +214,7 @@ class CustomAttributesClient:
 
         Returns
         -------
-        SyncPager[CustomAttribute]
+        SyncPager[CustomAttribute, ListOrderCustomAttributesResponse]
             Success
 
         Examples
@@ -592,7 +593,7 @@ class AsyncCustomAttributesClient:
         limit: typing.Optional[int] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttribute]:
+    ) -> AsyncPager[CustomAttribute, ListOrderCustomAttributesResponse]:
         """
         Lists the [custom attributes](entity:CustomAttribute) associated with an order.
 
@@ -632,7 +633,7 @@ class AsyncCustomAttributesClient:
 
         Returns
         -------
-        AsyncPager[CustomAttribute]
+        AsyncPager[CustomAttribute, ListOrderCustomAttributesResponse]
             Success
 
         Examples

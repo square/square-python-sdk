@@ -7,7 +7,7 @@ from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
-from ...core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...core.serialization import convert_and_respect_annotation_metadata
 from ...core.unchecked_base_model import construct_type
@@ -35,7 +35,7 @@ class RawCustomAttributeDefinitionsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttributeDefinition]:
+    ) -> SyncPager[CustomAttributeDefinition, ListOrderCustomAttributeDefinitionsResponse]:
         """
         Lists the order-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
 
@@ -65,7 +65,7 @@ class RawCustomAttributeDefinitionsClient:
 
         Returns
         -------
-        SyncPager[CustomAttributeDefinition]
+        SyncPager[CustomAttributeDefinition, ListOrderCustomAttributeDefinitionsResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -96,9 +96,7 @@ class RawCustomAttributeDefinitionsClient:
                     limit=limit,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -340,7 +338,7 @@ class AsyncRawCustomAttributeDefinitionsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttributeDefinition]:
+    ) -> AsyncPager[CustomAttributeDefinition, ListOrderCustomAttributeDefinitionsResponse]:
         """
         Lists the order-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
 
@@ -370,7 +368,7 @@ class AsyncRawCustomAttributeDefinitionsClient:
 
         Returns
         -------
-        AsyncPager[CustomAttributeDefinition]
+        AsyncPager[CustomAttributeDefinition, ListOrderCustomAttributeDefinitionsResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -404,9 +402,7 @@ class AsyncRawCustomAttributeDefinitionsClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

@@ -9,6 +9,7 @@ from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..types.device import Device
 from ..types.get_device_response import GetDeviceResponse
+from ..types.list_devices_response import ListDevicesResponse
 from ..types.sort_order import SortOrder
 from .raw_client import AsyncRawDevicesClient, RawDevicesClient
 
@@ -41,7 +42,7 @@ class DevicesClient:
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Device]:
+    ) -> SyncPager[Device, ListDevicesResponse]:
         """
         List devices associated with the merchant. Currently, only Terminal API
         devices are supported.
@@ -69,7 +70,7 @@ class DevicesClient:
 
         Returns
         -------
-        SyncPager[Device]
+        SyncPager[Device, ListDevicesResponse]
             Success
 
         Examples
@@ -160,7 +161,7 @@ class AsyncDevicesClient:
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Device]:
+    ) -> AsyncPager[Device, ListDevicesResponse]:
         """
         List devices associated with the merchant. Currently, only Terminal API
         devices are supported.
@@ -188,7 +189,7 @@ class AsyncDevicesClient:
 
         Returns
         -------
-        AsyncPager[Device]
+        AsyncPager[Device, ListDevicesResponse]
             Success
 
         Examples

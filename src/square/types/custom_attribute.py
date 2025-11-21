@@ -30,7 +30,7 @@ class CustomAttribute(UncheckedBaseModel):
     underscores (_), and hyphens (-).
     """
 
-    value: typing.Optional[typing.Optional[typing.Any]] = pydantic.Field(default=None)
+    value: typing.Optional[typing.Any] = pydantic.Field(default=None)
     """
     The value assigned to the custom attribute. It is validated against the custom
     attribute definition's schema on write operations. For more information about custom

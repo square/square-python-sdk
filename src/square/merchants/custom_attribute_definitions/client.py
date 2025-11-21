@@ -13,6 +13,7 @@ from ...types.custom_attribute_definition import CustomAttributeDefinition
 from ...types.delete_merchant_custom_attribute_definition_response import (
     DeleteMerchantCustomAttributeDefinitionResponse,
 )
+from ...types.list_merchant_custom_attribute_definitions_response import ListMerchantCustomAttributeDefinitionsResponse
 from ...types.retrieve_merchant_custom_attribute_definition_response import (
     RetrieveMerchantCustomAttributeDefinitionResponse,
 )
@@ -48,7 +49,7 @@ class CustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttributeDefinition]:
+    ) -> SyncPager[CustomAttributeDefinition, ListMerchantCustomAttributeDefinitionsResponse]:
         """
         Lists the merchant-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
         When all response pages are retrieved, the results include all custom attribute definitions
@@ -75,7 +76,7 @@ class CustomAttributeDefinitionsClient:
 
         Returns
         -------
-        SyncPager[CustomAttributeDefinition]
+        SyncPager[CustomAttributeDefinition, ListMerchantCustomAttributeDefinitionsResponse]
             Success
 
         Examples
@@ -334,7 +335,7 @@ class AsyncCustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttributeDefinition]:
+    ) -> AsyncPager[CustomAttributeDefinition, ListMerchantCustomAttributeDefinitionsResponse]:
         """
         Lists the merchant-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
         When all response pages are retrieved, the results include all custom attribute definitions
@@ -361,7 +362,7 @@ class AsyncCustomAttributeDefinitionsClient:
 
         Returns
         -------
-        AsyncPager[CustomAttributeDefinition]
+        AsyncPager[CustomAttributeDefinition, ListMerchantCustomAttributeDefinitionsResponse]
             Success
 
         Examples

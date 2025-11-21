@@ -2,4 +2,4 @@
 
 import typing
 
-GetLoyaltyPromotionRequest = typing.Optional[typing.Any]
+GetLoyaltyPromotionRequest = typing.Any

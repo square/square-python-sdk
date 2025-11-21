@@ -7,7 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.unchecked_base_model import construct_type
 from ..types.get_payout_response import GetPayoutResponse
@@ -34,7 +34,7 @@ class RawPayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Payout]:
+    ) -> SyncPager[Payout, ListPayoutsResponse]:
         """
         Retrieves a list of all payouts for the default location.
         You can filter payouts by location ID, status, time range, and order them in ascending or descending order.
@@ -78,7 +78,7 @@ class RawPayoutsClient:
 
         Returns
         -------
-        SyncPager[Payout]
+        SyncPager[Payout, ListPayoutsResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -117,9 +117,7 @@ class RawPayoutsClient:
                     limit=limit,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -173,7 +171,7 @@ class RawPayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[PayoutEntry]:
+    ) -> SyncPager[PayoutEntry, ListPayoutEntriesResponse]:
         """
         Retrieves a list of all payout entries for a specific payout.
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
@@ -204,7 +202,7 @@ class RawPayoutsClient:
 
         Returns
         -------
-        SyncPager[PayoutEntry]
+        SyncPager[PayoutEntry, ListPayoutEntriesResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -236,9 +234,7 @@ class RawPayoutsClient:
                     limit=limit,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -260,7 +256,7 @@ class AsyncRawPayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Payout]:
+    ) -> AsyncPager[Payout, ListPayoutsResponse]:
         """
         Retrieves a list of all payouts for the default location.
         You can filter payouts by location ID, status, time range, and order them in ascending or descending order.
@@ -304,7 +300,7 @@ class AsyncRawPayoutsClient:
 
         Returns
         -------
-        AsyncPager[Payout]
+        AsyncPager[Payout, ListPayoutsResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -346,9 +342,7 @@ class AsyncRawPayoutsClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -402,7 +396,7 @@ class AsyncRawPayoutsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[PayoutEntry]:
+    ) -> AsyncPager[PayoutEntry, ListPayoutEntriesResponse]:
         """
         Retrieves a list of all payout entries for a specific payout.
         To call this endpoint, set `PAYOUTS_READ` for the OAuth scope.
@@ -433,7 +427,7 @@ class AsyncRawPayoutsClient:
 
         Returns
         -------
-        AsyncPager[PayoutEntry]
+        AsyncPager[PayoutEntry, ListPayoutEntriesResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -468,9 +462,7 @@ class AsyncRawPayoutsClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

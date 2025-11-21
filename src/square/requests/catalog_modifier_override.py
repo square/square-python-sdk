@@ -20,5 +20,5 @@ class CatalogModifierOverrideParams(typing_extensions.TypedDict):
     __Deprecated__: Use `on_by_default_override` instead.
     """
 
-    hidden_online_override: typing_extensions.NotRequired[typing.Optional[typing.Any]]
-    on_by_default_override: typing_extensions.NotRequired[typing.Optional[typing.Any]]
+    hidden_online_override: typing_extensions.NotRequired[typing.Any]
+    on_by_default_override: typing_extensions.NotRequired[typing.Any]

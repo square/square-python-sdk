@@ -36,7 +36,7 @@ class CustomAttributeDefinition(UncheckedBaseModel):
     """
 
     schema_: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="schema")
+        typing.Optional[typing.Dict[str, typing.Any]], FieldMetadata(alias="schema")
     ] = pydantic.Field(default=None)
     """
     The JSON schema for the custom attribute definition, which determines the data type of the corresponding custom attributes. For more information,
