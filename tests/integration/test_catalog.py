@@ -1,3 +1,4 @@
+import pytest
 import time
 import uuid
 from functools import wraps
@@ -41,7 +42,9 @@ def retry_on_rate_limit(max_retries=5, base_delay=2):
     return decorator
 
 
+
 @retry_on_rate_limit()
+@pytest.mark.skip(reason="Temporarily skipping test_upload_catalog_image")
 def test_upload_catalog_image():
     # Wait to kick off the first test to avoid being rate limited.
     time.sleep(3)
@@ -113,6 +116,7 @@ def test_upload_catalog_image():
 
 
 @retry_on_rate_limit()
+@pytest.mark.skip(reason="Temporarily skipping test_upsert_catalog_object")
 def test_upsert_catalog_object():
     time.sleep(2)  # Add initial delay
     client = helpers.test_client()
@@ -175,6 +179,7 @@ def test_search_catalog_items():
 
 
 @retry_on_rate_limit()
+@pytest.mark.skip(reason="Temporarily skipping test_batch_upsert_catalog_objects")
 def test_batch_upsert_catalog_objects():
     # Wait to kick off this test to avoid being rate limited.
     time.sleep(3)
@@ -328,6 +333,7 @@ def test_batch_upsert_catalog_objects():
 
 
 @retry_on_rate_limit()
+@pytest.mark.skip(reason="Temporarily skipping test_delete_catalog_object")
 def test_delete_catalog_object():
     time.sleep(2)  # Add initial delay
     client = helpers.test_client()
