@@ -7,7 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.unchecked_base_model import construct_type
 from ..types.get_merchant_response import GetMerchantResponse
@@ -21,7 +21,7 @@ class RawMerchantsClient:
 
     def list(
         self, *, cursor: typing.Optional[int] = None, request_options: typing.Optional[RequestOptions] = None
-    ) -> SyncPager[Merchant]:
+    ) -> SyncPager[Merchant, ListMerchantsResponse]:
         """
         Provides details about the merchant associated with a given access token.
 
@@ -44,7 +44,7 @@ class RawMerchantsClient:
 
         Returns
         -------
-        SyncPager[Merchant]
+        SyncPager[Merchant, ListMerchantsResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -71,9 +71,7 @@ class RawMerchantsClient:
                     cursor=_parsed_next,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -126,7 +124,7 @@ class AsyncRawMerchantsClient:
 
     async def list(
         self, *, cursor: typing.Optional[int] = None, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncPager[Merchant]:
+    ) -> AsyncPager[Merchant, ListMerchantsResponse]:
         """
         Provides details about the merchant associated with a given access token.
 
@@ -149,7 +147,7 @@ class AsyncRawMerchantsClient:
 
         Returns
         -------
-        AsyncPager[Merchant]
+        AsyncPager[Merchant, ListMerchantsResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -179,9 +177,7 @@ class AsyncRawMerchantsClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

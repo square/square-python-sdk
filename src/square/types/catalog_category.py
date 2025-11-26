@@ -85,6 +85,6 @@ class CatalogCategory(UncheckedBaseModel):
             extra = pydantic.Extra.allow
 
 
-from .catalog_object_category import CatalogObjectCategory  # noqa: E402, F401, I001
+from .catalog_object_category import CatalogObjectCategory  # noqa: E402, I001
 
 update_forward_refs(CatalogCategory)

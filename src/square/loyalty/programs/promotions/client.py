@@ -9,6 +9,7 @@ from ....requests.loyalty_promotion import LoyaltyPromotionParams
 from ....types.cancel_loyalty_promotion_response import CancelLoyaltyPromotionResponse
 from ....types.create_loyalty_promotion_response import CreateLoyaltyPromotionResponse
 from ....types.get_loyalty_promotion_response import GetLoyaltyPromotionResponse
+from ....types.list_loyalty_promotions_response import ListLoyaltyPromotionsResponse
 from ....types.loyalty_promotion import LoyaltyPromotion
 from ....types.loyalty_promotion_status import LoyaltyPromotionStatus
 from .raw_client import AsyncRawPromotionsClient, RawPromotionsClient
@@ -40,7 +41,7 @@ class PromotionsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[LoyaltyPromotion]:
+    ) -> SyncPager[LoyaltyPromotion, ListLoyaltyPromotionsResponse]:
         """
         Lists the loyalty promotions associated with a [loyalty program](entity:LoyaltyProgram).
         Results are sorted by the `created_at` date in descending order (newest to oldest).
@@ -71,7 +72,7 @@ class PromotionsClient:
 
         Returns
         -------
-        SyncPager[LoyaltyPromotion]
+        SyncPager[LoyaltyPromotion, ListLoyaltyPromotionsResponse]
             Success
 
         Examples
@@ -275,7 +276,7 @@ class AsyncPromotionsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[LoyaltyPromotion]:
+    ) -> AsyncPager[LoyaltyPromotion, ListLoyaltyPromotionsResponse]:
         """
         Lists the loyalty promotions associated with a [loyalty program](entity:LoyaltyProgram).
         Results are sorted by the `created_at` date in descending order (newest to oldest).
@@ -306,7 +307,7 @@ class AsyncPromotionsClient:
 
         Returns
         -------
-        AsyncPager[LoyaltyPromotion]
+        AsyncPager[LoyaltyPromotion, ListLoyaltyPromotionsResponse]
             Success
 
         Examples

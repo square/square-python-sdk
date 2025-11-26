@@ -2,4 +2,4 @@
 
 import typing
 
-GetLocationRequest = typing.Optional[typing.Any]
+GetLocationRequest = typing.Any

@@ -7,7 +7,7 @@ from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
-from ...core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...core.unchecked_base_model import construct_type
 from ...types.get_team_member_wage_response import GetTeamMemberWageResponse
@@ -26,7 +26,7 @@ class RawTeamMemberWagesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[TeamMemberWage]:
+    ) -> SyncPager[TeamMemberWage, ListTeamMemberWagesResponse]:
         """
         Returns a paginated list of `TeamMemberWage` instances for a business.
 
@@ -48,7 +48,7 @@ class RawTeamMemberWagesClient:
 
         Returns
         -------
-        SyncPager[TeamMemberWage]
+        SyncPager[TeamMemberWage, ListTeamMemberWagesResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -79,9 +79,7 @@ class RawTeamMemberWagesClient:
                     cursor=_parsed_next,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -138,7 +136,7 @@ class AsyncRawTeamMemberWagesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[TeamMemberWage]:
+    ) -> AsyncPager[TeamMemberWage, ListTeamMemberWagesResponse]:
         """
         Returns a paginated list of `TeamMemberWage` instances for a business.
 
@@ -160,7 +158,7 @@ class AsyncRawTeamMemberWagesClient:
 
         Returns
         -------
-        AsyncPager[TeamMemberWage]
+        AsyncPager[TeamMemberWage, ListTeamMemberWagesResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -194,9 +192,7 @@ class AsyncRawTeamMemberWagesClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

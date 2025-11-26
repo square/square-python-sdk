@@ -7,7 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
@@ -453,7 +453,7 @@ class RawInventoryClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[InventoryChange]:
+    ) -> SyncPager[InventoryChange, BatchGetInventoryChangesResponse]:
         """
         Returns historical physical counts and adjustments based on the
         provided filter criteria.
@@ -507,7 +507,7 @@ class RawInventoryClient:
 
         Returns
         -------
-        SyncPager[InventoryChange]
+        SyncPager[InventoryChange, BatchGetInventoryChangesResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -552,9 +552,7 @@ class RawInventoryClient:
                     limit=limit,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -570,7 +568,7 @@ class RawInventoryClient:
         states: typing.Optional[typing.Sequence[InventoryState]] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[InventoryCount]:
+    ) -> SyncPager[InventoryCount, BatchGetInventoryCountsResponse]:
         """
         Returns current counts for the provided
         [CatalogObject](entity:CatalogObject)s at the requested
@@ -618,7 +616,7 @@ class RawInventoryClient:
 
         Returns
         -------
-        SyncPager[InventoryCount]
+        SyncPager[InventoryCount, BatchGetInventoryCountsResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -659,9 +657,7 @@ class RawInventoryClient:
                     limit=limit,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -796,7 +792,7 @@ class RawInventoryClient:
         location_ids: typing.Optional[str] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[InventoryCount]:
+    ) -> SyncPager[InventoryCount, GetInventoryCountResponse]:
         """
         Retrieves the current calculated stock count for a given
         [CatalogObject](entity:CatalogObject) at a given set of
@@ -823,7 +819,7 @@ class RawInventoryClient:
 
         Returns
         -------
-        SyncPager[InventoryCount]
+        SyncPager[InventoryCount, GetInventoryCountResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -853,9 +849,7 @@ class RawInventoryClient:
                     cursor=_parsed_next,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -868,7 +862,7 @@ class RawInventoryClient:
         location_ids: typing.Optional[str] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[InventoryChange]:
+    ) -> SyncPager[InventoryChange, GetInventoryChangesResponse]:
         """
         Returns a set of physical counts and inventory adjustments for the
         provided [CatalogObject](entity:CatalogObject) at the requested
@@ -904,7 +898,7 @@ class RawInventoryClient:
 
         Returns
         -------
-        SyncPager[InventoryChange]
+        SyncPager[InventoryChange, GetInventoryChangesResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -934,9 +928,7 @@ class RawInventoryClient:
                     cursor=_parsed_next,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1367,7 +1359,7 @@ class AsyncRawInventoryClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[InventoryChange]:
+    ) -> AsyncPager[InventoryChange, BatchGetInventoryChangesResponse]:
         """
         Returns historical physical counts and adjustments based on the
         provided filter criteria.
@@ -1421,7 +1413,7 @@ class AsyncRawInventoryClient:
 
         Returns
         -------
-        AsyncPager[InventoryChange]
+        AsyncPager[InventoryChange, BatchGetInventoryChangesResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1469,9 +1461,7 @@ class AsyncRawInventoryClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1487,7 +1477,7 @@ class AsyncRawInventoryClient:
         states: typing.Optional[typing.Sequence[InventoryState]] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[InventoryCount]:
+    ) -> AsyncPager[InventoryCount, BatchGetInventoryCountsResponse]:
         """
         Returns current counts for the provided
         [CatalogObject](entity:CatalogObject)s at the requested
@@ -1535,7 +1525,7 @@ class AsyncRawInventoryClient:
 
         Returns
         -------
-        AsyncPager[InventoryCount]
+        AsyncPager[InventoryCount, BatchGetInventoryCountsResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1579,9 +1569,7 @@ class AsyncRawInventoryClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1716,7 +1704,7 @@ class AsyncRawInventoryClient:
         location_ids: typing.Optional[str] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[InventoryCount]:
+    ) -> AsyncPager[InventoryCount, GetInventoryCountResponse]:
         """
         Retrieves the current calculated stock count for a given
         [CatalogObject](entity:CatalogObject) at a given set of
@@ -1743,7 +1731,7 @@ class AsyncRawInventoryClient:
 
         Returns
         -------
-        AsyncPager[InventoryCount]
+        AsyncPager[InventoryCount, GetInventoryCountResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1776,9 +1764,7 @@ class AsyncRawInventoryClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1791,7 +1777,7 @@ class AsyncRawInventoryClient:
         location_ids: typing.Optional[str] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[InventoryChange]:
+    ) -> AsyncPager[InventoryChange, GetInventoryChangesResponse]:
         """
         Returns a set of physical counts and inventory adjustments for the
         provided [CatalogObject](entity:CatalogObject) at the requested
@@ -1827,7 +1813,7 @@ class AsyncRawInventoryClient:
 
         Returns
         -------
-        AsyncPager[InventoryChange]
+        AsyncPager[InventoryChange, GetInventoryChangesResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1860,9 +1846,7 @@ class AsyncRawInventoryClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

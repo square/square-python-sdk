@@ -21,7 +21,7 @@ class EventDataParams(typing_extensions.TypedDict):
     This is true if the affected object has been deleted; otherwise, it's absent.
     """
 
-    object: typing_extensions.NotRequired[typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]]
+    object: typing_extensions.NotRequired[typing.Optional[typing.Dict[str, typing.Any]]]
     """
     An object containing fields and values relevant to the event. It is absent if the affected object has been deleted.
     """

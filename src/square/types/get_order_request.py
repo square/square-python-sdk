@@ -2,4 +2,4 @@
 
 import typing
 
-GetOrderRequest = typing.Optional[typing.Any]
+GetOrderRequest = typing.Any

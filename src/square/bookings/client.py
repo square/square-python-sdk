@@ -16,6 +16,7 @@ from ..types.cancel_booking_response import CancelBookingResponse
 from ..types.create_booking_response import CreateBookingResponse
 from ..types.get_booking_response import GetBookingResponse
 from ..types.get_business_booking_profile_response import GetBusinessBookingProfileResponse
+from ..types.list_bookings_response import ListBookingsResponse
 from ..types.retrieve_location_booking_profile_response import RetrieveLocationBookingProfileResponse
 from ..types.search_availability_response import SearchAvailabilityResponse
 from ..types.update_booking_response import UpdateBookingResponse
@@ -64,7 +65,7 @@ class BookingsClient:
         start_at_min: typing.Optional[str] = None,
         start_at_max: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Booking]:
+    ) -> SyncPager[Booking, ListBookingsResponse]:
         """
         Retrieve a collection of bookings.
 
@@ -99,7 +100,7 @@ class BookingsClient:
 
         Returns
         -------
-        SyncPager[Booking]
+        SyncPager[Booking, ListBookingsResponse]
             Success
 
         Examples
@@ -564,7 +565,7 @@ class AsyncBookingsClient:
         start_at_min: typing.Optional[str] = None,
         start_at_max: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Booking]:
+    ) -> AsyncPager[Booking, ListBookingsResponse]:
         """
         Retrieve a collection of bookings.
 
@@ -599,7 +600,7 @@ class AsyncBookingsClient:
 
         Returns
         -------
-        AsyncPager[Booking]
+        AsyncPager[Booking, ListBookingsResponse]
             Success
 
         Examples

@@ -31,7 +31,7 @@ class CustomAttributeDefinitionParams(typing_extensions.TypedDict):
     a definition and must be unique per application, seller, and resource type.
     """
 
-    schema: typing_extensions.NotRequired[typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]]
+    schema: typing_extensions.NotRequired[typing.Optional[typing.Dict[str, typing.Any]]]
     """
     The JSON schema for the custom attribute definition, which determines the data type of the corresponding custom attributes. For more information,
     see [Custom Attributes Overview](https://developer.squareup.com/docs/devtools/customattributes/overview). This field is required when creating a definition.

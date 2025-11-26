@@ -6,6 +6,7 @@ from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...types.get_team_member_booking_profile_response import GetTeamMemberBookingProfileResponse
+from ...types.list_team_member_booking_profiles_response import ListTeamMemberBookingProfilesResponse
 from ...types.team_member_booking_profile import TeamMemberBookingProfile
 from .raw_client import AsyncRawTeamMemberProfilesClient, RawTeamMemberProfilesClient
 
@@ -33,7 +34,7 @@ class TeamMemberProfilesClient:
         cursor: typing.Optional[str] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[TeamMemberBookingProfile]:
+    ) -> SyncPager[TeamMemberBookingProfile, ListTeamMemberBookingProfilesResponse]:
         """
         Lists booking profiles for team members.
 
@@ -56,7 +57,7 @@ class TeamMemberProfilesClient:
 
         Returns
         -------
-        SyncPager[TeamMemberBookingProfile]
+        SyncPager[TeamMemberBookingProfile, ListTeamMemberBookingProfilesResponse]
             Success
 
         Examples
@@ -143,7 +144,7 @@ class AsyncTeamMemberProfilesClient:
         cursor: typing.Optional[str] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[TeamMemberBookingProfile]:
+    ) -> AsyncPager[TeamMemberBookingProfile, ListTeamMemberBookingProfilesResponse]:
         """
         Lists booking profiles for team members.
 
@@ -166,7 +167,7 @@ class AsyncTeamMemberProfilesClient:
 
         Returns
         -------
-        AsyncPager[TeamMemberBookingProfile]
+        AsyncPager[TeamMemberBookingProfile, ListTeamMemberBookingProfilesResponse]
             Success
 
         Examples

@@ -13,6 +13,7 @@ from ...types.custom_attribute_definition import CustomAttributeDefinition
 from ...types.delete_location_custom_attribute_definition_response import (
     DeleteLocationCustomAttributeDefinitionResponse,
 )
+from ...types.list_location_custom_attribute_definitions_response import ListLocationCustomAttributeDefinitionsResponse
 from ...types.retrieve_location_custom_attribute_definition_response import (
     RetrieveLocationCustomAttributeDefinitionResponse,
 )
@@ -48,7 +49,7 @@ class CustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttributeDefinition]:
+    ) -> SyncPager[CustomAttributeDefinition, ListLocationCustomAttributeDefinitionsResponse]:
         """
         Lists the location-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
         When all response pages are retrieved, the results include all custom attribute definitions
@@ -75,7 +76,7 @@ class CustomAttributeDefinitionsClient:
 
         Returns
         -------
-        SyncPager[CustomAttributeDefinition]
+        SyncPager[CustomAttributeDefinition, ListLocationCustomAttributeDefinitionsResponse]
             Success
 
         Examples
@@ -335,7 +336,7 @@ class AsyncCustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttributeDefinition]:
+    ) -> AsyncPager[CustomAttributeDefinition, ListLocationCustomAttributeDefinitionsResponse]:
         """
         Lists the location-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
         When all response pages are retrieved, the results include all custom attribute definitions
@@ -362,7 +363,7 @@ class AsyncCustomAttributeDefinitionsClient:
 
         Returns
         -------
-        AsyncPager[CustomAttributeDefinition]
+        AsyncPager[CustomAttributeDefinition, ListLocationCustomAttributeDefinitionsResponse]
             Success
 
         Examples

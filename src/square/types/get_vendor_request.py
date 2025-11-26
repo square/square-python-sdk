@@ -2,4 +2,4 @@
 
 import typing
 
-GetVendorRequest = typing.Optional[typing.Any]
+GetVendorRequest = typing.Any

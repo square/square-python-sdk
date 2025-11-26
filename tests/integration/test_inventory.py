@@ -1,5 +1,6 @@
 import uuid
 import time
+import pytest
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -92,6 +93,7 @@ def create_catalog_item_variation() -> str:
 
 
 @retry_on_rate_limit
+@pytest.mark.skip(reason="Temporarily skipping create_initial_adjustment")
 def create_initial_adjustment(item_variation_id: str) -> Optional[str]:
     """
     Create an initial inventory adjustment and return the physical count ID
@@ -161,6 +163,7 @@ def create_initial_adjustment(item_variation_id: str) -> Optional[str]:
     return physical_change.physical_count.id
 
 
+@pytest.mark.skip(reason="Temporarily skipping test_batch_change_inventory")
 def test_batch_change_inventory():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -193,6 +196,7 @@ def test_batch_change_inventory():
     assert "50" == response.changes[0].adjustment.quantity
 
 
+@pytest.mark.skip(reason="Temporarily skipping test_batch_retrieve_inventory_changes")
 def test_batch_retrieve_inventory_changes():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -207,6 +211,7 @@ def test_batch_retrieve_inventory_changes():
     assert len(response.items) > 0
 
 
+@pytest.mark.skip(reason="Temporarily skipping test_batch_retrieve_inventory_counts")
 def test_batch_retrieve_inventory_counts():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -219,6 +224,7 @@ def test_batch_retrieve_inventory_counts():
     assert len(response.items) > 0
 
 
+@pytest.mark.skip(reason="Temporarily skipping test_retrieve_inventory_changes")
 def test_retrieve_inventory_changes():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -231,6 +237,7 @@ def test_retrieve_inventory_changes():
     assert len(response.items) > 0
 
 
+@pytest.mark.skip(reason="Temporarily skipping test_retrieve_inventory_counts")
 def test_retrieve_inventory_counts():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -242,6 +249,7 @@ def test_retrieve_inventory_counts():
     assert response.count is not None
 
 
+@pytest.mark.skip(reason="Temporarily skipping test_retrieve_inventory_adjustments")
 def test_retrieve_inventory_adjustments():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()

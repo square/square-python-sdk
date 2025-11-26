@@ -9,6 +9,7 @@ from ...requests.custom_attribute import CustomAttributeParams
 from ...types.custom_attribute import CustomAttribute
 from ...types.delete_customer_custom_attribute_response import DeleteCustomerCustomAttributeResponse
 from ...types.get_customer_custom_attribute_response import GetCustomerCustomAttributeResponse
+from ...types.list_customer_custom_attributes_response import ListCustomerCustomAttributesResponse
 from ...types.upsert_customer_custom_attribute_response import UpsertCustomerCustomAttributeResponse
 from .raw_client import AsyncRawCustomAttributesClient, RawCustomAttributesClient
 
@@ -39,7 +40,7 @@ class CustomAttributesClient:
         cursor: typing.Optional[str] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttribute]:
+    ) -> SyncPager[CustomAttribute, ListCustomerCustomAttributesResponse]:
         """
         Lists the [custom attributes](entity:CustomAttribute) associated with a customer profile.
 
@@ -75,7 +76,7 @@ class CustomAttributesClient:
 
         Returns
         -------
-        SyncPager[CustomAttribute]
+        SyncPager[CustomAttribute, ListCustomerCustomAttributesResponse]
             Success
 
         Examples
@@ -309,7 +310,7 @@ class AsyncCustomAttributesClient:
         cursor: typing.Optional[str] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttribute]:
+    ) -> AsyncPager[CustomAttribute, ListCustomerCustomAttributesResponse]:
         """
         Lists the [custom attributes](entity:CustomAttribute) associated with a customer profile.
 
@@ -345,7 +346,7 @@ class AsyncCustomAttributesClient:
 
         Returns
         -------
-        AsyncPager[CustomAttribute]
+        AsyncPager[CustomAttribute, ListCustomerCustomAttributesResponse]
             Success
 
         Examples

@@ -8,6 +8,7 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..types.get_merchant_response import GetMerchantResponse
+from ..types.list_merchants_response import ListMerchantsResponse
 from ..types.merchant import Merchant
 from .raw_client import AsyncRawMerchantsClient, RawMerchantsClient
 
@@ -39,7 +40,7 @@ class MerchantsClient:
 
     def list(
         self, *, cursor: typing.Optional[int] = None, request_options: typing.Optional[RequestOptions] = None
-    ) -> SyncPager[Merchant]:
+    ) -> SyncPager[Merchant, ListMerchantsResponse]:
         """
         Provides details about the merchant associated with a given access token.
 
@@ -62,7 +63,7 @@ class MerchantsClient:
 
         Returns
         -------
-        SyncPager[Merchant]
+        SyncPager[Merchant, ListMerchantsResponse]
             Success
 
         Examples
@@ -152,7 +153,7 @@ class AsyncMerchantsClient:
 
     async def list(
         self, *, cursor: typing.Optional[int] = None, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncPager[Merchant]:
+    ) -> AsyncPager[Merchant, ListMerchantsResponse]:
         """
         Provides details about the merchant associated with a given access token.
 
@@ -175,7 +176,7 @@ class AsyncMerchantsClient:
 
         Returns
         -------
-        AsyncPager[Merchant]
+        AsyncPager[Merchant, ListMerchantsResponse]
             Success
 
         Examples

@@ -18,7 +18,7 @@ class DestinationDetailsExternalRefundDetails(UncheckedBaseModel):
     following:
     - CHECK - Refunded using a physical check.
     - BANK_TRANSFER - Refunded using external bank transfer.
-    - OTHER\_GIFT\_CARD - Refunded using a non-Square gift card.
+    - OTHER\\_GIFT\\_CARD - Refunded using a non-Square gift card.
     - CRYPTO - Refunded using a crypto currency.
     - SQUARE_CASH - Refunded using Square Cash App.
     - SOCIAL - Refunded using peer-to-peer payment applications.

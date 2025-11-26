@@ -10,6 +10,7 @@ from ..types.card import Card
 from ..types.create_card_response import CreateCardResponse
 from ..types.disable_card_response import DisableCardResponse
 from ..types.get_card_response import GetCardResponse
+from ..types.list_cards_response import ListCardsResponse
 from ..types.sort_order import SortOrder
 from .raw_client import AsyncRawCardsClient, RawCardsClient
 
@@ -41,7 +42,7 @@ class CardsClient:
         reference_id: typing.Optional[str] = None,
         sort_order: typing.Optional[SortOrder] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Card]:
+    ) -> SyncPager[Card, ListCardsResponse]:
         """
         Retrieves a list of cards owned by the account making the request.
         A max of 25 cards will be returned.
@@ -74,7 +75,7 @@ class CardsClient:
 
         Returns
         -------
-        SyncPager[Card]
+        SyncPager[Card, ListCardsResponse]
             Success
 
         Examples
@@ -271,7 +272,7 @@ class AsyncCardsClient:
         reference_id: typing.Optional[str] = None,
         sort_order: typing.Optional[SortOrder] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Card]:
+    ) -> AsyncPager[Card, ListCardsResponse]:
         """
         Retrieves a list of cards owned by the account making the request.
         A max of 25 cards will be returned.
@@ -304,7 +305,7 @@ class AsyncCardsClient:
 
         Returns
         -------
-        AsyncPager[Card]
+        AsyncPager[Card, ListCardsResponse]
             Success
 
         Examples

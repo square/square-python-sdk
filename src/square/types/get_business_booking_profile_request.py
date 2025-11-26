@@ -2,4 +2,4 @@
 
 import typing
 
-GetBusinessBookingProfileRequest = typing.Optional[typing.Any]
+GetBusinessBookingProfileRequest = typing.Any

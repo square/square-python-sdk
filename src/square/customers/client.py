@@ -21,6 +21,7 @@ from ..types.customer import Customer
 from ..types.customer_sort_field import CustomerSortField
 from ..types.delete_customer_response import DeleteCustomerResponse
 from ..types.get_customer_response import GetCustomerResponse
+from ..types.list_customers_response import ListCustomersResponse
 from ..types.search_customers_response import SearchCustomersResponse
 from ..types.sort_order import SortOrder
 from ..types.update_customer_response import UpdateCustomerResponse
@@ -69,7 +70,7 @@ class CustomersClient:
         sort_order: typing.Optional[SortOrder] = None,
         count: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Customer]:
+    ) -> SyncPager[Customer, ListCustomersResponse]:
         """
         Lists customer profiles associated with a Square account.
 
@@ -112,7 +113,7 @@ class CustomersClient:
 
         Returns
         -------
-        SyncPager[Customer]
+        SyncPager[Customer, ListCustomersResponse]
             Success
 
         Examples
@@ -855,7 +856,7 @@ class AsyncCustomersClient:
         sort_order: typing.Optional[SortOrder] = None,
         count: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Customer]:
+    ) -> AsyncPager[Customer, ListCustomersResponse]:
         """
         Lists customer profiles associated with a Square account.
 
@@ -898,7 +899,7 @@ class AsyncCustomersClient:
 
         Returns
         -------
-        AsyncPager[Customer]
+        AsyncPager[Customer, ListCustomersResponse]
             Success
 
         Examples

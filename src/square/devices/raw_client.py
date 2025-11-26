@@ -7,7 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.unchecked_base_model import construct_type
 from ..types.device import Device
@@ -28,7 +28,7 @@ class RawDevicesClient:
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Device]:
+    ) -> SyncPager[Device, ListDevicesResponse]:
         """
         List devices associated with the merchant. Currently, only Terminal API
         devices are supported.
@@ -56,7 +56,7 @@ class RawDevicesClient:
 
         Returns
         -------
-        SyncPager[Device]
+        SyncPager[Device, ListDevicesResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -89,9 +89,7 @@ class RawDevicesClient:
                     location_id=location_id,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -149,7 +147,7 @@ class AsyncRawDevicesClient:
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Device]:
+    ) -> AsyncPager[Device, ListDevicesResponse]:
         """
         List devices associated with the merchant. Currently, only Terminal API
         devices are supported.
@@ -177,7 +175,7 @@ class AsyncRawDevicesClient:
 
         Returns
         -------
-        AsyncPager[Device]
+        AsyncPager[Device, ListDevicesResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -213,9 +211,7 @@ class AsyncRawDevicesClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

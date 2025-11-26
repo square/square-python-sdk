@@ -8,6 +8,8 @@ from ...core.request_options import RequestOptions
 from ...types.cash_drawer_shift_event import CashDrawerShiftEvent
 from ...types.cash_drawer_shift_summary import CashDrawerShiftSummary
 from ...types.get_cash_drawer_shift_response import GetCashDrawerShiftResponse
+from ...types.list_cash_drawer_shift_events_response import ListCashDrawerShiftEventsResponse
+from ...types.list_cash_drawer_shifts_response import ListCashDrawerShiftsResponse
 from ...types.sort_order import SortOrder
 from .raw_client import AsyncRawShiftsClient, RawShiftsClient
 
@@ -37,7 +39,7 @@ class ShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CashDrawerShiftSummary]:
+    ) -> SyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]:
         """
         Provides the details for all of the cash drawer shifts for a location
         in a date range.
@@ -69,7 +71,7 @@ class ShiftsClient:
 
         Returns
         -------
-        SyncPager[CashDrawerShiftSummary]
+        SyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]
             Success
 
         Examples
@@ -149,7 +151,7 @@ class ShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CashDrawerShiftEvent]:
+    ) -> SyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]:
         """
         Provides a paginated list of events for a single cash drawer shift.
 
@@ -173,7 +175,7 @@ class ShiftsClient:
 
         Returns
         -------
-        SyncPager[CashDrawerShiftEvent]
+        SyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]
             Success
 
         Examples
@@ -225,7 +227,7 @@ class AsyncShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CashDrawerShiftSummary]:
+    ) -> AsyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]:
         """
         Provides the details for all of the cash drawer shifts for a location
         in a date range.
@@ -257,7 +259,7 @@ class AsyncShiftsClient:
 
         Returns
         -------
-        AsyncPager[CashDrawerShiftSummary]
+        AsyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]
             Success
 
         Examples
@@ -354,7 +356,7 @@ class AsyncShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CashDrawerShiftEvent]:
+    ) -> AsyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]:
         """
         Provides a paginated list of events for a single cash drawer shift.
 
@@ -378,7 +380,7 @@ class AsyncShiftsClient:
 
         Returns
         -------
-        AsyncPager[CashDrawerShiftEvent]
+        AsyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]
             Success
 
         Examples
