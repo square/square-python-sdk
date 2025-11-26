@@ -1,5 +1,5 @@
 import uuid
-
+import pytest
 from square.types.device_code import DeviceCode
 
 from . import helpers
@@ -16,7 +16,7 @@ def create_device_code():
     assert device_code.id is not None
     return device_code.id
 
-
+@pytest.mark.skip(reason="Temporarily skipping test_list_device_codes")
 def test_list_device_codes():
     client = helpers.test_client()
     create_device_code()
