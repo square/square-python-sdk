@@ -2,4 +2,4 @@
 
 import typing
 
-GetGiftCardRequest = typing.Optional[typing.Any]
+GetGiftCardRequest = typing.Any

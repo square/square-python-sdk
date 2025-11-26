@@ -59,9 +59,9 @@ class CatalogItemModifierListInfo(UncheckedBaseModel):
     to a `CatalogItem` instance.
     """
 
-    allow_quantities: typing.Optional[typing.Optional[typing.Any]] = None
-    is_conversational: typing.Optional[typing.Optional[typing.Any]] = None
-    hidden_from_customer_override: typing.Optional[typing.Optional[typing.Any]] = None
+    allow_quantities: typing.Optional[typing.Any] = None
+    is_conversational: typing.Optional[typing.Any] = None
+    hidden_from_customer_override: typing.Optional[typing.Any] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

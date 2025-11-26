@@ -2,4 +2,4 @@
 
 import typing
 
-V1GetSettlementRequest = typing.Optional[typing.Any]
+V1GetSettlementRequest = typing.Any

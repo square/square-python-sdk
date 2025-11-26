@@ -5,7 +5,7 @@ from json.decoder import JSONDecodeError
 
 from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ...core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...core.unchecked_base_model import construct_type
 from ...types.list_location_booking_profiles_response import ListLocationBookingProfilesResponse
@@ -22,7 +22,7 @@ class RawLocationProfilesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[LocationBookingProfile]:
+    ) -> SyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]:
         """
         Lists location booking profiles of a seller.
 
@@ -39,7 +39,7 @@ class RawLocationProfilesClient:
 
         Returns
         -------
-        SyncPager[LocationBookingProfile]
+        SyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -68,9 +68,7 @@ class RawLocationProfilesClient:
                     cursor=_parsed_next,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -87,7 +85,7 @@ class AsyncRawLocationProfilesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[LocationBookingProfile]:
+    ) -> AsyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]:
         """
         Lists location booking profiles of a seller.
 
@@ -104,7 +102,7 @@ class AsyncRawLocationProfilesClient:
 
         Returns
         -------
-        AsyncPager[LocationBookingProfile]
+        AsyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -136,9 +134,7 @@ class AsyncRawLocationProfilesClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

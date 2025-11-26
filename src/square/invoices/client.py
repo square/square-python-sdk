@@ -16,6 +16,7 @@ from ..types.delete_invoice_attachment_response import DeleteInvoiceAttachmentRe
 from ..types.delete_invoice_response import DeleteInvoiceResponse
 from ..types.get_invoice_response import GetInvoiceResponse
 from ..types.invoice import Invoice
+from ..types.list_invoices_response import ListInvoicesResponse
 from ..types.publish_invoice_response import PublishInvoiceResponse
 from ..types.search_invoices_response import SearchInvoicesResponse
 from ..types.update_invoice_response import UpdateInvoiceResponse
@@ -47,7 +48,7 @@ class InvoicesClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Invoice]:
+    ) -> SyncPager[Invoice, ListInvoicesResponse]:
         """
         Returns a list of invoices for a given location. The response
         is paginated. If truncated, the response includes a `cursor` that you
@@ -73,7 +74,7 @@ class InvoicesClient:
 
         Returns
         -------
-        SyncPager[Invoice]
+        SyncPager[Invoice, ListInvoicesResponse]
             Success
 
         Examples
@@ -629,7 +630,7 @@ class AsyncInvoicesClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Invoice]:
+    ) -> AsyncPager[Invoice, ListInvoicesResponse]:
         """
         Returns a list of invoices for a given location. The response
         is paginated. If truncated, the response includes a `cursor` that you
@@ -655,7 +656,7 @@ class AsyncInvoicesClient:
 
         Returns
         -------
-        AsyncPager[Invoice]
+        AsyncPager[Invoice, ListInvoicesResponse]
             Success
 
         Examples

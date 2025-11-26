@@ -16,6 +16,7 @@ from ...types.bulk_delete_merchant_custom_attributes_response import BulkDeleteM
 from ...types.bulk_upsert_merchant_custom_attributes_response import BulkUpsertMerchantCustomAttributesResponse
 from ...types.custom_attribute import CustomAttribute
 from ...types.delete_merchant_custom_attribute_response import DeleteMerchantCustomAttributeResponse
+from ...types.list_merchant_custom_attributes_response import ListMerchantCustomAttributesResponse
 from ...types.retrieve_merchant_custom_attribute_response import RetrieveMerchantCustomAttributeResponse
 from ...types.upsert_merchant_custom_attribute_response import UpsertMerchantCustomAttributeResponse
 from ...types.visibility_filter import VisibilityFilter
@@ -150,7 +151,7 @@ class CustomAttributesClient:
         cursor: typing.Optional[str] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttribute]:
+    ) -> SyncPager[CustomAttribute, ListMerchantCustomAttributesResponse]:
         """
         Lists the [custom attributes](entity:CustomAttribute) associated with a merchant.
         You can use the `with_definitions` query parameter to also retrieve custom attribute definitions
@@ -187,7 +188,7 @@ class CustomAttributesClient:
 
         Returns
         -------
-        SyncPager[CustomAttribute]
+        SyncPager[CustomAttribute, ListMerchantCustomAttributesResponse]
             Success
 
         Examples
@@ -535,7 +536,7 @@ class AsyncCustomAttributesClient:
         cursor: typing.Optional[str] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttribute]:
+    ) -> AsyncPager[CustomAttribute, ListMerchantCustomAttributesResponse]:
         """
         Lists the [custom attributes](entity:CustomAttribute) associated with a merchant.
         You can use the `with_definitions` query parameter to also retrieve custom attribute definitions
@@ -572,7 +573,7 @@ class AsyncCustomAttributesClient:
 
         Returns
         -------
-        AsyncPager[CustomAttribute]
+        AsyncPager[CustomAttribute, ListMerchantCustomAttributesResponse]
             Success
 
         Examples

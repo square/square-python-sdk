@@ -14,6 +14,7 @@ from ..types.create_transfer_order_response import CreateTransferOrderResponse
 from ..types.delete_transfer_order_response import DeleteTransferOrderResponse
 from ..types.receive_transfer_order_response import ReceiveTransferOrderResponse
 from ..types.retrieve_transfer_order_response import RetrieveTransferOrderResponse
+from ..types.search_transfer_orders_response import SearchTransferOrdersResponse
 from ..types.start_transfer_order_response import StartTransferOrderResponse
 from ..types.transfer_order import TransferOrder
 from ..types.update_transfer_order_response import UpdateTransferOrderResponse
@@ -125,7 +126,7 @@ class TransferOrdersClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[TransferOrder]:
+    ) -> SyncPager[TransferOrder, SearchTransferOrdersResponse]:
         """
         Searches for transfer orders using filters. Returns a paginated list of matching
         [TransferOrder](entity:TransferOrder)s sorted by creation date.
@@ -151,7 +152,7 @@ class TransferOrdersClient:
 
         Returns
         -------
-        SyncPager[TransferOrder]
+        SyncPager[TransferOrder, SearchTransferOrdersResponse]
             Success
 
         Examples
@@ -650,7 +651,7 @@ class AsyncTransferOrdersClient:
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[TransferOrder]:
+    ) -> AsyncPager[TransferOrder, SearchTransferOrdersResponse]:
         """
         Searches for transfer orders using filters. Returns a paginated list of matching
         [TransferOrder](entity:TransferOrder)s sorted by creation date.
@@ -676,7 +677,7 @@ class AsyncTransferOrdersClient:
 
         Returns
         -------
-        AsyncPager[TransferOrder]
+        AsyncPager[TransferOrder, SearchTransferOrdersResponse]
             Success
 
         Examples

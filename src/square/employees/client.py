@@ -8,6 +8,7 @@ from ..core.request_options import RequestOptions
 from ..types.employee import Employee
 from ..types.employee_status import EmployeeStatus
 from ..types.get_employee_response import GetEmployeeResponse
+from ..types.list_employees_response import ListEmployeesResponse
 from .raw_client import AsyncRawEmployeesClient, RawEmployeesClient
 
 
@@ -34,7 +35,7 @@ class EmployeesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Employee]:
+    ) -> SyncPager[Employee, ListEmployeesResponse]:
         """
 
 
@@ -57,7 +58,7 @@ class EmployeesClient:
 
         Returns
         -------
-        SyncPager[Employee]
+        SyncPager[Employee, ListEmployeesResponse]
             Success
 
         Examples
@@ -138,7 +139,7 @@ class AsyncEmployeesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Employee]:
+    ) -> AsyncPager[Employee, ListEmployeesResponse]:
         """
 
 
@@ -161,7 +162,7 @@ class AsyncEmployeesClient:
 
         Returns
         -------
-        AsyncPager[Employee]
+        AsyncPager[Employee, ListEmployeesResponse]
             Success
 
         Examples

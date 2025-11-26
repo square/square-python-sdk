@@ -18,6 +18,7 @@ from ...types.delete_customer_custom_attribute_definition_response import (
     DeleteCustomerCustomAttributeDefinitionResponse,
 )
 from ...types.get_customer_custom_attribute_definition_response import GetCustomerCustomAttributeDefinitionResponse
+from ...types.list_customer_custom_attribute_definitions_response import ListCustomerCustomAttributeDefinitionsResponse
 from ...types.update_customer_custom_attribute_definition_response import (
     UpdateCustomerCustomAttributeDefinitionResponse,
 )
@@ -48,7 +49,7 @@ class CustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttributeDefinition]:
+    ) -> SyncPager[CustomAttributeDefinition, ListCustomerCustomAttributeDefinitionsResponse]:
         """
         Lists the customer-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
 
@@ -74,7 +75,7 @@ class CustomAttributeDefinitionsClient:
 
         Returns
         -------
-        SyncPager[CustomAttributeDefinition]
+        SyncPager[CustomAttributeDefinition, ListCustomerCustomAttributeDefinitionsResponse]
             Success
 
         Examples
@@ -421,7 +422,7 @@ class AsyncCustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttributeDefinition]:
+    ) -> AsyncPager[CustomAttributeDefinition, ListCustomerCustomAttributeDefinitionsResponse]:
         """
         Lists the customer-related [custom attribute definitions](entity:CustomAttributeDefinition) that belong to a Square seller account.
 
@@ -447,7 +448,7 @@ class AsyncCustomAttributeDefinitionsClient:
 
         Returns
         -------
-        AsyncPager[CustomAttributeDefinition]
+        AsyncPager[CustomAttributeDefinition, ListCustomerCustomAttributeDefinitionsResponse]
             Success
 
         Examples

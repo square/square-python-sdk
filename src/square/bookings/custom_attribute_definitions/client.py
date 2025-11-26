@@ -9,6 +9,7 @@ from ...requests.custom_attribute_definition import CustomAttributeDefinitionPar
 from ...types.create_booking_custom_attribute_definition_response import CreateBookingCustomAttributeDefinitionResponse
 from ...types.custom_attribute_definition import CustomAttributeDefinition
 from ...types.delete_booking_custom_attribute_definition_response import DeleteBookingCustomAttributeDefinitionResponse
+from ...types.list_booking_custom_attribute_definitions_response import ListBookingCustomAttributeDefinitionsResponse
 from ...types.retrieve_booking_custom_attribute_definition_response import (
     RetrieveBookingCustomAttributeDefinitionResponse,
 )
@@ -40,7 +41,7 @@ class CustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttributeDefinition]:
+    ) -> SyncPager[CustomAttributeDefinition, ListBookingCustomAttributeDefinitionsResponse]:
         """
         Get all bookings custom attribute definitions.
 
@@ -64,7 +65,7 @@ class CustomAttributeDefinitionsClient:
 
         Returns
         -------
-        SyncPager[CustomAttributeDefinition]
+        SyncPager[CustomAttributeDefinition, ListBookingCustomAttributeDefinitionsResponse]
             Success
 
         Examples
@@ -324,7 +325,7 @@ class AsyncCustomAttributeDefinitionsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttributeDefinition]:
+    ) -> AsyncPager[CustomAttributeDefinition, ListBookingCustomAttributeDefinitionsResponse]:
         """
         Get all bookings custom attribute definitions.
 
@@ -348,7 +349,7 @@ class AsyncCustomAttributeDefinitionsClient:
 
         Returns
         -------
-        AsyncPager[CustomAttributeDefinition]
+        AsyncPager[CustomAttributeDefinition, ListBookingCustomAttributeDefinitionsResponse]
             Success
 
         Examples

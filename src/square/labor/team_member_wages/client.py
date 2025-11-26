@@ -6,6 +6,7 @@ from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...types.get_team_member_wage_response import GetTeamMemberWageResponse
+from ...types.list_team_member_wages_response import ListTeamMemberWagesResponse
 from ...types.team_member_wage import TeamMemberWage
 from .raw_client import AsyncRawTeamMemberWagesClient, RawTeamMemberWagesClient
 
@@ -32,7 +33,7 @@ class TeamMemberWagesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[TeamMemberWage]:
+    ) -> SyncPager[TeamMemberWage, ListTeamMemberWagesResponse]:
         """
         Returns a paginated list of `TeamMemberWage` instances for a business.
 
@@ -54,7 +55,7 @@ class TeamMemberWagesClient:
 
         Returns
         -------
-        SyncPager[TeamMemberWage]
+        SyncPager[TeamMemberWage, ListTeamMemberWagesResponse]
             Success
 
         Examples
@@ -133,7 +134,7 @@ class AsyncTeamMemberWagesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[TeamMemberWage]:
+    ) -> AsyncPager[TeamMemberWage, ListTeamMemberWagesResponse]:
         """
         Returns a paginated list of `TeamMemberWage` instances for a business.
 
@@ -155,7 +156,7 @@ class AsyncTeamMemberWagesClient:
 
         Returns
         -------
-        AsyncPager[TeamMemberWage]
+        AsyncPager[TeamMemberWage, ListTeamMemberWagesResponse]
             Success
 
         Examples

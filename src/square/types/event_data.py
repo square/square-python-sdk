@@ -23,7 +23,7 @@ class EventData(UncheckedBaseModel):
     This is true if the affected object has been deleted; otherwise, it's absent.
     """
 
-    object: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    object: typing.Optional[typing.Dict[str, typing.Any]] = pydantic.Field(default=None)
     """
     An object containing fields and values relevant to the event. It is absent if the affected object has been deleted.
     """

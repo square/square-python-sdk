@@ -18,6 +18,7 @@ from ..types.catalog_info_response import CatalogInfoResponse
 from ..types.catalog_item_product_type import CatalogItemProductType
 from ..types.catalog_object import CatalogObject
 from ..types.catalog_object_type import CatalogObjectType
+from ..types.list_catalog_response import ListCatalogResponse
 from ..types.search_catalog_items_request_stock_level import SearchCatalogItemsRequestStockLevel
 from ..types.search_catalog_items_response import SearchCatalogItemsResponse
 from ..types.search_catalog_objects_response import SearchCatalogObjectsResponse
@@ -333,7 +334,7 @@ class CatalogClient:
         types: typing.Optional[str] = None,
         catalog_version: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CatalogObject]:
+    ) -> SyncPager[CatalogObject, ListCatalogResponse]:
         """
         Returns a list of all [CatalogObject](entity:CatalogObject)s of the specified types in the catalog.
 
@@ -378,7 +379,7 @@ class CatalogClient:
 
         Returns
         -------
-        SyncPager[CatalogObject]
+        SyncPager[CatalogObject, ListCatalogResponse]
             Success
 
         Examples
@@ -1101,7 +1102,7 @@ class AsyncCatalogClient:
         types: typing.Optional[str] = None,
         catalog_version: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CatalogObject]:
+    ) -> AsyncPager[CatalogObject, ListCatalogResponse]:
         """
         Returns a list of all [CatalogObject](entity:CatalogObject)s of the specified types in the catalog.
 
@@ -1146,7 +1147,7 @@ class AsyncCatalogClient:
 
         Returns
         -------
-        AsyncPager[CatalogObject]
+        AsyncPager[CatalogObject, ListCatalogResponse]
             Success
 
         Examples

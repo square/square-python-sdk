@@ -8,6 +8,7 @@ from ..core.request_options import RequestOptions
 from ..types.bank_account import BankAccount
 from ..types.get_bank_account_by_v1id_response import GetBankAccountByV1IdResponse
 from ..types.get_bank_account_response import GetBankAccountResponse
+from ..types.list_bank_accounts_response import ListBankAccountsResponse
 from .raw_client import AsyncRawBankAccountsClient, RawBankAccountsClient
 
 
@@ -33,7 +34,7 @@ class BankAccountsClient:
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[BankAccount]:
+    ) -> SyncPager[BankAccount, ListBankAccountsResponse]:
         """
         Returns a list of [BankAccount](entity:BankAccount) objects linked to a Square account.
 
@@ -60,7 +61,7 @@ class BankAccountsClient:
 
         Returns
         -------
-        SyncPager[BankAccount]
+        SyncPager[BankAccount, ListBankAccountsResponse]
             Success
 
         Examples
@@ -176,7 +177,7 @@ class AsyncBankAccountsClient:
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[BankAccount]:
+    ) -> AsyncPager[BankAccount, ListBankAccountsResponse]:
         """
         Returns a list of [BankAccount](entity:BankAccount) objects linked to a Square account.
 
@@ -203,7 +204,7 @@ class AsyncBankAccountsClient:
 
         Returns
         -------
-        AsyncPager[BankAccount]
+        AsyncPager[BankAccount, ListBankAccountsResponse]
             Success
 
         Examples

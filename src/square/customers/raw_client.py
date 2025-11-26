@@ -7,7 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
@@ -47,7 +47,7 @@ class RawCustomersClient:
         sort_order: typing.Optional[SortOrder] = None,
         count: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Customer]:
+    ) -> SyncPager[Customer, ListCustomersResponse]:
         """
         Lists customer profiles associated with a Square account.
 
@@ -90,7 +90,7 @@ class RawCustomersClient:
 
         Returns
         -------
-        SyncPager[Customer]
+        SyncPager[Customer, ListCustomersResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -125,9 +125,7 @@ class RawCustomersClient:
                     count=count,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -822,7 +820,7 @@ class AsyncRawCustomersClient:
         sort_order: typing.Optional[SortOrder] = None,
         count: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Customer]:
+    ) -> AsyncPager[Customer, ListCustomersResponse]:
         """
         Lists customer profiles associated with a Square account.
 
@@ -865,7 +863,7 @@ class AsyncRawCustomersClient:
 
         Returns
         -------
-        AsyncPager[Customer]
+        AsyncPager[Customer, ListCustomersResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -903,9 +901,7 @@ class AsyncRawCustomersClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

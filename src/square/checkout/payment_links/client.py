@@ -13,6 +13,7 @@ from ...requests.quick_pay import QuickPayParams
 from ...types.create_payment_link_response import CreatePaymentLinkResponse
 from ...types.delete_payment_link_response import DeletePaymentLinkResponse
 from ...types.get_payment_link_response import GetPaymentLinkResponse
+from ...types.list_payment_links_response import ListPaymentLinksResponse
 from ...types.payment_link import PaymentLink
 from ...types.update_payment_link_response import UpdatePaymentLinkResponse
 from .raw_client import AsyncRawPaymentLinksClient, RawPaymentLinksClient
@@ -42,7 +43,7 @@ class PaymentLinksClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[PaymentLink]:
+    ) -> SyncPager[PaymentLink, ListPaymentLinksResponse]:
         """
         Lists all payment links.
 
@@ -66,7 +67,7 @@ class PaymentLinksClient:
 
         Returns
         -------
-        SyncPager[PaymentLink]
+        SyncPager[PaymentLink, ListPaymentLinksResponse]
             Success
 
         Examples
@@ -301,7 +302,7 @@ class AsyncPaymentLinksClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[PaymentLink]:
+    ) -> AsyncPager[PaymentLink, ListPaymentLinksResponse]:
         """
         Lists all payment links.
 
@@ -325,7 +326,7 @@ class AsyncPaymentLinksClient:
 
         Returns
         -------
-        AsyncPager[PaymentLink]
+        AsyncPager[PaymentLink, ListPaymentLinksResponse]
             Success
 
         Examples

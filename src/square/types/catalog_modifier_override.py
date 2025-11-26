@@ -22,8 +22,8 @@ class CatalogModifierOverride(UncheckedBaseModel):
     __Deprecated__: Use `on_by_default_override` instead.
     """
 
-    hidden_online_override: typing.Optional[typing.Optional[typing.Any]] = None
-    on_by_default_override: typing.Optional[typing.Optional[typing.Any]] = None
+    hidden_online_override: typing.Optional[typing.Any] = None
+    on_by_default_override: typing.Optional[typing.Any] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

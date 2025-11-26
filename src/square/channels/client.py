@@ -8,6 +8,7 @@ from ..core.request_options import RequestOptions
 from ..types.bulk_retrieve_channels_response import BulkRetrieveChannelsResponse
 from ..types.channel import Channel
 from ..types.channel_status import ChannelStatus
+from ..types.list_channels_response import ListChannelsResponse
 from ..types.reference_type import ReferenceType
 from ..types.retrieve_channel_response import RetrieveChannelResponse
 from .raw_client import AsyncRawChannelsClient, RawChannelsClient
@@ -40,7 +41,7 @@ class ChannelsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Channel]:
+    ) -> SyncPager[Channel, ListChannelsResponse]:
         """
 
 
@@ -67,7 +68,7 @@ class ChannelsClient:
 
         Returns
         -------
-        SyncPager[Channel]
+        SyncPager[Channel, ListChannelsResponse]
             Success
 
         Examples
@@ -189,7 +190,7 @@ class AsyncChannelsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Channel]:
+    ) -> AsyncPager[Channel, ListChannelsResponse]:
         """
 
 
@@ -216,7 +217,7 @@ class AsyncChannelsClient:
 
         Returns
         -------
-        AsyncPager[Channel]
+        AsyncPager[Channel, ListChannelsResponse]
             Success
 
         Examples

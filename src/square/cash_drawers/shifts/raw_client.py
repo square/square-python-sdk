@@ -7,7 +7,7 @@ from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
-from ...core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
 from ...core.unchecked_base_model import construct_type
 from ...types.cash_drawer_shift_event import CashDrawerShiftEvent
@@ -32,7 +32,7 @@ class RawShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CashDrawerShiftSummary]:
+    ) -> SyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]:
         """
         Provides the details for all of the cash drawer shifts for a location
         in a date range.
@@ -64,7 +64,7 @@ class RawShiftsClient:
 
         Returns
         -------
-        SyncPager[CashDrawerShiftSummary]
+        SyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -101,9 +101,7 @@ class RawShiftsClient:
                     cursor=_parsed_next,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -163,7 +161,7 @@ class RawShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CashDrawerShiftEvent]:
+    ) -> SyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]:
         """
         Provides a paginated list of events for a single cash drawer shift.
 
@@ -187,7 +185,7 @@ class RawShiftsClient:
 
         Returns
         -------
-        SyncPager[CashDrawerShiftEvent]
+        SyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]
             Success
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -219,9 +217,7 @@ class RawShiftsClient:
                     cursor=_parsed_next,
                     request_options=request_options,
                 )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -242,7 +238,7 @@ class AsyncRawShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CashDrawerShiftSummary]:
+    ) -> AsyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]:
         """
         Provides the details for all of the cash drawer shifts for a location
         in a date range.
@@ -274,7 +270,7 @@ class AsyncRawShiftsClient:
 
         Returns
         -------
-        AsyncPager[CashDrawerShiftSummary]
+        AsyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -314,9 +310,7 @@ class AsyncRawShiftsClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -376,7 +370,7 @@ class AsyncRawShiftsClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CashDrawerShiftEvent]:
+    ) -> AsyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]:
         """
         Provides a paginated list of events for a single cash drawer shift.
 
@@ -400,7 +394,7 @@ class AsyncRawShiftsClient:
 
         Returns
         -------
-        AsyncPager[CashDrawerShiftEvent]
+        AsyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]
             Success
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -435,9 +429,7 @@ class AsyncRawShiftsClient:
                         request_options=request_options,
                     )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

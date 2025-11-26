@@ -5,6 +5,7 @@ import typing
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
+from ...types.list_location_booking_profiles_response import ListLocationBookingProfilesResponse
 from ...types.location_booking_profile import LocationBookingProfile
 from .raw_client import AsyncRawLocationProfilesClient, RawLocationProfilesClient
 
@@ -30,7 +31,7 @@ class LocationProfilesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[LocationBookingProfile]:
+    ) -> SyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]:
         """
         Lists location booking profiles of a seller.
 
@@ -47,7 +48,7 @@ class LocationProfilesClient:
 
         Returns
         -------
-        SyncPager[LocationBookingProfile]
+        SyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]
             Success
 
         Examples
@@ -91,7 +92,7 @@ class AsyncLocationProfilesClient:
         limit: typing.Optional[int] = None,
         cursor: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[LocationBookingProfile]:
+    ) -> AsyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]:
         """
         Lists location booking profiles of a seller.
 
@@ -108,7 +109,7 @@ class AsyncLocationProfilesClient:
 
         Returns
         -------
-        AsyncPager[LocationBookingProfile]
+        AsyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]
             Success
 
         Examples

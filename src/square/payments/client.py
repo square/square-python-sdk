@@ -18,6 +18,7 @@ from ..types.complete_payment_response import CompletePaymentResponse
 from ..types.create_payment_response import CreatePaymentResponse
 from ..types.get_payment_response import GetPaymentResponse
 from ..types.list_payments_request_sort_field import ListPaymentsRequestSortField
+from ..types.list_payments_response import ListPaymentsResponse
 from ..types.payment import Payment
 from ..types.update_payment_response import UpdatePaymentResponse
 from .raw_client import AsyncRawPaymentsClient, RawPaymentsClient
@@ -60,7 +61,7 @@ class PaymentsClient:
         updated_at_end_time: typing.Optional[str] = None,
         sort_field: typing.Optional[ListPaymentsRequestSortField] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Payment]:
+    ) -> SyncPager[Payment, ListPaymentsResponse]:
         """
         Retrieves a list of payments taken by the account making the request.
 
@@ -150,7 +151,7 @@ class PaymentsClient:
 
         Returns
         -------
-        SyncPager[Payment]
+        SyncPager[Payment, ListPaymentsResponse]
             Success
 
         Examples
@@ -719,7 +720,7 @@ class AsyncPaymentsClient:
         updated_at_end_time: typing.Optional[str] = None,
         sort_field: typing.Optional[ListPaymentsRequestSortField] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Payment]:
+    ) -> AsyncPager[Payment, ListPaymentsResponse]:
         """
         Retrieves a list of payments taken by the account making the request.
 
@@ -809,7 +810,7 @@ class AsyncPaymentsClient:
 
         Returns
         -------
-        AsyncPager[Payment]
+        AsyncPager[Payment, ListPaymentsResponse]
             Success
 
         Examples

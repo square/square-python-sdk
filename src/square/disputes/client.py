@@ -16,6 +16,7 @@ from ..types.dispute import Dispute
 from ..types.dispute_evidence_type import DisputeEvidenceType
 from ..types.dispute_state import DisputeState
 from ..types.get_dispute_response import GetDisputeResponse
+from ..types.list_disputes_response import ListDisputesResponse
 from ..types.submit_evidence_response import SubmitEvidenceResponse
 from .raw_client import AsyncRawDisputesClient, RawDisputesClient
 
@@ -49,7 +50,7 @@ class DisputesClient:
         states: typing.Optional[DisputeState] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Dispute]:
+    ) -> SyncPager[Dispute, ListDisputesResponse]:
         """
         Returns a list of disputes associated with a particular account.
 
@@ -72,7 +73,7 @@ class DisputesClient:
 
         Returns
         -------
-        SyncPager[Dispute]
+        SyncPager[Dispute, ListDisputesResponse]
             Success
 
         Examples
@@ -341,7 +342,7 @@ class AsyncDisputesClient:
         states: typing.Optional[DisputeState] = None,
         location_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Dispute]:
+    ) -> AsyncPager[Dispute, ListDisputesResponse]:
         """
         Returns a list of disputes associated with a particular account.
 
@@ -364,7 +365,7 @@ class AsyncDisputesClient:
 
         Returns
         -------
-        AsyncPager[Dispute]
+        AsyncPager[Dispute, ListDisputesResponse]
             Success
 
         Examples

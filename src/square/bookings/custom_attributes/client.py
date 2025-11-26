@@ -12,6 +12,7 @@ from ...types.bulk_delete_booking_custom_attributes_response import BulkDeleteBo
 from ...types.bulk_upsert_booking_custom_attributes_response import BulkUpsertBookingCustomAttributesResponse
 from ...types.custom_attribute import CustomAttribute
 from ...types.delete_booking_custom_attribute_response import DeleteBookingCustomAttributeResponse
+from ...types.list_booking_custom_attributes_response import ListBookingCustomAttributesResponse
 from ...types.retrieve_booking_custom_attribute_response import RetrieveBookingCustomAttributeResponse
 from ...types.upsert_booking_custom_attribute_response import UpsertBookingCustomAttributeResponse
 from .raw_client import AsyncRawCustomAttributesClient, RawCustomAttributesClient
@@ -131,7 +132,7 @@ class CustomAttributesClient:
         cursor: typing.Optional[str] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CustomAttribute]:
+    ) -> SyncPager[CustomAttribute, ListBookingCustomAttributesResponse]:
         """
         Lists a booking's custom attributes.
 
@@ -163,7 +164,7 @@ class CustomAttributesClient:
 
         Returns
         -------
-        SyncPager[CustomAttribute]
+        SyncPager[CustomAttribute, ListBookingCustomAttributesResponse]
             Success
 
         Examples
@@ -497,7 +498,7 @@ class AsyncCustomAttributesClient:
         cursor: typing.Optional[str] = None,
         with_definitions: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CustomAttribute]:
+    ) -> AsyncPager[CustomAttribute, ListBookingCustomAttributesResponse]:
         """
         Lists a booking's custom attributes.
 
@@ -529,7 +530,7 @@ class AsyncCustomAttributesClient:
 
         Returns
         -------
-        AsyncPager[CustomAttribute]
+        AsyncPager[CustomAttribute, ListBookingCustomAttributesResponse]
             Success
 
         Examples

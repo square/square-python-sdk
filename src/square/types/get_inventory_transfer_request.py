@@ -2,4 +2,4 @@
 
 import typing
 
-GetInventoryTransferRequest = typing.Optional[typing.Any]
+GetInventoryTransferRequest = typing.Any
