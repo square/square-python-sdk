@@ -29,16 +29,25 @@ class CatalogObjectBatch(UncheckedBaseModel):
             extra = pydantic.Extra.allow
 
 
+from .catalog_item import CatalogItem  # noqa: E402, I001
+from .catalog_item_option import CatalogItemOption  # noqa: E402, I001
+from .catalog_modifier_list import CatalogModifierList  # noqa: E402, I001
+from .catalog_object import CatalogObject  # noqa: E402, I001
 from .catalog_object_item import CatalogObjectItem  # noqa: E402, I001
 from .catalog_object_item_option import CatalogObjectItemOption  # noqa: E402, I001
 from .catalog_object_modifier_list import CatalogObjectModifierList  # noqa: E402, I001
 from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlan  # noqa: E402, I001
-from .catalog_object import CatalogObject  # noqa: E402, I001
+from .catalog_subscription_plan import CatalogSubscriptionPlan  # noqa: E402, I001
 
 update_forward_refs(
     CatalogObjectBatch,
-    CatalogObjectItemOption=CatalogObjectItemOption,
-    CatalogObjectSubscriptionPlan=CatalogObjectSubscriptionPlan,
+    CatalogItem=CatalogItem,
+    CatalogItemOption=CatalogItemOption,
+    CatalogModifierList=CatalogModifierList,
+    CatalogObject=CatalogObject,
     CatalogObjectItem=CatalogObjectItem,
+    CatalogObjectItemOption=CatalogObjectItemOption,
     CatalogObjectModifierList=CatalogObjectModifierList,
+    CatalogObjectSubscriptionPlan=CatalogObjectSubscriptionPlan,
+    CatalogSubscriptionPlan=CatalogSubscriptionPlan,
 )

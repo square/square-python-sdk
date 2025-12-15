@@ -8,18 +8,10 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.serialization import FieldMetadata
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .catalog_custom_attribute_value import CatalogCustomAttributeValue
-from .catalog_object_type import CatalogObjectType
 from .catalog_v1id import CatalogV1Id
 
 
 class CatalogObjectBase(UncheckedBaseModel):
-    type: CatalogObjectType = pydantic.Field()
-    """
-    The type of this object. Each object type has expected
-    properties expressed in a structured format within its corresponding `*_data` field below.
-    See [CatalogObjectType](#type-catalogobjecttype) for possible values
-    """
-
     id: str = pydantic.Field()
     """
     An identifier to reference this object in the catalog. When a new `CatalogObject`

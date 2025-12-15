@@ -4,19 +4,11 @@ import typing
 
 import typing_extensions
 from ..core.serialization import FieldMetadata
-from ..types.catalog_object_type import CatalogObjectType
 from .catalog_custom_attribute_value import CatalogCustomAttributeValueParams
 from .catalog_v1id import CatalogV1IdParams
 
 
 class CatalogObjectBaseParams(typing_extensions.TypedDict):
-    type: CatalogObjectType
-    """
-    The type of this object. Each object type has expected
-    properties expressed in a structured format within its corresponding `*_data` field below.
-    See [CatalogObjectType](#type-catalogobjecttype) for possible values
-    """
-
     id: str
     """
     An identifier to reference this object in the catalog. When a new `CatalogObject`

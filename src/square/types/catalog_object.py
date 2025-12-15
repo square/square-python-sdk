@@ -4,45 +4,847 @@ from __future__ import annotations
 
 import typing
 
-from .catalog_object_availability_period import CatalogObjectAvailabilityPeriod
-from .catalog_object_category import CatalogObjectCategory
-from .catalog_object_custom_attribute_definition import CatalogObjectCustomAttributeDefinition
-from .catalog_object_discount import CatalogObjectDiscount
-from .catalog_object_image import CatalogObjectImage
-from .catalog_object_item_option_value import CatalogObjectItemOptionValue
-from .catalog_object_item_variation import CatalogObjectItemVariation
-from .catalog_object_measurement_unit import CatalogObjectMeasurementUnit
-from .catalog_object_modifier import CatalogObjectModifier
-from .catalog_object_pricing_rule import CatalogObjectPricingRule
-from .catalog_object_product_set import CatalogObjectProductSet
-from .catalog_object_quick_amounts_settings import CatalogObjectQuickAmountsSettings
-from .catalog_object_subscription_plan_variation import CatalogObjectSubscriptionPlanVariation
-from .catalog_object_tax import CatalogObjectTax
-from .catalog_object_time_period import CatalogObjectTimePeriod
+import pydantic
+import typing_extensions
+from ..core.pydantic_utilities import IS_PYDANTIC_V2, update_forward_refs
+from ..core.serialization import FieldMetadata
+from ..core.unchecked_base_model import UncheckedBaseModel, UnionMetadata
+from .catalog_availability_period import CatalogAvailabilityPeriod
+from .catalog_custom_attribute_definition import CatalogCustomAttributeDefinition
+from .catalog_custom_attribute_value import CatalogCustomAttributeValue
+from .catalog_discount import CatalogDiscount
+from .catalog_image import CatalogImage
+from .catalog_item_option_value import CatalogItemOptionValue
+from .catalog_item_variation import CatalogItemVariation
+from .catalog_measurement_unit import CatalogMeasurementUnit
+from .catalog_modifier import CatalogModifier
+from .catalog_pricing_rule import CatalogPricingRule
+from .catalog_product_set import CatalogProductSet
+from .catalog_quick_amounts_settings import CatalogQuickAmountsSettings
+from .catalog_subscription_plan_variation import CatalogSubscriptionPlanVariation
+from .catalog_tax import CatalogTax
+from .catalog_time_period import CatalogTimePeriod
+from .catalog_v1id import CatalogV1Id
 
-if typing.TYPE_CHECKING:
-    from .catalog_object_item import CatalogObjectItem
-    from .catalog_object_item_option import CatalogObjectItemOption
-    from .catalog_object_modifier_list import CatalogObjectModifierList
-    from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlan
-CatalogObject = typing.Union[
-    "CatalogObjectItem",
-    CatalogObjectImage,
-    CatalogObjectCategory,
-    CatalogObjectItemVariation,
-    CatalogObjectTax,
-    CatalogObjectDiscount,
-    "CatalogObjectModifierList",
-    CatalogObjectModifier,
-    CatalogObjectPricingRule,
-    CatalogObjectProductSet,
-    CatalogObjectTimePeriod,
-    CatalogObjectMeasurementUnit,
-    CatalogObjectSubscriptionPlanVariation,
-    "CatalogObjectItemOption",
-    CatalogObjectItemOptionValue,
-    CatalogObjectCustomAttributeDefinition,
-    CatalogObjectQuickAmountsSettings,
-    "CatalogObjectSubscriptionPlan",
-    CatalogObjectAvailabilityPeriod,
+
+class CatalogObject_Item(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["ITEM"] = "ITEM"
+    item_data: typing.Optional["CatalogItem"] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_Image(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["IMAGE"] = "IMAGE"
+    image_data: typing.Optional[CatalogImage] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_Category(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["CATEGORY"] = "CATEGORY"
+    id: typing.Optional[str] = None
+    ordinal: typing.Optional[int] = None
+    category_data: typing.Optional["CatalogCategory"] = None
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_ItemVariation(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["ITEM_VARIATION"] = "ITEM_VARIATION"
+    item_variation_data: typing.Optional[CatalogItemVariation] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_Tax(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["TAX"] = "TAX"
+    tax_data: typing.Optional[CatalogTax] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_Discount(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["DISCOUNT"] = "DISCOUNT"
+    discount_data: typing.Optional[CatalogDiscount] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_ModifierList(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["MODIFIER_LIST"] = "MODIFIER_LIST"
+    modifier_list_data: typing.Optional["CatalogModifierList"] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_Modifier(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["MODIFIER"] = "MODIFIER"
+    modifier_data: typing.Optional[CatalogModifier] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_PricingRule(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["PRICING_RULE"] = "PRICING_RULE"
+    pricing_rule_data: typing.Optional[CatalogPricingRule] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_ProductSet(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["PRODUCT_SET"] = "PRODUCT_SET"
+    product_set_data: typing.Optional[CatalogProductSet] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_TimePeriod(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["TIME_PERIOD"] = "TIME_PERIOD"
+    time_period_data: typing.Optional[CatalogTimePeriod] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_MeasurementUnit(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["MEASUREMENT_UNIT"] = "MEASUREMENT_UNIT"
+    measurement_unit_data: typing.Optional[CatalogMeasurementUnit] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_SubscriptionPlanVariation(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["SUBSCRIPTION_PLAN_VARIATION"] = "SUBSCRIPTION_PLAN_VARIATION"
+    subscription_plan_variation_data: typing.Optional[CatalogSubscriptionPlanVariation] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_ItemOption(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["ITEM_OPTION"] = "ITEM_OPTION"
+    item_option_data: typing.Optional["CatalogItemOption"] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_ItemOptionVal(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["ITEM_OPTION_VAL"] = "ITEM_OPTION_VAL"
+    item_option_value_data: typing.Optional[CatalogItemOptionValue] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_CustomAttributeDefinition(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["CUSTOM_ATTRIBUTE_DEFINITION"] = "CUSTOM_ATTRIBUTE_DEFINITION"
+    custom_attribute_definition_data: typing.Optional[CatalogCustomAttributeDefinition] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_QuickAmountsSettings(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["QUICK_AMOUNTS_SETTINGS"] = "QUICK_AMOUNTS_SETTINGS"
+    quick_amounts_settings_data: typing.Optional[CatalogQuickAmountsSettings] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_SubscriptionPlan(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["SUBSCRIPTION_PLAN"] = "SUBSCRIPTION_PLAN"
+    subscription_plan_data: typing.Optional["CatalogSubscriptionPlan"] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+class CatalogObject_AvailabilityPeriod(UncheckedBaseModel):
+    """
+    The wrapper object for the catalog entries of a given object type.
+
+    Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to yield the corresponding type of catalog object.
+
+    For example, if `type=ITEM`, the `CatalogObject` instance must have the ITEM-specific data set on the `item_data` attribute. The resulting `CatalogObject` instance is also a `CatalogItem` instance.
+
+    In general, if `type=<OBJECT_TYPE>`, the `CatalogObject` instance must have the `<OBJECT_TYPE>`-specific data set on the `<object_type>_data` attribute. The resulting `CatalogObject` instance is also a `Catalog<ObjectType>` instance.
+
+    For a more detailed discussion of the Catalog data model, please see the
+    [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
+    """
+
+    type: typing.Literal["AVAILABILITY_PERIOD"] = "AVAILABILITY_PERIOD"
+    availability_period_data: typing.Optional[CatalogAvailabilityPeriod] = None
+    id: str
+    updated_at: typing.Optional[str] = None
+    version: typing.Optional[int] = None
+    is_deleted: typing.Optional[bool] = None
+    custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
+    catalog_v1ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
+    ] = None
+    present_at_all_locations: typing.Optional[bool] = None
+    present_at_location_ids: typing.Optional[typing.List[str]] = None
+    absent_at_location_ids: typing.Optional[typing.List[str]] = None
+    image_id: typing.Optional[str] = None
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow
+
+
+CatalogObject = typing_extensions.Annotated[
+    typing.Union[
+        CatalogObject_Item,
+        CatalogObject_Image,
+        CatalogObject_Category,
+        CatalogObject_ItemVariation,
+        CatalogObject_Tax,
+        CatalogObject_Discount,
+        CatalogObject_ModifierList,
+        CatalogObject_Modifier,
+        CatalogObject_PricingRule,
+        CatalogObject_ProductSet,
+        CatalogObject_TimePeriod,
+        CatalogObject_MeasurementUnit,
+        CatalogObject_SubscriptionPlanVariation,
+        CatalogObject_ItemOption,
+        CatalogObject_ItemOptionVal,
+        CatalogObject_CustomAttributeDefinition,
+        CatalogObject_QuickAmountsSettings,
+        CatalogObject_SubscriptionPlan,
+        CatalogObject_AvailabilityPeriod,
+    ],
+    UnionMetadata(discriminant="type"),
 ]
+from .catalog_item import CatalogItem  # noqa: E402, I001
+from .catalog_item_option import CatalogItemOption  # noqa: E402, I001
+from .catalog_modifier_list import CatalogModifierList  # noqa: E402, I001
+from .catalog_object_item_option import CatalogObjectItemOption  # noqa: E402, I001
+from .catalog_object_modifier_list import CatalogObjectModifierList  # noqa: E402, I001
+from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlan  # noqa: E402, I001
+from .catalog_subscription_plan import CatalogSubscriptionPlan  # noqa: E402, I001
+from .catalog_category import CatalogCategory  # noqa: E402, I001
+from .catalog_object_item import CatalogObjectItem  # noqa: E402, I001
+
+update_forward_refs(
+    CatalogObject_Item,
+    CatalogItem=CatalogItem,
+    CatalogItemOption=CatalogItemOption,
+    CatalogModifierList=CatalogModifierList,
+    CatalogObject=CatalogObject,
+    CatalogObjectItemOption=CatalogObjectItemOption,
+    CatalogObjectModifierList=CatalogObjectModifierList,
+    CatalogObjectSubscriptionPlan=CatalogObjectSubscriptionPlan,
+    CatalogSubscriptionPlan=CatalogSubscriptionPlan,
+)
+update_forward_refs(CatalogObject_Category, CatalogCategory=CatalogCategory)
+update_forward_refs(
+    CatalogObject_ModifierList,
+    CatalogItem=CatalogItem,
+    CatalogItemOption=CatalogItemOption,
+    CatalogModifierList=CatalogModifierList,
+    CatalogObject=CatalogObject,
+    CatalogObjectItem=CatalogObjectItem,
+    CatalogObjectItemOption=CatalogObjectItemOption,
+    CatalogObjectSubscriptionPlan=CatalogObjectSubscriptionPlan,
+    CatalogSubscriptionPlan=CatalogSubscriptionPlan,
+)
+update_forward_refs(
+    CatalogObject_ItemOption,
+    CatalogItem=CatalogItem,
+    CatalogItemOption=CatalogItemOption,
+    CatalogModifierList=CatalogModifierList,
+    CatalogObject=CatalogObject,
+    CatalogObjectItem=CatalogObjectItem,
+    CatalogObjectModifierList=CatalogObjectModifierList,
+    CatalogObjectSubscriptionPlan=CatalogObjectSubscriptionPlan,
+    CatalogSubscriptionPlan=CatalogSubscriptionPlan,
+)
+update_forward_refs(
+    CatalogObject_SubscriptionPlan,
+    CatalogItem=CatalogItem,
+    CatalogItemOption=CatalogItemOption,
+    CatalogModifierList=CatalogModifierList,
+    CatalogObject=CatalogObject,
+    CatalogObjectItem=CatalogObjectItem,
+    CatalogObjectItemOption=CatalogObjectItemOption,
+    CatalogObjectModifierList=CatalogObjectModifierList,
+    CatalogSubscriptionPlan=CatalogSubscriptionPlan,
+)

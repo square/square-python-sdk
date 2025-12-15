@@ -30,7 +30,7 @@ class CatalogObjectCategory(UncheckedBaseModel):
     The order of the object within the context of the category.
     """
 
-    type: typing.Literal["CATEGORY"] = "CATEGORY"
+    type: typing.Optional[typing.Literal["CATEGORY"]] = None
     category_data: typing.Optional["CatalogCategory"] = pydantic.Field(default=None)
     """
     Structured data for a `CatalogCategory`, set for CatalogObjects of type `CATEGORY`.
@@ -121,4 +121,4 @@ class CatalogObjectCategory(UncheckedBaseModel):
 
 from .catalog_category import CatalogCategory  # noqa: E402, I001
 
-update_forward_refs(CatalogObjectCategory)
+update_forward_refs(CatalogObjectCategory, CatalogCategory=CatalogCategory)
