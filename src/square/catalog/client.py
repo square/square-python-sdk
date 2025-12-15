@@ -262,34 +262,10 @@ class CatalogClient:
             batches=[
                 {
                     "objects": [
-                        {
-                            "type": "IMAGE",
-                            "id": "#Tea",
-                            "present_at_all_locations": True,
-                        },
-                        {
-                            "type": "IMAGE",
-                            "id": "#Coffee",
-                            "present_at_all_locations": True,
-                        },
-                        {
-                            "type": "ITEM",
-                            "id": "#Beverages",
-                            "present_at_all_locations": True,
-                        },
-                        {
-                            "type": "TAX",
-                            "id": "#SalesTax",
-                            "present_at_all_locations": True,
-                            "tax_data": {
-                                "name": "Sales Tax",
-                                "calculation_phase": "TAX_SUBTOTAL_PHASE",
-                                "inclusion_type": "ADDITIVE",
-                                "percentage": "5.0",
-                                "applies_to_custom_amounts": True,
-                                "enabled": True,
-                            },
-                        },
+                        {"id": "id", "type": "ITEM"},
+                        {"id": "id", "type": "ITEM"},
+                        {"id": "id", "type": "ITEM"},
+                        {"id": "id", "type": "TAX"},
                     ]
                 }
             ],
@@ -1019,34 +995,10 @@ class AsyncCatalogClient:
                 batches=[
                     {
                         "objects": [
-                            {
-                                "type": "IMAGE",
-                                "id": "#Tea",
-                                "present_at_all_locations": True,
-                            },
-                            {
-                                "type": "IMAGE",
-                                "id": "#Coffee",
-                                "present_at_all_locations": True,
-                            },
-                            {
-                                "type": "ITEM",
-                                "id": "#Beverages",
-                                "present_at_all_locations": True,
-                            },
-                            {
-                                "type": "TAX",
-                                "id": "#SalesTax",
-                                "present_at_all_locations": True,
-                                "tax_data": {
-                                    "name": "Sales Tax",
-                                    "calculation_phase": "TAX_SUBTOTAL_PHASE",
-                                    "inclusion_type": "ADDITIVE",
-                                    "percentage": "5.0",
-                                    "applies_to_custom_amounts": True,
-                                    "enabled": True,
-                                },
-                            },
+                            {"id": "id", "type": "ITEM"},
+                            {"id": "id", "type": "ITEM"},
+                            {"id": "id", "type": "ITEM"},
+                            {"id": "id", "type": "TAX"},
                         ]
                     }
                 ],

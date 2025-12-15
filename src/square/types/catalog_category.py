@@ -87,4 +87,4 @@ class CatalogCategory(UncheckedBaseModel):
 
 from .catalog_object_category import CatalogObjectCategory  # noqa: E402, I001
 
-update_forward_refs(CatalogCategory)
+update_forward_refs(CatalogCategory, CatalogObjectCategory=CatalogObjectCategory)

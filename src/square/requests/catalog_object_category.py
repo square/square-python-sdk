@@ -30,7 +30,7 @@ class CatalogObjectCategoryParams(typing_extensions.TypedDict):
     The order of the object within the context of the category.
     """
 
-    type: typing.Literal["CATEGORY"]
+    type: typing_extensions.NotRequired[typing.Literal["CATEGORY"]]
     category_data: typing_extensions.NotRequired["CatalogCategoryParams"]
     """
     Structured data for a `CatalogCategory`, set for CatalogObjects of type `CATEGORY`.
