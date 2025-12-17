@@ -2,4 +2,4 @@
 
 import typing
 
-GetInventoryPhysicalCountRequest = typing.Any
+GetInventoryPhysicalCountRequest = typing.Optional[typing.Any]
