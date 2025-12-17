@@ -2,4 +2,4 @@
 
 import typing
 
-GetMerchantRequest = typing.Any
+GetMerchantRequest = typing.Optional[typing.Any]
