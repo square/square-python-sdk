@@ -2,4 +2,4 @@
 
 import typing
 
-GetTransactionRequest = typing.Any
+GetTransactionRequest = typing.Optional[typing.Any]
