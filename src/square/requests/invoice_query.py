@@ -2,6 +2,7 @@
 
 import typing_extensions
 from .invoice_filter import InvoiceFilterParams
+import typing_extensions
 from .invoice_sort import InvoiceSortParams
 
 

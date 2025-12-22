@@ -2,4 +2,4 @@
 
 import typing
 
-GetInventoryAdjustmentRequest = typing.Any
+GetInventoryAdjustmentRequest = typing.Optional[typing.Any]

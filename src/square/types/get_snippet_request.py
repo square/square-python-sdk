@@ -2,4 +2,4 @@
 
 import typing
 
-GetSnippetRequest = typing.Any
+GetSnippetRequest = typing.Optional[typing.Any]

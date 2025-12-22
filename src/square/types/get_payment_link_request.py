@@ -2,4 +2,4 @@
 
 import typing
 
-GetPaymentLinkRequest = typing.Any
+GetPaymentLinkRequest = typing.Optional[typing.Any]

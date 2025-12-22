@@ -2,4 +2,4 @@
 
 import typing
 
-GetTeamMemberBookingProfileRequest = typing.Any
+GetTeamMemberBookingProfileRequest = typing.Optional[typing.Any]

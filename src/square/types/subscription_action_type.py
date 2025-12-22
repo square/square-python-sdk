@@ -3,5 +3,5 @@
 import typing
 
 SubscriptionActionType = typing.Union[
-    typing.Literal["CANCEL", "PAUSE", "RESUME", "SWAP_PLAN", "CHANGE_BILLING_ANCHOR_DATE", "COMPLETE"], typing.Any
+    typing.Literal["CANCEL", "PAUSE", "RESUME", "SWAP_PLAN", "CHANGE_BILLING_ANCHOR_DATE"], typing.Any
 ]
