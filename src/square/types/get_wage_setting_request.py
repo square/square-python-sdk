@@ -2,4 +2,4 @@
 
 import typing
 
-GetWageSettingRequest = typing.Any
+GetWageSettingRequest = typing.Optional[typing.Any]
