@@ -11,11 +11,7 @@ from .subscription_test_result import SubscriptionTestResult
 
 class TestWebhookSubscriptionResponse(UncheckedBaseModel):
     """
-    Defines the fields that are included in the response body of
-    a request to the [TestWebhookSubscription](api-endpoint:WebhookSubscriptions-TestWebhookSubscription) endpoint.
-
-    Note: If there are errors processing the request, the [SubscriptionTestResult](entity:SubscriptionTestResult) field is not
-    present.
+    Defines the fields that are included in the response body of a request to the TestWebhookSubscription endpoint.
     """
 
     errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
@@ -26,6 +22,26 @@ class TestWebhookSubscriptionResponse(UncheckedBaseModel):
     subscription_test_result: typing.Optional[SubscriptionTestResult] = pydantic.Field(default=None)
     """
     The [SubscriptionTestResult](entity:SubscriptionTestResult).
+    """
+
+    notification_url: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The URL that was used for the webhook notification test.
+    """
+
+    status_code: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    The HTTP status code returned by the notification URL.
+    """
+
+    passes_filter: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether the notification passed any configured filters.
+    """
+
+    payload: typing.Optional[typing.Dict[str, typing.Any]] = pydantic.Field(default=None)
+    """
+    The payload that was sent in the test notification.
     """
 
     if IS_PYDANTIC_V2:

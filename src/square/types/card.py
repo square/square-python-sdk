@@ -33,7 +33,7 @@ class Card(UncheckedBaseModel):
     """
 
     last4: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="last_4")] = pydantic.Field(
-        default=None
+        alias="last_4", default=None
     )
     """
     The last 4 digits of the card number.

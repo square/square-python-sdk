@@ -1,5 +1,6 @@
 [project]
 name = "squareup"
+dynamic = ["version"]
 
 [tool.poetry]
 name = "squareup"

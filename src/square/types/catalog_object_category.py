@@ -30,7 +30,7 @@ class CatalogObjectCategory(UncheckedBaseModel):
     The order of the object within the context of the category.
     """
 
-    type: typing.Literal["CATEGORY"] = "CATEGORY"
+    type: typing.Optional[typing.Literal["CATEGORY"]] = None
     category_data: typing.Optional["CatalogCategory"] = pydantic.Field(default=None)
     """
     Structured data for a `CatalogCategory`, set for CatalogObjects of type `CATEGORY`.
@@ -78,7 +78,7 @@ class CatalogObjectCategory(UncheckedBaseModel):
 
     catalog_v1ids: typing_extensions.Annotated[
         typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
     """
     The Connect v1 IDs for this object at each location where it is present, where they
     differ from the object's Connect V2 ID. The field will only be present for objects that
@@ -121,4 +121,4 @@ class CatalogObjectCategory(UncheckedBaseModel):
 
 from .catalog_category import CatalogCategory  # noqa: E402, I001
 
-update_forward_refs(CatalogObjectCategory)
+update_forward_refs(CatalogObjectCategory, CatalogCategory=CatalogCategory)

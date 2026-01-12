@@ -4,45 +4,375 @@ from __future__ import annotations
 
 import typing
 
-from .catalog_object_availability_period import CatalogObjectAvailabilityPeriodParams
-from .catalog_object_category import CatalogObjectCategoryParams
-from .catalog_object_custom_attribute_definition import CatalogObjectCustomAttributeDefinitionParams
-from .catalog_object_discount import CatalogObjectDiscountParams
-from .catalog_object_image import CatalogObjectImageParams
-from .catalog_object_item_option_value import CatalogObjectItemOptionValueParams
-from .catalog_object_item_variation import CatalogObjectItemVariationParams
-from .catalog_object_measurement_unit import CatalogObjectMeasurementUnitParams
-from .catalog_object_modifier import CatalogObjectModifierParams
-from .catalog_object_pricing_rule import CatalogObjectPricingRuleParams
-from .catalog_object_product_set import CatalogObjectProductSetParams
-from .catalog_object_quick_amounts_settings import CatalogObjectQuickAmountsSettingsParams
-from .catalog_object_subscription_plan_variation import CatalogObjectSubscriptionPlanVariationParams
-from .catalog_object_tax import CatalogObjectTaxParams
-from .catalog_object_time_period import CatalogObjectTimePeriodParams
+import typing_extensions
+from ..core.serialization import FieldMetadata
+from .catalog_availability_period import CatalogAvailabilityPeriodParams
+from .catalog_custom_attribute_definition import CatalogCustomAttributeDefinitionParams
+from .catalog_custom_attribute_value import CatalogCustomAttributeValueParams
+from .catalog_discount import CatalogDiscountParams
+from .catalog_image import CatalogImageParams
+from .catalog_item_option_value import CatalogItemOptionValueParams
+from .catalog_item_variation import CatalogItemVariationParams
+from .catalog_measurement_unit import CatalogMeasurementUnitParams
+from .catalog_modifier import CatalogModifierParams
+from .catalog_pricing_rule import CatalogPricingRuleParams
+from .catalog_product_set import CatalogProductSetParams
+from .catalog_quick_amounts_settings import CatalogQuickAmountsSettingsParams
+from .catalog_subscription_plan_variation import CatalogSubscriptionPlanVariationParams
+from .catalog_tax import CatalogTaxParams
+from .catalog_time_period import CatalogTimePeriodParams
+from .catalog_v1id import CatalogV1IdParams
 
 if typing.TYPE_CHECKING:
-    from .catalog_object_item import CatalogObjectItemParams
-    from .catalog_object_item_option import CatalogObjectItemOptionParams
-    from .catalog_object_modifier_list import CatalogObjectModifierListParams
-    from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlanParams
+    from .catalog_category import CatalogCategoryParams
+    from .catalog_item import CatalogItemParams
+    from .catalog_item_option import CatalogItemOptionParams
+    from .catalog_modifier_list import CatalogModifierListParams
+    from .catalog_subscription_plan import CatalogSubscriptionPlanParams
+
+
+class CatalogObject_ItemParams(typing_extensions.TypedDict):
+    type: typing.Literal["ITEM"]
+    item_data: typing_extensions.NotRequired["CatalogItemParams"]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_ImageParams(typing_extensions.TypedDict):
+    type: typing.Literal["IMAGE"]
+    image_data: typing_extensions.NotRequired[CatalogImageParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_CategoryParams(typing_extensions.TypedDict):
+    type: typing.Literal["CATEGORY"]
+    id: typing_extensions.NotRequired[str]
+    ordinal: typing_extensions.NotRequired[typing.Optional[int]]
+    category_data: typing_extensions.NotRequired["CatalogCategoryParams"]
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_ItemVariationParams(typing_extensions.TypedDict):
+    type: typing.Literal["ITEM_VARIATION"]
+    item_variation_data: typing_extensions.NotRequired[CatalogItemVariationParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_TaxParams(typing_extensions.TypedDict):
+    type: typing.Literal["TAX"]
+    tax_data: typing_extensions.NotRequired[CatalogTaxParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_DiscountParams(typing_extensions.TypedDict):
+    type: typing.Literal["DISCOUNT"]
+    discount_data: typing_extensions.NotRequired[CatalogDiscountParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_ModifierListParams(typing_extensions.TypedDict):
+    type: typing.Literal["MODIFIER_LIST"]
+    modifier_list_data: typing_extensions.NotRequired["CatalogModifierListParams"]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_ModifierParams(typing_extensions.TypedDict):
+    type: typing.Literal["MODIFIER"]
+    modifier_data: typing_extensions.NotRequired[CatalogModifierParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_PricingRuleParams(typing_extensions.TypedDict):
+    type: typing.Literal["PRICING_RULE"]
+    pricing_rule_data: typing_extensions.NotRequired[CatalogPricingRuleParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_ProductSetParams(typing_extensions.TypedDict):
+    type: typing.Literal["PRODUCT_SET"]
+    product_set_data: typing_extensions.NotRequired[CatalogProductSetParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_TimePeriodParams(typing_extensions.TypedDict):
+    type: typing.Literal["TIME_PERIOD"]
+    time_period_data: typing_extensions.NotRequired[CatalogTimePeriodParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_MeasurementUnitParams(typing_extensions.TypedDict):
+    type: typing.Literal["MEASUREMENT_UNIT"]
+    measurement_unit_data: typing_extensions.NotRequired[CatalogMeasurementUnitParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_SubscriptionPlanVariationParams(typing_extensions.TypedDict):
+    type: typing.Literal["SUBSCRIPTION_PLAN_VARIATION"]
+    subscription_plan_variation_data: typing_extensions.NotRequired[CatalogSubscriptionPlanVariationParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_ItemOptionParams(typing_extensions.TypedDict):
+    type: typing.Literal["ITEM_OPTION"]
+    item_option_data: typing_extensions.NotRequired["CatalogItemOptionParams"]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_ItemOptionValParams(typing_extensions.TypedDict):
+    type: typing.Literal["ITEM_OPTION_VAL"]
+    item_option_value_data: typing_extensions.NotRequired[CatalogItemOptionValueParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_CustomAttributeDefinitionParams(typing_extensions.TypedDict):
+    type: typing.Literal["CUSTOM_ATTRIBUTE_DEFINITION"]
+    custom_attribute_definition_data: typing_extensions.NotRequired[CatalogCustomAttributeDefinitionParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_QuickAmountsSettingsParams(typing_extensions.TypedDict):
+    type: typing.Literal["QUICK_AMOUNTS_SETTINGS"]
+    quick_amounts_settings_data: typing_extensions.NotRequired[CatalogQuickAmountsSettingsParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_SubscriptionPlanParams(typing_extensions.TypedDict):
+    type: typing.Literal["SUBSCRIPTION_PLAN"]
+    subscription_plan_data: typing_extensions.NotRequired["CatalogSubscriptionPlanParams"]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
+class CatalogObject_AvailabilityPeriodParams(typing_extensions.TypedDict):
+    type: typing.Literal["AVAILABILITY_PERIOD"]
+    availability_period_data: typing_extensions.NotRequired[CatalogAvailabilityPeriodParams]
+    id: str
+    updated_at: typing_extensions.NotRequired[str]
+    version: typing_extensions.NotRequired[int]
+    is_deleted: typing_extensions.NotRequired[bool]
+    custom_attribute_values: typing_extensions.NotRequired[typing.Dict[str, CatalogCustomAttributeValueParams]]
+    catalog_v1ids: typing_extensions.NotRequired[
+        typing_extensions.Annotated[typing.Sequence[CatalogV1IdParams], FieldMetadata(alias="catalog_v1_ids")]
+    ]
+    present_at_all_locations: typing_extensions.NotRequired[bool]
+    present_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    absent_at_location_ids: typing_extensions.NotRequired[typing.Sequence[str]]
+    image_id: typing_extensions.NotRequired[str]
+
+
 CatalogObjectParams = typing.Union[
-    "CatalogObjectItemParams",
-    CatalogObjectImageParams,
-    CatalogObjectCategoryParams,
-    CatalogObjectItemVariationParams,
-    CatalogObjectTaxParams,
-    CatalogObjectDiscountParams,
-    "CatalogObjectModifierListParams",
-    CatalogObjectModifierParams,
-    CatalogObjectPricingRuleParams,
-    CatalogObjectProductSetParams,
-    CatalogObjectTimePeriodParams,
-    CatalogObjectMeasurementUnitParams,
-    CatalogObjectSubscriptionPlanVariationParams,
-    "CatalogObjectItemOptionParams",
-    CatalogObjectItemOptionValueParams,
-    CatalogObjectCustomAttributeDefinitionParams,
-    CatalogObjectQuickAmountsSettingsParams,
-    "CatalogObjectSubscriptionPlanParams",
-    CatalogObjectAvailabilityPeriodParams,
+    CatalogObject_ItemParams,
+    CatalogObject_ImageParams,
+    CatalogObject_CategoryParams,
+    CatalogObject_ItemVariationParams,
+    CatalogObject_TaxParams,
+    CatalogObject_DiscountParams,
+    CatalogObject_ModifierListParams,
+    CatalogObject_ModifierParams,
+    CatalogObject_PricingRuleParams,
+    CatalogObject_ProductSetParams,
+    CatalogObject_TimePeriodParams,
+    CatalogObject_MeasurementUnitParams,
+    CatalogObject_SubscriptionPlanVariationParams,
+    CatalogObject_ItemOptionParams,
+    CatalogObject_ItemOptionValParams,
+    CatalogObject_CustomAttributeDefinitionParams,
+    CatalogObject_QuickAmountsSettingsParams,
+    CatalogObject_SubscriptionPlanParams,
+    CatalogObject_AvailabilityPeriodParams,
 ]
