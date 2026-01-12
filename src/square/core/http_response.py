@@ -4,31 +4,20 @@ from typing import Dict, Generic, TypeVar
 
 import httpx
 
-# Generic to represent the underlying type of the data wrapped by the HTTP response.
 T = TypeVar("T")
 
 
-class BaseHttpResponse:
-    """Minimalist HTTP response wrapper that exposes response headers."""
-
+class HttpResponse(Generic[T]):
     _response: httpx.Response
+    _data: T
 
-    def __init__(self, response: httpx.Response):
+    def __init__(self, response: httpx.Response, data: T):
         self._response = response
+        self._data = data
 
     @property
     def headers(self) -> Dict[str, str]:
         return dict(self._response.headers)
-
-
-class HttpResponse(Generic[T], BaseHttpResponse):
-    """HTTP response wrapper that exposes response headers and data."""
-
-    _data: T
-
-    def __init__(self, response: httpx.Response, data: T):
-        super().__init__(response)
-        self._data = data
 
     @property
     def data(self) -> T:
@@ -38,14 +27,17 @@ class HttpResponse(Generic[T], BaseHttpResponse):
         self._response.close()
 
 
-class AsyncHttpResponse(Generic[T], BaseHttpResponse):
-    """HTTP response wrapper that exposes response headers and data."""
-
+class AsyncHttpResponse(Generic[T]):
+    _response: httpx.Response
     _data: T
 
     def __init__(self, response: httpx.Response, data: T):
-        super().__init__(response)
+        self._response = response
         self._data = data
+
+    @property
+    def headers(self) -> Dict[str, str]:
+        return dict(self._response.headers)
 
     @property
     def data(self) -> T:

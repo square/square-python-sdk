@@ -2,4 +2,4 @@
 
 import typing
 
-DeviceAttributesDeviceType = typing.Union[typing.Literal["TERMINAL", "HANDHELD"], typing.Any]
+DeviceAttributesDeviceType = typing.Literal["TERMINAL"]
