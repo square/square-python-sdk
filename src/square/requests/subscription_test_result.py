@@ -7,8 +7,7 @@ import typing_extensions
 
 class SubscriptionTestResultParams(typing_extensions.TypedDict):
     """
-    Represents the details of a webhook subscription, including notification URL,
-    event types, and signature key.
+    Represents the result of testing a webhook subscription. Note: The actual API returns these fields at the root level of TestWebhookSubscriptionResponse, not nested under this object.
     """
 
     id: typing_extensions.NotRequired[str]
@@ -18,12 +17,12 @@ class SubscriptionTestResultParams(typing_extensions.TypedDict):
 
     status_code: typing_extensions.NotRequired[typing.Optional[int]]
     """
-    The status code returned by the subscription notification URL.
+    The HTTP status code returned by the notification URL.
     """
 
-    payload: typing_extensions.NotRequired[typing.Optional[str]]
+    payload: typing_extensions.NotRequired[typing.Optional[typing.Dict[str, typing.Any]]]
     """
-    An object containing the payload of the test event. For example, a `payment.created` event.
+    The payload that was sent in the test notification.
     """
 
     created_at: typing_extensions.NotRequired[str]
@@ -36,4 +35,14 @@ class SubscriptionTestResultParams(typing_extensions.TypedDict):
     """
     The timestamp of when the subscription was updated, in RFC 3339 format. For example, "2016-09-04T23:59:33.123Z".
     Because a subscription test result is unique, this field is the same as the `created_at` field.
+    """
+
+    notification_url: typing_extensions.NotRequired[str]
+    """
+    The URL that was used for the webhook notification test.
+    """
+
+    passes_filter: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    Whether the notification passed any configured filters.
     """

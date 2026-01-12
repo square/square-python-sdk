@@ -9,8 +9,7 @@ from ..core.unchecked_base_model import UncheckedBaseModel
 
 class SubscriptionTestResult(UncheckedBaseModel):
     """
-    Represents the details of a webhook subscription, including notification URL,
-    event types, and signature key.
+    Represents the result of testing a webhook subscription. Note: The actual API returns these fields at the root level of TestWebhookSubscriptionResponse, not nested under this object.
     """
 
     id: typing.Optional[str] = pydantic.Field(default=None)
@@ -20,12 +19,12 @@ class SubscriptionTestResult(UncheckedBaseModel):
 
     status_code: typing.Optional[int] = pydantic.Field(default=None)
     """
-    The status code returned by the subscription notification URL.
+    The HTTP status code returned by the notification URL.
     """
 
-    payload: typing.Optional[str] = pydantic.Field(default=None)
+    payload: typing.Optional[typing.Dict[str, typing.Any]] = pydantic.Field(default=None)
     """
-    An object containing the payload of the test event. For example, a `payment.created` event.
+    The payload that was sent in the test notification.
     """
 
     created_at: typing.Optional[str] = pydantic.Field(default=None)
@@ -38,6 +37,16 @@ class SubscriptionTestResult(UncheckedBaseModel):
     """
     The timestamp of when the subscription was updated, in RFC 3339 format. For example, "2016-09-04T23:59:33.123Z".
     Because a subscription test result is unique, this field is the same as the `created_at` field.
+    """
+
+    notification_url: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The URL that was used for the webhook notification test.
+    """
+
+    passes_filter: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether the notification passed any configured filters.
     """
 
     if IS_PYDANTIC_V2:
