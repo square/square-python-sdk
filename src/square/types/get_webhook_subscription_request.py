@@ -2,4 +2,4 @@
 
 import typing
 
-GetWebhookSubscriptionRequest = typing.Any
+GetWebhookSubscriptionRequest = typing.Optional[typing.Any]

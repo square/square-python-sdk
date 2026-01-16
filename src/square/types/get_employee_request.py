@@ -2,4 +2,4 @@
 
 import typing
 
-GetEmployeeRequest = typing.Any
+GetEmployeeRequest = typing.Optional[typing.Any]
