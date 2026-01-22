@@ -30,7 +30,6 @@ if typing.TYPE_CHECKING:
     from .locations.client import AsyncLocationsClient, LocationsClient
     from .loyalty.client import AsyncLoyaltyClient, LoyaltyClient
     from .merchants.client import AsyncMerchantsClient, MerchantsClient
-    from .mobile.client import AsyncMobileClient, MobileClient
     from .o_auth.client import AsyncOAuthClient, OAuthClient
     from .orders.client import AsyncOrdersClient, OrdersClient
     from .payments.client import AsyncPaymentsClient, PaymentsClient
@@ -149,7 +148,6 @@ class Square:
         self._terminal: typing.Optional[TerminalClient] = None
         self._transfer_orders: typing.Optional[TransferOrdersClient] = None
         self._vendors: typing.Optional[VendorsClient] = None
-        self._mobile: typing.Optional[MobileClient] = None
         self._cash_drawers: typing.Optional[CashDrawersClient] = None
         self._webhooks: typing.Optional[WebhooksClient] = None
 
@@ -418,14 +416,6 @@ class Square:
         return self._vendors
 
     @property
-    def mobile(self):
-        if self._mobile is None:
-            from .mobile.client import MobileClient  # noqa: E402
-
-            self._mobile = MobileClient(client_wrapper=self._client_wrapper)
-        return self._mobile
-
-    @property
     def cash_drawers(self):
         if self._cash_drawers is None:
             from .cash_drawers.client import CashDrawersClient  # noqa: E402
@@ -543,7 +533,6 @@ class AsyncSquare:
         self._terminal: typing.Optional[AsyncTerminalClient] = None
         self._transfer_orders: typing.Optional[AsyncTransferOrdersClient] = None
         self._vendors: typing.Optional[AsyncVendorsClient] = None
-        self._mobile: typing.Optional[AsyncMobileClient] = None
         self._cash_drawers: typing.Optional[AsyncCashDrawersClient] = None
         self._webhooks: typing.Optional[AsyncWebhooksClient] = None
 
@@ -810,14 +799,6 @@ class AsyncSquare:
 
             self._vendors = AsyncVendorsClient(client_wrapper=self._client_wrapper)
         return self._vendors
-
-    @property
-    def mobile(self):
-        if self._mobile is None:
-            from .mobile.client import AsyncMobileClient  # noqa: E402
-
-            self._mobile = AsyncMobileClient(client_wrapper=self._client_wrapper)
-        return self._mobile
 
     @property
     def cash_drawers(self):
