@@ -18489,53 +18489,6 @@ information.
 </dl>
 </details>
 
-## Mobile
-<details><summary><code>client.mobile.<a href="src/square/mobile/client.py">authorization_code</a>() -> AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from square import Square
-
-client = Square(
-    token="YOUR_TOKEN",
-)
-client.mobile.authorization_code()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 ## Bookings CustomAttributeDefinitions
 <details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">list</a>(...) -> AsyncPager[
     CustomAttributeDefinition, ListBookingCustomAttributeDefinitionsResponse
