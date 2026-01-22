@@ -8,18 +8,10 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.serialization import FieldMetadata
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .catalog_custom_attribute_value import CatalogCustomAttributeValue
-from .catalog_object_type import CatalogObjectType
 from .catalog_v1id import CatalogV1Id
 
 
 class CatalogObjectBase(UncheckedBaseModel):
-    type: CatalogObjectType = pydantic.Field()
-    """
-    The type of this object. Each object type has expected
-    properties expressed in a structured format within its corresponding `*_data` field below.
-    See [CatalogObjectType](#type-catalogobjecttype) for possible values
-    """
-
     id: str = pydantic.Field()
     """
     An identifier to reference this object in the catalog. When a new `CatalogObject`
@@ -73,7 +65,7 @@ class CatalogObjectBase(UncheckedBaseModel):
 
     catalog_v1ids: typing_extensions.Annotated[
         typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
     """
     The Connect v1 IDs for this object at each location where it is present, where they
     differ from the object's Connect V2 ID. The field will only be present for objects that

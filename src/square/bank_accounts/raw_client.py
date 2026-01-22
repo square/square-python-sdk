@@ -11,9 +11,14 @@ from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.unchecked_base_model import construct_type
 from ..types.bank_account import BankAccount
+from ..types.create_bank_account_response import CreateBankAccountResponse
+from ..types.disable_bank_account_response import DisableBankAccountResponse
 from ..types.get_bank_account_by_v1id_response import GetBankAccountByV1IdResponse
 from ..types.get_bank_account_response import GetBankAccountResponse
 from ..types.list_bank_accounts_response import ListBankAccountsResponse
+
+# this is used as the default value for optional parameters
+OMIT = typing.cast(typing.Any, ...)
 
 
 class RawBankAccountsClient:
@@ -26,6 +31,7 @@ class RawBankAccountsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
+        customer_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SyncPager[BankAccount, ListBankAccountsResponse]:
         """
@@ -49,6 +55,10 @@ class RawBankAccountsClient:
             Location ID. You can specify this optional filter
             to retrieve only the linked bank accounts belonging to a specific location.
 
+        customer_id : typing.Optional[str]
+            Customer ID. You can specify this optional filter
+            to retrieve only the linked bank accounts belonging to a specific customer.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -64,6 +74,7 @@ class RawBankAccountsClient:
                 "cursor": cursor,
                 "limit": limit,
                 "location_id": location_id,
+                "customer_id": customer_id,
             },
             request_options=request_options,
         )
@@ -83,9 +94,71 @@ class RawBankAccountsClient:
                     cursor=_parsed_next,
                     limit=limit,
                     location_id=location_id,
+                    customer_id=customer_id,
                     request_options=request_options,
                 )
                 return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_bank_account(
+        self,
+        *,
+        idempotency_key: str,
+        source_id: str,
+        customer_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[CreateBankAccountResponse]:
+        """
+        Store a bank account on file for a square account
+
+        Parameters
+        ----------
+        idempotency_key : str
+            Unique ID. For more information, see the
+            [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+
+        source_id : str
+            The ID of the source that represents the bank account information to be stored. This field
+            accepts the payment token created by WebSDK
+
+        customer_id : typing.Optional[str]
+            The ID of the customer associated with the bank account to be stored.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[CreateBankAccountResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/bank-accounts",
+            method="POST",
+            json={
+                "idempotency_key": idempotency_key,
+                "source_id": source_id,
+                "customer_id": customer_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CreateBankAccountResponse,
+                    construct_type(
+                        type_=CreateBankAccountResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -135,8 +208,7 @@ class RawBankAccountsClient:
         self, bank_account_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[GetBankAccountResponse]:
         """
-        Returns details of a [BankAccount](entity:BankAccount)
-        linked to a Square account.
+        Retrieve details of a [BankAccount](entity:BankAccount) bank account linked to a Square account.
 
         Parameters
         ----------
@@ -171,6 +243,45 @@ class RawBankAccountsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def disable_bank_account(
+        self, bank_account_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[DisableBankAccountResponse]:
+        """
+        Disable a bank account.
+
+        Parameters
+        ----------
+        bank_account_id : str
+            The ID of the bank account to disable.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[DisableBankAccountResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"v2/bank-accounts/{jsonable_encoder(bank_account_id)}/disable",
+            method="POST",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DisableBankAccountResponse,
+                    construct_type(
+                        type_=DisableBankAccountResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
 
 class AsyncRawBankAccountsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -182,6 +293,7 @@ class AsyncRawBankAccountsClient:
         cursor: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         location_id: typing.Optional[str] = None,
+        customer_id: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncPager[BankAccount, ListBankAccountsResponse]:
         """
@@ -205,6 +317,10 @@ class AsyncRawBankAccountsClient:
             Location ID. You can specify this optional filter
             to retrieve only the linked bank accounts belonging to a specific location.
 
+        customer_id : typing.Optional[str]
+            Customer ID. You can specify this optional filter
+            to retrieve only the linked bank accounts belonging to a specific customer.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -220,6 +336,7 @@ class AsyncRawBankAccountsClient:
                 "cursor": cursor,
                 "limit": limit,
                 "location_id": location_id,
+                "customer_id": customer_id,
             },
             request_options=request_options,
         )
@@ -241,10 +358,72 @@ class AsyncRawBankAccountsClient:
                         cursor=_parsed_next,
                         limit=limit,
                         location_id=location_id,
+                        customer_id=customer_id,
                         request_options=request_options,
                     )
 
                 return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_bank_account(
+        self,
+        *,
+        idempotency_key: str,
+        source_id: str,
+        customer_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[CreateBankAccountResponse]:
+        """
+        Store a bank account on file for a square account
+
+        Parameters
+        ----------
+        idempotency_key : str
+            Unique ID. For more information, see the
+            [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+
+        source_id : str
+            The ID of the source that represents the bank account information to be stored. This field
+            accepts the payment token created by WebSDK
+
+        customer_id : typing.Optional[str]
+            The ID of the customer associated with the bank account to be stored.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[CreateBankAccountResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/bank-accounts",
+            method="POST",
+            json={
+                "idempotency_key": idempotency_key,
+                "source_id": source_id,
+                "customer_id": customer_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CreateBankAccountResponse,
+                    construct_type(
+                        type_=CreateBankAccountResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -294,8 +473,7 @@ class AsyncRawBankAccountsClient:
         self, bank_account_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[GetBankAccountResponse]:
         """
-        Returns details of a [BankAccount](entity:BankAccount)
-        linked to a Square account.
+        Retrieve details of a [BankAccount](entity:BankAccount) bank account linked to a Square account.
 
         Parameters
         ----------
@@ -321,6 +499,45 @@ class AsyncRawBankAccountsClient:
                     GetBankAccountResponse,
                     construct_type(
                         type_=GetBankAccountResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def disable_bank_account(
+        self, bank_account_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[DisableBankAccountResponse]:
+        """
+        Disable a bank account.
+
+        Parameters
+        ----------
+        bank_account_id : str
+            The ID of the bank account to disable.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[DisableBankAccountResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"v2/bank-accounts/{jsonable_encoder(bank_account_id)}/disable",
+            method="POST",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DisableBankAccountResponse,
+                    construct_type(
+                        type_=DisableBankAccountResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

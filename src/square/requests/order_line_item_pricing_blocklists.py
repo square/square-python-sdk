@@ -4,6 +4,9 @@ import typing
 
 import typing_extensions
 from .order_line_item_pricing_blocklists_blocked_discount import OrderLineItemPricingBlocklistsBlockedDiscountParams
+from .order_line_item_pricing_blocklists_blocked_service_charge import (
+    OrderLineItemPricingBlocklistsBlockedServiceChargeParams,
+)
 from .order_line_item_pricing_blocklists_blocked_tax import OrderLineItemPricingBlocklistsBlockedTaxParams
 
 
@@ -30,4 +33,14 @@ class OrderLineItemPricingBlocklistsParams(typing_extensions.TypedDict):
     A list of taxes blocked from applying to the line item.
     Taxes can be blocked by the `tax_uid` (for ad hoc taxes) or
     the `tax_catalog_object_id` (for catalog taxes).
+    """
+
+    blocked_service_charges: typing_extensions.NotRequired[
+        typing.Optional[typing.Sequence[OrderLineItemPricingBlocklistsBlockedServiceChargeParams]]
+    ]
+    """
+    A list of service charges blocked from applying to the line item.
+    Service charges can be blocked by the `service_charge_uid` (for ad hoc
+    service charges) or the `service_charge_catalog_object_id` (for catalog
+    service charges).
     """

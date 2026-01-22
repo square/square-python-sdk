@@ -118,6 +118,11 @@ class BankAccount(UncheckedBaseModel):
     For example "Bank of America".
     """
 
+    customer_id: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The ID of the customer who owns the bank account
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

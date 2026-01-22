@@ -3,6 +3,7 @@
 import typing
 
 import typing_extensions
+from ..types.catalog_modifier_toggle_override_type import CatalogModifierToggleOverrideType
 
 
 class CatalogModifierOverrideParams(typing_extensions.TypedDict):
@@ -20,5 +21,21 @@ class CatalogModifierOverrideParams(typing_extensions.TypedDict):
     __Deprecated__: Use `on_by_default_override` instead.
     """
 
-    hidden_online_override: typing_extensions.NotRequired[typing.Any]
-    on_by_default_override: typing_extensions.NotRequired[typing.Any]
+    hidden_online_override: typing_extensions.NotRequired[CatalogModifierToggleOverrideType]
+    """
+    If `YES`, this setting overrides the `hidden_online` setting on the `CatalogModifier` object,
+    and the modifier is always hidden from online sales channels.
+    If `NO`, the modifier is not hidden. It is always visible in online sales channels for this catalog item.
+    `NOT_SET` means the `hidden_online` setting on the `CatalogModifier` object is obeyed.
+    See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+    """
+
+    on_by_default_override: typing_extensions.NotRequired[CatalogModifierToggleOverrideType]
+    """
+    If `YES`, this setting overrides the `on_by_default` setting on the `CatalogModifier` object,
+    and the modifier is always selected by default for the catalog item.
+    
+    If `NO`, the modifier is not selected by default for this catalog item.
+    `NOT_SET` means the `on_by_default` setting on the `CatalogModifier` object is obeyed.
+    See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+    """

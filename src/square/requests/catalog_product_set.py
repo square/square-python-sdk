@@ -31,7 +31,7 @@ class CatalogProductSetParams(typing_extensions.TypedDict):
     
     Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
     
-    Max: 500 catalog object IDs.
+    Max: 5000 catalog object IDs.
     """
 
     product_ids_all: typing_extensions.NotRequired[typing.Optional[typing.Sequence[str]]]
@@ -41,7 +41,7 @@ class CatalogProductSetParams(typing_extensions.TypedDict):
     
     Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
     
-    Max: 500 catalog object IDs.
+    Max: 5000 catalog object IDs.
     """
 
     quantity_exact: typing_extensions.NotRequired[typing.Optional[int]]

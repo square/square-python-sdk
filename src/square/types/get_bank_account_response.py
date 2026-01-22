@@ -14,14 +14,14 @@ class GetBankAccountResponse(UncheckedBaseModel):
     Response object returned by `GetBankAccount`.
     """
 
-    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
-    """
-    Information on errors encountered during the request.
-    """
-
     bank_account: typing.Optional[BankAccount] = pydantic.Field(default=None)
     """
     The requested `BankAccount` object.
+    """
+
+    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
+    """
+    Information on errors encountered during the request.
     """
 
     if IS_PYDANTIC_V2:

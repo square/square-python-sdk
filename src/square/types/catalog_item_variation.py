@@ -169,6 +169,14 @@ class CatalogItemVariation(UncheckedBaseModel):
     another unit.
     """
 
+    kitchen_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    (Optional) Name that the restaurant wants to display to their kitchen workers
+    instead of the customer-facing name.
+    e.g., customer name might be "Mega-Jumbo Triplesized" and the
+    kitchen name is "Large container"
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

@@ -56,6 +56,11 @@ class CatalogItem(UncheckedBaseModel):
     The ID of the item's category, if any. Deprecated since 2023-12-13. Use `CatalogItem.categories`, instead.
     """
 
+    buyer_facing_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The override to a product name to display to users
+    """
+
     tax_ids: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
     A set of IDs indicating the taxes enabled for
@@ -169,6 +174,14 @@ class CatalogItem(UncheckedBaseModel):
     A server-generated plaintext version of the `description_html` field, without formatting tags.
     """
 
+    kitchen_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    (Optional) Name that the restaurant wants to display to their kitchen workers
+    instead of the customer-facing name.
+    e.g., customer name might be "Big John's Mega Burger" and the
+    kitchen name is "12oz beef burger"
+    """
+
     channels: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
     A list of IDs representing channels, such as a Square Online site, where the item can be made visible or available.
@@ -210,17 +223,27 @@ class CatalogItem(UncheckedBaseModel):
             extra = pydantic.Extra.allow
 
 
-from .catalog_object_category import CatalogObjectCategory  # noqa: E402, I001
+from .catalog_item_option import CatalogItemOption  # noqa: E402, I001
+from .catalog_modifier_list import CatalogModifierList  # noqa: E402, I001
+from .catalog_object import CatalogObject  # noqa: E402, I001
 from .catalog_object_item import CatalogObjectItem  # noqa: E402, I001
 from .catalog_object_item_option import CatalogObjectItemOption  # noqa: E402, I001
 from .catalog_object_modifier_list import CatalogObjectModifierList  # noqa: E402, I001
 from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlan  # noqa: E402, I001
-from .catalog_object import CatalogObject  # noqa: E402, I001
+from .catalog_subscription_plan import CatalogSubscriptionPlan  # noqa: E402, I001
+from .catalog_category import CatalogCategory  # noqa: E402, I001
+from .catalog_object_category import CatalogObjectCategory  # noqa: E402, I001
 
 update_forward_refs(
     CatalogItem,
-    CatalogObjectItemOption=CatalogObjectItemOption,
-    CatalogObjectSubscriptionPlan=CatalogObjectSubscriptionPlan,
+    CatalogCategory=CatalogCategory,
+    CatalogItemOption=CatalogItemOption,
+    CatalogModifierList=CatalogModifierList,
+    CatalogObject=CatalogObject,
+    CatalogObjectCategory=CatalogObjectCategory,
     CatalogObjectItem=CatalogObjectItem,
+    CatalogObjectItemOption=CatalogObjectItemOption,
     CatalogObjectModifierList=CatalogObjectModifierList,
+    CatalogObjectSubscriptionPlan=CatalogObjectSubscriptionPlan,
+    CatalogSubscriptionPlan=CatalogSubscriptionPlan,
 )

@@ -9,11 +9,7 @@ from .subscription_test_result import SubscriptionTestResultParams
 
 class TestWebhookSubscriptionResponseParams(typing_extensions.TypedDict):
     """
-    Defines the fields that are included in the response body of
-    a request to the [TestWebhookSubscription](api-endpoint:WebhookSubscriptions-TestWebhookSubscription) endpoint.
-
-    Note: If there are errors processing the request, the [SubscriptionTestResult](entity:SubscriptionTestResult) field is not
-    present.
+    Defines the fields that are included in the response body of a request to the TestWebhookSubscription endpoint.
     """
 
     errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
@@ -24,4 +20,24 @@ class TestWebhookSubscriptionResponseParams(typing_extensions.TypedDict):
     subscription_test_result: typing_extensions.NotRequired[SubscriptionTestResultParams]
     """
     The [SubscriptionTestResult](entity:SubscriptionTestResult).
+    """
+
+    notification_url: typing_extensions.NotRequired[str]
+    """
+    The URL that was used for the webhook notification test.
+    """
+
+    status_code: typing_extensions.NotRequired[typing.Optional[int]]
+    """
+    The HTTP status code returned by the notification URL.
+    """
+
+    passes_filter: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    Whether the notification passed any configured filters.
+    """
+
+    payload: typing_extensions.NotRequired[typing.Optional[typing.Dict[str, typing.Any]]]
+    """
+    The payload that was sent in the test notification.
     """

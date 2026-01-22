@@ -58,6 +58,11 @@ class CatalogItemParams(typing_extensions.TypedDict):
     The ID of the item's category, if any. Deprecated since 2023-12-13. Use `CatalogItem.categories`, instead.
     """
 
+    buyer_facing_name: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    The override to a product name to display to users
+    """
+
     tax_ids: typing_extensions.NotRequired[typing.Optional[typing.Sequence[str]]]
     """
     A set of IDs indicating the taxes enabled for
@@ -171,6 +176,14 @@ class CatalogItemParams(typing_extensions.TypedDict):
     description_plaintext: typing_extensions.NotRequired[str]
     """
     A server-generated plaintext version of the `description_html` field, without formatting tags.
+    """
+
+    kitchen_name: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    (Optional) Name that the restaurant wants to display to their kitchen workers
+    instead of the customer-facing name.
+    e.g., customer name might be "Big John's Mega Burger" and the
+    kitchen name is "12oz beef burger"
     """
 
     channels: typing_extensions.NotRequired[typing.Optional[typing.Sequence[str]]]

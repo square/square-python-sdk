@@ -24,16 +24,16 @@ class BaseClientWrapper:
 
     def get_headers(self) -> typing.Dict[str, str]:
         headers: typing.Dict[str, str] = {
-            "User-Agent": "squareup/43.2.1.20251016",
+            "User-Agent": "squareup/44.0.0.20260122",
             "X-Fern-Language": "Python",
             "X-Fern-SDK-Name": "squareup",
-            "X-Fern-SDK-Version": "43.2.1.20251016",
+            "X-Fern-SDK-Version": "44.0.0.20260122",
             **(self.get_custom_headers() or {}),
         }
         token = self._get_token()
         if token is not None:
             headers["Authorization"] = f"Bearer {token}"
-        headers["Square-Version"] = self._version if self._version is not None else "2025-10-16"
+        headers["Square-Version"] = self._version if self._version is not None else "2026-01-22"
         return headers
 
     def _get_token(self) -> typing.Optional[str]:
@@ -81,12 +81,22 @@ class AsyncClientWrapper(BaseClientWrapper):
         base_url: str,
         timeout: typing.Optional[float] = None,
         version: typing.Optional[str] = None,
+        async_token: typing.Optional[typing.Callable[[], typing.Awaitable[str]]] = None,
         httpx_client: httpx.AsyncClient,
     ):
         super().__init__(token=token, headers=headers, base_url=base_url, timeout=timeout, version=version)
+        self._async_token = async_token
         self.httpx_client = AsyncHttpClient(
             httpx_client=httpx_client,
             base_headers=self.get_headers,
             base_timeout=self.get_timeout,
             base_url=self.get_base_url,
+            async_base_headers=self.async_get_headers,
         )
+
+    async def async_get_headers(self) -> typing.Dict[str, str]:
+        headers = self.get_headers()
+        if self._async_token is not None:
+            token = await self._async_token()
+            headers["Authorization"] = f"Bearer {token}"
+        return headers

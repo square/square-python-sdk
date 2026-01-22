@@ -45,6 +45,14 @@ class CatalogModifier(UncheckedBaseModel):
     Location-specific price overrides.
     """
 
+    kitchen_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    (Optional) Name that the restaurant wants to display to their kitchen workers
+    instead of the customer-facing name.
+    e.g., customer name might be "Double Baconize" and the
+    kitchen name is "Add 2x bacon"
+    """
+
     image_id: typing.Optional[str] = pydantic.Field(default=None)
     """
     The ID of the image associated with this `CatalogModifier` instance.

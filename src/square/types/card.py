@@ -33,7 +33,7 @@ class Card(UncheckedBaseModel):
     """
 
     last4: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="last_4")] = pydantic.Field(
-        default=None
+        alias="last_4", default=None
     )
     """
     The last 4 digits of the card number.
@@ -107,6 +107,16 @@ class Card(UncheckedBaseModel):
     """
     The first six digits of the card number, known as the Bank Identification Number (BIN). Only the Payments API
     returns this field.
+    """
+
+    created_at: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Timestamp for when the card object was created on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
+    """
+
+    disabled_at: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Timestamp for when the card object was disabled on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
     """
 
     version: typing.Optional[int] = pydantic.Field(default=None)

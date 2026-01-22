@@ -26,7 +26,7 @@ class FulfillmentDeliveryDetails(UncheckedBaseModel):
     )
     """
     Indicates the fulfillment delivery schedule type. If `SCHEDULED`, then
-    `deliver_at` is required. If `ASAP`, then `prep_time_duration` is required. The default is `SCHEDULED`.
+    `deliver_at` is required. The default is `SCHEDULED`.
     See [OrderFulfillmentDeliveryDetailsScheduleType](#type-orderfulfillmentdeliverydetailsscheduletype) for possible values
     """
 
@@ -43,30 +43,35 @@ class FulfillmentDeliveryDetails(UncheckedBaseModel):
     """
     The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
     that represents the start of the delivery period.
-    When the fulfillment `schedule_type` is `ASAP`, the field is automatically
-    set to the current time plus the `prep_time_duration`.
-    Otherwise, the application can set this field while the fulfillment `state` is
+    The application can set this field while the fulfillment `state` is
     `PROPOSED`, `RESERVED`, or `PREPARED` (any time before the
     terminal state such as `COMPLETED`, `CANCELED`, and `FAILED`).
     
     The timestamp must be in RFC 3339 format
     (for example, "2016-09-04T23:59:33.123Z").
+    
+    For fulfillments with the schedule type `ASAP`, this is automatically set
+    to the current time plus `prep_time_duration`, if available.
     """
 
     prep_time_duration: typing.Optional[str] = pydantic.Field(default=None)
     """
-    The duration of time it takes to prepare and deliver this fulfillment.
-    The duration must be in RFC 3339 format (for example, "P1W3D").
+    The [duration](https://developer.squareup.com/docs/build-basics/working-with-dates)
+    needed to prepare and deliver this fulfillment.
+    The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
     """
 
     delivery_window_duration: typing.Optional[str] = pydantic.Field(default=None)
     """
-    The time period after `deliver_at` in which to deliver the order.
+    The [duration](https://developer.squareup.com/docs/build-basics/working-with-dates)
+    after `deliver_at` in which to deliver the order.
     Applications can set this field when the fulfillment `state` is
     `PROPOSED`, `RESERVED`, or `PREPARED` (any time before the terminal state
     such as `COMPLETED`, `CANCELED`, and `FAILED`).
     
-    The duration must be in RFC 3339 format (for example, "P1W3D").
+    The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
     """
 
     note: typing.Optional[str] = pydantic.Field(default=None)
@@ -138,8 +143,10 @@ class FulfillmentDeliveryDetails(UncheckedBaseModel):
 
     courier_pickup_window_duration: typing.Optional[str] = pydantic.Field(default=None)
     """
-    The time period after `courier_pickup_at` in which the courier should pick up the order.
-    The duration must be in RFC 3339 format (for example, "P1W3D").
+    The [duration](https://developer.squareup.com/docs/build-basics/working-with-dates)
+    after `courier_pickup_at` in which the courier should pick up the order.
+    The duration must be in RFC 3339 format (for example, "PT30M" for 30 minutes). Don't confuse
+    "M" for months with "M" for minutes. "P5M" means 5 months, while "PT5M" means 5 minutes.
     """
 
     is_no_contact_delivery: typing.Optional[bool] = pydantic.Field(default=None)

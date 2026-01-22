@@ -5,6 +5,7 @@ import typing
 import typing_extensions
 from .afterpay_details import AfterpayDetailsParams
 from .clearpay_details import ClearpayDetailsParams
+from .error import ErrorParams
 
 
 class BuyNowPayLaterDetailsParams(typing_extensions.TypedDict):
@@ -28,4 +29,9 @@ class BuyNowPayLaterDetailsParams(typing_extensions.TypedDict):
     """
     Details about a Clearpay payment. These details are only populated if the `brand` is
     `CLEARPAY`.
+    """
+
+    errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
+    """
+    Information about errors encountered during the payment.
     """

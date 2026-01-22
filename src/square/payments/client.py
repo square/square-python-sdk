@@ -280,6 +280,8 @@ class PaymentsClient:
             (for example, US dollar amounts are specified in cents). For more information, see
             [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts).
 
+            Tips for external vendors such as a 3rd party delivery courier must be recorded using Order.service_charges.
+
             The currency code must match the currency associated with the business
             that is accepting the payment.
 
@@ -947,6 +949,8 @@ class AsyncPaymentsClient:
             The amount must be specified in the smallest denomination of the applicable currency
             (for example, US dollar amounts are specified in cents). For more information, see
             [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts).
+
+            Tips for external vendors such as a 3rd party delivery courier must be recorded using Order.service_charges.
 
             The currency code must match the currency associated with the business
             that is accepting the payment.

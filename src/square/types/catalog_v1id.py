@@ -15,7 +15,7 @@ class CatalogV1Id(UncheckedBaseModel):
     """
 
     catalog_v1id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="catalog_v1_id")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="catalog_v1_id", default=None)
     )
     """
     The ID for an object used in the Square API V1, if the object ID differs from the Square API V2 object ID.

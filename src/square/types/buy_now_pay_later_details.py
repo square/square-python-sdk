@@ -7,6 +7,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .afterpay_details import AfterpayDetails
 from .clearpay_details import ClearpayDetails
+from .error import Error
 
 
 class BuyNowPayLaterDetails(UncheckedBaseModel):
@@ -30,6 +31,11 @@ class BuyNowPayLaterDetails(UncheckedBaseModel):
     """
     Details about a Clearpay payment. These details are only populated if the `brand` is
     `CLEARPAY`.
+    """
+
+    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
+    """
+    Information about errors encountered during the payment.
     """
 
     if IS_PYDANTIC_V2:

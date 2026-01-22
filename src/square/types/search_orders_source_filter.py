@@ -20,6 +20,22 @@ class SearchOrdersSourceFilter(UncheckedBaseModel):
     Max: 10 source names.
     """
 
+    source_application_ids: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    """
+    Filters by the [Source](entity:OrderSource) `applicationId`. The filter returns any orders
+    with a `source.applicationId` that matches any of the listed source applicationIds.
+    
+    Max: 100 source applicationIds.
+    """
+
+    source_client_ous: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    """
+    Filters by the [Source](entity:OrderSource) `clientOu`. The filter returns any orders
+    with a `source.clientOu` that matches any of the listed source clientOus.
+    
+    Max: 100 source clientOus.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

@@ -6,6 +6,7 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .catalog_modifier_override import CatalogModifierOverride
+from .catalog_modifier_toggle_override_type import CatalogModifierToggleOverrideType
 
 
 class CatalogItemModifierListInfo(UncheckedBaseModel):
@@ -59,9 +60,35 @@ class CatalogItemModifierListInfo(UncheckedBaseModel):
     to a `CatalogItem` instance.
     """
 
-    allow_quantities: typing.Optional[typing.Any] = None
-    is_conversational: typing.Optional[typing.Any] = None
-    hidden_from_customer_override: typing.Optional[typing.Any] = None
+    allow_quantities: typing.Optional[CatalogModifierToggleOverrideType] = pydantic.Field(default=None)
+    """
+    Controls whether multiple quantities of the same modifier can be selected for this item.
+    - `YES` means that every modifier in the `CatalogModifierList` can have multiple quantities
+    selected for this item.
+    - `NO` means that each modifier in the `CatalogModifierList` can be selected only once for this item.
+    - `NOT_SET` means that the `allow_quantities` setting on the `CatalogModifierList` is obeyed.
+    See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+    """
+
+    is_conversational: typing.Optional[CatalogModifierToggleOverrideType] = pydantic.Field(default=None)
+    """
+    Controls whether conversational mode is enabled for modifiers on this item.
+    
+    - `YES` means conversational mode is enabled for every modifier in the `CatalogModifierList`.
+    - `NO` means that conversational mode is not enabled for any modifier in the `CatalogModifierList`.
+    - `NOT_SET` means that conversational mode is not enabled for any modifier in the `CatalogModifierList`.
+    See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+    """
+
+    hidden_from_customer_override: typing.Optional[CatalogModifierToggleOverrideType] = pydantic.Field(default=None)
+    """
+    Controls whether all modifiers for this item are hidden from customer receipts.
+    - `YES` means that all modifiers in the `CatalogModifierList` are hidden from customer
+    receipts for this item.
+    - `NO` means that all modifiers in the `CatalogModifierList` are visible on customer receipts for this item.
+    - `NOT_SET` means that the `hidden_from_customer` setting on the `CatalogModifierList` is obeyed.
+    See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

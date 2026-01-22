@@ -114,6 +114,7 @@ class OAuthClient:
         scopes: typing.Optional[typing.Sequence[str]] = OMIT,
         short_lived: typing.Optional[bool] = OMIT,
         code_verifier: typing.Optional[str] = OMIT,
+        use_jwt: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ObtainTokenResponse:
         """
@@ -209,6 +210,11 @@ class OAuthClient:
 
             Required for the PKCE flow if `grant_type` is `authorization_code`.
 
+        use_jwt : typing.Optional[bool]
+            Indicates whether to use a JWT (JSON Web Token) as the OAuth access token.
+            When set to `true`, the OAuth flow returns a JWT to your application, used in the
+            same way as a regular token. The default value is `false`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -242,6 +248,7 @@ class OAuthClient:
             scopes=scopes,
             short_lived=short_lived,
             code_verifier=code_verifier,
+            use_jwt=use_jwt,
             request_options=request_options,
         )
         return _response.data
@@ -420,6 +427,7 @@ class AsyncOAuthClient:
         scopes: typing.Optional[typing.Sequence[str]] = OMIT,
         short_lived: typing.Optional[bool] = OMIT,
         code_verifier: typing.Optional[str] = OMIT,
+        use_jwt: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ObtainTokenResponse:
         """
@@ -515,6 +523,11 @@ class AsyncOAuthClient:
 
             Required for the PKCE flow if `grant_type` is `authorization_code`.
 
+        use_jwt : typing.Optional[bool]
+            Indicates whether to use a JWT (JSON Web Token) as the OAuth access token.
+            When set to `true`, the OAuth flow returns a JWT to your application, used in the
+            same way as a regular token. The default value is `false`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -556,6 +569,7 @@ class AsyncOAuthClient:
             scopes=scopes,
             short_lived=short_lived,
             code_verifier=code_verifier,
+            use_jwt=use_jwt,
             request_options=request_options,
         )
         return _response.data

@@ -104,6 +104,16 @@ class CardParams(typing_extensions.TypedDict):
     returns this field.
     """
 
+    created_at: typing_extensions.NotRequired[str]
+    """
+    Timestamp for when the card object was created on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
+    """
+
+    disabled_at: typing_extensions.NotRequired[str]
+    """
+    Timestamp for when the card object was disabled on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
+    """
+
     version: typing_extensions.NotRequired[int]
     """
     Current version number of the card. Increments with each card update. Requests to update an

@@ -13,7 +13,7 @@ from .scheduled_shift import ScheduledShift
 class LaborScheduledShiftUpdatedEventObject(UncheckedBaseModel):
     scheduled_shift: typing_extensions.Annotated[
         typing.Optional[ScheduledShift], FieldMetadata(alias="ScheduledShift")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ScheduledShift", default=None)
     """
     The updated `ScheduledShift`.
     """

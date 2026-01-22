@@ -40,14 +40,14 @@ class OrderReturnParams(typing_extensions.TypedDict):
     A collection of service charges that are being returned.
     """
 
-    return_taxes: typing_extensions.NotRequired[typing.Sequence[OrderReturnTaxParams]]
+    return_taxes: typing_extensions.NotRequired[typing.Optional[typing.Sequence[OrderReturnTaxParams]]]
     """
     A collection of references to taxes being returned for an order, including the total
     applied tax amount to be returned. The taxes must reference a top-level tax ID from the source
     order.
     """
 
-    return_discounts: typing_extensions.NotRequired[typing.Sequence[OrderReturnDiscountParams]]
+    return_discounts: typing_extensions.NotRequired[typing.Optional[typing.Sequence[OrderReturnDiscountParams]]]
     """
     A collection of references to discounts being returned for an order, including the total
     applied discount amount to be returned. The discounts must reference a top-level discount ID

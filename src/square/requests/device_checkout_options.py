@@ -34,3 +34,11 @@ class DeviceCheckoutOptionsParams(typing_extensions.TypedDict):
     Show the itemization screen prior to taking a payment. This field is only meaningful when the
     checkout includes an order ID. Defaults to true.
     """
+
+    allow_auto_card_surcharge: typing_extensions.NotRequired[typing.Optional[bool]]
+    """
+    Controls whether the mobile client applies Auto Card Surcharge (ACS) during checkout.
+    If true, ACS is applied based on Dashboard configuration.
+    If false, ACS is not applied regardless of that configuration.
+    For more information, see [Add a Card Surcharge](https://developer.squareupstaging.com/docs/terminal-api/additional-payment-checkout-features#add-a-card-surcharge).
+    """

@@ -12,12 +12,12 @@ class GetBankAccountResponseParams(typing_extensions.TypedDict):
     Response object returned by `GetBankAccount`.
     """
 
-    errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
-    """
-    Information on errors encountered during the request.
-    """
-
     bank_account: typing_extensions.NotRequired[BankAccountParams]
     """
     The requested `BankAccount` object.
+    """
+
+    errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
+    """
+    Information on errors encountered during the request.
     """

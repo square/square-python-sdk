@@ -168,3 +168,11 @@ class CatalogItemVariationParams(typing_extensions.TypedDict):
     you can accurately track inventory when an item variation is sold in one unit, but stocked in
     another unit.
     """
+
+    kitchen_name: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    (Optional) Name that the restaurant wants to display to their kitchen workers
+    instead of the customer-facing name.
+    e.g., customer name might be "Mega-Jumbo Triplesized" and the
+    kitchen name is "Large container"
+    """
