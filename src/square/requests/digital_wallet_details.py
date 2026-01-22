@@ -4,6 +4,7 @@ import typing
 
 import typing_extensions
 from .cash_app_details import CashAppDetailsParams
+from .error import ErrorParams
 
 
 class DigitalWalletDetailsParams(typing_extensions.TypedDict):
@@ -20,10 +21,15 @@ class DigitalWalletDetailsParams(typing_extensions.TypedDict):
     brand: typing_extensions.NotRequired[typing.Optional[str]]
     """
     The brand used for the `WALLET` payment. The brand can be `CASH_APP`, `PAYPAY`, `ALIPAY`,
-    `RAKUTEN_PAY`, `AU_PAY`, `D_BARAI`, `MERPAY`, `WECHAT_PAY` or `UNKNOWN`.
+    `RAKUTEN_PAY`, `AU_PAY`, `D_BARAI`, `MERPAY`, `WECHAT_PAY`, `LIGHTNING` or `UNKNOWN`.
     """
 
     cash_app_details: typing_extensions.NotRequired[CashAppDetailsParams]
     """
     Brand-specific details for payments with the `brand` of `CASH_APP`.
+    """
+
+    errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
+    """
+    Information about errors encountered during the payment.
     """

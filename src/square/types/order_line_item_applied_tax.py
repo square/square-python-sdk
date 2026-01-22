@@ -37,6 +37,13 @@ class OrderLineItemAppliedTax(UncheckedBaseModel):
     The amount of money applied by the tax to the line item.
     """
 
+    auto_applied: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Indicates whether the tax was automatically applied to the order based on
+    the catalog configuration. For an example, see
+    [Automatically Apply Taxes to an Order](https://developer.squareup.com/docs/orders-api/apply-taxes-and-discounts/auto-apply-taxes).
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

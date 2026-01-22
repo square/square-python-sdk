@@ -14,19 +14,19 @@ class ListBankAccountsResponse(UncheckedBaseModel):
     Response object returned by ListBankAccounts.
     """
 
-    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
-    """
-    Information on errors encountered during the request.
-    """
-
     bank_accounts: typing.Optional[typing.List[BankAccount]] = pydantic.Field(default=None)
     """
     List of BankAccounts associated with this account.
     """
 
+    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
+    """
+    Information on errors encountered during the request.
+    """
+
     cursor: typing.Optional[str] = pydantic.Field(default=None)
     """
-    When a response is truncated, it includes a cursor that you can 
+    When a response is truncated, it includes a cursor that you can
     use in a subsequent request to fetch next set of bank accounts.
     If empty, this is the final response.
     

@@ -116,7 +116,6 @@ class Square:
             timeout=_defaulted_timeout,
             version=version,
         )
-        self._mobile: typing.Optional[MobileClient] = None
         self._o_auth: typing.Optional[OAuthClient] = None
         self._v1transactions: typing.Optional[V1TransactionsClient] = None
         self._apple_pay: typing.Optional[ApplePayClient] = None
@@ -150,16 +149,9 @@ class Square:
         self._terminal: typing.Optional[TerminalClient] = None
         self._transfer_orders: typing.Optional[TransferOrdersClient] = None
         self._vendors: typing.Optional[VendorsClient] = None
+        self._mobile: typing.Optional[MobileClient] = None
         self._cash_drawers: typing.Optional[CashDrawersClient] = None
         self._webhooks: typing.Optional[WebhooksClient] = None
-
-    @property
-    def mobile(self):
-        if self._mobile is None:
-            from .mobile.client import MobileClient  # noqa: E402
-
-            self._mobile = MobileClient(client_wrapper=self._client_wrapper)
-        return self._mobile
 
     @property
     def o_auth(self):
@@ -426,6 +418,14 @@ class Square:
         return self._vendors
 
     @property
+    def mobile(self):
+        if self._mobile is None:
+            from .mobile.client import MobileClient  # noqa: E402
+
+            self._mobile = MobileClient(client_wrapper=self._client_wrapper)
+        return self._mobile
+
+    @property
     def cash_drawers(self):
         if self._cash_drawers is None:
             from .cash_drawers.client import CashDrawersClient  # noqa: E402
@@ -510,7 +510,6 @@ class AsyncSquare:
             timeout=_defaulted_timeout,
             version=version,
         )
-        self._mobile: typing.Optional[AsyncMobileClient] = None
         self._o_auth: typing.Optional[AsyncOAuthClient] = None
         self._v1transactions: typing.Optional[AsyncV1TransactionsClient] = None
         self._apple_pay: typing.Optional[AsyncApplePayClient] = None
@@ -544,16 +543,9 @@ class AsyncSquare:
         self._terminal: typing.Optional[AsyncTerminalClient] = None
         self._transfer_orders: typing.Optional[AsyncTransferOrdersClient] = None
         self._vendors: typing.Optional[AsyncVendorsClient] = None
+        self._mobile: typing.Optional[AsyncMobileClient] = None
         self._cash_drawers: typing.Optional[AsyncCashDrawersClient] = None
         self._webhooks: typing.Optional[AsyncWebhooksClient] = None
-
-    @property
-    def mobile(self):
-        if self._mobile is None:
-            from .mobile.client import AsyncMobileClient  # noqa: E402
-
-            self._mobile = AsyncMobileClient(client_wrapper=self._client_wrapper)
-        return self._mobile
 
     @property
     def o_auth(self):
@@ -818,6 +810,14 @@ class AsyncSquare:
 
             self._vendors = AsyncVendorsClient(client_wrapper=self._client_wrapper)
         return self._vendors
+
+    @property
+    def mobile(self):
+        if self._mobile is None:
+            from .mobile.client import AsyncMobileClient  # noqa: E402
+
+            self._mobile = AsyncMobileClient(client_wrapper=self._client_wrapper)
+        return self._mobile
 
     @property
     def cash_drawers(self):

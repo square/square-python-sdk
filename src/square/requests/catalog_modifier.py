@@ -43,6 +43,14 @@ class CatalogModifierParams(typing_extensions.TypedDict):
     Location-specific price overrides.
     """
 
+    kitchen_name: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    (Optional) Name that the restaurant wants to display to their kitchen workers
+    instead of the customer-facing name.
+    e.g., customer name might be "Double Baconize" and the
+    kitchen name is "Add 2x bacon"
+    """
+
     image_id: typing_extensions.NotRequired[typing.Optional[str]]
     """
     The ID of the image associated with this `CatalogModifier` instance.

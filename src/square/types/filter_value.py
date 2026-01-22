@@ -19,7 +19,7 @@ class FilterValue(UncheckedBaseModel):
     """
 
     all_: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="all")] = pydantic.Field(
-        default=None
+        alias="all", default=None
     )
     """
     A list of terms that must be present on the field of the resource.

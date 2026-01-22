@@ -33,7 +33,7 @@ class CatalogProductSet(UncheckedBaseModel):
     
     Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
     
-    Max: 500 catalog object IDs.
+    Max: 5000 catalog object IDs.
     """
 
     product_ids_all: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
@@ -43,7 +43,7 @@ class CatalogProductSet(UncheckedBaseModel):
     
     Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
     
-    Max: 500 catalog object IDs.
+    Max: 5000 catalog object IDs.
     """
 
     quantity_exact: typing.Optional[int] = pydantic.Field(default=None)

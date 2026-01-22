@@ -10,6 +10,7 @@ from .order_line_item_applied_tax import OrderLineItemAppliedTax
 from .order_service_charge_calculation_phase import OrderServiceChargeCalculationPhase
 from .order_service_charge_scope import OrderServiceChargeScope
 from .order_service_charge_treatment_type import OrderServiceChargeTreatmentType
+from .order_service_charge_type import OrderServiceChargeType
 
 
 class OrderReturnServiceCharge(UncheckedBaseModel):
@@ -106,7 +107,7 @@ class OrderReturnServiceCharge(UncheckedBaseModel):
 
     treatment_type: typing.Optional[OrderServiceChargeTreatmentType] = pydantic.Field(default=None)
     """
-    The treatment type of the service charge.
+    Indicates whether the service charge will be treated as a value-holding line item or apportioned toward a line item.
     See [OrderServiceChargeTreatmentType](#type-orderservicechargetreatmenttype) for possible values
     """
 
@@ -121,6 +122,12 @@ class OrderReturnServiceCharge(UncheckedBaseModel):
     This field is immutable. To change the scope of an apportioned service charge, you must delete
     the apportioned service charge and re-add it as a new apportioned service charge.
     See [OrderServiceChargeScope](#type-orderservicechargescope) for possible values
+    """
+
+    type: typing.Optional[OrderServiceChargeType] = pydantic.Field(default=None)
+    """
+    The type of the service charge.
+    See [OrderServiceChargeType](#type-orderservicechargetype) for possible values
     """
 
     if IS_PYDANTIC_V2:

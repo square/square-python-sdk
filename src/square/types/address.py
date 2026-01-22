@@ -17,7 +17,7 @@ class Address(UncheckedBaseModel):
     """
 
     address_line1: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="address_line_1")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="address_line_1", default=None)
     )
     """
     The first line of the address.
@@ -29,14 +29,14 @@ class Address(UncheckedBaseModel):
     """
 
     address_line2: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="address_line_2")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="address_line_2", default=None)
     )
     """
     The second line of the address, if any.
     """
 
     address_line3: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="address_line_3")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="address_line_3", default=None)
     )
     """
     The third line of the address, if any.
@@ -53,14 +53,14 @@ class Address(UncheckedBaseModel):
     """
 
     sublocality2: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sublocality_2")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="sublocality_2", default=None)
     )
     """
     A civil region within the address's `sublocality`, if any.
     """
 
     sublocality3: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sublocality_3")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="sublocality_3", default=None)
     )
     """
     A civil region within the address's `sublocality_2`, if any.
@@ -68,7 +68,7 @@ class Address(UncheckedBaseModel):
 
     administrative_district_level1: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="administrative_district_level_1")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="administrative_district_level_1", default=None)
     """
     A civil entity within the address's country. In the US, this
     is the state. For a full list of field meanings by country, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses).
@@ -76,7 +76,7 @@ class Address(UncheckedBaseModel):
 
     administrative_district_level2: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="administrative_district_level_2")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="administrative_district_level_2", default=None)
     """
     A civil entity within the address's `administrative_district_level_1`.
     In the US, this is the county.
@@ -84,7 +84,7 @@ class Address(UncheckedBaseModel):
 
     administrative_district_level3: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="administrative_district_level_3")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="administrative_district_level_3", default=None)
     """
     A civil entity within the address's `administrative_district_level_2`,
     if any.

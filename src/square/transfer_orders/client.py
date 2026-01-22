@@ -460,13 +460,13 @@ class TransferOrdersClient:
             receipt={
                 "line_items": [
                     {
-                        "transfer_order_line_uid": "transfer_order_line_uid",
+                        "transfer_order_line_uid": "1",
                         "quantity_received": "3",
                         "quantity_damaged": "1",
                         "quantity_canceled": "1",
                     },
                     {
-                        "transfer_order_line_uid": "transfer_order_line_uid",
+                        "transfer_order_line_uid": "2",
                         "quantity_received": "2",
                         "quantity_canceled": "1",
                     },
@@ -1031,13 +1031,13 @@ class AsyncTransferOrdersClient:
                 receipt={
                     "line_items": [
                         {
-                            "transfer_order_line_uid": "transfer_order_line_uid",
+                            "transfer_order_line_uid": "1",
                             "quantity_received": "3",
                             "quantity_damaged": "1",
                             "quantity_canceled": "1",
                         },
                         {
-                            "transfer_order_line_uid": "transfer_order_line_uid",
+                            "transfer_order_line_uid": "2",
                             "quantity_received": "2",
                             "quantity_canceled": "1",
                         },

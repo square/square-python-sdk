@@ -4,11 +4,7 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
-from ..types.create_mobile_authorization_code_response import CreateMobileAuthorizationCodeResponse
 from .raw_client import AsyncRawMobileClient, RawMobileClient
-
-# this is used as the default value for optional parameters
-OMIT = typing.cast(typing.Any, ...)
 
 
 class MobileClient:
@@ -26,38 +22,16 @@ class MobileClient:
         """
         return self._raw_client
 
-    def authorization_code(
-        self, *, location_id: typing.Optional[str] = OMIT, request_options: typing.Optional[RequestOptions] = None
-    ) -> CreateMobileAuthorizationCodeResponse:
+    def authorization_code(self, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        __Note:__ This endpoint is used by the deprecated Reader SDK.
-        Developers should update their integration to use the [Mobile Payments SDK](https://developer.squareup.com/docs/mobile-payments-sdk), which includes its own authorization methods.
-
-        Generates code to authorize a mobile application to connect to a Square card reader.
-
-        Authorization codes are one-time-use codes and expire 60 minutes after being issued.
-
-        The `Authorization` header you provide to this endpoint must have the following format:
-
-        ```
-        Authorization: Bearer ACCESS_TOKEN
-        ```
-
-        Replace `ACCESS_TOKEN` with a
-        [valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-tokens).
-
         Parameters
         ----------
-        location_id : typing.Optional[str]
-            The Square location ID that the authorization code should be tied to.
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        CreateMobileAuthorizationCodeResponse
-            Success
+        None
 
         Examples
         --------
@@ -66,11 +40,9 @@ class MobileClient:
         client = Square(
             token="YOUR_TOKEN",
         )
-        client.mobile.authorization_code(
-            location_id="YOUR_LOCATION_ID",
-        )
+        client.mobile.authorization_code()
         """
-        _response = self._raw_client.authorization_code(location_id=location_id, request_options=request_options)
+        _response = self._raw_client.authorization_code(request_options=request_options)
         return _response.data
 
 
@@ -89,38 +61,16 @@ class AsyncMobileClient:
         """
         return self._raw_client
 
-    async def authorization_code(
-        self, *, location_id: typing.Optional[str] = OMIT, request_options: typing.Optional[RequestOptions] = None
-    ) -> CreateMobileAuthorizationCodeResponse:
+    async def authorization_code(self, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        __Note:__ This endpoint is used by the deprecated Reader SDK.
-        Developers should update their integration to use the [Mobile Payments SDK](https://developer.squareup.com/docs/mobile-payments-sdk), which includes its own authorization methods.
-
-        Generates code to authorize a mobile application to connect to a Square card reader.
-
-        Authorization codes are one-time-use codes and expire 60 minutes after being issued.
-
-        The `Authorization` header you provide to this endpoint must have the following format:
-
-        ```
-        Authorization: Bearer ACCESS_TOKEN
-        ```
-
-        Replace `ACCESS_TOKEN` with a
-        [valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-tokens).
-
         Parameters
         ----------
-        location_id : typing.Optional[str]
-            The Square location ID that the authorization code should be tied to.
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        CreateMobileAuthorizationCodeResponse
-            Success
+        None
 
         Examples
         --------
@@ -134,12 +84,10 @@ class AsyncMobileClient:
 
 
         async def main() -> None:
-            await client.mobile.authorization_code(
-                location_id="YOUR_LOCATION_ID",
-            )
+            await client.mobile.authorization_code()
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.authorization_code(location_id=location_id, request_options=request_options)
+        _response = await self._raw_client.authorization_code(request_options=request_options)
         return _response.data

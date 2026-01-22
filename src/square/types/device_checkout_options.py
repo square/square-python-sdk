@@ -37,6 +37,14 @@ class DeviceCheckoutOptions(UncheckedBaseModel):
     checkout includes an order ID. Defaults to true.
     """
 
+    allow_auto_card_surcharge: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Controls whether the mobile client applies Auto Card Surcharge (ACS) during checkout.
+    If true, ACS is applied based on Dashboard configuration.
+    If false, ACS is not applied regardless of that configuration.
+    For more information, see [Add a Card Surcharge](https://developer.squareupstaging.com/docs/terminal-api/additional-payment-checkout-features#add-a-card-surcharge).
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

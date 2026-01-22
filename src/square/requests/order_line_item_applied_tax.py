@@ -34,3 +34,10 @@ class OrderLineItemAppliedTaxParams(typing_extensions.TypedDict):
     """
     The amount of money applied by the tax to the line item.
     """
+
+    auto_applied: typing_extensions.NotRequired[bool]
+    """
+    Indicates whether the tax was automatically applied to the order based on
+    the catalog configuration. For an example, see
+    [Automatically Apply Taxes to an Order](https://developer.squareup.com/docs/orders-api/apply-taxes-and-discounts/auto-apply-taxes).
+    """

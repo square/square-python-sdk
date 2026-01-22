@@ -6,6 +6,7 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .cash_app_details import CashAppDetails
+from .error import Error
 
 
 class DigitalWalletDetails(UncheckedBaseModel):
@@ -22,12 +23,17 @@ class DigitalWalletDetails(UncheckedBaseModel):
     brand: typing.Optional[str] = pydantic.Field(default=None)
     """
     The brand used for the `WALLET` payment. The brand can be `CASH_APP`, `PAYPAY`, `ALIPAY`,
-    `RAKUTEN_PAY`, `AU_PAY`, `D_BARAI`, `MERPAY`, `WECHAT_PAY` or `UNKNOWN`.
+    `RAKUTEN_PAY`, `AU_PAY`, `D_BARAI`, `MERPAY`, `WECHAT_PAY`, `LIGHTNING` or `UNKNOWN`.
     """
 
     cash_app_details: typing.Optional[CashAppDetails] = pydantic.Field(default=None)
     """
     Brand-specific details for payments with the `brand` of `CASH_APP`.
+    """
+
+    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
+    """
+    Information about errors encountered during the payment.
     """
 
     if IS_PYDANTIC_V2:

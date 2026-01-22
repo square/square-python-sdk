@@ -115,6 +115,7 @@ class RawOAuthClient:
         scopes: typing.Optional[typing.Sequence[str]] = OMIT,
         short_lived: typing.Optional[bool] = OMIT,
         code_verifier: typing.Optional[str] = OMIT,
+        use_jwt: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ObtainTokenResponse]:
         """
@@ -210,6 +211,11 @@ class RawOAuthClient:
 
             Required for the PKCE flow if `grant_type` is `authorization_code`.
 
+        use_jwt : typing.Optional[bool]
+            Indicates whether to use a JWT (JSON Web Token) as the OAuth access token.
+            When set to `true`, the OAuth flow returns a JWT to your application, used in the
+            same way as a regular token. The default value is `false`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -232,6 +238,7 @@ class RawOAuthClient:
                 "scopes": scopes,
                 "short_lived": short_lived,
                 "code_verifier": code_verifier,
+                "use_jwt": use_jwt,
             },
             headers={
                 "content-type": "application/json",
@@ -427,6 +434,7 @@ class AsyncRawOAuthClient:
         scopes: typing.Optional[typing.Sequence[str]] = OMIT,
         short_lived: typing.Optional[bool] = OMIT,
         code_verifier: typing.Optional[str] = OMIT,
+        use_jwt: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ObtainTokenResponse]:
         """
@@ -522,6 +530,11 @@ class AsyncRawOAuthClient:
 
             Required for the PKCE flow if `grant_type` is `authorization_code`.
 
+        use_jwt : typing.Optional[bool]
+            Indicates whether to use a JWT (JSON Web Token) as the OAuth access token.
+            When set to `true`, the OAuth flow returns a JWT to your application, used in the
+            same way as a regular token. The default value is `false`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -544,6 +557,7 @@ class AsyncRawOAuthClient:
                 "scopes": scopes,
                 "short_lived": short_lived,
                 "code_verifier": code_verifier,
+                "use_jwt": use_jwt,
             },
             headers={
                 "content-type": "application/json",

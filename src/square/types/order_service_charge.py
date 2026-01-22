@@ -25,7 +25,7 @@ class OrderServiceCharge(UncheckedBaseModel):
 
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
-    The name of the service charge.
+    The name of the service charge. This is unused and null for AUTO_GRATUITY to match the behavior on Bills.
     """
 
     catalog_object_id: typing.Optional[str] = pydantic.Field(default=None)
@@ -137,7 +137,7 @@ class OrderServiceCharge(UncheckedBaseModel):
 
     treatment_type: typing.Optional[OrderServiceChargeTreatmentType] = pydantic.Field(default=None)
     """
-    The treatment type of the service charge.
+    Indicates whether the service charge will be treated as a value-holding line item or apportioned toward a line item.
     See [OrderServiceChargeTreatmentType](#type-orderservicechargetreatmenttype) for possible values
     """
 

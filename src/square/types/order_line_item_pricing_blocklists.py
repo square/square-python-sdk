@@ -6,6 +6,9 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .order_line_item_pricing_blocklists_blocked_discount import OrderLineItemPricingBlocklistsBlockedDiscount
+from .order_line_item_pricing_blocklists_blocked_service_charge import (
+    OrderLineItemPricingBlocklistsBlockedServiceCharge,
+)
 from .order_line_item_pricing_blocklists_blocked_tax import OrderLineItemPricingBlocklistsBlockedTax
 
 
@@ -30,6 +33,16 @@ class OrderLineItemPricingBlocklists(UncheckedBaseModel):
     A list of taxes blocked from applying to the line item.
     Taxes can be blocked by the `tax_uid` (for ad hoc taxes) or
     the `tax_catalog_object_id` (for catalog taxes).
+    """
+
+    blocked_service_charges: typing.Optional[typing.List[OrderLineItemPricingBlocklistsBlockedServiceCharge]] = (
+        pydantic.Field(default=None)
+    )
+    """
+    A list of service charges blocked from applying to the line item.
+    Service charges can be blocked by the `service_charge_uid` (for ad hoc
+    service charges) or the `service_charge_catalog_object_id` (for catalog
+    service charges).
     """
 
     if IS_PYDANTIC_V2:

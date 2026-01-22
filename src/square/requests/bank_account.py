@@ -115,3 +115,8 @@ class BankAccountParams(typing_extensions.TypedDict):
     Read only. Name of actual financial institution. 
     For example "Bank of America".
     """
+
+    customer_id: typing_extensions.NotRequired[str]
+    """
+    The ID of the customer who owns the bank account
+    """

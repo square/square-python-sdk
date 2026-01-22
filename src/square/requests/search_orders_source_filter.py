@@ -17,3 +17,19 @@ class SearchOrdersSourceFilterParams(typing_extensions.TypedDict):
     
     Max: 10 source names.
     """
+
+    source_application_ids: typing_extensions.NotRequired[typing.Optional[typing.Sequence[str]]]
+    """
+    Filters by the [Source](entity:OrderSource) `applicationId`. The filter returns any orders
+    with a `source.applicationId` that matches any of the listed source applicationIds.
+    
+    Max: 100 source applicationIds.
+    """
+
+    source_client_ous: typing_extensions.NotRequired[typing.Optional[typing.Sequence[str]]]
+    """
+    Filters by the [Source](entity:OrderSource) `clientOu`. The filter returns any orders
+    with a `source.clientOu` that matches any of the listed source clientOus.
+    
+    Max: 100 source clientOus.
+    """

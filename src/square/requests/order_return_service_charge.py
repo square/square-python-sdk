@@ -6,6 +6,7 @@ import typing_extensions
 from ..types.order_service_charge_calculation_phase import OrderServiceChargeCalculationPhase
 from ..types.order_service_charge_scope import OrderServiceChargeScope
 from ..types.order_service_charge_treatment_type import OrderServiceChargeTreatmentType
+from ..types.order_service_charge_type import OrderServiceChargeType
 from .money import MoneyParams
 from .order_line_item_applied_tax import OrderLineItemAppliedTaxParams
 
@@ -104,7 +105,7 @@ class OrderReturnServiceChargeParams(typing_extensions.TypedDict):
 
     treatment_type: typing_extensions.NotRequired[OrderServiceChargeTreatmentType]
     """
-    The treatment type of the service charge.
+    Indicates whether the service charge will be treated as a value-holding line item or apportioned toward a line item.
     See [OrderServiceChargeTreatmentType](#type-orderservicechargetreatmenttype) for possible values
     """
 
@@ -119,4 +120,10 @@ class OrderReturnServiceChargeParams(typing_extensions.TypedDict):
     This field is immutable. To change the scope of an apportioned service charge, you must delete
     the apportioned service charge and re-add it as a new apportioned service charge.
     See [OrderServiceChargeScope](#type-orderservicechargescope) for possible values
+    """
+
+    type: typing_extensions.NotRequired[OrderServiceChargeType]
+    """
+    The type of the service charge.
+    See [OrderServiceChargeType](#type-orderservicechargetype) for possible values
     """
