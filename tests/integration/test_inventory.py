@@ -7,9 +7,7 @@ from typing import Optional
 from square.core.api_error import ApiError
 from square.requests.catalog_item import CatalogItemParams
 from square.requests.catalog_item_variation import CatalogItemVariationParams
-from square.requests.catalog_object_item_variation import (
-    CatalogObjectItemVariationParams,
-)
+from square.requests.catalog_object import CatalogObject_ItemVariationParams
 from square.types.catalog_item import CatalogItem
 from square.types.catalog_object_item import CatalogObjectItem
 from square.types.inventory_adjustment import InventoryAdjustment
@@ -49,7 +47,7 @@ def create_catalog_item_variation() -> str:
         "price_money": {"amount": 100, "currency": "USD"},
     }
 
-    variation: CatalogObjectItemVariationParams = {
+    variation: CatalogObject_ItemVariationParams = {
         "type": "ITEM_VARIATION",
         "id": "#colombian-coffee",
         "present_at_all_locations": True,

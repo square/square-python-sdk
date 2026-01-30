@@ -9,9 +9,11 @@ from square.environment import SquareEnvironment
 from square.types.address import Address
 from square.types.catalog_item import CatalogItem
 from square.types.catalog_item_variation import CatalogItemVariation
-from square.types.catalog_object import CatalogObject
-from square.types.catalog_object_item import CatalogObjectItem
-from square.types.catalog_object_item_variation import CatalogObjectItemVariation
+from square.types.catalog_object import (
+    CatalogObject,
+    CatalogObject_Item,
+    CatalogObject_ItemVariation,
+)
 from square.types.location import Location
 from square.types.money import Money
 
@@ -47,7 +49,7 @@ class CreateCatalogItemOptions:
 
     def variations(self) -> List[CatalogObject]:
         return [
-            CatalogObjectItemVariation(
+            CatalogObject_ItemVariation(
                 type="ITEM_VARIATION",
                 id="#variation" + str(uuid.uuid4()),
                 present_at_all_locations=True,
@@ -69,7 +71,7 @@ def new_test_money(amount: int) -> Money:
 
 
 def create_test_catalog_item(opts: CreateCatalogItemOptions) -> CatalogObject:
-    return CatalogObjectItem(
+    return CatalogObject_Item(
         type="ITEM",
         id="#" + str(uuid.uuid4()),
         present_at_all_locations=True,
