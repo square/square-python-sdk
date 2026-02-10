@@ -1,7 +1,7 @@
 {
-  "cliVersion": "3.38.0",
+  "cliVersion": "3.49.3",
   "generatorName": "fernapi/fern-python-sdk",
-  "generatorVersion": "4.46.14",
+  "generatorVersion": "4.55.4",
   "generatorConfig": {
     "client": {
       "class_name": "Square",
@@ -14,5 +14,5 @@
     "use_typeddict_requests_for_file_upload": true,
     "exclude_types_from_init_exports": true
   },
-  "sdkVersion": "44.0.0.20260122"
+  "sdkVersion": "44.0.1.20260122"
 }

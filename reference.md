@@ -1,6 +1,6 @@
 # Reference
 ## OAuth
-<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">revoke_token</a>(...) -> AsyncHttpResponse[RevokeTokenResponse]</code></summary>
+<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">revoke_token</a>(...) -&gt; AsyncHttpResponse[RevokeTokenResponse]</code></summary>
 <dl>
 <dd>
 
@@ -121,7 +121,7 @@ Default: `false`
 </dl>
 </details>
 
-<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">obtain_token</a>(...) -> AsyncHttpResponse[ObtainTokenResponse]</code></summary>
+<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">obtain_token</a>(...) -&gt; AsyncHttpResponse[ObtainTokenResponse]</code></summary>
 <dl>
 <dd>
 
@@ -356,7 +356,7 @@ same way as a regular token. The default value is `false`.
 </dl>
 </details>
 
-<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">retrieve_token_status</a>() -> AsyncHttpResponse[RetrieveTokenStatusResponse]</code></summary>
+<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">retrieve_token_status</a>() -&gt; AsyncHttpResponse[RetrieveTokenStatusResponse]</code></summary>
 <dl>
 <dd>
 
@@ -429,7 +429,7 @@ client.o_auth.retrieve_token_status()
 </dl>
 </details>
 
-<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">authorize</a>() -> AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.o_auth.<a href="src/square/o_auth/client.py">authorize</a>() -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -476,7 +476,7 @@ client.o_auth.authorize()
 </details>
 
 ## V1Transactions
-<details><summary><code>client.v1transactions.<a href="src/square/v1transactions/client.py">v1list_orders</a>(...) -> AsyncHttpResponse[typing.List[V1Order]]</code></summary>
+<details><summary><code>client.v1transactions.<a href="src/square/v1transactions/client.py">v1list_orders</a>(...) -&gt; AsyncHttpResponse[typing.List[V1Order]]</code></summary>
 <dl>
 <dd>
 
@@ -576,7 +576,7 @@ original query to the endpoint.
 </dl>
 </details>
 
-<details><summary><code>client.v1transactions.<a href="src/square/v1transactions/client.py">v1retrieve_order</a>(...) -> AsyncHttpResponse[V1Order]</code></summary>
+<details><summary><code>client.v1transactions.<a href="src/square/v1transactions/client.py">v1retrieve_order</a>(...) -&gt; AsyncHttpResponse[V1Order]</code></summary>
 <dl>
 <dd>
 
@@ -655,7 +655,7 @@ client.v1transactions.v1retrieve_order(
 </dl>
 </details>
 
-<details><summary><code>client.v1transactions.<a href="src/square/v1transactions/client.py">v1update_order</a>(...) -> AsyncHttpResponse[V1Order]</code></summary>
+<details><summary><code>client.v1transactions.<a href="src/square/v1transactions/client.py">v1update_order</a>(...) -&gt; AsyncHttpResponse[V1Order]</code></summary>
 <dl>
 <dd>
 
@@ -779,7 +779,7 @@ See [V1UpdateOrderRequestAction](#type-v1updateorderrequestaction) for possible 
 </details>
 
 ## ApplePay
-<details><summary><code>client.apple_pay.<a href="src/square/apple_pay/client.py">register_domain</a>(...) -> AsyncHttpResponse[RegisterDomainResponse]</code></summary>
+<details><summary><code>client.apple_pay.<a href="src/square/apple_pay/client.py">register_domain</a>(...) -&gt; AsyncHttpResponse[RegisterDomainResponse]</code></summary>
 <dl>
 <dd>
 
@@ -863,7 +863,7 @@ client.apple_pay.register_domain(
 </details>
 
 ## BankAccounts
-<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">list</a>(...) -> AsyncPager[BankAccount, ListBankAccountsResponse]</code></summary>
+<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">list</a>(...) -&gt; AsyncPager[BankAccount, ListBankAccountsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -981,7 +981,7 @@ to retrieve only the linked bank accounts belonging to a specific customer.
 </dl>
 </details>
 
-<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">create_bank_account</a>(...) -> AsyncHttpResponse[CreateBankAccountResponse]</code></summary>
+<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">create_bank_account</a>(...) -&gt; AsyncHttpResponse[CreateBankAccountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1075,7 +1075,7 @@ accepts the payment token created by WebSDK
 </dl>
 </details>
 
-<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">get_by_v1id</a>(...) -> AsyncHttpResponse[GetBankAccountByV1IdResponse]</code></summary>
+<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">get_by_v1id</a>(...) -&gt; AsyncHttpResponse[GetBankAccountByV1IdResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1148,7 +1148,7 @@ Connect V1 ID of the desired `BankAccount`. For more information, see
 </dl>
 </details>
 
-<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">get</a>(...) -> AsyncHttpResponse[GetBankAccountResponse]</code></summary>
+<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetBankAccountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1218,7 +1218,7 @@ client.bank_accounts.get(
 </dl>
 </details>
 
-<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">disable_bank_account</a>(...) -> AsyncHttpResponse[DisableBankAccountResponse]</code></summary>
+<details><summary><code>client.bank_accounts.<a href="src/square/bank_accounts/client.py">disable_bank_account</a>(...) -&gt; AsyncHttpResponse[DisableBankAccountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1289,7 +1289,7 @@ client.bank_accounts.disable_bank_account(
 </details>
 
 ## Bookings
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">list</a>(...) -> AsyncPager[Booking, ListBookingsResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">list</a>(...) -&gt; AsyncPager[Booking, ListBookingsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1421,7 +1421,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">create</a>(...) -> AsyncHttpResponse[CreateBookingResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateBookingResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1512,7 +1512,7 @@ client.bookings.create(
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">search_availability</a>(...) -> AsyncHttpResponse[SearchAvailabilityResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">search_availability</a>(...) -&gt; AsyncHttpResponse[SearchAvailabilityResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1585,7 +1585,7 @@ client.bookings.search_availability(
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">bulk_retrieve_bookings</a>(...) -> AsyncHttpResponse[BulkRetrieveBookingsResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">bulk_retrieve_bookings</a>(...) -&gt; AsyncHttpResponse[BulkRetrieveBookingsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1658,7 +1658,7 @@ client.bookings.bulk_retrieve_bookings(
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">get_business_profile</a>() -> AsyncHttpResponse[GetBusinessBookingProfileResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">get_business_profile</a>() -&gt; AsyncHttpResponse[GetBusinessBookingProfileResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1718,7 +1718,7 @@ client.bookings.get_business_profile()
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">retrieve_location_booking_profile</a>(...) -> AsyncHttpResponse[RetrieveLocationBookingProfileResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">retrieve_location_booking_profile</a>(...) -&gt; AsyncHttpResponse[RetrieveLocationBookingProfileResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1788,7 +1788,7 @@ client.bookings.retrieve_location_booking_profile(
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">bulk_retrieve_team_member_booking_profiles</a>(...) -> AsyncHttpResponse[BulkRetrieveTeamMemberBookingProfilesResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">bulk_retrieve_team_member_booking_profiles</a>(...) -&gt; AsyncHttpResponse[BulkRetrieveTeamMemberBookingProfilesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1858,7 +1858,7 @@ client.bookings.bulk_retrieve_team_member_booking_profiles(
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">get</a>(...) -> AsyncHttpResponse[GetBookingResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetBookingResponse]</code></summary>
 <dl>
 <dd>
 
@@ -1931,7 +1931,7 @@ client.bookings.get(
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">update</a>(...) -> AsyncHttpResponse[UpdateBookingResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateBookingResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2024,7 +2024,7 @@ client.bookings.update(
 </dl>
 </details>
 
-<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelBookingResponse]</code></summary>
+<details><summary><code>client.bookings.<a href="src/square/bookings/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelBookingResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2117,7 +2117,7 @@ client.bookings.cancel(
 </details>
 
 ## Cards
-<details><summary><code>client.cards.<a href="src/square/cards/client.py">list</a>(...) -> AsyncPager[Card, ListCardsResponse]</code></summary>
+<details><summary><code>client.cards.<a href="src/square/cards/client.py">list</a>(...) -&gt; AsyncPager[Card, ListCardsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2243,7 +2243,7 @@ This field defaults to ASC.
 </dl>
 </details>
 
-<details><summary><code>client.cards.<a href="src/square/cards/client.py">create</a>(...) -> AsyncHttpResponse[CreateCardResponse]</code></summary>
+<details><summary><code>client.cards.<a href="src/square/cards/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2364,7 +2364,7 @@ See the [SCA Overview](https://developer.squareup.com/docs/sca-overview).
 </dl>
 </details>
 
-<details><summary><code>client.cards.<a href="src/square/cards/client.py">get</a>(...) -> AsyncHttpResponse[GetCardResponse]</code></summary>
+<details><summary><code>client.cards.<a href="src/square/cards/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2434,7 +2434,7 @@ client.cards.get(
 </dl>
 </details>
 
-<details><summary><code>client.cards.<a href="src/square/cards/client.py">disable</a>(...) -> AsyncHttpResponse[DisableCardResponse]</code></summary>
+<details><summary><code>client.cards.<a href="src/square/cards/client.py">disable</a>(...) -&gt; AsyncHttpResponse[DisableCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2506,7 +2506,7 @@ client.cards.disable(
 </details>
 
 ## Catalog
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">batch_delete</a>(...) -> AsyncHttpResponse[BatchDeleteCatalogObjectsResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">batch_delete</a>(...) -&gt; AsyncHttpResponse[BatchDeleteCatalogObjectsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2593,7 +2593,7 @@ CatalogItem will delete its CatalogItemVariation.
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">batch_get</a>(...) -> AsyncHttpResponse[BatchGetCatalogObjectsResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">batch_get</a>(...) -&gt; AsyncHttpResponse[BatchGetCatalogObjectsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2726,7 +2726,7 @@ in the response payload.
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">batch_upsert</a>(...) -> AsyncHttpResponse[BatchUpsertCatalogObjectsResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">batch_upsert</a>(...) -&gt; AsyncHttpResponse[BatchUpsertCatalogObjectsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2858,7 +2858,7 @@ be inserted or updated.
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">info</a>() -> AsyncHttpResponse[CatalogInfoResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">info</a>() -&gt; AsyncHttpResponse[CatalogInfoResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2919,7 +2919,7 @@ client.catalog.info()
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">list</a>(...) -> AsyncPager[CatalogObject, ListCatalogResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">list</a>(...) -&gt; AsyncPager[CatalogObject, ListCatalogResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3043,7 +3043,7 @@ current version of the catalog.
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">search</a>(...) -> AsyncHttpResponse[SearchCatalogObjectsResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchCatalogObjectsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3223,7 +3223,7 @@ is higher than the maximum limit of 1,000, it will be ignored.
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">search_items</a>(...) -> AsyncHttpResponse[SearchCatalogItemsResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">search_items</a>(...) -&gt; AsyncHttpResponse[SearchCatalogItemsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3406,7 +3406,7 @@ a single call to the [SearchCatalogItems](api-endpoint:Catalog-SearchCatalogItem
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">update_item_modifier_lists</a>(...) -> AsyncHttpResponse[UpdateItemModifierListsResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">update_item_modifier_lists</a>(...) -&gt; AsyncHttpResponse[UpdateItemModifierListsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3505,7 +3505,7 @@ At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must b
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">update_item_taxes</a>(...) -> AsyncHttpResponse[UpdateItemTaxesResponse]</code></summary>
+<details><summary><code>client.catalog.<a href="src/square/catalog/client.py">update_item_taxes</a>(...) -&gt; AsyncHttpResponse[UpdateItemTaxesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3605,7 +3605,7 @@ At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
 </details>
 
 ## Channels
-<details><summary><code>client.channels.<a href="src/square/channels/client.py">list</a>(...) -> AsyncPager[Channel, ListChannelsResponse]</code></summary>
+<details><summary><code>client.channels.<a href="src/square/channels/client.py">list</a>(...) -&gt; AsyncPager[Channel, ListChannelsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3719,7 +3719,7 @@ When not provided the returned results will be cap at 100 channels.
 </dl>
 </details>
 
-<details><summary><code>client.channels.<a href="src/square/channels/client.py">bulk_retrieve</a>(...) -> AsyncHttpResponse[BulkRetrieveChannelsResponse]</code></summary>
+<details><summary><code>client.channels.<a href="src/square/channels/client.py">bulk_retrieve</a>(...) -&gt; AsyncHttpResponse[BulkRetrieveChannelsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3789,7 +3789,7 @@ client.channels.bulk_retrieve(
 </dl>
 </details>
 
-<details><summary><code>client.channels.<a href="src/square/channels/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveChannelResponse]</code></summary>
+<details><summary><code>client.channels.<a href="src/square/channels/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveChannelResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3860,7 +3860,7 @@ client.channels.get(
 </details>
 
 ## Customers
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">list</a>(...) -> AsyncPager[Customer, ListCustomersResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">list</a>(...) -&gt; AsyncPager[Customer, ListCustomersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -3998,7 +3998,7 @@ The default value is `false`.
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">create</a>(...) -> AsyncHttpResponse[CreateCustomerResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateCustomerResponse]</code></summary>
 <dl>
 <dd>
 
@@ -4222,7 +4222,7 @@ see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-it
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">batch_create</a>(...) -> AsyncHttpResponse[BulkCreateCustomersResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">batch_create</a>(...) -&gt; AsyncHttpResponse[BulkCreateCustomersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -4342,7 +4342,7 @@ customer profile.
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">bulk_delete_customers</a>(...) -> AsyncHttpResponse[BulkDeleteCustomersResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">bulk_delete_customers</a>(...) -&gt; AsyncHttpResponse[BulkDeleteCustomersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -4418,7 +4418,7 @@ client.customers.bulk_delete_customers(
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">bulk_retrieve_customers</a>(...) -> AsyncHttpResponse[BulkRetrieveCustomersResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">bulk_retrieve_customers</a>(...) -&gt; AsyncHttpResponse[BulkRetrieveCustomersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -4494,7 +4494,7 @@ client.customers.bulk_retrieve_customers(
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">bulk_update_customers</a>(...) -> AsyncHttpResponse[BulkUpdateCustomersResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">bulk_update_customers</a>(...) -&gt; AsyncHttpResponse[BulkUpdateCustomersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -4586,7 +4586,7 @@ update a field, specify the new value. To remove a field, specify `null`.
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">search</a>(...) -> AsyncHttpResponse[SearchCustomersResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchCustomersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -4717,7 +4717,7 @@ The default value is `false`.
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">get</a>(...) -> AsyncHttpResponse[GetCustomerResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCustomerResponse]</code></summary>
 <dl>
 <dd>
 
@@ -4787,7 +4787,7 @@ client.customers.get(
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">update</a>(...) -> AsyncHttpResponse[UpdateCustomerResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateCustomerResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5005,7 +5005,7 @@ see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-it
 </dl>
 </details>
 
-<details><summary><code>client.customers.<a href="src/square/customers/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteCustomerResponse]</code></summary>
+<details><summary><code>client.customers.<a href="src/square/customers/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteCustomerResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5091,7 +5091,7 @@ As a best practice, you should include this parameter to enable [optimistic conc
 </details>
 
 ## Devices
-<details><summary><code>client.devices.<a href="src/square/devices/client.py">list</a>(...) -> AsyncPager[Device, ListDevicesResponse]</code></summary>
+<details><summary><code>client.devices.<a href="src/square/devices/client.py">list</a>(...) -&gt; AsyncPager[Device, ListDevicesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5202,7 +5202,7 @@ The order in which results are listed.
 </dl>
 </details>
 
-<details><summary><code>client.devices.<a href="src/square/devices/client.py">get</a>(...) -> AsyncHttpResponse[GetDeviceResponse]</code></summary>
+<details><summary><code>client.devices.<a href="src/square/devices/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetDeviceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5273,7 +5273,7 @@ client.devices.get(
 </details>
 
 ## Disputes
-<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">list</a>(...) -> AsyncPager[Dispute, ListDisputesResponse]</code></summary>
+<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">list</a>(...) -&gt; AsyncPager[Dispute, ListDisputesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5373,7 +5373,7 @@ If not specified, the endpoint returns disputes associated with all locations.
 </dl>
 </details>
 
-<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">get</a>(...) -> AsyncHttpResponse[GetDisputeResponse]</code></summary>
+<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetDisputeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5443,7 +5443,7 @@ client.disputes.get(
 </dl>
 </details>
 
-<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">accept</a>(...) -> AsyncHttpResponse[AcceptDisputeResponse]</code></summary>
+<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">accept</a>(...) -&gt; AsyncHttpResponse[AcceptDisputeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5517,7 +5517,7 @@ client.disputes.accept(
 </dl>
 </details>
 
-<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">create_evidence_file</a>(...) -> AsyncHttpResponse[CreateDisputeEvidenceFileResponse]</code></summary>
+<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">create_evidence_file</a>(...) -&gt; AsyncHttpResponse[CreateDisputeEvidenceFileResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5606,7 +5606,7 @@ typing.Optional[core.File]` — See core.File for more documentation
 </dl>
 </details>
 
-<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">create_evidence_text</a>(...) -> AsyncHttpResponse[CreateDisputeEvidenceTextResponse]</code></summary>
+<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">create_evidence_text</a>(...) -&gt; AsyncHttpResponse[CreateDisputeEvidenceTextResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5706,7 +5706,7 @@ See [DisputeEvidenceType](#type-disputeevidencetype) for possible values
 </dl>
 </details>
 
-<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">submit_evidence</a>(...) -> AsyncHttpResponse[SubmitEvidenceResponse]</code></summary>
+<details><summary><code>client.disputes.<a href="src/square/disputes/client.py">submit_evidence</a>(...) -&gt; AsyncHttpResponse[SubmitEvidenceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5783,7 +5783,7 @@ client.disputes.submit_evidence(
 </details>
 
 ## Employees
-<details><summary><code>client.employees.<a href="src/square/employees/client.py">list</a>(...) -> AsyncPager[Employee, ListEmployeesResponse]</code></summary>
+<details><summary><code>client.employees.<a href="src/square/employees/client.py">list</a>(...) -&gt; AsyncPager[Employee, ListEmployeesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5885,7 +5885,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.employees.<a href="src/square/employees/client.py">get</a>(...) -> AsyncHttpResponse[GetEmployeeResponse]</code></summary>
+<details><summary><code>client.employees.<a href="src/square/employees/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetEmployeeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -5956,7 +5956,7 @@ client.employees.get(
 </details>
 
 ## Events
-<details><summary><code>client.events.<a href="src/square/events/client.py">search_events</a>(...) -> AsyncHttpResponse[SearchEventsResponse]</code></summary>
+<details><summary><code>client.events.<a href="src/square/events/client.py">search_events</a>(...) -&gt; AsyncHttpResponse[SearchEventsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6050,7 +6050,7 @@ Default: 100
 </dl>
 </details>
 
-<details><summary><code>client.events.<a href="src/square/events/client.py">disable_events</a>() -> AsyncHttpResponse[DisableEventsResponse]</code></summary>
+<details><summary><code>client.events.<a href="src/square/events/client.py">disable_events</a>() -&gt; AsyncHttpResponse[DisableEventsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6112,7 +6112,7 @@ client.events.disable_events()
 </dl>
 </details>
 
-<details><summary><code>client.events.<a href="src/square/events/client.py">enable_events</a>() -> AsyncHttpResponse[EnableEventsResponse]</code></summary>
+<details><summary><code>client.events.<a href="src/square/events/client.py">enable_events</a>() -&gt; AsyncHttpResponse[EnableEventsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6172,7 +6172,7 @@ client.events.enable_events()
 </dl>
 </details>
 
-<details><summary><code>client.events.<a href="src/square/events/client.py">list_event_types</a>(...) -> AsyncHttpResponse[ListEventTypesResponse]</code></summary>
+<details><summary><code>client.events.<a href="src/square/events/client.py">list_event_types</a>(...) -&gt; AsyncHttpResponse[ListEventTypesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6243,7 +6243,7 @@ client.events.list_event_types(
 </details>
 
 ## GiftCards
-<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">list</a>(...) -> AsyncPager[GiftCard, ListGiftCardsResponse]</code></summary>
+<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">list</a>(...) -&gt; AsyncPager[GiftCard, ListGiftCardsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6370,7 +6370,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/worki
 </dl>
 </details>
 
-<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">create</a>(...) -> AsyncHttpResponse[CreateGiftCardResponse]</code></summary>
+<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateGiftCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6485,7 +6485,7 @@ include `gan` and provide the GAN that is printed on the gift card.
 </dl>
 </details>
 
-<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">get_from_gan</a>(...) -> AsyncHttpResponse[GetGiftCardFromGanResponse]</code></summary>
+<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">get_from_gan</a>(...) -&gt; AsyncHttpResponse[GetGiftCardFromGanResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6559,7 +6559,7 @@ Square-issued gift cards have 16-digit GANs.
 </dl>
 </details>
 
-<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">get_from_nonce</a>(...) -> AsyncHttpResponse[GetGiftCardFromNonceResponse]</code></summary>
+<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">get_from_nonce</a>(...) -&gt; AsyncHttpResponse[GetGiftCardFromNonceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6632,7 +6632,7 @@ Web Payments SDK or In-App Payments SDK.
 </dl>
 </details>
 
-<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">link_customer</a>(...) -> AsyncHttpResponse[LinkCustomerToGiftCardResponse]</code></summary>
+<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">link_customer</a>(...) -&gt; AsyncHttpResponse[LinkCustomerToGiftCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6711,7 +6711,7 @@ client.gift_cards.link_customer(
 </dl>
 </details>
 
-<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">unlink_customer</a>(...) -> AsyncHttpResponse[UnlinkCustomerFromGiftCardResponse]</code></summary>
+<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">unlink_customer</a>(...) -&gt; AsyncHttpResponse[UnlinkCustomerFromGiftCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6790,7 +6790,7 @@ client.gift_cards.unlink_customer(
 </dl>
 </details>
 
-<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">get</a>(...) -> AsyncHttpResponse[GetGiftCardResponse]</code></summary>
+<details><summary><code>client.gift_cards.<a href="src/square/gift_cards/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetGiftCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6861,7 +6861,7 @@ client.gift_cards.get(
 </details>
 
 ## Inventory
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_get_adjustment</a>(...) -> AsyncHttpResponse[GetInventoryAdjustmentResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_get_adjustment</a>(...) -&gt; AsyncHttpResponse[GetInventoryAdjustmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -6932,7 +6932,7 @@ client.inventory.deprecated_get_adjustment(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get_adjustment</a>(...) -> AsyncHttpResponse[GetInventoryAdjustmentResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get_adjustment</a>(...) -&gt; AsyncHttpResponse[GetInventoryAdjustmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7003,7 +7003,7 @@ client.inventory.get_adjustment(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_batch_change</a>(...) -> AsyncHttpResponse[BatchChangeInventoryResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_batch_change</a>(...) -&gt; AsyncHttpResponse[BatchChangeInventoryResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7119,7 +7119,7 @@ the quantity is unchanged since the last physical count. Default: `true`.
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_batch_get_changes</a>(...) -> AsyncHttpResponse[BatchGetInventoryChangesResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_batch_get_changes</a>(...) -&gt; AsyncHttpResponse[BatchGetInventoryChangesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7277,7 +7277,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_batch_get_counts</a>(...) -> AsyncHttpResponse[BatchGetInventoryCountsResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_batch_get_counts</a>(...) -&gt; AsyncHttpResponse[BatchGetInventoryCountsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7409,7 +7409,7 @@ The default is null.
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">batch_create_changes</a>(...) -> AsyncHttpResponse[BatchChangeInventoryResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">batch_create_changes</a>(...) -&gt; AsyncHttpResponse[BatchChangeInventoryResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7528,7 +7528,7 @@ the quantity is unchanged since the last physical count. Default: `true`.
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">batch_get_changes</a>(...) -> AsyncPager[InventoryChange, BatchGetInventoryChangesResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">batch_get_changes</a>(...) -&gt; AsyncPager[InventoryChange, BatchGetInventoryChangesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7697,7 +7697,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">batch_get_counts</a>(...) -> AsyncPager[InventoryCount, BatchGetInventoryCountsResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">batch_get_counts</a>(...) -&gt; AsyncPager[InventoryCount, BatchGetInventoryCountsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7843,7 +7843,7 @@ The default is null.
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_get_physical_count</a>(...) -> AsyncHttpResponse[GetInventoryPhysicalCountResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">deprecated_get_physical_count</a>(...) -&gt; AsyncHttpResponse[GetInventoryPhysicalCountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7917,7 +7917,7 @@ ID of the
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get_physical_count</a>(...) -> AsyncHttpResponse[GetInventoryPhysicalCountResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get_physical_count</a>(...) -&gt; AsyncHttpResponse[GetInventoryPhysicalCountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7991,7 +7991,7 @@ ID of the
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get_transfer</a>(...) -> AsyncHttpResponse[GetInventoryTransferResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get_transfer</a>(...) -&gt; AsyncHttpResponse[GetInventoryTransferResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8062,7 +8062,7 @@ client.inventory.get_transfer(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get</a>(...) -> AsyncPager[InventoryCount, GetInventoryCountResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">get</a>(...) -&gt; AsyncPager[InventoryCount, GetInventoryCountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8166,7 +8166,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">changes</a>(...) -> AsyncPager[InventoryChange, GetInventoryChangesResponse]</code></summary>
+<details><summary><code>client.inventory.<a href="src/square/inventory/client.py">changes</a>(...) -&gt; AsyncPager[InventoryChange, GetInventoryChangesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8280,7 +8280,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </details>
 
 ## Invoices
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">list</a>(...) -> AsyncPager[Invoice, ListInvoicesResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">list</a>(...) -&gt; AsyncPager[Invoice, ListInvoicesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8383,7 +8383,7 @@ If not provided, the server uses a default limit of 100 invoices.
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">create</a>(...) -> AsyncHttpResponse[CreateInvoiceResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateInvoiceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8516,7 +8516,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">search</a>(...) -> AsyncHttpResponse[SearchInvoicesResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchInvoicesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8623,7 +8623,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">get</a>(...) -> AsyncHttpResponse[GetInvoiceResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetInvoiceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8693,7 +8693,7 @@ client.invoices.get(
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">update</a>(...) -> AsyncHttpResponse[UpdateInvoiceResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateInvoiceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8815,7 +8815,7 @@ recommend using null values or the `remove` field when possible. For examples, s
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteInvoiceResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteInvoiceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8900,7 +8900,7 @@ If you do not know the version, you can call [GetInvoice](api-endpoint:Invoices-
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">create_invoice_attachment</a>(...) -> AsyncHttpResponse[CreateInvoiceAttachmentResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">create_invoice_attachment</a>(...) -&gt; AsyncHttpResponse[CreateInvoiceAttachmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8995,7 +8995,7 @@ typing.Optional[core.File]` — See core.File for more documentation
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">delete_invoice_attachment</a>(...) -> AsyncHttpResponse[DeleteInvoiceAttachmentResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">delete_invoice_attachment</a>(...) -&gt; AsyncHttpResponse[DeleteInvoiceAttachmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9075,7 +9075,7 @@ client.invoices.delete_invoice_attachment(
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelInvoiceResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelInvoiceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9161,7 +9161,7 @@ If you do not know the version, you can call
 </dl>
 </details>
 
-<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">publish</a>(...) -> AsyncHttpResponse[PublishInvoiceResponse]</code></summary>
+<details><summary><code>client.invoices.<a href="src/square/invoices/client.py">publish</a>(...) -&gt; AsyncHttpResponse[PublishInvoiceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9272,7 +9272,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </details>
 
 ## Labor
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">create_scheduled_shift</a>(...) -> AsyncHttpResponse[CreateScheduledShiftResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">create_scheduled_shift</a>(...) -&gt; AsyncHttpResponse[CreateScheduledShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9380,7 +9380,7 @@ of the operation.
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">bulk_publish_scheduled_shifts</a>(...) -> AsyncHttpResponse[BulkPublishScheduledShiftsResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">bulk_publish_scheduled_shifts</a>(...) -&gt; AsyncHttpResponse[BulkPublishScheduledShiftsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9475,7 +9475,7 @@ See [ScheduledShiftNotificationAudience](#type-scheduledshiftnotificationaudienc
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">search_scheduled_shifts</a>(...) -> AsyncHttpResponse[SearchScheduledShiftsResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">search_scheduled_shifts</a>(...) -&gt; AsyncHttpResponse[SearchScheduledShiftsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9571,7 +9571,7 @@ information, see [Pagination](https://developer.squareup.com/docs/build-basics/c
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">retrieve_scheduled_shift</a>(...) -> AsyncHttpResponse[RetrieveScheduledShiftResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">retrieve_scheduled_shift</a>(...) -&gt; AsyncHttpResponse[RetrieveScheduledShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9641,7 +9641,7 @@ client.labor.retrieve_scheduled_shift(
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">update_scheduled_shift</a>(...) -> AsyncHttpResponse[UpdateScheduledShiftResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">update_scheduled_shift</a>(...) -&gt; AsyncHttpResponse[UpdateScheduledShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9754,7 +9754,7 @@ omitted, Square executes a blind write, potentially overwriting data from anothe
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">publish_scheduled_shift</a>(...) -> AsyncHttpResponse[PublishScheduledShiftResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">publish_scheduled_shift</a>(...) -&gt; AsyncHttpResponse[PublishScheduledShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9864,7 +9864,7 @@ See [ScheduledShiftNotificationAudience](#type-scheduledshiftnotificationaudienc
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">create_timecard</a>(...) -> AsyncHttpResponse[CreateTimecardResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">create_timecard</a>(...) -&gt; AsyncHttpResponse[CreateTimecardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9981,7 +9981,7 @@ client.labor.create_timecard(
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">search_timecards</a>(...) -> AsyncHttpResponse[SearchTimecardsResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">search_timecards</a>(...) -&gt; AsyncHttpResponse[SearchTimecardsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10092,7 +10092,7 @@ client.labor.search_timecards(
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">retrieve_timecard</a>(...) -> AsyncHttpResponse[RetrieveTimecardResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">retrieve_timecard</a>(...) -&gt; AsyncHttpResponse[RetrieveTimecardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10162,7 +10162,7 @@ client.labor.retrieve_timecard(
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">update_timecard</a>(...) -> AsyncHttpResponse[UpdateTimecardResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">update_timecard</a>(...) -&gt; AsyncHttpResponse[UpdateTimecardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10271,7 +10271,7 @@ client.labor.update_timecard(
 </dl>
 </details>
 
-<details><summary><code>client.labor.<a href="src/square/labor/client.py">delete_timecard</a>(...) -> AsyncHttpResponse[DeleteTimecardResponse]</code></summary>
+<details><summary><code>client.labor.<a href="src/square/labor/client.py">delete_timecard</a>(...) -&gt; AsyncHttpResponse[DeleteTimecardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10342,7 +10342,7 @@ client.labor.delete_timecard(
 </details>
 
 ## Locations
-<details><summary><code>client.locations.<a href="src/square/locations/client.py">list</a>() -> AsyncHttpResponse[ListLocationsResponse]</code></summary>
+<details><summary><code>client.locations.<a href="src/square/locations/client.py">list</a>() -&gt; AsyncHttpResponse[ListLocationsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10403,7 +10403,7 @@ client.locations.list()
 </dl>
 </details>
 
-<details><summary><code>client.locations.<a href="src/square/locations/client.py">create</a>(...) -> AsyncHttpResponse[CreateLocationResponse]</code></summary>
+<details><summary><code>client.locations.<a href="src/square/locations/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateLocationResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10492,7 +10492,7 @@ The remaining fields are automatically added based on the data from the [main lo
 </dl>
 </details>
 
-<details><summary><code>client.locations.<a href="src/square/locations/client.py">get</a>(...) -> AsyncHttpResponse[GetLocationResponse]</code></summary>
+<details><summary><code>client.locations.<a href="src/square/locations/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetLocationResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10566,7 +10566,7 @@ The ID of the location to retrieve. Specify the string
 </dl>
 </details>
 
-<details><summary><code>client.locations.<a href="src/square/locations/client.py">update</a>(...) -> AsyncHttpResponse[UpdateLocationResponse]</code></summary>
+<details><summary><code>client.locations.<a href="src/square/locations/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateLocationResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10666,7 +10666,7 @@ client.locations.update(
 </dl>
 </details>
 
-<details><summary><code>client.locations.<a href="src/square/locations/client.py">checkouts</a>(...) -> AsyncHttpResponse[CreateCheckoutResponse]</code></summary>
+<details><summary><code>client.locations.<a href="src/square/locations/client.py">checkouts</a>(...) -&gt; AsyncHttpResponse[CreateCheckoutResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10948,7 +10948,7 @@ This value cannot exceed 60 characters.
 </details>
 
 ## Loyalty
-<details><summary><code>client.loyalty.<a href="src/square/loyalty/client.py">search_events</a>(...) -> AsyncHttpResponse[SearchLoyaltyEventsResponse]</code></summary>
+<details><summary><code>client.loyalty.<a href="src/square/loyalty/client.py">search_events</a>(...) -&gt; AsyncHttpResponse[SearchLoyaltyEventsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11060,7 +11060,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </details>
 
 ## Merchants
-<details><summary><code>client.merchants.<a href="src/square/merchants/client.py">list</a>(...) -> AsyncPager[Merchant, ListMerchantsResponse]</code></summary>
+<details><summary><code>client.merchants.<a href="src/square/merchants/client.py">list</a>(...) -&gt; AsyncPager[Merchant, ListMerchantsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11144,7 +11144,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.merchants.<a href="src/square/merchants/client.py">get</a>(...) -> AsyncHttpResponse[GetMerchantResponse]</code></summary>
+<details><summary><code>client.merchants.<a href="src/square/merchants/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetMerchantResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11218,7 +11218,7 @@ then retrieve the merchant that is currently accessible to this call.
 </details>
 
 ## Checkout
-<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">retrieve_location_settings</a>(...) -> AsyncHttpResponse[RetrieveLocationSettingsResponse]</code></summary>
+<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">retrieve_location_settings</a>(...) -&gt; AsyncHttpResponse[RetrieveLocationSettingsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11288,7 +11288,7 @@ client.checkout.retrieve_location_settings(
 </dl>
 </details>
 
-<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">update_location_settings</a>(...) -> AsyncHttpResponse[UpdateLocationSettingsResponse]</code></summary>
+<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">update_location_settings</a>(...) -&gt; AsyncHttpResponse[UpdateLocationSettingsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11367,7 +11367,7 @@ client.checkout.update_location_settings(
 </dl>
 </details>
 
-<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">retrieve_merchant_settings</a>() -> AsyncHttpResponse[RetrieveMerchantSettingsResponse]</code></summary>
+<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">retrieve_merchant_settings</a>() -&gt; AsyncHttpResponse[RetrieveMerchantSettingsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11427,7 +11427,7 @@ client.checkout.retrieve_merchant_settings()
 </dl>
 </details>
 
-<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">update_merchant_settings</a>(...) -> AsyncHttpResponse[UpdateMerchantSettingsResponse]</code></summary>
+<details><summary><code>client.checkout.<a href="src/square/checkout/client.py">update_merchant_settings</a>(...) -&gt; AsyncHttpResponse[UpdateMerchantSettingsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11498,7 +11498,7 @@ client.checkout.update_merchant_settings(
 </details>
 
 ## Orders
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">create</a>(...) -> AsyncHttpResponse[CreateOrderResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11640,7 +11640,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">batch_get</a>(...) -> AsyncHttpResponse[BatchGetOrdersResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">batch_get</a>(...) -&gt; AsyncHttpResponse[BatchGetOrdersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11724,7 +11724,7 @@ orders within the scope of the current authorization's merchant ID.
 </dl>
 </details>
 
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">calculate</a>(...) -> AsyncHttpResponse[CalculateOrderResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">calculate</a>(...) -&gt; AsyncHttpResponse[CalculateOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11825,7 +11825,7 @@ random strings used only to reference the reward tier.
 </dl>
 </details>
 
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">clone</a>(...) -> AsyncHttpResponse[CloneOrderResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">clone</a>(...) -&gt; AsyncHttpResponse[CloneOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11928,7 +11928,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">search</a>(...) -> AsyncHttpResponse[SearchOrdersResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchOrdersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -12083,7 +12083,7 @@ Default: `false`.
 </dl>
 </details>
 
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">get</a>(...) -> AsyncHttpResponse[GetOrderResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -12153,7 +12153,7 @@ client.orders.get(
 </dl>
 </details>
 
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">update</a>(...) -> AsyncHttpResponse[UpdateOrderResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -12292,7 +12292,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.orders.<a href="src/square/orders/client.py">pay</a>(...) -> AsyncHttpResponse[PayOrderResponse]</code></summary>
+<details><summary><code>client.orders.<a href="src/square/orders/client.py">pay</a>(...) -&gt; AsyncHttpResponse[PayOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -12411,7 +12411,7 @@ The payment total must match the order total.
 </details>
 
 ## Payments
-<details><summary><code>client.payments.<a href="src/square/payments/client.py">list</a>(...) -> AsyncPager[Payment, ListPaymentsResponse]</code></summary>
+<details><summary><code>client.payments.<a href="src/square/payments/client.py">list</a>(...) -&gt; AsyncPager[Payment, ListPaymentsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -12666,7 +12666,7 @@ range is determined using the `updated_at` field for each Payment.
 </dl>
 </details>
 
-<details><summary><code>client.payments.<a href="src/square/payments/client.py">create</a>(...) -> AsyncHttpResponse[CreatePaymentResponse]</code></summary>
+<details><summary><code>client.payments.<a href="src/square/payments/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreatePaymentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13076,7 +13076,7 @@ internal 1st-party callers only.
 </dl>
 </details>
 
-<details><summary><code>client.payments.<a href="src/square/payments/client.py">cancel_by_idempotency_key</a>(...) -> AsyncHttpResponse[CancelPaymentByIdempotencyKeyResponse]</code></summary>
+<details><summary><code>client.payments.<a href="src/square/payments/client.py">cancel_by_idempotency_key</a>(...) -&gt; AsyncHttpResponse[CancelPaymentByIdempotencyKeyResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13156,7 +13156,7 @@ client.payments.cancel_by_idempotency_key(
 </dl>
 </details>
 
-<details><summary><code>client.payments.<a href="src/square/payments/client.py">get</a>(...) -> AsyncHttpResponse[GetPaymentResponse]</code></summary>
+<details><summary><code>client.payments.<a href="src/square/payments/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetPaymentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13226,7 +13226,7 @@ client.payments.get(
 </dl>
 </details>
 
-<details><summary><code>client.payments.<a href="src/square/payments/client.py">update</a>(...) -> AsyncHttpResponse[UpdatePaymentResponse]</code></summary>
+<details><summary><code>client.payments.<a href="src/square/payments/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdatePaymentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13324,7 +13324,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.payments.<a href="src/square/payments/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelPaymentResponse]</code></summary>
+<details><summary><code>client.payments.<a href="src/square/payments/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelPaymentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13395,7 +13395,7 @@ client.payments.cancel(
 </dl>
 </details>
 
-<details><summary><code>client.payments.<a href="src/square/payments/client.py">complete</a>(...) -> AsyncHttpResponse[CompletePaymentResponse]</code></summary>
+<details><summary><code>client.payments.<a href="src/square/payments/client.py">complete</a>(...) -&gt; AsyncHttpResponse[CompletePaymentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13481,7 +13481,7 @@ the update fails and a response with a VERSION_MISMATCH error is returned.
 </details>
 
 ## Payouts
-<details><summary><code>client.payouts.<a href="src/square/payouts/client.py">list</a>(...) -> AsyncPager[Payout, ListPayoutsResponse]</code></summary>
+<details><summary><code>client.payouts.<a href="src/square/payouts/client.py">list</a>(...) -&gt; AsyncPager[Payout, ListPayoutsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13632,7 +13632,7 @@ Default: `100`
 </dl>
 </details>
 
-<details><summary><code>client.payouts.<a href="src/square/payouts/client.py">get</a>(...) -> AsyncHttpResponse[GetPayoutResponse]</code></summary>
+<details><summary><code>client.payouts.<a href="src/square/payouts/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetPayoutResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13703,7 +13703,7 @@ client.payouts.get(
 </dl>
 </details>
 
-<details><summary><code>client.payouts.<a href="src/square/payouts/client.py">list_entries</a>(...) -> AsyncPager[PayoutEntry, ListPayoutEntriesResponse]</code></summary>
+<details><summary><code>client.payouts.<a href="src/square/payouts/client.py">list_entries</a>(...) -&gt; AsyncPager[PayoutEntry, ListPayoutEntriesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13818,7 +13818,7 @@ Default: `100`
 </details>
 
 ## Refunds
-<details><summary><code>client.refunds.<a href="src/square/refunds/client.py">list</a>(...) -> AsyncPager[PaymentRefund, ListPaymentRefundsResponse]</code></summary>
+<details><summary><code>client.refunds.<a href="src/square/refunds/client.py">list</a>(...) -&gt; AsyncPager[PaymentRefund, ListPaymentRefundsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14040,7 +14040,7 @@ Default: The current time.
 </dl>
 </details>
 
-<details><summary><code>client.refunds.<a href="src/square/refunds/client.py">refund_payment</a>(...) -> AsyncHttpResponse[RefundPaymentResponse]</code></summary>
+<details><summary><code>client.refunds.<a href="src/square/refunds/client.py">refund_payment</a>(...) -&gt; AsyncHttpResponse[RefundPaymentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14277,7 +14277,7 @@ Additional details required when recording an unlinked external refund
 </dl>
 </details>
 
-<details><summary><code>client.refunds.<a href="src/square/refunds/client.py">get</a>(...) -> AsyncHttpResponse[GetPaymentRefundResponse]</code></summary>
+<details><summary><code>client.refunds.<a href="src/square/refunds/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetPaymentRefundResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14348,7 +14348,7 @@ client.refunds.get(
 </details>
 
 ## Sites
-<details><summary><code>client.sites.<a href="src/square/sites/client.py">list</a>() -> AsyncHttpResponse[ListSitesResponse]</code></summary>
+<details><summary><code>client.sites.<a href="src/square/sites/client.py">list</a>() -&gt; AsyncHttpResponse[ListSitesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14412,7 +14412,7 @@ client.sites.list()
 </details>
 
 ## Snippets
-<details><summary><code>client.snippets.<a href="src/square/snippets/client.py">get</a>(...) -> AsyncHttpResponse[GetSnippetResponse]</code></summary>
+<details><summary><code>client.snippets.<a href="src/square/snippets/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetSnippetResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14487,7 +14487,7 @@ client.snippets.get(
 </dl>
 </details>
 
-<details><summary><code>client.snippets.<a href="src/square/snippets/client.py">upsert</a>(...) -> AsyncHttpResponse[UpsertSnippetResponse]</code></summary>
+<details><summary><code>client.snippets.<a href="src/square/snippets/client.py">upsert</a>(...) -&gt; AsyncHttpResponse[UpsertSnippetResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14572,7 +14572,7 @@ client.snippets.upsert(
 </dl>
 </details>
 
-<details><summary><code>client.snippets.<a href="src/square/snippets/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteSnippetResponse]</code></summary>
+<details><summary><code>client.snippets.<a href="src/square/snippets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteSnippetResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14648,7 +14648,7 @@ client.snippets.delete(
 </details>
 
 ## Subscriptions
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">create</a>(...) -> AsyncHttpResponse[CreateSubscriptionResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14867,7 +14867,7 @@ a list of time zones, see [List of tz database time zones](https://en.wikipedia.
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">bulk_swap_plan</a>(...) -> AsyncHttpResponse[BulkSwapPlanResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">bulk_swap_plan</a>(...) -&gt; AsyncHttpResponse[BulkSwapPlanResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14964,7 +14964,7 @@ day.
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">search</a>(...) -> AsyncHttpResponse[SearchSubscriptionsResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchSubscriptionsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15096,7 +15096,7 @@ The supported values are:
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">get</a>(...) -> AsyncHttpResponse[GetSubscriptionResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15181,7 +15181,7 @@ The supported query parameter values are:
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">update</a>(...) -> AsyncHttpResponse[UpdateSubscriptionResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15265,7 +15265,7 @@ be treated as a request to clear the relevant data.
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">delete_action</a>(...) -> AsyncHttpResponse[DeleteSubscriptionActionResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">delete_action</a>(...) -&gt; AsyncHttpResponse[DeleteSubscriptionActionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15344,7 +15344,7 @@ client.subscriptions.delete_action(
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">change_billing_anchor_date</a>(...) -> AsyncHttpResponse[ChangeBillingAnchorDateResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">change_billing_anchor_date</a>(...) -&gt; AsyncHttpResponse[ChangeBillingAnchorDateResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15438,7 +15438,7 @@ is changed immediately.
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelSubscriptionResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15510,7 +15510,7 @@ client.subscriptions.cancel(
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">list_events</a>(...) -> AsyncPager[SubscriptionEvent, ListSubscriptionEventsResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">list_events</a>(...) -&gt; AsyncPager[SubscriptionEvent, ListSubscriptionEventsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15612,7 +15612,7 @@ in a paged response.
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">pause</a>(...) -> AsyncHttpResponse[PauseSubscriptionResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">pause</a>(...) -&gt; AsyncHttpResponse[PauseSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15740,7 +15740,7 @@ See [ChangeTiming](#type-changetiming) for possible values
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">resume</a>(...) -> AsyncHttpResponse[ResumeSubscriptionResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">resume</a>(...) -&gt; AsyncHttpResponse[ResumeSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15830,7 +15830,7 @@ See [ChangeTiming](#type-changetiming) for possible values
 </dl>
 </details>
 
-<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">swap_plan</a>(...) -> AsyncHttpResponse[SwapPlanResponse]</code></summary>
+<details><summary><code>client.subscriptions.<a href="src/square/subscriptions/client.py">swap_plan</a>(...) -&gt; AsyncHttpResponse[SwapPlanResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15926,7 +15926,7 @@ This field is required.
 </details>
 
 ## TeamMembers
-<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">create</a>(...) -> AsyncHttpResponse[CreateTeamMemberResponse]</code></summary>
+<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateTeamMemberResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16046,7 +16046,7 @@ The minimum length is 1 and the maximum length is 45.
 </dl>
 </details>
 
-<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">batch_create</a>(...) -> AsyncHttpResponse[BatchCreateTeamMembersResponse]</code></summary>
+<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">batch_create</a>(...) -&gt; AsyncHttpResponse[BatchCreateTeamMembersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16153,7 +16153,7 @@ call [ListJobs](api-endpoint:Team-ListJobs).
 </dl>
 </details>
 
-<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">batch_update</a>(...) -> AsyncHttpResponse[BatchUpdateTeamMembersResponse]</code></summary>
+<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">batch_update</a>(...) -&gt; AsyncHttpResponse[BatchUpdateTeamMembersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16264,7 +16264,7 @@ call [ListJobs](api-endpoint:Team-ListJobs) to get the required `job_id` values.
 </dl>
 </details>
 
-<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">search</a>(...) -> AsyncHttpResponse[SearchTeamMembersResponse]</code></summary>
+<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchTeamMembersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16356,7 +16356,7 @@ The opaque cursor for fetching the next page. For more information, see
 </dl>
 </details>
 
-<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">get</a>(...) -> AsyncHttpResponse[GetTeamMemberResponse]</code></summary>
+<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetTeamMemberResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16427,7 +16427,7 @@ client.team_members.get(
 </dl>
 </details>
 
-<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">update</a>(...) -> AsyncHttpResponse[UpdateTeamMemberResponse]</code></summary>
+<details><summary><code>client.team_members.<a href="src/square/team_members/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateTeamMemberResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16539,7 +16539,7 @@ The team member fields to add, change, or clear. Fields can be cleared using a n
 </details>
 
 ## Team
-<details><summary><code>client.team.<a href="src/square/team/client.py">list_jobs</a>(...) -> AsyncHttpResponse[ListJobsResponse]</code></summary>
+<details><summary><code>client.team.<a href="src/square/team/client.py">list_jobs</a>(...) -&gt; AsyncHttpResponse[ListJobsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16613,7 +16613,7 @@ see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>client.team.<a href="src/square/team/client.py">create_job</a>(...) -> AsyncHttpResponse[CreateJobResponse]</code></summary>
+<details><summary><code>client.team.<a href="src/square/team/client.py">create_job</a>(...) -&gt; AsyncHttpResponse[CreateJobResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16697,7 +16697,7 @@ but must be unique for each request. For more information, see
 </dl>
 </details>
 
-<details><summary><code>client.team.<a href="src/square/team/client.py">retrieve_job</a>(...) -> AsyncHttpResponse[RetrieveJobResponse]</code></summary>
+<details><summary><code>client.team.<a href="src/square/team/client.py">retrieve_job</a>(...) -&gt; AsyncHttpResponse[RetrieveJobResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16767,7 +16767,7 @@ client.team.retrieve_job(
 </dl>
 </details>
 
-<details><summary><code>client.team.<a href="src/square/team/client.py">update_job</a>(...) -> AsyncHttpResponse[UpdateJobResponse]</code></summary>
+<details><summary><code>client.team.<a href="src/square/team/client.py">update_job</a>(...) -&gt; AsyncHttpResponse[UpdateJobResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16852,7 +16852,7 @@ to be included in the request. Optionally include `version` to enable optimistic
 </details>
 
 ## Terminal
-<details><summary><code>client.terminal.<a href="src/square/terminal/client.py">dismiss_terminal_action</a>(...) -> AsyncHttpResponse[DismissTerminalActionResponse]</code></summary>
+<details><summary><code>client.terminal.<a href="src/square/terminal/client.py">dismiss_terminal_action</a>(...) -&gt; AsyncHttpResponse[DismissTerminalActionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16924,7 +16924,7 @@ client.terminal.dismiss_terminal_action(
 </dl>
 </details>
 
-<details><summary><code>client.terminal.<a href="src/square/terminal/client.py">dismiss_terminal_checkout</a>(...) -> AsyncHttpResponse[DismissTerminalCheckoutResponse]</code></summary>
+<details><summary><code>client.terminal.<a href="src/square/terminal/client.py">dismiss_terminal_checkout</a>(...) -&gt; AsyncHttpResponse[DismissTerminalCheckoutResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16994,7 +16994,7 @@ client.terminal.dismiss_terminal_checkout(
 </dl>
 </details>
 
-<details><summary><code>client.terminal.<a href="src/square/terminal/client.py">dismiss_terminal_refund</a>(...) -> AsyncHttpResponse[DismissTerminalRefundResponse]</code></summary>
+<details><summary><code>client.terminal.<a href="src/square/terminal/client.py">dismiss_terminal_refund</a>(...) -&gt; AsyncHttpResponse[DismissTerminalRefundResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17065,7 +17065,7 @@ client.terminal.dismiss_terminal_refund(
 </details>
 
 ## TransferOrders
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">create</a>(...) -> AsyncHttpResponse[CreateTransferOrderResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateTransferOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17183,7 +17183,7 @@ any valid string but must be unique for every CreateTransferOrder request.
 </dl>
 </details>
 
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">search</a>(...) -> AsyncPager[TransferOrder, SearchTransferOrdersResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">search</a>(...) -&gt; AsyncPager[TransferOrder, SearchTransferOrdersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17289,7 +17289,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveTransferOrderResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveTransferOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17365,7 +17365,7 @@ client.transfer_orders.get(
 </dl>
 </details>
 
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">update</a>(...) -> AsyncHttpResponse[UpdateTransferOrderResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateTransferOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17479,7 +17479,7 @@ client.transfer_orders.update(
 </dl>
 </details>
 
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteTransferOrderResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteTransferOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17562,7 +17562,7 @@ client.transfer_orders.delete(
 </dl>
 </details>
 
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelTransferOrderResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelTransferOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17662,7 +17662,7 @@ any valid string but must be unique for every UpdateTransferOrder request.
 </dl>
 </details>
 
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">receive</a>(...) -> AsyncHttpResponse[ReceiveTransferOrderResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">receive</a>(...) -&gt; AsyncHttpResponse[ReceiveTransferOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17788,7 +17788,7 @@ client.transfer_orders.receive(
 </dl>
 </details>
 
-<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">start</a>(...) -> AsyncHttpResponse[StartTransferOrderResponse]</code></summary>
+<details><summary><code>client.transfer_orders.<a href="src/square/transfer_orders/client.py">start</a>(...) -&gt; AsyncHttpResponse[StartTransferOrderResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17887,7 +17887,7 @@ any valid string but must be unique for every UpdateTransferOrder request.
 </details>
 
 ## Vendors
-<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">batch_create</a>(...) -> AsyncHttpResponse[BatchCreateVendorsResponse]</code></summary>
+<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">batch_create</a>(...) -&gt; AsyncHttpResponse[BatchCreateVendorsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17979,7 +17979,7 @@ client.vendors.batch_create(
 </dl>
 </details>
 
-<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">batch_get</a>(...) -> AsyncHttpResponse[BatchGetVendorsResponse]</code></summary>
+<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">batch_get</a>(...) -&gt; AsyncHttpResponse[BatchGetVendorsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18049,7 +18049,7 @@ client.vendors.batch_get(
 </dl>
 </details>
 
-<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">batch_update</a>(...) -> AsyncHttpResponse[BatchUpdateVendorsResponse]</code></summary>
+<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">batch_update</a>(...) -&gt; AsyncHttpResponse[BatchUpdateVendorsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18125,7 +18125,7 @@ objects. The set is represented by  a collection of `Vendor`-ID/`UpdateVendorReq
 </dl>
 </details>
 
-<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">create</a>(...) -> AsyncHttpResponse[CreateVendorResponse]</code></summary>
+<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateVendorResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18230,7 +18230,7 @@ information.
 </dl>
 </details>
 
-<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">search</a>(...) -> AsyncHttpResponse[SearchVendorsResponse]</code></summary>
+<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchVendorsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18319,7 +18319,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </dl>
 </details>
 
-<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">get</a>(...) -> AsyncHttpResponse[GetVendorResponse]</code></summary>
+<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetVendorResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18389,7 +18389,7 @@ client.vendors.get(
 </dl>
 </details>
 
-<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">update</a>(...) -> AsyncHttpResponse[UpdateVendorResponse]</code></summary>
+<details><summary><code>client.vendors.<a href="src/square/vendors/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateVendorResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18490,7 +18490,7 @@ information.
 </details>
 
 ## Bookings CustomAttributeDefinitions
-<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">list</a>(...) -> AsyncPager[
+<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">list</a>(...) -&gt; AsyncPager[
     CustomAttributeDefinition, ListBookingCustomAttributeDefinitionsResponse
 ]</code></summary>
 <dl>
@@ -18587,7 +18587,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">create</a>(...) -> AsyncHttpResponse[CreateBookingCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateBookingCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18690,7 +18690,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveBookingCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveBookingCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18780,7 +18780,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">update</a>(...) -> AsyncHttpResponse[UpdateBookingCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateBookingCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18889,7 +18889,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteBookingCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteBookingCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18966,7 +18966,7 @@ client.bookings.custom_attribute_definitions.delete(
 </details>
 
 ## Bookings CustomAttributes
-<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">batch_delete</a>(...) -> AsyncHttpResponse[BulkDeleteBookingCustomAttributesResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">batch_delete</a>(...) -&gt; AsyncHttpResponse[BulkDeleteBookingCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19046,7 +19046,7 @@ information needed to delete a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">batch_upsert</a>(...) -> AsyncHttpResponse[BulkUpsertBookingCustomAttributesResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">batch_upsert</a>(...) -&gt; AsyncHttpResponse[BulkUpsertBookingCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19126,7 +19126,7 @@ information needed to create or update a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">list</a>(...) -> AsyncPager[CustomAttribute, ListBookingCustomAttributesResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">list</a>(...) -&gt; AsyncPager[CustomAttribute, ListBookingCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19243,7 +19243,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveBookingCustomAttributeResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveBookingCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19356,7 +19356,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">upsert</a>(...) -> AsyncHttpResponse[UpsertBookingCustomAttributeResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">upsert</a>(...) -&gt; AsyncHttpResponse[UpsertBookingCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19474,7 +19474,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteBookingCustomAttributeResponse]</code></summary>
+<details><summary><code>client.bookings.custom_attributes.<a href="src/square/bookings/custom_attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteBookingCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19564,7 +19564,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Bookings LocationProfiles
-<details><summary><code>client.bookings.location_profiles.<a href="src/square/bookings/location_profiles/client.py">list</a>(...) -> AsyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]</code></summary>
+<details><summary><code>client.bookings.location_profiles.<a href="src/square/bookings/location_profiles/client.py">list</a>(...) -&gt; AsyncPager[LocationBookingProfile, ListLocationBookingProfilesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19649,7 +19649,7 @@ for page in response.iter_pages():
 </details>
 
 ## Bookings TeamMemberProfiles
-<details><summary><code>client.bookings.team_member_profiles.<a href="src/square/bookings/team_member_profiles/client.py">list</a>(...) -> AsyncPager[TeamMemberBookingProfile, ListTeamMemberBookingProfilesResponse]</code></summary>
+<details><summary><code>client.bookings.team_member_profiles.<a href="src/square/bookings/team_member_profiles/client.py">list</a>(...) -&gt; AsyncPager[TeamMemberBookingProfile, ListTeamMemberBookingProfilesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19751,7 +19751,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.bookings.team_member_profiles.<a href="src/square/bookings/team_member_profiles/client.py">get</a>(...) -> AsyncHttpResponse[GetTeamMemberBookingProfileResponse]</code></summary>
+<details><summary><code>client.bookings.team_member_profiles.<a href="src/square/bookings/team_member_profiles/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetTeamMemberBookingProfileResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19822,7 +19822,7 @@ client.bookings.team_member_profiles.get(
 </details>
 
 ## CashDrawers Shifts
-<details><summary><code>client.cash_drawers.shifts.<a href="src/square/cash_drawers/shifts/client.py">list</a>(...) -> AsyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]</code></summary>
+<details><summary><code>client.cash_drawers.shifts.<a href="src/square/cash_drawers/shifts/client.py">list</a>(...) -&gt; AsyncPager[CashDrawerShiftSummary, ListCashDrawerShiftsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19949,7 +19949,7 @@ default, 1000 max).
 </dl>
 </details>
 
-<details><summary><code>client.cash_drawers.shifts.<a href="src/square/cash_drawers/shifts/client.py">get</a>(...) -> AsyncHttpResponse[GetCashDrawerShiftResponse]</code></summary>
+<details><summary><code>client.cash_drawers.shifts.<a href="src/square/cash_drawers/shifts/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCashDrawerShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20029,7 +20029,7 @@ client.cash_drawers.shifts.get(
 </dl>
 </details>
 
-<details><summary><code>client.cash_drawers.shifts.<a href="src/square/cash_drawers/shifts/client.py">list_events</a>(...) -> AsyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]</code></summary>
+<details><summary><code>client.cash_drawers.shifts.<a href="src/square/cash_drawers/shifts/client.py">list_events</a>(...) -&gt; AsyncPager[CashDrawerShiftEvent, ListCashDrawerShiftEventsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20135,7 +20135,7 @@ default, 1000 max).
 </details>
 
 ## Catalog Images
-<details><summary><code>client.catalog.images.<a href="src/square/catalog/images/client.py">create</a>(...) -> AsyncHttpResponse[CreateCatalogImageResponse]</code></summary>
+<details><summary><code>client.catalog.images.<a href="src/square/catalog/images/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateCatalogImageResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20218,7 +20218,7 @@ typing.Optional[core.File]` — See core.File for more documentation
 </dl>
 </details>
 
-<details><summary><code>client.catalog.images.<a href="src/square/catalog/images/client.py">update</a>(...) -> AsyncHttpResponse[UpdateCatalogImageResponse]</code></summary>
+<details><summary><code>client.catalog.images.<a href="src/square/catalog/images/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateCatalogImageResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20310,7 +20310,7 @@ typing.Optional[core.File]` — See core.File for more documentation
 </details>
 
 ## Catalog Object
-<details><summary><code>client.catalog.object.<a href="src/square/catalog/object/client.py">upsert</a>(...) -> AsyncHttpResponse[UpsertCatalogObjectResponse]</code></summary>
+<details><summary><code>client.catalog.object.<a href="src/square/catalog/object/client.py">upsert</a>(...) -&gt; AsyncHttpResponse[UpsertCatalogObjectResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20409,7 +20409,7 @@ A CatalogObject to be created or updated.
 </dl>
 </details>
 
-<details><summary><code>client.catalog.object.<a href="src/square/catalog/object/client.py">get</a>(...) -> AsyncHttpResponse[GetCatalogObjectResponse]</code></summary>
+<details><summary><code>client.catalog.object.<a href="src/square/catalog/object/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCatalogObjectResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20537,7 +20537,7 @@ in the response payload.
 </dl>
 </details>
 
-<details><summary><code>client.catalog.object.<a href="src/square/catalog/object/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteCatalogObjectResponse]</code></summary>
+<details><summary><code>client.catalog.object.<a href="src/square/catalog/object/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteCatalogObjectResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20621,7 +20621,7 @@ catalog item will delete its catalog item variations).
 </details>
 
 ## Checkout PaymentLinks
-<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">list</a>(...) -> AsyncPager[PaymentLink, ListPaymentLinksResponse]</code></summary>
+<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">list</a>(...) -&gt; AsyncPager[PaymentLink, ListPaymentLinksResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20716,7 +20716,7 @@ Default value: `100`
 </dl>
 </details>
 
-<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">create</a>(...) -> AsyncHttpResponse[CreatePaymentLinkResponse]</code></summary>
+<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreatePaymentLinkResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20863,7 +20863,7 @@ For more information, see [Prepopulate the shipping address](https://developer.s
 </dl>
 </details>
 
-<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">get</a>(...) -> AsyncHttpResponse[GetPaymentLinkResponse]</code></summary>
+<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetPaymentLinkResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20933,7 +20933,7 @@ client.checkout.payment_links.get(
 </dl>
 </details>
 
-<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">update</a>(...) -> AsyncHttpResponse[UpdatePaymentLinkResponse]</code></summary>
+<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdatePaymentLinkResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21020,7 +21020,7 @@ For more information, see [Update a payment link](https://developer.squareup.com
 </dl>
 </details>
 
-<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">delete</a>(...) -> AsyncHttpResponse[DeletePaymentLinkResponse]</code></summary>
+<details><summary><code>client.checkout.payment_links.<a href="src/square/checkout/payment_links/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeletePaymentLinkResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21091,7 +21091,7 @@ client.checkout.payment_links.delete(
 </details>
 
 ## Customers CustomAttributeDefinitions
-<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">list</a>(...) -> AsyncPager[
+<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">list</a>(...) -&gt; AsyncPager[
     CustomAttributeDefinition, ListCustomerCustomAttributeDefinitionsResponse
 ]</code></summary>
 <dl>
@@ -21190,7 +21190,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">create</a>(...) -> AsyncHttpResponse[CreateCustomerCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateCustomerCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21296,7 +21296,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">get</a>(...) -> AsyncHttpResponse[GetCustomerCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCustomerCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21387,7 +21387,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">update</a>(...) -> AsyncHttpResponse[UpdateCustomerCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateCustomerCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21502,7 +21502,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteCustomerCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteCustomerCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21577,7 +21577,7 @@ client.customers.custom_attribute_definitions.delete(
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">batch_upsert</a>(...) -> AsyncHttpResponse[BatchUpsertCustomerCustomAttributesResponse]</code></summary>
+<details><summary><code>client.customers.custom_attribute_definitions.<a href="src/square/customers/custom_attribute_definitions/client.py">batch_upsert</a>(...) -&gt; AsyncHttpResponse[BatchUpsertCustomerCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21695,7 +21695,7 @@ information needed to create or update a custom attribute.
 </details>
 
 ## Customers Groups
-<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">list</a>(...) -> AsyncPager[CustomerGroup, ListCustomerGroupsResponse]</code></summary>
+<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">list</a>(...) -&gt; AsyncPager[CustomerGroup, ListCustomerGroupsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21789,7 +21789,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">create</a>(...) -> AsyncHttpResponse[CreateCustomerGroupResponse]</code></summary>
+<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateCustomerGroupResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21869,7 +21869,7 @@ client.customers.groups.create(
 </dl>
 </details>
 
-<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">get</a>(...) -> AsyncHttpResponse[GetCustomerGroupResponse]</code></summary>
+<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCustomerGroupResponse]</code></summary>
 <dl>
 <dd>
 
@@ -21939,7 +21939,7 @@ client.customers.groups.get(
 </dl>
 </details>
 
-<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">update</a>(...) -> AsyncHttpResponse[UpdateCustomerGroupResponse]</code></summary>
+<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateCustomerGroupResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22018,7 +22018,7 @@ client.customers.groups.update(
 </dl>
 </details>
 
-<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteCustomerGroupResponse]</code></summary>
+<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteCustomerGroupResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22088,7 +22088,7 @@ client.customers.groups.delete(
 </dl>
 </details>
 
-<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">add</a>(...) -> AsyncHttpResponse[AddGroupToCustomerResponse]</code></summary>
+<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">add</a>(...) -&gt; AsyncHttpResponse[AddGroupToCustomerResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22170,7 +22170,7 @@ client.customers.groups.add(
 </dl>
 </details>
 
-<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">remove</a>(...) -> AsyncHttpResponse[RemoveGroupFromCustomerResponse]</code></summary>
+<details><summary><code>client.customers.groups.<a href="src/square/customers/groups/client.py">remove</a>(...) -&gt; AsyncHttpResponse[RemoveGroupFromCustomerResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22253,7 +22253,7 @@ client.customers.groups.remove(
 </details>
 
 ## Customers Segments
-<details><summary><code>client.customers.segments.<a href="src/square/customers/segments/client.py">list</a>(...) -> AsyncPager[CustomerSegment, ListCustomerSegmentsResponse]</code></summary>
+<details><summary><code>client.customers.segments.<a href="src/square/customers/segments/client.py">list</a>(...) -&gt; AsyncPager[CustomerSegment, ListCustomerSegmentsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22347,7 +22347,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.customers.segments.<a href="src/square/customers/segments/client.py">get</a>(...) -> AsyncHttpResponse[GetCustomerSegmentResponse]</code></summary>
+<details><summary><code>client.customers.segments.<a href="src/square/customers/segments/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCustomerSegmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22418,7 +22418,7 @@ client.customers.segments.get(
 </details>
 
 ## Customers Cards
-<details><summary><code>client.customers.cards.<a href="src/square/customers/cards/client.py">create</a>(...) -> AsyncHttpResponse[CreateCustomerCardResponse]</code></summary>
+<details><summary><code>client.customers.cards.<a href="src/square/customers/cards/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateCustomerCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22553,7 +22553,7 @@ challenge results to indicate that Square has verified the buyer identity.
 </dl>
 </details>
 
-<details><summary><code>client.customers.cards.<a href="src/square/customers/cards/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteCustomerCardResponse]</code></summary>
+<details><summary><code>client.customers.cards.<a href="src/square/customers/cards/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteCustomerCardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22633,7 +22633,7 @@ client.customers.cards.delete(
 </details>
 
 ## Customers CustomAttributes
-<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">list</a>(...) -> AsyncPager[CustomAttribute, ListCustomerCustomAttributesResponse]</code></summary>
+<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">list</a>(...) -&gt; AsyncPager[CustomAttribute, ListCustomerCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22754,7 +22754,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">get</a>(...) -> AsyncHttpResponse[GetCustomerCustomAttributeResponse]</code></summary>
+<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetCustomerCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22871,7 +22871,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">upsert</a>(...) -> AsyncHttpResponse[UpsertCustomerCustomAttributeResponse]</code></summary>
+<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">upsert</a>(...) -&gt; AsyncHttpResponse[UpsertCustomerCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22991,7 +22991,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteCustomerCustomAttributeResponse]</code></summary>
+<details><summary><code>client.customers.custom_attributes.<a href="src/square/customers/custom_attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteCustomerCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23079,7 +23079,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Devices Codes
-<details><summary><code>client.devices.codes.<a href="src/square/devices/codes/client.py">list</a>(...) -> AsyncPager[DeviceCode, ListDeviceCodesResponse]</code></summary>
+<details><summary><code>client.devices.codes.<a href="src/square/devices/codes/client.py">list</a>(...) -&gt; AsyncPager[DeviceCode, ListDeviceCodesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23194,7 +23194,7 @@ Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
 </dl>
 </details>
 
-<details><summary><code>client.devices.codes.<a href="src/square/devices/codes/client.py">create</a>(...) -> AsyncHttpResponse[CreateDeviceCodeResponse]</code></summary>
+<details><summary><code>client.devices.codes.<a href="src/square/devices/codes/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateDeviceCodeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23283,7 +23283,7 @@ See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-a
 </dl>
 </details>
 
-<details><summary><code>client.devices.codes.<a href="src/square/devices/codes/client.py">get</a>(...) -> AsyncHttpResponse[GetDeviceCodeResponse]</code></summary>
+<details><summary><code>client.devices.codes.<a href="src/square/devices/codes/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetDeviceCodeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23354,7 +23354,7 @@ client.devices.codes.get(
 </details>
 
 ## Disputes Evidence
-<details><summary><code>client.disputes.evidence.<a href="src/square/disputes/evidence/client.py">list</a>(...) -> AsyncPager[DisputeEvidence, ListDisputeEvidenceResponse]</code></summary>
+<details><summary><code>client.disputes.evidence.<a href="src/square/disputes/evidence/client.py">list</a>(...) -&gt; AsyncPager[DisputeEvidence, ListDisputeEvidenceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23442,7 +23442,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.disputes.evidence.<a href="src/square/disputes/evidence/client.py">get</a>(...) -> AsyncHttpResponse[GetDisputeEvidenceResponse]</code></summary>
+<details><summary><code>client.disputes.evidence.<a href="src/square/disputes/evidence/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetDisputeEvidenceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23523,7 +23523,7 @@ client.disputes.evidence.get(
 </dl>
 </details>
 
-<details><summary><code>client.disputes.evidence.<a href="src/square/disputes/evidence/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteDisputeEvidenceResponse]</code></summary>
+<details><summary><code>client.disputes.evidence.<a href="src/square/disputes/evidence/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteDisputeEvidenceResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23604,7 +23604,7 @@ client.disputes.evidence.delete(
 </details>
 
 ## GiftCards Activities
-<details><summary><code>client.gift_cards.activities.<a href="src/square/gift_cards/activities/client.py">list</a>(...) -> AsyncPager[GiftCardActivity, ListGiftCardActivitiesResponse]</code></summary>
+<details><summary><code>client.gift_cards.activities.<a href="src/square/gift_cards/activities/client.py">list</a>(...) -&gt; AsyncPager[GiftCardActivity, ListGiftCardActivitiesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23774,7 +23774,7 @@ The order in which the endpoint returns the activities, based on `created_at`.
 </dl>
 </details>
 
-<details><summary><code>client.gift_cards.activities.<a href="src/square/gift_cards/activities/client.py">create</a>(...) -> AsyncHttpResponse[CreateGiftCardActivityResponse]</code></summary>
+<details><summary><code>client.gift_cards.activities.<a href="src/square/gift_cards/activities/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateGiftCardActivityResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23866,7 +23866,7 @@ gift card, the `location_id` where the activity occurred, and the activity `type
 </details>
 
 ## Labor BreakTypes
-<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">list</a>(...) -> AsyncPager[BreakType, ListBreakTypesResponse]</code></summary>
+<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">list</a>(...) -&gt; AsyncPager[BreakType, ListBreakTypesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23965,7 +23965,7 @@ and 200. The default is 200.
 </dl>
 </details>
 
-<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">create</a>(...) -> AsyncHttpResponse[CreateBreakTypeResponse]</code></summary>
+<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateBreakTypeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24062,7 +24062,7 @@ client.labor.break_types.create(
 </dl>
 </details>
 
-<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">get</a>(...) -> AsyncHttpResponse[GetBreakTypeResponse]</code></summary>
+<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetBreakTypeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24132,7 +24132,7 @@ client.labor.break_types.get(
 </dl>
 </details>
 
-<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">update</a>(...) -> AsyncHttpResponse[UpdateBreakTypeResponse]</code></summary>
+<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateBreakTypeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24217,7 +24217,7 @@ client.labor.break_types.update(
 </dl>
 </details>
 
-<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteBreakTypeResponse]</code></summary>
+<details><summary><code>client.labor.break_types.<a href="src/square/labor/break_types/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteBreakTypeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24290,7 +24290,7 @@ client.labor.break_types.delete(
 </details>
 
 ## Labor EmployeeWages
-<details><summary><code>client.labor.employee_wages.<a href="src/square/labor/employee_wages/client.py">list</a>(...) -> AsyncPager[EmployeeWage, ListEmployeeWagesResponse]</code></summary>
+<details><summary><code>client.labor.employee_wages.<a href="src/square/labor/employee_wages/client.py">list</a>(...) -&gt; AsyncPager[EmployeeWage, ListEmployeeWagesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24386,7 +24386,7 @@ The maximum number of `EmployeeWage` results to return per page. The number can 
 </dl>
 </details>
 
-<details><summary><code>client.labor.employee_wages.<a href="src/square/labor/employee_wages/client.py">get</a>(...) -> AsyncHttpResponse[GetEmployeeWageResponse]</code></summary>
+<details><summary><code>client.labor.employee_wages.<a href="src/square/labor/employee_wages/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetEmployeeWageResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24457,7 +24457,7 @@ client.labor.employee_wages.get(
 </details>
 
 ## Labor Shifts
-<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">create</a>(...) -> AsyncHttpResponse[CreateShiftResponse]</code></summary>
+<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24574,7 +24574,7 @@ client.labor.shifts.create(
 </dl>
 </details>
 
-<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">search</a>(...) -> AsyncHttpResponse[SearchShiftsResponse]</code></summary>
+<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchShiftsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24685,7 +24685,7 @@ client.labor.shifts.search(
 </dl>
 </details>
 
-<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">get</a>(...) -> AsyncHttpResponse[GetShiftResponse]</code></summary>
+<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24755,7 +24755,7 @@ client.labor.shifts.get(
 </dl>
 </details>
 
-<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">update</a>(...) -> AsyncHttpResponse[UpdateShiftResponse]</code></summary>
+<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24863,7 +24863,7 @@ client.labor.shifts.update(
 </dl>
 </details>
 
-<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteShiftResponse]</code></summary>
+<details><summary><code>client.labor.shifts.<a href="src/square/labor/shifts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteShiftResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24934,7 +24934,7 @@ client.labor.shifts.delete(
 </details>
 
 ## Labor TeamMemberWages
-<details><summary><code>client.labor.team_member_wages.<a href="src/square/labor/team_member_wages/client.py">list</a>(...) -> AsyncPager[TeamMemberWage, ListTeamMemberWagesResponse]</code></summary>
+<details><summary><code>client.labor.team_member_wages.<a href="src/square/labor/team_member_wages/client.py">list</a>(...) -&gt; AsyncPager[TeamMemberWage, ListTeamMemberWagesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25033,7 +25033,7 @@ The maximum number of `TeamMemberWage` results to return per page. The number ca
 </dl>
 </details>
 
-<details><summary><code>client.labor.team_member_wages.<a href="src/square/labor/team_member_wages/client.py">get</a>(...) -> AsyncHttpResponse[GetTeamMemberWageResponse]</code></summary>
+<details><summary><code>client.labor.team_member_wages.<a href="src/square/labor/team_member_wages/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetTeamMemberWageResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25104,7 +25104,7 @@ client.labor.team_member_wages.get(
 </details>
 
 ## Labor WorkweekConfigs
-<details><summary><code>client.labor.workweek_configs.<a href="src/square/labor/workweek_configs/client.py">list</a>(...) -> AsyncPager[WorkweekConfig, ListWorkweekConfigsResponse]</code></summary>
+<details><summary><code>client.labor.workweek_configs.<a href="src/square/labor/workweek_configs/client.py">list</a>(...) -&gt; AsyncPager[WorkweekConfig, ListWorkweekConfigsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25188,7 +25188,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.labor.workweek_configs.<a href="src/square/labor/workweek_configs/client.py">get</a>(...) -> AsyncHttpResponse[UpdateWorkweekConfigResponse]</code></summary>
+<details><summary><code>client.labor.workweek_configs.<a href="src/square/labor/workweek_configs/client.py">get</a>(...) -&gt; AsyncHttpResponse[UpdateWorkweekConfigResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25272,7 +25272,7 @@ client.labor.workweek_configs.get(
 </details>
 
 ## Locations CustomAttributeDefinitions
-<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">list</a>(...) -> AsyncPager[
+<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">list</a>(...) -&gt; AsyncPager[
     CustomAttributeDefinition, ListLocationCustomAttributeDefinitionsResponse
 ]</code></summary>
 <dl>
@@ -25378,7 +25378,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">create</a>(...) -> AsyncHttpResponse[CreateLocationCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateLocationCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25479,7 +25479,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveLocationCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveLocationCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25568,7 +25568,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">update</a>(...) -> AsyncHttpResponse[UpdateLocationCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateLocationCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25679,7 +25679,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteLocationCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.locations.custom_attribute_definitions.<a href="src/square/locations/custom_attribute_definitions/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteLocationCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25753,7 +25753,7 @@ client.locations.custom_attribute_definitions.delete(
 </details>
 
 ## Locations CustomAttributes
-<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">batch_delete</a>(...) -> AsyncHttpResponse[BulkDeleteLocationCustomAttributesResponse]</code></summary>
+<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">batch_delete</a>(...) -&gt; AsyncHttpResponse[BulkDeleteLocationCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25835,7 +25835,7 @@ The keys must be unique and are used to map to the corresponding response.
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">batch_upsert</a>(...) -> AsyncHttpResponse[BulkUpsertLocationCustomAttributesResponse]</code></summary>
+<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">batch_upsert</a>(...) -&gt; AsyncHttpResponse[BulkUpsertLocationCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -25940,7 +25940,7 @@ information needed to create or update a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">list</a>(...) -> AsyncPager[CustomAttribute, ListLocationCustomAttributesResponse]</code></summary>
+<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">list</a>(...) -&gt; AsyncPager[CustomAttribute, ListLocationCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26068,7 +26068,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveLocationCustomAttributeResponse]</code></summary>
+<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveLocationCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26182,7 +26182,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">upsert</a>(...) -> AsyncHttpResponse[UpsertLocationCustomAttributeResponse]</code></summary>
+<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">upsert</a>(...) -&gt; AsyncHttpResponse[UpsertLocationCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26297,7 +26297,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteLocationCustomAttributeResponse]</code></summary>
+<details><summary><code>client.locations.custom_attributes.<a href="src/square/locations/custom_attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteLocationCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26383,7 +26383,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Locations Transactions
-<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">list</a>(...) -> AsyncHttpResponse[ListTransactionsResponse]</code></summary>
+<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">list</a>(...) -&gt; AsyncHttpResponse[ListTransactionsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26516,7 +26516,7 @@ See [Paginating results](https://developer.squareup.com/docs/working-with-apis/p
 </dl>
 </details>
 
-<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">get</a>(...) -> AsyncHttpResponse[GetTransactionResponse]</code></summary>
+<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetTransactionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26595,7 +26595,7 @@ client.locations.transactions.get(
 </dl>
 </details>
 
-<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">capture</a>(...) -> AsyncHttpResponse[CaptureTransactionResponse]</code></summary>
+<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">capture</a>(...) -&gt; AsyncHttpResponse[CaptureTransactionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26679,7 +26679,7 @@ client.locations.transactions.capture(
 </dl>
 </details>
 
-<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">void</a>(...) -> AsyncHttpResponse[VoidTransactionResponse]</code></summary>
+<details><summary><code>client.locations.transactions.<a href="src/square/locations/transactions/client.py">void</a>(...) -&gt; AsyncHttpResponse[VoidTransactionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26764,7 +26764,7 @@ client.locations.transactions.void(
 </details>
 
 ## Loyalty Accounts
-<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">create</a>(...) -> AsyncHttpResponse[CreateLoyaltyAccountResponse]</code></summary>
+<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateLoyaltyAccountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26849,7 +26849,7 @@ Keys can be any valid string, but must be unique for every request.
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">search</a>(...) -> AsyncHttpResponse[SearchLoyaltyAccountsResponse]</code></summary>
+<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchLoyaltyAccountsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26947,7 +26947,7 @@ see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">get</a>(...) -> AsyncHttpResponse[GetLoyaltyAccountResponse]</code></summary>
+<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetLoyaltyAccountResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27017,7 +27017,7 @@ client.loyalty.accounts.get(
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">accumulate_points</a>(...) -> AsyncHttpResponse[AccumulateLoyaltyPointsResponse]</code></summary>
+<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">accumulate_points</a>(...) -&gt; AsyncHttpResponse[AccumulateLoyaltyPointsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27134,7 +27134,7 @@ Keys can be any valid string but must be unique for every request.
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">adjust</a>(...) -> AsyncHttpResponse[AdjustLoyaltyPointsResponse]</code></summary>
+<details><summary><code>client.loyalty.accounts.<a href="src/square/loyalty/accounts/client.py">adjust</a>(...) -&gt; AsyncHttpResponse[AdjustLoyaltyPointsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27245,7 +27245,7 @@ the specified number of points would result in a negative balance. The default v
 </details>
 
 ## Loyalty Programs
-<details><summary><code>client.loyalty.programs.<a href="src/square/loyalty/programs/client.py">list</a>() -> AsyncHttpResponse[ListLoyaltyProgramsResponse]</code></summary>
+<details><summary><code>client.loyalty.programs.<a href="src/square/loyalty/programs/client.py">list</a>() -&gt; AsyncHttpResponse[ListLoyaltyProgramsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27309,7 +27309,7 @@ client.loyalty.programs.list()
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.programs.<a href="src/square/loyalty/programs/client.py">get</a>(...) -> AsyncHttpResponse[GetLoyaltyProgramResponse]</code></summary>
+<details><summary><code>client.loyalty.programs.<a href="src/square/loyalty/programs/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetLoyaltyProgramResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27381,7 +27381,7 @@ client.loyalty.programs.get(
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.programs.<a href="src/square/loyalty/programs/client.py">calculate</a>(...) -> AsyncHttpResponse[CalculateLoyaltyPointsResponse]</code></summary>
+<details><summary><code>client.loyalty.programs.<a href="src/square/loyalty/programs/client.py">calculate</a>(...) -&gt; AsyncHttpResponse[CalculateLoyaltyPointsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27509,7 +27509,7 @@ for regardless of the trigger limit.
 </details>
 
 ## Loyalty Rewards
-<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">create</a>(...) -> AsyncHttpResponse[CreateLoyaltyRewardResponse]</code></summary>
+<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateLoyaltyRewardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27602,7 +27602,7 @@ Keys can be any valid string, but must be unique for every request.
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">search</a>(...) -> AsyncHttpResponse[SearchLoyaltyRewardsResponse]</code></summary>
+<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchLoyaltyRewardsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27704,7 +27704,7 @@ see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">get</a>(...) -> AsyncHttpResponse[GetLoyaltyRewardResponse]</code></summary>
+<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetLoyaltyRewardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27774,7 +27774,7 @@ client.loyalty.rewards.get(
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteLoyaltyRewardResponse]</code></summary>
+<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteLoyaltyRewardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27852,7 +27852,7 @@ client.loyalty.rewards.delete(
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">redeem</a>(...) -> AsyncHttpResponse[RedeemLoyaltyRewardResponse]</code></summary>
+<details><summary><code>client.loyalty.rewards.<a href="src/square/loyalty/rewards/client.py">redeem</a>(...) -&gt; AsyncHttpResponse[RedeemLoyaltyRewardResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27954,7 +27954,7 @@ Keys can be any valid string, but must be unique for every request.
 </details>
 
 ## Loyalty Programs Promotions
-<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">list</a>(...) -> AsyncPager[LoyaltyPromotion, ListLoyaltyPromotionsResponse]</code></summary>
+<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">list</a>(...) -&gt; AsyncPager[LoyaltyPromotion, ListLoyaltyPromotionsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28072,7 +28072,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">create</a>(...) -> AsyncHttpResponse[CreateLoyaltyPromotionResponse]</code></summary>
+<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateLoyaltyPromotionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28186,7 +28186,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">get</a>(...) -> AsyncHttpResponse[GetLoyaltyPromotionResponse]</code></summary>
+<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetLoyaltyPromotionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28268,7 +28268,7 @@ call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using
 </dl>
 </details>
 
-<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelLoyaltyPromotionResponse]</code></summary>
+<details><summary><code>client.loyalty.programs.promotions.<a href="src/square/loyalty/programs/promotions/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelLoyaltyPromotionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28356,7 +28356,7 @@ promotion that has an `ACTIVE` or `SCHEDULED` status.
 </details>
 
 ## Merchants CustomAttributeDefinitions
-<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">list</a>(...) -> AsyncPager[
+<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">list</a>(...) -&gt; AsyncPager[
     CustomAttributeDefinition, ListMerchantCustomAttributeDefinitionsResponse
 ]</code></summary>
 <dl>
@@ -28462,7 +28462,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">create</a>(...) -> AsyncHttpResponse[CreateMerchantCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateMerchantCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28563,7 +28563,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveMerchantCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveMerchantCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28652,7 +28652,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">update</a>(...) -> AsyncHttpResponse[UpdateMerchantCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateMerchantCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28762,7 +28762,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteMerchantCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attribute_definitions.<a href="src/square/merchants/custom_attribute_definitions/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteMerchantCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28836,7 +28836,7 @@ client.merchants.custom_attribute_definitions.delete(
 </details>
 
 ## Merchants CustomAttributes
-<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">batch_delete</a>(...) -> AsyncHttpResponse[BulkDeleteMerchantCustomAttributesResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">batch_delete</a>(...) -&gt; AsyncHttpResponse[BulkDeleteMerchantCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28917,7 +28917,7 @@ The keys must be unique and are used to map to the corresponding response.
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">batch_upsert</a>(...) -> AsyncHttpResponse[BulkUpsertMerchantCustomAttributesResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">batch_upsert</a>(...) -&gt; AsyncHttpResponse[BulkUpsertMerchantCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29015,7 +29015,7 @@ information needed to create or update a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">list</a>(...) -> AsyncPager[CustomAttribute, ListMerchantCustomAttributesResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">list</a>(...) -&gt; AsyncPager[CustomAttribute, ListMerchantCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29143,7 +29143,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveMerchantCustomAttributeResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveMerchantCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29257,7 +29257,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">upsert</a>(...) -> AsyncHttpResponse[UpsertMerchantCustomAttributeResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">upsert</a>(...) -&gt; AsyncHttpResponse[UpsertMerchantCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29372,7 +29372,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteMerchantCustomAttributeResponse]</code></summary>
+<details><summary><code>client.merchants.custom_attributes.<a href="src/square/merchants/custom_attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteMerchantCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29458,7 +29458,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Orders CustomAttributeDefinitions
-<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">list</a>(...) -> AsyncPager[
+<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">list</a>(...) -&gt; AsyncPager[
     CustomAttributeDefinition, ListOrderCustomAttributeDefinitionsResponse
 ]</code></summary>
 <dl>
@@ -29567,7 +29567,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/worki
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">create</a>(...) -> AsyncHttpResponse[CreateOrderCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateOrderCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29668,7 +29668,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveOrderCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveOrderCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29754,7 +29754,7 @@ control, include this optional field and specify the current version of the cust
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">update</a>(...) -> AsyncHttpResponse[UpdateOrderCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateOrderCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29857,7 +29857,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteOrderCustomAttributeDefinitionResponse]</code></summary>
+<details><summary><code>client.orders.custom_attribute_definitions.<a href="src/square/orders/custom_attribute_definitions/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteOrderCustomAttributeDefinitionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -29930,7 +29930,7 @@ client.orders.custom_attribute_definitions.delete(
 </details>
 
 ## Orders CustomAttributes
-<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">batch_delete</a>(...) -> AsyncHttpResponse[BulkDeleteOrderCustomAttributesResponse]</code></summary>
+<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">batch_delete</a>(...) -&gt; AsyncHttpResponse[BulkDeleteOrderCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30024,7 +30024,7 @@ client.orders.custom_attributes.batch_delete(
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">batch_upsert</a>(...) -> AsyncHttpResponse[BulkUpsertOrderCustomAttributesResponse]</code></summary>
+<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">batch_upsert</a>(...) -&gt; AsyncHttpResponse[BulkUpsertOrderCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30126,7 +30126,7 @@ client.orders.custom_attributes.batch_upsert(
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">list</a>(...) -> AsyncPager[CustomAttribute, ListOrderCustomAttributesResponse]</code></summary>
+<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">list</a>(...) -&gt; AsyncPager[CustomAttribute, ListOrderCustomAttributesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30257,7 +30257,7 @@ information about the data type, or other definition details. The default value 
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">get</a>(...) -> AsyncHttpResponse[RetrieveOrderCustomAttributeResponse]</code></summary>
+<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">get</a>(...) -&gt; AsyncHttpResponse[RetrieveOrderCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30371,7 +30371,7 @@ information about the data type, or other definition details. The default value 
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">upsert</a>(...) -> AsyncHttpResponse[UpsertOrderCustomAttributeResponse]</code></summary>
+<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">upsert</a>(...) -&gt; AsyncHttpResponse[UpsertOrderCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30489,7 +30489,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteOrderCustomAttributeResponse]</code></summary>
+<details><summary><code>client.orders.custom_attributes.<a href="src/square/orders/custom_attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteOrderCustomAttributeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30576,7 +30576,7 @@ existing custom attribute definition.
 </details>
 
 ## TeamMembers WageSetting
-<details><summary><code>client.team_members.wage_setting.<a href="src/square/team_members/wage_setting/client.py">get</a>(...) -> AsyncHttpResponse[GetWageSettingResponse]</code></summary>
+<details><summary><code>client.team_members.wage_setting.<a href="src/square/team_members/wage_setting/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetWageSettingResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30651,7 +30651,7 @@ client.team_members.wage_setting.get(
 </dl>
 </details>
 
-<details><summary><code>client.team_members.wage_setting.<a href="src/square/team_members/wage_setting/client.py">update</a>(...) -> AsyncHttpResponse[UpdateWageSettingResponse]</code></summary>
+<details><summary><code>client.team_members.wage_setting.<a href="src/square/team_members/wage_setting/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateWageSettingResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30759,7 +30759,7 @@ This value is ignored if `job_id` is also provided.
 </details>
 
 ## Terminal Actions
-<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">create</a>(...) -> AsyncHttpResponse[CreateTerminalActionResponse]</code></summary>
+<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateTerminalActionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30852,7 +30852,7 @@ information.
 </dl>
 </details>
 
-<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">search</a>(...) -> AsyncHttpResponse[SearchTerminalActionsResponse]</code></summary>
+<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchTerminalActionsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -30950,7 +30950,7 @@ information.
 </dl>
 </details>
 
-<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">get</a>(...) -> AsyncHttpResponse[GetTerminalActionResponse]</code></summary>
+<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetTerminalActionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31020,7 +31020,7 @@ client.terminal.actions.get(
 </dl>
 </details>
 
-<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelTerminalActionResponse]</code></summary>
+<details><summary><code>client.terminal.actions.<a href="src/square/terminal/actions/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelTerminalActionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31091,7 +31091,7 @@ client.terminal.actions.cancel(
 </details>
 
 ## Terminal Checkouts
-<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">create</a>(...) -> AsyncHttpResponse[CreateTerminalCheckoutResponse]</code></summary>
+<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateTerminalCheckoutResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31181,7 +31181,7 @@ See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-a
 </dl>
 </details>
 
-<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">search</a>(...) -> AsyncHttpResponse[SearchTerminalCheckoutsResponse]</code></summary>
+<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchTerminalCheckoutsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31275,7 +31275,7 @@ See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">get</a>(...) -> AsyncHttpResponse[GetTerminalCheckoutResponse]</code></summary>
+<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetTerminalCheckoutResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31345,7 +31345,7 @@ client.terminal.checkouts.get(
 </dl>
 </details>
 
-<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelTerminalCheckoutResponse]</code></summary>
+<details><summary><code>client.terminal.checkouts.<a href="src/square/terminal/checkouts/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelTerminalCheckoutResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31416,7 +31416,7 @@ client.terminal.checkouts.cancel(
 </details>
 
 ## Terminal Refunds
-<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">create</a>(...) -> AsyncHttpResponse[CreateTerminalRefundResponse]</code></summary>
+<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateTerminalRefundResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31505,7 +31505,7 @@ See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-a
 </dl>
 </details>
 
-<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">search</a>(...) -> AsyncHttpResponse[SearchTerminalRefundsResponse]</code></summary>
+<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">search</a>(...) -&gt; AsyncHttpResponse[SearchTerminalRefundsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31599,7 +31599,7 @@ Provide this cursor to retrieve the next set of results for the original query.
 </dl>
 </details>
 
-<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">get</a>(...) -> AsyncHttpResponse[GetTerminalRefundResponse]</code></summary>
+<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetTerminalRefundResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31669,7 +31669,7 @@ client.terminal.refunds.get(
 </dl>
 </details>
 
-<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">cancel</a>(...) -> AsyncHttpResponse[CancelTerminalRefundResponse]</code></summary>
+<details><summary><code>client.terminal.refunds.<a href="src/square/terminal/refunds/client.py">cancel</a>(...) -&gt; AsyncHttpResponse[CancelTerminalRefundResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31740,7 +31740,7 @@ client.terminal.refunds.cancel(
 </details>
 
 ## Webhooks EventTypes
-<details><summary><code>client.webhooks.event_types.<a href="src/square/webhooks/event_types/client.py">list</a>(...) -> AsyncHttpResponse[ListWebhookEventTypesResponse]</code></summary>
+<details><summary><code>client.webhooks.event_types.<a href="src/square/webhooks/event_types/client.py">list</a>(...) -&gt; AsyncHttpResponse[ListWebhookEventTypesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31811,7 +31811,7 @@ client.webhooks.event_types.list(
 </details>
 
 ## Webhooks Subscriptions
-<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">list</a>(...) -> AsyncPager[WebhookSubscription, ListWebhookSubscriptionsResponse]</code></summary>
+<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">list</a>(...) -&gt; AsyncPager[WebhookSubscription, ListWebhookSubscriptionsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -31930,7 +31930,7 @@ Default: 100
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">create</a>(...) -> AsyncHttpResponse[CreateWebhookSubscriptionResponse]</code></summary>
+<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">create</a>(...) -&gt; AsyncHttpResponse[CreateWebhookSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -32014,7 +32014,7 @@ client.webhooks.subscriptions.create(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">get</a>(...) -> AsyncHttpResponse[GetWebhookSubscriptionResponse]</code></summary>
+<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">get</a>(...) -&gt; AsyncHttpResponse[GetWebhookSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -32084,7 +32084,7 @@ client.webhooks.subscriptions.get(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">update</a>(...) -> AsyncHttpResponse[UpdateWebhookSubscriptionResponse]</code></summary>
+<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">update</a>(...) -&gt; AsyncHttpResponse[UpdateWebhookSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -32166,7 +32166,7 @@ client.webhooks.subscriptions.update(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">delete</a>(...) -> AsyncHttpResponse[DeleteWebhookSubscriptionResponse]</code></summary>
+<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">delete</a>(...) -&gt; AsyncHttpResponse[DeleteWebhookSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 
@@ -32236,7 +32236,7 @@ client.webhooks.subscriptions.delete(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">update_signature_key</a>(...) -> AsyncHttpResponse[UpdateWebhookSubscriptionSignatureKeyResponse]</code></summary>
+<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">update_signature_key</a>(...) -&gt; AsyncHttpResponse[UpdateWebhookSubscriptionSignatureKeyResponse]</code></summary>
 <dl>
 <dd>
 
@@ -32315,7 +32315,7 @@ client.webhooks.subscriptions.update_signature_key(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">test</a>(...) -> AsyncHttpResponse[TestWebhookSubscriptionResponse]</code></summary>
+<details><summary><code>client.webhooks.subscriptions.<a href="src/square/webhooks/subscriptions/client.py">test</a>(...) -&gt; AsyncHttpResponse[TestWebhookSubscriptionResponse]</code></summary>
 <dl>
 <dd>
 

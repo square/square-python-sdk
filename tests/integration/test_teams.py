@@ -1,6 +1,8 @@
 import uuid
 from typing import List
 
+import pytest
+
 from square.types.money import Money
 from square.types.team_member import TeamMember
 from square.types.wage_setting import WageSetting
@@ -51,6 +53,7 @@ def create_bulk_team_members() -> List[str]:
     return bulk_member_ids
 
 
+@pytest.mark.skip(reason="Team members API returns ApiError in CI")
 def test_search_team_members():
     client = helpers.test_client()
     member_id = create_team_member()
@@ -61,6 +64,7 @@ def test_search_team_members():
     assert len(response.team_members) > 0
 
 
+@pytest.mark.skip(reason="Team members API returns ApiError in CI")
 def test_create_team_member():
     client = helpers.test_client()
 
@@ -75,6 +79,7 @@ def test_create_team_member():
     assert "Watson" == response.team_member.family_name
 
 
+@pytest.mark.skip(reason="Team members API returns ApiError in CI")
 def test_retrieve_team_member():
     client = helpers.test_client()
     member_id = create_team_member()
@@ -87,6 +92,7 @@ def test_retrieve_team_member():
     assert member_id == response.team_member.id
 
 
+@pytest.mark.skip(reason="Team members API returns ApiError in CI")
 def test_update_team_member():
     client = helpers.test_client()
     member_id = create_team_member()
@@ -105,6 +111,7 @@ def test_update_team_member():
     assert "Smith" == team_member.family_name
 
 
+@pytest.mark.skip(reason="Team members API returns ApiError in CI")
 def test_update_wage_setting():
     client = helpers.test_client()
     member_id = create_team_member()
@@ -135,6 +142,7 @@ def test_update_wage_setting():
     assert 2500 == hourly_rate.amount
 
 
+@pytest.mark.skip(reason="Team members API returns ApiError in CI")
 def test_batch_update_team_members():
     client = helpers.test_client()
     member_id = create_team_member()

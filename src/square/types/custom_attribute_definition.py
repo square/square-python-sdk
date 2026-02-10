@@ -36,13 +36,13 @@ class CustomAttributeDefinition(UncheckedBaseModel):
     """
 
     schema_: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, typing.Any]], FieldMetadata(alias="schema")
-    ] = pydantic.Field(alias="schema", default=None)
-    """
-    The JSON schema for the custom attribute definition, which determines the data type of the corresponding custom attributes. For more information,
-    see [Custom Attributes Overview](https://developer.squareup.com/docs/devtools/customattributes/overview). This field is required when creating a definition.
-    """
-
+        typing.Optional[typing.Dict[str, typing.Any]],
+        FieldMetadata(alias="schema"),
+        pydantic.Field(
+            alias="schema",
+            description="The JSON schema for the custom attribute definition, which determines the data type of the corresponding custom attributes. For more information,\nsee [Custom Attributes Overview](https://developer.squareup.com/docs/devtools/customattributes/overview). This field is required when creating a definition.",
+        ),
+    ] = None
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     The name of the custom attribute definition for API and seller-facing UI purposes. The name must

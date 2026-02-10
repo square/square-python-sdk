@@ -77,14 +77,13 @@ class CatalogObjectCategory(UncheckedBaseModel):
     """
 
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
-    """
-    The Connect v1 IDs for this object at each location where it is present, where they
-    differ from the object's Connect V2 ID. The field will only be present for objects that
-    have been created or modified by legacy APIs.
-    """
-
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(
+            alias="catalog_v1_ids",
+            description="The Connect v1 IDs for this object at each location where it is present, where they\ndiffer from the object's Connect V2 ID. The field will only be present for objects that\nhave been created or modified by legacy APIs.",
+        ),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = pydantic.Field(default=None)
     """
     If `true`, this object is present at all locations (including future locations), except where specified in
