@@ -32,13 +32,11 @@ class Card(UncheckedBaseModel):
     See [CardBrand](#type-cardbrand) for possible values
     """
 
-    last4: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="last_4")] = pydantic.Field(
-        alias="last_4", default=None
-    )
-    """
-    The last 4 digits of the card number.
-    """
-
+    last4: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="last_4"),
+        pydantic.Field(alias="last_4", description="The last 4 digits of the card number."),
+    ] = None
     exp_month: typing.Optional[int] = pydantic.Field(default=None)
     """
     The expiration month of the associated card as an integer between 1 and 12.

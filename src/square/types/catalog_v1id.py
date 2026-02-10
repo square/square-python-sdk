@@ -14,13 +14,14 @@ class CatalogV1Id(UncheckedBaseModel):
     A Square API V1 identifier of an item, including the object ID and its associated location ID.
     """
 
-    catalog_v1id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="catalog_v1_id")] = (
-        pydantic.Field(alias="catalog_v1_id", default=None)
-    )
-    """
-    The ID for an object used in the Square API V1, if the object ID differs from the Square API V2 object ID.
-    """
-
+    catalog_v1id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="catalog_v1_id"),
+        pydantic.Field(
+            alias="catalog_v1_id",
+            description="The ID for an object used in the Square API V1, if the object ID differs from the Square API V2 object ID.",
+        ),
+    ] = None
     location_id: typing.Optional[str] = pydantic.Field(default=None)
     """
     The ID of the `Location` this Connect V1 ID is associated with.

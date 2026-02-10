@@ -49,8 +49,10 @@ class CatalogObject_Item(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -88,8 +90,10 @@ class CatalogObject_Image(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -128,8 +132,10 @@ class CatalogObject_Category(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -167,8 +173,10 @@ class CatalogObject_ItemVariation(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -206,8 +214,10 @@ class CatalogObject_Tax(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -245,8 +255,10 @@ class CatalogObject_Discount(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -284,8 +296,10 @@ class CatalogObject_ModifierList(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -323,8 +337,10 @@ class CatalogObject_Modifier(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -362,8 +378,10 @@ class CatalogObject_PricingRule(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -401,8 +419,10 @@ class CatalogObject_ProductSet(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -440,8 +460,10 @@ class CatalogObject_TimePeriod(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -479,8 +501,10 @@ class CatalogObject_MeasurementUnit(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -518,8 +542,10 @@ class CatalogObject_SubscriptionPlanVariation(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -557,8 +583,10 @@ class CatalogObject_ItemOption(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -596,8 +624,10 @@ class CatalogObject_ItemOptionVal(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -635,8 +665,10 @@ class CatalogObject_CustomAttributeDefinition(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -674,8 +706,10 @@ class CatalogObject_QuickAmountsSettings(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -713,8 +747,10 @@ class CatalogObject_SubscriptionPlan(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None
@@ -752,8 +788,10 @@ class CatalogObject_AvailabilityPeriod(UncheckedBaseModel):
     is_deleted: typing.Optional[bool] = None
     custom_attribute_values: typing.Optional[typing.Dict[str, CatalogCustomAttributeValue]] = None
     catalog_v1ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CatalogV1Id]], FieldMetadata(alias="catalog_v1_ids")
-    ] = pydantic.Field(alias="catalog_v1_ids", default=None)
+        typing.Optional[typing.List[CatalogV1Id]],
+        FieldMetadata(alias="catalog_v1_ids"),
+        pydantic.Field(alias="catalog_v1_ids"),
+    ] = None
     present_at_all_locations: typing.Optional[bool] = None
     present_at_location_ids: typing.Optional[typing.List[str]] = None
     absent_at_location_ids: typing.Optional[typing.List[str]] = None

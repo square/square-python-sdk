@@ -4,7 +4,7 @@ dynamic = ["version"]
 
 [tool.poetry]
 name = "squareup"
-version = "44.0.0.20260122"
+version = "44.0.1.20260122"
 description = ""
 readme = "README.md"
 authors = []
@@ -19,6 +19,9 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "Operating System :: OS Independent",
     "Operating System :: POSIX",
     "Operating System :: MacOS",
