@@ -5,19 +5,17 @@ import typing
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
+from .felica_details import FelicaDetails
 
 
-class SearchOrdersSourceFilter(UncheckedBaseModel):
+class ElectronicMoneyDetails(UncheckedBaseModel):
     """
-    A filter based on order `source` information.
+    Details specific to electronic money payments.
     """
 
-    source_names: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    felica_details: typing.Optional[FelicaDetails] = pydantic.Field(default=None)
     """
-    Filters by the [Source](entity:OrderSource) `name`. The filter returns any orders
-    with a `source.name` that matches any of the listed source names.
-    
-    Max: 10 source names.
+    Details specific to FeliCa payments.
     """
 
     if IS_PYDANTIC_V2:

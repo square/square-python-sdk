@@ -5,6 +5,7 @@ import typing
 import typing_extensions
 from .card import CardParams
 from .card_payment_timeline import CardPaymentTimelineParams
+from .card_surcharge_details import CardSurchargeDetailsParams
 from .device_details import DeviceDetailsParams
 from .error import ErrorParams
 
@@ -105,4 +106,20 @@ class CardPaymentDetailsParams(typing_extensions.TypedDict):
     errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
     """
     Information about errors encountered during the request.
+    """
+
+    applied_card_surcharge_details: typing_extensions.NotRequired[CardSurchargeDetailsParams]
+    """
+    Additional information about a card_surcharge on the payment.
+    """
+
+    wallet_type: typing_extensions.NotRequired[str]
+    """
+    The type of digital wallet used for this card payment, if applicable.
+    Currently only populated for in-person Apple Pay payments. Detection has no false
+    positives but may have false negatives (some Apple Pay payments may not be detected).
+    
+    For payments with `source_type` of `WALLET`, see `DigitalWalletDetails` instead.
+    
+    Values: `APPLE_PAY`
     """

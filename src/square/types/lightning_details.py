@@ -7,17 +7,14 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 
 
-class SearchOrdersSourceFilter(UncheckedBaseModel):
+class LightningDetails(UncheckedBaseModel):
     """
-    A filter based on order `source` information.
+    Additional details about `WALLET` type payments with the `brand` of `LIGHTNING`.
     """
 
-    source_names: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    payment_url: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Filters by the [Source](entity:OrderSource) `name`. The filter returns any orders
-    with a `source.name` that matches any of the listed source names.
-    
-    Max: 10 source names.
+    Payment URL for the lightning payment, a.k.a. the invoice.
     """
 
     if IS_PYDANTIC_V2:

@@ -68,6 +68,11 @@ class PaymentRefund(UncheckedBaseModel):
     [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts).
     """
 
+    app_fee_allocations: typing.Optional[typing.List[typing.Any]] = pydantic.Field(default=None)
+    """
+    Details pertaining to contributors to the refund of the application fee.
+    """
+
     processing_fee: typing.Optional[typing.List[ProcessingFee]] = pydantic.Field(default=None)
     """
     Processing fees and fee adjustments assessed by Square for this refund.
