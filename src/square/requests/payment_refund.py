@@ -66,6 +66,11 @@ class PaymentRefundParams(typing_extensions.TypedDict):
     [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts).
     """
 
+    app_fee_allocations: typing_extensions.NotRequired[typing.Sequence[typing.Any]]
+    """
+    Details pertaining to contributors to the refund of the application fee.
+    """
+
     processing_fee: typing_extensions.NotRequired[typing.Optional[typing.Sequence[ProcessingFeeParams]]]
     """
     Processing fees and fee adjustments assessed by Square for this refund.

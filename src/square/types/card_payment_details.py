@@ -7,6 +7,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .card import Card
 from .card_payment_timeline import CardPaymentTimeline
+from .card_surcharge_details import CardSurchargeDetails
 from .device_details import DeviceDetails
 from .error import Error
 
@@ -107,6 +108,22 @@ class CardPaymentDetails(UncheckedBaseModel):
     errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
     """
     Information about errors encountered during the request.
+    """
+
+    applied_card_surcharge_details: typing.Optional[CardSurchargeDetails] = pydantic.Field(default=None)
+    """
+    Additional information about a card_surcharge on the payment.
+    """
+
+    wallet_type: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The type of digital wallet used for this card payment, if applicable.
+    Currently only populated for in-person Apple Pay payments. Detection has no false
+    positives but may have false negatives (some Apple Pay payments may not be detected).
+    
+    For payments with `source_type` of `WALLET`, see `DigitalWalletDetails` instead.
+    
+    Values: `APPLE_PAY`
     """
 
     if IS_PYDANTIC_V2:

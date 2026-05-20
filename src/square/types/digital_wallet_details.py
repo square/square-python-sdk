@@ -7,6 +7,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .cash_app_details import CashAppDetails
 from .error import Error
+from .lightning_details import LightningDetails
 
 
 class DigitalWalletDetails(UncheckedBaseModel):
@@ -29,6 +30,11 @@ class DigitalWalletDetails(UncheckedBaseModel):
     cash_app_details: typing.Optional[CashAppDetails] = pydantic.Field(default=None)
     """
     Brand-specific details for payments with the `brand` of `CASH_APP`.
+    """
+
+    lightning_details: typing.Optional[LightningDetails] = pydantic.Field(default=None)
+    """
+    Brand-specific details for payments with the `brand` of `LIGHTNING`.
     """
 
     errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)

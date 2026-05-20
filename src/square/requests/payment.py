@@ -11,6 +11,7 @@ from .card_payment_details import CardPaymentDetailsParams
 from .cash_payment_details import CashPaymentDetailsParams
 from .device_details import DeviceDetailsParams
 from .digital_wallet_details import DigitalWalletDetailsParams
+from .electronic_money_details import ElectronicMoneyDetailsParams
 from .external_payment_details import ExternalPaymentDetailsParams
 from .money import MoneyParams
 from .offline_payment_details import OfflinePaymentDetailsParams
@@ -78,6 +79,11 @@ class PaymentParams(typing_extensions.TypedDict):
     
     To set this field, `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is required.
     For more information, see [Permissions](https://developer.squareup.com/docs/payments-api/take-payments-and-collect-fees#permissions).
+    """
+
+    app_fee_allocations: typing_extensions.NotRequired[typing.Optional[typing.Sequence[typing.Any]]]
+    """
+    Details pertaining to recipients of the application fee.
     """
 
     approved_money: typing_extensions.NotRequired[MoneyParams]
@@ -161,6 +167,11 @@ class PaymentParams(typing_extensions.TypedDict):
     bank_account_details: typing_extensions.NotRequired[BankAccountPaymentDetailsParams]
     """
     Details about a bank account payment. These details are only populated if the source_type is `BANK_ACCOUNT`.
+    """
+
+    electronic_money_details: typing_extensions.NotRequired[ElectronicMoneyDetailsParams]
+    """
+    Details specific to electronic money payments.
     """
 
     external_details: typing_extensions.NotRequired[ExternalPaymentDetailsParams]
@@ -312,6 +323,7 @@ class PaymentParams(typing_extensions.TypedDict):
     Details about the application that took the payment.
     """
 
+    buyer_currency_exchange: typing_extensions.NotRequired[typing.Any]
     is_offline_payment: typing_extensions.NotRequired[bool]
     """
     Whether or not this payment was taken offline.

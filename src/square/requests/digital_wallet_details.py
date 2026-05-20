@@ -5,6 +5,7 @@ import typing
 import typing_extensions
 from .cash_app_details import CashAppDetailsParams
 from .error import ErrorParams
+from .lightning_details import LightningDetailsParams
 
 
 class DigitalWalletDetailsParams(typing_extensions.TypedDict):
@@ -27,6 +28,11 @@ class DigitalWalletDetailsParams(typing_extensions.TypedDict):
     cash_app_details: typing_extensions.NotRequired[CashAppDetailsParams]
     """
     Brand-specific details for payments with the `brand` of `CASH_APP`.
+    """
+
+    lightning_details: typing_extensions.NotRequired[LightningDetailsParams]
+    """
+    Brand-specific details for payments with the `brand` of `LIGHTNING`.
     """
 
     errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]

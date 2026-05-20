@@ -13,6 +13,7 @@ from .card_payment_details import CardPaymentDetails
 from .cash_payment_details import CashPaymentDetails
 from .device_details import DeviceDetails
 from .digital_wallet_details import DigitalWalletDetails
+from .electronic_money_details import ElectronicMoneyDetails
 from .external_payment_details import ExternalPaymentDetails
 from .money import Money
 from .offline_payment_details import OfflinePaymentDetails
@@ -80,6 +81,11 @@ class Payment(UncheckedBaseModel):
     
     To set this field, `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is required.
     For more information, see [Permissions](https://developer.squareup.com/docs/payments-api/take-payments-and-collect-fees#permissions).
+    """
+
+    app_fee_allocations: typing.Optional[typing.List[typing.Any]] = pydantic.Field(default=None)
+    """
+    Details pertaining to recipients of the application fee.
     """
 
     approved_money: typing.Optional[Money] = pydantic.Field(default=None)
@@ -163,6 +169,11 @@ class Payment(UncheckedBaseModel):
     bank_account_details: typing.Optional[BankAccountPaymentDetails] = pydantic.Field(default=None)
     """
     Details about a bank account payment. These details are only populated if the source_type is `BANK_ACCOUNT`.
+    """
+
+    electronic_money_details: typing.Optional[ElectronicMoneyDetails] = pydantic.Field(default=None)
+    """
+    Details specific to electronic money payments.
     """
 
     external_details: typing.Optional[ExternalPaymentDetails] = pydantic.Field(default=None)
@@ -314,6 +325,7 @@ class Payment(UncheckedBaseModel):
     Details about the application that took the payment.
     """
 
+    buyer_currency_exchange: typing.Optional[typing.Any] = None
     is_offline_payment: typing.Optional[bool] = pydantic.Field(default=None)
     """
     Whether or not this payment was taken offline.

@@ -183,6 +183,7 @@ class RawRefundsClient:
         idempotency_key: str,
         amount_money: MoneyParams,
         app_fee_money: typing.Optional[MoneyParams] = OMIT,
+        app_fee_allocations: typing.Optional[typing.Sequence[typing.Any]] = OMIT,
         payment_id: typing.Optional[str] = OMIT,
         destination_id: typing.Optional[str] = OMIT,
         unlinked: typing.Optional[bool] = OMIT,
@@ -238,6 +239,12 @@ class RawRefundsClient:
 
             To set this field, `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is required.
             For more information, see [Permissions](https://developer.squareup.com/docs/payments-api/take-payments-and-collect-fees#permissions).
+
+        app_fee_allocations : typing.Optional[typing.Sequence[typing.Any]]
+            Details pertaining to contributors to the refund of the application fee.
+            The sum of the amounts in the app_fee_allocations must equal the app_fee_money amount, if
+            present. If populated, an allocation must be present for every party that expects to contribute
+            a portion of the refunded application fee, including the application developer.
 
         payment_id : typing.Optional[str]
             The unique ID of the payment being refunded.
@@ -305,6 +312,7 @@ class RawRefundsClient:
                 "app_fee_money": convert_and_respect_annotation_metadata(
                     object_=app_fee_money, annotation=MoneyParams, direction="write"
                 ),
+                "app_fee_allocations": app_fee_allocations,
                 "payment_id": payment_id,
                 "destination_id": destination_id,
                 "unlinked": unlinked,
@@ -545,6 +553,7 @@ class AsyncRawRefundsClient:
         idempotency_key: str,
         amount_money: MoneyParams,
         app_fee_money: typing.Optional[MoneyParams] = OMIT,
+        app_fee_allocations: typing.Optional[typing.Sequence[typing.Any]] = OMIT,
         payment_id: typing.Optional[str] = OMIT,
         destination_id: typing.Optional[str] = OMIT,
         unlinked: typing.Optional[bool] = OMIT,
@@ -600,6 +609,12 @@ class AsyncRawRefundsClient:
 
             To set this field, `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is required.
             For more information, see [Permissions](https://developer.squareup.com/docs/payments-api/take-payments-and-collect-fees#permissions).
+
+        app_fee_allocations : typing.Optional[typing.Sequence[typing.Any]]
+            Details pertaining to contributors to the refund of the application fee.
+            The sum of the amounts in the app_fee_allocations must equal the app_fee_money amount, if
+            present. If populated, an allocation must be present for every party that expects to contribute
+            a portion of the refunded application fee, including the application developer.
 
         payment_id : typing.Optional[str]
             The unique ID of the payment being refunded.
@@ -667,6 +682,7 @@ class AsyncRawRefundsClient:
                 "app_fee_money": convert_and_respect_annotation_metadata(
                     object_=app_fee_money, annotation=MoneyParams, direction="write"
                 ),
+                "app_fee_allocations": app_fee_allocations,
                 "payment_id": payment_id,
                 "destination_id": destination_id,
                 "unlinked": unlinked,
