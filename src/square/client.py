@@ -35,6 +35,7 @@ if typing.TYPE_CHECKING:
     from .payments.client import AsyncPaymentsClient, PaymentsClient
     from .payouts.client import AsyncPayoutsClient, PayoutsClient
     from .refunds.client import AsyncRefundsClient, RefundsClient
+    from .reporting.client import AsyncReportingClient, ReportingClient
     from .sites.client import AsyncSitesClient, SitesClient
     from .snippets.client import AsyncSnippetsClient, SnippetsClient
     from .subscriptions.client import AsyncSubscriptionsClient, SubscriptionsClient
@@ -148,6 +149,7 @@ class Square:
         self._terminal: typing.Optional[TerminalClient] = None
         self._transfer_orders: typing.Optional[TransferOrdersClient] = None
         self._vendors: typing.Optional[VendorsClient] = None
+        self._reporting: typing.Optional[ReportingClient] = None
         self._cash_drawers: typing.Optional[CashDrawersClient] = None
         self._webhooks: typing.Optional[WebhooksClient] = None
 
@@ -416,6 +418,14 @@ class Square:
         return self._vendors
 
     @property
+    def reporting(self):
+        if self._reporting is None:
+            from .reporting.client import ReportingClient  # noqa: E402
+
+            self._reporting = ReportingClient(client_wrapper=self._client_wrapper)
+        return self._reporting
+
+    @property
     def cash_drawers(self):
         if self._cash_drawers is None:
             from .cash_drawers.client import CashDrawersClient  # noqa: E402
@@ -533,6 +543,7 @@ class AsyncSquare:
         self._terminal: typing.Optional[AsyncTerminalClient] = None
         self._transfer_orders: typing.Optional[AsyncTransferOrdersClient] = None
         self._vendors: typing.Optional[AsyncVendorsClient] = None
+        self._reporting: typing.Optional[AsyncReportingClient] = None
         self._cash_drawers: typing.Optional[AsyncCashDrawersClient] = None
         self._webhooks: typing.Optional[AsyncWebhooksClient] = None
 
@@ -799,6 +810,14 @@ class AsyncSquare:
 
             self._vendors = AsyncVendorsClient(client_wrapper=self._client_wrapper)
         return self._vendors
+
+    @property
+    def reporting(self):
+        if self._reporting is None:
+            from .reporting.client import AsyncReportingClient  # noqa: E402
+
+            self._reporting = AsyncReportingClient(client_wrapper=self._client_wrapper)
+        return self._reporting
 
     @property
     def cash_drawers(self):

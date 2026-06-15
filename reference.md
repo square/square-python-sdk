@@ -18515,6 +18515,151 @@ information.
 </dl>
 </details>
 
+## Reporting
+<details><summary><code>client.reporting.<a href="src/square/reporting/client.py">get_metadata</a>() -&gt; AsyncHttpResponse[MetadataResponse]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Describes the data available to query: the cubes, views, measures, dimensions, and segments you can reference in a reporting query. Call this first to discover the schema, then pass the members you need to `load`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.reporting.get_metadata()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reporting.<a href="src/square/reporting/client.py">load</a>(...) -&gt; AsyncHttpResponse[LoadResponse]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Runs a reporting query against the discovered schema and returns the aggregated results. Long-running queries may return a "Continue wait" response while processing — retry the same request until results are ready.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from square import Square
+
+client = Square(
+    token="YOUR_TOKEN",
+)
+client.reporting.load()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**query_type:** `typing.Optional[str]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cache:** `typing.Optional[CacheMode]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**query:** `typing.Optional[QueryParams]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Bookings CustomAttributeDefinitions
 <details><summary><code>client.bookings.custom_attribute_definitions.<a href="src/square/bookings/custom_attribute_definitions/client.py">list</a>(...) -&gt; AsyncPager[
     CustomAttributeDefinition, ListBookingCustomAttributeDefinitionsResponse
