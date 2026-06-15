@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TEST_SQUARE_TOKEN: ${{ secrets.TEST_SQUARE_TOKEN }}
+      TEST_SQUARE_REPORTING: ${{ secrets.TEST_SQUARE_REPORTING }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3

@@ -3,15 +3,16 @@
 The Reporting API is a beta, bespoke offering served ONLY from production
 (connect.squareup.com/reporting) -- it is not routed on sandbox (which 404s),
 and a sandbox token 401s against prod. Validating it live therefore needs a
-production, reporting-provisioned ``TEST_SQUARE_TOKEN``. CI's token is
-sandbox-only, so this suite is gated behind ``TEST_SQUARE_REPORTING`` and skips
-by default, keeping CI green. The endpoints exercised are read-only (schema
+production, reporting-provisioned access token. CI's regular ``TEST_SQUARE_TOKEN``
+is sandbox-only, so this suite is gated behind ``TEST_SQUARE_REPORTING`` -- which
+is itself the prod, reporting-provisioned token -- and skips by default when it is
+unset, keeping CI green. The endpoints exercised are read-only (schema
 discovery + queries). The polling *logic* is covered without a live account in
 ``test_reporting_helper.py``.
 
 Run it against a real prod account:
 
-    TEST_SQUARE_REPORTING=1 TEST_SQUARE_TOKEN=<prod-access-token> \
+    TEST_SQUARE_REPORTING=<prod-reporting-token> \
         poetry run pytest tests/integration/test_reporting.py
     # Override the host with TEST_SQUARE_BASE_URL=<url> if reporting moves.
 """
@@ -26,14 +27,14 @@ from square.utils.reporting_helper import load_and_wait
 
 pytestmark = pytest.mark.skipif(
     not os.getenv("TEST_SQUARE_REPORTING"),
-    reason="Set TEST_SQUARE_REPORTING to run the live Reporting API suite (needs a prod, reporting-provisioned token).",
+    reason="Set TEST_SQUARE_REPORTING to a prod, reporting-provisioned token to run the live Reporting API suite.",
 )
 
 
 def reporting_client() -> Square:
-    token = os.getenv("TEST_SQUARE_TOKEN")
+    token = os.getenv("TEST_SQUARE_REPORTING")
     if not token:
-        raise RuntimeError("TEST_SQUARE_TOKEN must be set to run the reporting integration suite.")
+        raise RuntimeError("TEST_SQUARE_REPORTING must be set to a prod, reporting-provisioned token to run the reporting integration suite.")
     # Reporting only exists on production; allow overriding the host via TEST_SQUARE_BASE_URL.
     base_url = os.getenv("TEST_SQUARE_BASE_URL")
     if base_url:
