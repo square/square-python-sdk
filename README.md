@@ -193,6 +193,71 @@ is_valid = verify_signature(
 )
 ```
 
+## Reporting API
+
+The [Reporting API](https://developer.squareup.com/docs/reporting-api/overview) lets you query
+aggregated reporting data. Call `reporting.get_metadata` first to discover the available cubes,
+measures, and dimensions, then run a query with `reporting.load`.
+
+```python
+from square import Square
+
+client = Square(token="YOUR_TOKEN")
+
+# Discover what you can query.
+metadata = client.reporting.get_metadata()
+
+# Run a query against the discovered schema.
+response = client.reporting.load(query={"measures": ["Orders.count"]})
+```
+
+`load` is asynchronous: while a query is still being computed, the API returns an HTTP `200` whose
+body is `{"error": "Continue wait"}` instead of results, and the client is expected to re-send the
+identical request — with backoff — until the results are ready. The `load_and_wait` helper owns
+that polling loop for you and returns the resolved results (never the `"Continue wait"` sentinel):
+
+```python
+from square import Square
+from square.utils.reporting_helper import load_and_wait
+
+client = Square(token="YOUR_TOKEN")
+
+response = load_and_wait(client, query={"measures": ["Orders.count"]})
+
+print(response.data)
+```
+
+By default it polls up to 20 times with exponential backoff (2s → 20s). Tune the behavior — and
+pass a `threading.Event` to cancel — via the keyword arguments:
+
+```python
+import threading
+
+cancel_event = threading.Event()
+
+response = load_and_wait(
+    client,
+    query={"measures": ["Orders.count"]},
+    max_attempts=10,        # default 20
+    initial_delay_s=1.0,    # default 2.0
+    max_delay_s=20.0,       # default 20.0
+    backoff_factor=2.0,     # default 2.0
+    cancel_event=cancel_event,
+)
+```
+
+For the [async client](#async-client), use `load_and_wait_async` (cancel it the idiomatic asyncio
+way — e.g. `asyncio.wait_for` or `Task.cancel`):
+
+```python
+from square import AsyncSquare
+from square.utils.reporting_helper import load_and_wait_async
+
+client = AsyncSquare(token="YOUR_TOKEN")
+
+response = await load_and_wait_async(client, query={"measures": ["Orders.count"]})
+```
+
 ## Advanced
 
 ### Retries
