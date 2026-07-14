@@ -11,7 +11,7 @@ from square.requests.catalog_object import (
     CatalogObject_ItemVariationParams,
 )
 from square.types.catalog_item import CatalogItem
-from square.types.catalog_object_item import CatalogObjectItem
+from square.types.catalog_object import CatalogObject_Item
 from square.types.inventory_adjustment import InventoryAdjustment
 from square.types.inventory_physical_count import InventoryPhysicalCount
 
@@ -74,7 +74,9 @@ def create_catalog_item_variation() -> str:
     )
 
     assert catalog_response.catalog_object is not None
-    assert isinstance(catalog_response.catalog_object, CatalogObjectItem)
+    # The response deserializes to the discriminated-union variant
+    # CatalogObject_Item, not the standalone CatalogObjectItem class.
+    assert isinstance(catalog_response.catalog_object, CatalogObject_Item)
     item = catalog_response.catalog_object.item_data
     assert item is not None
     assert isinstance(item, CatalogItem)
