@@ -56,7 +56,7 @@ class CatalogItemModifierListInfo(UncheckedBaseModel):
 
     ordinal: typing.Optional[int] = pydantic.Field(default=None)
     """
-    The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list applied 
+    The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list applied
     to a `CatalogItem` instance.
     """
 

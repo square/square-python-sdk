@@ -5,19 +5,29 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
+from ..requests.batch_retrieve_inventory_changes_sort import BatchRetrieveInventoryChangesSortParams
+from ..requests.inventory_adjustment import InventoryAdjustmentParams
+from ..requests.inventory_adjustment_reason import InventoryAdjustmentReasonParams
+from ..requests.inventory_adjustment_reason_id import InventoryAdjustmentReasonIdParams
 from ..requests.inventory_change import InventoryChangeParams
 from ..types.batch_change_inventory_response import BatchChangeInventoryResponse
 from ..types.batch_get_inventory_changes_response import BatchGetInventoryChangesResponse
 from ..types.batch_get_inventory_counts_response import BatchGetInventoryCountsResponse
+from ..types.create_inventory_adjustment_reason_response import CreateInventoryAdjustmentReasonResponse
+from ..types.delete_inventory_adjustment_reason_response import DeleteInventoryAdjustmentReasonResponse
 from ..types.get_inventory_adjustment_response import GetInventoryAdjustmentResponse
 from ..types.get_inventory_changes_response import GetInventoryChangesResponse
 from ..types.get_inventory_count_response import GetInventoryCountResponse
 from ..types.get_inventory_physical_count_response import GetInventoryPhysicalCountResponse
-from ..types.get_inventory_transfer_response import GetInventoryTransferResponse
 from ..types.inventory_change import InventoryChange
 from ..types.inventory_change_type import InventoryChangeType
 from ..types.inventory_count import InventoryCount
 from ..types.inventory_state import InventoryState
+from ..types.list_inventory_adjustment_reasons_response import ListInventoryAdjustmentReasonsResponse
+from ..types.restore_inventory_adjustment_reason_response import RestoreInventoryAdjustmentReasonResponse
+from ..types.retrieve_inventory_adjustment_reason_response import RetrieveInventoryAdjustmentReasonResponse
+from ..types.update_inventory_adjustment_reason_response import UpdateInventoryAdjustmentReasonResponse
+from ..types.update_inventory_adjustment_response import UpdateInventoryAdjustmentResponse
 from .raw_client import AsyncRawInventoryClient, RawInventoryClient
 
 # this is used as the default value for optional parameters
@@ -38,6 +48,260 @@ class InventoryClient:
         RawInventoryClient
         """
         return self._raw_client
+
+    def list_inventory_adjustment_reasons(
+        self,
+        *,
+        include_deleted: typing.Optional[bool] = None,
+        include_system_codes: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ListInventoryAdjustmentReasonsResponse:
+        """
+        Returns the standard and custom inventory adjustment reasons available
+        to the seller.
+
+        Parameters
+        ----------
+        include_deleted : typing.Optional[bool]
+            Indicates whether the response should include deleted custom inventory
+            adjustment reasons. The default value is `false`.
+
+        include_system_codes : typing.Optional[bool]
+            Indicates whether the response should include Square-generated system
+            inventory adjustment reason codes that cannot be used to write adjustments
+            from the Connect API, such as `SALE`, `RECOUNT`, `TRANSFER`, `IN_TRANSIT`,
+            and `CANCELED_SALE`. The default value is `false`.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ListInventoryAdjustmentReasonsResponse
+            Success
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.list_inventory_adjustment_reasons(
+            include_deleted=True,
+            include_system_codes=True,
+        )
+        """
+        _response = self._raw_client.list_inventory_adjustment_reasons(
+            include_deleted=include_deleted, include_system_codes=include_system_codes, request_options=request_options
+        )
+        return _response.data
+
+    def create_inventory_adjustment_reason(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CreateInventoryAdjustmentReasonResponse:
+        """
+        Creates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier to make this
+            [CreateInventoryAdjustmentReason](api-endpoint:Inventory-CreateInventoryAdjustmentReason)
+            request idempotent.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The custom inventory adjustment reason to create. Only custom
+            adjustment reasons can be created.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CreateInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.create_inventory_adjustment_reason(
+            idempotency_key="27b2f2b1-1c2a-4b9e-8f3a-0d9c3a1e5b47",
+            adjustment_reason={
+                "id": {"type": "CUSTOM"},
+                "name": "Donated to charity",
+                "direction": "DECREASE",
+            },
+        )
+        """
+        _response = self._raw_client.create_inventory_adjustment_reason(
+            idempotency_key=idempotency_key, adjustment_reason=adjustment_reason, request_options=request_options
+        )
+        return _response.data
+
+    def delete_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> DeleteInventoryAdjustmentReasonResponse:
+        """
+        Soft deletes a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to soft delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeleteInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.delete_inventory_adjustment_reason(
+            reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+        )
+        """
+        _response = self._raw_client.delete_inventory_adjustment_reason(
+            reason_id=reason_id, request_options=request_options
+        )
+        return _response.data
+
+    def restore_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> RestoreInventoryAdjustmentReasonResponse:
+        """
+        Restores a soft-deleted custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the soft-deleted custom inventory adjustment reason
+            to restore.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RestoreInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.restore_inventory_adjustment_reason(
+            reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+        )
+        """
+        _response = self._raw_client.restore_inventory_adjustment_reason(
+            reason_id=reason_id, request_options=request_options
+        )
+        return _response.data
+
+    def retrieve_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> RetrieveInventoryAdjustmentReasonResponse:
+        """
+        Returns the inventory adjustment reason identified by the provided
+        `reason_id`. Deleted custom reasons can be retrieved by ID.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the inventory adjustment reason to retrieve.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RetrieveInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.retrieve_inventory_adjustment_reason(
+            reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+        )
+        """
+        _response = self._raw_client.retrieve_inventory_adjustment_reason(
+            reason_id=reason_id, request_options=request_options
+        )
+        return _response.data
+
+    def update_inventory_adjustment_reason(
+        self,
+        *,
+        reason_id: InventoryAdjustmentReasonIdParams,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> UpdateInventoryAdjustmentReasonResponse:
+        """
+        Updates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to update.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The requested custom inventory adjustment reason update. Only the
+            `name` field can be updated. Deleted custom reasons cannot be updated. To
+            restore a deleted custom reason, call
+            [RestoreInventoryAdjustmentReason](api-endpoint:Inventory-RestoreInventoryAdjustmentReason).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        UpdateInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.update_inventory_adjustment_reason(
+            reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+            adjustment_reason={
+                "id": {"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+                "name": "Charitable donation",
+            },
+        )
+        """
+        _response = self._raw_client.update_inventory_adjustment_reason(
+            reason_id=reason_id, adjustment_reason=adjustment_reason, request_options=request_options
+        )
+        return _response.data
 
     def deprecated_get_adjustment(
         self, adjustment_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -71,6 +335,68 @@ class InventoryClient:
         )
         """
         _response = self._raw_client.deprecated_get_adjustment(adjustment_id, request_options=request_options)
+        return _response.data
+
+    def update_inventory_adjustment(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment: InventoryAdjustmentParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> UpdateInventoryAdjustmentResponse:
+        """
+        Applies an update to the provided adjustment.
+
+        On success: returns the newly updated adjustment.
+        On failure: returns a list of related errors.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier (UUID) for the
+            request.
+
+            See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency) in the
+            [Build Basics](https://developer.squareup.com/docs/buildbasics) section for more
+            information.
+
+        adjustment : InventoryAdjustmentParams
+            Represents the updates being written to a past/existing inventory adjustment.
+            This works using sparse updates, meaning that any fields omitted from the inputted InventoryAdjustment
+            will retain their values.
+
+            Only updates to the quantity, cost_money, vendor_id, and reason_id fields of an InventoryAdjustment can be made here.
+            Note that the quantity field must be provided, but it can be identical to the current quantity if there are no desired quantity changes.
+            cost_money and vendor_id can only be written to adjustments that add stock to the system (from_state of NONE or UNLINKED_RETURN) and to untracked sale adjustments.
+            reason_id can be changed to any reason that is valid for the adjustment's state transition. The reason of a system-generated adjustment (for example, SALE or RECOUNT) cannot be changed.
+            Adjustments generated by Square from other records cannot be updated. This includes inferred adjustments created by physical counts, transfer-like cross-location adjustments, and component adjustments.
+            Adjustments linked to purchase orders cannot be updated. Adjustments linked to sales can only have cost_money and vendor_id updated, and only for untracked sales.
+            Restock adjustments linked to an itemized return can have their quantity updated, up to the quantity remaining on the return.
+            Adjustments older than one year cannot be updated.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        UpdateInventoryAdjustmentResponse
+            Success
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.update_inventory_adjustment(
+            idempotency_key="8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe",
+            adjustment={},
+        )
+        """
+        _response = self._raw_client.update_inventory_adjustment(
+            idempotency_key=idempotency_key, adjustment=adjustment, request_options=request_options
+        )
         return _response.data
 
     def get_adjustment(
@@ -191,6 +517,8 @@ class InventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchGetInventoryChangesResponse:
         """
@@ -235,6 +563,17 @@ class InventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -268,6 +607,8 @@ class InventoryClient:
             updated_before=updated_before,
             cursor=cursor,
             limit=limit,
+            sort=sort,
+            reason_ids=reason_ids,
             request_options=request_options,
         )
         return _response.data
@@ -435,6 +776,8 @@ class InventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SyncPager[InventoryChange, BatchGetInventoryChangesResponse]:
         """
@@ -485,6 +828,17 @@ class InventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -523,6 +877,8 @@ class InventoryClient:
             updated_before=updated_before,
             cursor=cursor,
             limit=limit,
+            sort=sort,
+            reason_ids=reason_ids,
             request_options=request_options,
         )
 
@@ -685,40 +1041,6 @@ class InventoryClient:
         _response = self._raw_client.get_physical_count(physical_count_id, request_options=request_options)
         return _response.data
 
-    def get_transfer(
-        self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> GetInventoryTransferResponse:
-        """
-        Returns the [InventoryTransfer](entity:InventoryTransfer) object
-        with the provided `transfer_id`.
-
-        Parameters
-        ----------
-        transfer_id : str
-            ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        GetInventoryTransferResponse
-            Success
-
-        Examples
-        --------
-        from square import Square
-
-        client = Square(
-            token="YOUR_TOKEN",
-        )
-        client.inventory.get_transfer(
-            transfer_id="transfer_id",
-        )
-        """
-        _response = self._raw_client.get_transfer(transfer_id, request_options=request_options)
-        return _response.data
-
     def get(
         self,
         catalog_object_id: str,
@@ -846,6 +1168,33 @@ class InventoryClient:
             catalog_object_id, location_ids=location_ids, cursor=cursor, request_options=request_options
         )
 
+    def get_transfer(self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        transfer_id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from square import Square
+
+        client = Square(
+            token="YOUR_TOKEN",
+        )
+        client.inventory.get_transfer(
+            transfer_id="transfer_id",
+        )
+        """
+        _response = self._raw_client.get_transfer(transfer_id, request_options=request_options)
+        return _response.data
+
 
 class AsyncInventoryClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -861,6 +1210,308 @@ class AsyncInventoryClient:
         AsyncRawInventoryClient
         """
         return self._raw_client
+
+    async def list_inventory_adjustment_reasons(
+        self,
+        *,
+        include_deleted: typing.Optional[bool] = None,
+        include_system_codes: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ListInventoryAdjustmentReasonsResponse:
+        """
+        Returns the standard and custom inventory adjustment reasons available
+        to the seller.
+
+        Parameters
+        ----------
+        include_deleted : typing.Optional[bool]
+            Indicates whether the response should include deleted custom inventory
+            adjustment reasons. The default value is `false`.
+
+        include_system_codes : typing.Optional[bool]
+            Indicates whether the response should include Square-generated system
+            inventory adjustment reason codes that cannot be used to write adjustments
+            from the Connect API, such as `SALE`, `RECOUNT`, `TRANSFER`, `IN_TRANSIT`,
+            and `CANCELED_SALE`. The default value is `false`.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ListInventoryAdjustmentReasonsResponse
+            Success
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.list_inventory_adjustment_reasons(
+                include_deleted=True,
+                include_system_codes=True,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_inventory_adjustment_reasons(
+            include_deleted=include_deleted, include_system_codes=include_system_codes, request_options=request_options
+        )
+        return _response.data
+
+    async def create_inventory_adjustment_reason(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CreateInventoryAdjustmentReasonResponse:
+        """
+        Creates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier to make this
+            [CreateInventoryAdjustmentReason](api-endpoint:Inventory-CreateInventoryAdjustmentReason)
+            request idempotent.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The custom inventory adjustment reason to create. Only custom
+            adjustment reasons can be created.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CreateInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.create_inventory_adjustment_reason(
+                idempotency_key="27b2f2b1-1c2a-4b9e-8f3a-0d9c3a1e5b47",
+                adjustment_reason={
+                    "id": {"type": "CUSTOM"},
+                    "name": "Donated to charity",
+                    "direction": "DECREASE",
+                },
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_inventory_adjustment_reason(
+            idempotency_key=idempotency_key, adjustment_reason=adjustment_reason, request_options=request_options
+        )
+        return _response.data
+
+    async def delete_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> DeleteInventoryAdjustmentReasonResponse:
+        """
+        Soft deletes a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to soft delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeleteInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.delete_inventory_adjustment_reason(
+                reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_inventory_adjustment_reason(
+            reason_id=reason_id, request_options=request_options
+        )
+        return _response.data
+
+    async def restore_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> RestoreInventoryAdjustmentReasonResponse:
+        """
+        Restores a soft-deleted custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the soft-deleted custom inventory adjustment reason
+            to restore.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RestoreInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.restore_inventory_adjustment_reason(
+                reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.restore_inventory_adjustment_reason(
+            reason_id=reason_id, request_options=request_options
+        )
+        return _response.data
+
+    async def retrieve_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> RetrieveInventoryAdjustmentReasonResponse:
+        """
+        Returns the inventory adjustment reason identified by the provided
+        `reason_id`. Deleted custom reasons can be retrieved by ID.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the inventory adjustment reason to retrieve.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RetrieveInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.retrieve_inventory_adjustment_reason(
+                reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.retrieve_inventory_adjustment_reason(
+            reason_id=reason_id, request_options=request_options
+        )
+        return _response.data
+
+    async def update_inventory_adjustment_reason(
+        self,
+        *,
+        reason_id: InventoryAdjustmentReasonIdParams,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> UpdateInventoryAdjustmentReasonResponse:
+        """
+        Updates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to update.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The requested custom inventory adjustment reason update. Only the
+            `name` field can be updated. Deleted custom reasons cannot be updated. To
+            restore a deleted custom reason, call
+            [RestoreInventoryAdjustmentReason](api-endpoint:Inventory-RestoreInventoryAdjustmentReason).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        UpdateInventoryAdjustmentReasonResponse
+            Success
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.update_inventory_adjustment_reason(
+                reason_id={"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+                adjustment_reason={
+                    "id": {"type": "CUSTOM", "custom_reason_id": "R5BX3PDCZ6EXAMPLE"},
+                    "name": "Charitable donation",
+                },
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_inventory_adjustment_reason(
+            reason_id=reason_id, adjustment_reason=adjustment_reason, request_options=request_options
+        )
+        return _response.data
 
     async def deprecated_get_adjustment(
         self, adjustment_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -902,6 +1553,76 @@ class AsyncInventoryClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.deprecated_get_adjustment(adjustment_id, request_options=request_options)
+        return _response.data
+
+    async def update_inventory_adjustment(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment: InventoryAdjustmentParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> UpdateInventoryAdjustmentResponse:
+        """
+        Applies an update to the provided adjustment.
+
+        On success: returns the newly updated adjustment.
+        On failure: returns a list of related errors.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier (UUID) for the
+            request.
+
+            See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency) in the
+            [Build Basics](https://developer.squareup.com/docs/buildbasics) section for more
+            information.
+
+        adjustment : InventoryAdjustmentParams
+            Represents the updates being written to a past/existing inventory adjustment.
+            This works using sparse updates, meaning that any fields omitted from the inputted InventoryAdjustment
+            will retain their values.
+
+            Only updates to the quantity, cost_money, vendor_id, and reason_id fields of an InventoryAdjustment can be made here.
+            Note that the quantity field must be provided, but it can be identical to the current quantity if there are no desired quantity changes.
+            cost_money and vendor_id can only be written to adjustments that add stock to the system (from_state of NONE or UNLINKED_RETURN) and to untracked sale adjustments.
+            reason_id can be changed to any reason that is valid for the adjustment's state transition. The reason of a system-generated adjustment (for example, SALE or RECOUNT) cannot be changed.
+            Adjustments generated by Square from other records cannot be updated. This includes inferred adjustments created by physical counts, transfer-like cross-location adjustments, and component adjustments.
+            Adjustments linked to purchase orders cannot be updated. Adjustments linked to sales can only have cost_money and vendor_id updated, and only for untracked sales.
+            Restock adjustments linked to an itemized return can have their quantity updated, up to the quantity remaining on the return.
+            Adjustments older than one year cannot be updated.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        UpdateInventoryAdjustmentResponse
+            Success
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.update_inventory_adjustment(
+                idempotency_key="8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe",
+                adjustment={},
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_inventory_adjustment(
+            idempotency_key=idempotency_key, adjustment=adjustment, request_options=request_options
+        )
         return _response.data
 
     async def get_adjustment(
@@ -1038,6 +1759,8 @@ class AsyncInventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BatchGetInventoryChangesResponse:
         """
@@ -1082,6 +1805,17 @@ class AsyncInventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1123,6 +1857,8 @@ class AsyncInventoryClient:
             updated_before=updated_before,
             cursor=cursor,
             limit=limit,
+            sort=sort,
+            reason_ids=reason_ids,
             request_options=request_options,
         )
         return _response.data
@@ -1306,6 +2042,8 @@ class AsyncInventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncPager[InventoryChange, BatchGetInventoryChangesResponse]:
         """
@@ -1356,6 +2094,17 @@ class AsyncInventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1403,6 +2152,8 @@ class AsyncInventoryClient:
             updated_before=updated_before,
             cursor=cursor,
             limit=limit,
+            sort=sort,
+            reason_ids=reason_ids,
             request_options=request_options,
         )
 
@@ -1592,48 +2343,6 @@ class AsyncInventoryClient:
         _response = await self._raw_client.get_physical_count(physical_count_id, request_options=request_options)
         return _response.data
 
-    async def get_transfer(
-        self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> GetInventoryTransferResponse:
-        """
-        Returns the [InventoryTransfer](entity:InventoryTransfer) object
-        with the provided `transfer_id`.
-
-        Parameters
-        ----------
-        transfer_id : str
-            ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        GetInventoryTransferResponse
-            Success
-
-        Examples
-        --------
-        import asyncio
-
-        from square import AsyncSquare
-
-        client = AsyncSquare(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.inventory.get_transfer(
-                transfer_id="transfer_id",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_transfer(transfer_id, request_options=request_options)
-        return _response.data
-
     async def get(
         self,
         catalog_object_id: str,
@@ -1778,3 +2487,38 @@ class AsyncInventoryClient:
         return await self._raw_client.changes(
             catalog_object_id, location_ids=location_ids, cursor=cursor, request_options=request_options
         )
+
+    async def get_transfer(self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        transfer_id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from square import AsyncSquare
+
+        client = AsyncSquare(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.inventory.get_transfer(
+                transfer_id="transfer_id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_transfer(transfer_id, request_options=request_options)
+        return _response.data

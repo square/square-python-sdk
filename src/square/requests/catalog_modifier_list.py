@@ -23,7 +23,7 @@ class CatalogModifierListParams(typing_extensions.TypedDict):
 
     name: typing_extensions.NotRequired[typing.Optional[str]]
     """
-    The name of the `CatalogModifierList` instance. This is a searchable attribute for use in applicable query filters, and its value length is of 
+    The name of the `CatalogModifierList` instance. This is a searchable attribute for use in applicable query filters, and its value length is of
     Unicode code points.
     """
 
@@ -41,14 +41,14 @@ class CatalogModifierListParams(typing_extensions.TypedDict):
 
     modifiers: typing_extensions.NotRequired[typing.Optional[typing.Sequence["CatalogObjectParams"]]]
     """
-    A non-empty list of `CatalogModifier` objects to be included in the `CatalogModifierList`, 
-    for non text-based modifiers when the `modifier_type` attribute is `LIST`. Each element of this list 
+    A non-empty list of `CatalogModifier` objects to be included in the `CatalogModifierList`,
+    for non text-based modifiers when the `modifier_type` attribute is `LIST`. Each element of this list
     is a `CatalogObject` instance of the `MODIFIER` type, containing the following attributes:
     ```
     {
     "id": "{{catalog_modifier_id}}",
-    "type": "MODIFIER", 
-    "modifier_data": {{a CatalogModifier instance>}} 
+    "type": "MODIFIER",
+    "modifier_data": {{a CatalogModifier instance>}}
     }
     ```
     """
@@ -71,16 +71,16 @@ class CatalogModifierListParams(typing_extensions.TypedDict):
 
     modifier_type: typing_extensions.NotRequired[CatalogModifierListModifierType]
     """
-    The type of the modifier. 
+    The type of the modifier.
     
-    When this `modifier_type` value is `TEXT`,  the `CatalogModifierList` represents a text-based modifier. 
+    When this `modifier_type` value is `TEXT`,  the `CatalogModifierList` represents a text-based modifier.
     When this `modifier_type` value is `LIST`, the `CatalogModifierList` contains a list of `CatalogModifier` objects.
     See [CatalogModifierListModifierType](#type-catalogmodifierlistmodifiertype) for possible values
     """
 
     max_length: typing_extensions.NotRequired[typing.Optional[int]]
     """
-    The maximum length, in Unicode points, of the text string of the text-based modifier as represented by 
+    The maximum length, in Unicode points, of the text string of the text-based modifier as represented by
     this `CatalogModifierList` object with the `modifier_type` set to `TEXT`.
     """
 
@@ -92,13 +92,13 @@ class CatalogModifierListParams(typing_extensions.TypedDict):
 
     internal_name: typing_extensions.NotRequired[typing.Optional[str]]
     """
-    A note for internal use by the business.   
+    A note for internal use by the business.
     
-    For example, for a text-based modifier applied to a T-shirt item, if the buyer-supplied text of "Hello, Kitty!"  
-    is to be printed on the T-shirt, this `internal_name` attribute can be "Use italic face" as 
-    an instruction for the business to follow.  
+    For example, for a text-based modifier applied to a T-shirt item, if the buyer-supplied text of "Hello, Kitty!"
+    is to be printed on the T-shirt, this `internal_name` attribute can be "Use italic face" as
+    an instruction for the business to follow.
     
-    For non text-based modifiers, this `internal_name` attribute can be 
+    For non text-based modifiers, this `internal_name` attribute can be
     used to include SKUs, internal codes, or supplemental descriptions for internal use.
     """
 

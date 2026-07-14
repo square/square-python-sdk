@@ -8,6 +8,7 @@ from ..types.fulfillment_state import FulfillmentState
 from ..types.fulfillment_type import FulfillmentType
 from .fulfillment_delivery_details import FulfillmentDeliveryDetailsParams
 from .fulfillment_fulfillment_entry import FulfillmentFulfillmentEntryParams
+from .fulfillment_in_store_details import FulfillmentInStoreDetailsParams
 from .fulfillment_pickup_details import FulfillmentPickupDetailsParams
 from .fulfillment_shipment_details import FulfillmentShipmentDetailsParams
 
@@ -103,4 +104,10 @@ class FulfillmentParams(typing_extensions.TypedDict):
     delivery_details: typing_extensions.NotRequired[FulfillmentDeliveryDetailsParams]
     """
     Describes delivery details of an order fulfillment.
+    """
+
+    in_store_details: typing_extensions.NotRequired[FulfillmentInStoreDetailsParams]
+    """
+    Contains details for an in-store fulfillment. These details are required when the fulfillment
+    type is `IN_STORE`.
     """

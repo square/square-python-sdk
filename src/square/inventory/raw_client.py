@@ -11,19 +11,29 @@ from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
+from ..requests.batch_retrieve_inventory_changes_sort import BatchRetrieveInventoryChangesSortParams
+from ..requests.inventory_adjustment import InventoryAdjustmentParams
+from ..requests.inventory_adjustment_reason import InventoryAdjustmentReasonParams
+from ..requests.inventory_adjustment_reason_id import InventoryAdjustmentReasonIdParams
 from ..requests.inventory_change import InventoryChangeParams
 from ..types.batch_change_inventory_response import BatchChangeInventoryResponse
 from ..types.batch_get_inventory_changes_response import BatchGetInventoryChangesResponse
 from ..types.batch_get_inventory_counts_response import BatchGetInventoryCountsResponse
+from ..types.create_inventory_adjustment_reason_response import CreateInventoryAdjustmentReasonResponse
+from ..types.delete_inventory_adjustment_reason_response import DeleteInventoryAdjustmentReasonResponse
 from ..types.get_inventory_adjustment_response import GetInventoryAdjustmentResponse
 from ..types.get_inventory_changes_response import GetInventoryChangesResponse
 from ..types.get_inventory_count_response import GetInventoryCountResponse
 from ..types.get_inventory_physical_count_response import GetInventoryPhysicalCountResponse
-from ..types.get_inventory_transfer_response import GetInventoryTransferResponse
 from ..types.inventory_change import InventoryChange
 from ..types.inventory_change_type import InventoryChangeType
 from ..types.inventory_count import InventoryCount
 from ..types.inventory_state import InventoryState
+from ..types.list_inventory_adjustment_reasons_response import ListInventoryAdjustmentReasonsResponse
+from ..types.restore_inventory_adjustment_reason_response import RestoreInventoryAdjustmentReasonResponse
+from ..types.retrieve_inventory_adjustment_reason_response import RetrieveInventoryAdjustmentReasonResponse
+from ..types.update_inventory_adjustment_reason_response import UpdateInventoryAdjustmentReasonResponse
+from ..types.update_inventory_adjustment_response import UpdateInventoryAdjustmentResponse
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -32,6 +42,327 @@ OMIT = typing.cast(typing.Any, ...)
 class RawInventoryClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
+
+    def list_inventory_adjustment_reasons(
+        self,
+        *,
+        include_deleted: typing.Optional[bool] = None,
+        include_system_codes: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[ListInventoryAdjustmentReasonsResponse]:
+        """
+        Returns the standard and custom inventory adjustment reasons available
+        to the seller.
+
+        Parameters
+        ----------
+        include_deleted : typing.Optional[bool]
+            Indicates whether the response should include deleted custom inventory
+            adjustment reasons. The default value is `false`.
+
+        include_system_codes : typing.Optional[bool]
+            Indicates whether the response should include Square-generated system
+            inventory adjustment reason codes that cannot be used to write adjustments
+            from the Connect API, such as `SALE`, `RECOUNT`, `TRANSFER`, `IN_TRANSIT`,
+            and `CANCELED_SALE`. The default value is `false`.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[ListInventoryAdjustmentReasonsResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons",
+            method="GET",
+            params={
+                "include_deleted": include_deleted,
+                "include_system_codes": include_system_codes,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ListInventoryAdjustmentReasonsResponse,
+                    construct_type(
+                        type_=ListInventoryAdjustmentReasonsResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_inventory_adjustment_reason(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[CreateInventoryAdjustmentReasonResponse]:
+        """
+        Creates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier to make this
+            [CreateInventoryAdjustmentReason](api-endpoint:Inventory-CreateInventoryAdjustmentReason)
+            request idempotent.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The custom inventory adjustment reason to create. Only custom
+            adjustment reasons can be created.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[CreateInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/create",
+            method="POST",
+            json={
+                "idempotency_key": idempotency_key,
+                "adjustment_reason": convert_and_respect_annotation_metadata(
+                    object_=adjustment_reason, annotation=InventoryAdjustmentReasonParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CreateInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=CreateInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def delete_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[DeleteInventoryAdjustmentReasonResponse]:
+        """
+        Soft deletes a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to soft delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[DeleteInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/delete",
+            method="POST",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DeleteInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=DeleteInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def restore_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[RestoreInventoryAdjustmentReasonResponse]:
+        """
+        Restores a soft-deleted custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the soft-deleted custom inventory adjustment reason
+            to restore.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[RestoreInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/restore",
+            method="POST",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    RestoreInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=RestoreInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def retrieve_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[RetrieveInventoryAdjustmentReasonResponse]:
+        """
+        Returns the inventory adjustment reason identified by the provided
+        `reason_id`. Deleted custom reasons can be retrieved by ID.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the inventory adjustment reason to retrieve.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[RetrieveInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/retrieve",
+            method="POST",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    RetrieveInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=RetrieveInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update_inventory_adjustment_reason(
+        self,
+        *,
+        reason_id: InventoryAdjustmentReasonIdParams,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[UpdateInventoryAdjustmentReasonResponse]:
+        """
+        Updates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to update.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The requested custom inventory adjustment reason update. Only the
+            `name` field can be updated. Deleted custom reasons cannot be updated. To
+            restore a deleted custom reason, call
+            [RestoreInventoryAdjustmentReason](api-endpoint:Inventory-RestoreInventoryAdjustmentReason).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[UpdateInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/update",
+            method="PUT",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+                "adjustment_reason": convert_and_respect_annotation_metadata(
+                    object_=adjustment_reason, annotation=InventoryAdjustmentReasonParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    UpdateInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=UpdateInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     def deprecated_get_adjustment(
         self, adjustment_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -64,6 +395,81 @@ class RawInventoryClient:
                     GetInventoryAdjustmentResponse,
                     construct_type(
                         type_=GetInventoryAdjustmentResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update_inventory_adjustment(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment: InventoryAdjustmentParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[UpdateInventoryAdjustmentResponse]:
+        """
+        Applies an update to the provided adjustment.
+
+        On success: returns the newly updated adjustment.
+        On failure: returns a list of related errors.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier (UUID) for the
+            request.
+
+            See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency) in the
+            [Build Basics](https://developer.squareup.com/docs/buildbasics) section for more
+            information.
+
+        adjustment : InventoryAdjustmentParams
+            Represents the updates being written to a past/existing inventory adjustment.
+            This works using sparse updates, meaning that any fields omitted from the inputted InventoryAdjustment
+            will retain their values.
+
+            Only updates to the quantity, cost_money, vendor_id, and reason_id fields of an InventoryAdjustment can be made here.
+            Note that the quantity field must be provided, but it can be identical to the current quantity if there are no desired quantity changes.
+            cost_money and vendor_id can only be written to adjustments that add stock to the system (from_state of NONE or UNLINKED_RETURN) and to untracked sale adjustments.
+            reason_id can be changed to any reason that is valid for the adjustment's state transition. The reason of a system-generated adjustment (for example, SALE or RECOUNT) cannot be changed.
+            Adjustments generated by Square from other records cannot be updated. This includes inferred adjustments created by physical counts, transfer-like cross-location adjustments, and component adjustments.
+            Adjustments linked to purchase orders cannot be updated. Adjustments linked to sales can only have cost_money and vendor_id updated, and only for untracked sales.
+            Restock adjustments linked to an itemized return can have their quantity updated, up to the quantity remaining on the return.
+            Adjustments older than one year cannot be updated.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[UpdateInventoryAdjustmentResponse]
+            Success
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustments/update",
+            method="PUT",
+            json={
+                "idempotency_key": idempotency_key,
+                "adjustment": convert_and_respect_annotation_metadata(
+                    object_=adjustment, annotation=InventoryAdjustmentParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    UpdateInventoryAdjustmentResponse,
+                    construct_type(
+                        type_=UpdateInventoryAdjustmentResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -164,9 +570,6 @@ class RawInventoryClient:
                 ),
                 "ignore_unchanged_counts": ignore_unchanged_counts,
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -196,6 +599,8 @@ class RawInventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BatchGetInventoryChangesResponse]:
         """
@@ -240,6 +645,17 @@ class RawInventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -260,9 +676,14 @@ class RawInventoryClient:
                 "updated_before": updated_before,
                 "cursor": cursor,
                 "limit": limit,
-            },
-            headers={
-                "content-type": "application/json",
+                "sort": convert_and_respect_annotation_metadata(
+                    object_=sort, annotation=BatchRetrieveInventoryChangesSortParams, direction="write"
+                ),
+                "reason_ids": convert_and_respect_annotation_metadata(
+                    object_=reason_ids,
+                    annotation=typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]],
+                    direction="write",
+                ),
             },
             request_options=request_options,
             omit=OMIT,
@@ -345,9 +766,6 @@ class RawInventoryClient:
                 "states": states,
                 "limit": limit,
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -420,9 +838,6 @@ class RawInventoryClient:
                 ),
                 "ignore_unchanged_counts": ignore_unchanged_counts,
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -452,6 +867,8 @@ class RawInventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SyncPager[InventoryChange, BatchGetInventoryChangesResponse]:
         """
@@ -502,6 +919,17 @@ class RawInventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -522,9 +950,14 @@ class RawInventoryClient:
                 "updated_before": updated_before,
                 "cursor": cursor,
                 "limit": limit,
-            },
-            headers={
-                "content-type": "application/json",
+                "sort": convert_and_respect_annotation_metadata(
+                    object_=sort, annotation=BatchRetrieveInventoryChangesSortParams, direction="write"
+                ),
+                "reason_ids": convert_and_respect_annotation_metadata(
+                    object_=reason_ids,
+                    annotation=typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]],
+                    direction="write",
+                ),
             },
             request_options=request_options,
             omit=OMIT,
@@ -550,6 +983,8 @@ class RawInventoryClient:
                     updated_before=updated_before,
                     cursor=_parsed_next,
                     limit=limit,
+                    sort=sort,
+                    reason_ids=reason_ids,
                     request_options=request_options,
                 )
                 return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
@@ -629,9 +1064,6 @@ class RawInventoryClient:
                 "cursor": cursor,
                 "states": states,
                 "limit": limit,
-            },
-            headers={
-                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,
@@ -736,46 +1168,6 @@ class RawInventoryClient:
                     GetInventoryPhysicalCountResponse,
                     construct_type(
                         type_=GetInventoryPhysicalCountResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def get_transfer(
-        self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[GetInventoryTransferResponse]:
-        """
-        Returns the [InventoryTransfer](entity:InventoryTransfer) object
-        with the provided `transfer_id`.
-
-        Parameters
-        ----------
-        transfer_id : str
-            ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[GetInventoryTransferResponse]
-            Success
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            f"v2/inventory/transfers/{jsonable_encoder(transfer_id)}",
-            method="GET",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    GetInventoryTransferResponse,
-                    construct_type(
-                        type_=GetInventoryTransferResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -934,10 +1326,359 @@ class RawInventoryClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def get_transfer(
+        self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[None]:
+        """
+        Parameters
+        ----------
+        transfer_id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[None]
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"v2/inventory/transfers/{jsonable_encoder(transfer_id)}",
+            method="GET",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return HttpResponse(response=_response, data=None)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
 
 class AsyncRawInventoryClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
+
+    async def list_inventory_adjustment_reasons(
+        self,
+        *,
+        include_deleted: typing.Optional[bool] = None,
+        include_system_codes: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[ListInventoryAdjustmentReasonsResponse]:
+        """
+        Returns the standard and custom inventory adjustment reasons available
+        to the seller.
+
+        Parameters
+        ----------
+        include_deleted : typing.Optional[bool]
+            Indicates whether the response should include deleted custom inventory
+            adjustment reasons. The default value is `false`.
+
+        include_system_codes : typing.Optional[bool]
+            Indicates whether the response should include Square-generated system
+            inventory adjustment reason codes that cannot be used to write adjustments
+            from the Connect API, such as `SALE`, `RECOUNT`, `TRANSFER`, `IN_TRANSIT`,
+            and `CANCELED_SALE`. The default value is `false`.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[ListInventoryAdjustmentReasonsResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons",
+            method="GET",
+            params={
+                "include_deleted": include_deleted,
+                "include_system_codes": include_system_codes,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ListInventoryAdjustmentReasonsResponse,
+                    construct_type(
+                        type_=ListInventoryAdjustmentReasonsResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_inventory_adjustment_reason(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[CreateInventoryAdjustmentReasonResponse]:
+        """
+        Creates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier to make this
+            [CreateInventoryAdjustmentReason](api-endpoint:Inventory-CreateInventoryAdjustmentReason)
+            request idempotent.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The custom inventory adjustment reason to create. Only custom
+            adjustment reasons can be created.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[CreateInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/create",
+            method="POST",
+            json={
+                "idempotency_key": idempotency_key,
+                "adjustment_reason": convert_and_respect_annotation_metadata(
+                    object_=adjustment_reason, annotation=InventoryAdjustmentReasonParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CreateInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=CreateInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def delete_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[DeleteInventoryAdjustmentReasonResponse]:
+        """
+        Soft deletes a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to soft delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[DeleteInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/delete",
+            method="POST",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DeleteInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=DeleteInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def restore_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[RestoreInventoryAdjustmentReasonResponse]:
+        """
+        Restores a soft-deleted custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the soft-deleted custom inventory adjustment reason
+            to restore.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[RestoreInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/restore",
+            method="POST",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    RestoreInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=RestoreInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def retrieve_inventory_adjustment_reason(
+        self, *, reason_id: InventoryAdjustmentReasonIdParams, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[RetrieveInventoryAdjustmentReasonResponse]:
+        """
+        Returns the inventory adjustment reason identified by the provided
+        `reason_id`. Deleted custom reasons can be retrieved by ID.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the inventory adjustment reason to retrieve.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[RetrieveInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/retrieve",
+            method="POST",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    RetrieveInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=RetrieveInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update_inventory_adjustment_reason(
+        self,
+        *,
+        reason_id: InventoryAdjustmentReasonIdParams,
+        adjustment_reason: InventoryAdjustmentReasonParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[UpdateInventoryAdjustmentReasonResponse]:
+        """
+        Updates a custom inventory adjustment reason.
+
+        Parameters
+        ----------
+        reason_id : InventoryAdjustmentReasonIdParams
+            The identifier of the custom inventory adjustment reason to update.
+
+        adjustment_reason : InventoryAdjustmentReasonParams
+            The requested custom inventory adjustment reason update. Only the
+            `name` field can be updated. Deleted custom reasons cannot be updated. To
+            restore a deleted custom reason, call
+            [RestoreInventoryAdjustmentReason](api-endpoint:Inventory-RestoreInventoryAdjustmentReason).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[UpdateInventoryAdjustmentReasonResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustment-reasons/update",
+            method="PUT",
+            json={
+                "reason_id": convert_and_respect_annotation_metadata(
+                    object_=reason_id, annotation=InventoryAdjustmentReasonIdParams, direction="write"
+                ),
+                "adjustment_reason": convert_and_respect_annotation_metadata(
+                    object_=adjustment_reason, annotation=InventoryAdjustmentReasonParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    UpdateInventoryAdjustmentReasonResponse,
+                    construct_type(
+                        type_=UpdateInventoryAdjustmentReasonResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     async def deprecated_get_adjustment(
         self, adjustment_id: str, *, request_options: typing.Optional[RequestOptions] = None
@@ -970,6 +1711,81 @@ class AsyncRawInventoryClient:
                     GetInventoryAdjustmentResponse,
                     construct_type(
                         type_=GetInventoryAdjustmentResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update_inventory_adjustment(
+        self,
+        *,
+        idempotency_key: str,
+        adjustment: InventoryAdjustmentParams,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[UpdateInventoryAdjustmentResponse]:
+        """
+        Applies an update to the provided adjustment.
+
+        On success: returns the newly updated adjustment.
+        On failure: returns a list of related errors.
+
+        Parameters
+        ----------
+        idempotency_key : str
+            A client-supplied, universally unique identifier (UUID) for the
+            request.
+
+            See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency) in the
+            [Build Basics](https://developer.squareup.com/docs/buildbasics) section for more
+            information.
+
+        adjustment : InventoryAdjustmentParams
+            Represents the updates being written to a past/existing inventory adjustment.
+            This works using sparse updates, meaning that any fields omitted from the inputted InventoryAdjustment
+            will retain their values.
+
+            Only updates to the quantity, cost_money, vendor_id, and reason_id fields of an InventoryAdjustment can be made here.
+            Note that the quantity field must be provided, but it can be identical to the current quantity if there are no desired quantity changes.
+            cost_money and vendor_id can only be written to adjustments that add stock to the system (from_state of NONE or UNLINKED_RETURN) and to untracked sale adjustments.
+            reason_id can be changed to any reason that is valid for the adjustment's state transition. The reason of a system-generated adjustment (for example, SALE or RECOUNT) cannot be changed.
+            Adjustments generated by Square from other records cannot be updated. This includes inferred adjustments created by physical counts, transfer-like cross-location adjustments, and component adjustments.
+            Adjustments linked to purchase orders cannot be updated. Adjustments linked to sales can only have cost_money and vendor_id updated, and only for untracked sales.
+            Restock adjustments linked to an itemized return can have their quantity updated, up to the quantity remaining on the return.
+            Adjustments older than one year cannot be updated.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[UpdateInventoryAdjustmentResponse]
+            Success
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2/inventory/adjustments/update",
+            method="PUT",
+            json={
+                "idempotency_key": idempotency_key,
+                "adjustment": convert_and_respect_annotation_metadata(
+                    object_=adjustment, annotation=InventoryAdjustmentParams, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    UpdateInventoryAdjustmentResponse,
+                    construct_type(
+                        type_=UpdateInventoryAdjustmentResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1070,9 +1886,6 @@ class AsyncRawInventoryClient:
                 ),
                 "ignore_unchanged_counts": ignore_unchanged_counts,
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -1102,6 +1915,8 @@ class AsyncRawInventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BatchGetInventoryChangesResponse]:
         """
@@ -1146,6 +1961,17 @@ class AsyncRawInventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1166,9 +1992,14 @@ class AsyncRawInventoryClient:
                 "updated_before": updated_before,
                 "cursor": cursor,
                 "limit": limit,
-            },
-            headers={
-                "content-type": "application/json",
+                "sort": convert_and_respect_annotation_metadata(
+                    object_=sort, annotation=BatchRetrieveInventoryChangesSortParams, direction="write"
+                ),
+                "reason_ids": convert_and_respect_annotation_metadata(
+                    object_=reason_ids,
+                    annotation=typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]],
+                    direction="write",
+                ),
             },
             request_options=request_options,
             omit=OMIT,
@@ -1251,9 +2082,6 @@ class AsyncRawInventoryClient:
                 "states": states,
                 "limit": limit,
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -1326,9 +2154,6 @@ class AsyncRawInventoryClient:
                 ),
                 "ignore_unchanged_counts": ignore_unchanged_counts,
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -1358,6 +2183,8 @@ class AsyncRawInventoryClient:
         updated_before: typing.Optional[str] = OMIT,
         cursor: typing.Optional[str] = OMIT,
         limit: typing.Optional[int] = OMIT,
+        sort: typing.Optional[BatchRetrieveInventoryChangesSortParams] = OMIT,
+        reason_ids: typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncPager[InventoryChange, BatchGetInventoryChangesResponse]:
         """
@@ -1408,6 +2235,17 @@ class AsyncRawInventoryClient:
         limit : typing.Optional[int]
             The number of [records](entity:InventoryChange) to return.
 
+        sort : typing.Optional[BatchRetrieveInventoryChangesSortParams]
+            Specification of how returned inventory changes should be ordered.
+
+            Currently, inventory changes can only be ordered by the occurred_at field.
+            The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+
+        reason_ids : typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]
+            The filter to return `ADJUSTMENT` query results by inventory
+            adjustment reason. This filter is only applied when set. The request cannot
+            include both `reason_ids` and `states`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1428,9 +2266,14 @@ class AsyncRawInventoryClient:
                 "updated_before": updated_before,
                 "cursor": cursor,
                 "limit": limit,
-            },
-            headers={
-                "content-type": "application/json",
+                "sort": convert_and_respect_annotation_metadata(
+                    object_=sort, annotation=BatchRetrieveInventoryChangesSortParams, direction="write"
+                ),
+                "reason_ids": convert_and_respect_annotation_metadata(
+                    object_=reason_ids,
+                    annotation=typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]],
+                    direction="write",
+                ),
             },
             request_options=request_options,
             omit=OMIT,
@@ -1458,6 +2301,8 @@ class AsyncRawInventoryClient:
                         updated_before=updated_before,
                         cursor=_parsed_next,
                         limit=limit,
+                        sort=sort,
+                        reason_ids=reason_ids,
                         request_options=request_options,
                     )
 
@@ -1538,9 +2383,6 @@ class AsyncRawInventoryClient:
                 "cursor": cursor,
                 "states": states,
                 "limit": limit,
-            },
-            headers={
-                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,
@@ -1648,46 +2490,6 @@ class AsyncRawInventoryClient:
                     GetInventoryPhysicalCountResponse,
                     construct_type(
                         type_=GetInventoryPhysicalCountResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def get_transfer(
-        self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[GetInventoryTransferResponse]:
-        """
-        Returns the [InventoryTransfer](entity:InventoryTransfer) object
-        with the provided `transfer_id`.
-
-        Parameters
-        ----------
-        transfer_id : str
-            ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[GetInventoryTransferResponse]
-            Success
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            f"v2/inventory/transfers/{jsonable_encoder(transfer_id)}",
-            method="GET",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    GetInventoryTransferResponse,
-                    construct_type(
-                        type_=GetInventoryTransferResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1847,6 +2649,34 @@ class AsyncRawInventoryClient:
                     )
 
                 return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_transfer(
+        self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[None]:
+        """
+        Parameters
+        ----------
+        transfer_id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[None]
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"v2/inventory/transfers/{jsonable_encoder(transfer_id)}",
+            method="GET",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

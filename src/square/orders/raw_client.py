@@ -79,9 +79,6 @@ class RawOrdersClient:
                 ),
                 "idempotency_key": idempotency_key,
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -654,9 +651,6 @@ class AsyncRawOrdersClient:
                     object_=order, annotation=OrderParams, direction="write"
                 ),
                 "idempotency_key": idempotency_key,
-            },
-            headers={
-                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,

@@ -10,7 +10,8 @@ class InventoryCountParams(typing_extensions.TypedDict):
     """
     Represents Square-estimated quantity of items in a particular state at a
     particular seller location based on the known history of physical counts and
-    inventory adjustments.
+    inventory adjustments. The absence of an inventory count indicates that the
+    catalog object hasn't interacted with the given inventory state at the given location.
     """
 
     catalog_object_id: typing_extensions.NotRequired[typing.Optional[str]]

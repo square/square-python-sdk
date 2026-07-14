@@ -6,6 +6,7 @@ import typing_extensions
 from ..types.catalog_pricing_type import CatalogPricingType
 from ..types.inventory_alert_type import InventoryAlertType
 from .catalog_item_option_value_for_item_variation import CatalogItemOptionValueForItemVariationParams
+from .catalog_item_variation_vendor_information import CatalogItemVariationVendorInformationParams
 from .catalog_stock_conversion import CatalogStockConversionParams
 from .item_variation_location_overrides import ItemVariationLocationOverridesParams
 from .money import MoneyParams
@@ -82,22 +83,26 @@ class CatalogItemVariationParams(typing_extensions.TypedDict):
 
     track_inventory: typing_extensions.NotRequired[typing.Optional[bool]]
     """
-    If `true`, inventory tracking is active for the variation.
+    If `true`, inventory tracking is active for the variation at all locations by default.
+    This value can be overridden for specific locations using `ItemVariationLocationOverrides.track_inventory`.
+    If unset at both levels, inventory tracking is disabled.
     """
 
     inventory_alert_type: typing_extensions.NotRequired[InventoryAlertType]
     """
     Indicates whether the item variation displays an alert when its inventory quantity is less than or equal
     to its `inventory_alert_threshold`.
+    
+    Deprecated because this field has never been global.
     See [InventoryAlertType](#type-inventoryalerttype) for possible values
     """
 
     inventory_alert_threshold: typing_extensions.NotRequired[typing.Optional[int]]
     """
     If the inventory quantity for the variation is less than or equal to this value and `inventory_alert_type`
-    is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.
+    is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard. This value is always an integer.
     
-    This value is always an integer.
+    Deprecated because this field has never been global.
     """
 
     user_data: typing_extensions.NotRequired[typing.Optional[str]]
@@ -175,4 +180,13 @@ class CatalogItemVariationParams(typing_extensions.TypedDict):
     instead of the customer-facing name.
     e.g., customer name might be "Mega-Jumbo Triplesized" and the
     kitchen name is "Large container"
+    """
+
+    vendor_information: typing_extensions.NotRequired[
+        typing.Optional[typing.Sequence[CatalogItemVariationVendorInformationParams]]
+    ]
+    """
+    Details of the vendor this product is purchased from.
+    This field can be set only if the seller has an active subscription
+    to either Square for Retail Premium or Square for Restaurants Premium.
     """

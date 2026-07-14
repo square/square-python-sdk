@@ -74,9 +74,6 @@ class RawTeamMembersClient:
                     object_=team_member, annotation=TeamMemberParams, direction="write"
                 ),
             },
-            headers={
-                "content-type": "application/json",
-            },
             request_options=request_options,
             omit=OMIT,
         )
@@ -426,9 +423,6 @@ class AsyncRawTeamMembersClient:
                 "team_member": convert_and_respect_annotation_metadata(
                     object_=team_member, annotation=TeamMemberParams, direction="write"
                 ),
-            },
-            headers={
-                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,

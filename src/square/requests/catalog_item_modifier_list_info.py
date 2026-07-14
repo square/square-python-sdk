@@ -54,7 +54,7 @@ class CatalogItemModifierListInfoParams(typing_extensions.TypedDict):
 
     ordinal: typing_extensions.NotRequired[typing.Optional[int]]
     """
-    The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list applied 
+    The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list applied
     to a `CatalogItem` instance.
     """
 

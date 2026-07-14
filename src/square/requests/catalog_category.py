@@ -37,7 +37,8 @@ class CatalogCategoryParams(typing_extensions.TypedDict):
 
     parent_category: typing_extensions.NotRequired["CatalogObjectCategoryParams"]
     """
-    The ID of the parent category of this category instance.
+    The parent category of this category instance. This includes the parent category ID and an ordinal
+    value that determines the category's relative position among sibling categories with the same parent.
     """
 
     is_top_level: typing_extensions.NotRequired[typing.Optional[bool]]

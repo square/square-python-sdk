@@ -33,6 +33,10 @@ class RawObjectClient:
         """
         Creates a new or updates the specified [CatalogObject](entity:CatalogObject).
 
+        This endpoint uses full-replacement semantics. The client must send the complete object, and any
+        field absent from the request is interpreted as an intentional clear. This logic applies to
+        nested objects as well. For example, omitting inlined children like variations will delete them.
+
         To ensure consistency, only one update request is processed at a time per seller account.
         While one (batch or non-batch) update request is being processed, other (batched and non-batched)
         update requests are rejected with the `429` error code.
@@ -243,6 +247,10 @@ class AsyncRawObjectClient:
     ) -> AsyncHttpResponse[UpsertCatalogObjectResponse]:
         """
         Creates a new or updates the specified [CatalogObject](entity:CatalogObject).
+
+        This endpoint uses full-replacement semantics. The client must send the complete object, and any
+        field absent from the request is interpreted as an intentional clear. This logic applies to
+        nested objects as well. For example, omitting inlined children like variations will delete them.
 
         To ensure consistency, only one update request is processed at a time per seller account.
         While one (batch or non-batch) update request is being processed, other (batched and non-batched)

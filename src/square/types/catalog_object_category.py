@@ -27,7 +27,9 @@ class CatalogObjectCategory(UncheckedBaseModel):
 
     ordinal: typing.Optional[int] = pydantic.Field(default=None)
     """
-    The order of the object within the context of the category.
+    The position of this object within the specified category. When an item is assigned to a category,
+    the ordinal determines the item's position relative to other items in the same category. When used for a
+    parent category reference, the ordinal determines the category's position among its sibling categories.
     """
 
     type: typing.Optional[typing.Literal["CATEGORY"]] = None

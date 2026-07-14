@@ -4,16 +4,16 @@ import typing
 
 import typing_extensions
 from .error import ErrorParams
-from .inventory_transfer import InventoryTransferParams
+from .inventory_adjustment import InventoryAdjustmentParams
 
 
-class GetInventoryTransferResponseParams(typing_extensions.TypedDict):
+class UpdateInventoryAdjustmentResponseParams(typing_extensions.TypedDict):
     errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
     """
     Any errors that occurred during the request.
     """
 
-    transfer: typing_extensions.NotRequired[InventoryTransferParams]
+    adjustment: typing_extensions.NotRequired[InventoryAdjustmentParams]
     """
-    The requested [InventoryTransfer](entity:InventoryTransfer).
+    The newly updated adjustment.
     """

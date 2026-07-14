@@ -1,5 +1,5 @@
 {
-  "cliVersion": "3.98.5",
+  "cliVersion": "5.56.0",
   "generatorName": "fernapi/fern-python-sdk",
   "generatorVersion": "4.55.4",
   "generatorConfig": {
@@ -14,5 +14,6 @@
     "use_typeddict_requests_for_file_upload": true,
     "exclude_types_from_init_exports": true
   },
-  "sdkVersion": "44.2.0-rc.0"
+  "originGitCommit": "b2dac8b2c1b9fe87c0e1fe3eb6257b259caa0715",
+  "sdkVersion": "45.0.1.20260715"
 }

@@ -8,6 +8,7 @@ from ..core.unchecked_base_model import UncheckedBaseModel
 from .fulfillment_delivery_details import FulfillmentDeliveryDetails
 from .fulfillment_fulfillment_entry import FulfillmentFulfillmentEntry
 from .fulfillment_fulfillment_line_item_application import FulfillmentFulfillmentLineItemApplication
+from .fulfillment_in_store_details import FulfillmentInStoreDetails
 from .fulfillment_pickup_details import FulfillmentPickupDetails
 from .fulfillment_shipment_details import FulfillmentShipmentDetails
 from .fulfillment_state import FulfillmentState
@@ -105,6 +106,12 @@ class Fulfillment(UncheckedBaseModel):
     delivery_details: typing.Optional[FulfillmentDeliveryDetails] = pydantic.Field(default=None)
     """
     Describes delivery details of an order fulfillment.
+    """
+
+    in_store_details: typing.Optional[FulfillmentInStoreDetails] = pydantic.Field(default=None)
+    """
+    Contains details for an in-store fulfillment. These details are required when the fulfillment
+    type is `IN_STORE`.
     """
 
     if IS_PYDANTIC_V2:

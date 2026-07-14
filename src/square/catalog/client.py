@@ -202,9 +202,15 @@ class CatalogClient:
         request (items, variations, modifier lists, discounts, and taxes) is no more
         than 10,000.
 
+        This endpoint uses full-replacement semantics. The client must send the complete object, and any
+        field absent from the request is interpreted as an intentional clear. This logic applies to
+        nested objects as well. For example, omitting inlined children like variations will delete them.
+
         To ensure consistency, only one update request is processed at a time per seller account.
         While one (batch or non-batch) update request is being processed, other (batched and non-batched)
-        update requests are rejected with the `429` error code.
+        update requests are rejected with the `429` error code. Prefer batching related changes into a
+        single call rather than issuing many small writes, since each write acquires the lock separately
+        and parallel writes to the same seller will contend with each other, producing `429` errors.
 
         Parameters
         ----------
@@ -316,6 +322,8 @@ class CatalogClient:
 
         The `types` parameter is specified as a comma-separated list of the [CatalogObjectType](entity:CatalogObjectType) values,
         for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
+        Always specify `types` explicitly. When upgrading to a newer API version, omitting `types` may
+        cause new object types to appear in results that were not returned under the previous version.
 
         __Important:__ ListCatalog does not return deleted catalog items. To retrieve
         deleted catalog items, use [SearchCatalogObjects](api-endpoint:Catalog-SearchCatalogObjects)
@@ -404,6 +412,11 @@ class CatalogClient:
         - `SearchCatalogItems` supports the custom attribute query filters to return items or item variations that contain custom attribute values, where `SearchCatalogObjects` does not.
         - `SearchCatalogItems` does not support the `include_deleted_objects` filter to search for deleted items or item variations, whereas `SearchCatalogObjects` does.
         - The both endpoints have different call conventions, including the query filter formats.
+
+        The `object_types` parameter is specified as a list of [CatalogObjectType](entity:CatalogObjectType) values.
+        Always specify `object_types` explicitly. When upgrading to a newer API version, omitting
+        `object_types` may cause new object types to appear in results that were not returned under
+        the previous version.
 
         Parameters
         ----------
@@ -930,9 +943,15 @@ class AsyncCatalogClient:
         request (items, variations, modifier lists, discounts, and taxes) is no more
         than 10,000.
 
+        This endpoint uses full-replacement semantics. The client must send the complete object, and any
+        field absent from the request is interpreted as an intentional clear. This logic applies to
+        nested objects as well. For example, omitting inlined children like variations will delete them.
+
         To ensure consistency, only one update request is processed at a time per seller account.
         While one (batch or non-batch) update request is being processed, other (batched and non-batched)
-        update requests are rejected with the `429` error code.
+        update requests are rejected with the `429` error code. Prefer batching related changes into a
+        single call rather than issuing many small writes, since each write acquires the lock separately
+        and parallel writes to the same seller will contend with each other, producing `429` errors.
 
         Parameters
         ----------
@@ -1060,6 +1079,8 @@ class AsyncCatalogClient:
 
         The `types` parameter is specified as a comma-separated list of the [CatalogObjectType](entity:CatalogObjectType) values,
         for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
+        Always specify `types` explicitly. When upgrading to a newer API version, omitting `types` may
+        cause new object types to appear in results that were not returned under the previous version.
 
         __Important:__ ListCatalog does not return deleted catalog items. To retrieve
         deleted catalog items, use [SearchCatalogObjects](api-endpoint:Catalog-SearchCatalogObjects)
@@ -1157,6 +1178,11 @@ class AsyncCatalogClient:
         - `SearchCatalogItems` supports the custom attribute query filters to return items or item variations that contain custom attribute values, where `SearchCatalogObjects` does not.
         - `SearchCatalogItems` does not support the `include_deleted_objects` filter to search for deleted items or item variations, whereas `SearchCatalogObjects` does.
         - The both endpoints have different call conventions, including the query filter formats.
+
+        The `object_types` parameter is specified as a list of [CatalogObjectType](entity:CatalogObjectType) values.
+        Always specify `object_types` explicitly. When upgrading to a newer API version, omitting
+        `object_types` may cause new object types to appear in results that were not returned under
+        the previous version.
 
         Parameters
         ----------
