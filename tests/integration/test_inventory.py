@@ -93,12 +93,12 @@ def create_catalog_item_variation() -> str:
 
 
 @retry_on_rate_limit
-@pytest.mark.skip(reason="Temporarily skipping create_initial_adjustment")
 def create_initial_adjustment(item_variation_id: str) -> Optional[str]:
     """
     Create an initial inventory adjustment and return the physical count ID
     """
     client = helpers.test_client()
+    location_id = helpers.get_default_location_id(client)
     response = client.inventory.batch_create_changes(
         idempotency_key=str(uuid.uuid4()),
         changes=[
@@ -107,7 +107,8 @@ def create_initial_adjustment(item_variation_id: str) -> Optional[str]:
                 "adjustment": {
                     "from_state": "NONE",
                     "to_state": "IN_STOCK",
-                    "location_id": helpers.get_default_location_id(client),
+                    "from_location_id": location_id,
+                    "to_location_id": location_id,
                     "catalog_object_id": item_variation_id,
                     "quantity": "100",
                     "occurred_at": helpers.format_date_string(
@@ -163,7 +164,6 @@ def create_initial_adjustment(item_variation_id: str) -> Optional[str]:
     return physical_change.physical_count.id
 
 
-@pytest.mark.skip(reason="Temporarily skipping test_batch_change_inventory")
 def test_batch_change_inventory():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -171,6 +171,7 @@ def test_batch_change_inventory():
     create_initial_adjustment(item_variation_id)
     time.sleep(2)  # Add delay after adjustment
 
+    location_id = helpers.get_default_location_id(client)
     response = client.inventory.batch_create_changes(
         idempotency_key=str(uuid.uuid4()),
         changes=[
@@ -179,7 +180,8 @@ def test_batch_change_inventory():
                 "adjustment": {
                     "from_state": "NONE",
                     "to_state": "IN_STOCK",
-                    "location_id": helpers.get_default_location_id(client),
+                    "from_location_id": location_id,
+                    "to_location_id": location_id,
                     "catalog_object_id": item_variation_id,
                     "quantity": "50",
                     "occurred_at": helpers.format_date_string(datetime.now()),
@@ -196,7 +198,6 @@ def test_batch_change_inventory():
     assert "50" == response.changes[0].adjustment.quantity
 
 
-@pytest.mark.skip(reason="Temporarily skipping test_batch_retrieve_inventory_changes")
 def test_batch_retrieve_inventory_changes():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -211,7 +212,6 @@ def test_batch_retrieve_inventory_changes():
     assert len(response.items) > 0
 
 
-@pytest.mark.skip(reason="Temporarily skipping test_batch_retrieve_inventory_counts")
 def test_batch_retrieve_inventory_counts():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -224,7 +224,6 @@ def test_batch_retrieve_inventory_counts():
     assert len(response.items) > 0
 
 
-@pytest.mark.skip(reason="Temporarily skipping test_retrieve_inventory_changes")
 def test_retrieve_inventory_changes():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -237,7 +236,6 @@ def test_retrieve_inventory_changes():
     assert len(response.items) > 0
 
 
-@pytest.mark.skip(reason="Temporarily skipping test_retrieve_inventory_counts")
 def test_retrieve_inventory_counts():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -249,7 +247,6 @@ def test_retrieve_inventory_counts():
     assert response.count is not None
 
 
-@pytest.mark.skip(reason="Temporarily skipping test_retrieve_inventory_adjustments")
 def test_retrieve_inventory_adjustments():
     client = helpers.test_client()
     item_variation_id = create_catalog_item_variation()
@@ -257,6 +254,7 @@ def test_retrieve_inventory_adjustments():
     create_initial_adjustment(item_variation_id)
     time.sleep(2)  # Add delay after adjustment
 
+    location_id = helpers.get_default_location_id(client)
     response = client.inventory.batch_create_changes(
         idempotency_key=str(uuid.uuid4()),
         changes=[
@@ -265,7 +263,8 @@ def test_retrieve_inventory_adjustments():
                 "adjustment": {
                     "from_state": "NONE",
                     "to_state": "IN_STOCK",
-                    "location_id": helpers.get_default_location_id(client),
+                    "from_location_id": location_id,
+                    "to_location_id": location_id,
                     "catalog_object_id": item_variation_id,
                     "quantity": "10",
                     "occurred_at": helpers.format_date_string(datetime.now()),
