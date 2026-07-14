@@ -5,6 +5,8 @@ import typing
 import typing_extensions
 from ..types.inventory_change_type import InventoryChangeType
 from ..types.inventory_state import InventoryState
+from .batch_retrieve_inventory_changes_sort import BatchRetrieveInventoryChangesSortParams
+from .inventory_adjustment_reason_id import InventoryAdjustmentReasonIdParams
 
 
 class BatchRetrieveInventoryChangesRequestParams(typing_extensions.TypedDict):
@@ -58,4 +60,19 @@ class BatchRetrieveInventoryChangesRequestParams(typing_extensions.TypedDict):
     limit: typing_extensions.NotRequired[typing.Optional[int]]
     """
     The number of [records](entity:InventoryChange) to return.
+    """
+
+    sort: typing_extensions.NotRequired[BatchRetrieveInventoryChangesSortParams]
+    """
+    Specification of how returned inventory changes should be ordered.
+    
+    Currently, inventory changes can only be ordered by the occurred_at field.
+    The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+    """
+
+    reason_ids: typing_extensions.NotRequired[typing.Optional[typing.Sequence[InventoryAdjustmentReasonIdParams]]]
+    """
+    The filter to return `ADJUSTMENT` query results by inventory
+    adjustment reason. This filter is only applied when set. The request cannot
+    include both `reason_ids` and `states`.
     """

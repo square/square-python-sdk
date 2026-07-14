@@ -138,7 +138,8 @@ class CatalogItem(UncheckedBaseModel):
 
     categories: typing.Optional[typing.List["CatalogObjectCategory"]] = pydantic.Field(default=None)
     """
-    The list of categories.
+    The list of categories to which this item belongs. Each entry includes the category ID and an ordinal
+    value that determines the item's relative position within that category.
     """
 
     description_html: typing.Optional[str] = pydantic.Field(default=None)

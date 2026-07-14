@@ -2,29 +2,4 @@
 
 import typing
 
-import pydantic
-from ..core.pydantic_utilities import IS_PYDANTIC_V2
-from ..core.unchecked_base_model import UncheckedBaseModel
-from .error import Error
-from .inventory_transfer import InventoryTransfer
-
-
-class GetInventoryTransferResponse(UncheckedBaseModel):
-    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
-    """
-    Any errors that occurred during the request.
-    """
-
-    transfer: typing.Optional[InventoryTransfer] = pydantic.Field(default=None)
-    """
-    The requested [InventoryTransfer](entity:InventoryTransfer).
-    """
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
+GetInventoryTransferResponse = typing.Any

@@ -5,6 +5,8 @@ import typing
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
+from .batch_retrieve_inventory_changes_sort import BatchRetrieveInventoryChangesSort
+from .inventory_adjustment_reason_id import InventoryAdjustmentReasonId
 from .inventory_change_type import InventoryChangeType
 from .inventory_state import InventoryState
 
@@ -60,6 +62,21 @@ class BatchRetrieveInventoryChangesRequest(UncheckedBaseModel):
     limit: typing.Optional[int] = pydantic.Field(default=None)
     """
     The number of [records](entity:InventoryChange) to return.
+    """
+
+    sort: typing.Optional[BatchRetrieveInventoryChangesSort] = pydantic.Field(default=None)
+    """
+    Specification of how returned inventory changes should be ordered.
+    
+    Currently, inventory changes can only be ordered by the occurred_at field.
+    The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+    """
+
+    reason_ids: typing.Optional[typing.List[InventoryAdjustmentReasonId]] = pydantic.Field(default=None)
+    """
+    The filter to return `ADJUSTMENT` query results by inventory
+    adjustment reason. This filter is only applied when set. The request cannot
+    include both `reason_ids` and `states`.
     """
 
     if IS_PYDANTIC_V2:

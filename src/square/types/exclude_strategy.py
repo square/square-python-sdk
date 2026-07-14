@@ -2,4 +2,6 @@
 
 import typing
 
-ExcludeStrategy = typing.Union[typing.Literal["LEAST_EXPENSIVE", "MOST_EXPENSIVE"], typing.Any]
+ExcludeStrategy = typing.Union[
+    typing.Literal["LEAST_EXPENSIVE", "MOST_EXPENSIVE", "MOST_EXPENSIVE_LOWEST_VALUE"], typing.Any
+]

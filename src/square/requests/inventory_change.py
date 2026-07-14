@@ -5,7 +5,6 @@ from ..types.inventory_change_type import InventoryChangeType
 from .catalog_measurement_unit import CatalogMeasurementUnitParams
 from .inventory_adjustment import InventoryAdjustmentParams
 from .inventory_physical_count import InventoryPhysicalCountParams
-from .inventory_transfer import InventoryTransferParams
 
 
 class InventoryChangeParams(typing_extensions.TypedDict):
@@ -32,15 +31,6 @@ class InventoryChangeParams(typing_extensions.TypedDict):
     """
     Contains details about the inventory adjustment when `type` is
     `ADJUSTMENT`, and is unset for all other change types.
-    """
-
-    transfer: typing_extensions.NotRequired[InventoryTransferParams]
-    """
-    Contains details about the inventory transfer when `type` is
-    `TRANSFER`, and is unset for all other change types.
-    
-    _Note:_ An [InventoryTransfer](entity:InventoryTransfer) object can only be set in the input to the
-    [BatchChangeInventory](api-endpoint:Inventory-BatchChangeInventory) endpoint when the seller has an active Retail Plus subscription.
     """
 
     measurement_unit: typing_extensions.NotRequired[CatalogMeasurementUnitParams]

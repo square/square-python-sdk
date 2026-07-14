@@ -142,7 +142,8 @@ class CatalogItemParams(typing_extensions.TypedDict):
 
     categories: typing_extensions.NotRequired[typing.Optional[typing.Sequence[CatalogObjectCategoryParams]]]
     """
-    The list of categories.
+    The list of categories to which this item belongs. Each entry includes the category ID and an ordinal
+    value that determines the item's relative position within that category.
     """
 
     description_html: typing_extensions.NotRequired[typing.Optional[str]]

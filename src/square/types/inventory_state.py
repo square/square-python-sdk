@@ -20,6 +20,7 @@ InventoryState = typing.Union[
         "DECOMPOSED",
         "SUPPORTED_BY_NEWER_VERSION",
         "IN_TRANSIT",
+        "UNTRACKED",
     ],
     typing.Any,
 ]

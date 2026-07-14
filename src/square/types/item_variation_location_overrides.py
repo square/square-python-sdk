@@ -33,7 +33,9 @@ class ItemVariationLocationOverrides(UncheckedBaseModel):
 
     track_inventory: typing.Optional[bool] = pydantic.Field(default=None)
     """
-    If `true`, inventory tracking is active for the `CatalogItemVariation` at this `Location`.
+    Indicates whether inventory tracking is active for the `CatalogItemVariation` at this `Location`.
+    When set, this value explicitly overrides the global `track_inventory` setting. When unset, the location
+    should use the global value. If both global and location-level values are unset, inventory tracking is disabled.
     """
 
     inventory_alert_type: typing.Optional[InventoryAlertType] = pydantic.Field(default=None)

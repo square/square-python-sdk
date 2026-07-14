@@ -2,4 +2,4 @@
 
 import typing
 
-InventoryChangeType = typing.Union[typing.Literal["PHYSICAL_COUNT", "ADJUSTMENT", "TRANSFER"], typing.Any]
+InventoryChangeType = typing.Union[typing.Literal["PHYSICAL_COUNT", "ADJUSTMENT"], typing.Any]

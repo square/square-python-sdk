@@ -2,4 +2,4 @@
 
 import typing
 
-FulfillmentType = typing.Union[typing.Literal["PICKUP", "SHIPMENT", "DELIVERY"], typing.Any]
+FulfillmentType = typing.Union[typing.Literal["PICKUP", "SHIPMENT", "DELIVERY", "IN_STORE"], typing.Any]

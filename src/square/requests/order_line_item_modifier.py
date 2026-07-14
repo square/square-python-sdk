@@ -78,3 +78,8 @@ class OrderLineItemModifierParams(typing_extensions.TypedDict):
     
     For more information, see  [Metadata](https://developer.squareup.com/docs/build-basics/metadata).
     """
+
+    parent_modifier_uid: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    The `uid` of the parent modifier, if this modifier is nested under another modifier.
+    """

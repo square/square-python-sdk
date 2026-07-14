@@ -36,7 +36,8 @@ class CatalogCategory(UncheckedBaseModel):
 
     parent_category: typing.Optional["CatalogObjectCategory"] = pydantic.Field(default=None)
     """
-    The ID of the parent category of this category instance.
+    The parent category of this category instance. This includes the parent category ID and an ordinal
+    value that determines the category's relative position among sibling categories with the same parent.
     """
 
     is_top_level: typing.Optional[bool] = pydantic.Field(default=None)
