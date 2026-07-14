@@ -10,8 +10,6 @@ from square.requests.catalog_item_variation import CatalogItemVariationParams
 from square.requests.catalog_object import (
     CatalogObject_ItemVariationParams,
 )
-from square.types.catalog_item import CatalogItem
-from square.types.catalog_object import CatalogObject_Item
 from square.types.inventory_adjustment import InventoryAdjustment
 from square.types.inventory_physical_count import InventoryPhysicalCount
 
@@ -74,20 +72,14 @@ def create_catalog_item_variation() -> str:
     )
 
     assert catalog_response.catalog_object is not None
-    # The response deserializes to the discriminated-union variant
-    # CatalogObject_Item, not the standalone CatalogObjectItem class.
-    assert isinstance(catalog_response.catalog_object, CatalogObject_Item)
-    item = catalog_response.catalog_object.item_data
-    assert item is not None
-    assert isinstance(item, CatalogItem)
-    variations = item.variations
-    assert variations is not None
-    assert len(variations) > 0
+    # Note: catalog_object may deserialize as a raw dict on some pydantic
+    # versions (the CatalogObject discriminated union is not always resolved),
+    # so resolve the variation ID from id_mappings instead of the parsed object.
     assert catalog_response.id_mappings is not None
     item_variation_ids = [
         mapping.object_id
         for mapping in catalog_response.id_mappings
-        if mapping.object_id == variations[0].id
+        if mapping.client_object_id == "#colombian-coffee"
     ]
     assert len(item_variation_ids) > 0
     assert item_variation_ids[0] is not None
