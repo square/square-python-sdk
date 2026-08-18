@@ -26,12 +26,12 @@ class BaseClientWrapper:
         import platform
 
         headers: typing.Dict[str, str] = {
-            "User-Agent": "squareup/45.0.1.20260715",
+            "User-Agent": "squareup/45.1.0.20260819",
             "X-Fern-Language": "Python",
             "X-Fern-Runtime": f"python/{platform.python_version()}",
             "X-Fern-Platform": f"{platform.system().lower()}/{platform.release()}",
             "X-Fern-SDK-Name": "squareup",
-            "X-Fern-SDK-Version": "45.0.1.20260715",
+            "X-Fern-SDK-Version": "45.1.0.20260819",
             **(self.get_custom_headers() or {}),
         }
         token = self._get_token()
