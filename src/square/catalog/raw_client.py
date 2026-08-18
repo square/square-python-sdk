@@ -13,6 +13,7 @@ from ..core.unchecked_base_model import construct_type
 from ..requests.catalog_object_batch import CatalogObjectBatchParams
 from ..requests.catalog_query import CatalogQueryParams
 from ..requests.custom_attribute_filter import CustomAttributeFilterParams
+from ..requests.include_options import IncludeOptionsParams
 from ..types.archived_state import ArchivedState
 from ..types.batch_delete_catalog_objects_response import BatchDeleteCatalogObjectsResponse
 from ..types.batch_get_catalog_objects_response import BatchGetCatalogObjectsResponse
@@ -106,6 +107,7 @@ class RawCatalogClient:
         catalog_version: typing.Optional[int] = OMIT,
         include_deleted_objects: typing.Optional[bool] = OMIT,
         include_category_path_to_root: typing.Optional[bool] = OMIT,
+        include_options: typing.Optional[IncludeOptionsParams] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BatchGetCatalogObjectsResponse]:
         """
@@ -152,6 +154,9 @@ class RawCatalogClient:
             and ends with its root category. If the returned category is a top-level category, the `path_to_root` list is empty and is not returned
             in the response payload.
 
+        include_options : typing.Optional[IncludeOptionsParams]
+            Options to include related resources in the response.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -169,6 +174,9 @@ class RawCatalogClient:
                 "catalog_version": catalog_version,
                 "include_deleted_objects": include_deleted_objects,
                 "include_category_path_to_root": include_category_path_to_root,
+                "include_options": convert_and_respect_annotation_metadata(
+                    object_=include_options, annotation=IncludeOptionsParams, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -430,6 +438,7 @@ class RawCatalogClient:
         query: typing.Optional[CatalogQueryParams] = OMIT,
         limit: typing.Optional[int] = OMIT,
         include_category_path_to_root: typing.Optional[bool] = OMIT,
+        include_options: typing.Optional[IncludeOptionsParams] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[SearchCatalogObjectsResponse]:
         """
@@ -506,6 +515,9 @@ class RawCatalogClient:
         include_category_path_to_root : typing.Optional[bool]
             Specifies whether or not to include the `path_to_root` list for each returned category instance. The `path_to_root` list consists of `CategoryPathToRootNode` objects and specifies the path that starts with the immediate parent category of the returned category and ends with its root category. If the returned category is a top-level category, the `path_to_root` list is empty and is not returned in the response payload. If `include_category_path_to_root` is `true`, then the `include_deleted_objects` request parameter must be `false`. Both properties cannot be `true` at the same time.
 
+        include_options : typing.Optional[IncludeOptionsParams]
+            Options to include related resources in the response.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -528,6 +540,9 @@ class RawCatalogClient:
                 ),
                 "limit": limit,
                 "include_category_path_to_root": include_category_path_to_root,
+                "include_options": convert_and_respect_annotation_metadata(
+                    object_=include_options, annotation=IncludeOptionsParams, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -563,6 +578,7 @@ class RawCatalogClient:
         product_types: typing.Optional[typing.Sequence[CatalogItemProductType]] = OMIT,
         custom_attribute_filters: typing.Optional[typing.Sequence[CustomAttributeFilterParams]] = OMIT,
         archived_state: typing.Optional[ArchivedState] = OMIT,
+        include_options: typing.Optional[IncludeOptionsParams] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[SearchCatalogItemsResponse]:
         """
@@ -615,6 +631,9 @@ class RawCatalogClient:
         archived_state : typing.Optional[ArchivedState]
             The query filter to return not archived (`ARCHIVED_STATE_NOT_ARCHIVED`), archived (`ARCHIVED_STATE_ARCHIVED`), or either type (`ARCHIVED_STATE_ALL`) of items.
 
+        include_options : typing.Optional[IncludeOptionsParams]
+            Options to include related resources in the response.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -641,6 +660,9 @@ class RawCatalogClient:
                     direction="write",
                 ),
                 "archived_state": archived_state,
+                "include_options": convert_and_respect_annotation_metadata(
+                    object_=include_options, annotation=IncludeOptionsParams, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -864,6 +886,7 @@ class AsyncRawCatalogClient:
         catalog_version: typing.Optional[int] = OMIT,
         include_deleted_objects: typing.Optional[bool] = OMIT,
         include_category_path_to_root: typing.Optional[bool] = OMIT,
+        include_options: typing.Optional[IncludeOptionsParams] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BatchGetCatalogObjectsResponse]:
         """
@@ -910,6 +933,9 @@ class AsyncRawCatalogClient:
             and ends with its root category. If the returned category is a top-level category, the `path_to_root` list is empty and is not returned
             in the response payload.
 
+        include_options : typing.Optional[IncludeOptionsParams]
+            Options to include related resources in the response.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -927,6 +953,9 @@ class AsyncRawCatalogClient:
                 "catalog_version": catalog_version,
                 "include_deleted_objects": include_deleted_objects,
                 "include_category_path_to_root": include_category_path_to_root,
+                "include_options": convert_and_respect_annotation_metadata(
+                    object_=include_options, annotation=IncludeOptionsParams, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -1193,6 +1222,7 @@ class AsyncRawCatalogClient:
         query: typing.Optional[CatalogQueryParams] = OMIT,
         limit: typing.Optional[int] = OMIT,
         include_category_path_to_root: typing.Optional[bool] = OMIT,
+        include_options: typing.Optional[IncludeOptionsParams] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[SearchCatalogObjectsResponse]:
         """
@@ -1269,6 +1299,9 @@ class AsyncRawCatalogClient:
         include_category_path_to_root : typing.Optional[bool]
             Specifies whether or not to include the `path_to_root` list for each returned category instance. The `path_to_root` list consists of `CategoryPathToRootNode` objects and specifies the path that starts with the immediate parent category of the returned category and ends with its root category. If the returned category is a top-level category, the `path_to_root` list is empty and is not returned in the response payload. If `include_category_path_to_root` is `true`, then the `include_deleted_objects` request parameter must be `false`. Both properties cannot be `true` at the same time.
 
+        include_options : typing.Optional[IncludeOptionsParams]
+            Options to include related resources in the response.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1291,6 +1324,9 @@ class AsyncRawCatalogClient:
                 ),
                 "limit": limit,
                 "include_category_path_to_root": include_category_path_to_root,
+                "include_options": convert_and_respect_annotation_metadata(
+                    object_=include_options, annotation=IncludeOptionsParams, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -1326,6 +1362,7 @@ class AsyncRawCatalogClient:
         product_types: typing.Optional[typing.Sequence[CatalogItemProductType]] = OMIT,
         custom_attribute_filters: typing.Optional[typing.Sequence[CustomAttributeFilterParams]] = OMIT,
         archived_state: typing.Optional[ArchivedState] = OMIT,
+        include_options: typing.Optional[IncludeOptionsParams] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[SearchCatalogItemsResponse]:
         """
@@ -1378,6 +1415,9 @@ class AsyncRawCatalogClient:
         archived_state : typing.Optional[ArchivedState]
             The query filter to return not archived (`ARCHIVED_STATE_NOT_ARCHIVED`), archived (`ARCHIVED_STATE_ARCHIVED`), or either type (`ARCHIVED_STATE_ALL`) of items.
 
+        include_options : typing.Optional[IncludeOptionsParams]
+            Options to include related resources in the response.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1404,6 +1444,9 @@ class AsyncRawCatalogClient:
                     direction="write",
                 ),
                 "archived_state": archived_state,
+                "include_options": convert_and_respect_annotation_metadata(
+                    object_=include_options, annotation=IncludeOptionsParams, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",

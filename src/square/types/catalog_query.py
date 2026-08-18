@@ -10,6 +10,7 @@ from .catalog_query_item_variations_for_item_option_values import CatalogQueryIt
 from .catalog_query_items_for_item_options import CatalogQueryItemsForItemOptions
 from .catalog_query_items_for_modifier_list import CatalogQueryItemsForModifierList
 from .catalog_query_items_for_tax import CatalogQueryItemsForTax
+from .catalog_query_modifiers_for_child_list import CatalogQueryModifiersForChildList
 from .catalog_query_prefix import CatalogQueryPrefix
 from .catalog_query_range import CatalogQueryRange
 from .catalog_query_set import CatalogQuerySet
@@ -106,6 +107,11 @@ class CatalogQuery(UncheckedBaseModel):
     """
     A query expression to return item variations (of the [CatalogItemVariation](entity:CatalogItemVariation) type) that
     contain all of the specified `CatalogItemOption` IDs.
+    """
+
+    modifiers_for_child_list_query: typing.Optional[CatalogQueryModifiersForChildList] = pydantic.Field(default=None)
+    """
+    A query expression to return `CatalogModifier` objects that nest the specified modifier lists (via `child_modifier_list_ids`)
     """
 
     if IS_PYDANTIC_V2:

@@ -5,6 +5,7 @@ import typing
 import typing_extensions
 from .catalog_object import CatalogObjectParams
 from .error import ErrorParams
+from .included_resources import IncludedResourcesParams
 
 
 class SearchCatalogObjectsResponseParams(typing_extensions.TypedDict):
@@ -33,4 +34,9 @@ class SearchCatalogObjectsResponseParams(typing_extensions.TypedDict):
     """
     When the associated product catalog was last updated. Will
     match the value for `end_time` or `cursor` if either field is included in the `SearchCatalog` request.
+    """
+
+    included_resources: typing_extensions.NotRequired[IncludedResourcesParams]
+    """
+    A list of [CatalogObject](entity:CatalogObject)s referenced by the object in the `objects` field and specifically requested.
     """

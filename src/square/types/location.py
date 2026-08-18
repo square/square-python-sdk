@@ -178,6 +178,18 @@ class Location(UncheckedBaseModel):
     The tax IDs for this location.
     """
 
+    custom_receipt_text: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The custom text that appears on receipts issued for this location.
+    This text can also be configured in the Seller Dashboard (Receipts section).
+    """
+
+    return_policy: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The return policy that appears on receipts issued for this location.
+    This text can also be configured in the Seller Dashboard (Receipts section).
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

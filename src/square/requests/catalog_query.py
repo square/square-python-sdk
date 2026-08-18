@@ -6,6 +6,7 @@ from .catalog_query_item_variations_for_item_option_values import CatalogQueryIt
 from .catalog_query_items_for_item_options import CatalogQueryItemsForItemOptionsParams
 from .catalog_query_items_for_modifier_list import CatalogQueryItemsForModifierListParams
 from .catalog_query_items_for_tax import CatalogQueryItemsForTaxParams
+from .catalog_query_modifiers_for_child_list import CatalogQueryModifiersForChildListParams
 from .catalog_query_prefix import CatalogQueryPrefixParams
 from .catalog_query_range import CatalogQueryRangeParams
 from .catalog_query_set import CatalogQuerySetParams
@@ -102,4 +103,9 @@ class CatalogQueryParams(typing_extensions.TypedDict):
     """
     A query expression to return item variations (of the [CatalogItemVariation](entity:CatalogItemVariation) type) that
     contain all of the specified `CatalogItemOption` IDs.
+    """
+
+    modifiers_for_child_list_query: typing_extensions.NotRequired[CatalogQueryModifiersForChildListParams]
+    """
+    A query expression to return `CatalogModifier` objects that nest the specified modifier lists (via `child_modifier_list_ids`)
     """

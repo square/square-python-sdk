@@ -18,6 +18,10 @@ CardBrand = typing.Union[
         "EFTPOS",
         "FELICA",
         "EBT",
+        "QUICPAY",
+        "ID",
+        "TRANSPORTATION_IC",
+        "CARNET",
     ],
     typing.Any,
 ]
