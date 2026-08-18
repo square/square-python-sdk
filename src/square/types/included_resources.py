@@ -7,29 +7,21 @@ import typing
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, update_forward_refs
 from ..core.unchecked_base_model import UncheckedBaseModel
-from .error import Error
-from .included_resources import IncludedResources
 
 
-class BatchGetCatalogObjectsResponse(UncheckedBaseModel):
-    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
+class IncludedResources(UncheckedBaseModel):
     """
-    Any errors that occurred during the request.
-    """
-
-    objects: typing.Optional[typing.List["CatalogObject"]] = pydantic.Field(default=None)
-    """
-    A list of [CatalogObject](entity:CatalogObject)s returned.
+    Related resources of the response `CatalogObject`s requested using `IncludeOptions`
     """
 
-    related_objects: typing.Optional[typing.List["CatalogObject"]] = pydantic.Field(default=None)
+    nested_modifiers: typing.Optional[typing.List["CatalogObject"]] = pydantic.Field(default=None)
     """
-    A list of [CatalogObject](entity:CatalogObject)s referenced by the object in the `objects` field.
+    Nested `CatalogModifierList`s as requested via `INCLUDE_NESTED_MODIFIERS`.
     """
 
-    included_resources: typing.Optional[IncludedResources] = pydantic.Field(default=None)
+    ancestor_modifiers: typing.Optional[typing.List["CatalogObject"]] = pydantic.Field(default=None)
     """
-    A list of [CatalogObject](entity:CatalogObject)s referenced by the object in the `objects` field and specifically requested.
+    Ancestor `CatalogModifierList`s as requested via INCLUDE_ANCESTOR_MODIFIERS
     """
 
     if IS_PYDANTIC_V2:
@@ -53,7 +45,7 @@ from .catalog_object_subscription_plan import CatalogObjectSubscriptionPlan  # n
 from .catalog_subscription_plan import CatalogSubscriptionPlan  # noqa: E402, I001
 
 update_forward_refs(
-    BatchGetCatalogObjectsResponse,
+    IncludedResources,
     CatalogItem=CatalogItem,
     CatalogItemOption=CatalogItemOption,
     CatalogModifierList=CatalogModifierList,

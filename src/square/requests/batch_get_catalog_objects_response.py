@@ -5,6 +5,7 @@ import typing
 import typing_extensions
 from .catalog_object import CatalogObjectParams
 from .error import ErrorParams
+from .included_resources import IncludedResourcesParams
 
 
 class BatchGetCatalogObjectsResponseParams(typing_extensions.TypedDict):
@@ -21,4 +22,9 @@ class BatchGetCatalogObjectsResponseParams(typing_extensions.TypedDict):
     related_objects: typing_extensions.NotRequired[typing.Sequence[CatalogObjectParams]]
     """
     A list of [CatalogObject](entity:CatalogObject)s referenced by the object in the `objects` field.
+    """
+
+    included_resources: typing_extensions.NotRequired[IncludedResourcesParams]
+    """
+    A list of [CatalogObject](entity:CatalogObject)s referenced by the object in the `objects` field and specifically requested.
     """

@@ -5,6 +5,7 @@ import typing
 import typing_extensions
 from .catalog_object import CatalogObjectParams
 from .error import ErrorParams
+from .included_resources import IncludedResourcesParams
 
 
 class SearchCatalogItemsResponseParams(typing_extensions.TypedDict):
@@ -30,4 +31,9 @@ class SearchCatalogItemsResponseParams(typing_extensions.TypedDict):
     matched_variation_ids: typing_extensions.NotRequired[typing.Sequence[str]]
     """
     Ids of returned item variations matching the specified query expression.
+    """
+
+    included_resources: typing_extensions.NotRequired[IncludedResourcesParams]
+    """
+    Related resources included in the response as requested via include_options
     """

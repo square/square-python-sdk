@@ -175,3 +175,15 @@ class LocationParams(typing_extensions.TypedDict):
     """
     The tax IDs for this location.
     """
+
+    custom_receipt_text: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    The custom text that appears on receipts issued for this location.
+    This text can also be configured in the Seller Dashboard (Receipts section).
+    """
+
+    return_policy: typing_extensions.NotRequired[typing.Optional[str]]
+    """
+    The return policy that appears on receipts issued for this location.
+    This text can also be configured in the Seller Dashboard (Receipts section).
+    """

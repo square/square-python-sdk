@@ -8,6 +8,7 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, update_forward_refs
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .error import Error
+from .included_resources import IncludedResources
 
 
 class SearchCatalogItemsResponse(UncheckedBaseModel):
@@ -33,6 +34,11 @@ class SearchCatalogItemsResponse(UncheckedBaseModel):
     matched_variation_ids: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
     Ids of returned item variations matching the specified query expression.
+    """
+
+    included_resources: typing.Optional[IncludedResources] = pydantic.Field(default=None)
+    """
+    Related resources included in the response as requested via include_options
     """
 
     if IS_PYDANTIC_V2:
