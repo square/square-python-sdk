@@ -9,11 +9,9 @@ from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
 from ...core.request_options import RequestOptions
 from ...core.unchecked_base_model import construct_type
-from ...types.capture_transaction_response import CaptureTransactionResponse
 from ...types.get_transaction_response import GetTransactionResponse
 from ...types.list_transactions_response import ListTransactionsResponse
 from ...types.sort_order import SortOrder
-from ...types.void_transaction_response import VoidTransactionResponse
 
 
 class RawTransactionsClient:
@@ -145,100 +143,6 @@ class RawTransactionsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def capture(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[CaptureTransactionResponse]:
-        """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[CaptureTransactionResponse]
-            Success
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/capture",
-            method="POST",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    CaptureTransactionResponse,
-                    construct_type(
-                        type_=CaptureTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def void(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[VoidTransactionResponse]:
-        """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[VoidTransactionResponse]
-            Success
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/void",
-            method="POST",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    VoidTransactionResponse,
-                    construct_type(
-                        type_=VoidTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
 
 class AsyncRawTransactionsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -360,100 +264,6 @@ class AsyncRawTransactionsClient:
                     GetTransactionResponse,
                     construct_type(
                         type_=GetTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def capture(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[CaptureTransactionResponse]:
-        """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[CaptureTransactionResponse]
-            Success
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/capture",
-            method="POST",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    CaptureTransactionResponse,
-                    construct_type(
-                        type_=CaptureTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def void(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[VoidTransactionResponse]:
-        """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[VoidTransactionResponse]
-            Success
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/void",
-            method="POST",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    VoidTransactionResponse,
-                    construct_type(
-                        type_=VoidTransactionResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
