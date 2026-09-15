@@ -14,6 +14,6 @@
     "use_typeddict_requests_for_file_upload": true,
     "exclude_types_from_init_exports": true
   },
-  "originGitCommit": "b05364cda2b85e35d8daa9ff2c24bbabbbd9652a",
-  "sdkVersion": "45.1.0.20260819"
+  "originGitCommit": "f74d4b7e34b9b8676dc4b58d83a38111dc1d595f",
+  "sdkVersion": "46.0.0.20260916"
 }

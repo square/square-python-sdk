@@ -4,11 +4,9 @@ import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.request_options import RequestOptions
-from ...types.capture_transaction_response import CaptureTransactionResponse
 from ...types.get_transaction_response import GetTransactionResponse
 from ...types.list_transactions_response import ListTransactionsResponse
 from ...types.sort_order import SortOrder
-from ...types.void_transaction_response import VoidTransactionResponse
 from .raw_client import AsyncRawTransactionsClient, RawTransactionsClient
 
 
@@ -144,90 +142,6 @@ class TransactionsClient:
         )
         """
         _response = self._raw_client.get(location_id, transaction_id, request_options=request_options)
-        return _response.data
-
-    def capture(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> CaptureTransactionResponse:
-        """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        CaptureTransactionResponse
-            Success
-
-        Examples
-        --------
-        from square import Square
-
-        client = Square(
-            token="YOUR_TOKEN",
-        )
-        client.locations.transactions.capture(
-            location_id="location_id",
-            transaction_id="transaction_id",
-        )
-        """
-        _response = self._raw_client.capture(location_id, transaction_id, request_options=request_options)
-        return _response.data
-
-    def void(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> VoidTransactionResponse:
-        """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        VoidTransactionResponse
-            Success
-
-        Examples
-        --------
-        from square import Square
-
-        client = Square(
-            token="YOUR_TOKEN",
-        )
-        client.locations.transactions.void(
-            location_id="location_id",
-            transaction_id="transaction_id",
-        )
-        """
-        _response = self._raw_client.void(location_id, transaction_id, request_options=request_options)
         return _response.data
 
 
@@ -379,104 +293,4 @@ class AsyncTransactionsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.get(location_id, transaction_id, request_options=request_options)
-        return _response.data
-
-    async def capture(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> CaptureTransactionResponse:
-        """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        CaptureTransactionResponse
-            Success
-
-        Examples
-        --------
-        import asyncio
-
-        from square import AsyncSquare
-
-        client = AsyncSquare(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.locations.transactions.capture(
-                location_id="location_id",
-                transaction_id="transaction_id",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.capture(location_id, transaction_id, request_options=request_options)
-        return _response.data
-
-    async def void(
-        self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> VoidTransactionResponse:
-        """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
-        Parameters
-        ----------
-        location_id : str
-
-
-        transaction_id : str
-
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        VoidTransactionResponse
-            Success
-
-        Examples
-        --------
-        import asyncio
-
-        from square import AsyncSquare
-
-        client = AsyncSquare(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.locations.transactions.void(
-                location_id="location_id",
-                transaction_id="transaction_id",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.void(location_id, transaction_id, request_options=request_options)
         return _response.data

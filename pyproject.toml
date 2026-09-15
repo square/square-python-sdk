@@ -4,7 +4,7 @@ dynamic = ["version"]
 
 [tool.poetry]
 name = "squareup"
-version = "45.1.0.20260819"
+version = "46.0.0.20260916"
 description = ""
 readme = "README.md"
 authors = []

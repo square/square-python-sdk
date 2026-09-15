@@ -1168,33 +1168,6 @@ class InventoryClient:
             catalog_object_id, location_ids=location_ids, cursor=cursor, request_options=request_options
         )
 
-    def get_transfer(self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
-        """
-        Parameters
-        ----------
-        transfer_id : str
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        None
-
-        Examples
-        --------
-        from square import Square
-
-        client = Square(
-            token="YOUR_TOKEN",
-        )
-        client.inventory.get_transfer(
-            transfer_id="transfer_id",
-        )
-        """
-        _response = self._raw_client.get_transfer(transfer_id, request_options=request_options)
-        return _response.data
-
 
 class AsyncInventoryClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -2487,38 +2460,3 @@ class AsyncInventoryClient:
         return await self._raw_client.changes(
             catalog_object_id, location_ids=location_ids, cursor=cursor, request_options=request_options
         )
-
-    async def get_transfer(self, transfer_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
-        """
-        Parameters
-        ----------
-        transfer_id : str
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        None
-
-        Examples
-        --------
-        import asyncio
-
-        from square import AsyncSquare
-
-        client = AsyncSquare(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.inventory.get_transfer(
-                transfer_id="transfer_id",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_transfer(transfer_id, request_options=request_options)
-        return _response.data
