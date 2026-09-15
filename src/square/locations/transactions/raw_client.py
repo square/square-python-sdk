@@ -9,11 +9,9 @@ from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
 from ...core.request_options import RequestOptions
 from ...core.unchecked_base_model import construct_type
-from ...types.capture_transaction_response import CaptureTransactionResponse
 from ...types.get_transaction_response import GetTransactionResponse
 from ...types.list_transactions_response import ListTransactionsResponse
 from ...types.sort_order import SortOrder
-from ...types.void_transaction_response import VoidTransactionResponse
 
 
 class RawTransactionsClient:
@@ -147,30 +145,20 @@ class RawTransactionsClient:
 
     def capture(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[CaptureTransactionResponse]:
+    ) -> HttpResponse[None]:
         """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        HttpResponse[CaptureTransactionResponse]
-            Success
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/capture",
@@ -179,14 +167,7 @@ class RawTransactionsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    CaptureTransactionResponse,
-                    construct_type(
-                        type_=CaptureTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -194,30 +175,20 @@ class RawTransactionsClient:
 
     def void(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[VoidTransactionResponse]:
+    ) -> HttpResponse[None]:
         """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        HttpResponse[VoidTransactionResponse]
-            Success
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/void",
@@ -226,14 +197,7 @@ class RawTransactionsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    VoidTransactionResponse,
-                    construct_type(
-                        type_=VoidTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -371,30 +335,20 @@ class AsyncRawTransactionsClient:
 
     async def capture(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[CaptureTransactionResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        AsyncHttpResponse[CaptureTransactionResponse]
-            Success
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/capture",
@@ -403,14 +357,7 @@ class AsyncRawTransactionsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    CaptureTransactionResponse,
-                    construct_type(
-                        type_=CaptureTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -418,30 +365,20 @@ class AsyncRawTransactionsClient:
 
     async def void(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[VoidTransactionResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        AsyncHttpResponse[VoidTransactionResponse]
-            Success
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"v2/locations/{jsonable_encoder(location_id)}/transactions/{jsonable_encoder(transaction_id)}/void",
@@ -450,14 +387,7 @@ class AsyncRawTransactionsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    VoidTransactionResponse,
-                    construct_type(
-                        type_=VoidTransactionResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

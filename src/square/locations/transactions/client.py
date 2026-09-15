@@ -4,11 +4,9 @@ import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.request_options import RequestOptions
-from ...types.capture_transaction_response import CaptureTransactionResponse
 from ...types.get_transaction_response import GetTransactionResponse
 from ...types.list_transactions_response import ListTransactionsResponse
 from ...types.sort_order import SortOrder
-from ...types.void_transaction_response import VoidTransactionResponse
 from .raw_client import AsyncRawTransactionsClient, RawTransactionsClient
 
 
@@ -148,30 +146,20 @@ class TransactionsClient:
 
     def capture(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> CaptureTransactionResponse:
+    ) -> None:
         """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        CaptureTransactionResponse
-            Success
+        None
 
         Examples
         --------
@@ -190,30 +178,20 @@ class TransactionsClient:
 
     def void(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> VoidTransactionResponse:
+    ) -> None:
         """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        VoidTransactionResponse
-            Success
+        None
 
         Examples
         --------
@@ -383,30 +361,20 @@ class AsyncTransactionsClient:
 
     async def capture(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> CaptureTransactionResponse:
+    ) -> None:
         """
-        Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        CaptureTransactionResponse
-            Success
+        None
 
         Examples
         --------
@@ -433,30 +401,20 @@ class AsyncTransactionsClient:
 
     async def void(
         self, location_id: str, transaction_id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> VoidTransactionResponse:
+    ) -> None:
         """
-        Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-        endpoint with a `delay_capture` value of `true`.
-
-
-        See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-        for more information.
-
         Parameters
         ----------
         location_id : str
 
-
         transaction_id : str
-
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        VoidTransactionResponse
-            Success
+        None
 
         Examples
         --------
