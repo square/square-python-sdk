@@ -28,6 +28,17 @@ class AcceptedPaymentMethods(UncheckedBaseModel):
     Whether Afterpay/Clearpay is accepted at checkout.
     """
 
+    bank_account: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Whether ACH bank transfer payments are accepted at checkout.
+    When enabled, buyers can pay directly from their bank account via Plaid.
+    This payment method is supported only for seller locations in the United States.
+    When omitted from CreatePaymentLink, ACH is enabled for eligible one-time USD
+    payments unless the seller has disabled ACH in their merchant settings.
+    Set this field to false to disable ACH for the link. Existing links retain
+    their saved setting when this field is omitted from an update.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

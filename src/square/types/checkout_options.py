@@ -6,6 +6,7 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.unchecked_base_model import UncheckedBaseModel
 from .accepted_payment_methods import AcceptedPaymentMethods
+from .checkout_options_phone_collection import CheckoutOptionsPhoneCollection
 from .custom_field import CustomField
 from .money import Money
 from .shipping_fee import ShippingFee
@@ -74,6 +75,15 @@ class CheckoutOptions(UncheckedBaseModel):
     enable_loyalty: typing.Optional[bool] = pydantic.Field(default=None)
     """
     Indicates whether to include the `REWARDS` section for the buyer to opt in to loyalty, redeem rewards in the payment form, or both.
+    """
+
+    phone_collection: typing.Optional[CheckoutOptionsPhoneCollection] = pydantic.Field(default=None)
+    """
+    Indicates how the buyer's phone number is collected on the checkout page.
+    When `REQUIRED` (default), the buyer must provide a phone number to complete checkout.
+    When `OPTIONAL`, the phone field is shown but not required. When `HIDDEN`, the field
+    is not shown. Leaving this field unset preserves the historical behavior (`REQUIRED`).
+    See [PhoneCollection](#type-phonecollection) for possible values
     """
 
     if IS_PYDANTIC_V2:

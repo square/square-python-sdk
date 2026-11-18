@@ -67,9 +67,9 @@ class CatalogObject_ImageParams(typing_extensions.TypedDict):
 
 class CatalogObject_CategoryParams(typing_extensions.TypedDict):
     type: typing.Literal["CATEGORY"]
-    id: typing_extensions.NotRequired[str]
     ordinal: typing_extensions.NotRequired[typing.Optional[int]]
     category_data: typing_extensions.NotRequired["CatalogCategoryParams"]
+    id: str
     updated_at: typing_extensions.NotRequired[str]
     version: typing_extensions.NotRequired[int]
     is_deleted: typing_extensions.NotRequired[bool]

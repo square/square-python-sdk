@@ -124,9 +124,9 @@ class CatalogObject_Category(UncheckedBaseModel):
     """
 
     type: typing.Literal["CATEGORY"] = "CATEGORY"
-    id: typing.Optional[str] = None
     ordinal: typing.Optional[int] = None
     category_data: typing.Optional["CatalogCategory"] = None
+    id: str
     updated_at: typing.Optional[str] = None
     version: typing.Optional[int] = None
     is_deleted: typing.Optional[bool] = None

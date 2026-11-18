@@ -144,7 +144,7 @@ class RawPaymentLinksClient:
             For more information, see [Prepopulate the shipping address](https://developer.squareup.com/docs/checkout-api/optional-checkout-configurations#prepopulate-the-shipping-address).
 
         payment_note : typing.Optional[str]
-            A note for the payment. After processing the payment, Square adds this note to the resulting `Payment`.
+            A note for the payment. After processing the payment, Square adds this note to the resulting `Payment` as well as the post payment confirmation email.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -448,7 +448,7 @@ class AsyncRawPaymentLinksClient:
             For more information, see [Prepopulate the shipping address](https://developer.squareup.com/docs/checkout-api/optional-checkout-configurations#prepopulate-the-shipping-address).
 
         payment_note : typing.Optional[str]
-            A note for the payment. After processing the payment, Square adds this note to the resulting `Payment`.
+            A note for the payment. After processing the payment, Square adds this note to the resulting `Payment` as well as the post payment confirmation email.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
