@@ -12,7 +12,7 @@ on:
 
 jobs:
   compile:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Python 3.8 is not available on ubuntu-latest (26.04)
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
         run: poetry run mypy src
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Python 3.8 is not available on ubuntu-latest (26.04)
     env:
       TEST_SQUARE_TOKEN: ${{ secrets.TEST_SQUARE_TOKEN }}
       TEST_SQUARE_REPORTING: ${{ secrets.TEST_SQUARE_REPORTING }}
@@ -52,7 +52,7 @@ jobs:
   publish:
     needs: [compile]
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Python 3.8 is not available on ubuntu-latest (26.04)
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
