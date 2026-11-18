@@ -3,6 +3,7 @@
 import typing
 
 import typing_extensions
+from ..types.checkout_options_phone_collection import CheckoutOptionsPhoneCollection
 from .accepted_payment_methods import AcceptedPaymentMethodsParams
 from .custom_field import CustomFieldParams
 from .money import MoneyParams
@@ -72,4 +73,13 @@ class CheckoutOptionsParams(typing_extensions.TypedDict):
     enable_loyalty: typing_extensions.NotRequired[typing.Optional[bool]]
     """
     Indicates whether to include the `REWARDS` section for the buyer to opt in to loyalty, redeem rewards in the payment form, or both.
+    """
+
+    phone_collection: typing_extensions.NotRequired[CheckoutOptionsPhoneCollection]
+    """
+    Indicates how the buyer's phone number is collected on the checkout page.
+    When `REQUIRED` (default), the buyer must provide a phone number to complete checkout.
+    When `OPTIONAL`, the phone field is shown but not required. When `HIDDEN`, the field
+    is not shown. Leaving this field unset preserves the historical behavior (`REQUIRED`).
+    See [PhoneCollection](#type-phonecollection) for possible values
     """

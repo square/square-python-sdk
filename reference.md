@@ -2791,7 +2791,7 @@ client.catalog.batch_upsert(
             "objects": [
                 {"id": "id", "type": "ITEM"},
                 {"id": "id", "type": "ITEM"},
-                {"id": "id", "type": "ITEM"},
+                {"type": "CATEGORY", "type": "CATEGORY"},
                 {"id": "id", "type": "TAX"},
             ]
         }
@@ -21616,7 +21616,7 @@ For more information, see [Prepopulate the shipping address](https://developer.s
 <dl>
 <dd>
 
-**payment_note:** `typing.Optional[str]` — A note for the payment. After processing the payment, Square adds this note to the resulting `Payment`.
+**payment_note:** `typing.Optional[str]` — A note for the payment. After processing the payment, Square adds this note to the resulting `Payment` as well as the post payment confirmation email.
     
 </dd>
 </dl>

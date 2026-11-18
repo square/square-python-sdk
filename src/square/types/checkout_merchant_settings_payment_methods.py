@@ -14,10 +14,33 @@ from .checkout_merchant_settings_payment_methods_payment_method import (
 
 
 class CheckoutMerchantSettingsPaymentMethods(UncheckedBaseModel):
-    apple_pay: typing.Optional[CheckoutMerchantSettingsPaymentMethodsPaymentMethod] = None
-    google_pay: typing.Optional[CheckoutMerchantSettingsPaymentMethodsPaymentMethod] = None
-    cash_app: typing.Optional[CheckoutMerchantSettingsPaymentMethodsPaymentMethod] = None
-    afterpay_clearpay: typing.Optional[CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay] = None
+    apple_pay: typing.Optional[CheckoutMerchantSettingsPaymentMethodsPaymentMethod] = pydantic.Field(default=None)
+    """
+    Apple Pay.
+    """
+
+    google_pay: typing.Optional[CheckoutMerchantSettingsPaymentMethodsPaymentMethod] = pydantic.Field(default=None)
+    """
+    Google Pay.
+    """
+
+    cash_app: typing.Optional[CheckoutMerchantSettingsPaymentMethodsPaymentMethod] = pydantic.Field(default=None)
+    """
+    Cash App Pay.
+    """
+
+    bank_account: typing.Optional[CheckoutMerchantSettingsPaymentMethodsPaymentMethod] = pydantic.Field(default=None)
+    """
+    Bank account (ACH). Enabled by default for eligible sellers who have
+    not saved an ACH preference. A saved enabled or disabled choice takes precedence.
+    """
+
+    afterpay_clearpay: typing.Optional[CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay] = pydantic.Field(
+        default=None
+    )
+    """
+    Afterpay/Clearpay.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

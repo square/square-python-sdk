@@ -276,7 +276,7 @@ class CatalogClient:
                     "objects": [
                         {"id": "id", "type": "ITEM"},
                         {"id": "id", "type": "ITEM"},
-                        {"id": "id", "type": "ITEM"},
+                        {"type": "CATEGORY", "type": "CATEGORY"},
                         {"id": "id", "type": "TAX"},
                     ]
                 }
@@ -1037,7 +1037,7 @@ class AsyncCatalogClient:
                         "objects": [
                             {"id": "id", "type": "ITEM"},
                             {"id": "id", "type": "ITEM"},
-                            {"id": "id", "type": "ITEM"},
+                            {"type": "CATEGORY", "type": "CATEGORY"},
                             {"id": "id", "type": "TAX"},
                         ]
                     }

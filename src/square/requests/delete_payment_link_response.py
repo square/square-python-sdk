@@ -8,6 +8,10 @@ from .error import ErrorParams
 
 class DeletePaymentLinkResponseParams(typing_extensions.TypedDict):
     errors: typing_extensions.NotRequired[typing.Sequence[ErrorParams]]
+    """
+    Any errors that occurred during the request.
+    """
+
     id: typing_extensions.NotRequired[str]
     """
     The ID of the link that is deleted.
