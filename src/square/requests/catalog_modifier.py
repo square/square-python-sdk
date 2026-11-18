@@ -3,6 +3,7 @@
 import typing
 
 import typing_extensions
+from ..types.catalog_modifier_color import CatalogModifierColor
 from .modifier_location_overrides import ModifierLocationOverridesParams
 from .money import MoneyParams
 
@@ -69,7 +70,13 @@ class CatalogModifierParams(typing_extensions.TypedDict):
     For example, selecting "Hummus" reveals a secondary "Choose Hummus Flavor" set, and selecting a flavor
     could reveal a third-level portion size set.
     
-    Each entry references a child modifier list. Each modifier can nest up to 5 child modifier list, and
+    Each entry references a child modifier list. Each modifier can nest up to 15 child modifier lists, and
     supports up to 3 levels of nesting depth. The order in `child_modifier_list_ids` determines display order
     during checkout.
+    """
+
+    kitchen_color: typing_extensions.NotRequired[CatalogModifierColor]
+    """
+    The text color for this modifier on Kitchen Display System (KDS) tickets. Kitchen staff use the color to identify important modifiers quickly.
+    See [CatalogModifierColor](#type-catalogmodifiercolor) for possible values
     """

@@ -63,6 +63,5 @@ class PaymentLinkParams(typing_extensions.TypedDict):
 
     payment_note: typing_extensions.NotRequired[typing.Optional[str]]
     """
-    An optional note. After Square processes the payment, this note is added to the
-    resulting `Payment`.
+    A note for the payment. After processing the payment, Square adds this note to the resulting `Payment` as well as the post payment confirmation email.
     """

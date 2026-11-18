@@ -11,6 +11,27 @@ from .checkout_merchant_settings_payment_methods_payment_method import (
 
 class CheckoutMerchantSettingsPaymentMethodsParams(typing_extensions.TypedDict):
     apple_pay: typing_extensions.NotRequired[CheckoutMerchantSettingsPaymentMethodsPaymentMethodParams]
+    """
+    Apple Pay.
+    """
+
     google_pay: typing_extensions.NotRequired[CheckoutMerchantSettingsPaymentMethodsPaymentMethodParams]
+    """
+    Google Pay.
+    """
+
     cash_app: typing_extensions.NotRequired[CheckoutMerchantSettingsPaymentMethodsPaymentMethodParams]
+    """
+    Cash App Pay.
+    """
+
+    bank_account: typing_extensions.NotRequired[CheckoutMerchantSettingsPaymentMethodsPaymentMethodParams]
+    """
+    Bank account (ACH). Enabled by default for eligible sellers who have
+    not saved an ACH preference. A saved enabled or disabled choice takes precedence.
+    """
+
     afterpay_clearpay: typing_extensions.NotRequired[CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayParams]
+    """
+    Afterpay/Clearpay.
+    """

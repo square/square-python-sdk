@@ -13,8 +13,15 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange(Unc
     A range of purchase price that qualifies.
     """
 
-    min: Money
-    max: Money
+    min: Money = pydantic.Field()
+    """
+    The lower bound of the range.
+    """
+
+    max: Money = pydantic.Field()
+    """
+    The upper bound of the range.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

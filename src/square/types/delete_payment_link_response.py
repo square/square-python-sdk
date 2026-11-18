@@ -9,7 +9,11 @@ from .error import Error
 
 
 class DeletePaymentLinkResponse(UncheckedBaseModel):
-    errors: typing.Optional[typing.List[Error]] = None
+    errors: typing.Optional[typing.List[Error]] = pydantic.Field(default=None)
+    """
+    Any errors that occurred during the request.
+    """
+
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     The ID of the link that is deleted.

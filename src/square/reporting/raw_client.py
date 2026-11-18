@@ -9,10 +9,13 @@ from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.unchecked_base_model import construct_type
+from ..errors.client_request_error import ClientRequestError
+from ..errors.server_error import ServerError
 from ..requests.query import QueryParams
 from ..types.cache_mode import CacheMode
 from ..types.load_response import LoadResponse
 from ..types.metadata_response import MetadataResponse
+from ..types.reporting_error import ReportingError
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -53,6 +56,28 @@ class RawReportingClient:
                     ),
                 )
                 return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise ClientRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise ServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -111,6 +136,28 @@ class RawReportingClient:
                     ),
                 )
                 return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise ClientRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise ServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -152,6 +199,28 @@ class AsyncRawReportingClient:
                     ),
                 )
                 return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise ClientRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise ServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -210,6 +279,28 @@ class AsyncRawReportingClient:
                     ),
                 )
                 return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise ClientRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise ServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        ReportingError,
+                        construct_type(
+                            type_=ReportingError,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

@@ -10,4 +10,11 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRangePara
     """
 
     min: MoneyParams
+    """
+    The lower bound of the range.
+    """
+
     max: MoneyParams
+    """
+    The upper bound of the range.
+    """
